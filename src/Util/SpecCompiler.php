@@ -125,7 +125,7 @@ DATA;
         ], $ifd);
 
         // Remove the 'const' key.
-        unset($tag['const'];
+        unset($tag['const']);
 
         // 'ifds' entry.
         $this->map['ifds'][$ifd['const']] = $ifd['type'];
@@ -185,7 +185,7 @@ DATA;
         }
 
         // Remove the 'const' key.
-        unset($tag['const'];
+        unset($tag['const']);
 
         // 'tags' entry.
         $this->map['tags'][$ifd_id][$tag_id] = $tag;
