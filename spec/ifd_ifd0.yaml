@@ -79,7 +79,6 @@ tags:
         components: 1
         format: Short
         text:
-            zorro: aaa
             mapping:
                 1: 'top - left'
                 2: 'top - right'

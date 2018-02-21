@@ -125,7 +125,7 @@ DATA;
         ], $ifd);
 
         // Remove the 'const' key.
-        unset($tag['const']);
+        unset($ifd['const']);
 
         // 'ifds' entry.
         $this->map['ifds'][$ifd['const']] = $ifd['type'];
