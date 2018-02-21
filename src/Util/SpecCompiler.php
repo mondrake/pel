@@ -22,6 +22,11 @@ class SpecCompiler
      */
     private $tagKeys = ['const', 'name', 'title', 'components', 'format', 'ifd', 'text'];
 
+    /**
+     * Map of expected TAG/text level array keys.
+     */
+    private $tagTextKeys = ['mapping', 'decode'];
+
     /** @var Filesystem */
     private $fs;
 
@@ -115,10 +120,12 @@ DATA;
 
         // Add some defaults.
         $ifd = array_merge([
-            'const' => null,
             'type' => null,
             'tags' => [],
         ], $ifd);
+
+        // Remove the 'const' key.
+        unset($tag['const'];
 
         // 'ifds' entry.
         $this->map['ifds'][$ifd['const']] = $ifd['type'];
@@ -160,7 +167,6 @@ DATA;
     {
         // Add some defaults.
         $tag = array_merge([
-            'const' => null,
             'name' => $tag_id,
         ], $tag);
 
@@ -169,6 +175,17 @@ DATA;
         if (!empty($diff)) {
             throw new SpecCompilerException($file->getFileName() . ": invalid key(s) found for TAG '" . $tag['name'] . "' - " . implode(", ", $diff));
         }
+
+        // Check validity of TAG/text keys.
+        if (isset($tag['text'])) {
+            $diff = array_diff(array_keys($tag['text']), $this->tagTextKeys);
+            if (!empty($diff)) {
+                throw new SpecCompilerException($file->getFileName() . ": invalid key(s) found for TAG '" . $tag['name'] . ".text' - " . implode(", ", $diff));
+            }
+        }
+
+        // Remove the 'const' key.
+        unset($tag['const'];
 
         // 'tags' entry.
         $this->map['tags'][$ifd_id][$tag_id] = $tag;

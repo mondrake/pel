@@ -10,7 +10,8 @@ Furthermore, it is the basis for discussions on evolving the project.
 ## EXIF information structure
 
 This document assumes you are familiar with the inner structure of the files that support EXIF information. A valuable read is at
-the [EXIF](https://en.wikipedia.org/wiki/Exif) entry on Wikipedia.org.
+the [EXIF](https://en.wikipedia.org/wiki/Exif) entry on Wikipedia.org. The one-stop shop for detailed information about Exif tags data
+is at [ExifTool by Phil Harvey](http://owl.phy.queensu.ca/~phil/exiftool/TagNames/index.html).
 
 ## PEL specification
 
