@@ -124,9 +124,6 @@ DATA;
             'tags' => [],
         ], $ifd);
 
-        // Remove the 'const' key.
-        unset($ifd['const']);
-
         // 'ifds' entry.
         $this->map['ifds'][$ifd['const']] = $ifd['type'];
 
