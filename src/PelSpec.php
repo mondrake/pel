@@ -256,7 +256,7 @@ class PelSpec
             $map = self::getMap()['tags'][$ifd_id][$tag_id]['text']['mapping'];
             // If the code to be mapped is a non-int, change to string.
             $id = is_int($value[0]) ? $value[0] : (string) $value[0];
-throw new \Exception(var_export([$id, $map], true));
+throw new \Exception(var_export([$value, $id, $map], true));
             return isset($map[$id]) ? Pel::tra($map[$id]) : null;
         }
 
