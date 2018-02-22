@@ -129,6 +129,7 @@ class PelEntryShort extends PelEntryNumber
      */
     public static function decodeYCbCrSubSampling(PelEntry $entry, $brief = false)
     {
+throw new \Exception(var_export($entry, true));
         if ($value[0] == 2 && $value[1] == 1) {
             return 'YCbCr4:2:2';
         }
