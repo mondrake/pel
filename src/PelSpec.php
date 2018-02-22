@@ -252,11 +252,10 @@ class PelSpec
         }
 
         // Return a text from a mapping list if defined.
-        if (isset(self::getMap()['tags'][$ifd_id][$tag_id]['text']['mapping'])) {
+        if (isset(self::getMap()['tags'][$ifd_id][$tag_id]['text']['mapping']) && is_scalar($value)) {
             $map = self::getMap()['tags'][$ifd_id][$tag_id]['text']['mapping'];
             // If the code to be mapped is a non-int, change to string.
-            $id = is_int($value[0]) ? $value[0] : (string) $value[0];
-throw new \Exception(var_export([$value, $id, $map], true));
+            $id = is_int($value) ? $value : (string) $value;
             return isset($map[$id]) ? Pel::tra($map[$id]) : null;
         }
 
