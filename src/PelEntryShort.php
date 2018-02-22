@@ -151,6 +151,7 @@ class PelEntryShort extends PelEntryNumber
      */
     public static function decodeSubjectArea(PelEntry $entry, $brief = false)
     {
+throw new \Exception(var_export([$entry, $entry->getComponents(), $entry->getValue()], true));
         switch ($entry->getComponents()) {
             case 2:
                 return Pel::fmt('(x,y) = (%d,%d)', $entry->getValue()[0], $entry->getValue()[1]);
