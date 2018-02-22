@@ -201,7 +201,7 @@ abstract class PelEntry
     {
         // If PelSpec can return the text, return it, otherwise implementations
         // will override.
-        return PelSpec::getTagText($this->ifd_type, $this->tag, $this->components, $this->value, $brief);
+        return PelSpec::getTagText($this, $brief);
     }
 
     /**

@@ -2,8 +2,6 @@
 
 namespace lsolesen\pel;
 
-use lsolesen\pel\Util\SpecCompiler;
-
 /**
  * Class to retrieve IFD and TAG information from YAML specs.
  */
@@ -225,22 +223,20 @@ class PelSpec
     /**
      * Returns the TAG text.
      *
-     * @param int $ifd_id
-     *            the IFD id.
-     * @param int $tag_id
-     *            the TAG id.
-     * @param int $components
-     *            the number of components of the TAG.
-     * @param array $value
-     *            the TAG value.
+     * @param PelEntry $entry
+     *            the TAG PelEntry object.
      * @param bool $brief
      *            indicates to use brief output.
      *
      * @return string|null
      *            the TAG text, or NULL if not applicable.
      */
-    public static function getTagText($ifd_id, $tag_id, $components, array $value, $brief)
+    public static function getTagText(PelEntry $entry, $brief)
     {
+        $ifd_id = $entry->getIfdType();
+        $tag_id = $entry->getTag();
+        $value = $entry->getValue();
+
         if (!isset(self::getMap()['tags'][$ifd_id][$tag_id]['text']) || empty($value)) {
             return null;
         }
@@ -252,7 +248,7 @@ class PelSpec
             if (strpos('\\', $class) === false) {
                 $class = 'lsolesen\\pel\\' . $class;
             }
-            return call_user_func($class . '::' . $method, $components, $value, $brief);
+            return call_user_func($class . '::' . $method, $entry, $brief);
         }
 
         // Return a text from a mapping list if defined.
