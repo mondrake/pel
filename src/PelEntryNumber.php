@@ -107,7 +107,6 @@ abstract class PelEntryNumber extends PelEntry
             $v = $value;
         } else {
             $v = func_get_args();
-            array_shift($v);
         }
 
         $this->setValueArray($v);
