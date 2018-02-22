@@ -111,17 +111,15 @@ class PelEntrySRational extends PelEntrySLong
     /**
      * Decode text for an Exif/ShutterSpeedValue tag.
      *
-     * @param int $components
-     *            the number of components of the TAG.
-     * @param array $value
-     *            the TAG value.
+     * @param PelEntry $entry
+     *            the TAG PelEntry object.
      * @param bool $brief
      *            (Optional) indicates to use brief output.
      *
      * @return string
      *            the TAG text.
      */
-    public static function decodeShutterSpeedValue($components, $value, $brief)
+    public static function decodeShutterSpeedValue(PelEntry $entry, $brief = false)
     {
         return Pel::fmt('%.0f/%.0f sec. (APEX: %d)', $value[0][0], $value[0][1], pow(sqrt(2), $value[0][0] / $value[0][1]));
     }
@@ -129,17 +127,15 @@ class PelEntrySRational extends PelEntrySLong
     /**
      * Decode text for an Exif/BrightnessValue tag.
      *
-     * @param int $components
-     *            the number of components of the TAG.
-     * @param array $value
-     *            the TAG value.
+     * @param PelEntry $entry
+     *            the TAG PelEntry object.
      * @param bool $brief
      *            (Optional) indicates to use brief output.
      *
      * @return string
      *            the TAG text.
      */
-    public static function decodeBrightnessValue($components, $value, $brief)
+    public static function decodeBrightnessValue(PelEntry $entry, $brief = false)
     {
         // TODO: figure out the APEX thing, or remove this so that it is
         // handled by the default code.
@@ -150,17 +146,15 @@ class PelEntrySRational extends PelEntrySLong
     /**
      * Decode text for an Exif/ExposureBiasValue tag.
      *
-     * @param int $components
-     *            the number of components of the TAG.
-     * @param array $value
-     *            the TAG value.
+     * @param PelEntry $entry
+     *            the TAG PelEntry object.
      * @param bool $brief
      *            (Optional) indicates to use brief output.
      *
      * @return string
      *            the TAG text.
      */
-    public static function decodeExposureBiasValue($components, $value, $brief)
+    public static function decodeExposureBiasValue(PelEntry $entry, $brief = false)
     {
         return sprintf('%s%.01f', $value[0][0] * $value[0][1] > 0 ? '+' : '', $value[0][0] / $value[0][1]);
     }
