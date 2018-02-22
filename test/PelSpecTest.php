@@ -78,7 +78,7 @@ class PelSpecTest extends TestCase
               'chunky format', 'lsolesen\pel\PelEntryShort', 'IFD0', 'PlanarConfiguration', 1, [1], false,
           ],
           'IFD0/PlanarConfiguration - missing mapping' => [
-              null, 'IFD0', 'lsolesen\pel\PelEntryShort', 'PlanarConfiguration', 1, [6.1], false,
+              null, 'lsolesen\pel\PelEntryShort', 'IFD0', 'PlanarConfiguration', 1, [6.1], false,
           ],
           'Canon Panorama Information/PanoramaDirection - value 4' => [
               '2x2 Matrix (Clockwise)', 'lsolesen\pel\PelEntryShort', 'Canon Panorama Information', 'PanoramaDirection', 1, [4], false,
