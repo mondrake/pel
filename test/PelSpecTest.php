@@ -65,6 +65,8 @@ class PelSpecTest extends TestCase
      */
     public function testGetTagText($expected, $entry, $brief)
     {
+        $this->assertEquals('xxxx', var_export($entry, true));
+
         $this->assertEquals($expected, PelSpec::getTagText($entry, $brief));
     }
 

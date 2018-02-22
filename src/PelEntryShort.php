@@ -119,17 +119,15 @@ class PelEntryShort extends PelEntryNumber
     /**
      * Decode text for a IFD0/YCbCrSubSampling tag.
      *
-     * @param int $components
-     *            the number of components of the TAG.
-     * @param array $value
-     *            the TAG value.
+     * @param PelEntry $entry
+     *            the TAG PelEntry object.
      * @param bool $brief
      *            (Optional) indicates to use brief output.
      *
      * @return string
      *            the TAG text.
      */
-    public static function decodeYCbCrSubSampling($components, $value, $brief)
+    public static function decodeYCbCrSubSampling(PelEntry $entry, $brief = false)
     {
         if ($value[0] == 2 && $value[1] == 1) {
             return 'YCbCr4:2:2';
@@ -143,17 +141,15 @@ class PelEntryShort extends PelEntryNumber
     /**
      * Decode text for an Exif/SubjectArea tag.
      *
-     * @param int $components
-     *            the number of components of the TAG.
-     * @param array $value
-     *            the TAG value.
+     * @param PelEntry $entry
+     *            the TAG PelEntry object.
      * @param bool $brief
      *            (Optional) indicates to use brief output.
      *
      * @return string
      *            the TAG text.
      */
-    public static function decodeSubjectArea($components, $value, $brief)
+    public static function decodeSubjectArea(PelEntry $entry, $brief = false)
     {
         switch ($components) {
             case 2:
