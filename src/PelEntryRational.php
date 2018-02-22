@@ -131,8 +131,7 @@ class PelEntryRational extends PelEntryLong
      */
     public static function decodeFNumber(PelEntry $entry, $brief = false)
     {
-throw new \Exception(var_export([$entry, $entry->getValue()], true));
-        return Pel::fmt('f/%.01f', $entry->getValue()[0][0] / $entry->getValue()[0][1]);
+        return Pel::fmt('f/%.01f', $entry->getValue()[0] / $entry->getValue()[1]);
     }
 
     /**
@@ -148,8 +147,7 @@ throw new \Exception(var_export([$entry, $entry->getValue()], true));
      */
     public static function decodeApertureValue(PelEntry $entry, $brief = false)
     {
-throw new \Exception(var_export([$entry, $entry->getValue()], true));
-        return Pel::fmt('f/%.01f', pow(2, $entry->getValue()[0][0] / $entry->getValue()[0][1] / 2));
+        return Pel::fmt('f/%.01f', pow(2, $entry->getValue()[0] / $entry->getValue()[1] / 2));
     }
 
     /**
@@ -165,7 +163,7 @@ throw new \Exception(var_export([$entry, $entry->getValue()], true));
      */
     public static function decodeFocalLength(PelEntry $entry, $brief = false)
     {
-        return Pel::fmt('%.1f mm', $entry->getValue()[0][0] / $entry->getValue()[0][1]);
+        return Pel::fmt('%.1f mm', $entry->getValue()[0] / $entry->getValue()[1]);
     }
 
     /**
@@ -181,7 +179,7 @@ throw new \Exception(var_export([$entry, $entry->getValue()], true));
      */
     public static function decodeSubjectDistance(PelEntry $entry, $brief = false)
     {
-        return Pel::fmt('%.1f m', $entry->getValue()[0][0] / $entry->getValue()[0][1]);
+        return Pel::fmt('%.1f m', $entry->getValue()[0] / $entry->getValue()[1]);
     }
 
     /**
@@ -197,10 +195,10 @@ throw new \Exception(var_export([$entry, $entry->getValue()], true));
      */
     public static function decodeExposureTime(PelEntry $entry, $brief = false)
     {
-        if ($entry->getValue()[0][0] / $entry->getValue()[0][1] < 1) {
-            return Pel::fmt('1/%d sec.', $entry->getValue()[0][1] / $entry->getValue()[0][0]);
+        if ($entry->getValue()[0] / $entry->getValue()[1] < 1) {
+            return Pel::fmt('1/%d sec.', $entry->getValue()[1] / $entry->getValue()[0]);
         } else {
-            return Pel::fmt('%d sec.', $entry->getValue()[0][0] / $entry->getValue()[0][1]);
+            return Pel::fmt('%d sec.', $entry->getValue()[0] / $entry->getValue()[1]);
         }
     }
 
