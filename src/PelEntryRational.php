@@ -115,94 +115,84 @@ class PelEntryRational extends PelEntryLong
     /**
      * Decode text for an Exif/FNumber tag.
      *
-     * @param int $components
-     *            the number of components of the TAG.
-     * @param array $value
-     *            the TAG value.
+     * @param PelEntry $entry
+     *            the TAG PelEntry object.
      * @param bool $brief
-     *            indicates to use brief output.
+     *            (Optional) indicates to use brief output.
      *
      * @return string
      *            the TAG text.
      */
-    public static function decodeFNumber($components, $value, $brief)
+    public static function decodeFNumber(PelEntry $entry, $brief = false)
     {
-        return Pel::fmt('f/%.01f', $value[0][0] / $value[0][1]);
+        return Pel::fmt('f/%.01f', $entry->getValue()[0][0] / $entry->getValue()[0][1]);
     }
 
     /**
      * Decode text for an Exif/ApertureValue tag.
      *
-     * @param int $components
-     *            the number of components of the TAG.
-     * @param array $value
-     *            the TAG value.
+     * @param PelEntry $entry
+     *            the TAG PelEntry object.
      * @param bool $brief
-     *            indicates to use brief output.
+     *            (Optional) indicates to use brief output.
      *
      * @return string
      *            the TAG text.
      */
-    public static function decodeApertureValue($components, $value, $brief)
+    public static function decodeApertureValue(PelEntry $entry, $brief = false)
     {
-        return Pel::fmt('f/%.01f', pow(2, $value[0][0] / $value[0][1] / 2));
+        return Pel::fmt('f/%.01f', pow(2, $entry->getValue()[0][0] / $entry->getValue()[0][1] / 2));
     }
 
     /**
      * Decode text for an Exif/FocalLength tag.
      *
-     * @param int $components
-     *            the number of components of the TAG.
-     * @param array $value
-     *            the TAG value.
+     * @param PelEntry $entry
+     *            the TAG PelEntry object.
      * @param bool $brief
-     *            indicates to use brief output.
+     *            (Optional) indicates to use brief output.
      *
      * @return string
      *            the TAG text.
      */
-    public static function decodeFocalLength($components, $value, $brief)
+    public static function decodeFocalLength(PelEntry $entry, $brief = false)
     {
-        return Pel::fmt('%.1f mm', $value[0][0] / $value[0][1]);
+        return Pel::fmt('%.1f mm', $entry->getValue()[0][0] / $entry->getValue()[0][1]);
     }
 
     /**
      * Decode text for an Exif/SubjectDistance tag.
      *
-     * @param int $components
-     *            the number of components of the TAG.
-     * @param array $value
-     *            the TAG value.
+     * @param PelEntry $entry
+     *            the TAG PelEntry object.
      * @param bool $brief
-     *            indicates to use brief output.
+     *            (Optional) indicates to use brief output.
      *
      * @return string
      *            the TAG text.
      */
-    public static function decodeSubjectDistance($components, $value, $brief)
+    public static function decodeSubjectDistance(PelEntry $entry, $brief = false)
     {
-        return Pel::fmt('%.1f m', $value[0][0] / $value[0][1]);
+        return Pel::fmt('%.1f m', $entry->getValue()[0][0] / $entry->getValue()[0][1]);
     }
 
     /**
      * Decode text for an Exif/ExposureTime tag.
      *
-     * @param int $components
-     *            the number of components of the TAG.
-     * @param array $value
-     *            the TAG value.
+     * @param PelEntry $entry
+     *            the TAG PelEntry object.
      * @param bool $brief
-     *            indicates to use brief output.
+     *            (Optional) indicates to use brief output.
      *
      * @return string
      *            the TAG text.
      */
-    public static function decodeExposureTime($components, $value, $brief)
+    public static function decodeExposureTime(PelEntry $entry, $brief = false)
     {
-        if ($value[0][0] / $value[0][1] < 1) {
-            return Pel::fmt('1/%d sec.', $value[0][1] / $value[0][0]);
+        if ($entry->getValue()[0][0] / $entry->getValue()[0][1] < 1) {
+            return Pel::fmt('1/%d sec.', $entry->getValue()[0][1] / $entry->getValue()[0][0]);
         } else {
-            return Pel::fmt('%d sec.', $value[0][0] / $value[0][1]);
+            return Pel::fmt('%d sec.', $entry->getValue()[0][0] / $entry->getValue()[0][1]);
         }
     }
 
@@ -226,36 +216,32 @@ class PelEntryRational extends PelEntryLong
     /**
      * Decode text for a GPS/GPSLongitude tag.
      *
-     * @param int $components
-     *            the number of components of the TAG.
-     * @param array $value
-     *            the TAG value.
+     * @param PelEntry $entry
+     *            the TAG PelEntry object.
      * @param bool $brief
-     *            indicates to use brief output.
+     *            (Optional) indicates to use brief output.
      *
      * @return string
      *            the TAG text.
      */
-    public static function decodeGPSLongitude($components, $value, $brief)
+    public static function decodeGPSLongitude(PelEntry $entry, $brief = false)
     {
-        return static::formatDegrees($value);
+        return static::formatDegrees($entry->getValue());
     }
 
     /**
      * Decode text for a GPS/GPSLatitude tag.
      *
-     * @param int $components
-     *            the number of components of the TAG.
-     * @param array $value
-     *            the TAG value.
+     * @param PelEntry $entry
+     *            the TAG PelEntry object.
      * @param bool $brief
-     *            indicates to use brief output.
+     *            (Optional) indicates to use brief output.
      *
      * @return string
      *            the TAG text.
      */
-    public static function decodeGPSLatitude($components, $value, $brief)
+    public static function decodeGPSLatitude(PelEntry $entry, $brief = false)
     {
-        return static::formatDegrees($value);
+        return static::formatDegrees($entry->getValue());
     }
 }

@@ -109,7 +109,7 @@ class PelEntryUndefined extends PelEntry
      * @param array $value
      *            the TAG value.
      * @param bool $brief
-     *            indicates to use brief output.
+     *            (Optional) indicates to use brief output.
      *
      * @return string
      *            the TAG text.
@@ -132,7 +132,7 @@ class PelEntryUndefined extends PelEntry
      * @param array $value
      *            the TAG value.
      * @param bool $brief
-     *            indicates to use brief output.
+     *            (Optional) indicates to use brief output.
      *
      * @return string
      *            the TAG text.
@@ -155,7 +155,7 @@ class PelEntryUndefined extends PelEntry
      * @param array $value
      *            the TAG value.
      * @param bool $brief
-     *            indicates to use brief output.
+     *            (Optional) indicates to use brief output.
      *
      * @return string
      *            the TAG text.

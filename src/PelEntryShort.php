@@ -124,7 +124,7 @@ class PelEntryShort extends PelEntryNumber
      * @param array $value
      *            the TAG value.
      * @param bool $brief
-     *            indicates to use brief output.
+     *            (Optional) indicates to use brief output.
      *
      * @return string
      *            the TAG text.
@@ -148,7 +148,7 @@ class PelEntryShort extends PelEntryNumber
      * @param array $value
      *            the TAG value.
      * @param bool $brief
-     *            indicates to use brief output.
+     *            (Optional) indicates to use brief output.
      *
      * @return string
      *            the TAG text.
