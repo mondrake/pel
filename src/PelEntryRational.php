@@ -131,7 +131,7 @@ class PelEntryRational extends PelEntryLong
      */
     public static function decodeFNumber(PelEntry $entry, $brief = false)
     {
-throw new \Exception(var_export([$entry, $entry->getValue()], true))
+throw new \Exception(var_export([$entry, $entry->getValue()], true));
         return Pel::fmt('f/%.01f', $entry->getValue()[0][0] / $entry->getValue()[0][1]);
     }
 
@@ -148,7 +148,7 @@ throw new \Exception(var_export([$entry, $entry->getValue()], true))
      */
     public static function decodeApertureValue(PelEntry $entry, $brief = false)
     {
-throw new \Exception(var_export([$entry, $entry->getValue()], true))
+throw new \Exception(var_export([$entry, $entry->getValue()], true));
         return Pel::fmt('f/%.01f', pow(2, $entry->getValue()[0][0] / $entry->getValue()[0][1] / 2));
     }
 
