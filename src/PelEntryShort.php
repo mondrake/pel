@@ -129,14 +129,13 @@ class PelEntryShort extends PelEntryNumber
      */
     public static function decodeYCbCrSubSampling(PelEntry $entry, $brief = false)
     {
-throw new \Exception(var_export($entry, true));
-        if ($value[0] == 2 && $value[1] == 1) {
+        if ($entry->getValue()[0] == 2 && $entry->getValue()[1] == 1) {
             return 'YCbCr4:2:2';
         }
-        if ($value[0] == 2 && $value[1] == 2) {
+        if ($entry->getValue()[0] == 2 && $entry->getValue()[1] == 2) {
             return 'YCbCr4:2:0';
         }
-        return $value[0] . ', ' . $value[1];
+        return $entry->getValue()[0] . ', ' . $entry->getValue()[1];
     }
 
     /**
@@ -152,7 +151,8 @@ throw new \Exception(var_export($entry, true));
      */
     public static function decodeSubjectArea(PelEntry $entry, $brief = false)
     {
-        switch ($components) {
+throw new \Exception(var_export([$entry, $entry->getValue()], true));
+        switch ($entry->getComponents()) {
             case 2:
                 return Pel::fmt('(x,y) = (%d,%d)', $value[0], $value[1]);
             case 3:
