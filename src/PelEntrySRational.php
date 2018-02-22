@@ -126,7 +126,7 @@ class PelEntrySRational extends PelEntrySLong
      */
     public static function decodeShutterSpeedValue(PelEntry $entry, $brief = false)
     {
-        return Pel::fmt('%.0f/%.0f sec. (APEX: %d)', $value[0][0], $value[0][1], pow(sqrt(2), $value[0][0] / $value[0][1]));
+        return Pel::fmt('%.0f/%.0f sec. (APEX: %d)', $entry->getValue()[0], $entry->getValue()[1], pow(sqrt(2), $entry->getValue()[0] / $entry->getValue()[1]));
     }
 
     /**
@@ -144,7 +144,7 @@ class PelEntrySRational extends PelEntrySLong
     {
         // TODO: figure out the APEX thing, or remove this so that it is
         // handled by the default code.
-        return sprintf('%d/%d', $value[0][0], $value[0][1]);
+        return sprintf('%d/%d', $entry->getValue()[0], $entry->getValue()[1]);
         // FIXME: How do I calculate the APEX value?
     }
 
@@ -161,6 +161,6 @@ class PelEntrySRational extends PelEntrySLong
      */
     public static function decodeExposureBiasValue(PelEntry $entry, $brief = false)
     {
-        return sprintf('%s%.01f', $value[0][0] * $value[0][1] > 0 ? '+' : '', $value[0][0] / $value[0][1]);
+        return sprintf('%s%.01f', $entry->getValue()[0] * $entry->getValue()[1] > 0 ? '+' : '', $entry->getValue()[0] / $entry->getValue()[1]);
     }
 }
