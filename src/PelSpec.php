@@ -236,7 +236,7 @@ class PelSpec
         $ifd_id = $entry->getIfdType();
         $tag_id = $entry->getTag();
         $value = $entry->getValue();
-
+throw new \Exception(var_export([$ifd_id, $tag_id, $value], true));
         if (!isset(self::getMap()['tags'][$ifd_id][$tag_id]['text']) || empty($value)) {
             return null;
         }
