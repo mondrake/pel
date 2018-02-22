@@ -77,9 +77,14 @@ class PelEntrySRational extends PelEntrySLong
         $this->min = - 2147483648;
         $this->max = 2147483647;
 
-        $value = func_get_args();
-        array_shift($value);
-        $this->setValueArray($value);
+        if (is_array($value)) {
+            $v = $value;
+        } else {
+            $v = func_get_args();
+            array_shift($v);
+        }
+
+        $this->setValueArray($v);
     }
 
     /**

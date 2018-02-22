@@ -87,7 +87,6 @@ class PelEntryRational extends PelEntryLong
         $this->min = 0;
         $this->max = 4294967295;
 
-        // @todo move this to parent::setvalue??
         if (is_array($value)) {
             $v = $value;
         } else {

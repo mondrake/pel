@@ -94,7 +94,6 @@ class PelEntryShort extends PelEntryNumber
         $this->max = 65535;
         $this->format = PelFormat::SHORT;
 
-        // @todo move this to parent::setvalue??
         if (is_array($value)) {
             $v = $value;
         } else {

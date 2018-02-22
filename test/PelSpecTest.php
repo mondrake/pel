@@ -146,7 +146,7 @@ class PelSpecTest extends TestCase
           'GPS/GPSLatitude' => [
               '50° 33\' 12" (50.55°)', 'lsolesen\pel\PelEntryRational', 'GPS', 'GPSLatitude', [[50, 1], [33, 1], [12, 1]],
           ],
-/*          'Exif/ShutterSpeedValue - value 5, 10' => [
+          'Exif/ShutterSpeedValue - value 5, 10' => [
               '5/10 sec. (APEX: 1)', 'lsolesen\pel\PelEntrySRational', 'Exif', 'ShutterSpeedValue', [[5, 10]],
           ],
           'Exif/BrightnessValue - value 5, 10' => [
@@ -158,7 +158,7 @@ class PelSpecTest extends TestCase
           'Exif/ExposureBiasValue - value -5, 10' => [
               '-0.5', 'lsolesen\pel\PelEntrySRational', 'Exif', 'ExposureBiasValue', [[-5, 10]],
           ],
-          'Exif/ExifVersion - short' => [
+/*          'Exif/ExifVersion - short' => [
               'Exif 2.2', 'lsolesen\pel\PelEntryVersion', 'Exif', 'ExifVersion', [2.2], true,
           ],
           'Exif/ExifVersion - long' => [
