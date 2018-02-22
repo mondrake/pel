@@ -110,7 +110,7 @@ class PelSpecTest extends TestCase
           'Exif/SubjectArea - wrong components' => [
               'Unexpected number of components (1, expected 2, 3, or 4).', 'lsolesen\pel\PelEntryShort', 'Exif', 'SubjectArea', [6], false,
           ],
-          'Exif/FNumber - value 60, 10' => [
+/*          'Exif/FNumber - value 60, 10' => [
               'f/6.0', 'lsolesen\pel\PelEntryRational', 'Exif', 'FNumber', [60, 10], false,
           ],
           'Exif/FNumber - value 26, 10' => [

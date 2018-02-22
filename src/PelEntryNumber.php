@@ -123,6 +123,7 @@ abstract class PelEntryNumber extends PelEntry
      */
     public function setValueArray($value)
     {
+throw new \Exception(var_export([$value], true));
         foreach ($value as $v) {
             $this->validateNumber($v);
         }
