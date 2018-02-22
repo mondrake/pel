@@ -237,7 +237,6 @@ class PelSpec
         $tag_id = $entry->getTag();
         $value = $entry->getValue();
 
-throw new \Exception(var_export([$ifd_id, $tag_id, $value], true));
         if (!isset(self::getMap()['tags'][$ifd_id][$tag_id]['text']) || empty($value)) {
             return null;
         }
@@ -249,7 +248,6 @@ throw new \Exception(var_export([$ifd_id, $tag_id, $value], true));
             if (strpos('\\', $class) === false) {
                 $class = 'lsolesen\\pel\\' . $class;
             }
-throw new \Exception(var_export([$class, $method, $entry, $brief], true));
             return call_user_func($class . '::' . $method, $entry, $brief);
         }
 
