@@ -159,7 +159,7 @@ class PelEntryShort extends PelEntryNumber
             case 4:
                 return Pel::fmt('Within rectangle (width %d, height %d) around (x,y) = (%d,%d)', $entry->getValue()[0], $entry->getValue()[1], $entry->getValue()[2], $entry->getValue()[3]);
             default:
-                return Pel::fmt('Unexpected number of components (%d, expected 2, 3, or 4).', $components);
+                return Pel::fmt('Unexpected number of components (%d, expected 2, 3, or 4).', $entry->getComponents());
         }
     }
 }

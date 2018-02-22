@@ -110,7 +110,7 @@ class PelSpecTest extends TestCase
           'Exif/SubjectArea - wrong components' => [
               'Unexpected number of components (1, expected 2, 3, or 4).', 'lsolesen\pel\PelEntryShort', 'Exif', 'SubjectArea', [6], false,
           ],
-/*          'Exif/FNumber - value 60, 10' => [
+          'Exif/FNumber - value 60, 10' => [
               'f/6.0', 'lsolesen\pel\PelEntryRational', 'Exif', 'FNumber', [[60, 10]], false,
           ],
           'Exif/FNumber - value 26, 10' => [
@@ -128,7 +128,7 @@ class PelSpecTest extends TestCase
           'Exif/FocalLength - value 26, 10' => [
               '2.6 mm', 'lsolesen\pel\PelEntryRational', 'Exif', 'FocalLength', [[26, 10]], false,
           ],
-          'Exif/SubjectDistance - value 60, 10' => [
+/*          'Exif/SubjectDistance - value 60, 10' => [
               '6.0 m', 'lsolesen\pel\PelEntryRational', 'Exif', 'SubjectDistance', [[60, 10]], false,
           ],
           'Exif/SubjectDistance - value 26, 10' => [
