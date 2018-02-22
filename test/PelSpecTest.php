@@ -89,7 +89,7 @@ class PelSpecTest extends TestCase
           'Canon Camera Settings/LensType - value 493.1' => [
               'Canon EF 24-105mm f/4L IS USM', 'lsolesen\pel\PelEntryShort', 'Canon Camera Settings', 'LensType', 493.1, false,
           ],
-/*          'IFD0/YCbCrSubSampling - value 2, 1' => [
+          'IFD0/YCbCrSubSampling - value 2, 1' => [
               'YCbCr4:2:2', 'lsolesen\pel\PelEntryShort', 'IFD0', 'YCbCrSubSampling', [2, 1], false,
           ],
           'IFD0/YCbCrSubSampling - value 2, 2' => [
@@ -184,7 +184,7 @@ class PelSpecTest extends TestCase
           ],
           'Exif/SceneType' => [
               'Directly photographed', 'lsolesen\pel\PelEntryUndefined', 'Exif', 'SceneType', ["\x01"], false,
-          ],*/
+          ],
         ];
 
         $ret = [];
