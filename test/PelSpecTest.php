@@ -75,19 +75,19 @@ class PelSpecTest extends TestCase
     {
         $tests = [
           'IFD0/PlanarConfiguration - value 1' => [
-              'chunky format', 'lsolesen\pel\PelEntryShort', 'IFD0', 'PlanarConfiguration', 1,
+              'chunky format', 'lsolesen\pel\PelEntryShort', 'IFD0', 'PlanarConfiguration', [1],
           ],
           'IFD0/PlanarConfiguration - missing mapping' => [
-              null, 'lsolesen\pel\PelEntryShort', 'IFD0', 'PlanarConfiguration', 6.1,
+              null, 'lsolesen\pel\PelEntryShort', 'IFD0', 'PlanarConfiguration', [6.1],
           ],
           'Canon Panorama Information/PanoramaDirection - value 4' => [
-              '2x2 Matrix (Clockwise)', 'lsolesen\pel\PelEntryShort', 'Canon Panorama Information', 'PanoramaDirection', 4,
+              '2x2 Matrix (Clockwise)', 'lsolesen\pel\PelEntryShort', 'Canon Panorama Information', 'PanoramaDirection', [4],
           ],
           'Canon Camera Settings/LensType - value 493' => [
-              'Canon EF 500mm f/4L IS II USM or EF 24-105mm f4L IS USM', 'lsolesen\pel\PelEntryShort', 'Canon Camera Settings', 'LensType', 493,
+              'Canon EF 500mm f/4L IS II USM or EF 24-105mm f4L IS USM', 'lsolesen\pel\PelEntryShort', 'Canon Camera Settings', 'LensType', [493],
           ],
           'Canon Camera Settings/LensType - value 493.1' => [
-              'Canon EF 24-105mm f/4L IS USM', 'lsolesen\pel\PelEntryShort', 'Canon Camera Settings', 'LensType', 493.1,
+              'Canon EF 24-105mm f/4L IS USM', 'lsolesen\pel\PelEntryShort', 'Canon Camera Settings', 'LensType', [493.1],
           ],
           'IFD0/YCbCrSubSampling - value 2, 1' => [
               'YCbCr4:2:2', 'lsolesen\pel\PelEntryShort', 'IFD0', 'YCbCrSubSampling', [2, 1],
@@ -111,22 +111,22 @@ class PelSpecTest extends TestCase
               'Unexpected number of components (1, expected 2, 3, or 4).', 'lsolesen\pel\PelEntryShort', 'Exif', 'SubjectArea', [6],
           ],
           'Exif/FNumber - value 60, 10' => [
-              'f/6.0', 'lsolesen\pel\PelEntryRational', 'Exif', 'FNumber', [60, 10],
+              'f/6.0', 'lsolesen\pel\PelEntryRational', 'Exif', 'FNumber', [[60, 10]],
           ],
           'Exif/FNumber - value 26, 10' => [
-              'f/2.6', 'lsolesen\pel\PelEntryRational', 'Exif', 'FNumber', [26, 10],
+              'f/2.6', 'lsolesen\pel\PelEntryRational', 'Exif', 'FNumber', [[26, 10]],
           ],
           'Exif/ApertureValue - value 60, 10' => [
-              'f/8.0', 'lsolesen\pel\PelEntryRational', 'Exif', 'ApertureValue', [60, 10],
+              'f/8.0', 'lsolesen\pel\PelEntryRational', 'Exif', 'ApertureValue', [[60, 10]],
           ],
           'Exif/ApertureValue - value 26, 10' => [
-              'f/2.5', 'lsolesen\pel\PelEntryRational', 'Exif', 'ApertureValue', [26, 10],
+              'f/2.5', 'lsolesen\pel\PelEntryRational', 'Exif', 'ApertureValue', [[26, 10]],
           ],
           'Exif/FocalLength - value 60, 10' => [
-              '6.0 mm', 'lsolesen\pel\PelEntryRational', 'Exif', 'FocalLength', [60, 10],
+              '6.0 mm', 'lsolesen\pel\PelEntryRational', 'Exif', 'FocalLength', [[60, 10]],
           ],
           'Exif/FocalLength - value 26, 10' => [
-              '2.6 mm', 'lsolesen\pel\PelEntryRational', 'Exif', 'FocalLength', [26, 10],
+              '2.6 mm', 'lsolesen\pel\PelEntryRational', 'Exif', 'FocalLength', [[26, 10]],
           ],
           'Exif/SubjectDistance - value 60, 10' => [
               '6.0 m', 'lsolesen\pel\PelEntryRational', 'Exif', 'SubjectDistance', [[60, 10]],
@@ -158,7 +158,7 @@ class PelSpecTest extends TestCase
           'Exif/ExposureBiasValue - value -5, 10' => [
               '-0.5', 'lsolesen\pel\PelEntrySRational', 'Exif', 'ExposureBiasValue', [[-5, 10]],
           ],
-/*          'Exif/ExifVersion - short' => [
+          'Exif/ExifVersion - short' => [
               'Exif 2.2', 'lsolesen\pel\PelEntryVersion', 'Exif', 'ExifVersion', [2.2], true,
           ],
           'Exif/ExifVersion - long' => [
@@ -184,14 +184,16 @@ class PelSpecTest extends TestCase
           ],
           'Exif/SceneType' => [
               'Directly photographed', 'lsolesen\pel\PelEntryUndefined', 'Exif', 'SceneType', ["\x01"],
-          ],*/
+          ],
         ];
 
         $ret = [];
         foreach ($tests as $id => $data) {
             $ifd_id = PelSpec::getIfdIdByType($data[2]);
             $tag_id = PelSpec::getTagIdByName($ifd_id, $data[3]);
-            $entry = new $data[1]($tag_id, $data[4]);
+            $class = new \ReflectionClass($data[1]);
+            $args = array_unshift($data[4], $tag_id);
+            $entry = $class->newInstanceArgs($args);
             $entry->setIfdType($ifd_id);
             $ret[$id] = [$data[0], $entry, isset($data[5]) ? $data[5] : false];
         }

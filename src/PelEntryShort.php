@@ -94,14 +94,9 @@ class PelEntryShort extends PelEntryNumber
         $this->max = 65535;
         $this->format = PelFormat::SHORT;
 
-        if (is_array($value)) {
-            $v = $value;
-        } else {
-            $v = func_get_args();
-            array_shift($v);
-        }
-
-        $this->setValueArray($v);
+        $value = func_get_args();
+        array_shift($value);
+        $this->setValueArray($value);
     }
 
     /**

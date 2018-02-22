@@ -128,12 +128,8 @@ abstract class PelEntryNumber extends PelEntry
      */
     public function setValueArray($value)
     {
-        foreach ($value as $v) {
-            $this->validateNumber($v);
-        }
-
-        $this->components = count($value);
-        $this->value = $value;
+        $value = func_get_args();
+        $this->setValueArray($value);
     }
 
     /**
