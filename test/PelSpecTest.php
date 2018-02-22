@@ -75,115 +75,115 @@ class PelSpecTest extends TestCase
     {
         $tests = [
           'IFD0/PlanarConfiguration - value 1' => [
-              'chunky format', 'lsolesen\pel\PelEntryShort', 'IFD0', 'PlanarConfiguration', 1, false,
+              'chunky format', 'lsolesen\pel\PelEntryShort', 'IFD0', 'PlanarConfiguration', 1,
           ],
           'IFD0/PlanarConfiguration - missing mapping' => [
-              null, 'lsolesen\pel\PelEntryShort', 'IFD0', 'PlanarConfiguration', 6.1, false,
+              null, 'lsolesen\pel\PelEntryShort', 'IFD0', 'PlanarConfiguration', 6.1,
           ],
           'Canon Panorama Information/PanoramaDirection - value 4' => [
-              '2x2 Matrix (Clockwise)', 'lsolesen\pel\PelEntryShort', 'Canon Panorama Information', 'PanoramaDirection', 4, false,
+              '2x2 Matrix (Clockwise)', 'lsolesen\pel\PelEntryShort', 'Canon Panorama Information', 'PanoramaDirection', 4,
           ],
           'Canon Camera Settings/LensType - value 493' => [
-              'Canon EF 500mm f/4L IS II USM or EF 24-105mm f4L IS USM', 'lsolesen\pel\PelEntryShort', 'Canon Camera Settings', 'LensType', 493, false,
+              'Canon EF 500mm f/4L IS II USM or EF 24-105mm f4L IS USM', 'lsolesen\pel\PelEntryShort', 'Canon Camera Settings', 'LensType', 493,
           ],
           'Canon Camera Settings/LensType - value 493.1' => [
-              'Canon EF 24-105mm f/4L IS USM', 'lsolesen\pel\PelEntryShort', 'Canon Camera Settings', 'LensType', 493.1, false,
+              'Canon EF 24-105mm f/4L IS USM', 'lsolesen\pel\PelEntryShort', 'Canon Camera Settings', 'LensType', 493.1,
           ],
           'IFD0/YCbCrSubSampling - value 2, 1' => [
-              'YCbCr4:2:2', 'lsolesen\pel\PelEntryShort', 'IFD0', 'YCbCrSubSampling', [2, 1], false,
+              'YCbCr4:2:2', 'lsolesen\pel\PelEntryShort', 'IFD0', 'YCbCrSubSampling', [2, 1],
           ],
           'IFD0/YCbCrSubSampling - value 2, 2' => [
-              'YCbCr4:2:0', 'lsolesen\pel\PelEntryShort', 'IFD0', 'YCbCrSubSampling', [2, 2], false,
+              'YCbCr4:2:0', 'lsolesen\pel\PelEntryShort', 'IFD0', 'YCbCrSubSampling', [2, 2],
           ],
           'IFD0/YCbCrSubSampling - value 6, 7' => [
-              '6, 7', 'lsolesen\pel\PelEntryShort', 'IFD0', 'YCbCrSubSampling', [6, 7], false,
+              '6, 7', 'lsolesen\pel\PelEntryShort', 'IFD0', 'YCbCrSubSampling', [6, 7],
           ],
           'Exif/SubjectArea - value 6, 7' => [
-              '(x,y) = (6,7)', 'lsolesen\pel\PelEntryShort', 'Exif', 'SubjectArea', [6, 7], false,
+              '(x,y) = (6,7)', 'lsolesen\pel\PelEntryShort', 'Exif', 'SubjectArea', [6, 7],
           ],
           'Exif/SubjectArea - value 5, 6, 7' => [
-              'Within distance 5 of (x,y) = (6,7)', 'lsolesen\pel\PelEntryShort', 'Exif', 'SubjectArea', [5, 6, 7], false,
+              'Within distance 5 of (x,y) = (6,7)', 'lsolesen\pel\PelEntryShort', 'Exif', 'SubjectArea', [5, 6, 7],
           ],
           'Exif/SubjectArea - value 4, 5, 6, 7' => [
-              'Within rectangle (width 4, height 5) around (x,y) = (6,7)', 'lsolesen\pel\PelEntryShort', 'Exif', 'SubjectArea', [4, 5, 6, 7], false,
+              'Within rectangle (width 4, height 5) around (x,y) = (6,7)', 'lsolesen\pel\PelEntryShort', 'Exif', 'SubjectArea', [4, 5, 6, 7],
           ],
           'Exif/SubjectArea - wrong components' => [
-              'Unexpected number of components (1, expected 2, 3, or 4).', 'lsolesen\pel\PelEntryShort', 'Exif', 'SubjectArea', [6], false,
+              'Unexpected number of components (1, expected 2, 3, or 4).', 'lsolesen\pel\PelEntryShort', 'Exif', 'SubjectArea', [6],
           ],
-/*          'Exif/FNumber - value 60, 10' => [
-              'f/6.0', 'lsolesen\pel\PelEntryRational', 'Exif', 'FNumber', [60, 10], false,
+          'Exif/FNumber - value 60, 10' => [
+              'f/6.0', 'lsolesen\pel\PelEntryRational', 'Exif', 'FNumber', [60, 10],
           ],
           'Exif/FNumber - value 26, 10' => [
-              'f/2.6', 'lsolesen\pel\PelEntryRational', 'Exif', 'FNumber', [26, 10], false,
+              'f/2.6', 'lsolesen\pel\PelEntryRational', 'Exif', 'FNumber', [26, 10],
           ],
           'Exif/ApertureValue - value 60, 10' => [
-              'f/8.0', 'lsolesen\pel\PelEntryRational', 'Exif', 'ApertureValue', [60, 10], false,
+              'f/8.0', 'lsolesen\pel\PelEntryRational', 'Exif', 'ApertureValue', [60, 10],
           ],
           'Exif/ApertureValue - value 26, 10' => [
-              'f/2.5', 'lsolesen\pel\PelEntryRational', 'Exif', 'ApertureValue', [26, 10], false,
+              'f/2.5', 'lsolesen\pel\PelEntryRational', 'Exif', 'ApertureValue', [26, 10],
           ],
           'Exif/FocalLength - value 60, 10' => [
-              '6.0 mm', 'lsolesen\pel\PelEntryRational', 'Exif', 'FocalLength', [60, 10], false,
+              '6.0 mm', 'lsolesen\pel\PelEntryRational', 'Exif', 'FocalLength', [60, 10],
           ],
           'Exif/FocalLength - value 26, 10' => [
-              '2.6 mm', 'lsolesen\pel\PelEntryRational', 'Exif', 'FocalLength', [26, 10], false,
+              '2.6 mm', 'lsolesen\pel\PelEntryRational', 'Exif', 'FocalLength', [26, 10],
           ],
-/*          'Exif/SubjectDistance - value 60, 10' => [
-              '6.0 m', 'lsolesen\pel\PelEntryRational', 'Exif', 'SubjectDistance', [[60, 10]], false,
+          'Exif/SubjectDistance - value 60, 10' => [
+              '6.0 m', 'lsolesen\pel\PelEntryRational', 'Exif', 'SubjectDistance', [[60, 10]],
           ],
           'Exif/SubjectDistance - value 26, 10' => [
-              '2.6 m', 'lsolesen\pel\PelEntryRational', 'Exif', 'SubjectDistance', [[26, 10]], false,
+              '2.6 m', 'lsolesen\pel\PelEntryRational', 'Exif', 'SubjectDistance', [[26, 10]],
           ],
           'Exif/ExposureTime - value 60, 10' => [
-              '6 sec.', 'lsolesen\pel\PelEntryRational', 'Exif', 'ExposureTime', [[60, 10]], false,
+              '6 sec.', 'lsolesen\pel\PelEntryRational', 'Exif', 'ExposureTime', [[60, 10]],
           ],
           'Exif/ExposureTime - value 5, 10' => [
-              '1/2 sec.', 'lsolesen\pel\PelEntryRational', 'Exif', 'ExposureTime', [[5, 10]], false,
+              '1/2 sec.', 'lsolesen\pel\PelEntryRational', 'Exif', 'ExposureTime', [[5, 10]],
           ],
           'GPS/GPSLongitude' => [
-              '30° 45\' 28" (30.76°)', 'lsolesen\pel\PelEntryRational', 'GPS', 'GPSLongitude', [[30, 1], [45, 1], [28, 1]], false,
+              '30° 45\' 28" (30.76°)', 'lsolesen\pel\PelEntryRational', 'GPS', 'GPSLongitude', [[30, 1], [45, 1], [28, 1]],
           ],
           'GPS/GPSLatitude' => [
-              '50° 33\' 12" (50.55°)', 'lsolesen\pel\PelEntryRational', 'GPS', 'GPSLatitude', [[50, 1], [33, 1], [12, 1]], false,
+              '50° 33\' 12" (50.55°)', 'lsolesen\pel\PelEntryRational', 'GPS', 'GPSLatitude', [[50, 1], [33, 1], [12, 1]],
           ],
-          'Exif/ShutterSpeedValue - value 5, 10' => [
-              '5/10 sec. (APEX: 1)', 'lsolesen\pel\PelEntrySRational', 'Exif', 'ShutterSpeedValue', [[5, 10]], false,
+/*          'Exif/ShutterSpeedValue - value 5, 10' => [
+              '5/10 sec. (APEX: 1)', 'lsolesen\pel\PelEntrySRational', 'Exif', 'ShutterSpeedValue', [[5, 10]],
           ],
           'Exif/BrightnessValue - value 5, 10' => [
-              '5/10', 'lsolesen\pel\PelEntrySRational', 'Exif', 'BrightnessValue', [[5, 10]], false,
+              '5/10', 'lsolesen\pel\PelEntrySRational', 'Exif', 'BrightnessValue', [[5, 10]],
           ],
           'Exif/ExposureBiasValue - value 5, 10' => [
-              '+0.5', 'lsolesen\pel\PelEntrySRational', 'Exif', 'ExposureBiasValue', [[5, 10]], false,
+              '+0.5', 'lsolesen\pel\PelEntrySRational', 'Exif', 'ExposureBiasValue', [[5, 10]],
           ],
           'Exif/ExposureBiasValue - value -5, 10' => [
-              '-0.5', 'lsolesen\pel\PelEntrySRational', 'Exif', 'ExposureBiasValue', [[-5, 10]], false,
+              '-0.5', 'lsolesen\pel\PelEntrySRational', 'Exif', 'ExposureBiasValue', [[-5, 10]],
           ],
           'Exif/ExifVersion - short' => [
               'Exif 2.2', 'lsolesen\pel\PelEntryVersion', 'Exif', 'ExifVersion', [2.2], true,
           ],
           'Exif/ExifVersion - long' => [
-              'Exif Version 2.2', 'lsolesen\pel\PelEntryVersion', 'Exif', 'ExifVersion', [2.2], false,
+              'Exif Version 2.2', 'lsolesen\pel\PelEntryVersion', 'Exif', 'ExifVersion', [2.2],
           ],
           'Exif/FlashPixVersion - short' => [
               'FlashPix 2.5', 'lsolesen\pel\PelEntryVersion', 'Exif', 'FlashPixVersion', [2.5], true,
           ],
           'Exif/FlashPixVersion - long' => [
-              'FlashPix Version 2.5', 'lsolesen\pel\PelEntryVersion', 'Exif', 'FlashPixVersion', [2.5], false,
+              'FlashPix Version 2.5', 'lsolesen\pel\PelEntryVersion', 'Exif', 'FlashPixVersion', [2.5],
           ],
           'Interoperability/InteroperabilityVersion - short' => [
               'Interoperability 1.0', 'lsolesen\pel\PelEntryVersion', 'Interoperability', 'InteroperabilityVersion', [1], true,
           ],
           'Interoperability/InteroperabilityVersion - long' => [
-              'Interoperability Version 1.0', 'lsolesen\pel\PelEntryVersion', 'Interoperability', 'InteroperabilityVersion', [1], false,
+              'Interoperability Version 1.0', 'lsolesen\pel\PelEntryVersion', 'Interoperability', 'InteroperabilityVersion', [1],
           ],
           'Exif/ComponentsConfiguration' => [
-              'Y Cb Cr -', 'lsolesen\pel\PelEntryUndefined', 'Exif', 'ComponentsConfiguration', ["\x01\x02\x03\0"], false,
+              'Y Cb Cr -', 'lsolesen\pel\PelEntryUndefined', 'Exif', 'ComponentsConfiguration', ["\x01\x02\x03\0"],
           ],
           'Exif/FileSource' => [
-              'DSC', 'lsolesen\pel\PelEntryUndefined', 'Exif', 'FileSource', ["\x03"], false,
+              'DSC', 'lsolesen\pel\PelEntryUndefined', 'Exif', 'FileSource', ["\x03"],
           ],
           'Exif/SceneType' => [
-              'Directly photographed', 'lsolesen\pel\PelEntryUndefined', 'Exif', 'SceneType', ["\x01"], false,
+              'Directly photographed', 'lsolesen\pel\PelEntryUndefined', 'Exif', 'SceneType', ["\x01"],
           ],*/
         ];
 
@@ -193,7 +193,7 @@ class PelSpecTest extends TestCase
             $tag_id = PelSpec::getTagIdByName($ifd_id, $data[3]);
             $entry = new $data[1]($tag_id, $data[4]);
             $entry->setIfdType($ifd_id);
-            $ret[$id] = [$data[0], $entry, $data[5]];
+            $ret[$id] = [$data[0], $entry, isset($data[5]) ? $data[5] : false];
         }
         return $ret;
     }

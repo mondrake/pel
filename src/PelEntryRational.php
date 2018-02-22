@@ -87,9 +87,15 @@ class PelEntryRational extends PelEntryLong
         $this->min = 0;
         $this->max = 4294967295;
 
-        $value = func_get_args();
-        array_shift($value);
-        $this->setValueArray($value);
+        // @todo move this to parent::setvalue??
+        if (is_array($value)) {
+            $v = $value;
+        } else {
+            $v = func_get_args();
+            array_shift($v);
+        }
+
+        $this->setValueArray($v);
     }
 
     /**
