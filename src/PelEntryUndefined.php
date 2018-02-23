@@ -114,11 +114,12 @@ class PelEntryUndefined extends PelEntry
      */
     public static function decodeFileSource(PelEntry $entry, $brief = false)
     {
-        switch (ord($entry->getValue(){0})) {
+        $value = $entry->getValue();
+        switch (ord($value{0})) {
             case 0x03:
                 return 'DSC';
             default:
-                return sprintf('0x%02X', ord($entry->getValue(){0}));
+                return sprintf('0x%02X', ord($value{0}));
         }
     }
 
@@ -135,11 +136,12 @@ class PelEntryUndefined extends PelEntry
      */
     public static function decodeSceneType(PelEntry $entry, $brief = false)
     {
-        switch (ord($entry->getValue(){0})) {
+        $value = $entry->getValue();
+        switch (ord($value{0})) {
             case 0x01:
                 return 'Directly photographed';
             default:
-                return sprintf('0x%02X', ord($entry->getValue(){0}));
+                return sprintf('0x%02X', ord($value{0}));
         }
     }
 
@@ -156,9 +158,10 @@ class PelEntryUndefined extends PelEntry
      */
     public static function decodeComponentsConfiguration(PelEntry $entry, $brief = false)
     {
+        $value = $entry->getValue();
         $v = '';
         for ($i = 0; $i < 4; $i ++) {
-            switch (ord($entry->getValue(){$i})) {
+            switch (ord($value{$i})) {
                 case 0:
                     $v .= '-';
                     break;
