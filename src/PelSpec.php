@@ -237,7 +237,7 @@ class PelSpec
         $tag_id = $entry->getTag();
         $value = $entry->getValue();
 
-        if (!isset(self::getMap()['tags'][$ifd_id][$tag_id]['text']) || empty($value)) {
+        if (!isset(self::getMap()['tags'][$ifd_id][$tag_id]['text'])) {
             return null;
         }
 
@@ -251,7 +251,6 @@ class PelSpec
             return call_user_func($class . '::' . $method, $entry, $brief);
         }
 
-if ($tag_id == 37384) throw new \Exception(var_export([$entry, $ifd_id, $tag_id, $value], true));
         // Return a text from a mapping list if defined.
         if (isset(self::getMap()['tags'][$ifd_id][$tag_id]['text']['mapping']) && is_scalar($value)) {
             $map = self::getMap()['tags'][$ifd_id][$tag_id]['text']['mapping'];
