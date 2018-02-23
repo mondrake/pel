@@ -104,67 +104,61 @@ class PelEntryUndefined extends PelEntry
     /**
      * Decode text for an Exif/FileSource tag.
      *
-     * @param int $components
-     *            the number of components of the TAG.
-     * @param array $value
-     *            the TAG value.
+     * @param PelEntry $entry
+     *            the TAG PelEntry object.
      * @param bool $brief
      *            (Optional) indicates to use brief output.
      *
      * @return string
      *            the TAG text.
      */
-    public static function decodeFileSource($components, $value, $brief)
+    public static function decodeFileSource(PelEntry $entry, $brief = false)
     {
-        switch (ord($value[0]{0})) {
+        switch (ord($entry->getValue(){0})) {
             case 0x03:
                 return 'DSC';
             default:
-                return sprintf('0x%02X', ord($value[0]{0}));
+                return sprintf('0x%02X', ord($entry->getValue(){0}));
         }
     }
 
     /**
      * Decode text for an Exif/SceneType tag.
      *
-     * @param int $components
-     *            the number of components of the TAG.
-     * @param array $value
-     *            the TAG value.
+     * @param PelEntry $entry
+     *            the TAG PelEntry object.
      * @param bool $brief
      *            (Optional) indicates to use brief output.
      *
      * @return string
      *            the TAG text.
      */
-    public static function decodeSceneType($components, $value, $brief)
+    public static function decodeSceneType(PelEntry $entry, $brief = false)
     {
-        switch (ord($value[0]{0})) {
+        switch (ord($entry->getValue(){0})) {
             case 0x01:
                 return 'Directly photographed';
             default:
-                return sprintf('0x%02X', ord($value[0]{0}));
+                return sprintf('0x%02X', ord($entry->getValue(){0}));
         }
     }
 
     /**
      * Decode text for an Exif/ComponentsConfiguration tag.
      *
-     * @param int $components
-     *            the number of components of the TAG.
-     * @param array $value
-     *            the TAG value.
+     * @param PelEntry $entry
+     *            the TAG PelEntry object.
      * @param bool $brief
      *            (Optional) indicates to use brief output.
      *
      * @return string
      *            the TAG text.
      */
-    public static function decodeComponentsConfiguration($components, $value, $brief)
+    public static function decodeComponentsConfiguration(PelEntry $entry, $brief = false)
     {
         $v = '';
         for ($i = 0; $i < 4; $i ++) {
-            switch (ord($value[0]{$i})) {
+            switch (ord($entry->getValue(){$i})) {
                 case 0:
                     $v .= '-';
                     break;
