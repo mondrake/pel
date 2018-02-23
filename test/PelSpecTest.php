@@ -192,8 +192,8 @@ class PelSpecTest extends TestCase
             $ifd_id = PelSpec::getIfdIdByType($data[2]);
             $tag_id = PelSpec::getTagIdByName($ifd_id, $data[3]);
             $class = new \ReflectionClass($data[1]);
-            $args = array_unshift($data[4], $tag_id);
-            $entry = $class->newInstanceArgs($args);
+            array_unshift($data[4], $tag_id);
+            $entry = $class->newInstanceArgs($data[4]);
             $entry->setIfdType($ifd_id);
             $ret[$id] = [$data[0], $entry, isset($data[5]) ? $data[5] : false];
         }

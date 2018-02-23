@@ -103,13 +103,8 @@ abstract class PelEntryNumber extends PelEntry
      */
     public function setValue($value)
     {
-        if (is_array($value)) {
-            $v = $value;
-        } else {
-            $v = func_get_args();
-        }
-
-        $this->setValueArray($v);
+        $value = func_get_args();
+        $this->setValueArray($value);
     }
 
     /**
@@ -128,8 +123,12 @@ abstract class PelEntryNumber extends PelEntry
      */
     public function setValueArray($value)
     {
-        $value = func_get_args();
-        $this->setValueArray($value);
+        foreach ($value as $v) {
+            $this->validateNumber($v);
+        }
+
+        $this->components = count($value);
+        $this->value = $value;
     }
 
     /**
