@@ -260,7 +260,8 @@ tags:
         name: UserComment
         title: 'User Comment'
         components: Any
-        format: UserComment
+        format: Undefined
+        #load: UserComment
     0x9290:
         const: SUB_SEC_TIME
         name: SubSecTime
@@ -505,7 +506,6 @@ tags:
         name: DeviceSettingDescription
         title: 'Device Setting Description'
         components: Unknown
-        format: Unknown
     0xA40C:
         const: SUBJECT_DISTANCE_RANGE
         name: SubjectDistanceRange
