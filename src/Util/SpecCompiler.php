@@ -179,14 +179,13 @@ DATA;
             $temp = [];
             if (is_scalar($tag['format'])) {
                 $temp[] = $tag['format'];
-            }
-            else {
+            } else {
                 $temp = $tag['format'];
             }
             $formats = [];
             foreach ($temp as $name) {
                 if (($format[] = PelFormat::getIdFromName($name)) === null) {
-                    throw new SpecCompilerException($file->getFileName() . ": invalid '" . $name . "' format found for TAG '" . $tag['name']);
+                    throw new SpecCompilerException($file->getFileName() . ": invalid '" . $name . "' format found for TAG '" . $tag['name'] . "'");
                 }
             }
             $tag['format'] = $formats;

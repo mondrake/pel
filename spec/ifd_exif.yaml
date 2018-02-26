@@ -63,7 +63,8 @@ tags:
         name: ExifVersion
         title: 'Exif Version'
         components: 4
-        format: Version
+        format: Undefined
+        #load: Version
         text:
             decode: PelEntryVersion::decodeExifVersion
     0x9003:
@@ -280,7 +281,8 @@ tags:
         name: FlashPixVersion
         title: 'FlashPix Version'
         components: 4
-        format: Version
+        format: Undefined
+        #load: Version
         text:
             decode: PelEntryVersion::decodeFlashPixVersion
     0xA001:
