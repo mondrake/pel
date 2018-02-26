@@ -253,7 +253,8 @@ tags:
         const: MAKER_NOTE
         name: MakerNote
         title: 'Maker Note'
-        format: MakerNotes
+        format: Undefined
+        #load: MakerNotes
     0x9286:
         const: USER_COMMENT
         name: UserComment

@@ -251,31 +251,36 @@ tags:
         name: WindowsXPTitle
         title: 'Windows XP Title'
         components: Any
-        format: WindowsString
+        format: Byte
+        #load: WindowsString
     0x9C9C:
         const: WINDOWS_XP_COMMENT
         name: WindowsXPComment
         title: 'Windows XP Comment'
         components: Any
-        format: WindowsString
+        format: Byte
+        #load: WindowsString
     0x9C9D:
         const: WINDOWS_XP_AUTHOR
         name: WindowsXPAuthor
         title: 'Windows XP Author'
         components: Any
-        format: WindowsString
+        format: Byte
+        #load: WindowsString
     0x9C9E:
         const: WINDOWS_XP_KEYWORDS
         name: WindowsXPKeywords
         title: 'Windows XP Keywords'
         components: Any
-        format: WindowsString
+        format: Byte
+        #load: WindowsString
     0x9C9F:
         const: WINDOWS_XP_SUBJECT
         name: WindowsXPSubject
         title: 'Windows XP Subject'
         components: Any
-        format: WindowsString
+        format: Byte
+        #load: WindowsString
     0xC4A5:
         const: PRINT_IM
         name: PrintIM
