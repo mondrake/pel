@@ -2,6 +2,7 @@
 
 namespace lsolesen\pel\Util;
 
+use lsolesen\pel\PelFormat;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
@@ -171,6 +172,24 @@ DATA;
         $diff = array_diff(array_keys($tag), $this->tagKeys);
         if (!empty($diff)) {
             throw new SpecCompilerException($file->getFileName() . ": invalid key(s) found for TAG '" . $tag['name'] . "' - " . implode(", ", $diff));
+        }
+
+        // Convert format string to its ID.
+        if (isset($tag['format'])) {
+            $temp = [];
+            if (is_scalar($tag['format'])) {
+                $temp[] = $tag['format'];
+            }
+            else {
+                $temp = $tag['format'];
+            }
+            $formats = [];
+            foreach ($temp as $name) {
+                if (($format[] = PelFormat::getIdFromName($name)) === null) {
+                    throw new SpecCompilerException($file->getFileName() . ": invalid '" . $name . "' format found for TAG '" . $tag['name']);
+                }
+            }
+            $tag['format'] = $formats;
         }
 
         // Check validity of TAG/text keys.
