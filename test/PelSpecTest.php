@@ -2,6 +2,7 @@
 
 namespace Pel\Test;
 
+use lsolesen\pel\PelFormat;
 use lsolesen\pel\PelSpec;
 use PHPUnit\Framework\TestCase;
 
@@ -48,8 +49,8 @@ class PelSpecTest extends TestCase
         $this->assertFalse(PelSpec::isTagAMakerNotesPointer(0, 0x8769));
 
         // Check getTagFormat.
-        $this->assertEquals('UserComment', PelSpec::getTagFormat(2, 0x9286));
-        $this->assertEquals('Short', PelSpec::getTagFormat(2, 0xA002));
+        $this->assertEquals(PelFormat::UNDEFINED, PelSpec::getTagFormat(2, 0x9286));
+        $this->assertEquals(PelFormat::SHORT, PelSpec::getTagFormat(2, 0xA002));
         $this->assertNull(PelSpec::getTagFormat(7, 0x0002));
 
         // Check getTagTitle.

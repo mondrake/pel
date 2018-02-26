@@ -146,7 +146,8 @@ class PelSpec
      */
     public static function isTagAMakerNotesPointer($ifd_id, $tag_id)
     {
-        return self::getTagFormat($ifd_id, $tag_id) === 'MakerNotes';
+        // @todo see if needs sth different
+        return self::getTagIdByName($ifd_id, $tag_id) === 'MakerNote';
     }
 
     /**
@@ -189,19 +190,13 @@ class PelSpec
      * @param int $tag_id
      *            the TAG id.
      *
-     * @return string
+     * @return int
      *            the TAG format.
      */
     public static function getTagFormat($ifd_id, $tag_id)
     {
-        $format = isset(self::getMap()['tags'][$ifd_id][$tag_id]['format']) ? self::getMap()['tags'][$ifd_id][$tag_id]['format'] : null;
-        if (empty($format)) {
-            return null;
-        }
-        if (is_array($format)) {
-            return $format[0];
-        }
-        return $format;
+        $format = isset(self::getMap()['tags'][$ifd_id][$tag_id]['format']) ? self::getMap()['tags'][$ifd_id][$tag_id]['format'] : [];
+        return empty($format) ? null : $format[0];
     }
 
     /**
