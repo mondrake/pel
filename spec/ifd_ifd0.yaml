@@ -155,7 +155,8 @@ tags:
         name: DateTime
         title: 'Date and Time'
         components: 20
-        format: Time
+        format: Ascii
+        #load: Time
     0x013B:
         const: ARTIST
         name: Artist
@@ -233,7 +234,8 @@ tags:
         name: Copyright
         title: Copyright
         components: Any
-        format: Copyright
+        format: Ascii
+        #load: Copyright
     0x8769:
         const: EXIF_IFD_POINTER
         name: ExifIFDPointer
