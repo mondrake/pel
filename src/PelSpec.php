@@ -15,6 +15,24 @@ class PelSpec
     private static $map;
 
     /**
+     * The default tag loader methods.
+     *
+     * @var array
+     */
+    private static $defaultTagLoaders = [
+        PelFormat::ASCII => 'PelEntryAscii::createFromData',
+        PelFormat::BYTE => 'PelEntryByte::createFromData',
+        PelFormat::SHORT => 'PelEntryShort::createFromData',
+        PelFormat::LONG => 'PelEntryLong::createFromData',
+        PelFormat::RATIONAL => 'PelEntryRational::createFromData',
+        PelFormat::SBYTE => 'PelEntrySByte::createFromData',
+        PelFormat::SSHORT => 'PelEntrySShort::createFromData',
+        PelFormat::SLONG => 'PelEntrySLong::createFromData',
+        PelFormat::SRATIONAL => 'PelEntrySRational::createFromData',
+        PelFormat::UNDEFINED => 'PelEntryUndefined::createFromData',
+    ];
+
+    /**
      * Returns the compiled PEL specification map.
      *
      * In case the map is not yet initialized, defaults to the pre-compiled
@@ -210,12 +228,23 @@ class PelSpec
      * @return string
      *            the TAG loader callback.
      */
-    public static function getTagLoader($ifd_id, $tag_id)
+    public static function getTagLoader($ifd_id, $tag_id, $format = null)
     {
+        // Get the explicitly defined loader method, fallback to default if
+        // missing.
         if (!isset(self::getMap()['tags'][$ifd_id][$tag_id]['load'])) {
-            return null;
+            if ($format === null) {
+                return null;
+            } else {
+                if (!isset(self::$defaultTagLoaders[$format])) {
+                    return null;
+                }
+                $loader = self::$defaultTagLoaders[$format];
+            }
+        } else {
+            $loader = self::getMap()['tags'][$ifd_id][$tag_id]['load'];
         }
-        list($class, $method) = explode('::', self::getMap()['tags'][$ifd_id][$tag_id]['load']);
+        list($class, $method) = explode('::', $loader);
         if (strpos('\\', $class) === false) {
             $class = 'lsolesen\\pel\\' . $class;
         }

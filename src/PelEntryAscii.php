@@ -91,6 +91,20 @@ class PelEntryAscii extends PelEntry
         self::setValue($str);
     }
 
+    public static function createFromData($ifd_id, $tag_id, $data, $format = null, $components = null)
+    {
+        // cut off string after the first nul byte
+        $canonicalString = strstr($data->getBytes(0), "\0", true);
+        if ($canonicalString !== false) {
+            $instance = new static($tag_id, $canonicalString);
+        } else {
+            // TODO throw exception if string isn't nul-terminated
+            $instance = new static($tag_id, $data->getBytes(0));
+        }
+        $instance->setIfdType($ifd_id);
+        return $instance;
+    }
+
     /**
      * Give the entry a new ASCII value.
      *

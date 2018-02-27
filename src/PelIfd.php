@@ -538,7 +538,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
      */
     public function newEntryFromData($tag, $format, $components, PelDataWindow $data)
     {
-        if ($loader = PelSpec::getTagLoader($this->type, $tag)) {
+        if ($loader = PelSpec::getTagLoader($this->type, $tag, $format)) {
             return $loader($this->type, $tag, $data, $format, $components);
         }
 
@@ -557,15 +557,6 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                     $v->addNumber($data->getSByte($i));
                 }
                 return $v;
-
-            case PelFormat::ASCII:
-                // cut off string after the first nul byte
-                $canonicalString = strstr($data->getBytes(0), "\0", true);
-                if ($canonicalString !== false) {
-                    return new PelEntryAscii($tag, $canonicalString);
-                }
-                // TODO throw exception if string isn't nul-terminated
-                return new PelEntryAscii($tag, $data->getBytes(0));
 
             case PelFormat::SHORT:
                 $v = new PelEntryShort($tag);
