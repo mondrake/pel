@@ -124,7 +124,7 @@ class PelEntryUserComment extends PelEntryUndefined
             throw new PelUnexpectedFormatException($ifd_id, $tag_id, $format, PelFormat::UNDEFINED);
         }
         if ($data->getSize() < 8) {
-            $arguments = [];
+            $arguments = ['', 'ASCII'];
         } else {
             $arguments = [$data->getBytes(8), rtrim($data->getBytes(0, 8))];
         }
