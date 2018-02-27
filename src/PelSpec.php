@@ -147,7 +147,7 @@ class PelSpec
     public static function isTagAMakerNotesPointer($ifd_id, $tag_id)
     {
         // @todo see if needs sth different
-        return self::getTagIdByName($ifd_id, $tag_id) === 'MakerNote';
+        return self::getTagName($ifd_id, $tag_id) === 'MakerNote';
     }
 
     /**
