@@ -558,12 +558,6 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                 $v[1] = '';
             }
             return new PelEntryCopyright($v[0], $v[1]);
-        } elseif (PelSpec::getTagLoader($this->type, $tag) === 'PelEntryVersion::create') {
-            // EXIF_VERSION / FLASH_PIX_VERSION / INTEROPERABILITY_VERSION
-            if ($format != PelFormat::UNDEFINED) {
-                throw new PelUnexpectedFormatException($this->type, $tag, $format, PelFormat::UNDEFINED);
-            }
-            return new PelEntryVersion($tag, $data->getBytes() / 100);
         } elseif (PelSpec::getTagLoader($this->type, $tag) === 'PelEntryUserComment::create') {
             // USER_COMMENT
             if ($format != PelFormat::UNDEFINED) {
