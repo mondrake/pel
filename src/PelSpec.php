@@ -212,7 +212,14 @@ class PelSpec
      */
     public static function getTagLoader($ifd_id, $tag_id)
     {
-        return isset(self::getMap()['tags'][$ifd_id][$tag_id]['load']) ? self::getMap()['tags'][$ifd_id][$tag_id]['load'] : null;
+        if (!isset(self::getMap()['tags'][$ifd_id][$tag_id]['load'])) {
+            return null;
+        }
+        list($class, $method) = explode('::', self::getMap()['tags'][$ifd_id][$tag_id]['load']);
+        if (strpos('\\', $class) === false) {
+            $class = 'lsolesen\\pel\\' . $class;
+        }
+        return $class . '::' . $method;
     }
 
     /**
