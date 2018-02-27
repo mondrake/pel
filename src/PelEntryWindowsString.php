@@ -108,6 +108,16 @@ class PelEntryWindowsString extends PelEntry
         $this->setValue($str, $from_exif);
     }
 
+    public static function create($ifd_id, $tag_id, $data, $format = null, $components = null)
+    {
+        if ($format != PelFormat::BYTE) {
+            throw new PelUnexpectedFormatException($ifd_id, $tag_id, $format, PelFormat::BYTE);
+        }
+        $instance = new static($tag, $data->getBytes(), true);
+        $instance->setIfdType($ifd_id);
+        return $instance;
+    }
+
     /**
      * Give the entry a new value.
      *

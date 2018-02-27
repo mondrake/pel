@@ -542,30 +542,6 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
             return $loader($this->type, $tag, $data, $format, $components);
         }
 
-        /*
-         * First handle tags for which we have a specific PelEntryXXX
-         * class.
-         */
-        if (PelSpec::getTagLoader($this->type, $tag) === 'PelEntryCopyright::create') {
-            // COPYRIGHT
-            if ($format != PelFormat::ASCII) {
-                throw new PelUnexpectedFormatException($this->type, $tag, $format, PelFormat::ASCII);
-            }
-            $v = explode("\0", trim($data->getBytes(), ' '));
-            if (! isset($v[1])) {
-                Pel::maybeThrow(new PelException('Invalid copyright: %s', $data->getBytes()));
-                // when not in strict mode, set empty copyright and continue
-                $v[1] = '';
-            }
-            return new PelEntryCopyright($v[0], $v[1]);
-        } elseif (PelSpec::getTagLoader($this->type, $tag) === 'PelEntryWindowsString::create') {
-            // XP_TITLE / XP_COMMENT / XP_AUTHOR / XP_KEYWORDS / XP_SUBJECT
-            if ($format != PelFormat::BYTE) {
-                throw new PelUnexpectedFormatException($this->type, $tag, $format, PelFormat::BYTE);
-            }
-            return new PelEntryWindowsString($tag, $data->getBytes(), true);
-        }
-
         /* Then handle the basic formats. */
         switch ($format) {
             case PelFormat::BYTE:

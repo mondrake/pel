@@ -102,6 +102,22 @@ class PelEntryCopyright extends PelEntryAscii
         $this->setValue($photographer, $editor);
     }
 
+    public static function create($ifd_id, $tag_id, $data, $format = null, $components = null)
+    {
+        if ($format != PelFormat::ASCII) {
+            throw new PelUnexpectedFormatException($ifd_id, $tag_id, $format, PelFormat::ASCII);
+        }
+        $v = explode("\0", trim($data->getBytes(), ' '));
+        if (! isset($v[1])) {
+            Pel::maybeThrow(new PelException('Invalid copyright: %s', $data->getBytes()));
+            // when not in strict mode, set empty copyright and continue
+            $v[1] = '';
+        }
+        $instance = new static($v[0], $v[1]);
+        $instance->setIfdType($ifd_id);
+        return $instance;
+    }
+
     /**
      * Update the copyright information.
      *
