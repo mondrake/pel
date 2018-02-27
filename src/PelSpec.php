@@ -190,13 +190,29 @@ class PelSpec
      * @param int $tag_id
      *            the TAG id.
      *
-     * @return int
-     *            the TAG format.
+     * @return array
+     *            the array of formats supported by the TAG.
      */
     public static function getTagFormat($ifd_id, $tag_id)
     {
         $format = isset(self::getMap()['tags'][$ifd_id][$tag_id]['format']) ? self::getMap()['tags'][$ifd_id][$tag_id]['format'] : [];
-        return empty($format) ? null : $format[0];
+        return empty($format) ? null : $format;
+    }
+
+    /**
+     * Returns the TAG loader callback.
+     *
+     * @param int $ifd_id
+     *            the IFD id.
+     * @param int $tag_id
+     *            the TAG id.
+     *
+     * @return string
+     *            the TAG loader callback.
+     */
+    public static function getTagLoader($ifd_id, $tag_id)
+    {
+        return isset(self::getMap()['tags'][$ifd_id][$tag_id]['load']) ? self::getMap()['tags'][$ifd_id][$tag_id]['load'] : null;
     }
 
     /**

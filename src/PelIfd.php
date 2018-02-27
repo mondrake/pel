@@ -543,7 +543,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
          * First handle tags for which we have a specific PelEntryXXX
          * class.
          */
-        if (PelSpec::getTagFormat($this->type, $tag) === 'Time') {
+        if (PelSpec::getTagLoader($this->type, $tag) === 'PelEntryTime:create') {
             // DATE_TIME / DATE_TIME_ORIGINAL / DATE_TIME_DIGITIZED
             if ($format != PelFormat::ASCII) {
                 throw new PelUnexpectedFormatException($this->type, $tag, $format, PelFormat::ASCII);
@@ -553,7 +553,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
             }
             // TODO: handle timezones.
             return new PelEntryTime($tag, $data->getBytes(0, - 1), PelEntryTime::EXIF_STRING);
-        } elseif (PelSpec::getTagFormat($this->type, $tag) === 'Copyright') {
+        } elseif (PelSpec::getTagLoader($this->type, $tag) === 'PelEntryCopyright::create') {
             // COPYRIGHT
             if ($format != PelFormat::ASCII) {
                 throw new PelUnexpectedFormatException($this->type, $tag, $format, PelFormat::ASCII);
@@ -565,13 +565,13 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                 $v[1] = '';
             }
             return new PelEntryCopyright($v[0], $v[1]);
-        } elseif (PelSpec::getTagFormat($this->type, $tag) === 'Version') {
+        } elseif (PelSpec::getTagLoader($this->type, $tag) === 'PelEntryVersion::create') {
             // EXIF_VERSION / FLASH_PIX_VERSION / INTEROPERABILITY_VERSION
             if ($format != PelFormat::UNDEFINED) {
                 throw new PelUnexpectedFormatException($this->type, $tag, $format, PelFormat::UNDEFINED);
             }
             return new PelEntryVersion($tag, $data->getBytes() / 100);
-        } elseif (PelSpec::getTagFormat($this->type, $tag) === 'UserComment') {
+        } elseif (PelSpec::getTagLoader($this->type, $tag) === 'PelEntryUserComment::create') {
             // USER_COMMENT
             if ($format != PelFormat::UNDEFINED) {
                 throw new PelUnexpectedFormatException($this->type, $tag, $format, PelFormat::UNDEFINED);
@@ -581,7 +581,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
             } else {
                 return new PelEntryUserComment($data->getBytes(8), rtrim($data->getBytes(0, 8)));
             }
-        } elseif (PelSpec::getTagFormat($this->type, $tag) === 'WindowsString') {
+        } elseif (PelSpec::getTagLoader($this->type, $tag) === 'PelEntryWindowsString::create') {
             // XP_TITLE / XP_COMMENT / XP_AUTHOR / XP_KEYWORDS / XP_SUBJECT
             if ($format != PelFormat::BYTE) {
                 throw new PelUnexpectedFormatException($this->type, $tag, $format, PelFormat::BYTE);
