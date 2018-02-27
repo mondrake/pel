@@ -119,7 +119,6 @@ abstract class PelEntry
     {
         $class = new \ReflectionClass(get_called_class());
         array_unshift($arguments, $tag_id);
-        array_unshift($arguments, $ifd_id);
         $instance = $class->newInstanceArgs($arguments);
         $instance->setIfdType($ifd_id);
         return $instance;
