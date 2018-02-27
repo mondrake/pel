@@ -137,6 +137,22 @@ class PelEntryTime extends PelEntryAscii
         $this->setValue($timestamp, $type);
     }
 
+    /**
+     * Creates an instance of the entry from file data.
+     *
+     * @param int $ifd_id
+     *            the IFD id.
+     * @param int $tag_id
+     *            the TAG id.
+     * @param PelDataWindow $data
+     *            the data which will be used to construct the entry.
+     * @param int $format
+     *            the format of the entry as defined in {@link PelFormat}.
+     * @param int $components
+     *            the components in the entry.
+     *
+     * @return PelEntry a newly created entry, holding the data given.
+     */
     public static function createFromData($ifd_id, $tag_id, $data, $format = null, $components = null)
     {
         if ($format != PelFormat::ASCII) {
@@ -146,9 +162,7 @@ class PelEntryTime extends PelEntryAscii
             throw new PelWrongComponentCountException($ifd_id, $tag_id, $components, 20);
         }
         // TODO: handle timezones.
-        $instance = new static($tag_id, $data->getBytes(0, - 1), static::EXIF_STRING);
-        $instance->setIfdType($ifd_id);
-        return $instance;
+        return static::create($ifd_id, $tag_id, [$data->getBytes(0, - 1), static::EXIF_STRING]);
     }
 
     /**

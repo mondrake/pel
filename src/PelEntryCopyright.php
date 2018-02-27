@@ -102,6 +102,22 @@ class PelEntryCopyright extends PelEntryAscii
         $this->setValue($photographer, $editor);
     }
 
+    /**
+     * Creates an instance of the entry from file data.
+     *
+     * @param int $ifd_id
+     *            the IFD id.
+     * @param int $tag_id
+     *            the TAG id.
+     * @param PelDataWindow $data
+     *            the data which will be used to construct the entry.
+     * @param int $format
+     *            the format of the entry as defined in {@link PelFormat}.
+     * @param int $components
+     *            the components in the entry.
+     *
+     * @return PelEntry a newly created entry, holding the data given.
+     */
     public static function createFromData($ifd_id, $tag_id, $data, $format = null, $components = null)
     {
         if ($format != PelFormat::ASCII) {
@@ -113,9 +129,7 @@ class PelEntryCopyright extends PelEntryAscii
             // when not in strict mode, set empty copyright and continue
             $v[1] = '';
         }
-        $instance = new static($v[0], $v[1]);
-        $instance->setIfdType($ifd_id);
-        return $instance;
+        return static::create($ifd_id, $tag_id, [$v[0], $v[1]]);
     }
 
     /**
