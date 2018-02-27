@@ -146,7 +146,9 @@ class PelEntryTime extends PelEntryAscii
             throw new PelWrongComponentCountException($ifd_id, $tag_id, $components, 20);
         }
         // TODO: handle timezones.
-        return new static($tag_id, $arguments, static::EXIF_STRING);
+        $x = new static($tag_id, $arguments, static::EXIF_STRING);
+throw new \Exception(var_export($x, true));
+        return $x;
     }
 
     /**
