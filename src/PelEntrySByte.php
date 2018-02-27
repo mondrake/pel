@@ -80,6 +80,16 @@ class PelEntrySByte extends PelEntryNumber
         $this->setValueArray($value);
     }
 
+    public static function createFromData($ifd_id, $tag_id, $data, $format = null, $components = null)
+    {
+        $instance = new static($tag_id);
+        for ($i = 0; $i < $components; $i ++) {
+            $instance->addNumber($data->getSByte($i));
+        }
+        $instance->setIfdType($ifd_id);
+        return $instance;
+    }
+
     /**
      * Convert a number into bytes.
      *

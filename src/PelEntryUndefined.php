@@ -77,6 +77,13 @@ class PelEntryUndefined extends PelEntry
         $this->setValue($data);
     }
 
+    public static function createFromData($ifd_id, $tag_id, $data, $format = null, $components = null)
+    {
+        $instance = new static($tag_id, $data->getBytes());
+        $instance->setIfdType($ifd_id);
+        return $instance;
+    }
+
     /**
      * Set the data of this undefined entry.
      *

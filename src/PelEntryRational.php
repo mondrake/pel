@@ -92,6 +92,16 @@ class PelEntryRational extends PelEntryLong
         $this->setValueArray($value);
     }
 
+    public static function createFromData($ifd_id, $tag_id, $data, $format = null, $components = null)
+    {
+        $instance = new static($tag_id);
+        for ($i = 0; $i < $components; $i ++) {
+            $instance->addNumber($data->getRational($i * 8));
+        }
+        $instance->setIfdType($ifd_id);
+        return $instance;
+    }
+
     /**
      * Format a rational number.
      *

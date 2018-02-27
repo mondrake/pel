@@ -541,71 +541,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
         if ($loader = PelSpec::getTagLoader($this->type, $tag, $format)) {
             return $loader($this->type, $tag, $data, $format, $components);
         }
-
-        /* Then handle the basic formats. */
-        switch ($format) {
-            case PelFormat::BYTE:
-                $v = new PelEntryByte($tag);
-                for ($i = 0; $i < $components; $i ++) {
-                    $v->addNumber($data->getByte($i));
-                }
-                return $v;
-
-            case PelFormat::SBYTE:
-                $v = new PelEntrySByte($tag);
-                for ($i = 0; $i < $components; $i ++) {
-                    $v->addNumber($data->getSByte($i));
-                }
-                return $v;
-
-            case PelFormat::SHORT:
-                $v = new PelEntryShort($tag);
-                for ($i = 0; $i < $components; $i ++) {
-                    $v->addNumber($data->getShort($i * 2));
-                }
-                return $v;
-
-            case PelFormat::SSHORT:
-                $v = new PelEntrySShort($tag);
-                for ($i = 0; $i < $components; $i ++) {
-                    $v->addNumber($data->getSShort($i * 2));
-                }
-                return $v;
-
-            case PelFormat::LONG:
-                $v = new PelEntryLong($tag);
-                for ($i = 0; $i < $components; $i ++) {
-                    $v->addNumber($data->getLong($i * 4));
-                }
-                return $v;
-
-            case PelFormat::SLONG:
-                $v = new PelEntrySLong($tag);
-                for ($i = 0; $i < $components; $i ++) {
-                    $v->addNumber($data->getSLong($i * 4));
-                }
-                return $v;
-
-            case PelFormat::RATIONAL:
-                $v = new PelEntryRational($tag);
-                for ($i = 0; $i < $components; $i ++) {
-                    $v->addNumber($data->getRational($i * 8));
-                }
-                return $v;
-
-            case PelFormat::SRATIONAL:
-                $v = new PelEntrySRational($tag);
-                for ($i = 0; $i < $components; $i ++) {
-                    $v->addNumber($data->getSRational($i * 8));
-                }
-                return $v;
-
-            case PelFormat::UNDEFINED:
-                return new PelEntryUndefined($tag, $data->getBytes());
-
-            default:
-                throw new PelException('Unsupported format: %s', PelFormat::getName($format));
-        }
+        throw new PelException('Unsupported format: %s', PelFormat::getName($format));
     }
 
     /**
