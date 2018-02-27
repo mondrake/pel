@@ -103,6 +103,18 @@ class PelEntryCopyright extends PelEntryAscii
     }
 
     /**
+     * Creates an instance of the entry.
+     *
+     * @todo
+     */
+    public static function create($ifd_id, $tag_id, $arguments)
+    {
+        $instance = new static($arguments[0], $arguments[1]);
+        $instance->setIfdType($ifd_id);
+        return $instance;
+    }
+
+    /**
      * Creates an instance of the entry from file data.
      *
      * @param int $ifd_id

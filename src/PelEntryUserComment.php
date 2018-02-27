@@ -103,6 +103,22 @@ class PelEntryUserComment extends PelEntryUndefined
     }
 
     /**
+     * Creates an instance of the entry.
+     *
+     * @todo
+     */
+    public static function create($ifd_id, $tag_id, $arguments)
+    {
+        if (empty($arguments)) {
+            $instance = new static();
+        } else {
+            $instance = new static($arguments[0], $arguments[1]);
+        }
+        $instance->setIfdType($ifd_id);
+        return $instance;
+    }
+
+    /**
      * Creates an instance of the entry from file data.
      *
      * @param int $ifd_id
@@ -124,12 +140,11 @@ class PelEntryUserComment extends PelEntryUndefined
             throw new PelUnexpectedFormatException($ifd_id, $tag_id, $format, PelFormat::UNDEFINED);
         }
         if ($data->getSize() < 8) {
-            $instance = new static();
+            $arguments = [];
         } else {
-            $instance = new static($data->getBytes(8), rtrim($data->getBytes(0, 8)));
-         }
-        $instance->setIfdType($ifd_id);
-        return $instance;
+            $arguments = [$data->getBytes(8), rtrim($data->getBytes(0, 8))];
+        }
+        return static::create($ifd_id, $tag_id, $arguments);
     }
 
     /**
