@@ -115,8 +115,9 @@ abstract class PelEntry
      *
      * @todo
      */
-    public static function create($ifd_id, $tag_id, $arguments) {
-        $class = new \ReflectionClass(static::class);
+    public static function create($ifd_id, $tag_id, $arguments)
+    {
+        $class = new \ReflectionClass(get_called_class());
         array_unshift($arguments, $tag_id);
         array_unshift($arguments, $ifd_id);
         $instance = $class->newInstanceArgs($arguments);

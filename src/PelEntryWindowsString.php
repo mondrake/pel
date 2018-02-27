@@ -108,6 +108,22 @@ class PelEntryWindowsString extends PelEntry
         $this->setValue($str, $from_exif);
     }
 
+    /**
+     * Creates an instance of the entry from file data.
+     *
+     * @param int $ifd_id
+     *            the IFD id.
+     * @param int $tag_id
+     *            the TAG id.
+     * @param PelDataWindow $data
+     *            the data which will be used to construct the entry.
+     * @param int $format
+     *            the format of the entry as defined in {@link PelFormat}.
+     * @param int $components
+     *            the components in the entry.
+     *
+     * @return PelEntry a newly created entry, holding the data given.
+     */
     public static function createFromData($ifd_id, $tag_id, $data, $format = null, $components = null)
     {
         if ($format != PelFormat::BYTE) {
