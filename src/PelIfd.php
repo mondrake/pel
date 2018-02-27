@@ -539,7 +539,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
     public function newEntryFromData($tag, $format, $components, PelDataWindow $data)
     {
         if (($loader = PelSpec::getTagLoader($this->type, $tag)) && is_callable($loader)) {
-            return $loader($this->type, $tag, $data->getBytes(), $format, $components)
+            return $loader($this->type, $tag, $data->getBytes(), $format, $components);
         }
 
         /*

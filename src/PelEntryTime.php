@@ -137,7 +137,8 @@ class PelEntryTime extends PelEntryAscii
         $this->setValue($timestamp, $type);
     }
 
-    public static function create($ifd_id, $tag_id, $arguments, $format = null, $components = null) {
+    public static function create($ifd_id, $tag_id, $arguments, $format = null, $components = null)
+    {
         if ($format != PelFormat::ASCII) {
             throw new PelUnexpectedFormatException($ifd_id, $tag_id, $format, PelFormat::ASCII);
         }
