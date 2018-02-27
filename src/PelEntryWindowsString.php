@@ -113,7 +113,7 @@ class PelEntryWindowsString extends PelEntry
         if ($format != PelFormat::BYTE) {
             throw new PelUnexpectedFormatException($ifd_id, $tag_id, $format, PelFormat::BYTE);
         }
-        $instance = new static($tag, $data->getBytes(), true);
+        $instance = new static($tag_id, $data->getBytes(), true);
         $instance->setIfdType($ifd_id);
         return $instance;
     }
