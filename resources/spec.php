@@ -80,14 +80,21 @@ return array (
         'name' => 'InteroperabilityIndex',
         'title' => 'Interoperability Index',
         'components' => 4,
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       2 =>
       array (
         'name' => 'InteroperabilityVersion',
         'title' => 'Interoperability Version',
         'components' => 4,
-        'format' => 'Version',
+        'format' =>
+        array (
+          0 => 7,
+        ),
+        'load' => 'PelEntryVersion::create',
         'text' =>
         array (
           'decode' => 'PelEntryVersion::decodeInteroperabilityVersion',
@@ -98,21 +105,30 @@ return array (
         'name' => 'RelatedImageFileFormat',
         'title' => 'Related Image File Format',
         'components' => 'Unknown',
-        'format' => 'Unknown',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       4097 =>
       array (
         'name' => 'RelatedImageWidth',
         'title' => 'Related Image Width',
         'components' => 'Unknown',
-        'format' => 'Unknown',
+        'format' =>
+        array (
+          0 => 3,
+        ),
       ),
       4098 =>
       array (
         'name' => 'RelatedImageLength',
         'title' => 'Related Image Length',
         'components' => 'Unknown',
-        'format' => 'Unknown',
+        'format' =>
+        array (
+          0 => 3,
+        ),
       ),
     ),
     3 =>
@@ -122,21 +138,30 @@ return array (
         'name' => 'GPSVersionID',
         'title' => 'GPSVersionID',
         'components' => 4,
-        'format' => 'Byte',
+        'format' =>
+        array (
+          0 => 1,
+        ),
       ),
       1 =>
       array (
         'name' => 'GPSLatitudeRef',
         'title' => 'GPSLatitudeRef',
         'components' => 2,
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       2 =>
       array (
         'name' => 'GPSLatitude',
         'title' => 'GPSLatitude',
         'components' => 3,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
         'text' =>
         array (
           'decode' => 'PelEntryRational::decodeGPSLatitude',
@@ -147,14 +172,20 @@ return array (
         'name' => 'GPSLongitudeRef',
         'title' => 'GPSLongitudeRef',
         'components' => 2,
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       4 =>
       array (
         'name' => 'GPSLongitude',
         'title' => 'GPSLongitude',
         'components' => 3,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
         'text' =>
         array (
           'decode' => 'PelEntryRational::decodeGPSLongitude',
@@ -165,182 +196,260 @@ return array (
         'name' => 'GPSAltitudeRef',
         'title' => 'GPSAltitudeRef',
         'components' => 1,
-        'format' => 'Byte',
+        'format' =>
+        array (
+          0 => 1,
+        ),
       ),
       6 =>
       array (
         'name' => 'GPSAltitude',
         'title' => 'GPSAltitude',
         'components' => 1,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
       7 =>
       array (
         'name' => 'GPSTimeStamp',
         'title' => 'GPSTimeStamp',
         'components' => 3,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
       8 =>
       array (
         'name' => 'GPSSatellites',
         'title' => 'GPSSatellites',
         'components' => 'Any',
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       9 =>
       array (
         'name' => 'GPSStatus',
         'title' => 'GPSStatus',
         'components' => 2,
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       10 =>
       array (
         'name' => 'GPSMeasureMode',
         'title' => 'GPSMeasureMode',
         'components' => 2,
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       11 =>
       array (
         'name' => 'GPSDOP',
         'title' => 'GPSDOP',
         'components' => 1,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
       12 =>
       array (
         'name' => 'GPSSpeedRef',
         'title' => 'GPSSpeedRef',
         'components' => 2,
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       13 =>
       array (
         'name' => 'GPSSpeed',
         'title' => 'GPSSpeed',
         'components' => 1,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
       14 =>
       array (
         'name' => 'GPSTrackRef',
         'title' => 'GPSTrackRef',
         'components' => 2,
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       15 =>
       array (
         'name' => 'GPSTrack',
         'title' => 'GPSTrack',
         'components' => 1,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
       16 =>
       array (
         'name' => 'GPSImgDirectionRef',
         'title' => 'GPSImgDirectionRef',
         'components' => 2,
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       17 =>
       array (
         'name' => 'GPSImgDirection',
         'title' => 'GPSImgDirection',
         'components' => 1,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
       18 =>
       array (
         'name' => 'GPSMapDatum',
         'title' => 'GPSMapDatum',
         'components' => 'Any',
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       19 =>
       array (
         'name' => 'GPSDestLatitudeRef',
         'title' => 'GPSDestLatitudeRef',
         'components' => 2,
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       20 =>
       array (
         'name' => 'GPSDestLatitude',
         'title' => 'GPSDestLatitude',
         'components' => 3,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
       21 =>
       array (
         'name' => 'GPSDestLongitudeRef',
         'title' => 'GPSDestLongitudeRef',
         'components' => 2,
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       22 =>
       array (
         'name' => 'GPSDestLongitude',
         'title' => 'GPSDestLongitude',
         'components' => 3,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
       23 =>
       array (
         'name' => 'GPSDestBearingRef',
         'title' => 'GPSDestBearingRef',
         'components' => 2,
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       24 =>
       array (
         'name' => 'GPSDestBearing',
         'title' => 'GPSDestBearing',
         'components' => 1,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
       25 =>
       array (
         'name' => 'GPSDestDistanceRef',
         'title' => 'GPSDestDistanceRef',
         'components' => 2,
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       26 =>
       array (
         'name' => 'GPSDestDistance',
         'title' => 'GPSDestDistance',
         'components' => 1,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
       27 =>
       array (
         'name' => 'GPSProcessingMethod',
         'title' => 'GPSProcessingMethod',
         'components' => 'Any',
-        'format' => 'Undefined',
+        'format' =>
+        array (
+          0 => 7,
+        ),
       ),
       28 =>
       array (
         'name' => 'GPSAreaInformation',
         'title' => 'GPSAreaInformation',
         'components' => 'Any',
-        'format' => 'Undefined',
+        'format' =>
+        array (
+          0 => 7,
+        ),
       ),
       29 =>
       array (
         'name' => 'GPSDateStamp',
         'title' => 'GPSDateStamp',
         'components' => 11,
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       30 =>
       array (
         'name' => 'GPSDifferential',
         'title' => 'GPSDifferential',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
       ),
     ),
     2 =>
@@ -350,14 +459,20 @@ return array (
         'name' => 'CFAPattern',
         'title' => 'CFA Pattern',
         'components' => 'Any',
-        'format' => 'Undefined',
+        'format' =>
+        array (
+          0 => 7,
+        ),
       ),
       33434 =>
       array (
         'name' => 'ExposureTime',
         'title' => 'Exposure Time',
         'components' => 1,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
         'text' =>
         array (
           'decode' => 'PelEntryRational::decodeExposureTime',
@@ -368,7 +483,10 @@ return array (
         'name' => 'FNumber',
         'title' => 'FNumber',
         'components' => 1,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
         'text' =>
         array (
           'decode' => 'PelEntryRational::decodeFNumber',
@@ -379,7 +497,10 @@ return array (
         'name' => 'ExposureProgram',
         'title' => 'Exposure Program',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -401,28 +522,41 @@ return array (
         'name' => 'SpectralSensitivity',
         'title' => 'Spectral Sensitivity',
         'components' => 'Any',
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       34855 =>
       array (
         'name' => 'ISOSpeedRatings',
         'title' => 'ISO Speed Ratings',
         'components' => 2,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
       ),
       34856 =>
       array (
         'name' => 'OECF',
         'title' => 'OECF',
         'components' => 'Any',
-        'format' => 'Undefined',
+        'format' =>
+        array (
+          0 => 7,
+        ),
       ),
       36864 =>
       array (
         'name' => 'ExifVersion',
         'title' => 'Exif Version',
         'components' => 4,
-        'format' => 'Version',
+        'format' =>
+        array (
+          0 => 7,
+        ),
+        'load' => 'PelEntryVersion::create',
         'text' =>
         array (
           'decode' => 'PelEntryVersion::decodeExifVersion',
@@ -433,42 +567,62 @@ return array (
         'name' => 'DateTimeOriginal',
         'title' => 'Date and Time (original)',
         'components' => 20,
-        'format' => 'Time',
+        'format' =>
+        array (
+          0 => 2,
+        ),
+        'load' => 'PelEntryTime::create',
       ),
       36868 =>
       array (
         'name' => 'DateTimeDigitized',
         'title' => 'Date and Time (digitized)',
         'components' => 20,
-        'format' => 'Time',
+        'format' =>
+        array (
+          0 => 2,
+        ),
+        'load' => 'PelEntryTime::create',
       ),
       36880 =>
       array (
         'name' => 'OffsetTime',
         'title' => 'Timezone',
         'components' => 7,
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       36881 =>
       array (
         'name' => 'OffsetTimeOriginal',
         'title' => 'Timezone (original)',
         'components' => 7,
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       36882 =>
       array (
         'name' => 'OffsetTimeDigitized',
         'title' => 'Timezone (digitized)',
         'components' => 7,
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       37121 =>
       array (
         'name' => 'ComponentsConfiguration',
         'title' => 'Components Configuration',
         'components' => 4,
-        'format' => 'Undefined',
+        'format' =>
+        array (
+          0 => 7,
+        ),
         'text' =>
         array (
           'decode' => 'PelEntryUndefined::decodeComponentsConfiguration',
@@ -479,14 +633,20 @@ return array (
         'name' => 'CompressedBitsPerPixel',
         'title' => 'Compressed Bits per Pixel',
         'components' => 1,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
       37377 =>
       array (
         'name' => 'ShutterSpeedValue',
         'title' => 'Shutter speed',
         'components' => 1,
-        'format' => 'SRational',
+        'format' =>
+        array (
+          0 => 10,
+        ),
         'text' =>
         array (
           'decode' => 'PelEntrySRational::decodeShutterSpeedValue',
@@ -497,7 +657,10 @@ return array (
         'name' => 'ApertureValue',
         'title' => 'Aperture',
         'components' => 1,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
         'text' =>
         array (
           'decode' => 'PelEntryRational::decodeApertureValue',
@@ -508,7 +671,10 @@ return array (
         'name' => 'BrightnessValue',
         'title' => 'Brightness',
         'components' => 1,
-        'format' => 'SRational',
+        'format' =>
+        array (
+          0 => 10,
+        ),
         'text' =>
         array (
           'decode' => 'PelEntrySRational::decodeBrightnessValue',
@@ -519,7 +685,10 @@ return array (
         'name' => 'ExposureBiasValue',
         'title' => 'Exposure Bias',
         'components' => 1,
-        'format' => 'SRational',
+        'format' =>
+        array (
+          0 => 10,
+        ),
         'text' =>
         array (
           'decode' => 'PelEntrySRational::decodeExposureBiasValue',
@@ -530,14 +699,20 @@ return array (
         'name' => 'MaxApertureValue',
         'title' => 'Max Aperture Value',
         'components' => 1,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
       37382 =>
       array (
         'name' => 'SubjectDistance',
         'title' => 'Subject Distance',
         'components' => 1,
-        'format' => 'SRational',
+        'format' =>
+        array (
+          0 => 10,
+        ),
         'text' =>
         array (
           'decode' => 'PelEntryRational::decodeSubjectDistance',
@@ -548,7 +723,10 @@ return array (
         'name' => 'MeteringMode',
         'title' => 'Metering Mode',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -569,7 +747,10 @@ return array (
         'name' => 'LightSource',
         'title' => 'Light Source',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -602,7 +783,10 @@ return array (
         'name' => 'Flash',
         'title' => 'Flash',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -638,7 +822,10 @@ return array (
         'name' => 'FocalLength',
         'title' => 'Focal Length',
         'components' => 1,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
         'text' =>
         array (
           'decode' => 'PelEntryRational::decodeFocalLength',
@@ -648,7 +835,10 @@ return array (
       array (
         'name' => 'SubjectArea',
         'title' => 'Subject Area',
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'decode' => 'PelEntryShort::decodeSubjectArea',
@@ -658,42 +848,62 @@ return array (
       array (
         'name' => 'MakerNote',
         'title' => 'Maker Note',
-        'format' => 'MakerNotes',
+        'format' =>
+        array (
+          0 => 7,
+        ),
       ),
       37510 =>
       array (
         'name' => 'UserComment',
         'title' => 'User Comment',
         'components' => 'Any',
-        'format' => 'UserComment',
+        'format' =>
+        array (
+          0 => 7,
+        ),
+        'load' => 'PelEntryUserComment::create',
       ),
       37520 =>
       array (
         'name' => 'SubSecTime',
         'title' => 'SubSec Time',
         'components' => 'Any',
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       37521 =>
       array (
         'name' => 'SubSecTimeOriginal',
         'title' => 'SubSec Time Original',
         'components' => 'Any',
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       37522 =>
       array (
         'name' => 'SubSecTimeDigitized',
         'title' => 'SubSec Time Digitized',
         'components' => 'Any',
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       40960 =>
       array (
         'name' => 'FlashPixVersion',
         'title' => 'FlashPix Version',
         'components' => 4,
-        'format' => 'Version',
+        'format' =>
+        array (
+          0 => 7,
+        ),
+        'load' => 'PelEntryVersion::create',
         'text' =>
         array (
           'decode' => 'PelEntryVersion::decodeFlashPixVersion',
@@ -704,7 +914,10 @@ return array (
         'name' => 'ColorSpace',
         'title' => 'Color Space',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -722,8 +935,8 @@ return array (
         'components' => 1,
         'format' =>
         array (
-          0 => 'Short',
-          1 => 'Long',
+          0 => 3,
+          1 => 4,
         ),
       ),
       40963 =>
@@ -733,8 +946,8 @@ return array (
         'components' => 1,
         'format' =>
         array (
-          0 => 'Short',
-          1 => 'Long',
+          0 => 3,
+          1 => 4,
         ),
       ),
       40964 =>
@@ -742,7 +955,10 @@ return array (
         'name' => 'RelatedSoundFile',
         'title' => 'Related Sound File',
         'components' => 'Any',
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       40965 =>
       array (
@@ -755,35 +971,50 @@ return array (
         'name' => 'FlashEnergy',
         'title' => 'Flash Energy',
         'components' => 1,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
       41484 =>
       array (
         'name' => 'SpatialFrequencyResponse',
         'title' => 'Spatial Frequency Response',
         'components' => 'Any',
-        'format' => 'Undefined',
+        'format' =>
+        array (
+          0 => 7,
+        ),
       ),
       41486 =>
       array (
         'name' => 'FocalPlaneXResolution',
         'title' => 'Focal Plane x-Resolution',
         'components' => 1,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
       41487 =>
       array (
         'name' => 'FocalPlaneYResolution',
         'title' => 'Focal Plane y-Resolution',
         'components' => 1,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
       41488 =>
       array (
         'name' => 'FocalPlaneResolutionUnit',
         'title' => 'Focal Plane Resolution Unit',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -798,21 +1029,30 @@ return array (
         'name' => 'SubjectLocation',
         'title' => 'Subject Location',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
       ),
       41493 =>
       array (
         'name' => 'ExposureIndex',
         'title' => 'Exposure index',
         'components' => 1,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
       41495 =>
       array (
         'name' => 'SensingMethod',
         'title' => 'Sensing Method',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -832,7 +1072,10 @@ return array (
         'name' => 'FileSource',
         'title' => 'File Source',
         'components' => 1,
-        'format' => 'Undefined',
+        'format' =>
+        array (
+          0 => 7,
+        ),
         'text' =>
         array (
           'decode' => 'PelEntryUndefined::decodeFileSource',
@@ -843,7 +1086,10 @@ return array (
         'name' => 'SceneType',
         'title' => 'Scene Type',
         'components' => 1,
-        'format' => 'Undefined',
+        'format' =>
+        array (
+          0 => 7,
+        ),
         'text' =>
         array (
           'decode' => 'PelEntryUndefined::decodeSceneType',
@@ -854,7 +1100,10 @@ return array (
         'name' => 'CustomRendered',
         'title' => 'Custom Rendered',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -869,7 +1118,10 @@ return array (
         'name' => 'ExposureMode',
         'title' => 'Exposure Mode',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -885,7 +1137,10 @@ return array (
         'name' => 'WhiteBalance',
         'title' => 'White Balance',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -900,21 +1155,30 @@ return array (
         'name' => 'DigitalZoomRatio',
         'title' => 'Digital Zoom Ratio',
         'components' => 1,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
       41989 =>
       array (
         'name' => 'FocalLengthIn35mmFilm',
         'title' => 'Focal Length In 35mm Film',
         'components' => 1,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
       41990 =>
       array (
         'name' => 'SceneCaptureType',
         'title' => 'Scene Capture Type',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -931,7 +1195,10 @@ return array (
         'name' => 'GainControl',
         'title' => 'Gain Control',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -949,7 +1216,10 @@ return array (
         'name' => 'Contrast',
         'title' => 'Contrast',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -965,7 +1235,10 @@ return array (
         'name' => 'Saturation',
         'title' => 'Saturation',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -981,7 +1254,10 @@ return array (
         'name' => 'Sharpness',
         'title' => 'Sharpness',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -997,14 +1273,16 @@ return array (
         'name' => 'DeviceSettingDescription',
         'title' => 'Device Setting Description',
         'components' => 'Unknown',
-        'format' => 'Unknown',
       ),
       41996 =>
       array (
         'name' => 'SubjectDistanceRange',
         'title' => 'Subject Distance Range',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -1021,14 +1299,20 @@ return array (
         'name' => 'ImageUniqueID',
         'title' => 'Image Unique ID',
         'components' => 32,
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       42240 =>
       array (
         'name' => 'Gamma',
         'title' => 'Gamma',
         'components' => 1,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
     ),
     5 =>
@@ -1043,7 +1327,10 @@ return array (
       array (
         'name' => 'FocalLength',
         'title' => 'Focal Length',
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
       ),
       4 =>
       array (
@@ -1061,49 +1348,69 @@ return array (
       array (
         'name' => 'ImageType',
         'title' => 'Image Type',
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       7 =>
       array (
         'name' => 'FirmwareVersion',
         'title' => 'Firmware Version',
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       8 =>
       array (
         'name' => 'FileNumber',
         'title' => 'File Number',
-        'format' => 'Long',
+        'format' =>
+        array (
+          0 => 4,
+        ),
       ),
       9 =>
       array (
         'name' => 'OwnerName',
         'title' => 'Owner Name',
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       12 =>
       array (
         'name' => 'SerialNumber',
         'title' => 'Serial Number',
-        'format' => 'Long',
+        'format' =>
+        array (
+          0 => 4,
+        ),
       ),
       13 =>
       array (
         'name' => 'CameraInfo',
         'title' => 'Camera Info',
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
       ),
       15 =>
       array (
         'name' => 'CustomFunctions',
         'title' => 'Custom Functions',
-        'format' => 'Ifd',
       ),
       16 =>
       array (
         'name' => 'ModelID',
         'title' => 'Model ID',
-        'format' => 'Long',
+        'format' =>
+        array (
+          0 => 4,
+        ),
       ),
       18 =>
       array (
@@ -1115,103 +1422,150 @@ return array (
       array (
         'name' => 'ThumbnailImageValidArea',
         'title' => 'Thumbnail Image Valid Area',
-        'format' => 'SShort',
+        'format' =>
+        array (
+          0 => 8,
+        ),
       ),
       21 =>
       array (
         'name' => 'Serial Number Format',
         'title' => 'Serial number format',
-        'format' => 'Long',
+        'format' =>
+        array (
+          0 => 4,
+        ),
       ),
       26 =>
       array (
         'name' => 'SuperMacro',
         'title' => 'Super macro',
-        'format' => 'SShort',
+        'format' =>
+        array (
+          0 => 8,
+        ),
       ),
       30 =>
       array (
         'name' => 'FirmwareRevision',
         'title' => 'Firmware Revision',
-        'format' => 'Long',
+        'format' =>
+        array (
+          0 => 4,
+        ),
       ),
       38 =>
       array (
         'name' => 'AFinfo',
         'title' => 'AF info',
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
       ),
       131 =>
       array (
         'name' => 'OriginalDecision Data Offset',
         'title' => 'Original decision data offset',
-        'format' => 'SLong',
+        'format' =>
+        array (
+          0 => 9,
+        ),
       ),
       164 =>
       array (
         'name' => 'WhiteBalanceTable',
         'title' => 'White balance table',
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
       ),
       149 =>
       array (
         'name' => 'LensModel',
         'title' => 'Lens model',
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       150 =>
       array (
         'name' => 'InternalSerialNumber',
         'title' => 'Internal serial number',
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       151 =>
       array (
         'name' => 'DustRemovalData',
         'title' => 'Dust removal data',
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       153 =>
       array (
         'name' => 'CustomFunctions',
         'title' => 'Custom functions',
-        'format' => 'Ifd',
       ),
       160 =>
       array (
         'name' => 'ProcessingInfo',
         'title' => 'Processing info',
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
       ),
       170 =>
       array (
         'name' => 'MeasuredColor',
         'title' => 'Measured color',
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
       ),
       180 =>
       array (
         'name' => 'ColorSpace',
         'title' => 'Color Space',
-        'format' => 'SShort',
+        'format' =>
+        array (
+          0 => 8,
+        ),
       ),
       208 =>
       array (
         'name' => 'VRDOffset',
         'title' => 'VRD offset',
-        'format' => 'Long',
+        'format' =>
+        array (
+          0 => 4,
+        ),
       ),
       224 =>
       array (
         'name' => 'SensorInfo',
         'title' => 'Sensor info',
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
       ),
       16385 =>
       array (
         'name' => 'ColorData',
         'title' => 'Color data',
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
       ),
     ),
     6 =>
@@ -2310,7 +2664,10 @@ return array (
       array (
         'name' => 'WhiteBalanceSetting',
         'title' => 'White Balance Setting',
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2344,7 +2701,10 @@ return array (
       array (
         'name' => 'SlowShutter',
         'title' => 'Slow Shutter',
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2365,7 +2725,10 @@ return array (
       array (
         'name' => 'AFPointUsed',
         'title' => 'AF Point Used',
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2390,7 +2753,10 @@ return array (
       array (
         'name' => 'AutoExposureBracketing',
         'title' => 'Auto Exposure Bracketing',
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2427,7 +2793,10 @@ return array (
       array (
         'name' => 'CameraType',
         'title' => 'Camera Type',
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2443,7 +2812,10 @@ return array (
       array (
         'name' => 'AutoRotate',
         'title' => 'Auto Rotate',
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2459,7 +2831,10 @@ return array (
       array (
         'name' => 'NDFilter',
         'title' => 'ND Filter',
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2481,7 +2856,10 @@ return array (
       array (
         'name' => 'PanoramaDirection',
         'title' => 'Panorama Direction',
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2504,8 +2882,8 @@ return array (
         'components' => 1,
         'format' =>
         array (
-          0 => 'Short',
-          1 => 'Long',
+          0 => 3,
+          1 => 4,
         ),
       ),
       257 =>
@@ -2515,8 +2893,8 @@ return array (
         'components' => 1,
         'format' =>
         array (
-          0 => 'Short',
-          1 => 'Long',
+          0 => 3,
+          1 => 4,
         ),
       ),
       258 =>
@@ -2524,14 +2902,20 @@ return array (
         'name' => 'BitsPerSample',
         'title' => 'Bits per Sample',
         'components' => 3,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
       ),
       259 =>
       array (
         'name' => 'Compression',
         'title' => 'Compression',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2546,7 +2930,10 @@ return array (
         'name' => 'PhotometricInterpretation',
         'title' => 'Photometric Interpretation',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2561,28 +2948,40 @@ return array (
         'name' => 'DocumentName',
         'title' => 'Document Name',
         'components' => 'Any',
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       270 =>
       array (
         'name' => 'ImageDescription',
         'title' => 'Image Description',
         'components' => 'Any',
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       271 =>
       array (
         'name' => 'Make',
         'title' => 'Manufacturer',
         'components' => 'Any',
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       272 =>
       array (
         'name' => 'Model',
         'title' => 'Model',
         'components' => 'Any',
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       273 =>
       array (
@@ -2591,8 +2990,8 @@ return array (
         'components' => 'Any',
         'format' =>
         array (
-          0 => 'Short',
-          1 => 'Long',
+          0 => 3,
+          1 => 4,
         ),
       ),
       274 =>
@@ -2600,7 +2999,10 @@ return array (
         'name' => 'Orientation',
         'title' => 'Orientation',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2621,7 +3023,10 @@ return array (
         'name' => 'SamplesPerPixel',
         'title' => 'Samples per Pixel',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
       ),
       278 =>
       array (
@@ -2630,8 +3035,8 @@ return array (
         'components' => 1,
         'format' =>
         array (
-          0 => 'Short',
-          1 => 'Long',
+          0 => 3,
+          1 => 4,
         ),
       ),
       279 =>
@@ -2641,8 +3046,8 @@ return array (
         'components' => 'Any',
         'format' =>
         array (
-          0 => 'Short',
-          1 => 'Long',
+          0 => 3,
+          1 => 4,
         ),
       ),
       282 =>
@@ -2650,21 +3055,30 @@ return array (
         'name' => 'XResolution',
         'title' => 'x-Resolution',
         'components' => 1,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
       283 =>
       array (
         'name' => 'YResolution',
         'title' => 'y-Resolution',
         'components' => 1,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
       284 =>
       array (
         'name' => 'PlanarConfiguration',
         'title' => 'Planar Configuration',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2679,7 +3093,10 @@ return array (
         'name' => 'ResolutionUnit',
         'title' => 'Resolution Unit',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2694,70 +3111,101 @@ return array (
         'name' => 'TransferFunction',
         'title' => 'Transfer Function',
         'components' => 3,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
       ),
       305 =>
       array (
         'name' => 'Software',
         'title' => 'Software',
         'components' => 'Any',
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       306 =>
       array (
         'name' => 'DateTime',
         'title' => 'Date and Time',
         'components' => 20,
-        'format' => 'Time',
+        'format' =>
+        array (
+          0 => 2,
+        ),
+        'load' => 'PelEntryTime::create',
       ),
       315 =>
       array (
         'name' => 'Artist',
         'title' => 'Artist',
         'components' => 'Any',
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       318 =>
       array (
         'name' => 'WhitePoint',
         'title' => 'White Point',
         'components' => 2,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
       319 =>
       array (
         'name' => 'PrimaryChromaticities',
         'title' => 'Primary Chromaticities',
         'components' => 6,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
       513 =>
       array (
         'name' => 'JPEGInterchangeFormat',
         'title' => 'JPEG Interchange Format',
         'components' => 1,
-        'format' => 'Long',
+        'format' =>
+        array (
+          0 => 4,
+        ),
       ),
       514 =>
       array (
         'name' => 'JPEGInterchangeFormatLength',
         'title' => 'JPEG Interchange Format Length',
         'components' => 1,
-        'format' => 'Long',
+        'format' =>
+        array (
+          0 => 4,
+        ),
       ),
       529 =>
       array (
         'name' => 'YCbCrCoefficients',
         'title' => 'YCbCr Coefficients',
         'components' => 3,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
       530 =>
       array (
         'name' => 'YCbCrSubSampling',
         'title' => 'YCbCr Sub-Sampling',
         'components' => 2,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'decode' => 'PelEntryShort::decodeYCbCrSubSampling',
@@ -2768,7 +3216,10 @@ return array (
         'name' => 'YCbCrPositioning',
         'title' => 'YCbCr Positioning',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2783,28 +3234,41 @@ return array (
         'name' => 'ReferenceBlackWhite',
         'title' => 'Reference Black/White',
         'components' => 6,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
       18246 =>
       array (
         'name' => 'Rating',
         'title' => 'Star Rating',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
       ),
       18249 =>
       array (
         'name' => 'RatingPercent',
         'title' => 'Percent Rating',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
       ),
       33432 =>
       array (
         'name' => 'Copyright',
         'title' => 'Copyright',
         'components' => 'Any',
-        'format' => 'Copyright',
+        'format' =>
+        array (
+          0 => 2,
+        ),
+        'load' => 'PelEntryCopyright::create',
       ),
       34665 =>
       array (
@@ -2823,42 +3287,65 @@ return array (
         'name' => 'WindowsXPTitle',
         'title' => 'Windows XP Title',
         'components' => 'Any',
-        'format' => 'WindowsString',
+        'format' =>
+        array (
+          0 => 1,
+        ),
+        'load' => 'PelEntryWindowsString::create',
       ),
       40092 =>
       array (
         'name' => 'WindowsXPComment',
         'title' => 'Windows XP Comment',
         'components' => 'Any',
-        'format' => 'WindowsString',
+        'format' =>
+        array (
+          0 => 1,
+        ),
+        'load' => 'PelEntryWindowsString::create',
       ),
       40093 =>
       array (
         'name' => 'WindowsXPAuthor',
         'title' => 'Windows XP Author',
         'components' => 'Any',
-        'format' => 'WindowsString',
+        'format' =>
+        array (
+          0 => 1,
+        ),
+        'load' => 'PelEntryWindowsString::create',
       ),
       40094 =>
       array (
         'name' => 'WindowsXPKeywords',
         'title' => 'Windows XP Keywords',
         'components' => 'Any',
-        'format' => 'WindowsString',
+        'format' =>
+        array (
+          0 => 1,
+        ),
+        'load' => 'PelEntryWindowsString::create',
       ),
       40095 =>
       array (
         'name' => 'WindowsXPSubject',
         'title' => 'Windows XP Subject',
         'components' => 'Any',
-        'format' => 'WindowsString',
+        'format' =>
+        array (
+          0 => 1,
+        ),
+        'load' => 'PelEntryWindowsString::create',
       ),
       50341 =>
       array (
         'name' => 'PrintIM',
         'title' => 'Print IM',
         'components' => 'Unknown',
-        'format' => 'Undefined',
+        'format' =>
+        array (
+          0 => 7,
+        ),
       ),
     ),
     1 =>
@@ -2870,8 +3357,8 @@ return array (
         'components' => 1,
         'format' =>
         array (
-          0 => 'Short',
-          1 => 'Long',
+          0 => 3,
+          1 => 4,
         ),
       ),
       257 =>
@@ -2881,8 +3368,8 @@ return array (
         'components' => 1,
         'format' =>
         array (
-          0 => 'Short',
-          1 => 'Long',
+          0 => 3,
+          1 => 4,
         ),
       ),
       258 =>
@@ -2890,14 +3377,20 @@ return array (
         'name' => 'BitsPerSample',
         'title' => 'Bits per Sample',
         'components' => 3,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
       ),
       259 =>
       array (
         'name' => 'Compression',
         'title' => 'Compression',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2912,7 +3405,10 @@ return array (
         'name' => 'PhotometricInterpretation',
         'title' => 'Photometric Interpretation',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2927,28 +3423,40 @@ return array (
         'name' => 'DocumentName',
         'title' => 'Document Name',
         'components' => 'Any',
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       270 =>
       array (
         'name' => 'ImageDescription',
         'title' => 'Image Description',
         'components' => 'Any',
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       271 =>
       array (
         'name' => 'Make',
         'title' => 'Manufacturer',
         'components' => 'Any',
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       272 =>
       array (
         'name' => 'Model',
         'title' => 'Model',
         'components' => 'Any',
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       273 =>
       array (
@@ -2957,8 +3465,8 @@ return array (
         'components' => 'Any',
         'format' =>
         array (
-          0 => 'Short',
-          1 => 'Long',
+          0 => 3,
+          1 => 4,
         ),
       ),
       274 =>
@@ -2966,7 +3474,10 @@ return array (
         'name' => 'Orientation',
         'title' => 'Orientation',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2987,7 +3498,10 @@ return array (
         'name' => 'SamplesPerPixel',
         'title' => 'Samples per Pixel',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
       ),
       278 =>
       array (
@@ -2996,8 +3510,8 @@ return array (
         'components' => 1,
         'format' =>
         array (
-          0 => 'Short',
-          1 => 'Long',
+          0 => 3,
+          1 => 4,
         ),
       ),
       279 =>
@@ -3007,8 +3521,8 @@ return array (
         'components' => 'Any',
         'format' =>
         array (
-          0 => 'Short',
-          1 => 'Long',
+          0 => 3,
+          1 => 4,
         ),
       ),
       282 =>
@@ -3016,21 +3530,30 @@ return array (
         'name' => 'XResolution',
         'title' => 'x-Resolution',
         'components' => 1,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
       283 =>
       array (
         'name' => 'YResolution',
         'title' => 'y-Resolution',
         'components' => 1,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
       284 =>
       array (
         'name' => 'PlanarConfiguration',
         'title' => 'Planar Configuration',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -3045,7 +3568,10 @@ return array (
         'name' => 'ResolutionUnit',
         'title' => 'Resolution Unit',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -3060,70 +3586,101 @@ return array (
         'name' => 'TransferFunction',
         'title' => 'Transfer Function',
         'components' => 3,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
       ),
       305 =>
       array (
         'name' => 'Software',
         'title' => 'Software',
         'components' => 'Any',
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       306 =>
       array (
         'name' => 'DateTime',
         'title' => 'Date and Time',
         'components' => 20,
-        'format' => 'Time',
+        'format' =>
+        array (
+          0 => 2,
+        ),
+        'load' => 'PelEntryTime::create',
       ),
       315 =>
       array (
         'name' => 'Artist',
         'title' => 'Artist',
         'components' => 'Any',
-        'format' => 'Ascii',
+        'format' =>
+        array (
+          0 => 2,
+        ),
       ),
       318 =>
       array (
         'name' => 'WhitePoint',
         'title' => 'White Point',
         'components' => 2,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
       319 =>
       array (
         'name' => 'PrimaryChromaticities',
         'title' => 'Primary Chromaticities',
         'components' => 6,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
       513 =>
       array (
         'name' => 'JPEGInterchangeFormat',
         'title' => 'JPEG Interchange Format',
         'components' => 1,
-        'format' => 'Long',
+        'format' =>
+        array (
+          0 => 4,
+        ),
       ),
       514 =>
       array (
         'name' => 'JPEGInterchangeFormatLength',
         'title' => 'JPEG Interchange Format Length',
         'components' => 1,
-        'format' => 'Long',
+        'format' =>
+        array (
+          0 => 4,
+        ),
       ),
       529 =>
       array (
         'name' => 'YCbCrCoefficients',
         'title' => 'YCbCr Coefficients',
         'components' => 3,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
       530 =>
       array (
         'name' => 'YCbCrSubSampling',
         'title' => 'YCbCr Sub-Sampling',
         'components' => 2,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'decode' => 'PelEntryShort::decodeYCbCrSubSampling',
@@ -3134,7 +3691,10 @@ return array (
         'name' => 'YCbCrPositioning',
         'title' => 'YCbCr Positioning',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -3149,28 +3709,41 @@ return array (
         'name' => 'ReferenceBlackWhite',
         'title' => 'Reference Black/White',
         'components' => 6,
-        'format' => 'Rational',
+        'format' =>
+        array (
+          0 => 5,
+        ),
       ),
       18246 =>
       array (
         'name' => 'Rating',
         'title' => 'Star Rating',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
       ),
       18249 =>
       array (
         'name' => 'RatingPercent',
         'title' => 'Percent Rating',
         'components' => 1,
-        'format' => 'Short',
+        'format' =>
+        array (
+          0 => 3,
+        ),
       ),
       33432 =>
       array (
         'name' => 'Copyright',
         'title' => 'Copyright',
         'components' => 'Any',
-        'format' => 'Copyright',
+        'format' =>
+        array (
+          0 => 2,
+        ),
+        'load' => 'PelEntryCopyright::create',
       ),
       34665 =>
       array (
@@ -3189,42 +3762,65 @@ return array (
         'name' => 'WindowsXPTitle',
         'title' => 'Windows XP Title',
         'components' => 'Any',
-        'format' => 'WindowsString',
+        'format' =>
+        array (
+          0 => 1,
+        ),
+        'load' => 'PelEntryWindowsString::create',
       ),
       40092 =>
       array (
         'name' => 'WindowsXPComment',
         'title' => 'Windows XP Comment',
         'components' => 'Any',
-        'format' => 'WindowsString',
+        'format' =>
+        array (
+          0 => 1,
+        ),
+        'load' => 'PelEntryWindowsString::create',
       ),
       40093 =>
       array (
         'name' => 'WindowsXPAuthor',
         'title' => 'Windows XP Author',
         'components' => 'Any',
-        'format' => 'WindowsString',
+        'format' =>
+        array (
+          0 => 1,
+        ),
+        'load' => 'PelEntryWindowsString::create',
       ),
       40094 =>
       array (
         'name' => 'WindowsXPKeywords',
         'title' => 'Windows XP Keywords',
         'components' => 'Any',
-        'format' => 'WindowsString',
+        'format' =>
+        array (
+          0 => 1,
+        ),
+        'load' => 'PelEntryWindowsString::create',
       ),
       40095 =>
       array (
         'name' => 'WindowsXPSubject',
         'title' => 'Windows XP Subject',
         'components' => 'Any',
-        'format' => 'WindowsString',
+        'format' =>
+        array (
+          0 => 1,
+        ),
+        'load' => 'PelEntryWindowsString::create',
       ),
       50341 =>
       array (
         'name' => 'PrintIM',
         'title' => 'Print IM',
         'components' => 'Unknown',
-        'format' => 'Undefined',
+        'format' =>
+        array (
+          0 => 7,
+        ),
       ),
     ),
   ),
