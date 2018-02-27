@@ -543,6 +543,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
          * First handle tags for which we have a specific PelEntryXXX
          * class.
          */
+throw new \Exception(var_export([$this->type, $tag, PelSpec::getTagLoader($this->type, $tag)], true));
         if (PelSpec::getTagLoader($this->type, $tag) === 'PelEntryTime:create') {
             // DATE_TIME / DATE_TIME_ORIGINAL / DATE_TIME_DIGITIZED
             if ($format != PelFormat::ASCII) {

@@ -50,7 +50,7 @@ class PelSpecTest extends TestCase
 
         // Check getTagFormat.
         $this->assertEquals([PelFormat::UNDEFINED], PelSpec::getTagFormat(2, 0x9286));
-        $this->assertEquals([PelFormat::SHORT], PelSpec::getTagFormat(2, 0xA002));
+        $this->assertEquals([PelFormat::SHORT, PelFormat::LONG], PelSpec::getTagFormat(2, 0xA002));
         $this->assertNull(PelSpec::getTagFormat(7, 0x0002));
 
         // Check getTagTitle.
