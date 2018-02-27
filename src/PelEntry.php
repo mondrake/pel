@@ -130,7 +130,10 @@ abstract class PelEntry
      *
      * @todo
      */
-    abstract public static function createFromData($ifd_id, $tag_id, $data, $format = null, $components = null);
+    public static function createFromData($ifd_id, $tag_id, $data, $format = null, $components = null)
+    {
+        throw new PelException('createFromData() must be implemented.');
+    }
 
     /**
      * Return the tag of this entry.
