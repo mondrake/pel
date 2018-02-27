@@ -539,7 +539,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
     public function newEntryFromData($tag, $format, $components, PelDataWindow $data)
     {
         if ($loader = PelSpec::getTagLoader($this->type, $tag)) {
-            return $loader($this->type, $tag, $data->getBytes(), $format, $components);
+            return $loader($this->type, $tag, $data, $format, $components);
         }
 
         /*
@@ -558,16 +558,6 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                 $v[1] = '';
             }
             return new PelEntryCopyright($v[0], $v[1]);
-        } elseif (PelSpec::getTagLoader($this->type, $tag) === 'PelEntryUserComment::create') {
-            // USER_COMMENT
-            if ($format != PelFormat::UNDEFINED) {
-                throw new PelUnexpectedFormatException($this->type, $tag, $format, PelFormat::UNDEFINED);
-            }
-            if ($data->getSize() < 8) {
-                return new PelEntryUserComment();
-            } else {
-                return new PelEntryUserComment($data->getBytes(8), rtrim($data->getBytes(0, 8)));
-            }
         } elseif (PelSpec::getTagLoader($this->type, $tag) === 'PelEntryWindowsString::create') {
             // XP_TITLE / XP_COMMENT / XP_AUTHOR / XP_KEYWORDS / XP_SUBJECT
             if ($format != PelFormat::BYTE) {

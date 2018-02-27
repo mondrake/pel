@@ -137,7 +137,7 @@ class PelEntryTime extends PelEntryAscii
         $this->setValue($timestamp, $type);
     }
 
-    public static function create($ifd_id, $tag_id, $arguments, $format = null, $components = null)
+    public static function create($ifd_id, $tag_id, $data, $format = null, $components = null)
     {
         if ($format != PelFormat::ASCII) {
             throw new PelUnexpectedFormatException($ifd_id, $tag_id, $format, PelFormat::ASCII);
@@ -146,7 +146,7 @@ class PelEntryTime extends PelEntryAscii
             throw new PelWrongComponentCountException($ifd_id, $tag_id, $components, 20);
         }
         // TODO: handle timezones.
-        $instance = new static($tag_id, $arguments, static::EXIF_STRING);
+        $instance = new static($tag_id, $data->getBytes(0, - 1), static::EXIF_STRING);
         $instance->setIfdType($ifd_id);
         return $instance;
     }

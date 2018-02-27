@@ -102,6 +102,20 @@ class PelEntryUserComment extends PelEntryUndefined
         $this->setValue($comment, $encoding);
     }
 
+    public static function create($ifd_id, $tag_id, $data, $format = null, $components = null)
+    {
+        if ($format != PelFormat::UNDEFINED) {
+            throw new PelUnexpectedFormatException($ifd_id, $tag_id, $format, PelFormat::UNDEFINED);
+        }
+        if ($data->getSize() < 8) {
+            $instance = new static();
+        } else {
+            $instance = new static($data->getBytes(8), rtrim($data->getBytes(0, 8)));
+        }
+        $instance->setIfdType($ifd_id);
+        return $instance;
+    }
+
     /**
      * Set the user comment.
      *
