@@ -538,22 +538,15 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
      */
     public function newEntryFromData($tag, $format, $components, PelDataWindow $data)
     {
+        if (($loader = PelSpec::getTagLoader($this->type, $tag)) && is_callable($loader)) {
+            return $loader($this->type, $tag, $data->getBytes(), $format, $components)
+        }
 
         /*
          * First handle tags for which we have a specific PelEntryXXX
          * class.
          */
-        if (PelSpec::getTagLoader($this->type, $tag) === 'PelEntryTime::create') {
-            // DATE_TIME / DATE_TIME_ORIGINAL / DATE_TIME_DIGITIZED
-            if ($format != PelFormat::ASCII) {
-                throw new PelUnexpectedFormatException($this->type, $tag, $format, PelFormat::ASCII);
-            }
-            if ($components != 20) {
-                throw new PelWrongComponentCountException($this->type, $tag, $components, 20);
-            }
-            // TODO: handle timezones.
-            return new PelEntryTime($tag, $data->getBytes(0, - 1), PelEntryTime::EXIF_STRING);
-        } elseif (PelSpec::getTagLoader($this->type, $tag) === 'PelEntryCopyright::create') {
+        if (PelSpec::getTagLoader($this->type, $tag) === 'PelEntryCopyright::create') {
             // COPYRIGHT
             if ($format != PelFormat::ASCII) {
                 throw new PelUnexpectedFormatException($this->type, $tag, $format, PelFormat::ASCII);
