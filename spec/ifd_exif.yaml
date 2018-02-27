@@ -64,7 +64,7 @@ tags:
         title: 'Exif Version'
         components: 4
         format: Undefined
-        #load: Version
+        load: PelEntryVersion::create
         text:
             decode: PelEntryVersion::decodeExifVersion
     0x9003:
@@ -73,14 +73,14 @@ tags:
         title: 'Date and Time (original)'
         components: 20
         format: Ascii
-        #load: Time
+        load: PelEntryTime::create
     0x9004:
         const: DATE_TIME_DIGITIZED
         name: DateTimeDigitized
         title: 'Date and Time (digitized)'
         components: 20
         format: Ascii
-        #load: Time
+        load: PelEntryTime::create
     0x9010:
         const: OFFSET_TIME
         name: OffsetTime
@@ -261,7 +261,7 @@ tags:
         title: 'User Comment'
         components: Any
         format: Undefined
-        #load: UserComment
+        load: PelEntryUserComment::create
     0x9290:
         const: SUB_SEC_TIME
         name: SubSecTime
@@ -286,7 +286,7 @@ tags:
         title: 'FlashPix Version'
         components: 4
         format: Undefined
-        #load: Version
+        load: PelEntryVersion::create
         text:
             decode: PelEntryVersion::decodeFlashPixVersion
     0xA001:

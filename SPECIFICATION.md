@@ -79,6 +79,7 @@ The TAG entry is identified by the HEX value of the EXIF tag, like `0x0106` in t
 | title      | A string with a description of the TAG. |
 | components | (Optional) An integer describing the exepcted number of data components in the TAG. |
 | format     | (Optional) A string/array of strings identifying the expected data format of the tag. |
+| load       | (Optional) A string identifying a callback to use to create the TAG object instance. If not specified, the default callback for the TAG format will be used. |
 | ifd        | (Optional) If specified, identifies the TAG as a pointer to a sub-IFD, as the string of the relative IFD type.  |
 | text       | (Optional) If specified, instructs PEL to decode the value of the TAG to a text string. This can be done either as a mapping between the value and the text (defined by the `mapping:` array), or by calling a callback method (indicated by the `decode:` key). |
 
