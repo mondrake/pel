@@ -102,7 +102,7 @@ class PelEntryVersion extends PelEntry
         $this->setValue($version);
     }
 
-    public static function create($ifd_id, $tag_id, $data, $format = null, $components = null)
+    public static function createFromData($ifd_id, $tag_id, $data, $format = null, $components = null)
     {
         if ($format != PelFormat::UNDEFINED) {
             throw new PelUnexpectedFormatException($ifd_id, $tag_id, $format, PelFormat::UNDEFINED);
