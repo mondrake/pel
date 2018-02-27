@@ -111,6 +111,27 @@ abstract class PelEntry
     protected $components;
 
     /**
+     * Creates an instance of the entry.
+     *
+     * @todo
+     */
+    public static function create($ifd_id, $tag_id, $arguments) {
+        $class = new \ReflectionClass(static::class);
+        array_unshift($arguments, $tag_id);
+        array_unshift($arguments, $ifd_id);
+        $instance = $class->newInstanceArgs($arguments);
+        $instance->setIfdType($ifd_id);
+        return $instance;
+    }
+
+    /**
+     * Creates an instance of the entry from file data.
+     *
+     * @todo
+     */
+    abstract public static function createFromData($ifd_id, $tag_id, $data, $format = null, $components = null);
+
+    /**
      * Return the tag of this entry.
      *
      * @return int the tag of this entry.
