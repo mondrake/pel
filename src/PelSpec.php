@@ -219,7 +219,7 @@ class PelSpec
         if (strpos('\\', $class) === false) {
             $class = 'lsolesen\\pel\\' . $class;
         }
-        return $class . '::' . $method;
+        return method_exists($class, $method) ? $class . '::' . $method : null;
     }
 
     /**

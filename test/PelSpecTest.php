@@ -49,8 +49,8 @@ class PelSpecTest extends TestCase
         $this->assertFalse(PelSpec::isTagAMakerNotesPointer(0, 0x8769));
 
         // Check getTagLoader.
-        $this->assertEquals('PelEntryUserComment::create', PelSpec::getTagLoader(2, 0x9286));
-        $this->assertEquals('PelEntryTime::create', PelSpec::getTagLoader(2, 0x9003));
+        $this->assertEquals('lsolesen\pel\PelEntryUserComment::create', PelSpec::getTagLoader(2, 0x9286));
+        $this->assertEquals('lsolesen\pel\PelEntryTime::create', PelSpec::getTagLoader(2, 0x9003));
         $this->assertNull(PelSpec::getTagLoader(7, 0x0002));
 
         // Check getTagFormat.
