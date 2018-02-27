@@ -64,7 +64,7 @@ tags:
         title: 'Exif Version'
         components: 4
         format: Undefined
-        load: PelEntryVersion::create
+        class: PelEntryVersion
         text:
             decode: PelEntryVersion::decodeExifVersion
     0x9003:
@@ -73,14 +73,14 @@ tags:
         title: 'Date and Time (original)'
         components: 20
         format: Ascii
-        load: PelEntryTime::create
+        class: PelEntryTime
     0x9004:
         const: DATE_TIME_DIGITIZED
         name: DateTimeDigitized
         title: 'Date and Time (digitized)'
         components: 20
         format: Ascii
-        load: PelEntryTime::create
+        class: PelEntryTime
     0x9010:
         const: OFFSET_TIME
         name: OffsetTime
@@ -254,14 +254,14 @@ tags:
         name: MakerNote
         title: 'Maker Note'
         format: Undefined
-        #load: MakerNotes
+        #class: MakerNotes
     0x9286:
         const: USER_COMMENT
         name: UserComment
         title: 'User Comment'
         components: Any
         format: Undefined
-        load: PelEntryUserComment::create
+        class: PelEntryUserComment
     0x9290:
         const: SUB_SEC_TIME
         name: SubSecTime
@@ -286,7 +286,7 @@ tags:
         title: 'FlashPix Version'
         components: 4
         format: Undefined
-        load: PelEntryVersion::create
+        class: PelEntryVersion
         text:
             decode: PelEntryVersion::decodeFlashPixVersion
     0xA001:

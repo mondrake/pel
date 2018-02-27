@@ -15,21 +15,21 @@ class PelSpec
     private static $map;
 
     /**
-     * The default tag loader methods.
+     * The default tag classes.
      *
      * @var array
      */
-    private static $defaultTagLoaders = [
-        PelFormat::ASCII => 'PelEntryAscii::createFromData',
-        PelFormat::BYTE => 'PelEntryByte::createFromData',
-        PelFormat::SHORT => 'PelEntryShort::createFromData',
-        PelFormat::LONG => 'PelEntryLong::createFromData',
-        PelFormat::RATIONAL => 'PelEntryRational::createFromData',
-        PelFormat::SBYTE => 'PelEntrySByte::createFromData',
-        PelFormat::SSHORT => 'PelEntrySShort::createFromData',
-        PelFormat::SLONG => 'PelEntrySLong::createFromData',
-        PelFormat::SRATIONAL => 'PelEntrySRational::createFromData',
-        PelFormat::UNDEFINED => 'PelEntryUndefined::createFromData',
+    private static $defaultTagClasses = [
+        PelFormat::ASCII => 'PelEntryAscii',
+        PelFormat::BYTE => 'PelEntryByte',
+        PelFormat::SHORT => 'PelEntryShort',
+        PelFormat::LONG => 'PelEntryLong',
+        PelFormat::RATIONAL => 'PelEntryRational',
+        PelFormat::SBYTE => 'PelEntrySByte',
+        PelFormat::SSHORT => 'PelEntrySShort',
+        PelFormat::SLONG => 'PelEntrySLong',
+        PelFormat::SRATIONAL => 'PelEntrySRational',
+        PelFormat::UNDEFINED => 'PelEntryUndefined',
     ];
 
     /**
@@ -218,7 +218,7 @@ class PelSpec
     }
 
     /**
-     * Returns the TAG loader callback.
+     * Returns the TAG class.
      *
      * @param int $ifd_id
      *            the IFD id.
@@ -226,29 +226,28 @@ class PelSpec
      *            the TAG id.
      *
      * @return string
-     *            the TAG loader callback.
+     *            the TAG class.
      */
-    public static function getTagLoader($ifd_id, $tag_id, $format = null)
+    public static function getTagClass($ifd_id, $tag_id, $format = null)
     {
-        // Get the explicitly defined loader method, fallback to default if
+        // Get the explicitly defined tag class, fallback to default if
         // missing.
-        if (!isset(self::getMap()['tags'][$ifd_id][$tag_id]['load'])) {
+        if (!isset(self::getMap()['tags'][$ifd_id][$tag_id]['class'])) {
             if ($format === null) {
                 return null;
             } else {
-                if (!isset(self::$defaultTagLoaders[$format])) {
+                if (!isset(self::$defaultTagClasses[$format])) {
                     return null;
                 }
-                $loader = self::$defaultTagLoaders[$format];
+                $class = self::$defaultTagClasses[$format];
             }
         } else {
-            $loader = self::getMap()['tags'][$ifd_id][$tag_id]['load'];
+            $class = self::getMap()['tags'][$ifd_id][$tag_id]['class'];
         }
-        list($class, $method) = explode('::', $loader);
         if (strpos('\\', $class) === false) {
             $class = 'lsolesen\\pel\\' . $class;
         }
-        return method_exists($class, $method) ? $class . '::' . $method : null;
+        return class_exists($class) ? $class : null;
     }
 
     /**

@@ -156,7 +156,7 @@ tags:
         title: 'Date and Time'
         components: 20
         format: Ascii
-        load: PelEntryTime::create
+        class: PelEntryTime
     0x013B:
         const: ARTIST
         name: Artist
@@ -235,7 +235,7 @@ tags:
         title: Copyright
         components: Any
         format: Ascii
-        load: PelEntryCopyright::create
+        class: PelEntryCopyright
     0x8769:
         const: EXIF_IFD_POINTER
         name: ExifIFDPointer
@@ -252,35 +252,35 @@ tags:
         title: 'Windows XP Title'
         components: Any
         format: Byte
-        load: PelEntryWindowsString::create
+        class: PelEntryWindowsString
     0x9C9C:
         const: WINDOWS_XP_COMMENT
         name: WindowsXPComment
         title: 'Windows XP Comment'
         components: Any
         format: Byte
-        load: PelEntryWindowsString::create
+        class: PelEntryWindowsString
     0x9C9D:
         const: WINDOWS_XP_AUTHOR
         name: WindowsXPAuthor
         title: 'Windows XP Author'
         components: Any
         format: Byte
-        load: PelEntryWindowsString::create
+        class: PelEntryWindowsString
     0x9C9E:
         const: WINDOWS_XP_KEYWORDS
         name: WindowsXPKeywords
         title: 'Windows XP Keywords'
         components: Any
         format: Byte
-        load: PelEntryWindowsString::create
+        class: PelEntryWindowsString
     0x9C9F:
         const: WINDOWS_XP_SUBJECT
         name: WindowsXPSubject
         title: 'Windows XP Subject'
         components: Any
         format: Byte
-        load: PelEntryWindowsString::create
+        class: PelEntryWindowsString
     0xC4A5:
         const: PRINT_IM
         name: PrintIM

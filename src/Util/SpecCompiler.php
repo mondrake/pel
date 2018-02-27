@@ -21,7 +21,7 @@ class SpecCompiler
     /**
      * Map of expected TAG level array keys.
      */
-    private $tagKeys = ['const', 'name', 'title', 'components', 'format', 'load', 'ifd', 'text'];
+    private $tagKeys = ['const', 'name', 'title', 'components', 'format', 'class', 'ifd', 'text'];
 
     /**
      * Map of expected TAG/text level array keys.

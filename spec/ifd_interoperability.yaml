@@ -15,7 +15,7 @@ tags:
         title: 'Interoperability Version'
         components: 4
         format: Undefined
-        load: PelEntryVersion::create
+        class: PelEntryVersion
         text:
             decode: PelEntryVersion::decodeInteroperabilityVersion
     0x1000:
