@@ -81,6 +81,6 @@ class GH16Test extends TestCase
         $tiff = $exif->getTiff();
         $ifd0 = $tiff->getIfd();
         $written_subject = $ifd0->getEntry(PelTag::XP_SUBJECT);
-//        $this->assertEquals($subject, $written_subject->getValue());
+        $this->assertEquals($subject, $written_subject->getValue());
     }
 }
