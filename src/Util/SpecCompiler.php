@@ -184,7 +184,7 @@ DATA;
             }
             $formats = [];
             foreach ($temp as $name) {
-                if (($format[] = PelFormat::getIdFromName($name)) === null) {
+                if (($formats[] = PelFormat::getIdFromName($name)) === null) {
                     throw new SpecCompilerException($file->getFileName() . ": invalid '" . $name . "' format found for TAG '" . $tag['name'] . "'");
                 }
             }
