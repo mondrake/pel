@@ -52,6 +52,6 @@ class GH77Test extends TestCase
         $copyright = $ifd0->getEntry(PelTag::COPYRIGHT);
         $this->assertInstanceOf('lsolesen\pel\PelEntryCopyright', $copyright);
         $this->assertEquals(['Copyright 2016', ''], $copyright->getValue());
-        $this->assertEquals("Canon EOS 5D Mark III", $copyright->getText());
+        $this->assertEquals('Copyright 2016 (Photographer)', $copyright->getText());
     }
 }
