@@ -2,6 +2,7 @@
 
 namespace Pel\Test;
 
+use lsolesen\pel\PelEntry;
 use lsolesen\pel\PelFormat;
 use lsolesen\pel\PelSpec;
 use PHPUnit\Framework\TestCase;
