@@ -123,7 +123,7 @@ class PelEntryVersion extends PelEntry
         if ($format != PelFormat::UNDEFINED) {
             throw new PelUnexpectedFormatException($ifd_id, $tag_id, $format, PelFormat::UNDEFINED);
         }
-        return static::createInstance($ifd_id, $tag_id, [$data->getBytes() / 100]);
+        return [$data->getBytes() / 100];
     }
 
     /**

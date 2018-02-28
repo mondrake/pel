@@ -141,7 +141,7 @@ class PelEntryCopyright extends PelEntryAscii
             // when not in strict mode, set empty copyright and continue
             $v[1] = '';
         }
-        return static::createInstance($ifd_id, $tag_id, [$v[0], $v[1]]);
+        return [$v[0], $v[1]];
     }
 
     /**

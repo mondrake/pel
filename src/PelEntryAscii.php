@@ -96,13 +96,11 @@ class PelEntryAscii extends PelEntry
         // cut off string after the first nul byte
         $canonicalString = strstr($data->getBytes(0), "\0", true);
         if ($canonicalString !== false) {
-            $instance = new static($tag_id, $canonicalString);
+            return [$canonicalString];
         } else {
             // TODO throw exception if string isn't nul-terminated
-            $instance = new static($tag_id, $data->getBytes(0));
+            return [$data->getBytes(0)];
         }
-        $instance->setIfdType($ifd_id);
-        return $instance;
     }
 
     /**
