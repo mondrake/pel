@@ -70,8 +70,11 @@ class PelSpecTest extends TestCase
      *
      * @dataProvider getTagTextProvider
      */
-    public function testGetTagText($expected_text, $expected_class, $entry, $brief)
+    public function testGetTagText($expected_text, $expected_class, $ifd, $tag, array $args, $brief = false)
     {
+        $ifd_id = PelSpec::getIfdIdByType($ifd);
+        $tag_id = PelSpec::getTagIdByName($ifd_id, $tag);
+        $entry = PelEntry::createNew($ifd_id, $tag_id, $args);
         $this->assertInstanceOf($expected_class, $entry);
         $this->assertEquals($expected_text, PelSpec::getTagText($entry, $brief));
     }
@@ -81,7 +84,7 @@ class PelSpecTest extends TestCase
      */
     public function getTagTextProvider()
     {
-        $tests = [
+        return [
           'IFD0/PlanarConfiguration - value 1' => [
               'chunky format', 'lsolesen\pel\PelEntryShort', 'IFD0', 'PlanarConfiguration', [1],
           ],
@@ -194,14 +197,5 @@ class PelSpecTest extends TestCase
               'Directly photographed', 'lsolesen\pel\PelEntryUndefined', 'Exif', 'SceneType', ["\x01"],
           ],
         ];
-
-        $ret = [];
-        foreach ($tests as $id => $data) {
-            $ifd_id = PelSpec::getIfdIdByType($data[2]);
-            $tag_id = PelSpec::getTagIdByName($ifd_id, $data[3]);
-            $entry = PelEntry::createNew($ifd_id, $tag_id, $data[4]);
-            $ret[$id] = [$data[0], $data[1], $entry, isset($data[5]) ? $data[5] : false];
-        }
-        return $ret;
     }
 }
