@@ -69,8 +69,9 @@ class PelSpecTest extends TestCase
      *
      * @dataProvider getTagTextProvider
      */
-    public function testGetTagText($expected, $entry, $brief)
+    public function testGetTagText($expected_text, $expected_class, $entry, $brief)
     {
+        $this->assertInstanceOf($expected_class, $entry);
         $this->assertEquals($expected, PelSpec::getTagText($entry, $brief));
     }
 
@@ -197,11 +198,8 @@ class PelSpecTest extends TestCase
         foreach ($tests as $id => $data) {
             $ifd_id = PelSpec::getIfdIdByType($data[2]);
             $tag_id = PelSpec::getTagIdByName($ifd_id, $data[3]);
-            $class = new \ReflectionClass($data[1]);
-            array_unshift($data[4], $tag_id);
-            $entry = $class->newInstanceArgs($data[4]);
-            $entry->setIfdType($ifd_id);
-            $ret[$id] = [$data[0], $entry, isset($data[5]) ? $data[5] : false];
+            $entry = PelEntry::createNew($ifd_id, $tag_id, $data[4]);
+            $ret[$id] = [$data[0], $data[1], $entry, isset($data[5]) ? $data[5] : false];
         }
         return $ret;
     }

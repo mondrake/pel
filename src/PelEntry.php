@@ -111,6 +111,19 @@ abstract class PelEntry
     protected $components;
 
     /**
+     * Creates a new PelEntry of the required subclass.
+     *
+     * @todo
+     */
+    final public static function createNew($ifd_id, $tag_id, $arguments)
+    {
+        if ($class = PelSpec::getTagClass($ifd_id, $tag_id)) {
+            return call_user_func($class . '::createInstance', $ifd_id, $tag_id, $arguments);
+        }
+        // @todo throw new PelException('Unsupported format: %s', PelFormat::getName($format));
+    }
+
+    /**
      * Creates a PelEntry of the required subclass from file data.
      *
      * @todo
