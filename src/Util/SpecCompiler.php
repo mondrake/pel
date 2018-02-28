@@ -28,6 +28,9 @@ class SpecCompiler
      */
     private $tagTextKeys = ['mapping', 'decode'];
 
+    /** @var string */
+    private $defaultNamespace;
+
     /** @var Filesystem */
     private $fs;
 
@@ -44,11 +47,14 @@ class SpecCompiler
     /**
      * Constructs a SpecCompiler object.
      *
+     * @param string $defaultNamespace
+     *            the default PHP namespace of Pel classes.
      * @param Finder $finder
      * @param Filesystem $fs
      */
-    public function __construct(Finder $finder = null, Filesystem $fs = null)
+    public function __construct($defaultNamespace, Finder $finder = null, Filesystem $fs = null)
     {
+        $this->defaultNamespace = $defaultNamespace;
         $this->finder = $finder ? $finder : new Finder();
         $this->fs = $fs ? $fs : new Filesystem();
     }
@@ -191,11 +197,27 @@ DATA;
             $tag['format'] = $formats;
         }
 
+        // Fully qualifies the class name.
+        if (isset($tag['class'])) {
+            if (strpos('\\', $tag['class']) === false) {
+                $tag['class'] = $this->defaultNamespace . $tag['class'];
+            }
+        }
+
         // Check validity of TAG/text keys.
         if (isset($tag['text'])) {
             $diff = array_diff(array_keys($tag['text']), $this->tagTextKeys);
             if (!empty($diff)) {
                 throw new SpecCompilerException($file->getFileName() . ": invalid key(s) found for TAG '" . $tag['name'] . ".text' - " . implode(", ", $diff));
+            }
+
+            // Fully qualifies the decode method.
+            if (isset($tag['text']['decode'])) {
+                list($class, $method) = explode('::', $tag['text']['decode']);
+                if (strpos('\\', $class) === false) {
+                    $class = $this->defaultNamespace . $class;
+                }
+                $tag['text']['decode'] = $class . '::' . $method
             }
         }
 

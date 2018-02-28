@@ -244,9 +244,6 @@ class PelSpec
         } else {
             $class = self::getMap()['tags'][$ifd_id][$tag_id]['class'];
         }
-        if (strpos('\\', $class) === false) {
-            $class = 'lsolesen\\pel\\' . $class;
-        }
         return class_exists($class) ? $class : null;
     }
 
@@ -290,11 +287,7 @@ class PelSpec
         // Return a text from a callback if defined.
         if (isset(self::getMap()['tags'][$ifd_id][$tag_id]['text']['decode'])) {
             $decode = self::getMap()['tags'][$ifd_id][$tag_id]['text']['decode'];
-            list($class, $method) = explode('::', $decode);
-            if (strpos('\\', $class) === false) {
-                $class = 'lsolesen\\pel\\' . $class;
-            }
-            return call_user_func($class . '::' . $method, $entry, $brief);
+            return call_user_func($decode, $entry, $brief);
         }
 
         // Return a text from a mapping list if defined.
