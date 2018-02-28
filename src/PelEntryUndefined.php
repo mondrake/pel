@@ -79,9 +79,7 @@ class PelEntryUndefined extends PelEntry
 
     public static function getInstanceArgumentsFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
     {
-        $instance = new static($tag_id, $data->getBytes());
-        $instance->setIfdType($ifd_id);
-        return $instance;
+        return [$data->getBytes()];
     }
 
     /**

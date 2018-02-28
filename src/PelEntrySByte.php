@@ -82,12 +82,11 @@ class PelEntrySByte extends PelEntryNumber
 
     public static function getInstanceArgumentsFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
     {
-        $instance = new static($tag_id);
+        $args = [];
         for ($i = 0; $i < $components; $i ++) {
-            $instance->addNumber($data->getSByte($i));
+            $args[] = $data->getSByte($i);
         }
-        $instance->setIfdType($ifd_id);
-        return $instance;
+        return $args;
     }
 
     /**

@@ -84,12 +84,11 @@ class PelEntrySRational extends PelEntrySLong
 
     public static function getInstanceArgumentsFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
     {
-        $instance = new static($tag_id);
+        $args = [];
         for ($i = 0; $i < $components; $i ++) {
-            $instance->addNumber($data->getSRational($i * 8));
+            $args[] = $data->getSRational($i * 8);
         }
-        $instance->setIfdType($ifd_id);
-        return $instance;
+        return $args;
     }
 
     /**
