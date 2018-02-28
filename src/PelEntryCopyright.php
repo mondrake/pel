@@ -107,7 +107,7 @@ class PelEntryCopyright extends PelEntryAscii
      *
      * @todo
      */
-    public static function create($ifd_id, $tag_id, $arguments)
+    public static function createInstance($ifd_id, $tag_id, $arguments)
     {
         $instance = new static($arguments[0], $arguments[1]);
         $instance->setIfdType($ifd_id);
@@ -121,16 +121,16 @@ class PelEntryCopyright extends PelEntryAscii
      *            the IFD id.
      * @param int $tag_id
      *            the TAG id.
-     * @param PelDataWindow $data
-     *            the data which will be used to construct the entry.
      * @param int $format
      *            the format of the entry as defined in {@link PelFormat}.
      * @param int $components
      *            the components in the entry.
+     * @param PelDataWindow $data
+     *            the data which will be used to construct the entry.
      *
      * @return PelEntry a newly created entry, holding the data given.
      */
-    public static function createFromData($ifd_id, $tag_id, $data, $format = null, $components = null)
+    public static function createFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
     {
         if ($format != PelFormat::ASCII) {
             throw new PelUnexpectedFormatException($ifd_id, $tag_id, $format, PelFormat::ASCII);
@@ -141,7 +141,7 @@ class PelEntryCopyright extends PelEntryAscii
             // when not in strict mode, set empty copyright and continue
             $v[1] = '';
         }
-        return static::create($ifd_id, $tag_id, [$v[0], $v[1]]);
+        return static::createInstance($ifd_id, $tag_id, [$v[0], $v[1]]);
     }
 
     /**

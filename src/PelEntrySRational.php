@@ -82,7 +82,7 @@ class PelEntrySRational extends PelEntrySLong
         $this->setValueArray($value);
     }
 
-    public static function createFromData($ifd_id, $tag_id, $data, $format = null, $components = null)
+    public static function createFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
     {
         $instance = new static($tag_id);
         for ($i = 0; $i < $components; $i ++) {

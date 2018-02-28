@@ -115,7 +115,7 @@ abstract class PelEntry
      *
      * @todo
      */
-    public static function create($ifd_id, $tag_id, $arguments)
+    public static function createInstance($ifd_id, $tag_id, $arguments)
     {
         $class = new \ReflectionClass(get_called_class());
         array_unshift($arguments, $tag_id);
@@ -129,7 +129,7 @@ abstract class PelEntry
      *
      * @todo
      */
-    public static function createFromData($ifd_id, $tag_id, $data, $format = null, $components = null)
+    public static function createFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
     {
         throw new PelException('createFromData() must be implemented.');
     }

@@ -539,7 +539,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
     public function newEntryFromData($tag, $format, $components, PelDataWindow $data)
     {
         if ($class = PelSpec::getTagClass($this->type, $tag, $format)) {
-            return call_user_func($class . '::createFromData', $this->type, $tag, $data, $format, $components);
+            return call_user_func($class . '::createFromData', $this->type, $tag, $format, $components, $data);
         }
         throw new PelException('Unsupported format: %s', PelFormat::getName($format));
     }
