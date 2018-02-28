@@ -427,8 +427,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
         }
 
         try {
-            $entry = $this->newEntryFromData($tag, $format, $components, $data);
-            $this->addEntry($entry);
+            $this->addEntry(PelEntry::createFromData($this->type, $tag, $format, $components, $data));
         } catch (PelException $e) {
             /*
              * Throw the exception when running in strict mode, store
@@ -484,8 +483,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
         }
 
         try {
-            $entry = $this->newEntryFromData($i + 1, $format, 1, $subdata);
-            $this->addEntry($entry);
+            $this->addEntry(PelEntry::createFromData($this->type, $i + 1, $format, 1, $subdata));
         } catch (PelException $e) {
             /*
             * Throw the exception when running in strict mode, store
@@ -535,6 +533,8 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
      *            entry.
      *
      * @return PelEntry a newly created entry, holding the data given.
+     *
+     * @deprecated Use PelEntry::createFromData instead.
      */
     public function newEntryFromData($tag, $format, $components, PelDataWindow $data)
     {
