@@ -125,13 +125,13 @@ abstract class PelEntry
     }
 
     /**
-     * Creates an instance of the entry from file data.
+     * Get arguments for the instance constructor from file data.
      *
      * @todo
      */
-    public static function createFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
+    public static function getInstanceArgumentsFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
     {
-        throw new PelException('createFromData() must be implemented.');
+        throw new PelException('getInstanceArgumentsFromData() must be implemented.');
     }
 
     /**

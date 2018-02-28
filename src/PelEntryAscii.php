@@ -91,7 +91,7 @@ class PelEntryAscii extends PelEntry
         self::setValue($str);
     }
 
-    public static function createFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
+    public static function getInstanceArgumentsFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
     {
         // cut off string after the first nul byte
         $canonicalString = strstr($data->getBytes(0), "\0", true);

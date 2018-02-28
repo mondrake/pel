@@ -109,7 +109,7 @@ class PelEntryWindowsString extends PelEntry
     }
 
     /**
-     * Creates an instance of the entry from file data.
+     * Get arguments for the instance constructor from file data.
      *
      * @param int $ifd_id
      *            the IFD id.
@@ -124,7 +124,7 @@ class PelEntryWindowsString extends PelEntry
      *
      * @return PelEntry a newly created entry, holding the data given.
      */
-    public static function createFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
+    public static function getInstanceArgumentsFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
     {
         if ($format != PelFormat::BYTE) {
             throw new PelUnexpectedFormatException($ifd_id, $tag_id, $format, PelFormat::BYTE);

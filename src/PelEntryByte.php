@@ -80,7 +80,7 @@ class PelEntryByte extends PelEntryNumber
         $this->setValueArray($value);
     }
 
-    public static function createFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
+    public static function getInstanceArgumentsFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
     {
         $instance = new static($tag_id);
         for ($i = 0; $i < $components; $i ++) {

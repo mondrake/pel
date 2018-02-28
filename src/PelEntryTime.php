@@ -138,7 +138,7 @@ class PelEntryTime extends PelEntryAscii
     }
 
     /**
-     * Creates an instance of the entry from file data.
+     * Get arguments for the instance constructor from file data.
      *
      * @param int $ifd_id
      *            the IFD id.
@@ -153,7 +153,7 @@ class PelEntryTime extends PelEntryAscii
      *
      * @return PelEntry a newly created entry, holding the data given.
      */
-    public static function createFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
+    public static function getInstanceArgumentsFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
     {
         if ($format != PelFormat::ASCII) {
             throw new PelUnexpectedFormatException($ifd_id, $tag_id, $format, PelFormat::ASCII);
