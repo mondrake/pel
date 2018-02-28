@@ -217,7 +217,7 @@ DATA;
                 if (strpos('\\', $class) === false) {
                     $class = $this->defaultNamespace . $class;
                 }
-                $tag['text']['decode'] = $class . '::' . $method
+                $tag['text']['decode'] = $class . '::' . $method;
             }
         }
 
