@@ -73,7 +73,7 @@ class PelSpecTest extends TestCase
     public function testGetTagText($expected_text, $expected_class, $entry, $brief)
     {
         $this->assertInstanceOf($expected_class, $entry);
-        $this->assertEquals($expected, PelSpec::getTagText($entry, $brief));
+        $this->assertEquals($expected_text, PelSpec::getTagText($entry, $brief));
     }
 
     /**
