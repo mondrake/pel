@@ -49,11 +49,6 @@ class PelSpecTest extends TestCase
         $this->assertTrue(PelSpec::isTagAMakerNotesPointer(2, 0x927C));
         $this->assertFalse(PelSpec::isTagAMakerNotesPointer(0, 0x8769));
 
-        // Check getTagClass.
-        $this->assertEquals('lsolesen\pel\PelEntryUserComment', PelSpec::getTagClass(2, 0x9286));
-        $this->assertEquals('lsolesen\pel\PelEntryTime', PelSpec::getTagClass(2, 0x9003));
-        $this->assertNull(PelSpec::getTagClass(7, 0x0003));
-
         // Check getTagFormat.
         $this->assertEquals([PelFormat::UNDEFINED], PelSpec::getTagFormat(2, 0x9286));
         $this->assertEquals([PelFormat::SHORT, PelFormat::LONG], PelSpec::getTagFormat(2, 0xA002));
@@ -63,6 +58,25 @@ class PelSpecTest extends TestCase
         $this->assertEquals('Exif IFD Pointer', PelSpec::getTagTitle(0, 0x8769));
         $this->assertEquals('Exposure Time', PelSpec::getTagTitle(2, 0x829A));
         $this->assertEquals('Compression', PelSpec::getTagTitle(0, 0x0103));
+    }
+
+    /**
+     * Tests the PelSpec::getTagClass method.
+     */
+    public function testGetTagClass()
+    {
+        $this->assertEquals('lsolesen\pel\PelEntryUserComment', PelSpec::getTagClass(2, 0x9286));
+        $this->assertEquals('lsolesen\pel\PelEntryTime', PelSpec::getTagClass(2, 0x9003));
+        //@todo drop the else part once PHP < 5.6 (hence PHPUnit 4.8.36) support is removed.
+        //@todo change below to PelException::class once PHP 5.4 support is removed.
+        if (method_exists($this, 'expectException')) {
+            $this->expectException('lsolesen\pel\PelException');
+            $this->expectExceptionMessage("No format can be derived for tag: 'MeasuredEV' in ifd: 'Canon Shot Information'");
+        } else {
+            $this->setExpectedException('lsolesen\pel\PelException', "No format can be derived for tag: 'MeasuredEV' in ifd: 'Canon Shot Information'");
+        }
+        $this->assertNull(PelSpec::getTagClass(7, 0x0003));
+
     }
 
     /**
