@@ -239,7 +239,7 @@ class PelSpec
         if ($format === null) {
             $formats = self::getTagFormat($ifd_id, $tag_id);
             if (empty($formats)) {
-                throw new PelException('No format can be derived for tag: \'%s\' in ifd: \'$s\'', self::getTagName($ifd_id, $tag_id), self::getIfdType($ifd_id));
+                throw new PelException('No format can be derived for tag: \'%s\' in ifd: \'%s\'', self::getTagName($ifd_id, $tag_id), self::getIfdType($ifd_id));
             }
             $format = $formats[0];
         }
