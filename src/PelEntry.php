@@ -117,6 +117,7 @@ abstract class PelEntry
      */
     final public static function createNew($ifd_id, $tag_id, $arguments)
     {
+        $class = PelSpec::getTagClass($ifd_id, $tag_id);
         return call_user_func($class . '::createInstance', $ifd_id, $tag_id, $arguments);
     }
 
@@ -127,6 +128,7 @@ abstract class PelEntry
      */
     final public static function createFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
     {
+        $class = PelSpec::getTagClass($ifd_id, $tag_id);
         $arguments = call_user_func($class . '::getInstanceArgumentsFromData', $ifd_id, $tag_id, $format, $components, $data);
         return call_user_func($class . '::createInstance', $ifd_id, $tag_id, $arguments);
     }
