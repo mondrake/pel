@@ -52,7 +52,7 @@ class PelSpecTest extends TestCase
         // Check getTagFormat.
         $this->assertEquals([PelFormat::UNDEFINED], PelSpec::getTagFormat(2, 0x9286));
         $this->assertEquals([PelFormat::SHORT, PelFormat::LONG], PelSpec::getTagFormat(2, 0xA002));
-        $this->assertNull(PelSpec::getTagFormat(7, 0x0002));
+        $this->assertNull(PelSpec::getTagFormat(7, 0x0003));
 
         // Check getTagTitle.
         $this->assertEquals('Exif IFD Pointer', PelSpec::getTagTitle(0, 0x8769));
@@ -76,7 +76,6 @@ class PelSpecTest extends TestCase
             $this->setExpectedException('lsolesen\pel\PelException', "No format can be derived for tag: 'MeasuredEV' in ifd: 'Canon Shot Information'");
         }
         $this->assertNull(PelSpec::getTagClass(7, 0x0003));
-
     }
 
     /**
