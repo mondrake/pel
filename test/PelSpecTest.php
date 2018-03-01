@@ -140,10 +140,10 @@ class PelSpecTest extends TestCase
               '2.6 mm', 'lsolesen\pel\PelEntryRational', 'Exif', 'FocalLength', [[26, 10]],
           ],
           'Exif/SubjectDistance - value 60, 10' => [
-              '6.0 m', 'lsolesen\pel\PelEntryRational', 'Exif', 'SubjectDistance', [[60, 10]],
+              '6.0 m', 'lsolesen\pel\PelEntrySRational', 'Exif', 'SubjectDistance', [[60, 10]],
           ],
           'Exif/SubjectDistance - value 26, 10' => [
-              '2.6 m', 'lsolesen\pel\PelEntryRational', 'Exif', 'SubjectDistance', [[26, 10]],
+              '2.6 m', 'lsolesen\pel\PelEntrySRational', 'Exif', 'SubjectDistance', [[26, 10]],
           ],
           'Exif/ExposureTime - value 60, 10' => [
               '6 sec.', 'lsolesen\pel\PelEntryRational', 'Exif', 'ExposureTime', [[60, 10]],
