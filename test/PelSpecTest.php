@@ -52,7 +52,7 @@ class PelSpecTest extends TestCase
         // Check getTagClass.
         $this->assertEquals('lsolesen\pel\PelEntryUserComment', PelSpec::getTagClass(2, 0x9286));
         $this->assertEquals('lsolesen\pel\PelEntryTime', PelSpec::getTagClass(2, 0x9003));
-        $this->assertNull(PelSpec::getTagClass(7, 0x0002));
+        $this->assertNull(PelSpec::getTagClass(7, 0x0003));
 
         // Check getTagFormat.
         $this->assertEquals([PelFormat::UNDEFINED], PelSpec::getTagFormat(2, 0x9286));
