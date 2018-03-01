@@ -122,7 +122,8 @@ class PelEntryWindowsString extends PelEntry
      * @param PelDataWindow $data
      *            the data which will be used to construct the entry.
      *
-     * @return PelEntry a newly created entry, holding the data given.
+     * @return array a list or arguments to be passed to the PelEntry subclass
+     *            constructor.
      */
     public static function getInstanceArgumentsFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
     {

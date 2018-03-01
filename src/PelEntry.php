@@ -113,9 +113,17 @@ abstract class PelEntry
     /**
      * Creates a new PelEntry of the required subclass.
      *
-     * @todo
+     * @param int $ifd_id
+     *            the IFD id.
+     * @param int $tag_id
+     *            the TAG id.
+     * @param array $arguments
+     *            a list or arguments to be passed to the PelEntry subclass
+     *            constructor.
+     *
+     * @return PelEntry a newly created entry, holding the data given.
      */
-    final public static function createNew($ifd_id, $tag_id, $arguments)
+    final public static function createNew($ifd_id, $tag_id, array $arguments)
     {
         $class = PelSpec::getTagClass($ifd_id, $tag_id);
         return call_user_func($class . '::createInstance', $ifd_id, $tag_id, $arguments);
@@ -124,7 +132,19 @@ abstract class PelEntry
     /**
      * Creates a PelEntry of the required subclass from file data.
      *
-     * @todo
+     *
+     * @param int $ifd_id
+     *            the IFD id.
+     * @param int $tag_id
+     *            the TAG id.
+     * @param int $format
+     *            the format of the entry as defined in {@link PelFormat}.
+     * @param int $components
+     *            the components in the entry.
+     * @param PelDataWindow $data
+     *            the data which will be used to construct the entry.
+     *
+     * @return PelEntry a newly created entry, holding the data given.
      */
     final public static function createFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
     {
@@ -136,7 +156,15 @@ abstract class PelEntry
     /**
      * Creates an instance of the entry.
      *
-     * @todo
+     * @param int $ifd_id
+     *            the IFD id.
+     * @param int $tag_id
+     *            the TAG id.
+     * @param array $arguments
+     *            a list or arguments to be passed to the PelEntry subclass
+     *            constructor.
+     *
+     * @return PelEntry a newly created entry, holding the data given.
      */
     public static function createInstance($ifd_id, $tag_id, $arguments)
     {
@@ -150,7 +178,19 @@ abstract class PelEntry
     /**
      * Get arguments for the instance constructor from file data.
      *
-     * @todo
+     * @param int $ifd_id
+     *            the IFD id.
+     * @param int $tag_id
+     *            the TAG id.
+     * @param int $format
+     *            the format of the entry as defined in {@link PelFormat}.
+     * @param int $components
+     *            the components in the entry.
+     * @param PelDataWindow $data
+     *            the data which will be used to construct the entry.
+     *
+     * @return array a list or arguments to be passed to the PelEntry subclass
+     *            constructor.
      */
     public static function getInstanceArgumentsFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
     {

@@ -105,7 +105,15 @@ class PelEntryCopyright extends PelEntryAscii
     /**
      * Creates an instance of the entry.
      *
-     * @todo
+     * @param int $ifd_id
+     *            the IFD id.
+     * @param int $tag_id
+     *            the TAG id.
+     * @param array $arguments
+     *            a list or arguments to be passed to the PelEntry subclass
+     *            constructor.
+     *
+     * @return PelEntry a newly created entry, holding the data given.
      */
     public static function createInstance($ifd_id, $tag_id, $arguments)
     {
@@ -128,7 +136,8 @@ class PelEntryCopyright extends PelEntryAscii
      * @param PelDataWindow $data
      *            the data which will be used to construct the entry.
      *
-     * @return PelEntry a newly created entry, holding the data given.
+     * @return array a list or arguments to be passed to the PelEntry subclass
+     *            constructor.
      */
     public static function getInstanceArgumentsFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
     {
