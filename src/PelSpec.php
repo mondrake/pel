@@ -20,16 +20,16 @@ class PelSpec
      * @var array
      */
     private static $defaultTagClasses = [
-        PelFormat::ASCII => 'PelEntryAscii',
-        PelFormat::BYTE => 'PelEntryByte',
-        PelFormat::SHORT => 'PelEntryShort',
-        PelFormat::LONG => 'PelEntryLong',
-        PelFormat::RATIONAL => 'PelEntryRational',
-        PelFormat::SBYTE => 'PelEntrySByte',
-        PelFormat::SSHORT => 'PelEntrySShort',
-        PelFormat::SLONG => 'PelEntrySLong',
-        PelFormat::SRATIONAL => 'PelEntrySRational',
-        PelFormat::UNDEFINED => 'PelEntryUndefined',
+        PelFormat::ASCII => 'lsolesen\\pel\\PelEntryAscii',
+        PelFormat::BYTE => 'lsolesen\\pel\\PelEntryByte',
+        PelFormat::SHORT => 'lsolesen\\pel\\PelEntryShort',
+        PelFormat::LONG => 'lsolesen\\pel\\PelEntryLong',
+        PelFormat::RATIONAL => 'lsolesen\\pel\\PelEntryRational',
+        PelFormat::SBYTE => 'lsolesen\\pel\\PelEntrySByte',
+        PelFormat::SSHORT => 'lsolesen\\pel\\PelEntrySShort',
+        PelFormat::SLONG => 'lsolesen\\pel\\PelEntrySLong',
+        PelFormat::SRATIONAL => 'lsolesen\\pel\\PelEntrySRational',
+        PelFormat::UNDEFINED => 'lsolesen\\pel\\PelEntryUndefined',
     ];
 
     /**
@@ -230,21 +230,24 @@ class PelSpec
      */
     public static function getTagClass($ifd_id, $tag_id, $format = null)
     {
-        // Get the explicitly defined tag class, fallback to default if
-        // missing.
-        if (!isset(self::getMap()['tags'][$ifd_id][$tag_id]['class'])) {
-            if ($format === null) {
-                return null;
-            } else {
-                if (!isset(self::$defaultTagClasses[$format])) {
-                    return null;
-                }
-                $class = self::$defaultTagClasses[$format];
-            }
-        } else {
-            $class = self::getMap()['tags'][$ifd_id][$tag_id]['class'];
+        // Return the specific tag class, if defined.
+        if (isset(self::getMap()['tags'][$ifd_id][$tag_id]['class'])) {
+            return self::getMap()['tags'][$ifd_id][$tag_id]['class'];
         }
-        return class_exists($class) ? $class : null;
+
+        // If format is not passed in, try getting it from the spec.
+        if ($format === null) {
+            $formats = self::getTagFormat($ifd_id, $tag_id);
+            if (empty($formats)) {
+                throw new PelException('No format can be derived for tag: \'%s\' in ifd: \'$s\'', self::getTagName($tag_id), self::getIfdType($ifd_id));
+            }
+            $format = $formats[0];
+        }
+
+        if (!isset(self::$defaultTagClasses[$format])) {
+            throw new PelException('Unsupported format: %s', PelFormat::getName($format));
+        }
+        return self::$defaultTagClasses[$format];
     }
 
     /**

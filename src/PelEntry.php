@@ -117,11 +117,7 @@ abstract class PelEntry
      */
     final public static function createNew($ifd_id, $tag_id, $arguments)
     {
-        if ($class = PelSpec::getTagClass($ifd_id, $tag_id)) {
-throw new \Exception($class);
-            return call_user_func($class . '::createInstance', $ifd_id, $tag_id, $arguments);
-        }
-        // @todo throw new PelException('Unsupported format: %s', PelFormat::getName($format));
+        return call_user_func($class . '::createInstance', $ifd_id, $tag_id, $arguments);
     }
 
     /**
@@ -131,11 +127,8 @@ throw new \Exception($class);
      */
     final public static function createFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
     {
-        if ($class = PelSpec::getTagClass($ifd_id, $tag_id, $format)) {
-            $arguments = call_user_func($class . '::getInstanceArgumentsFromData', $ifd_id, $tag_id, $format, $components, $data);
-            return call_user_func($class . '::createInstance', $ifd_id, $tag_id, $arguments);
-        }
-        throw new PelException('Unsupported format: %s', PelFormat::getName($format));
+        $arguments = call_user_func($class . '::getInstanceArgumentsFromData', $ifd_id, $tag_id, $format, $components, $data);
+        return call_user_func($class . '::createInstance', $ifd_id, $tag_id, $arguments);
     }
 
     /**
