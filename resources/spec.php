@@ -94,10 +94,10 @@ return array (
         array (
           0 => 7,
         ),
-        'load' => 'PelEntryVersion::create',
+        'class' => 'lsolesen\\pel\\PelEntryVersion',
         'text' =>
         array (
-          'decode' => 'PelEntryVersion::decodeInteroperabilityVersion',
+          'decode' => 'lsolesen\\pel\\PelEntryVersion::decodeInteroperabilityVersion',
         ),
       ),
       4096 =>
@@ -164,7 +164,7 @@ return array (
         ),
         'text' =>
         array (
-          'decode' => 'PelEntryRational::decodeGPSLatitude',
+          'decode' => 'lsolesen\\pel\\PelEntryRational::decodeGPSLatitude',
         ),
       ),
       3 =>
@@ -188,7 +188,7 @@ return array (
         ),
         'text' =>
         array (
-          'decode' => 'PelEntryRational::decodeGPSLongitude',
+          'decode' => 'lsolesen\\pel\\PelEntryRational::decodeGPSLongitude',
         ),
       ),
       5 =>
@@ -475,7 +475,7 @@ return array (
         ),
         'text' =>
         array (
-          'decode' => 'PelEntryRational::decodeExposureTime',
+          'decode' => 'lsolesen\\pel\\PelEntryRational::decodeExposureTime',
         ),
       ),
       33437 =>
@@ -489,7 +489,7 @@ return array (
         ),
         'text' =>
         array (
-          'decode' => 'PelEntryRational::decodeFNumber',
+          'decode' => 'lsolesen\\pel\\PelEntryRational::decodeFNumber',
         ),
       ),
       34850 =>
@@ -556,10 +556,10 @@ return array (
         array (
           0 => 7,
         ),
-        'load' => 'PelEntryVersion::create',
+        'class' => 'lsolesen\\pel\\PelEntryVersion',
         'text' =>
         array (
-          'decode' => 'PelEntryVersion::decodeExifVersion',
+          'decode' => 'lsolesen\\pel\\PelEntryVersion::decodeExifVersion',
         ),
       ),
       36867 =>
@@ -571,7 +571,7 @@ return array (
         array (
           0 => 2,
         ),
-        'load' => 'PelEntryTime::create',
+        'class' => 'lsolesen\\pel\\PelEntryTime',
       ),
       36868 =>
       array (
@@ -582,7 +582,7 @@ return array (
         array (
           0 => 2,
         ),
-        'load' => 'PelEntryTime::create',
+        'class' => 'lsolesen\\pel\\PelEntryTime',
       ),
       36880 =>
       array (
@@ -625,7 +625,7 @@ return array (
         ),
         'text' =>
         array (
-          'decode' => 'PelEntryUndefined::decodeComponentsConfiguration',
+          'decode' => 'lsolesen\\pel\\PelEntryUndefined::decodeComponentsConfiguration',
         ),
       ),
       37122 =>
@@ -649,7 +649,7 @@ return array (
         ),
         'text' =>
         array (
-          'decode' => 'PelEntrySRational::decodeShutterSpeedValue',
+          'decode' => 'lsolesen\\pel\\PelEntrySRational::decodeShutterSpeedValue',
         ),
       ),
       37378 =>
@@ -663,7 +663,7 @@ return array (
         ),
         'text' =>
         array (
-          'decode' => 'PelEntryRational::decodeApertureValue',
+          'decode' => 'lsolesen\\pel\\PelEntryRational::decodeApertureValue',
         ),
       ),
       37379 =>
@@ -677,7 +677,7 @@ return array (
         ),
         'text' =>
         array (
-          'decode' => 'PelEntrySRational::decodeBrightnessValue',
+          'decode' => 'lsolesen\\pel\\PelEntrySRational::decodeBrightnessValue',
         ),
       ),
       37380 =>
@@ -691,7 +691,7 @@ return array (
         ),
         'text' =>
         array (
-          'decode' => 'PelEntrySRational::decodeExposureBiasValue',
+          'decode' => 'lsolesen\\pel\\PelEntrySRational::decodeExposureBiasValue',
         ),
       ),
       37381 =>
@@ -715,7 +715,7 @@ return array (
         ),
         'text' =>
         array (
-          'decode' => 'PelEntryRational::decodeSubjectDistance',
+          'decode' => 'lsolesen\\pel\\PelEntryRational::decodeSubjectDistance',
         ),
       ),
       37383 =>
@@ -828,7 +828,7 @@ return array (
         ),
         'text' =>
         array (
-          'decode' => 'PelEntryRational::decodeFocalLength',
+          'decode' => 'lsolesen\\pel\\PelEntryRational::decodeFocalLength',
         ),
       ),
       37396 =>
@@ -841,7 +841,7 @@ return array (
         ),
         'text' =>
         array (
-          'decode' => 'PelEntryShort::decodeSubjectArea',
+          'decode' => 'lsolesen\\pel\\PelEntryShort::decodeSubjectArea',
         ),
       ),
       37500 =>
@@ -862,7 +862,7 @@ return array (
         array (
           0 => 7,
         ),
-        'load' => 'PelEntryUserComment::create',
+        'class' => 'lsolesen\\pel\\PelEntryUserComment',
       ),
       37520 =>
       array (
@@ -903,10 +903,10 @@ return array (
         array (
           0 => 7,
         ),
-        'load' => 'PelEntryVersion::create',
+        'class' => 'lsolesen\\pel\\PelEntryVersion',
         'text' =>
         array (
-          'decode' => 'PelEntryVersion::decodeFlashPixVersion',
+          'decode' => 'lsolesen\\pel\\PelEntryVersion::decodeFlashPixVersion',
         ),
       ),
       40961 =>
@@ -1078,7 +1078,7 @@ return array (
         ),
         'text' =>
         array (
-          'decode' => 'PelEntryUndefined::decodeFileSource',
+          'decode' => 'lsolesen\\pel\\PelEntryUndefined::decodeFileSource',
         ),
       ),
       41729 =>
@@ -1092,7 +1092,7 @@ return array (
         ),
         'text' =>
         array (
-          'decode' => 'PelEntryUndefined::decodeSceneType',
+          'decode' => 'lsolesen\\pel\\PelEntryUndefined::decodeSceneType',
         ),
       ),
       41985 =>
@@ -1927,6 +1927,10 @@ return array (
       array (
         'name' => 'LensType',
         'title' => 'Lens Type',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2644,6 +2648,10 @@ return array (
       array (
         'name' => 'ISOSpeedUsed',
         'title' => 'ISO Speed Used',
+        'format' =>
+        array (
+          0 => 3,
+        ),
       ),
       3 =>
       array (
@@ -3135,7 +3143,7 @@ return array (
         array (
           0 => 2,
         ),
-        'load' => 'PelEntryTime::create',
+        'class' => 'lsolesen\\pel\\PelEntryTime',
       ),
       315 =>
       array (
@@ -3208,7 +3216,7 @@ return array (
         ),
         'text' =>
         array (
-          'decode' => 'PelEntryShort::decodeYCbCrSubSampling',
+          'decode' => 'lsolesen\\pel\\PelEntryShort::decodeYCbCrSubSampling',
         ),
       ),
       531 =>
@@ -3268,7 +3276,7 @@ return array (
         array (
           0 => 2,
         ),
-        'load' => 'PelEntryCopyright::create',
+        'class' => 'lsolesen\\pel\\PelEntryCopyright',
       ),
       34665 =>
       array (
@@ -3291,7 +3299,7 @@ return array (
         array (
           0 => 1,
         ),
-        'load' => 'PelEntryWindowsString::create',
+        'class' => 'lsolesen\\pel\\PelEntryWindowsString',
       ),
       40092 =>
       array (
@@ -3302,7 +3310,7 @@ return array (
         array (
           0 => 1,
         ),
-        'load' => 'PelEntryWindowsString::create',
+        'class' => 'lsolesen\\pel\\PelEntryWindowsString',
       ),
       40093 =>
       array (
@@ -3313,7 +3321,7 @@ return array (
         array (
           0 => 1,
         ),
-        'load' => 'PelEntryWindowsString::create',
+        'class' => 'lsolesen\\pel\\PelEntryWindowsString',
       ),
       40094 =>
       array (
@@ -3324,7 +3332,7 @@ return array (
         array (
           0 => 1,
         ),
-        'load' => 'PelEntryWindowsString::create',
+        'class' => 'lsolesen\\pel\\PelEntryWindowsString',
       ),
       40095 =>
       array (
@@ -3335,7 +3343,7 @@ return array (
         array (
           0 => 1,
         ),
-        'load' => 'PelEntryWindowsString::create',
+        'class' => 'lsolesen\\pel\\PelEntryWindowsString',
       ),
       50341 =>
       array (
@@ -3610,7 +3618,7 @@ return array (
         array (
           0 => 2,
         ),
-        'load' => 'PelEntryTime::create',
+        'class' => 'lsolesen\\pel\\PelEntryTime',
       ),
       315 =>
       array (
@@ -3683,7 +3691,7 @@ return array (
         ),
         'text' =>
         array (
-          'decode' => 'PelEntryShort::decodeYCbCrSubSampling',
+          'decode' => 'lsolesen\\pel\\PelEntryShort::decodeYCbCrSubSampling',
         ),
       ),
       531 =>
@@ -3743,7 +3751,7 @@ return array (
         array (
           0 => 2,
         ),
-        'load' => 'PelEntryCopyright::create',
+        'class' => 'lsolesen\\pel\\PelEntryCopyright',
       ),
       34665 =>
       array (
@@ -3766,7 +3774,7 @@ return array (
         array (
           0 => 1,
         ),
-        'load' => 'PelEntryWindowsString::create',
+        'class' => 'lsolesen\\pel\\PelEntryWindowsString',
       ),
       40092 =>
       array (
@@ -3777,7 +3785,7 @@ return array (
         array (
           0 => 1,
         ),
-        'load' => 'PelEntryWindowsString::create',
+        'class' => 'lsolesen\\pel\\PelEntryWindowsString',
       ),
       40093 =>
       array (
@@ -3788,7 +3796,7 @@ return array (
         array (
           0 => 1,
         ),
-        'load' => 'PelEntryWindowsString::create',
+        'class' => 'lsolesen\\pel\\PelEntryWindowsString',
       ),
       40094 =>
       array (
@@ -3799,7 +3807,7 @@ return array (
         array (
           0 => 1,
         ),
-        'load' => 'PelEntryWindowsString::create',
+        'class' => 'lsolesen\\pel\\PelEntryWindowsString',
       ),
       40095 =>
       array (
@@ -3810,7 +3818,7 @@ return array (
         array (
           0 => 1,
         ),
-        'load' => 'PelEntryWindowsString::create',
+        'class' => 'lsolesen\\pel\\PelEntryWindowsString',
       ),
       50341 =>
       array (
