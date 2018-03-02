@@ -2,18 +2,18 @@ language: php
 sudo: false
 
 php:
-  - 5.4
-  - 5.5
-  - 5.6
-  - 7.0
-  - 7.1
+#  - 5.4
+#  - 5.5
+#  - 5.6
+#  - 7.0
+#  - 7.1
   - 7.2
-  - nightly
+#  - nightly
 
 matrix:
-  include:
-    - php: hhvm
-      dist: trusty
+#  include:
+#    - php: hhvm
+#      dist: trusty
   fast_finish: true
   allow_failures:
     - php: hhvm
@@ -29,7 +29,7 @@ before_script:
 script:
   # Remove the comment to the line below during development, to let
   # TravisCI re-compile the specification PHP file from the YAML files.
-  #- php bin/pel compile
+  - php bin/pel compile
   - ./vendor/bin/phpcs --runtime-set ignore_warnings_on_exit 1
   - ./vendor/bin/phpunit --coverage-clover build/logs/clover.xml ./test
 

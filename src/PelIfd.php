@@ -87,62 +87,6 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
     const INTEROPERABILITY = 4;
 
     /**
-     * Canon Maker Notes IFD.
-     *
-     * Pass this to the constructor when creating an IFD which will be
-     * the canon maker notes sub-IFD.
-     */
-    const CANON_MAKER_NOTES = 5;
-
-    /**
-     * Canon Camera Settings IFD.
-     *
-     * Pass this to the constructor when creating an IFD which will be
-     * the canon maker notes sub-IFD.
-     */
-    const CANON_CAMERA_SETTINGS = 6;
-
-    /**
-     * Canon Shot Info IFD.
-     *
-     * Pass this to the constructor when creating an IFD which will be
-     * the canon maker notes sub-IFD.
-     */
-    const CANON_SHOT_INFO = 7;
-
-    /**
-     * Canon Shot Info IFD.
-     *
-     * Pass this to the constructor when creating an IFD which will be
-     * the canon maker notes sub-IFD.
-     */
-    const CANON_PANORAMA = 8;
-
-    /**
-     * Canon Shot Info IFD.
-     *
-     * Pass this to the constructor when creating an IFD which will be
-     * the canon maker notes sub-IFD.
-     */
-    const CANON_PICTURE_INFO = 9;
-
-    /**
-     * Canon Shot Info IFD.
-     *
-     * Pass this to the constructor when creating an IFD which will be
-     * the canon maker notes sub-IFD.
-     */
-    const CANON_FILE_INFO = 10;
-
-    /**
-     * Canon Shot Info IFD.
-     *
-     * Pass this to the constructor when creating an IFD which will be
-     * the canon maker notes sub-IFD.
-     */
-    const CANON_CUSTOM_FUNCTIONS = 11;
-
-    /**
      * The maker notes held by this directory.
      *
      * Stores information of the MakerNotes IFD.
