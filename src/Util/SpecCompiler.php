@@ -3,6 +3,7 @@
 namespace lsolesen\pel\Util;
 
 use lsolesen\pel\PelFormat;
+use lsolesen\pel\PelIfd;
 use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Finder\SplFileInfo;
@@ -30,6 +31,9 @@ class SpecCompiler
 
     /** @var string */
     private $defaultNamespace;
+
+    /** @var int */
+    private $nextIfdId = PelIfd::INTEROPERABILITY + 1;
 
     /** @var Filesystem */
     private $fs;
@@ -131,27 +135,31 @@ DATA;
             'tags' => [],
         ], $ifd);
 
+        // Manage the IFD id; if 'const' key is present, use that,
+        // otherwise get a new id.
+        $ifd_id = isset($ifd['const']) ? $ifd['const'] : $this->nextIfdId++;
+
         // 'ifds' entry.
-        $this->map['ifds'][$ifd['const']] = $ifd['type'];
+        $this->map['ifds'][$ifd_id] = $ifd['type'];
 
         // 'ifdsByType' (reverse lookup) entry.
-        $this->map['ifdsByType'][$ifd['type']] = $ifd['const'];
+        $this->map['ifdsByType'][$ifd['type']] = $ifd_id;
         if (!empty($ifd['alias'])) {
             foreach ($ifd['alias'] as $alias) {
-                $this->map['ifdsByType'][$alias] = $ifd['const'];
+                $this->map['ifdsByType'][$alias] = $ifd_id;
             }
         }
 
         // 'makerNotes' entry.
         if (!empty($ifd['makerNotes'])) {
             foreach ($ifd['makerNotes'] as $maker) {
-                $this->map['makerNotes'][$maker] = $ifd['const'];
+                $this->map['makerNotes'][$maker] = $ifd_id;
             }
         }
 
         // Map the IFD's tags.
         foreach ($ifd['tags'] as $tag_id => $tag) {
-            $this->mapTag($ifd['const'], $tag_id, $tag, $file);
+            $this->mapTag($ifd_id, $tag_id, $tag, $file);
         }
     }
 
