@@ -327,7 +327,7 @@ class PelCanonMakerNotes extends PelMakerNotes
                 continue;
             }
             $format = PelFormat::SSHORT;
-            if ($i + 1 == PelTag::CANON_FI_FILE_NUMBER) {
+            if ($i + 1 == PelSpec::getTagIdByName($type, 'FileNumber')) {
                 $format = PelFormat::LONG;
             }
             $fileIfd->loadSingleMakerNotesValue($type, $data, $offset, $size, $i, $format);
