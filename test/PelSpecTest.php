@@ -20,14 +20,14 @@ class PelSpecTest extends TestCase
         // Test retrieving IFD type.
         $this->assertEquals('0', PelSpec::getIfdType(0));
         $this->assertEquals('Exif', PelSpec::getIfdType(2));
-        $this->assertEquals('Canon Maker Notes', PelSpec::getIfdType(5));
+        $this->assertNotNull(PelSpec::getIfdType(5));
 
         // Test retrieving IFD id by type.
         $this->assertEquals(0, PelSpec::getIfdIdByType('0'));
         $this->assertEquals(0, PelSpec::getIfdIdByType('IFD0'));
         $this->assertEquals(0, PelSpec::getIfdIdByType('Main'));
         $this->assertEquals(2, PelSpec::getIfdIdByType('Exif'));
-        $this->assertEquals(5, PelSpec::getIfdIdByType('Canon Maker Notes'));
+        $this->assertNotNull(PelSpec::getIfdIdByType('Canon Maker Notes'));
 
         // Test retrieving TAG name.
         $this->assertEquals('ExifIFDPointer', PelSpec::getTagName(0, 0x8769));
@@ -75,7 +75,7 @@ class PelSpecTest extends TestCase
         } else {
             $this->setExpectedException('lsolesen\pel\PelException', "No format can be derived for tag: 'MeasuredEV' in ifd: 'Canon Shot Information'");
         }
-        $this->assertNull(PelSpec::getTagClass(7, 0x0003));
+        $this->assertNull(PelSpec::getTagClass(PelSpec::getIfdIdByType('Canon Shot Information'), 0x0003));
     }
 
     /**
