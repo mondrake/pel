@@ -79,10 +79,10 @@ tags:
         name: 'OriginalDecision Data Offset'
         title: 'Original decision data offset'
         format: SLong
-    0x00A4:
-        name: WhiteBalanceTable
-        title: 'White balance table'
-        format: Short
+    0x0093:
+        name: FileInfo
+        title: 'File Info'
+        ifd: 'Canon File Information'
     0x0095:
         name: LensModel
         title: 'Lens model'
@@ -102,6 +102,10 @@ tags:
     0x00A0:
         name: ProcessingInfo
         title: 'Processing info'
+        format: Short
+    0x00A4:
+        name: WhiteBalanceTable
+        title: 'White balance table'
         format: Short
     0x00AA:
         name: MeasuredColor

@@ -207,9 +207,9 @@ class PelCanonMakerNotes extends PelMakerNotes
                 case PelSpec::getTagIdByName($ifd_id, 'PictureInfo'):
                     // $this->parsePictureInfo($mkNotesIfd, $this->data, $data, $components);
                     break;
-                //case PelSpec::getTagIdByName($ifd_id, 'FileInfo'):
-                //    $this->parseFileInfo($mkNotesIfd, $this->data, $data, $components);
-                //    break;
+                case PelSpec::getTagIdByName($ifd_id, 'FileInfo'):
+                    $this->parseFileInfo($mkNotesIfd, $this->data, $data, $components);
+                    break;
                 case PelSpec::getTagIdByName($ifd_id, 'CustomFunctions'):
                     //TODO
                 default:
