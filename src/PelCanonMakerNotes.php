@@ -182,7 +182,8 @@ class PelCanonMakerNotes extends PelMakerNotes
         $this->components = $this->data->getShort($this->offset);
         $this->offset += 2;
         Pel::debug('Loading %d components in maker notes.', $this->components);
-        $mkNotesIfd = new PelIfd(PelSpec::getIfdIdByType('Canon Maker Notes'));
+        $ifd_id = PelSpec::getIfdIdByType('Canon Maker Notes');
+        $mkNotesIfd = new PelIfd($ifd_id);
 
         for ($i = 0; $i < $this->components; $i++) {
             $tag = $this->data->getShort($this->offset + 12 * $i);
@@ -194,22 +195,22 @@ class PelCanonMakerNotes extends PelMakerNotes
                 continue;
             }
             switch ($tag) {
-                case PelTag::CANON_CAMERA_SETTINGS:
+                case PelSpec::getTagIdByName($ifd_id, 'CameraSettings'):
                     $this->parseCameraSettings($mkNotesIfd, $this->data, $data, $components);
                     break;
-                case PelTag::CANON_SHOT_INFO:
+                case PelSpec::getTagIdByName($ifd_id, 'ShotInfo'):
                     $this->parseShotInfo($mkNotesIfd, $this->data, $data, $components);
                     break;
-                case PelTag::CANON_PANORAMA:
+                case PelSpec::getTagIdByName($ifd_id, 'Panorama'):
                     $this->parsePanorama($mkNotesIfd, $this->data, $data, $components);
                     break;
-                case PelTag::CANON_PICTURE_INFO:
+                case PelSpec::getTagIdByName($ifd_id, 'PictureInfo'):
                     // $this->parsePictureInfo($mkNotesIfd, $this->data, $data, $components);
                     break;
-                case PelTag::CANON_FILE_INFO:
-                    $this->parseFileInfo($mkNotesIfd, $this->data, $data, $components);
-                    break;
-                case PelTag::CANON_CUSTOM_FUNCTIONS:
+                //case PelSpec::getTagIdByName($ifd_id, 'FileInfo'):
+                //    $this->parseFileInfo($mkNotesIfd, $this->data, $data, $components);
+                //    break;
+                case PelSpec::getTagIdByName($ifd_id, 'CustomFunctions'):
                     //TODO
                 default:
                     $mkNotesIfd->loadSingleValue($this->data, $this->offset, $i, $tag);
