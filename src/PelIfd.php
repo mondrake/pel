@@ -233,7 +233,6 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                 $mn->dataxxx = $d;
                 $mn->componentsxxx = $i;
                 $mn->offsetxxx = $o;
-            }
             } elseif (PelSpec::getTagName($this->type, $tag) === 'JPEGInterchangeFormat') {
                 // Aka 'Thumbnail Offset'.
                 $thumb_offset = $d->getLong($offset + 12 * $i + 8);
