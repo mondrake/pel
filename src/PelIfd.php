@@ -219,11 +219,9 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
 /*   TTTT */
             } elseif (PelSpec::getTagName($this->type, $tag) === 'MakerNote') {
                 $this->loadSingleValue($d, $offset, $i, $tag);
-                $components = $d->getLong($offset + 12 * $i + 4);
                 $o = $d->getLong($offset + 12 * $i + 8);
                 $mn = $this->getEntry($tag);
                 $mn->dataxxx = $d;
-                $mn->componentsxxx = $components;
                 $mn->offsetxxx = $o;
             } elseif (PelSpec::getTagName($this->type, $tag) === 'JPEGInterchangeFormat') {
                 // Aka 'Thumbnail Offset'.
