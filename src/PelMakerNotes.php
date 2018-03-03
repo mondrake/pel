@@ -89,7 +89,7 @@ abstract class PelMakerNotes
         }
 //throw new \Exception(dump($maker_note->getComponents()));
 
-        $mkNotes = static::createMakerNotesFromManufacturer($make->getValue(), $exif_ifd, $maker_note->dataxxx, $maker_note->->getComponents(), $maker_note->offsetxxx);
+        $mkNotes = static::createMakerNotesFromManufacturer($make->getValue(), $exif_ifd, $maker_note->dataxxx, $maker_note->getComponents(), $maker_note->offsetxxx);
         if ($mkNotes !== null) {
             // remove pre-loaded undefined MakerNotes
             $exif_ifd->offsetUnset(PelSpec::getTagIdByName($exif_ifd->getType(), 'MakerNote'));
