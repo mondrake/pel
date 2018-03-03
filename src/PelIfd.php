@@ -216,15 +216,6 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                 } else {
                     Pel::maybeThrow(new PelIfdException('Bogus offset to next IFD: %d, same as offset being loaded from.', $o));
                 }
-/*   TTTT         } elseif (PelSpec::isTagAMakerNotesPointer($this->type, $tag)) {
-                // If the tag is a Maker Notes pointer, store maker notes
-                // info, because we need the 'Make' tag of IFD0 for MakerNotes.
-                // Thus MakerNotes will be loaded at the end of loading IFD0.
-                $components = $d->getLong($offset + 12 * $i + 4);
-                $o = $d->getLong($offset + 12 * $i + 8);
-                Pel::debug('Found maker notes IFD at offset %d', $o);
-                $this->setMakerNotes($this, $d, $components, $o);
-                $this->loadSingleValue($d, $offset, $i, $tag);*/
 /*   TTTT */
             } elseif (PelSpec::getTagName($this->type, $tag) === 'MakerNote') {
                 $this->loadSingleValue($d, $offset, $i, $tag);
@@ -361,7 +352,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
      * @param int $format
      *            the format {@link PelFormat} of the entry.
      */
-/*   TTTT    public function loadSingleMakerNotesValue($type, $data, $offset, $size, $i, $format)
+/*   TTTT */   public function loadSingleMakerNotesValue($type, $data, $offset, $size, $i, $format)
     {
         $elemSize = PelFormat::getSize($format);
         if ($size > 0) {
@@ -382,7 +373,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
         // if ($tag == PelTag::COMPRESSION) {
         // $this->thumb_format = $data->getShort();
         // }
-    }*/
+    }
 
     /**
      * Make a new entry from a bunch of bytes.
