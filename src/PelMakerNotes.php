@@ -78,15 +78,16 @@ abstract class PelMakerNotes
             return;
         }
 
-        // Get MakerNotes and check if they are set.
-        if (!$maker_note = $exif_ifd->getEntry(PelSpec::getTagIdByName($exif_ifd->getType(), 'MakerNote'))) {
-            return;
-        }
-
-        // Get Make tag and load maker notes if tag is valid.
+        // Get Make tag from IFD0.
         if (!$make = $ifd->getEntry(PelSpec::getTagIdByName($ifd->getType(), 'Make'))) {
             return;
         }
+
+        // Get MakerNotes from Exif IFD.
+        if (!$maker_note = $exif_ifd->getEntry(PelSpec::getTagIdByName($exif_ifd->getType(), 'MakerNote'))) {
+            return;
+        }
+throw new \Exception(var_export($maker_note, true));
 
         $mkNotes = static::createMakerNotesFromManufacturer($make->getValue(), $maker_note->parentxxx, $maker_note->dataxxx, $maker_note->componentsxxx, $maker_note->offsetxxx);
         if ($mkNotes !== null) {
