@@ -151,12 +151,13 @@ class PelTiff
         Pel::debug('First IFD at offset %d.', $offset);
 
         if ($offset > 0) {
-            /*
-             * Parse the first IFD, this will automatically parse the
-             * following IFDs and any sub IFDs.
-             */
+            // Parse the first IFD, this will automatically parse the
+            // following IFDs and any sub IFDs.
             $this->ifd = new PelIfd(PelSpec::getIfdIdByType('IFD0'));
             $this->ifd->load($d, $offset);
+            
+            // Convert the MakerNote to a subIfd of the Exif IFD, if possible.
+            PelMakerNotes::tagToIfd($this->ifd);
         }
     }
 

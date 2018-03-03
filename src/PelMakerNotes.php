@@ -70,4 +70,25 @@ abstract class PelMakerNotes
     }
 
     abstract public function load();
+
+    public static function tagToIfd(PelIfd $ifd)
+    {
+        if ($ifd->getSubIfd(PelSpec::getIfdIdByType('Exif'))) {
+            // Get MakerNotes from EXIF IFD and check if they are set
+                  $mk = $this->sub[PelSpec::getIfdIdByType('Exif')]->getMakerNotes();
+                  if (!empty($mk) && count($mk) > 0) {
+                      // get Make tag and load maker notes if tag is valid
+                      $manufacturer = $this->getEntry(PelSpec::getTagIdByName($this->type, 'Make'));
+                      if ($manufacturer !== null) {
+                          $manufacturer = $manufacturer->getValue();
+                          $mkNotes = PelMakerNotes::createMakerNotesFromManufacturer($manufacturer, $mk['parent'], $mk['data'], $mk['components'], $mk['offset']);
+                          if ($mkNotes !== null) {
+                              // remove pre-loaded undefined MakerNotes
+                              $mk['parent']->offsetUnset(PelSpec::getTagIdByName($mk['parent']->getType(), 'MakerNote'));
+                              $mkNotes->load();
+                          }
+                      }
+                  }
+        }
+    }
 }

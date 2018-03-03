@@ -45,7 +45,6 @@ namespace lsolesen\pel;
  */
 class PelIfd implements \IteratorAggregate, \ArrayAccess
 {
-
     /**
      * Main image IFD.
      *
@@ -304,25 +303,6 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
         } else {
             Pel::debug('Last IFD.');
         }
-
-        // Check if we finished loading IFD0 and EXIF IFD is set (EXIF IFD holds the MakerNotes)
-/*   TTTT        if (PelSpec::getIfdType($this->type) === '0' && isset($this->sub[PelSpec::getIfdIdByType('Exif')])) {
-            // Get MakerNotes from EXIF IFD and check if they are set
-            $mk = $this->sub[PelSpec::getIfdIdByType('Exif')]->getMakerNotes();
-            if (!empty($mk) && count($mk) > 0) {
-                // get Make tag and load maker notes if tag is valid
-                $manufacturer = $this->getEntry(PelSpec::getTagIdByName($this->type, 'Make'));
-                if ($manufacturer !== null) {
-                    $manufacturer = $manufacturer->getValue();
-                    $mkNotes = PelMakerNotes::createMakerNotesFromManufacturer($manufacturer, $mk['parent'], $mk['data'], $mk['components'], $mk['offset']);
-                    if ($mkNotes !== null) {
-                        // remove pre-loaded undefined MakerNotes
-                        $mk['parent']->offsetUnset(PelSpec::getTagIdByName($mk['parent']->getType(), 'MakerNote'));
-                        $mkNotes->load();
-                    }
-                }
-            }
-        }*/
     }
 
     /**
