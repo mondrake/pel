@@ -222,7 +222,6 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                 $components = $d->getLong($offset + 12 * $i + 4);
                 $o = $d->getLong($offset + 12 * $i + 8);
                 $mn = $this->getEntry($tag);
-                $mn->parentxxx = $this;
                 $mn->dataxxx = $d;
                 $mn->componentsxxx = $components;
                 $mn->offsetxxx = $o;

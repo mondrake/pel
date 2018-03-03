@@ -8,7 +8,6 @@ namespace lsolesen\pel;
 class PelEntryMakerNote extends PelEntryUndefined
 {
     // TTTT
-    public $parentxxx;
     public $dataxxx;
     public $componentsxxx;
     public $offsetxxx;
