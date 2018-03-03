@@ -254,7 +254,7 @@ tags:
         name: MakerNote
         title: 'Maker Note'
         format: Undefined
-        #class: MakerNotes
+        class: PelEntryMakerNote
     0x9286:
         const: USER_COMMENT
         name: UserComment

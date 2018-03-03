@@ -94,7 +94,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
      *
      * @var array
      */
-    private $maker_notes = [];
+/*   TTTT    private $maker_notes = [];*/
 
     /**
      * The entries held by this directory.
@@ -183,7 +183,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
      *            the offset within the window where the directory will
      *            be found.
      */
-    public function setMakerNotes($parent, $data, $components, $offset)
+/*   TTTT    public function setMakerNotes($parent, $data, $components, $offset)
     {
         $this->maker_notes = [
             'parent' => $parent,
@@ -191,17 +191,17 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
             'components' => $components,
             'offset' => $offset
         ];
-    }
+    }*/
 
     /**
      * Returns the Maker Notes data for an IFD.
      *
      * @return array The maker_notes of IDF
      */
-    public function getMakerNotes()
+/*   TTTT    public function getMakerNotes()
     {
         return $this->maker_notes;
-    }
+    }*/
 
     /**
      * Load data into a Image File Directory (IFD).
@@ -263,7 +263,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                 } else {
                     Pel::maybeThrow(new PelIfdException('Bogus offset to next IFD: %d, same as offset being loaded from.', $o));
                 }
-            } elseif (PelSpec::isTagAMakerNotesPointer($this->type, $tag)) {
+/*   TTTT         } elseif (PelSpec::isTagAMakerNotesPointer($this->type, $tag)) {
                 // If the tag is a Maker Notes pointer, store maker notes
                 // info, because we need the 'Make' tag of IFD0 for MakerNotes.
                 // Thus MakerNotes will be loaded at the end of loading IFD0.
@@ -271,7 +271,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                 $o = $d->getLong($offset + 12 * $i + 8);
                 Pel::debug('Found maker notes IFD at offset %d', $o);
                 $this->setMakerNotes($this, $d, $components, $o);
-                $this->loadSingleValue($d, $offset, $i, $tag);
+                $this->loadSingleValue($d, $offset, $i, $tag);*/
             } elseif (PelSpec::getTagName($this->type, $tag) === 'JPEGInterchangeFormat') {
                 // Aka 'Thumbnail Offset'.
                 $thumb_offset = $d->getLong($offset + 12 * $i + 8);
@@ -306,7 +306,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
         }
 
         // Check if we finished loading IFD0 and EXIF IFD is set (EXIF IFD holds the MakerNotes)
-        if (PelSpec::getIfdType($this->type) === '0' && isset($this->sub[PelSpec::getIfdIdByType('Exif')])) {
+/*   TTTT        if (PelSpec::getIfdType($this->type) === '0' && isset($this->sub[PelSpec::getIfdIdByType('Exif')])) {
             // Get MakerNotes from EXIF IFD and check if they are set
             $mk = $this->sub[PelSpec::getIfdIdByType('Exif')]->getMakerNotes();
             if (!empty($mk) && count($mk) > 0) {
@@ -322,7 +322,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                     }
                 }
             }
-        }
+        }*/
     }
 
     /**
@@ -417,7 +417,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
      * @param int $format
      *            the format {@link PelFormat} of the entry.
      */
-    public function loadSingleMakerNotesValue($type, $data, $offset, $size, $i, $format)
+/*   TTTT    public function loadSingleMakerNotesValue($type, $data, $offset, $size, $i, $format)
     {
         $elemSize = PelFormat::getSize($format);
         if ($size > 0) {
@@ -429,19 +429,16 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
         try {
             $this->addEntry(PelEntry::createFromData($this->type, $i + 1, $format, 1, $subdata));
         } catch (PelException $e) {
-            /*
-            * Throw the exception when running in strict mode, store
-            * otherwise.
-            */
+            // Throw the exception when running in strict mode, store otherwise.
             Pel::maybeThrow($e);
         }
 
-        /* The format of the thumbnail is stored in this tag. */
+        // The format of the thumbnail is stored in this tag.
         // TODO: handle TIFF thumbnail.
         // if ($tag == PelTag::COMPRESSION) {
         // $this->thumb_format = $data->getShort();
         // }
-    }
+    }*/
 
     /**
      * Make a new entry from a bunch of bytes.

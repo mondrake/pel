@@ -152,22 +152,6 @@ class PelSpec
     }
 
     /**
-     * Determines if the TAG is a Maker Notes pointer.
-     *
-     * @param int $ifd_id
-     *            the IFD id.
-     * @param int $tag_id
-     *            the TAG id.
-     *
-     * @return bool
-     *            TRUE or FALSE.
-     */
-    public static function isTagAMakerNotesPointer($ifd_id, $tag_id)
-    {
-        return self::getTagName($ifd_id, $tag_id) === 'MakerNote';
-    }
-
-    /**
      * Returns the TAG name.
      *
      * @param int $ifd_id

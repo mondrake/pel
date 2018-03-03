@@ -234,11 +234,6 @@ class PelEntryUndefined extends PelEntry
             return $tag_text;
         }
 
-        // MakerNote tag is a special case.
-        if ($this->tag == PelSpec::getTagIdByName(PelSpec::getIfdIdByType('Exif'), 'MakerNote')) {
-            return $this->components . ' bytes unknown MakerNote data';
-        }
-
         return '(undefined)';
     }
 }
