@@ -73,22 +73,26 @@ abstract class PelMakerNotes
 
     public static function tagToIfd(PelIfd $ifd)
     {
-        if ($ifd->getSubIfd(PelSpec::getIfdIdByType('Exif'))) {
-            // Get MakerNotes from EXIF IFD and check if they are set
-                  $mk = $this->sub[PelSpec::getIfdIdByType('Exif')]->getMakerNotes();
-                  if (!empty($mk) && count($mk) > 0) {
-                      // get Make tag and load maker notes if tag is valid
-                      $manufacturer = $this->getEntry(PelSpec::getTagIdByName($this->type, 'Make'));
-                      if ($manufacturer !== null) {
-                          $manufacturer = $manufacturer->getValue();
-                          $mkNotes = PelMakerNotes::createMakerNotesFromManufacturer($manufacturer, $mk['parent'], $mk['data'], $mk['components'], $mk['offset']);
-                          if ($mkNotes !== null) {
-                              // remove pre-loaded undefined MakerNotes
-                              $mk['parent']->offsetUnset(PelSpec::getTagIdByName($mk['parent']->getType(), 'MakerNote'));
-                              $mkNotes->load();
-                          }
-                      }
-                  }
+        // Get the Exif subIfd if existing.
+        if (!$exif_ifd = $ifd->getSubIfd(PelSpec::getIfdIdByType('Exif'))) {
+            return;
+        }
+
+        // Get MakerNotes and check if they are set.
+        if (!$maker_note = $exif_ifd->getEntry(PelSpec::getTagIdByName($exif_ifd->getType(), 'MakerNote'))) {
+            return;
+        }
+
+        // Get Make tag and load maker notes if tag is valid.
+        if (!$make = $ifd->getEntry(PelSpec::getTagIdByName($ifd->getType(), 'Make'))) {
+            return;
+        }
+
+        $mkNotes = static::createMakerNotesFromManufacturer($make->getValue(), $mk['parent'], $mk['data'], $mk['components'], $mk['offset']);
+        if ($mkNotes !== null) {
+            // remove pre-loaded undefined MakerNotes
+            $exif_ifd->offsetUnset(PelSpec::getTagIdByName($exif_ifd->getType(), 'MakerNote'));
+            $mkNotes->load();
         }
     }
 }

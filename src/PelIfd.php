@@ -86,16 +86,6 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
     const INTEROPERABILITY = 4;
 
     /**
-     * The maker notes held by this directory.
-     *
-     * Stores information of the MakerNotes IFD.
-     * Available and required keys are: parent, data, components and offset
-     *
-     * @var array
-     */
-/*   TTTT    private $maker_notes = [];*/
-
-    /**
      * The entries held by this directory.
      *
      * Each tag in the directory is represented by a {@link PelEntry}
@@ -167,42 +157,6 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
     }
 
     /**
-     * Stores Maker Notes data for an IFD.
-     *
-     * @param PelIfd $parent
-     *            the parent PelIfd of the current PelIfd
-     *
-     * @param PelDataWindow $data
-     *            the data window that will provide the data.
-     *
-     * @param PelIfd $parent
-     *            the components in the entry.
-     *
-     * @param int $offset
-     *            the offset within the window where the directory will
-     *            be found.
-     */
-/*   TTTT    public function setMakerNotes($parent, $data, $components, $offset)
-    {
-        $this->maker_notes = [
-            'parent' => $parent,
-            'data' => $data,
-            'components' => $components,
-            'offset' => $offset
-        ];
-    }*/
-
-    /**
-     * Returns the Maker Notes data for an IFD.
-     *
-     * @return array The maker_notes of IDF
-     */
-/*   TTTT    public function getMakerNotes()
-    {
-        return $this->maker_notes;
-    }*/
-
-    /**
      * Load data into a Image File Directory (IFD).
      *
      * @param PelDataWindow $d
@@ -271,6 +225,15 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                 Pel::debug('Found maker notes IFD at offset %d', $o);
                 $this->setMakerNotes($this, $d, $components, $o);
                 $this->loadSingleValue($d, $offset, $i, $tag);*/
+/*   TTTT */
+            } elseif (PelSpec::getTagName($this->type, $tag) === 'MakerNote') {
+                $this->loadSingleValue($d, $offset, $i, $tag);
+                $mn = $this->getEntry($tag);
+                $mn->parentxxx = $this;
+                $mn->dataxxx = $d;
+                $mn->componentsxxx = $i;
+                $mn->offsetxxx = $o;
+            }
             } elseif (PelSpec::getTagName($this->type, $tag) === 'JPEGInterchangeFormat') {
                 // Aka 'Thumbnail Offset'.
                 $thumb_offset = $d->getLong($offset + 12 * $i + 8);
