@@ -352,7 +352,8 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
      * @param int $format
      *            the format {@link PelFormat} of the entry.
      */
-/*   TTTT */   public function loadSingleMakerNotesValue($type, $data, $offset, $size, $i, $format)
+/*   TTTT */
+    public function loadSingleMakerNotesValue($type, $data, $offset, $size, $i, $format)
     {
         $elemSize = PelFormat::getSize($format);
         if ($size > 0) {
