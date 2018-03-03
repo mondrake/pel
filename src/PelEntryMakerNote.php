@@ -7,10 +7,10 @@ namespace lsolesen\pel;
  */
 class PelEntryMakerNote extends PelEntryUndefined
 {
-public parentxxx;
-public dataxxx;
-public componentsxxx;
-public offsetxxx;
+public $parentxxx;
+public $dataxxx;
+public $componentsxxx;
+public $offsetxxx;
 
     /**
      * Get the value of this entry as text.
