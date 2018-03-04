@@ -221,7 +221,6 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                 $this->loadSingleValue($d, $offset, $i, $tag);
                 $o = $d->getLong($offset + 12 * $i + 8);
                 $mn = $this->getEntry($tag);
-                $mn->dataxxx = $d;
                 $mn->offsetxxx = $o;
             } elseif (PelSpec::getTagName($this->type, $tag) === 'JPEGInterchangeFormat') {
                 // Aka 'Thumbnail Offset'.

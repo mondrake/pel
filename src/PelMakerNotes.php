@@ -71,7 +71,7 @@ abstract class PelMakerNotes
 
     abstract public function load();
 
-    public static function tagToIfd(PelIfd $ifd)
+    public static function tagToIfd(PelDataWindow $d, PelIfd $ifd)
     {
         // Get the Exif subIfd if existing.
         if (!$exif_ifd = $ifd->getSubIfd(PelSpec::getIfdIdByType('Exif'))) {
@@ -89,7 +89,7 @@ abstract class PelMakerNotes
         }
 //throw new \Exception(var_export($maker_note->getValue(), true));
 
-        $mkNotes = static::createMakerNotesFromManufacturer($make->getValue(), $exif_ifd, $maker_note->dataxxx, $maker_note->getComponents(), $maker_note->offsetxxx);
+        $mkNotes = static::createMakerNotesFromManufacturer($make->getValue(), $exif_ifd, $d, $maker_note->getComponents(), $maker_note->offsetxxx);
         if ($mkNotes !== null) {
             // Remove the pre-loaded undefined MakerNote tag entry.
             $exif_ifd->offsetUnset(PelSpec::getTagIdByName($exif_ifd->getType(), 'MakerNote'));

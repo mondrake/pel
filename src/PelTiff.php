@@ -155,9 +155,9 @@ class PelTiff
             // following IFDs and any sub IFDs.
             $this->ifd = new PelIfd(PelSpec::getIfdIdByType('IFD0'));
             $this->ifd->load($d, $offset);
-            
+
             // Convert the MakerNote to a subIfd of the Exif IFD, if possible.
-            PelMakerNotes::tagToIfd($this->ifd);
+            PelMakerNotes::tagToIfd($d, $this->ifd);
         }
     }
 
