@@ -108,7 +108,7 @@ class PelEntryAscii extends PelEntry
      * @return array a list or arguments to be passed to the PelEntry subclass
      *            constructor.
      */
-    public static function getInstanceArgumentsFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
+    public static function getInstanceArgumentsFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data, /* TTTT */ $offset)
     {
         // cut off string after the first nul byte
         $canonicalString = strstr($data->getBytes(0), "\0", true);

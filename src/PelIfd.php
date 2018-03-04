@@ -216,12 +216,6 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                 } else {
                     Pel::maybeThrow(new PelIfdException('Bogus offset to next IFD: %d, same as offset being loaded from.', $o));
                 }
-/*   TTTT */
-            } elseif (PelSpec::getTagName($this->type, $tag) === 'MakerNote') {
-                $this->loadSingleValue($d, $offset, $i, $tag);
-                $o = $d->getLong($offset + 12 * $i + 8);
-                $mn = $this->getEntry($tag);
-                $mn->offsetxxx = $o;
             } elseif (PelSpec::getTagName($this->type, $tag) === 'JPEGInterchangeFormat') {
                 // Aka 'Thumbnail Offset'.
                 $thumb_offset = $d->getLong($offset + 12 * $i + 8);
@@ -302,7 +296,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
         }
 
         try {
-            $this->addEntry(PelEntry::createFromData($this->type, $tag, $format, $components, $data));
+            $this->addEntry(PelEntry::createFromData($this->type, $tag, $format, $components, $data, /* TTTT */ $offset));
         } catch (PelException $e) {
             /*
              * Throw the exception when running in strict mode, store
@@ -359,7 +353,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
         }
 
         try {
-            $this->addEntry(PelEntry::createFromData($this->type, $i + 1, $format, 1, $subdata));
+            $this->addEntry(PelEntry::createFromData($this->type, $i + 1, $format, 1, $subdata, /* TTTT */ $offset));
         } catch (PelException $e) {
             // Throw the exception when running in strict mode, store otherwise.
             Pel::maybeThrow($e);
@@ -411,7 +405,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
      */
     public function newEntryFromData($tag, $format, $components, PelDataWindow $data)
     {
-        return PelEntry::createFromData($this->type, $tag, $format, $components, $data);
+        return PelEntry::createFromData($this->type, $tag, $format, $components, $data, /* TTTT */ 0);
     }
 
     /**

@@ -146,10 +146,10 @@ abstract class PelEntry
      *
      * @return PelEntry a newly created entry, holding the data given.
      */
-    final public static function createFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
+    final public static function createFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data, /* TTTT */ $offset)
     {
         $class = PelSpec::getTagClass($ifd_id, $tag_id, $format);
-        $arguments = call_user_func($class . '::getInstanceArgumentsFromData', $ifd_id, $tag_id, $format, $components, $data);
+        $arguments = call_user_func($class . '::getInstanceArgumentsFromData', $ifd_id, $tag_id, $format, $components, $data, /* TTTT */ $offset);
         return call_user_func($class . '::createInstance', $ifd_id, $tag_id, $arguments);
     }
 
@@ -192,7 +192,7 @@ abstract class PelEntry
      * @return array a list or arguments to be passed to the PelEntry subclass
      *            constructor.
      */
-    public static function getInstanceArgumentsFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
+    public static function getInstanceArgumentsFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data, /* TTTT */ $offset)
     {
         throw new PelException('getInstanceArgumentsFromData() must be implemented.');
     }
