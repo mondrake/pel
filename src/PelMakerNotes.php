@@ -87,7 +87,7 @@ abstract class PelMakerNotes
         if (!$maker_note = $exif_ifd->getEntry(PelSpec::getTagIdByName($exif_ifd->getType(), 'MakerNote'))) {
             return;
         }
-throw new \Exception(var_export($maker_note->getValue(), true));
+//throw new \Exception(var_export($maker_note->getValue(), true));
 
         $mkNotes = static::createMakerNotesFromManufacturer($make->getValue(), $exif_ifd, $maker_note->dataxxx, $maker_note->getComponents(), $maker_note->offsetxxx);
         if ($mkNotes !== null) {
