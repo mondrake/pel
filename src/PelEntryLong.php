@@ -115,7 +115,7 @@ class PelEntryLong extends PelEntryNumber
      * @return array a list or arguments to be passed to the PelEntry subclass
      *            constructor.
      */
-    public static function getInstanceArgumentsFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data, /* TTTT */ $offset)
+    public static function getInstanceArgumentsFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
     {
         $args = [];
         for ($i = 0; $i < $components; $i ++) {
