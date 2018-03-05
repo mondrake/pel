@@ -15,6 +15,7 @@ class PelEntryMakerNote extends PelEntryUndefined
         $this->tag = $tag;
         $this->format = PelFormat::UNDEFINED;
         $this->offsetxxx = $offset;
+dump($this->offsetxxx);
     }
 
     /**
