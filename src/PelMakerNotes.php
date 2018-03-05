@@ -95,7 +95,7 @@ $sss = $maker_note->getValue();
 dump(strlen($sss));
 $x = [];
 for ($iii = 0; $iii < strlen($sss); $iii++) {
-    $x[] = ['val' => $sss[$iii], 'chr' => chr($sss[$iii]), 'ord' => ord($sss[$iii])];
+    $x[] = (int) $sss[$iii];
 }
 dump($x);
             // Remove the pre-loaded undefined MakerNote tag entry.
