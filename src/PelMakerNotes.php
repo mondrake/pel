@@ -92,7 +92,7 @@ abstract class PelMakerNotes
         if ($mkNotes !== null) {
 //throw new \Exception(var_export($maker_note->getValue(), true));
 $sss = $maker_note->getValue();
-//dump(strlen($sss));
+dump(strlen($sss));
 //dump($sss);
 /*$x = [];
 for ($iii = 0; $iii < strlen($sss); $iii++) {
@@ -104,17 +104,7 @@ for ($iii = 0; $iii < strlen($sss); $iii++) {
 }
 dump($x);*/
 $x = new PelDataWindow($maker_note->getValue());
-$xoff = 0;
-/* Read the number of entries */
-$xn = $x->getShort($xoff);
-dump('Loading entries... ' . $xn);
-$xoff += 2;
-for ($xi = 0; $xi < $xn; $xi ++) {
-  $xtag = $x->getShort($xoff + 12 * $xi);
-  dump('Loading entry with tag #' . dechex($xtag));
-}
-
-//dump($x);
+dump($x);
             // Remove the pre-loaded undefined MakerNote tag entry.
             $exif_ifd->offsetUnset(PelSpec::getTagIdByName($exif_ifd->getType(), 'MakerNote'));
             $mkNotes->load();
