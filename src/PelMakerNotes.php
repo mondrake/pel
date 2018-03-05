@@ -93,15 +93,17 @@ abstract class PelMakerNotes
 //throw new \Exception(var_export($maker_note->getValue(), true));
 $sss = $maker_note->getValue();
 dump(strlen($sss));
-dump($sss);
+//dump($sss);
 /*$x = [];
 for ($iii = 0; $iii < strlen($sss); $iii++) {
     $x[] = ['val' => $sss[$iii], 'chr' => chr($sss[$iii]), 'ord' => ord($sss[$iii])];
 }*/
-$x = '---> ';
+/*$x = '---> ';
 for ($iii = 0; $iii < strlen($sss); $iii++) {
     $x .= ord($sss[$iii]) . ', ';
 }
+dump($x);*/
+$x = new PelDataWindow($maker_note->getValue());
 dump($x);
             // Remove the pre-loaded undefined MakerNote tag entry.
             $exif_ifd->offsetUnset(PelSpec::getTagIdByName($exif_ifd->getType(), 'MakerNote'));
