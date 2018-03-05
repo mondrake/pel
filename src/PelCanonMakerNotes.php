@@ -237,7 +237,7 @@ class PelCanonMakerNotes extends PelMakerNotes
             if (in_array($i+1, $this->undefinedCameraSettingsTags)) {
                 continue;
             }
-            $camIfd->loadSingleMakerNotesValue($type, $data, $offset, $size, $i, PelFormat::SSHORT);
+            PelMakerNotes::loadSingleMakerNotesValue($camIfd, $type, $data, $offset, $size, $i, PelFormat::SSHORT);
         }
         $parent->addSubIfd($camIfd);
     }
@@ -259,7 +259,7 @@ class PelCanonMakerNotes extends PelMakerNotes
             if (in_array($i+1, $this->undefinedShotInfoTags)) {
                 continue;
             }
-            $shotIfd->loadSingleMakerNotesValue($type, $data, $offset, $size, $i, PelFormat::SHORT);
+            PelMakerNotes::loadSingleMakerNotesValue($shotIfd, $type, $data, $offset, $size, $i, PelFormat::SHORT);
         }
         $parent->addSubIfd($shotIfd);
     }
@@ -281,7 +281,7 @@ class PelCanonMakerNotes extends PelMakerNotes
             if (in_array($i+1, $this->undefinedPanoramaTags)) {
                 continue;
             }
-            $panoramaIfd->loadSingleMakerNotesValue($type, $data, $offset, $size, $i, PelFormat::SHORT);
+            PelMakerNotes::loadSingleMakerNotesValue($panoramaIfd,$type, $data, $offset, $size, $i, PelFormat::SHORT);
         }
         $parent->addSubIfd($panoramaIfd);
     }
@@ -304,7 +304,7 @@ class PelCanonMakerNotes extends PelMakerNotes
             if (in_array($i+1, $this->undefinedPicInfoTags)) {
                 continue;
             }
-            $picIfd->loadSingleMakerNotesValue($type, $data, $offset, $size, $i, PelFormat::SHORT);
+            PelMakerNotes::loadSingleMakerNotesValue($picIfd, $type, $data, $offset, $size, $i, PelFormat::SHORT);
         }
         $parent->addSubIfd($picIfd);
     }
@@ -330,7 +330,7 @@ class PelCanonMakerNotes extends PelMakerNotes
             if ($i + 1 == PelSpec::getTagIdByName($type, 'FileNumber')) {
                 $format = PelFormat::LONG;
             }
-            $fileIfd->loadSingleMakerNotesValue($type, $data, $offset, $size, $i, $format);
+            PelMakerNotes::loadSingleMakerNotesValue($fileIfd, $type, $data, $offset, $size, $i, $format);
         }
         $parent->addSubIfd($fileIfd);
     }
