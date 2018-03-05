@@ -91,7 +91,7 @@ abstract class PelMakerNotes
         $mkNotes = static::createMakerNotesFromManufacturer($make->getValue(), $exif_ifd, $d, $maker_note->getComponents(), $maker_note->offsetxxx);
         if ($mkNotes !== null) {
 //throw new \Exception(var_export($maker_note->getValue(), true));
-//$sss = $maker_note->getValue();
+$sss = $maker_note->getValue();
 //dump(strlen($sss));
 //dump($sss);
 /*$x = [];
@@ -106,7 +106,6 @@ dump($x);*/
 //$x = new PelDataWindow($maker_note->getValue());
 //$xoff = 0;
 $x = $d;
-dump($maker_note->offsetxxx);
 $xoff = $maker_note->offsetxxx;
 /* Read the number of entries */
 $xn = $x->getShort($xoff);
