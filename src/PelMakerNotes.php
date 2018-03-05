@@ -93,14 +93,9 @@ abstract class PelMakerNotes
 //throw new \Exception(var_export($maker_note->getValue(), true));
 $sss = $maker_note->getValue();
 dump(strlen($sss));
-dump($sss);
-/*$x = [];
+$x = [];
 for ($iii = 0; $iii < strlen($sss); $iii++) {
     $x[] = ['val' => $sss[$iii], 'chr' => chr($sss[$iii]), 'ord' => ord($sss[$iii])];
-}*/
-$x = '---> ';
-for ($iii = 0; $iii < strlen($sss); $iii++) {
-    $x .= ord($sss[$iii]) . ', ';
 }
 dump($x);
             // Remove the pre-loaded undefined MakerNote tag entry.
