@@ -103,10 +103,8 @@ for ($iii = 0; $iii < strlen($sss); $iii++) {
     $x .= ord($sss[$iii]) . ', ';
 }
 dump($x);*/
-//$x = new PelDataWindow($maker_note->getValue());
-//$xoff = 0;
-$x = $d;
-$xoff = $maker_note->offsetxxx;
+$x = new PelDataWindow($maker_note->getValue());
+$xoff = 0;
 /* Read the number of entries */
 $xn = $x->getShort($xoff);
 dump('Loading entries... ' . $xn);
