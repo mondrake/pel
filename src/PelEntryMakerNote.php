@@ -10,13 +10,6 @@ class PelEntryMakerNote extends PelEntryUndefined
     // TTTT
     public $offsetxxx;
 
-    public function __construct($tag, $offset)
-    {
-        $this->tag = $tag;
-        $this->format = PelFormat::UNDEFINED;
-        $this->offsetxxx = $offset;
-    }
-
     /**
      * Get the value of this entry as text.
      *

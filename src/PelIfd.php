@@ -216,8 +216,12 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                 } else {
                     Pel::maybeThrow(new PelIfdException('Bogus offset to next IFD: %d, same as offset being loaded from.', $o));
                 }
+/*   TTTT */
             } elseif (PelSpec::getTagName($this->type, $tag) === 'MakerNote') {
-                $this->addEntry(PelEntry::createMakerNote($this->type, $tag, $d, $offset, $i));
+                $this->loadSingleValue($d, $offset, $i, $tag);
+                $o = $d->getLong($offset + 12 * $i + 8);
+                $mn = $this->getEntry($tag);
+                $mn->offsetxxx = $o;
             } elseif (PelSpec::getTagName($this->type, $tag) === 'JPEGInterchangeFormat') {
                 // Aka 'Thumbnail Offset'.
                 $thumb_offset = $d->getLong($offset + 12 * $i + 8);

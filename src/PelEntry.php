@@ -152,12 +152,6 @@ abstract class PelEntry
         $arguments = call_user_func($class . '::getInstanceArgumentsFromData', $ifd_id, $tag_id, $format, $components, $data);
         return call_user_func($class . '::createInstance', $ifd_id, $tag_id, $arguments);
     }
-    final public static function createMakerNote($ifd_id, $tag_id, PelDataWindow $d, $offset, $i)
-    {
-        $class = PelSpec::getTagClass($ifd_id, $tag_id);
-        $arguments = [$offset];
-        return call_user_func($class . '::createInstance', $ifd_id, $tag_id, $arguments);
-    }
 
     /**
      * Creates an instance of the entry.
