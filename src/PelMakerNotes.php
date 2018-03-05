@@ -91,10 +91,11 @@ abstract class PelMakerNotes
         $mkNotes = static::createMakerNotesFromManufacturer($make->getValue(), $exif_ifd, $d, $maker_note->getComponents(), $maker_note->offsetxxx);
         if ($mkNotes !== null) {
 //throw new \Exception(var_export($maker_note->getValue(), true));
-dump(strlen($maker_note->getValue()));
+$sss = $maker_note->getValue();
+dump(strlen($sss));
 $x = [];
-foreach ($maker_note->getValue() as $byte) {
-  $x[] = (int) $byte;
+for ($iii = 0; $iii < strlen($sss); $iii++) {
+    $x[] = (int) $sss[$iii];
 }
 dump($x);
             // Remove the pre-loaded undefined MakerNote tag entry.
