@@ -281,7 +281,7 @@ class PelCanonMakerNotes extends PelMakerNotes
             if (in_array($i+1, $this->undefinedPanoramaTags)) {
                 continue;
             }
-            PelMakerNotes::loadSingleMakerNotesValue($panoramaIfd,$type, $data, $offset, $size, $i, PelFormat::SHORT);
+            PelMakerNotes::loadSingleMakerNotesValue($panoramaIfd, $type, $data, $offset, $size, $i, PelFormat::SHORT);
         }
         $parent->addSubIfd($panoramaIfd);
     }
