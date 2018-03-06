@@ -329,7 +329,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
     public function newEntryFromData($tag, $format, $components, PelDataWindow $data)
     {
         $class = PelSpec::getTagClass($this->type, $tag, $format);
-        $arguments = call_user_func($class . '::getInstanceArgumentsFromData', $this->type, $tag, $format, $components, $data);
+        $arguments = call_user_func($class . '::getInstanceArgumentsFromData', $this->type, $tag, $format, $components, $data, null);
         return call_user_func($class . '::createInstance', $this->type, $tag, $arguments);
     }
 

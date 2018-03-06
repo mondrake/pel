@@ -100,7 +100,7 @@ abstract class PelMakerNotes
 
         try {
             $class = PelSpec::getTagClass($ifd->getType(), $i + 1, $format);
-            $arguments = call_user_func($class . '::getInstanceArgumentsFromData', $ifd->getType(), $i + 1, $format, 1, $subdata);
+            $arguments = call_user_func($class . '::getInstanceArgumentsFromData', $ifd->getType(), $i + 1, $format, 1, $subdata, null);
             $entry = call_user_func($class . '::createInstance', $ifd->getType(), $i + 1, $arguments);
             $ifd->addEntry($entry);
         } catch (PelException $e) {

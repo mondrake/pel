@@ -168,12 +168,11 @@ abstract class PelEntry
 
         try {
             $class = PelSpec::getTagClass($ifd_id, $tag_id, $format);
-            $arguments = call_user_func($class . '::getInstanceArgumentsFromData', $ifd_id, $tag_id, $format, $components, $sub_data);
+            $arguments = call_user_func($class . '::getInstanceArgumentsFromData', $ifd_id, $tag_id, $format, $components, $sub_data, $data_offset);
             $entry = call_user_func($class . '::createInstance', $ifd_id, $tag_id, $arguments);
             // TTTT
             if (PelSpec::getTagName($ifd_id, $tag_id) === 'MakerNote') {
                 $o = $data->getLong($ifd_offset + 12 * $seq + 8);
-dump([$o, $data_offset]);
                 $entry->offsetxxx = $o;
             }
             return $entry;
@@ -219,11 +218,13 @@ dump([$o, $data_offset]);
      *            the components in the entry.
      * @param PelDataWindow $data
      *            the data which will be used to construct the entry.
+     * @param int $data_offset
+     *            the offset of the main DataWindow where data is stored.
      *
      * @return array a list or arguments to be passed to the PelEntry subclass
      *            constructor.
      */
-    public static function getInstanceArgumentsFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
+    public static function getInstanceArgumentsFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data, $data_offset)
     {
         throw new PelException('getInstanceArgumentsFromData() must be implemented.');
     }

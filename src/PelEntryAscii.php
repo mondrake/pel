@@ -104,11 +104,13 @@ class PelEntryAscii extends PelEntry
      *            the components in the entry.
      * @param PelDataWindow $data
      *            the data which will be used to construct the entry.
+     * @param int $data_offset
+     *            the offset of the main DataWindow where data is stored.
      *
      * @return array a list or arguments to be passed to the PelEntry subclass
      *            constructor.
      */
-    public static function getInstanceArgumentsFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
+    public static function getInstanceArgumentsFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data, $data_offset)
     {
         // cut off string after the first nul byte
         $canonicalString = strstr($data->getBytes(0), "\0", true);
