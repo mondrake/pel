@@ -60,7 +60,7 @@ class PelEntryMakerNote extends PelEntryUndefined
      * @param int $data_offset
      *            the offset of the main DataWindow where data is stored.
      */
-    public function getDataOffset($data_offset)
+    public function setDataOffset($data_offset)
     {
         $this->dataOffset = $data_offset;
     }
