@@ -232,7 +232,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                 }
                 // Add the TAG entry.
                 if ($entry = PelEntry::createFromData($this->type, $tag, $d, $offset, $i)) {
-                  $this->addEntry($entry);
+                    $this->addEntry($entry);
                 }
             }
         }

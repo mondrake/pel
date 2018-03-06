@@ -132,41 +132,46 @@ abstract class PelEntry
     /**
      * Creates a PelEntry of the required subclass from file data.
      *
-     *
      * @param int $ifd_id
      *            the IFD id.
      * @param int $tag_id
      *            the TAG id.
-     * @TTTT
+     * @param PelDataWindow $data
+     *            the data window that will provide the data.
+     * @param integer $ifd_offset
+     *            the offset within the window where the directory will
+     *            be found.
+     * @param int $seq
+     *            the element's position in the {@link PelDataWindow} $data.
      *
      * @return PelEntry a newly created entry, holding the data given.
      */
-    final public static function createFromData($ifd_id, $tag_id, PelDataWindow $d, $offset, $i)
+    final public static function createFromData($ifd_id, $tag_id, PelDataWindow $data, $ifd_offset, $seq)
     {
-        $format = $d->getShort($offset + 12 * $i + 2);
-        $components = $d->getLong($offset + 12 * $i + 4);
+        $format = $data->getShort($ifd_offset + 12 * $seq + 2);
+        $components = $data->getLong($ifd_offset + 12 * $seq + 4);
 
         // The data size. If bigger than 4 bytes, the actual data is
         // not in the entry but somewhere else, with the offset stored
         // in the entry.
-        $s = PelFormat::getSize($format) * $components;
-        if ($s > 0) {
-            $doff = $offset + 12 * $i + 8;
-            if ($s > 4) {
-                $doff = $d->getLong($doff);
+        $size = PelFormat::getSize($format) * $components;
+        if ($size > 0) {
+            $doff = $ifd_offset + 12 * $seq + 8;
+            if ($size > 4) {
+                $doff = $data->getLong($doff);
             }
-            $data = $d->getClone($doff, $s);
+            $sub_data = $data->getClone($doff, $size);
         } else {
-            $data = new PelDataWindow();
+            $sub_data = new PelDataWindow();
         }
 
         try {
             $class = PelSpec::getTagClass($ifd_id, $tag_id, $format);
-            $arguments = call_user_func($class . '::getInstanceArgumentsFromData', $ifd_id, $tag_id, $format, $components, $data);
+            $arguments = call_user_func($class . '::getInstanceArgumentsFromData', $ifd_id, $tag_id, $format, $components, $sub_data);
             $entry = call_user_func($class . '::createInstance', $ifd_id, $tag_id, $arguments);
             // TTTT
             if (PelSpec::getTagName($ifd_id, $tag_id) === 'MakerNote') {
-                $o = $d->getLong($offset + 12 * $i + 8);
+                $o = $data->getLong($ifd_offset + 12 * $seq + 8);
                 $entry->offsetxxx = $o;
             }
             return $entry;
