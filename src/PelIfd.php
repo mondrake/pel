@@ -198,6 +198,11 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                 $n
             );
 
+            // TTTT
+            if (PelSpec::isTagAnIfdPointer($this->type, $tag) && $this->type > PelIfd::INTEROPERABILITY ) {
+                continue;
+            }
+
             if (PelSpec::isTagAnIfdPointer($this->type, $tag)) {
                 // If the tag is an IFD pointer, loads the IFD.
                 $type = PelSpec::getIfdIdFromTag($this->type, $tag);
@@ -254,7 +259,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                 $this->next->load($d, $o);
             }
         } else {
-            Pel::debug('Last IFD.');
+            Pel::debug("End of IFD '%s'.", $this->getName());
         }
     }
 
