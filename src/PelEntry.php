@@ -173,9 +173,9 @@ abstract class PelEntry
         }
 
         try {
-            $entry = PelEntry::createFromData($ifd_id, $tag, $format, $components, $data);
+            $entry = PelEntry::createFromData($ifd_id, $tag_id, $format, $components, $data);
             // TTTT
-            if (PelSpec::getTagName($ifd_id, $tag) === 'MakerNote') {
+            if (PelSpec::getTagName($ifd_id, $tag_id) === 'MakerNote') {
                 $o = $d->getLong($offset + 12 * $i + 8);
                 $entry->offsetxxx = $o;
             }
