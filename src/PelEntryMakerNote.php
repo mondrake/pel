@@ -7,8 +7,12 @@ namespace lsolesen\pel;
  */
 class PelEntryMakerNote extends PelEntryUndefined
 {
-    // TTTT
-    public $offsetxxx;
+    /**
+     * The offset of the MakerNote IFD vs the main DataWindow.
+     *
+     * @var int
+     */
+    protected $dataOffset;
 
     /**
      * Make a new PelEntry that can hold MakerNote data.
@@ -23,7 +27,7 @@ class PelEntryMakerNote extends PelEntryUndefined
     public function __construct($tag, $data, $data_offset)
     {
         parent::__construct($tag, $data);
-        $this->offsetxxx = $data_offset;
+        $this->setDataOffset($data_offset);
     }
 
     /**
@@ -48,6 +52,27 @@ class PelEntryMakerNote extends PelEntryUndefined
     public static function getInstanceArgumentsFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data, $data_offset)
     {
         return [$data->getBytes(), $data_offset];
+    }
+
+    /**
+     * Set the offset of the MakerNote IFD vs the main DataWindow.
+     *
+     * @param int $data_offset
+     *            the offset of the main DataWindow where data is stored.
+     */
+    public function getDataOffset($data_offset)
+    {
+        $this->dataOffset = $data_offset;
+    }
+
+    /**
+     * Get the offset of the MakerNote IFD vs the main DataWindow.
+     *
+     * @return int
+     */
+    public function getDataOffset()
+    {
+        return $this->dataOffset;
     }
 
     /**
