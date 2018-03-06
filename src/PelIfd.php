@@ -226,7 +226,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                 $this->safeSetThumbnail($d, $thumb_offset, $thumb_length);
             } else {
                 // Check if PEL can support the TAG.
-                if (!in_array($tag, PelSpec::getIfdSupportedTagIds($this->type))) {
+                if (!$this->isValidTag($tag)) {
                     Pel::debug("IFD %s cannot hold TAG 0x%04X", $this->getName(), $tag);
                     continue;
                 }
