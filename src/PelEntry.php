@@ -156,12 +156,13 @@ abstract class PelEntry
         // in the entry.
         $size = PelFormat::getSize($format) * $components;
         if ($size > 0) {
-            $doff = $ifd_offset + 12 * $seq + 8;
+            $data_offset = $ifd_offset + 12 * $seq + 8;
             if ($size > 4) {
-                $doff = $data->getLong($doff);
+                $data_offset = $data->getLong($data_offset);
             }
-            $sub_data = $data->getClone($doff, $size);
+            $sub_data = $data->getClone($data_offset, $size);
         } else {
+            $data_offset = 0;
             $sub_data = new PelDataWindow();
         }
 
@@ -172,6 +173,7 @@ abstract class PelEntry
             // TTTT
             if (PelSpec::getTagName($ifd_id, $tag_id) === 'MakerNote') {
                 $o = $data->getLong($ifd_offset + 12 * $seq + 8);
+dump([$o, $data_offset]);
                 $entry->offsetxxx = $o;
             }
             return $entry;
