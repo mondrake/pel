@@ -231,7 +231,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                     continue;
                 }
                 // Add the TAG entry.
-                if ($entry = PelEntry::createFromDataWindow($this->type, $tag, $d, $offset, $i)) {
+                if ($entry = PelEntry::createFromData($this->type, $tag, $d, $offset, $i)) {
                   $this->addEntry($entry);
                 }
             }
@@ -282,11 +282,11 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
      * @param int $tag
      *            the tag of the entry as defined in {@link PelSpec}.
      *
-     * @deprecated Use PelEntry::createFromDataWindow instead.
+     * @deprecated Use PelEntry::createFromData instead.
      */
     public function loadSingleValue($d, $offset, $i, $tag)
     {
-        $this->addEntry(PelEntry::createFromDataWindow($this->type, $tag, $d, $offset, $i));
+        $this->addEntry(PelEntry::createFromData($this->type, $tag, $d, $offset, $i));
     }
 
     /**
@@ -328,7 +328,9 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
      */
     public function newEntryFromData($tag, $format, $components, PelDataWindow $data)
     {
-        return PelEntry::createFromData($this->type, $tag, $format, $components, $data);
+        $class = PelSpec::getTagClass($this->type, $tag, $format);
+        $arguments = call_user_func($class . '::getInstanceArgumentsFromData', $this->type, $tag, $format, $components, $data);
+        return call_user_func($class . '::createInstance', $this->type, $tag, $arguments);
     }
 
     /**

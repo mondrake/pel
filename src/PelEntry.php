@@ -146,14 +146,14 @@ abstract class PelEntry
      *
      * @return PelEntry a newly created entry, holding the data given.
      */
-    final public static function createFromData($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
+    final public static function createFromDataxxx($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
     {
         $class = PelSpec::getTagClass($ifd_id, $tag_id, $format);
         $arguments = call_user_func($class . '::getInstanceArgumentsFromData', $ifd_id, $tag_id, $format, $components, $data);
         return call_user_func($class . '::createInstance', $ifd_id, $tag_id, $arguments);
     }
 
-    final public static function createFromDataWindow($ifd_id, $tag_id, PelDataWindow $d, $offset, $i)
+    final public static function createFromData($ifd_id, $tag_id, PelDataWindow $d, $offset, $i)
     {
         $format = $d->getShort($offset + 12 * $i + 2);
         $components = $d->getLong($offset + 12 * $i + 4);
@@ -173,7 +173,7 @@ abstract class PelEntry
         }
 
         try {
-            $entry = PelEntry::createFromData($ifd_id, $tag_id, $format, $components, $data);
+            $entry = PelEntry::createFromDataxxx($ifd_id, $tag_id, $format, $components, $data);
             // TTTT
             if (PelSpec::getTagName($ifd_id, $tag_id) === 'MakerNote') {
                 $o = $d->getLong($offset + 12 * $i + 8);
