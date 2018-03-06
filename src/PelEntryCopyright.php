@@ -146,7 +146,7 @@ class PelEntryCopyright extends PelEntryAscii
         }
         $v = explode("\0", trim($data->getBytes(), ' '));
         if (! isset($v[1])) {
-            Pel::maybeThrow(new PelException('Invalid copyright: %s', $data->getBytes()));
+//            Pel::maybeThrow(new PelException('Invalid copyright: %s', $data->getBytes()));
             // when not in strict mode, set empty copyright and continue
             $v[1] = '';
         }
