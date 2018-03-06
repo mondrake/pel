@@ -153,6 +153,40 @@ abstract class PelEntry
         return call_user_func($class . '::createInstance', $ifd_id, $tag_id, $arguments);
     }
 
+    final public static function createFromDataWindow($ifd_id, $tag_id, PelDataWindow $d, $offset, $i)
+    {
+        $format = $d->getShort($offset + 12 * $i + 2);
+        $components = $d->getLong($offset + 12 * $i + 4);
+
+        // The data size. If bigger than 4 bytes, the actual data is
+        // not in the entry but somewhere else, with the offset stored
+        // in the entry.
+        $s = PelFormat::getSize($format) * $components;
+        if ($s > 0) {
+            $doff = $offset + 12 * $i + 8;
+            if ($s > 4) {
+                $doff = $d->getLong($doff);
+            }
+            $data = $d->getClone($doff, $s);
+        } else {
+            $data = new PelDataWindow();
+        }
+
+        try {
+            $entry = PelEntry::createFromData($ifd_id, $tag, $format, $components, $data);
+            // TTTT
+            if (PelSpec::getTagName($ifd_id, $tag) === 'MakerNote') {
+                $o = $d->getLong($offset + 12 * $i + 8);
+                $entry->offsetxxx = $o;
+            }
+            return $entry;
+        } catch (PelException $e) {
+            // Throw the exception when running in strict mode, store
+            // otherwise.
+            Pel::maybeThrow($e);
+        }
+    }
+
     /**
      * Creates an instance of the entry.
      *

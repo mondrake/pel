@@ -225,7 +225,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                 $thumb_length = $d->getLong($offset + 12 * $i + 8);
                 $this->safeSetThumbnail($d, $thumb_offset, $thumb_length);
             } else {
-                $this->loadSingleValue($d, $offset, $i, $tag);
+                $this->addEntry(PelEntry::createFromDataWindow($this->type, $tag, $d, $offset, $i));
             }
         }
 
@@ -273,49 +273,12 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
      *
      * @param int $tag
      *            the tag of the entry as defined in {@link PelSpec}.
+     *
+     * @deprecated Use PelEntry::createFromDataWindow instead.
      */
     public function loadSingleValue($d, $offset, $i, $tag)
     {
-        $format = $d->getShort($offset + 12 * $i + 2);
-        $components = $d->getLong($offset + 12 * $i + 4);
-
-        /*
-         * The data size. If bigger than 4 bytes, the actual data is
-         * not in the entry but somewhere else, with the offset stored
-         * in the entry.
-         */
-        $s = PelFormat::getSize($format) * $components;
-        if ($s > 0) {
-            $doff = $offset + 12 * $i + 8;
-            if ($s > 4) {
-                $doff = $d->getLong($doff);
-            }
-            $data = $d->getClone($doff, $s);
-        } else {
-            $data = new PelDataWindow();
-        }
-
-        try {
-            $entry = PelEntry::createFromData($this->type, $tag, $format, $components, $data);
-            $this->addEntry($entry);
-            // TTTT
-            if (PelSpec::getTagName($this->type, $tag) === 'MakerNote') {
-                $o = $d->getLong($offset + 12 * $i + 8);
-                $entry->offsetxxx = $o;
-            }
-        } catch (PelException $e) {
-            /*
-             * Throw the exception when running in strict mode, store
-             * otherwise.
-             */
-            Pel::maybeThrow($e);
-        }
-
-        /* The format of the thumbnail is stored in this tag. */
-        // TODO: handle TIFF thumbnail.
-        // if ($tag == PelTag::COMPRESSION) {
-        // $this->thumb_format = $data->getShort();
-        // }
+        $this->addEntry(PelEntry::createFromDataWindow($this->type, $tag, $d, $offset, $i));
     }
 
     /**

@@ -213,7 +213,7 @@ class PelCanonMakerNotes extends PelMakerNotes
                 case PelSpec::getTagIdByName($ifd_id, 'CustomFunctions'):
                     //TODO
                 default:
-                    $mkNotesIfd->loadSingleValue($this->data, $this->offset, $i, $tag);
+                    $mkNotesIfd->addEntry(PelEntry::createFromDataWindow($ifd_id, $tag, $this->data, $this->offset, $i));
                     break;
             }
         }
