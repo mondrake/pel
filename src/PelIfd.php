@@ -228,7 +228,9 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                 // Check if PEL can support the TAG.
                 if (!in_array($tag, PelSpec::getIfdSupportedTagIds($this->type))) {
                     Pel::debug("IFD %s cannot hold TAG 0x%04X", $this->getName(), $tag);
+                    continue;
                 }
+                // Add the TAG entry.
                 if ($entry = PelEntry::createFromDataWindow($this->type, $tag, $d, $offset, $i)) {
                   $this->addEntry($entry);
                 }
