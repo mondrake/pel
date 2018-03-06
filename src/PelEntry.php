@@ -169,13 +169,7 @@ abstract class PelEntry
         try {
             $class = PelSpec::getTagClass($ifd_id, $tag_id, $format);
             $arguments = call_user_func($class . '::getInstanceArgumentsFromData', $ifd_id, $tag_id, $format, $components, $sub_data, $data_offset);
-            $entry = call_user_func($class . '::createInstance', $ifd_id, $tag_id, $arguments);
-            // TTTT
-            if (PelSpec::getTagName($ifd_id, $tag_id) === 'MakerNote') {
-                $o = $data->getLong($ifd_offset + 12 * $seq + 8);
-                $entry->offsetxxx = $o;
-            }
-            return $entry;
+            return  call_user_func($class . '::createInstance', $ifd_id, $tag_id, $arguments);
         } catch (PelException $e) {
             // Throw the exception when running in strict mode, store
             // otherwise.
