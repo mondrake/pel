@@ -99,7 +99,10 @@ abstract class PelMakerNotes
         }
 
         try {
-            $ifd->addEntry(PelEntry::createFromDataxxx($ifd->getType(), $i + 1, $format, 1, $subdata));
+            $class = PelSpec::getTagClass($ifd->getType(), $i + 1, $format);
+            $arguments = call_user_func($class . '::getInstanceArgumentsFromData', $ifd->getType(), $i + 1, $format, 1, $subdata);
+            $entry = call_user_func($class . '::createInstance', $ifd->getType(), $i + 1, $arguments);
+            $ifd->addEntry($entry);
         } catch (PelException $e) {
             // Throw the exception when running in strict mode, store otherwise.
             Pel::maybeThrow($e);

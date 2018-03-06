@@ -137,22 +137,10 @@ abstract class PelEntry
      *            the IFD id.
      * @param int $tag_id
      *            the TAG id.
-     * @param int $format
-     *            the format of the entry as defined in {@link PelFormat}.
-     * @param int $components
-     *            the components in the entry.
-     * @param PelDataWindow $data
-     *            the data which will be used to construct the entry.
+     * @TTTT
      *
      * @return PelEntry a newly created entry, holding the data given.
      */
-    final public static function createFromDataxxx($ifd_id, $tag_id, $format, $components, PelDataWindow $data)
-    {
-        $class = PelSpec::getTagClass($ifd_id, $tag_id, $format);
-        $arguments = call_user_func($class . '::getInstanceArgumentsFromData', $ifd_id, $tag_id, $format, $components, $data);
-        return call_user_func($class . '::createInstance', $ifd_id, $tag_id, $arguments);
-    }
-
     final public static function createFromData($ifd_id, $tag_id, PelDataWindow $d, $offset, $i)
     {
         $format = $d->getShort($offset + 12 * $i + 2);
@@ -173,7 +161,9 @@ abstract class PelEntry
         }
 
         try {
-            $entry = PelEntry::createFromDataxxx($ifd_id, $tag_id, $format, $components, $data);
+            $class = PelSpec::getTagClass($ifd_id, $tag_id, $format);
+            $arguments = call_user_func($class . '::getInstanceArgumentsFromData', $ifd_id, $tag_id, $format, $components, $data);
+            $entry = call_user_func($class . '::createInstance', $ifd_id, $tag_id, $arguments);
             // TTTT
             if (PelSpec::getTagName($ifd_id, $tag_id) === 'MakerNote') {
                 $o = $d->getLong($offset + 12 * $i + 8);
