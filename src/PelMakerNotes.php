@@ -140,7 +140,9 @@ abstract class PelMakerNotes
 
         $mkNotes = static::createMakerNotesFromManufacturer($make->getValue(), $exif_ifd, $d, $maker_note->getComponents(), $maker_note->getDataOffset());
         if ($mkNotes !== null) {
-dump(new PelIfd($d, $maker_note->getDataOffset());
+$x = new PelIfd(PelSpec::getIfdIdByType('Canon Maker Notes'));
+$x->load($d, $maker_note->getDataOffset());
+dump($x);
             // Remove the pre-loaded undefined MakerNote tag entry.
             $exif_ifd->offsetUnset(PelSpec::getTagIdByName($exif_ifd->getType(), 'MakerNote'));
             $mkNotes->load();
