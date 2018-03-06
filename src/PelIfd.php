@@ -225,7 +225,9 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                 $thumb_length = $d->getLong($offset + 12 * $i + 8);
                 $this->safeSetThumbnail($d, $thumb_offset, $thumb_length);
             } else {
-                $this->addEntry(PelEntry::createFromDataWindow($this->type, $tag, $d, $offset, $i));
+                if ($entry = PelEntry::createFromDataWindow($this->type, $tag, $d, $offset, $i)) {
+                  $this->addEntry($entry);
+                }
             }
         }
 
