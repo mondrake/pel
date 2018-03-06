@@ -114,6 +114,10 @@ tags:
         name: ColorSpace
         title: 'Color Space'
         format: SShort
+        text:
+            mapping:
+                1: 'sRGB'
+                2: 'Adobe RGB'
     0x00D0:
         name: VRDOffset
         title: 'VRD offset'
