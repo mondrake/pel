@@ -99,7 +99,7 @@ abstract class PelMakerNotes
         }
 
         try {
-            $ifd->addEntry(PelEntry::createFromData($ifd->getType(), $i + 1, $format, 1, $subdata));
+            $ifd->addEntry(PelEntry::createFromDataxxx($ifd->getType(), $i + 1, $format, 1, $subdata));
         } catch (PelException $e) {
             // Throw the exception when running in strict mode, store otherwise.
             Pel::maybeThrow($e);
