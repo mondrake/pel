@@ -200,6 +200,9 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
 
             // TTTT
             if (PelSpec::isTagAnIfdPointer($this->type, $tag) && $this->type > PelIfd::INTEROPERABILITY ) {
+                Pel::debug("IFD '%s' found", $this->getTypeName(PelSpec::getIfdIdFromTag($this->type, $tag)));
+                Pel::debug("Components: " . $d->getLong($offset + 12 * $i + 4));
+                Pel::debug("O: " . $d->getLong($offset + 12 * $i + 8));
                 continue;
             }
 
@@ -208,7 +211,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                 $type = PelSpec::getIfdIdFromTag($this->type, $tag);
                 $components = $d->getLong($offset + 12 * $i + 4);
                 $o = $d->getLong($offset + 12 * $i + 8);
-                Pel::debug('Found sub IFD at offset %d', $o);
+                Pel::debug("Found sub IFD '%s' at offset %d", $this->getTypeName(PelSpec::getIfdIdFromTag($this->type, $tag)), $o);
 
                 if ($starting_offset != $o) {
                     $ifd = new PelIfd($type);
@@ -232,7 +235,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
             } else {
                 // Check if PEL can support the TAG.
                 if (!$this->isValidTag($tag)) {
-                    Pel::debug("IFD %s cannot hold TAG 0x%04X", $this->getName(), $tag);
+                    Pel::debug("IFD '%s' cannot hold TAG 0x%04X", $this->getName(), $tag);
                     continue;
                 }
                 // Add the TAG entry.
