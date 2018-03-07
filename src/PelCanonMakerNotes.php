@@ -230,7 +230,7 @@ Pel::debug('tag: %d %d %d', $tag, $type, $components);
         $size = $data->getShort($offset);
         $offset += 2;
         $elemSize = PelFormat::getSize(PelFormat::SSHORT);
-        Pel::debug('%d %d %d', $size, $offset, $elemSize); // TTTT
+Pel::debug('%d %d %d %d', $size, $offset, $elemSize, $components); // TTTT
         if ($size / $components !== $elemSize) {
             throw new PelMakerNotesMalformedException('Size of Canon Camera Settings does not match the number of entries.');
         }

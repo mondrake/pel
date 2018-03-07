@@ -91,6 +91,7 @@ abstract class PelMakerNotes
      */
     public static function loadSingleMakerNotesValue($ifd, $type, $data, $offset, $size, $i, $format)
     {
+Pel::debug('--tag: %d %d %d', $i, $offset, $format);
         $elemSize = PelFormat::getSize($format);
         if ($size > 0) {
             $subdata = $data->getClone($offset + $i * $elemSize, $elemSize);
@@ -152,5 +153,6 @@ abstract class PelMakerNotes
             $exif_ifd->offsetUnset(PelSpec::getTagIdByName($exif_ifd->getType(), 'MakerNote'));
             $mkNotes->load();
         }
+
     }
 }
