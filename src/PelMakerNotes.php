@@ -144,11 +144,12 @@ abstract class PelMakerNotes
         $x->load($d, $maker_note->getDataOffset());
         $exif_ifd->addSubIfd($x);
         $exif_ifd->offsetUnset(PelSpec::getTagIdByName($exif_ifd->getType(), 'MakerNote'));
-/*        $mkNotes = static::createMakerNotesFromManufacturer($make->getValue(), $exif_ifd, $d, $maker_note->getComponents(), $maker_note->getDataOffset());
+
+        $mkNotes = static::createMakerNotesFromManufacturer($make->getValue(), $exif_ifd, $d, $maker_note->getComponents(), $maker_note->getDataOffset());
         if ($mkNotes !== null) {
-            // Remove the pre-loaded undefined MakerNote tag entry.
-            $exif_ifd->offsetUnset(PelSpec::getTagIdByName($exif_ifd->getType(), 'MakerNote'));
+//            // Remove the pre-loaded undefined MakerNote tag entry.
+//            $exif_ifd->offsetUnset(PelSpec::getTagIdByName($exif_ifd->getType(), 'MakerNote'));
             $mkNotes->load();
-        }*/
+        }
     }
 }
