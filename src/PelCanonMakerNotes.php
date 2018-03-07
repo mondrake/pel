@@ -173,6 +173,7 @@ class PelCanonMakerNotes extends PelMakerNotes
 
     public function __construct($parent, $data, $size, $offset)
     {
+Pel::debug('__construct: %d %d', $size, $offset);
         parent::__construct($parent, $data, $size, $offset);
         $this->type = PelSpec::getIfdIdByType('Canon Maker Notes');
     }
@@ -181,6 +182,7 @@ class PelCanonMakerNotes extends PelMakerNotes
     {
         $this->components = $this->data->getShort($this->offset);
         $this->offset += 2;
+Pel::debug('load: %d %d', $this->components, $this->offset);
         Pel::debug('Loading %d components in maker notes.', $this->components);
         $ifd_id = PelSpec::getIfdIdByType('Canon Maker Notes');
         $mkNotesIfd = new PelIfd($ifd_id);
@@ -189,6 +191,7 @@ class PelCanonMakerNotes extends PelMakerNotes
             $tag = $this->data->getShort($this->offset + 12 * $i);
             $type = $this->data->getShort($this->offset + 12 * $i + 2);
             $components = $this->data->getLong($this->offset + 12 * $i + 4);
+Pel::debug('tag: %d %d %d', $tag, $type, $components);
             $data = $this->data->getLong($this->offset + 12 * $i + 8);
             // check if tag is defined
             if (in_array($tag, $this->undefinedMakerNotesTags)) {
