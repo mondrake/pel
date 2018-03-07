@@ -200,15 +200,12 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
 
             // TTTT
             if (PelSpec::isTagAnIfdPointer($this->type, $tag) && $this->type > PelIfd::INTEROPERABILITY ) {
-                Pel::debug("IFD '%s' found", $this->getTypeName(PelSpec::getIfdIdFromTag($this->type, $tag)));
-                Pel::debug("Components: " . $d->getLong($offset + 12 * $i + 4));
-                Pel::debug("O: " . $d->getLong($offset + 12 * $i + 8));
-                if ($this->getTypeName(PelSpec::getIfdIdFromTag($this->type, $tag)) === 'Canon Camera Settings') {
-                  $type = PelSpec::getIfdIdFromTag($this->type, $tag);
-                  $components = $d->getLong($offset + 12 * $i + 4);
-                  $o = $d->getLong($offset + 12 * $i + 8);
-                  Pel::debug("Found sub IFD '%s' with %d entries at offset %d", $this->getTypeName(PelSpec::getIfdIdFromTag($this->type, $tag)), $components, $o);
-                }
+                $type = PelSpec::getIfdIdFromTag($this->type, $tag);
+                $components = $d->getLong($offset + 12 * $i + 4);
+                $o = $d->getLong($offset + 12 * $i + 8);
+                Pel::debug("Found sub IFD '%s' with %d entries at offset %d", $this->getTypeName(PelSpec::getIfdIdFromTag($this->type, $tag)), $components, $o);
+                $ifd = new PelIfd($type);
+                $ifd->load($d, $o);
                 continue;
             }
 
