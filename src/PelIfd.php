@@ -173,7 +173,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
         $thumb_offset = 0;
         $thumb_length = 0;
 
-        Pel::debug('Constructing IFD at offset %d from %d bytes...', $offset, $d->getSize());
+        Pel::debug("** Constructing IFD '%s' at offset %d from %d bytes...", $this->getName(), $offset, $d->getSize());
 
         /* Read the number of entries */
         $n = $d->getShort($offset);
@@ -261,9 +261,9 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                 $this->next = new PelIfd(PelSpec::getIfdIdByType('1'));
                 $this->next->load($d, $o);
             }
-        } else {
-            Pel::debug("End of IFD '%s'.", $this->getName());
         }
+
+        Pel::debug("** End of IFD '%s'.", $this->getName());
     }
 
     /**
