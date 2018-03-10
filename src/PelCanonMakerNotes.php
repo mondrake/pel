@@ -44,50 +44,7 @@ namespace lsolesen\pel;
  */
 class PelCanonMakerNotes extends PelMakerNotes
 {
-    private $undefinedMakerNotesTags = [
-        0x0000,
-        0x0003,
-        0x000a,
-        0x000e,
-        0x0011,
-        0x0014,
-        0x0016,
-        0x0017,
-        0x0018,
-        0x0019,
-        0x001b,
-        0x001c,
-        0x001d,
-        0x001f,
-        0x0020,
-        0x0021,
-        0x0022,
-        0x0023,
-        0x0024,
-        0x0025,
-        0x0031,
-        0x0035,
-        0x0098,
-        0x009a,
-        0x00b5,
-        0x00c0,
-        0x00c1,
-        0x4008,
-        0x4009,
-        0x4010,
-        0x4011,
-        0x4012,
-        0x4013,
-        0x4015,
-        0x4016,
-        0x4018,
-        0x4019,
-        0x4020,
-        0x4025,
-        0x4027
-    ];
-
-    private $undefinedCameraSettingsTags = [
+    private static $undefinedCameraSettingsTags = [
         0x0006,
         0x0008,
         0x0015,
@@ -102,7 +59,7 @@ class PelCanonMakerNotes extends PelMakerNotes
         0x0031
     ];
 
-    private $undefinedShotInfoTags = [
+    private static $undefinedShotInfoTags = [
         0x0001,
         0x0006,
         0x000a,
@@ -122,13 +79,13 @@ class PelCanonMakerNotes extends PelMakerNotes
         0x0022
     ];
 
-    private $undefinedPanoramaTags = [
+    private static $undefinedPanoramaTags = [
         0x0001,
         0x0003,
         0x0004
     ];
 
-    private $undefinedPicInfoTags = [
+    private static $undefinedPicInfoTags = [
         0x0001,
         0x0006,
         0x0007,
@@ -153,7 +110,7 @@ class PelCanonMakerNotes extends PelMakerNotes
         0x001c
     ];
 
-    private $undefinedFileInfoTags = [
+    private static $undefinedFileInfoTags = [
         0x0002,
         0x000a,
         0x000b,
@@ -223,14 +180,13 @@ Pel::debug('tag: %d %d %d', $tag, $type, $components);
         $this->parent->addSubIfd($mkNotesIfd);
     }
 
-    private function parseCameraSettings($parent, $data, $offset, $components)
+    public static function parseCameraSettings($parent, $data, $offset, $components)
     {
         $type = PelSpec::getIfdIdByType('Canon Camera Settings');
         Pel::debug('Found Canon Camera Settings sub IFD at offset %d', $offset);
         $size = $data->getShort($offset);
         $offset += 2;
         $elemSize = PelFormat::getSize(PelFormat::SSHORT);
-Pel::debug('%d %d %d %d', $size, $offset, $elemSize, $components); // TTTT
         if ($size / $components !== $elemSize) {
             throw new PelMakerNotesMalformedException('Size of Canon Camera Settings does not match the number of entries.');
         }
@@ -238,7 +194,7 @@ Pel::debug('%d %d %d %d', $size, $offset, $elemSize, $components); // TTTT
 
         for ($i=0; $i<$components; $i++) {
             // check if tag is defined
-            if (in_array($i+1, $this->undefinedCameraSettingsTags)) {
+            if (in_array($i+1, static::$undefinedCameraSettingsTags)) {
                 continue;
             }
             PelMakerNotes::loadSingleMakerNotesValue($camIfd, $type, $data, $offset, $size, $i, PelFormat::SSHORT);
@@ -246,7 +202,7 @@ Pel::debug('%d %d %d %d', $size, $offset, $elemSize, $components); // TTTT
         $parent->addSubIfd($camIfd);
     }
 
-    private function parseShotInfo($parent, $data, $offset, $components)
+    public static function parseShotInfo($parent, $data, $offset, $components)
     {
         $type = PelSpec::getIfdIdByType('Canon Shot Information');
         Pel::debug('Found Canon Shot Info sub IFD at offset %d', $offset);
@@ -260,7 +216,7 @@ Pel::debug('%d %d %d %d', $size, $offset, $elemSize, $components); // TTTT
 
         for ($i=0; $i<$components; $i++) {
             // check if tag is defined
-            if (in_array($i+1, $this->undefinedShotInfoTags)) {
+            if (in_array($i+1, static::$undefinedShotInfoTags)) {
                 continue;
             }
             PelMakerNotes::loadSingleMakerNotesValue($shotIfd, $type, $data, $offset, $size, $i, PelFormat::SHORT);
@@ -268,7 +224,7 @@ Pel::debug('%d %d %d %d', $size, $offset, $elemSize, $components); // TTTT
         $parent->addSubIfd($shotIfd);
     }
 
-    private function parsePanorama($parent, $data, $offset, $components)
+    public static function parsePanorama($parent, $data, $offset, $components)
     {
         $type = PelSpec::getIfdIdByType('Canon Panorama Information');
         Pel::debug('Found Canon Panorama sub IFD at offset %d', $offset);
@@ -282,7 +238,7 @@ Pel::debug('%d %d %d %d', $size, $offset, $elemSize, $components); // TTTT
 
         for ($i=0; $i<$components; $i++) {
             // check if tag is defined
-            if (in_array($i+1, $this->undefinedPanoramaTags)) {
+            if (in_array($i+1, static::$undefinedPanoramaTags)) {
                 continue;
             }
             PelMakerNotes::loadSingleMakerNotesValue($panoramaIfd, $type, $data, $offset, $size, $i, PelFormat::SHORT);
@@ -290,7 +246,7 @@ Pel::debug('%d %d %d %d', $size, $offset, $elemSize, $components); // TTTT
         $parent->addSubIfd($panoramaIfd);
     }
 
-    private function parsePictureInfo($parent, $data, $offset, $components)
+    public static function parsePictureInfo($parent, $data, $offset, $components)
     {
         $type = PelSpec::getIfdIdByType('Canon Picture Information');
         Pel::debug('Found Canon Picture Info sub IFD at offset %d', $offset);
@@ -305,7 +261,7 @@ Pel::debug('%d %d %d %d', $size, $offset, $elemSize, $components); // TTTT
         for ($i=0; $i<$components; $i++) {
             // check if tag is defined
             printf("Current Tag: %d\n", ($i+1));
-            if (in_array($i+1, $this->undefinedPicInfoTags)) {
+            if (in_array($i+1, static::$undefinedPicInfoTags)) {
                 continue;
             }
             PelMakerNotes::loadSingleMakerNotesValue($picIfd, $type, $data, $offset, $size, $i, PelFormat::SHORT);
@@ -313,7 +269,7 @@ Pel::debug('%d %d %d %d', $size, $offset, $elemSize, $components); // TTTT
         $parent->addSubIfd($picIfd);
     }
 
-    private function parseFileInfo($parent, $data, $offset, $components)
+    public static function parseFileInfo($parent, $data, $offset, $components)
     {
         $type = PelSpec::getIfdIdByType('Canon File Information');
         Pel::debug('Found Canon File Info sub IFD at offset %d', $offset);
@@ -327,7 +283,7 @@ Pel::debug('%d %d %d %d', $size, $offset, $elemSize, $components); // TTTT
 
         for ($i=0; $i<$components; $i++) {
             // check if tag is defined
-            if (in_array($i+1, $this->undefinedFileInfoTags)) {
+            if (in_array($i+1, static::$undefinedFileInfoTags)) {
                 continue;
             }
             $format = PelFormat::SSHORT;

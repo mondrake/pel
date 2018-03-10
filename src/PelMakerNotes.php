@@ -91,7 +91,7 @@ abstract class PelMakerNotes
      */
     public static function loadSingleMakerNotesValue($ifd, $type, $data, $offset, $size, $i, $format)
     {
-Pel::debug('--tag: %d %d %d', $i, $offset, $format);
+//Pel::debug('--tag: %d %d %d', $i, $offset, $format);
         $elemSize = PelFormat::getSize($format);
         if ($size > 0) {
             $subdata = $data->getClone($offset + $i * $elemSize, $elemSize);
@@ -140,19 +140,18 @@ Pel::debug('--tag: %d %d %d', $i, $offset, $format);
         }
 
         // TTTT
-/*        $ifd_id = PelSpec::getIfdIdByType('Canon Maker Notes');
+        $ifd_id = PelSpec::getIfdIdByType('Canon Maker Notes');
         $x = new PelIfd($ifd_id);
         $x->load($d, $maker_note->getDataOffset());
         $exif_ifd->addSubIfd($x);
         $exif_ifd->offsetUnset(PelSpec::getTagIdByName($exif_ifd->getType(), 'MakerNote'));
-*/
 
-        $mkNotes = static::createMakerNotesFromManufacturer($make->getValue(), $exif_ifd, $d, $maker_note->getComponents(), $maker_note->getDataOffset());
+/*        $mkNotes = static::createMakerNotesFromManufacturer($make->getValue(), $exif_ifd, $d, $maker_note->getComponents(), $maker_note->getDataOffset());
         if ($mkNotes !== null) {
             // Remove the pre-loaded undefined MakerNote tag entry.
             $exif_ifd->offsetUnset(PelSpec::getTagIdByName($exif_ifd->getType(), 'MakerNote'));
             $mkNotes->load();
         }
-
+*/
     }
 }

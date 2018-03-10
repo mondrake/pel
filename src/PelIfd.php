@@ -199,13 +199,26 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
             );
 
             // TTTT
-            if (PelSpec::isTagAnIfdPointer($this->type, $tag) && $this->type > PelIfd::INTEROPERABILITY ) {
-                $type = PelSpec::getIfdIdFromTag($this->type, $tag);
+            if (PelSpec::isTagAnIfdPointer($this->type, $tag) && $this->type > PelIfd::INTEROPERABILITY && PelSpec::getIfdIdFromTag($this->type, $tag) !== PelSpec::getIfdIdByType('Canon Maker Notes')) {
                 $components = $d->getLong($offset + 12 * $i + 4);
                 $o = $d->getLong($offset + 12 * $i + 8);
-                Pel::debug("Found sub IFD '%s' with %d entries at offset %d", $this->getTypeName(PelSpec::getIfdIdFromTag($this->type, $tag)), $components, $o);
-                $ifd = new PelIfd($type);
-                $ifd->load($d, $o);
+                switch (PelSpec::getIfdIdFromTag($this->type, $tag)) {
+                    case PelSpec::getIfdIdByType('Canon Camera Settings'):
+                        PelCanonMakerNotes::parseCameraSettings($this, $d, $o, $components);
+                        break;
+                    case PelSpec::getIfdIdByType('Canon Shot Information'):
+                        PelCanonMakerNotes::parseShotInfo($this, $d, $o, $components);
+                        break;
+                    case PelSpec::getIfdIdByType('Canon Panorama Information'):
+                        PelCanonMakerNotes::parsePanorama($this, $d, $o, $components);
+                        break;
+                    case PelSpec::getIfdIdByType('Canon Picture Information'):
+                        // $this->parsePictureInfo($mkNotesIfd, $this->data, $data, $components);
+                        break;
+                    case PelSpec::getIfdIdByType('Canon File Information'):
+                        PelCanonMakerNotes::parseFileInfo($this, $d, $o, $components);
+                        break;
+                }
                 continue;
             }
 
@@ -214,7 +227,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                 $type = PelSpec::getIfdIdFromTag($this->type, $tag);
                 $components = $d->getLong($offset + 12 * $i + 4);
                 $o = $d->getLong($offset + 12 * $i + 8);
-                Pel::debug("Found sub IFD '%s' at offset %d", $this->getTypeName(PelSpec::getIfdIdFromTag($this->type, $tag)), $o);
+                Pel::debug("Found sub IFD '%s' with %d entries at offset %d", $this->getTypeName(PelSpec::getIfdIdFromTag($this->type, $tag)), $components, $o);
 
                 if ($starting_offset != $o) {
                     $ifd = new PelIfd($type);
@@ -227,24 +240,32 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                 } else {
                     Pel::maybeThrow(new PelIfdException('Bogus offset to next IFD: %d, same as offset being loaded from.', $o));
                 }
-            } elseif (PelSpec::getTagName($this->type, $tag) === 'JPEGInterchangeFormat') {
+                continue;
+            }
+
+            if (PelSpec::getTagName($this->type, $tag) === 'JPEGInterchangeFormat') {
                 // Aka 'Thumbnail Offset'.
                 $thumb_offset = $d->getLong($offset + 12 * $i + 8);
                 $this->safeSetThumbnail($d, $thumb_offset, $thumb_length);
-            } elseif (PelSpec::getTagName($this->type, $tag) === 'JPEGInterchangeFormatLength') {
+                continue;
+            }
+
+            if (PelSpec::getTagName($this->type, $tag) === 'JPEGInterchangeFormatLength') {
                 // Aka 'Thumbnail Length'.
                 $thumb_length = $d->getLong($offset + 12 * $i + 8);
                 $this->safeSetThumbnail($d, $thumb_offset, $thumb_length);
-            } else {
-                // Check if PEL can support the TAG.
-                if (!$this->isValidTag($tag)) {
-                    Pel::debug("IFD '%s' cannot hold TAG 0x%04X", $this->getName(), $tag);
-                    continue;
-                }
-                // Add the TAG entry.
-                if ($entry = PelEntry::createFromData($this->type, $tag, $d, $offset, $i)) {
-                    $this->addEntry($entry);
-                }
+                continue;
+            }
+
+            // Check if PEL can support the TAG.
+            if (!$this->isValidTag($tag)) {
+                Pel::debug("IFD '%s' cannot hold TAG 0x%04X", $this->getName(), $tag);
+                continue;
+            }
+
+            // Add the TAG entry.
+            if ($entry = PelEntry::createFromData($this->type, $tag, $d, $offset, $i)) {
+                $this->addEntry($entry);
             }
         }
 
@@ -266,7 +287,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
             }
         }
 
-        Pel::debug("** End of IFD '%s'.", $this->getName());
+        Pel::debug("** End of loading IFD '%s'.", $this->getName());
     }
 
     /**
