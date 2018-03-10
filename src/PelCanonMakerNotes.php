@@ -128,55 +128,6 @@ class PelCanonMakerNotes extends PelMakerNotes
         0x0020
     ];
 
-    public function __construct($parent, $data, $size, $offset)
-    {
-        parent::__construct($parent, $data, $size, $offset);
-        $this->type = PelSpec::getIfdIdByType('Canon Maker Notes');
-    }
-
-    public function load()
-    {
-        $this->components = $this->data->getShort($this->offset);
-        $this->offset += 2;
-        Pel::debug('Loading %d components in maker notes.', $this->components);
-        $ifd_id = PelSpec::getIfdIdByType('Canon Maker Notes');
-        $mkNotesIfd = new PelIfd($ifd_id);
-
-        for ($i = 0; $i < $this->components; $i++) {
-            $tag = $this->data->getShort($this->offset + 12 * $i);
-            $type = $this->data->getShort($this->offset + 12 * $i + 2);
-            $components = $this->data->getLong($this->offset + 12 * $i + 4);
-            $data = $this->data->getLong($this->offset + 12 * $i + 8);
-            // check if tag is defined
-            if (in_array($tag, $this->undefinedMakerNotesTags)) {
-                continue;
-            }
-            switch ($tag) {
-                case PelSpec::getTagIdByName($ifd_id, 'CameraSettings'):
-                    $this->parseCameraSettings($mkNotesIfd, $this->data, $data, $components);
-                    break;
-                case PelSpec::getTagIdByName($ifd_id, 'ShotInfo'):
-                    $this->parseShotInfo($mkNotesIfd, $this->data, $data, $components);
-                    break;
-                case PelSpec::getTagIdByName($ifd_id, 'Panorama'):
-                    $this->parsePanorama($mkNotesIfd, $this->data, $data, $components);
-                    break;
-                case PelSpec::getTagIdByName($ifd_id, 'PictureInfo'):
-                    // $this->parsePictureInfo($mkNotesIfd, $this->data, $data, $components);
-                    break;
-                case PelSpec::getTagIdByName($ifd_id, 'FileInfo'):
-                    $this->parseFileInfo($mkNotesIfd, $this->data, $data, $components);
-                    break;
-                case PelSpec::getTagIdByName($ifd_id, 'CustomFunctions'):
-                    //TODO
-                default:
-                    $mkNotesIfd->addEntry(PelEntry::createFromData($ifd_id, $tag, $this->data, $this->offset, $i));
-                    break;
-            }
-        }
-        $this->parent->addSubIfd($mkNotesIfd);
-    }
-
     public static function parseCameraSettings($parent, $data, $offset, $components)
     {
         $type = PelSpec::getIfdIdByType('Canon Camera Settings');

@@ -49,16 +49,6 @@ abstract class PelMakerNotes
     protected $components;
     protected $offset;
 
-    public static function createMakerNotesFromManufacturer($man, $parent, $data, $size, $offset)
-    {
-        switch ($man) {
-            case 'Canon':
-                return new PelCanonMakerNotes($parent, $data, $size, $offset);
-            default:
-                return null;
-        }
-    }
-
     /**
      * Load a single value which didn't match any special {@link PelTag}.
      *
@@ -143,7 +133,7 @@ abstract class PelMakerNotes
         $model = $ifd->getEntry(PelSpec::getTagIdByName($ifd->getType(), 'Model'));
 
         // TTTT
-        if ($make !== 'Canon') {
+        if ($make->getValue() !== 'Canon') {
            return;
         }
         $ifd_id = PelSpec::getIfdIdByType('Canon Maker Notes');
@@ -151,13 +141,5 @@ abstract class PelMakerNotes
         $x->load($d, $maker_note->getDataOffset());
         $exif_ifd->addSubIfd($x);
         $exif_ifd->offsetUnset(PelSpec::getTagIdByName($exif_ifd->getType(), 'MakerNote'));
-
-/*        $mkNotes = static::createMakerNotesFromManufacturer($make->getValue(), $exif_ifd, $d, $maker_note->getComponents(), $maker_note->getDataOffset());
-        if ($mkNotes !== null) {
-            // Remove the pre-loaded undefined MakerNote tag entry.
-            $exif_ifd->offsetUnset(PelSpec::getTagIdByName($exif_ifd->getType(), 'MakerNote'));
-            $mkNotes->load();
-        }
-*/
     }
 }
