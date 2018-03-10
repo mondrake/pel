@@ -7,30 +7,30 @@
 return array (
   'ifds' =>
   array (
-    9 => 'Canon Picture Information',
+    5 => 'Canon Picture Information',
     4 => 'Interoperability',
     3 => 'GPS',
     2 => 'Exif',
-    5 => 'Canon Maker Notes',
-    6 => 'Canon Camera Settings',
-    10 => 'Canon File Information',
-    7 => 'Canon Shot Information',
-    8 => 'Canon Panorama Information',
+    6 => 'Canon Maker Notes',
+    7 => 'Canon Camera Settings',
+    8 => 'Canon File Information',
+    9 => 'Canon Shot Information',
+    10 => 'Canon Panorama Information',
     0 => '0',
     1 => '1',
   ),
   'ifdsByType' =>
   array (
-    'Canon Picture Information' => 9,
+    'Canon Picture Information' => 5,
     'Interoperability' => 4,
     'Interop' => 4,
     'GPS' => 3,
     'Exif' => 2,
-    'Canon Maker Notes' => 5,
-    'Canon Camera Settings' => 6,
-    'Canon File Information' => 10,
-    'Canon Shot Information' => 7,
-    'Canon Panorama Information' => 8,
+    'Canon Maker Notes' => 6,
+    'Canon Camera Settings' => 7,
+    'Canon File Information' => 8,
+    'Canon Shot Information' => 9,
+    'Canon Panorama Information' => 10,
     0 => 0,
     'IFD0' => 0,
     'Main' => 0,
@@ -40,7 +40,7 @@ return array (
   ),
   'tags' =>
   array (
-    9 =>
+    5 =>
     array (
       2 =>
       array (
@@ -852,6 +852,7 @@ return array (
         array (
           0 => 7,
         ),
+        'class' => 'lsolesen\\pel\\PelEntryMakerNote',
       ),
       37510 =>
       array (
@@ -1315,13 +1316,13 @@ return array (
         ),
       ),
     ),
-    5 =>
+    6 =>
     array (
       1 =>
       array (
         'name' => 'CameraSettings',
         'title' => 'Camera Settings',
-        'ifd' => 6,
+        'ifd' => 7,
       ),
       2 =>
       array (
@@ -1336,13 +1337,13 @@ return array (
       array (
         'name' => 'ShotInfo',
         'title' => 'Shot Info',
-        'ifd' => 7,
+        'ifd' => 9,
       ),
       5 =>
       array (
         'name' => 'Panorama',
         'title' => 'Panorama',
-        'ifd' => 8,
+        'ifd' => 10,
       ),
       6 =>
       array (
@@ -1416,7 +1417,7 @@ return array (
       array (
         'name' => 'PictureInfo',
         'title' => 'Picture Info',
-        'ifd' => 9,
+        'ifd' => 5,
       ),
       19 =>
       array (
@@ -1472,14 +1473,11 @@ return array (
           0 => 9,
         ),
       ),
-      164 =>
+      147 =>
       array (
-        'name' => 'WhiteBalanceTable',
-        'title' => 'White balance table',
-        'format' =>
-        array (
-          0 => 3,
-        ),
+        'name' => 'FileInfo',
+        'title' => 'File Info',
+        'ifd' => 8,
       ),
       149 =>
       array (
@@ -1522,6 +1520,15 @@ return array (
           0 => 3,
         ),
       ),
+      164 =>
+      array (
+        'name' => 'WhiteBalanceTable',
+        'title' => 'White balance table',
+        'format' =>
+        array (
+          0 => 3,
+        ),
+      ),
       170 =>
       array (
         'name' => 'MeasuredColor',
@@ -1538,6 +1545,14 @@ return array (
         'format' =>
         array (
           0 => 8,
+        ),
+        'text' =>
+        array (
+          'mapping' =>
+          array (
+            1 => 'sRGB',
+            2 => 'Adobe RGB',
+          ),
         ),
       ),
       208 =>
@@ -1568,7 +1583,7 @@ return array (
         ),
       ),
     ),
-    6 =>
+    7 =>
     array (
       1 =>
       array (
@@ -2450,7 +2465,7 @@ return array (
         ),
       ),
     ),
-    10 =>
+    8 =>
     array (
       1 =>
       array (
@@ -2642,7 +2657,7 @@ return array (
         ),
       ),
     ),
-    7 =>
+    9 =>
     array (
       2 =>
       array (
@@ -2853,7 +2868,7 @@ return array (
         ),
       ),
     ),
-    8 =>
+    10 =>
     array (
       2 =>
       array (
@@ -3834,7 +3849,7 @@ return array (
   ),
   'tagsByName' =>
   array (
-    9 =>
+    5 =>
     array (
       'ImageWidth' => 2,
       'ImageHeight' => 3,
@@ -3949,7 +3964,7 @@ return array (
       'ImageUniqueID' => 42016,
       'Gamma' => 42240,
     ),
-    5 =>
+    6 =>
     array (
       'CameraSettings' => 1,
       'FocalLength' => 2,
@@ -3970,18 +3985,19 @@ return array (
       'FirmwareRevision' => 30,
       'AFinfo' => 38,
       'OriginalDecision Data Offset' => 131,
-      'WhiteBalanceTable' => 164,
+      'FileInfo' => 147,
       'LensModel' => 149,
       'InternalSerialNumber' => 150,
       'DustRemovalData' => 151,
       'ProcessingInfo' => 160,
+      'WhiteBalanceTable' => 164,
       'MeasuredColor' => 170,
       'ColorSpace' => 180,
       'VRDOffset' => 208,
       'SensorInfo' => 224,
       'ColorData' => 16385,
     ),
-    6 =>
+    7 =>
     array (
       'MacroMode' => 1,
       'SelfTimer' => 2,
@@ -4021,7 +4037,7 @@ return array (
       'ColorTone' => 42,
       'SRAWQuality' => 46,
     ),
-    10 =>
+    8 =>
     array (
       'FileNumber' => 1,
       'BracketMode' => 3,
@@ -4041,7 +4057,7 @@ return array (
       'FocusDistanceLower' => 21,
       'FlashExposureLock' => 25,
     ),
-    7 =>
+    9 =>
     array (
       'ISOSpeedUsed' => 2,
       'MeasuredEV' => 3,
@@ -4061,7 +4077,7 @@ return array (
       'AutoRotate' => 27,
       'NDFilter' => 28,
     ),
-    8 =>
+    10 =>
     array (
       'PanoramaFrame' => 2,
       'PanoramaDirection' => 5,
@@ -4157,6 +4173,6 @@ return array (
   ),
   'makerNotes' =>
   array (
-    'Canon' => 5,
+    'Canon' => 6,
   ),
 );
