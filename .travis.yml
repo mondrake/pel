@@ -20,8 +20,7 @@ matrix:
     - php: nightly
 
 install:
-  - travis_retry composer self-update
-  - travis_retry composer install --no-interaction --no-progress --no-suggest
+  - composer install --no-interaction --no-progress --no-suggest
 
 before_script:
   - mkdir -p build/logs
@@ -32,7 +31,7 @@ script:
   - php bin/pel compile
   - ./vendor/bin/phpcs --runtime-set ignore_warnings_on_exit 1
   - ./vendor/bin/phpunit --coverage-clover build/logs/clover.xml ./test
-  - php examples/dump-image.php -d test/imagetests/canon-eos-650d.jpg
+  #- php examples/dump-image.php -d test/imagetests/canon-eos-650d.jpg
   #- php examples/dump-image.php -d test/images/gh-77.jpg
 
 #after_script:

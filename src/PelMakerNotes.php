@@ -134,7 +134,7 @@ abstract class PelMakerNotes
 
         // TTTT
         if ($make->getValue() !== 'Canon') {
-          return;
+            return;
         }
         $ifd_id = PelSpec::getIfdIdByType('Canon Maker Notes');
         $x = new PelIfd($ifd_id);
