@@ -42,7 +42,7 @@ namespace lsolesen\pel;
  * @package
  *
  */
-class PelCanonMakerNotes extends PelMakerNotes
+class PelCanonMakerNotes
 {
     private static $undefinedCameraSettingsTags = [
         0x0006,
