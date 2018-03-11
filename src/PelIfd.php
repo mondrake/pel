@@ -190,6 +190,17 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
         for ($i = 0; $i < $n; $i ++) {
             // TODO: increment window start instead of using offsets.
             $tag = $d->getShort($offset + 12 * $i);
+
+            // Check if PEL can support this TAG.
+            if (!$this->isValidTag($tag)) {
+                Pel::warning(
+                  "No specification available for tag 0x%04X, skipping (%d of %d)...",
+                  $tag,
+                  $i + 1,
+                  $n);
+                continue;
+            }
+
             Pel::debug(
                 'Loading entry with tag 0x%04X: %s (%d of %d)...',
                 $tag,
@@ -304,12 +315,6 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                 // Aka 'Thumbnail Length'.
                 $thumb_length = $d->getLong($offset + 12 * $i + 8);
                 $this->safeSetThumbnail($d, $thumb_offset, $thumb_length);
-                continue;
-            }
-
-            // Check if PEL can support the TAG.
-            if (!$this->isValidTag($tag)) {
-                Pel::debug("IFD '%s' cannot hold TAG 0x%04X", $this->getName(), $tag);
                 continue;
             }
 
