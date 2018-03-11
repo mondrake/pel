@@ -213,21 +213,39 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                         if ($size / $components !== $elemSize) {
                             throw new PelMakerNotesMalformedException('Size of Canon Camera Settings does not match the number of entries.');
                         }
-                        PelCanonMakerNotes::parseCameraSettings($type, $size, $_ifd, $d, $o, $components);
+                        for ($_i=0; $_i<$components; $_i++) {
+                            // check if tag is defined
+                            if (in_array($_i+1, PelCanonMakerNotes::$undefinedCameraSettingsTags)) {
+                                continue;
+                            }
+                            PelMakerNotes::loadSingleMakerNotesValue($_ifd, $type, $d, $o, $size, $_i, PelFormat::SSHORT);
+                        }
                         break;
                     case PelSpec::getIfdIdByType('Canon Shot Information'):
                         $elemSize = PelFormat::getSize(PelFormat::SHORT);
                         if ($size / $components !== $elemSize) {
                             throw new PelMakerNotesMalformedException('Size of Canon Shot Info does not match the number of entries.');
                         }
-                        PelCanonMakerNotes::parseShotInfo($type, $size, $_ifd, $d, $o, $components);
+                        for ($_i=0; $_i<$components; $_i++) {
+                            // check if tag is defined
+                            if (in_array($_i+1, PelCanonMakerNotes::$undefinedShotInfoTags)) {
+                                continue;
+                            }
+                            PelMakerNotes::loadSingleMakerNotesValue($_ifd, $type, $d, $o, $size, $_i, PelFormat::SHORT);
+                        }
                         break;
                     case PelSpec::getIfdIdByType('Canon Panorama Information'):
                         $elemSize = PelFormat::getSize(PelFormat::SHORT);
                         if ($size / $components !== $elemSize) {
                             throw new PelMakerNotesMalformedException('Size of Canon Panorama does not match the number of entries.');
                         }
-                        PelCanonMakerNotes::parsePanorama($type, $size, $_ifd, $d, $o, $components);
+                        for ($_i=0; $_i<$components; $_i++) {
+                            // check if tag is defined
+                            if (in_array($_i+1, PelCanonMakerNotes::$undefinedPanoramaTags)) {
+                                continue;
+                            }
+                            PelMakerNotes::loadSingleMakerNotesValue($_ifd, $type, $d, $o, $size, $_i, PelFormat::SHORT);
+                        }
                         break;
                     case PelSpec::getIfdIdByType('Canon Picture Information'):
                         // $this->parsePictureInfo($mkNotesIfd, $this->data, $data, $components);
@@ -237,7 +255,17 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                         if ($size === $elemSize*($components-1) + PelFormat::getSize(PelFormat::LONG)) {
                             throw new PelMakerNotesMalformedException('Size of Canon File Info does not match the number of entries.');
                         }
-                        PelCanonMakerNotes::parseFileInfo($type, $size, $_ifd, $d, $o, $components);
+                        for ($_i=0; $_i<$components; $_i++) {
+                            // check if tag is defined
+                            if (in_array($_i+1, PelCanonMakerNotes::$undefinedFileInfoTags)) {
+                                continue;
+                            }
+                            $format = PelFormat::SSHORT;
+                            if ($_i + 1 == PelSpec::getTagIdByName($type, 'FileNumber')) {
+                                $format = PelFormat::LONG;
+                            }
+                            PelMakerNotes::loadSingleMakerNotesValue($_ifd, $type, $d, $o, $size, $_i, $format);
+                        }
                         break;
                 }
                 $this->addSubIfd($_ifd);
