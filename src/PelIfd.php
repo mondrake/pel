@@ -202,21 +202,41 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
             if (PelSpec::isTagAnIfdPointer($this->type, $tag) && $this->type > PelIfd::INTEROPERABILITY && PelSpec::getIfdIdFromTag($this->type, $tag) !== PelSpec::getIfdIdByType('Canon Maker Notes')) {
                 $components = $d->getLong($offset + 12 * $i + 4);
                 $o = $d->getLong($offset + 12 * $i + 8);
+                $type = PelSpec::getIfdIdFromTag($this->type, $tag);
+                Pel::debug("Found sub IFD '%s' with %d entries at offset %d", $this->getTypeName(PelSpec::getIfdIdFromTag($this->type, $tag)), $components, $o);
+                $size = $d->getShort($o);
+                $o += 2;
                 switch (PelSpec::getIfdIdFromTag($this->type, $tag)) {
                     case PelSpec::getIfdIdByType('Canon Camera Settings'):
-                        PelCanonMakerNotes::parseCameraSettings($this, $d, $o, $components);
+                        $elemSize = PelFormat::getSize(PelFormat::SSHORT);
+                        if ($size / $components !== $elemSize) {
+                            throw new PelMakerNotesMalformedException('Size of Canon Camera Settings does not match the number of entries.');
+                        }
+                        PelCanonMakerNotes::parseCameraSettings($type, $size, $this, $d, $o, $components);
                         break;
                     case PelSpec::getIfdIdByType('Canon Shot Information'):
-                        PelCanonMakerNotes::parseShotInfo($this, $d, $o, $components);
+                        $elemSize = PelFormat::getSize(PelFormat::SHORT);
+                        if ($size / $components !== $elemSize) {
+                            throw new PelMakerNotesMalformedException('Size of Canon Shot Info does not match the number of entries.');
+                        }
+                        PelCanonMakerNotes::parseShotInfo($type, $size, $this, $d, $o, $components);
                         break;
                     case PelSpec::getIfdIdByType('Canon Panorama Information'):
-                        PelCanonMakerNotes::parsePanorama($this, $d, $o, $components);
+                        $elemSize = PelFormat::getSize(PelFormat::SHORT);
+                        if ($size / $components !== $elemSize) {
+                            throw new PelMakerNotesMalformedException('Size of Canon Panorama does not match the number of entries.');
+                        }
+                        PelCanonMakerNotes::parsePanorama($type, $size, $this, $d, $o, $components);
                         break;
                     case PelSpec::getIfdIdByType('Canon Picture Information'):
                         // $this->parsePictureInfo($mkNotesIfd, $this->data, $data, $components);
                         break;
                     case PelSpec::getIfdIdByType('Canon File Information'):
-                        PelCanonMakerNotes::parseFileInfo($this, $d, $o, $components);
+                        $elemSize = PelFormat::getSize(PelFormat::SSHORT);
+                        if ($size === $elemSize*($components-1) + PelFormat::getSize(PelFormat::LONG)) {
+                            throw new PelMakerNotesMalformedException('Size of Canon File Info does not match the number of entries.');
+                        }
+                        PelCanonMakerNotes::parseFileInfo($type, $size, $this, $d, $o, $components);
                         break;
                 }
                 continue;
