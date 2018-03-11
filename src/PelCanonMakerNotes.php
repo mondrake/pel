@@ -128,52 +128,41 @@ class PelCanonMakerNotes
         0x0020
     ];
 
-    public static function parseCameraSettings($type, $size, $parent, $data, $offset, $components)
+    public static function parseCameraSettings($type, $size, $_ifd, $data, $offset, $components)
     {
-        $camIfd = new PelIfd($type);
-
         for ($i=0; $i<$components; $i++) {
             // check if tag is defined
             if (in_array($i+1, static::$undefinedCameraSettingsTags)) {
                 continue;
             }
-            PelMakerNotes::loadSingleMakerNotesValue($camIfd, $type, $data, $offset, $size, $i, PelFormat::SSHORT);
+            PelMakerNotes::loadSingleMakerNotesValue($_ifd, $type, $data, $offset, $size, $i, PelFormat::SSHORT);
         }
-        $parent->addSubIfd($camIfd);
     }
 
-    public static function parseShotInfo($type, $size, $parent, $data, $offset, $components)
+    public static function parseShotInfo($type, $size, $_ifd, $data, $offset, $components)
     {
-        $shotIfd = new PelIfd($type);
-
         for ($i=0; $i<$components; $i++) {
             // check if tag is defined
             if (in_array($i+1, static::$undefinedShotInfoTags)) {
                 continue;
             }
-            PelMakerNotes::loadSingleMakerNotesValue($shotIfd, $type, $data, $offset, $size, $i, PelFormat::SHORT);
+            PelMakerNotes::loadSingleMakerNotesValue($_ifd, $type, $data, $offset, $size, $i, PelFormat::SHORT);
         }
-        $parent->addSubIfd($shotIfd);
     }
 
-    public static function parsePanorama($type, $size, $parent, $data, $offset, $components)
+    public static function parsePanorama($type, $size, $_ifd, $data, $offset, $components)
     {
-        $panoramaIfd = new PelIfd($type);
-
         for ($i=0; $i<$components; $i++) {
             // check if tag is defined
             if (in_array($i+1, static::$undefinedPanoramaTags)) {
                 continue;
             }
-            PelMakerNotes::loadSingleMakerNotesValue($panoramaIfd, $type, $data, $offset, $size, $i, PelFormat::SHORT);
+            PelMakerNotes::loadSingleMakerNotesValue($_ifd, $type, $data, $offset, $size, $i, PelFormat::SHORT);
         }
-        $parent->addSubIfd($panoramaIfd);
     }
 
-    public static function parseFileInfo($type, $size, $parent, $data, $offset, $components)
+    public static function parseFileInfo($type, $size, $_ifd, $data, $offset, $components)
     {
-        $fileIfd = new PelIfd($type);
-
         for ($i=0; $i<$components; $i++) {
             // check if tag is defined
             if (in_array($i+1, static::$undefinedFileInfoTags)) {
@@ -183,8 +172,7 @@ class PelCanonMakerNotes
             if ($i + 1 == PelSpec::getTagIdByName($type, 'FileNumber')) {
                 $format = PelFormat::LONG;
             }
-            PelMakerNotes::loadSingleMakerNotesValue($fileIfd, $type, $data, $offset, $size, $i, $format);
+            PelMakerNotes::loadSingleMakerNotesValue($_ifd, $type, $data, $offset, $size, $i, $format);
         }
-        $parent->addSubIfd($fileIfd);
     }
 }
