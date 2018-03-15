@@ -66,9 +66,9 @@ class PelSpecTest extends TestCase
         //@todo change below to PelException::class once PHP 5.4 support is removed.
         if (method_exists($this, 'expectException')) {
             $this->expectException('lsolesen\pel\PelException');
-            $this->expectExceptionMessage("No format can be derived for tag: 'MeasuredEV' in ifd: 'Canon Shot Information'");
+            $this->expectExceptionMessage("No format can be derived for tag: 'ImageHeight' in ifd: 'Canon Picture Information'");
         } else {
-            $this->setExpectedException('lsolesen\pel\PelException', "No format can be derived for tag: 'MeasuredEV' in ifd: 'Canon Shot Information'");
+            $this->setExpectedException('lsolesen\pel\PelException', "No format can be derived for tag: 'ImageHeight' in ifd: 'Canon Picture Information'");
         }
         $this->assertNull(PelSpec::getTagClass(PelSpec::getIfdIdByType('Canon Picture Information'), 0x0003));
     }

@@ -170,7 +170,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
         if ($this->type > PelIfd::INTEROPERABILITY && $this->type !== PelSpec::getIfdIdByType('Canon Maker Notes')) {
             $index_size = $d->getShort($offset);
             if ($index_size / $components !== PelFormat::getSize(PelFormat::SHORT)) {
-                throw new PelInvalidDataException('Size of %s does not match the number of entries.', $this->getName());
+                Pel::maybeThrow(new PelInvalidDataException('Size of %s does not match the number of entries.', $this->getName()));
             }
             $offset += 2;
             for ($_i = 0; $_i < $components; $_i++) {
