@@ -185,7 +185,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                     continue;
                 }
 
-                $item_format = PelSpec::getTagFormat($this->type, $_i + 1);
+                $item_format = PelSpec::getTagFormat($this->type, $_i + 1)[0];
                 Pel::debug(
                     str_repeat("  ", $nesting_level) . 'Tag 0x%04X: (%s) Fmt: %d (%s) Components: %d (%d of %d)...',
                     $_i + 1,
