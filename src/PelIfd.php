@@ -170,6 +170,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
         if ($this->type > PelIfd::INTEROPERABILITY && $this->type !== PelSpec::getIfdIdByType('Canon Maker Notes')) {
             switch ($this->type) {
                 case PelSpec::getIfdIdByType('Canon Camera Settings'):
+                case PelSpec::getIfdIdByType('Canon File Information'):
                     $size = $d->getShort($offset);
                     $elem_size = PelFormat::getSize(PelFormat::SSHORT);
                     if ($size / $components !== $elem_size) {
@@ -179,7 +180,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                     for ($_i = 0; $_i < $components; $_i++) {
                         // Check if PEL can support this TAG.
                         if (!$this->isValidTag($_i + 1)) {
-                            Pel::warning(
+                            Pel::debug(
                                 str_repeat("  ", $nesting_level) . "No specification available for tag 0x%04X, skipping (%d of %d)...",
                                 $_i + 1,
                                 $_i + 1,
@@ -198,7 +199,9 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                             $_i + 1,
                             $components
                         );
-                        $class = PelSpec::getTagClass($this->type, $_i + 1, PelFormat::SSHORT);
+                        if ($entry = PelEntry::createNew($this->type, $_i + 1, [$d->getSShort($offset + $_i * 2)])) {
+                            $this->addEntry($entry);
+                        }
                     }
                     break;
                 case PelSpec::getIfdIdByType('Canon Shot Information'):
@@ -230,7 +233,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                 case PelSpec::getIfdIdByType('Canon Picture Information'):
                     // $this->parsePictureInfo($mkNotesIfd, $this->data, $data, $components);
                     break;
-                case PelSpec::getIfdIdByType('Canon File Information'):
+                /*case PelSpec::getIfdIdByType('Canon File Information'):
                     /*$elemSize = PelFormat::getSize(PelFormat::SSHORT);
                     if ($size === $elemSize*($components-1) + PelFormat::getSize(PelFormat::LONG)) {
                         throw new PelInvalidDataException('Size of Canon File Info does not match the number of entries.');
