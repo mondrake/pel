@@ -325,7 +325,7 @@ class CanonEos650dTest extends TestCase
         $this->assertEquals($entry->getText(), 'CR2');
 
         $entry = $ifd0_mn_cs->getEntry(22); // LensModel
-        $this->assertInstanceOf('lsolesen\pel\PelEntrySShort', $entry);
+        $this->assertInstanceOf('lsolesen\pel\PelEntryShort', $entry);
         $this->assertEquals($entry->getValue(), 747);
         // Tamron 150-600mm G2
         $this->assertEquals($entry->getText(), 'Canon EF 100-400mm f/4.5-5.6L IS II USM or Tamron Lens');
