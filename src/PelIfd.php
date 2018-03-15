@@ -168,88 +168,63 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
     public function load(PelDataWindow $d, $offset, $components = 1, $nesting_level = 0)
     {
         if ($this->type > PelIfd::INTEROPERABILITY && $this->type !== PelSpec::getIfdIdByType('Canon Maker Notes')) {
-            switch ($this->type) {
-                case PelSpec::getIfdIdByType('Canon Camera Settings'):
-                case PelSpec::getIfdIdByType('Canon File Information'):
-                    $size = $d->getShort($offset);
-                    $elem_size = PelFormat::getSize(PelFormat::SSHORT);
-                    if ($size / $components !== $elem_size) {
-                        throw new PelInvalidDataException('Size of %s does not match the number of entries.', $this->getName());
-                    }
-                    $offset += 2;
-                    for ($_i = 0; $_i < $components; $_i++) {
-                        // Check if PEL can support this TAG.
-                        if (!$this->isValidTag($_i + 1)) {
-                            Pel::debug(
-                                str_repeat("  ", $nesting_level) . "No specification available for tag 0x%04X, skipping (%d of %d)...",
-                                $_i + 1,
-                                $_i + 1,
-                                $components
-                            );
-                            continue;
-                        }
+            $index_size = $d->getShort($offset);
+            if ($index_size / $components !== PelFormat::getSize(PelFormat::SHORT)) {
+                throw new PelInvalidDataException('Size of %s does not match the number of entries.', $this->getName());
+            }
+            $offset += 2;
+            for ($_i = 0; $_i < $components; $_i++) {
+                // Check if PEL can support this TAG.
+                if (!$this->isValidTag($_i + 1)) {
+                    Pel::debug(
+                        str_repeat("  ", $nesting_level) . "No specification available for tag 0x%04X, skipping (%d of %d)...",
+                        $_i + 1,
+                        $_i + 1,
+                        $components
+                    );
+                    continue;
+                }
 
-                        Pel::debug(
-                            str_repeat("  ", $nesting_level) . 'Tag 0x%04X: (%s) Fmt: %d (%s) Components: %d (%d of %d)...',
-                            $_i + 1,
-                            PelSpec::getTagName($this->type, $_i + 1),
-                            PelFormat::SSHORT,
-                            PelFormat::getName(PelFormat::SSHORT),
-                            1,
-                            $_i + 1,
-                            $components
-                        );
-                        if ($entry = PelEntry::createNew($this->type, $_i + 1, [$d->getSShort($offset + $_i * 2)])) {
-                            $this->addEntry($entry);
-                        }
-                    }
-                    break;
-                case PelSpec::getIfdIdByType('Canon Shot Information'):
-                    /*$elemSize = PelFormat::getSize(PelFormat::SHORT);
-                    if ($size / $components !== $elemSize) {
-                        throw new PelInvalidDataException('Size of Canon Shot Info does not match the number of entries.');
-                    }
-                    for ($_i=0; $_i<$components; $_i++) {
-                        // check if tag is defined
-                        if (in_array($_i+1, PelCanonMakerNotes::$undefinedShotInfoTags)) {
-                            continue;
-                        }
-                        PelMakerNotes::loadSingleMakerNotesValue($_ifd, $type, $d, $o, $size, $_i, PelFormat::SHORT);
-                    }*/
-                    break;
-                case PelSpec::getIfdIdByType('Canon Panorama Information'):
-                    /*$elemSize = PelFormat::getSize(PelFormat::SHORT);
-                    if ($size / $components !== $elemSize) {
-                        throw new PelInvalidDataException('Size of Canon Panorama does not match the number of entries.');
-                    }
-                    for ($_i=0; $_i<$components; $_i++) {
-                        // check if tag is defined
-                        if (in_array($_i+1, PelCanonMakerNotes::$undefinedPanoramaTags)) {
-                            continue;
-                        }
-                        PelMakerNotes::loadSingleMakerNotesValue($_ifd, $type, $d, $o, $size, $_i, PelFormat::SHORT);
-                    }*/
-                    break;
-                case PelSpec::getIfdIdByType('Canon Picture Information'):
-                    // $this->parsePictureInfo($mkNotesIfd, $this->data, $data, $components);
-                    break;
-                /*case PelSpec::getIfdIdByType('Canon File Information'):
-                    /*$elemSize = PelFormat::getSize(PelFormat::SSHORT);
-                    if ($size === $elemSize*($components-1) + PelFormat::getSize(PelFormat::LONG)) {
-                        throw new PelInvalidDataException('Size of Canon File Info does not match the number of entries.');
-                    }
-                    for ($_i=0; $_i<$components; $_i++) {
-                        // check if tag is defined
-                        if (in_array($_i+1, PelCanonMakerNotes::$undefinedFileInfoTags)) {
-                            continue;
-                        }
-                        $format = PelFormat::SSHORT;
-                        if ($_i + 1 == PelSpec::getTagIdByName($type, 'FileNumber')) {
-                            $format = PelFormat::LONG;
-                        }
-                        PelMakerNotes::loadSingleMakerNotesValue($_ifd, $type, $d, $o, $size, $_i, $format);
-                    }*/
-                    break;
+                $item_format = PelSpec::getTagFormat($this->type, $_i + 1);
+                Pel::debug(
+                    str_repeat("  ", $nesting_level) . 'Tag 0x%04X: (%s) Fmt: %d (%s) Components: %d (%d of %d)...',
+                    $_i + 1,
+                    PelSpec::getTagName($this->type, $_i + 1),
+                    $item_format,
+                    PelFormat::getName($item_format),
+                    1,
+                    $_i + 1,
+                    $components
+                );
+                switch ($item_format) {
+                    case PelFormat::BYTE:
+                        $item_value = $d->getByte($offset + $_i * 2);
+                        break;
+                    case PelFormat::SHORT:
+                        $item_value = $d->getShort($offset + $_i * 2);
+                        break;
+                    case PelFormat::LONG:
+                        $item_value = $d->getLong($offset + $_i * 2);
+                        break;
+                    case PelFormat::RATIONAL:
+                        $item_value = $d->getRational($offset + $_i * 2);
+                        break;
+                    case PelFormat::SBYTE:
+                        $item_value = $d->getSByte($offset + $_i * 2);
+                        break;
+                    case PelFormat::SSHORT:
+                        $item_value = $d->getSShort($offset + $_i * 2);
+                        break;
+                    case PelFormat::SLONG:
+                        $item_value = $d->getSLong($offset + $_i * 2);
+                        break;
+                    case PelFormat::SRATIONAL:
+                        $item_value = $d->getSRattional($offset + $_i * 2);
+                        break;
+                }
+                if ($entry = PelEntry::createNew($this->type, $_i + 1, [$item_value])) {
+                    $this->addEntry($entry);
+                }
             }
             return;
         }
