@@ -123,6 +123,7 @@ tags:
     0x0014:
         name: FocusDistanceUpper
         title: 'Focus Distance Upper'
+        format: Short
     0x0015:
         name: FocusDistanceLower
         title: 'Focus Distance Lower'
