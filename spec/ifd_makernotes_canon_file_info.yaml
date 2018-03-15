@@ -3,9 +3,11 @@ tags:
     0x0001:
         name: FileNumber
         title: 'File Number'
+        format: Long
     0x0003:
         name: BracketMode
         title: 'Bracket Mode'
+        format: SShort
         text:
             mapping:
                 0: 'Off'
@@ -16,12 +18,15 @@ tags:
     0x0004:
         name: BracketValue
         title: 'Bracket Value'
+        format: SShort
     0x0005:
         name: BracketShotNumber
         title: 'Bracket Shot Number'
+        format: SShort
     0x0006:
         name: RawJpgQuality
         title: 'Raw Jpg Quality'
+        format: SShort
         text:
             mapping:
                 1: 'Economy'
@@ -34,6 +39,7 @@ tags:
     0x0007:
         name: RawJpgSize
         title: 'Raw Jpg Size'
+        format: SShort
         text:
             mapping:
                 0: 'Large'
@@ -56,6 +62,7 @@ tags:
     0x0008:
         name: NoiseReduction
         title: 'Noise Reduction'
+        format: SShort
         text:
             mapping:
                 0: 'Off'
@@ -65,6 +72,7 @@ tags:
     0x0009:
         name: WBBracketMode
         title: 'WB Bracket Mode'
+        format: SShort
         text:
             mapping:
                 0: 'Off'
@@ -73,12 +81,15 @@ tags:
     0x000C:
         name: WBBracketValueAB
         title: 'WB Bracket Value AB'
+        format: SShort
     0x000D:
         name: WBBracketValueGM
         title: 'WB Bracket Value GM'
+        format: SShort
     0x000E:
         name: FilterEffect
         title: 'Filter Effect'
+        format: SShort
         text:
             mapping:
                 0: 'None'
@@ -89,6 +100,7 @@ tags:
     0x000F:
         name: ToningEffect
         title: 'Toning Effect'
+        format: SShort
         text:
             mapping:
                 0: 'None'
@@ -99,9 +111,11 @@ tags:
     0x0010:
         name: MacroMagnification
         title: 'Macro Magnification'
+        format: SShort
     0x0013:
         name: LiveViewShooting
         title: 'Live View Shooting'
+        format: SShort
         text:
             mapping:
                 0: 'Off'
@@ -112,9 +126,11 @@ tags:
     0x0015:
         name: FocusDistanceLower
         title: 'Focus Distance Lower'
+        format: Short
     0x0019:
         name: FlashExposureLock
         title: 'Flash Exposure Lock'
+        format: Short
         text:
             mapping:
                 0: 'Off'
