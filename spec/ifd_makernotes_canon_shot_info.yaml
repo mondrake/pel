@@ -3,20 +3,23 @@ tags:
     0x0002:
         name: ISOSpeedUsed
         title: 'ISO Speed Used'
-        format: Short
+        format: SShort
     0x0003:
         name: MeasuredEV
         title: 'Measured EV'
+        format: SShort
     0x0004:
         name: TargetAperture
         title: 'Target Aperture'
+        format: SShort
     0x0005:
         name: TargetShutterSpeed
         title: 'Target Shutter Speed'
+        format: SShort
     0x0007:
         name: WhiteBalanceSetting
         title: 'White Balance Setting'
-        format: Short
+        format: SShort
         text:
             mapping:
                 0: 'Auto'
@@ -44,7 +47,7 @@ tags:
     0x0008:
         name: SlowShutter
         title: 'Slow Shutter'
-        format: Short
+        format: SShort
         text:
             mapping:
                 0: 'Off'
@@ -54,10 +57,11 @@ tags:
     0x0009:
         name: SequenceNumber
         title: 'Sequence Number'
+        format: SShort
     0x000E:
         name: AFPointUsed
         title: 'AF Point Used'
-        format: Short
+        format: SShort
         text:
             mapping:
                 0x3000: 'None (MF)'
@@ -71,10 +75,11 @@ tags:
     0x000F:
         name: FlashBias
         title: 'Flash Bias'
+        format: SShort
     0x0010:
         name: AutoExposureBracketing
         title: 'Auto Exposure Bracketing'
-        format: Short
+        format: SShort
         text:
             mapping:
                 -1: 'On'
@@ -85,19 +90,23 @@ tags:
     0x0013:
         name: SubjectDistance
         title: 'Subject Distance'
+        format: Short
     0x0015:
         name: Aperture
         title: Aperture
+        format: SShort
     0x0016:
         name: ShutterSpeed
         title: 'Shutter Speed'
+        format: SShort
     0x0017:
         name: MeasuredEV2
         title: 'Measured EV 2'
+        format: SShort
     0x001A:
         name: CameraType
         title: 'Camera Type'
-        format: Short
+        format: SShort
         text:
             mapping:
                 248: 'EOS High-end'
@@ -107,7 +116,7 @@ tags:
     0x001B:
         name: AutoRotate
         title: 'Auto Rotate'
-        format: Short
+        format: SShort
         text:
             mapping:
                 0: 'None'
@@ -117,7 +126,7 @@ tags:
     0x001C:
         name: NDFilter
         title: 'ND Filter'
-        format: Short
+        format: SShort
         text:
             mapping:
                 0: 'Off'
