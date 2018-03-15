@@ -362,9 +362,9 @@ abstract class PelEntry
         $str = Pel::fmt("  Tag: 0x%04X (%s)\n", $this->tag, PelTag::getName($this->ifd_type, $this->tag));
         $str .= Pel::fmt("    Format    : %d (%s)\n", $this->format, PelFormat::getName($this->format));
         $str .= Pel::fmt("    Components: %d\n", $this->components);
-// TTTT        if ($this->getTag() != PelSpec::getTagIdByName(PelSpec::getIfdIdByType('Exif'), 'MakerNote') && $this->getTag() != PelSpec::getTagIdByName(PelSpec::getIfdIdByType('0'), 'PrintIM')) {
-//            $str .= Pel::fmt("    Value     : %s\n", print_r($this->getValue(), true));
-//        }
+        if ($this->getTag() != PelSpec::getTagIdByName(PelSpec::getIfdIdByType('Exif'), 'MakerNote') && $this->getTag() != PelSpec::getTagIdByName(PelSpec::getIfdIdByType('0'), 'PrintIM')) {
+            $str .= Pel::fmt("    Value     : %s\n", print_r($this->getValue(), true));
+        }
         $str .= Pel::fmt("    Text      : %s\n", $this->getText());
         return $str;
     }

@@ -168,15 +168,85 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
     public function load(PelDataWindow $d, $offset, $components = 1, $nesting_level = 0)
     {
         if ($this->type > PelIfd::INTEROPERABILITY && $this->type !== PelSpec::getIfdIdByType('Canon Maker Notes')) {
-            $size = $d->getShort($offset);
-            $elem_size = PelFormat::getSize(PelFormat::SSHORT);
-            if ($size / $components !== $elem_size) {
-                throw new PelInvalidDataException('Size of %s does not match the number of entries.', $this->getName());
-            }
-            $offset += 2;
-            for ($_i = 0; $_i < $components; $_i++) {
-                $class = PelSpec::getTagClass($this->getType(), $_i + 1, PelFormat::SSHORT);
-                Pel::debug(str_repeat("  ", $nesting_level) . PelSpec::getTagName($this->getType(), $_i + 1));
+            switch ($this->type) {
+                case PelSpec::getIfdIdByType('Canon Camera Settings'):
+                    $size = $d->getShort($offset);
+                    $elem_size = PelFormat::getSize(PelFormat::SSHORT);
+                    if ($size / $components !== $elem_size) {
+                        throw new PelInvalidDataException('Size of %s does not match the number of entries.', $this->getName());
+                    }
+                    $offset += 2;
+                    for ($_i = 0; $_i < $components; $_i++) {
+                        // Check if PEL can support this TAG.
+                        if (!$this->isValidTag($_i + 1)) {
+                            Pel::warning(
+                                str_repeat("  ", $nesting_level) . "No specification available for tag 0x%04X, skipping (%d of %d)...",
+                                $_i + 1,
+                                $_i + 1,
+                                $components
+                            );
+                            continue;
+                        }
+
+                        Pel::debug(
+                            str_repeat("  ", $nesting_level) . 'Tag 0x%04X: (%s) Fmt: %d (%s) Components: %d (%d of %d)...',
+                            $_i + 1,
+                            PelSpec::getTagName($this->type, $_i + 1),
+                            PelFormat::SSHORT,
+                            PelFormat::getName(PelFormat::SSHORT),
+                            1,
+                            $_i + 1,
+                            $components
+                        );
+                        $class = PelSpec::getTagClass($this->type, $_i + 1, PelFormat::SSHORT);
+                    }
+                    break;
+                case PelSpec::getIfdIdByType('Canon Shot Information'):
+                    /*$elemSize = PelFormat::getSize(PelFormat::SHORT);
+                    if ($size / $components !== $elemSize) {
+                        throw new PelInvalidDataException('Size of Canon Shot Info does not match the number of entries.');
+                    }
+                    for ($_i=0; $_i<$components; $_i++) {
+                        // check if tag is defined
+                        if (in_array($_i+1, PelCanonMakerNotes::$undefinedShotInfoTags)) {
+                            continue;
+                        }
+                        PelMakerNotes::loadSingleMakerNotesValue($_ifd, $type, $d, $o, $size, $_i, PelFormat::SHORT);
+                    }*/
+                    break;
+                case PelSpec::getIfdIdByType('Canon Panorama Information'):
+                    /*$elemSize = PelFormat::getSize(PelFormat::SHORT);
+                    if ($size / $components !== $elemSize) {
+                        throw new PelInvalidDataException('Size of Canon Panorama does not match the number of entries.');
+                    }
+                    for ($_i=0; $_i<$components; $_i++) {
+                        // check if tag is defined
+                        if (in_array($_i+1, PelCanonMakerNotes::$undefinedPanoramaTags)) {
+                            continue;
+                        }
+                        PelMakerNotes::loadSingleMakerNotesValue($_ifd, $type, $d, $o, $size, $_i, PelFormat::SHORT);
+                    }*/
+                    break;
+                case PelSpec::getIfdIdByType('Canon Picture Information'):
+                    // $this->parsePictureInfo($mkNotesIfd, $this->data, $data, $components);
+                    break;
+                case PelSpec::getIfdIdByType('Canon File Information'):
+                    /*$elemSize = PelFormat::getSize(PelFormat::SSHORT);
+                    if ($size === $elemSize*($components-1) + PelFormat::getSize(PelFormat::LONG)) {
+                        throw new PelInvalidDataException('Size of Canon File Info does not match the number of entries.');
+                    }
+                    for ($_i=0; $_i<$components; $_i++) {
+                        // check if tag is defined
+                        if (in_array($_i+1, PelCanonMakerNotes::$undefinedFileInfoTags)) {
+                            continue;
+                        }
+                        $format = PelFormat::SSHORT;
+                        if ($_i + 1 == PelSpec::getTagIdByName($type, 'FileNumber')) {
+                            $format = PelFormat::LONG;
+                        }
+                        PelMakerNotes::loadSingleMakerNotesValue($_ifd, $type, $d, $o, $size, $_i, $format);
+                    }*/
+                    break;
             }
             return;
         }
@@ -232,96 +302,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                 $n
             );
 
-            // TTTT
-/*            if (PelSpec::isTagAnIfdPointer($this->type, $tag) && $this->type > PelIfd::INTEROPERABILITY && PelSpec::getIfdIdFromTag($this->type, $tag) !== PelSpec::getIfdIdByType('Canon Maker Notes')) {
-                $components = $d->getLong($offset + 12 * $i + 4);
-                $o = $d->getLong($offset + 12 * $i + 8);
-                $type = PelSpec::getIfdIdFromTag($this->type, $tag);
-                Pel::debug("Found sub IFD '%s' with %d entries at offset %d", $this->getTypeName(PelSpec::getIfdIdFromTag($this->type, $tag)), $components, $o);
-                $size = $d->getShort($o);
-                $o += 2;
-                $_ifd = new PelIfd($type);
-//Pel::debug('bbb o:%d type:%d', $o, $type);
-                switch ($type) {
-/*            if ($this->type > PelIfd::INTEROPERABILITY && $this->type !== PelSpec::getIfdIdByType('Canon Maker Notes')) {
-//                continue;
-                //$components = $d->getLong($offset + 12 * $i + 4);
-                //$o = $d->getLong($offset + 12 * $i + 8);
-                //$type = PelSpec::getIfdIdFromTag($this->type, $tag);
-                //Pel::debug("Found sub IFD '%s' with %d entries at offset %d", $this->getTypeName(PelSpec::getIfdIdFromTag($this->type, $tag)), $components, $o);
-                //$size = $d->getShort($o);
-                //$o += 2;
-                //$_ifd = new PelIfd($type);
-                $components = $d->getLong($offset + 12 * $i + 4);
-                $size = $n;
-                $o = $offset-2;
-                $_ifd = $this;
-Pel::debug('xxx o:%d type:%d', $o, $this->type);
-                switch ($this->type) {
-                    case PelSpec::getIfdIdByType('Canon Camera Settings'):
-                        $elemSize = PelFormat::getSize(PelFormat::SSHORT);
-                        if ($size / $components !== $elemSize) {
-                            throw new PelInvalidDataException('Size of Canon Camera Settings does not match the number of entries.');
-                        }
-                        for ($_i=0; $_i<$components; $_i++) {
-                            // check if tag is defined
-                            if (in_array($_i+1, PelCanonMakerNotes::$undefinedCameraSettingsTags)) {
-                                continue;
-                            }
-                            PelMakerNotes::loadSingleMakerNotesValue($_ifd, $type, $d, $o, $size, $_i, PelFormat::SSHORT);
-                        }
-                        break;
-                    case PelSpec::getIfdIdByType('Canon Shot Information'):
-                        $elemSize = PelFormat::getSize(PelFormat::SHORT);
-                        if ($size / $components !== $elemSize) {
-                            throw new PelInvalidDataException('Size of Canon Shot Info does not match the number of entries.');
-                        }
-                        for ($_i=0; $_i<$components; $_i++) {
-                            // check if tag is defined
-                            if (in_array($_i+1, PelCanonMakerNotes::$undefinedShotInfoTags)) {
-                                continue;
-                            }
-                            PelMakerNotes::loadSingleMakerNotesValue($_ifd, $type, $d, $o, $size, $_i, PelFormat::SHORT);
-                        }
-                        break;
-                    case PelSpec::getIfdIdByType('Canon Panorama Information'):
-                        $elemSize = PelFormat::getSize(PelFormat::SHORT);
-                        if ($size / $components !== $elemSize) {
-                            throw new PelInvalidDataException('Size of Canon Panorama does not match the number of entries.');
-                        }
-                        for ($_i=0; $_i<$components; $_i++) {
-                            // check if tag is defined
-                            if (in_array($_i+1, PelCanonMakerNotes::$undefinedPanoramaTags)) {
-                                continue;
-                            }
-                            PelMakerNotes::loadSingleMakerNotesValue($_ifd, $type, $d, $o, $size, $_i, PelFormat::SHORT);
-                        }
-                        break;
-                    case PelSpec::getIfdIdByType('Canon Picture Information'):
-                        // $this->parsePictureInfo($mkNotesIfd, $this->data, $data, $components);
-                        break;
-                    case PelSpec::getIfdIdByType('Canon File Information'):
-                        $elemSize = PelFormat::getSize(PelFormat::SSHORT);
-                        if ($size === $elemSize*($components-1) + PelFormat::getSize(PelFormat::LONG)) {
-                            throw new PelInvalidDataException('Size of Canon File Info does not match the number of entries.');
-                        }
-                        for ($_i=0; $_i<$components; $_i++) {
-                            // check if tag is defined
-                            if (in_array($_i+1, PelCanonMakerNotes::$undefinedFileInfoTags)) {
-                                continue;
-                            }
-                            $format = PelFormat::SSHORT;
-                            if ($_i + 1 == PelSpec::getTagIdByName($type, 'FileNumber')) {
-                                $format = PelFormat::LONG;
-                            }
-                            PelMakerNotes::loadSingleMakerNotesValue($_ifd, $type, $d, $o, $size, $_i, $format);
-                        }
-                        break;
-                }
-                $this->addSubIfd($_ifd);
-                continue;
-            }
-*/
+            // Load a subIfd.
             if (PelSpec::isTagAnIfdPointer($this->type, $tag)) {
                 // If the tag is an IFD pointer, loads the IFD.
                 $type = PelSpec::getIfdIdFromTag($this->type, $tag);
@@ -340,13 +321,13 @@ Pel::debug('xxx o:%d type:%d', $o, $this->type);
                 continue;
             }
 
+            // Manage Thumbnail data.
             if (PelSpec::getTagName($this->type, $tag) === 'JPEGInterchangeFormat') {
                 // Aka 'Thumbnail Offset'.
                 $thumb_offset = $d->getLong($offset + 12 * $i + 8);
                 $this->safeSetThumbnail($d, $thumb_offset, $thumb_length);
                 continue;
             }
-
             if (PelSpec::getTagName($this->type, $tag) === 'JPEGInterchangeFormatLength') {
                 // Aka 'Thumbnail Length'.
                 $thumb_length = $d->getLong($offset + 12 * $i + 8);
@@ -354,7 +335,7 @@ Pel::debug('xxx o:%d type:%d', $o, $this->type);
                 continue;
             }
 
-            // Add the TAG entry.
+            // Load a TAG entry.
             if ($entry = PelEntry::createFromData($this->type, $tag, $d, $offset, $i)) {
                 $this->addEntry($entry);
             }
