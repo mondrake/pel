@@ -70,7 +70,7 @@ class PelSpecTest extends TestCase
         } else {
             $this->setExpectedException('lsolesen\pel\PelException', "No format can be derived for tag: 'MeasuredEV' in ifd: 'Canon Shot Information'");
         }
-        $this->assertNull(PelSpec::getTagClass(PelSpec::getIfdIdByType('Canon Shot Information'), 0x0003));
+        $this->assertNull(PelSpec::getTagClass(PelSpec::getIfdIdByType('Canon Picture Information'), 0x0003));
     }
 
     /**
@@ -100,7 +100,7 @@ class PelSpecTest extends TestCase
               null, 'lsolesen\pel\PelEntryShort', 'IFD0', 'PlanarConfiguration', [6.1],
           ],
           'Canon Panorama Information/PanoramaDirection - value 4' => [
-              '2x2 Matrix (Clockwise)', 'lsolesen\pel\PelEntryShort', 'Canon Panorama Information', 'PanoramaDirection', [4],
+              '2x2 Matrix (Clockwise)', 'lsolesen\pel\PelEntrySShort', 'Canon Panorama Information', 'PanoramaDirection', [4],
           ],
           'Canon Camera Settings/LensType - value 493' => [
               'Canon EF 500mm f/4L IS II USM or EF 24-105mm f4L IS USM', 'lsolesen\pel\PelEntryShort', 'Canon Camera Settings', 'LensType', [493],

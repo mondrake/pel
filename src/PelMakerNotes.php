@@ -49,57 +49,6 @@ abstract class PelMakerNotes
     protected $components;
     protected $offset;
 
-    /**
-     * Load a single value which didn't match any special {@link PelTag}.
-     *
-     * This method will add a single value given by the {@link PelDataWindow} and it's offset ($offset) and element counter ($i).
-     *
-     * Please note that the data you pass to this method should come
-     * from an image, that is, it should be raw bytes. If instead you
-     * want to create an entry for holding, say, an short integer, then
-     * create a {@link PelEntryShort} object directly and load the data
-     * into it.
-     *
-     * @param int $type
-     *            the type of the ifd
-     *
-     * @param PelDataWindow $data
-     *            the data window that will provide the data.
-     *
-     * @param integer $offset
-     *            the offset within the window where the directory will
-     *            be found.
-     *
-     * @param int $size
-     *            the size in bytes of the maker notes section
-     *
-     * @param int $i
-     *            the element's position in the {@link PelDataWindow} $data.
-     *
-     * @param int $format
-     *            the format {@link PelFormat} of the entry.
-     */
-    public static function loadSingleMakerNotesValue($ifd, $type, $data, $offset, $size, $i, $format)
-    {
-//Pel::debug('--tag: %d %d %d', $i, $offset, $format);
-        $elemSize = PelFormat::getSize($format);
-        if ($size > 0) {
-            $subdata = $data->getClone($offset + $i * $elemSize, $elemSize);
-        } else {
-            $subdata = new PelDataWindow();
-        }
-
-        try {
-            $class = PelSpec::getTagClass($ifd->getType(), $i + 1, $format);
-            $arguments = call_user_func($class . '::getInstanceArgumentsFromData', $ifd->getType(), $i + 1, $format, 1, $subdata, null);
-            $entry = call_user_func($class . '::createInstance', $ifd->getType(), $i + 1, $arguments);
-            $ifd->addEntry($entry);
-        } catch (PelException $e) {
-            // Throw the exception when running in strict mode, store otherwise.
-            Pel::maybeThrow($e);
-        }
-    }
-
     public function __construct($parent, $data, $size, $offset)
     {
         $this->parent = $parent;
