@@ -161,23 +161,40 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
      *
      * @param PelDataWindow $d
      *            the data window that will provide the data.
-     *
      * @param int $offset
      *            the offset within the window where the directory will
      *            be found.
      */
-    public function load(PelDataWindow $d, $offset)
+    public function load(PelDataWindow $d, $offset, $components = 1, $nesting_level = 0)
     {
+        if ($this->type > PelIfd::INTEROPERABILITY && $this->type !== PelSpec::getIfdIdByType('Canon Maker Notes')) {
+            $size = $d->getShort($offset);
+            $elem_size = PelFormat::getSize(PelFormat::SSHORT);
+            if ($size / $components !== $elem_size) {
+                throw new PelInvalidDataException('Size of %s does not match the number of entries.', $this->getName());
+            }
+            $offset += 2;
+            for ($_i = 0; $_i < $components; $_i++) {
+                $class = PelSpec::getTagClass($this->getType(), $_i + 1, PelFormat::SSHORT);
+                Pel::debug(str_repeat("  ", $nesting_level) . PelSpec::getTagName($this->getType(), $_i + 1));
+            }
+            return;
+        }
+
         $starting_offset = $offset;
 
         $thumb_offset = 0;
         $thumb_length = 0;
 
-        Pel::debug("** Constructing IFD '%s' at offset %d from %d bytes...", $this->getName(), $offset, $d->getSize());
-
         /* Read the number of entries */
         $n = $d->getShort($offset);
-        Pel::debug('Loading %d entries...', $n);
+        Pel::debug(
+            str_repeat("  ", $nesting_level) . "** Constructing IFD '%s' with %d entries at offset %d from %d bytes...",
+            $this->getName(),
+            $n,
+            $offset,
+            $d->getSize()
+        );
 
         $offset += 2;
 
@@ -190,11 +207,13 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
         for ($i = 0; $i < $n; $i ++) {
             // TODO: increment window start instead of using offsets.
             $tag = $d->getShort($offset + 12 * $i);
+            $tag_format = $d->getShort($offset + 12 * $i + 2);
+            $tag_components = $d->getLong($offset + 12 * $i + 4);
 
             // Check if PEL can support this TAG.
             if (!$this->isValidTag($tag)) {
                 Pel::warning(
-                    "No specification available for tag 0x%04X, skipping (%d of %d)...",
+                    str_repeat("  ", $nesting_level) . "No specification available for tag 0x%04X, skipping (%d of %d)...",
                     $tag,
                     $i + 1,
                     $n
@@ -203,15 +222,18 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
             }
 
             Pel::debug(
-                'Loading entry with tag 0x%04X: %s (%d of %d)...',
+                str_repeat("  ", $nesting_level) . 'Tag 0x%04X: (%s) Fmt: %d (%s) Components: %d (%d of %d)...',
                 $tag,
                 PelSpec::getTagName($this->type, $tag),
+                $tag_format,
+                PelFormat::getName($tag_format),
+                $tag_components,
                 $i + 1,
                 $n
             );
 
             // TTTT
-            if (PelSpec::isTagAnIfdPointer($this->type, $tag) && $this->type > PelIfd::INTEROPERABILITY && PelSpec::getIfdIdFromTag($this->type, $tag) !== PelSpec::getIfdIdByType('Canon Maker Notes')) {
+/*            if (PelSpec::isTagAnIfdPointer($this->type, $tag) && $this->type > PelIfd::INTEROPERABILITY && PelSpec::getIfdIdFromTag($this->type, $tag) !== PelSpec::getIfdIdByType('Canon Maker Notes')) {
                 $components = $d->getLong($offset + 12 * $i + 4);
                 $o = $d->getLong($offset + 12 * $i + 8);
                 $type = PelSpec::getIfdIdFromTag($this->type, $tag);
@@ -219,11 +241,27 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                 $size = $d->getShort($o);
                 $o += 2;
                 $_ifd = new PelIfd($type);
+//Pel::debug('bbb o:%d type:%d', $o, $type);
                 switch ($type) {
+/*            if ($this->type > PelIfd::INTEROPERABILITY && $this->type !== PelSpec::getIfdIdByType('Canon Maker Notes')) {
+//                continue;
+                //$components = $d->getLong($offset + 12 * $i + 4);
+                //$o = $d->getLong($offset + 12 * $i + 8);
+                //$type = PelSpec::getIfdIdFromTag($this->type, $tag);
+                //Pel::debug("Found sub IFD '%s' with %d entries at offset %d", $this->getTypeName(PelSpec::getIfdIdFromTag($this->type, $tag)), $components, $o);
+                //$size = $d->getShort($o);
+                //$o += 2;
+                //$_ifd = new PelIfd($type);
+                $components = $d->getLong($offset + 12 * $i + 4);
+                $size = $n;
+                $o = $offset-2;
+                $_ifd = $this;
+Pel::debug('xxx o:%d type:%d', $o, $this->type);
+                switch ($this->type) {
                     case PelSpec::getIfdIdByType('Canon Camera Settings'):
                         $elemSize = PelFormat::getSize(PelFormat::SSHORT);
                         if ($size / $components !== $elemSize) {
-                            throw new PelMakerNotesMalformedException('Size of Canon Camera Settings does not match the number of entries.');
+                            throw new PelInvalidDataException('Size of Canon Camera Settings does not match the number of entries.');
                         }
                         for ($_i=0; $_i<$components; $_i++) {
                             // check if tag is defined
@@ -236,7 +274,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                     case PelSpec::getIfdIdByType('Canon Shot Information'):
                         $elemSize = PelFormat::getSize(PelFormat::SHORT);
                         if ($size / $components !== $elemSize) {
-                            throw new PelMakerNotesMalformedException('Size of Canon Shot Info does not match the number of entries.');
+                            throw new PelInvalidDataException('Size of Canon Shot Info does not match the number of entries.');
                         }
                         for ($_i=0; $_i<$components; $_i++) {
                             // check if tag is defined
@@ -249,7 +287,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                     case PelSpec::getIfdIdByType('Canon Panorama Information'):
                         $elemSize = PelFormat::getSize(PelFormat::SHORT);
                         if ($size / $components !== $elemSize) {
-                            throw new PelMakerNotesMalformedException('Size of Canon Panorama does not match the number of entries.');
+                            throw new PelInvalidDataException('Size of Canon Panorama does not match the number of entries.');
                         }
                         for ($_i=0; $_i<$components; $_i++) {
                             // check if tag is defined
@@ -265,7 +303,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                     case PelSpec::getIfdIdByType('Canon File Information'):
                         $elemSize = PelFormat::getSize(PelFormat::SSHORT);
                         if ($size === $elemSize*($components-1) + PelFormat::getSize(PelFormat::LONG)) {
-                            throw new PelMakerNotesMalformedException('Size of Canon File Info does not match the number of entries.');
+                            throw new PelInvalidDataException('Size of Canon File Info does not match the number of entries.');
                         }
                         for ($_i=0; $_i<$components; $_i++) {
                             // check if tag is defined
@@ -283,18 +321,15 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                 $this->addSubIfd($_ifd);
                 continue;
             }
-
+*/
             if (PelSpec::isTagAnIfdPointer($this->type, $tag)) {
                 // If the tag is an IFD pointer, loads the IFD.
                 $type = PelSpec::getIfdIdFromTag($this->type, $tag);
-                $components = $d->getLong($offset + 12 * $i + 4);
                 $o = $d->getLong($offset + 12 * $i + 8);
-                Pel::debug("Found sub IFD '%s' with %d entries at offset %d", $this->getTypeName(PelSpec::getIfdIdFromTag($this->type, $tag)), $components, $o);
-
                 if ($starting_offset != $o) {
                     $ifd = new PelIfd($type);
                     try {
-                        $ifd->load($d, $o);
+                        $ifd->load($d, $o, $tag_components, $nesting_level + 1);
                         $this->sub[$type] = $ifd;
                     } catch (PelDataWindowOffsetException $e) {
                         Pel::maybeThrow(new PelIfdException($e->getMessage()));
@@ -327,7 +362,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
 
         /* Offset to next IFD */
         $o = $d->getLong($offset + 12 * $n);
-        Pel::debug('Current offset is %d, link at %d points to %d.', $offset, $offset + 12 * $n, $o);
+        Pel::debug(str_repeat("  ", $nesting_level) . 'Current offset is %d, link at %d points to %d.', $offset, $offset + 12 * $n, $o);
 
         if ($o > 0) {
             /* Sanity check: we need 6 bytes */
@@ -343,7 +378,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
             }
         }
 
-        Pel::debug("** End of loading IFD '%s'.", $this->getName());
+        Pel::debug(str_repeat("  ", $nesting_level) . "** End of loading IFD '%s'.", $this->getName());
     }
 
     /**
