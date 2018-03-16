@@ -180,6 +180,20 @@ class PelSpec
     }
 
     /**
+     * Returns the IFD post-load callbacks.
+     *
+     * @param int $ifd_id
+     *            the IFD id.
+     *
+     * @return array
+     *            the post-load callbacks.
+     */
+    public static function getIfdPostLoadCallbacks($ifd_id)
+    {
+        return self::getMap()['ifdPostLoadCallbacks'][$ifd_id];
+    }
+
+    /**
      * Returns the TAG name.
      *
      * @param int $ifd_id

@@ -4,6 +4,8 @@ class: PelIfd
 alias:
   - 'IFD0'
   - 'Main'
+postLoad:
+  - PelEntryMakerNote::tagToIfd
 tags:
     0x0100:
         const: IMAGE_WIDTH

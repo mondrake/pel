@@ -33,6 +33,10 @@ class PelSpecTest extends TestCase
         $this->assertEquals('lsolesen\pel\PelIfd', PelSpec::getIfdClass(PelSpec::getIfdIdByType('0')));
         $this->assertEquals('lsolesen\pel\PelIfdIndexShort', PelSpec::getIfdClass(PelSpec::getIfdIdByType('Canon Camera Settings')));
 
+        // Test retrieving IFD post-load callbacks.
+        $this->assertEquals(['PelEntryMakerNote::tagToIfd'], PelSpec::getIfdPostLoadCallbacks(PelSpec::getIfdIdByType('0')));
+        $this->assertEquals([], PelSpec::getIfdPostLoadCallbacks(PelSpec::getIfdIdByType('Canon Camera Settings')));
+
         // Test retrieving maker note IFD.
         $this->assertEquals(PelSpec::getIfdIdByType('Canon Maker Notes'), PelSpec::getMakerNoteIfd('Canon', 'any'));
         $this->assertNull(PelSpec::getMakerNoteIfd('Minolta', 'any'));

@@ -17,7 +17,7 @@ class SpecCompiler
     /**
      * Map of expected IFD level array keys.
      */
-    private $ifdKeys = ['const', 'type', 'class', 'alias', 'tags', 'makerNotes'];
+    private $ifdKeys = ['const', 'type', 'class', 'alias', 'tags', 'makerNotes', 'postLoad'];
 
     /**
      * Map of expected TAG level array keys.
@@ -134,6 +134,7 @@ DATA;
         $ifd = array_merge([
             'type' => null,
             'tags' => [],
+            'postLoad' => [],
         ], $ifd);
 
         // Manage the IFD id; if 'const' key is present, use that,
@@ -148,6 +149,13 @@ DATA;
 
         // 'ifdClasses' entry.
         $this->map['ifdClasses'][$ifd_id] = $ifd['class'];
+
+        // 'ifdPostLoadCallbacks' entry.
+        $this->map['ifdPostLoadCallbacks'][$ifd_id] = [];
+        foreach ($ifd['postLoad'] as $callback) {
+            list($class, $method) = explode('::', $callback);
+            $this->map['ifdPostLoadCallbacks'][$ifd_id][] = $this->getFullyQualifiedClassName($class) . '::' . $method;
+        }
 
         // 'ifdsByType' (reverse lookup) entry.
         $this->map['ifdsByType'][$ifd['type']] = $ifd_id;
