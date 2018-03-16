@@ -15,7 +15,7 @@ class PelEntryMakerNote extends PelEntryUndefined
     protected $dataOffset;
 
     /**
-     * Make a new PelEntry that can hold MakerNote data.
+     * Constructs a PelEntry that can hold MakerNote data.
      *
      * @param integer $tag
      *            the MakerNote TAG id.
