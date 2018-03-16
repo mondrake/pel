@@ -120,6 +120,20 @@ class PelSpec
     }
 
     /**
+     * Returns the IFD class.
+     *
+     * @param int $ifd_id
+     *            the IFD id.
+     *
+     * @return string|null
+     *            the IFD class.
+     */
+    public static function getIfdClass($ifd_id)
+    {
+        return isset(self::getMap()['ifdClasses'][$ifd_id]) ? self::getMap()['ifdClasses'][$ifd_id] : null;
+    }
+
+    /**
      * Returns a Pel IFD to use for loading maker notes.
      *
      * @param string $ifd_id
