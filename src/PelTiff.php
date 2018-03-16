@@ -157,7 +157,7 @@ class PelTiff
             $this->ifd->load($d, $offset);
 
             // Convert the MakerNote to a subIfd of the Exif IFD, if possible.
-            PelMakerNotes::tagToIfd($d, $this->ifd);
+            PelEntryMakerNote::tagToIfd($d, $this->ifd);
         }
     }
 

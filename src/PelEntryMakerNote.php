@@ -90,4 +90,38 @@ class PelEntryMakerNote extends PelEntryUndefined
     {
         return $this->components . ' bytes unknown MakerNote data';
     }
+
+    /*
+     * @todo.
+     */
+    public static function tagToIfd(PelDataWindow $d, PelIfd $ifd)
+    {
+        // Get the Exif subIfd if existing.
+        if (!$exif_ifd = $ifd->getSubIfd(PelSpec::getIfdIdByType('Exif'))) {
+            return;
+        }
+
+        // Get MakerNotes from Exif IFD.
+        if (!$maker_note = $exif_ifd->getEntry(PelSpec::getTagIdByName($exif_ifd->getType(), 'MakerNote'))) {
+            return;
+        }
+
+        // Get Make tag from IFD0.
+        if (!$make = $ifd->getEntry(PelSpec::getTagIdByName($ifd->getType(), 'Make'))) {
+            return;
+        }
+
+        // Get Model tag from IFD0.
+        $model = $ifd->getEntry(PelSpec::getTagIdByName($ifd->getType(), 'Model'));
+
+        // TTTT
+        if ($make->getValue() !== 'Canon') {
+            return;
+        }
+        $ifd_id = PelSpec::getIfdIdByType('Canon Maker Notes');
+        $x = new PelIfd($ifd_id);
+        $x->load($d, $maker_note->getDataOffset());
+        $exif_ifd->addSubIfd($x);
+        $exif_ifd->offsetUnset(PelSpec::getTagIdByName($exif_ifd->getType(), 'MakerNote'));
+    }
 }

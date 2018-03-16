@@ -167,6 +167,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
      */
     public function load(PelDataWindow $d, $offset, $components = 1, $nesting_level = 0)
     {
+        // TTTT
         if ($this->type > PelIfd::INTEROPERABILITY && $this->type !== PelSpec::getIfdIdByType('Canon Maker Notes')) {
             $index_size = $d->getShort($offset);
             if ($index_size / $components !== PelFormat::getSize(PelFormat::SHORT)) {
