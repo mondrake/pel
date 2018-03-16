@@ -298,7 +298,7 @@ class CanonEos650dTest extends TestCase
         /* End of IFD $ifd1. */
 
         /* Start of IDF $ifd0_mn  */
-        $ifd0_mn = $ifd0_0->getSubIfd(5); // IFD MakerNotes
+        $ifd0_mn = $ifd0_0->getSubIfd(6); // IFD MakerNotes
         $this->assertInstanceOf('lsolesen\pel\PelIfd', $ifd0_mn);
 
         $entry = $ifd0_mn->getEntry(6); // ImageType
@@ -310,7 +310,7 @@ class CanonEos650dTest extends TestCase
         $this->assertEquals($entry->getValue(), 'Firmware Version 1.0.4');
 
         /* Start of IDF $ifd0_mn_cs. */
-        $ifd0_mn_cs = $ifd0_mn->getSubIfd(6); // CameraSettings
+        $ifd0_mn_cs = $ifd0_mn->getSubIfd(7); // CameraSettings
         $this->assertInstanceOf('lsolesen\pel\PelIfd', $ifd0_mn_cs);
         $this->assertEquals(count($ifd0_mn_cs->getEntries()), 37);
 
