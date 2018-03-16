@@ -203,7 +203,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
 
             // Check if PEL can support this TAG.
             if (!$this->isValidTag($tag)) {
-                Pel::warning(
+                Pel::maybeThrow(new PelIfdException(
                     str_repeat("  ", $nesting_level) . "No specification available for tag 0x%04X, skipping (%d of %d)...",
                     $tag,
                     $i + 1,
@@ -229,7 +229,8 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                 $type = PelSpec::getIfdIdFromTag($this->type, $tag);
                 $o = $d->getLong($offset + 12 * $i + 8);
                 if ($starting_offset != $o) {
-                    $ifd = new PelIfd($type);
+                    $ifd_class = PelSpec::getIfdClass($type);
+                    $ifd = new $ifd_class($type);
                     try {
                         $ifd->load($d, $o, $tag_components, $nesting_level + 1);
                         $this->sub[$type] = $ifd;

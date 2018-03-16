@@ -23,6 +23,13 @@ class PelIfdIndexShort extends PelIfd
      */
     public function load(PelDataWindow $d, $offset, $components = 1, $nesting_level = 0)
     {
+        Pel::debug(
+            str_repeat("  ", $nesting_level) . "** Constructing IFD '%s' with %d entries at offset %d...",
+            $this->getName(),
+            $components,
+            $offset
+        );
+
         $index_size = $d->getShort($offset);
         if ($index_size / $components !== PelFormat::getSize(PelFormat::SHORT)) {
             Pel::maybeThrow(new PelInvalidDataException('Size of %s does not match the number of entries.', $this->getName()));
@@ -81,5 +88,6 @@ class PelIfdIndexShort extends PelIfd
                 $this->addEntry($entry);
             }
         }
+        Pel::debug(str_repeat("  ", $nesting_level) . "** End of loading IFD '%s'.", $this->getName());
     }
 }
