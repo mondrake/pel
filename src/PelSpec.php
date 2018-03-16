@@ -102,7 +102,7 @@ class PelSpec
      */
     public static function getIfdType($ifd_id)
     {
-        return isset(self::getMap()['ifds'][$ifd_id]) ? self::getMap()['ifds'][$ifd_id]['type'] : null;
+        return isset(self::getMap()['ifds'][$ifd_id]) ? self::getMap()['ifds'][$ifd_id] : null;
     }
 
     /**
@@ -116,7 +116,7 @@ class PelSpec
      */
     public static function getIfdClass($ifd_id)
     {
-        return isset(self::getMap()['ifds'][$ifd_id]) ? self::getMap()['ifds'][$ifd_id]['class'] : null;
+        return isset(self::getMap()['ifdClasses'][$ifd_id]) ? self::getMap()['ifdClasses'][$ifd_id] : null;
     }
 
     /**

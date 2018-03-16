@@ -143,10 +143,10 @@ DATA;
         $ifd['class'] = $this->getFullyQualifiedClassName($ifd['class']);
 
         // 'ifds' entry.
-        $this->map['ifds'][$ifd_id] = [
-          'type' => $ifd['type'],
-          'class' => $ifd['class'],
-        ];
+        $this->map['ifds'][$ifd_id] = $ifd['type'];
+
+        // 'ifdClasses' entry.
+        $this->map['ifdClasses'][$ifd_id] = $ifd['class'];
 
         // 'ifdsByType' (reverse lookup) entry.
         $this->map['ifdsByType'][$ifd['type']] = $ifd_id;
