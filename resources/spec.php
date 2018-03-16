@@ -19,6 +19,57 @@ return array (
     0 => '0',
     1 => '1',
   ),
+  'ifdClasses' =>
+  array (
+    5 => 'lsolesen\\pel\\???',
+    4 => 'lsolesen\\pel\\PelIfd',
+    3 => 'lsolesen\\pel\\PelIfd',
+    2 => 'lsolesen\\pel\\PelIfd',
+    6 => 'lsolesen\\pel\\PelIfd',
+    7 => 'lsolesen\\pel\\PelIfdIndexShort',
+    8 => 'lsolesen\\pel\\PelIfdIndexShort',
+    9 => 'lsolesen\\pel\\PelIfdIndexShort',
+    10 => 'lsolesen\\pel\\PelIfdIndexShort',
+    0 => 'lsolesen\\pel\\PelIfd',
+    1 => 'lsolesen\\pel\\PelIfd',
+  ),
+  'ifdPostLoadCallbacks' =>
+  array (
+    5 =>
+    array (
+    ),
+    4 =>
+    array (
+    ),
+    3 =>
+    array (
+    ),
+    2 =>
+    array (
+    ),
+    6 =>
+    array (
+    ),
+    7 =>
+    array (
+    ),
+    8 =>
+    array (
+    ),
+    9 =>
+    array (
+    ),
+    10 =>
+    array (
+    ),
+    0 =>
+    array (
+      0 => 'lsolesen\\pel\\PelEntryMakerNote::tagToIfd',
+    ),
+    1 =>
+    array (
+    ),
+  ),
   'ifdsByType' =>
   array (
     'Canon Picture Information' => 5,
@@ -1417,7 +1468,10 @@ return array (
       array (
         'name' => 'PictureInfo',
         'title' => 'Picture Info',
-        'ifd' => 5,
+        'format' =>
+        array (
+          0 => 7,
+        ),
       ),
       19 =>
       array (
@@ -1589,6 +1643,10 @@ return array (
       array (
         'name' => 'MacroMode',
         'title' => 'Macro Mode',
+        'format' =>
+        array (
+          0 => 8,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -1602,11 +1660,19 @@ return array (
       array (
         'name' => 'SelfTimer',
         'title' => 'Self Timer',
+        'format' =>
+        array (
+          0 => 8,
+        ),
       ),
       3 =>
       array (
         'name' => 'Quality',
         'title' => 'Quality',
+        'format' =>
+        array (
+          0 => 8,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -1625,6 +1691,10 @@ return array (
       array (
         'name' => 'FlashMode',
         'title' => 'Flash Mode',
+        'format' =>
+        array (
+          0 => 8,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -1644,6 +1714,10 @@ return array (
       array (
         'name' => 'DriveMode',
         'title' => 'Drive Mode',
+        'format' =>
+        array (
+          0 => 8,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -1664,6 +1738,10 @@ return array (
       array (
         'name' => 'FocusMode',
         'title' => 'Focus Mode',
+        'format' =>
+        array (
+          0 => 8,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -1686,6 +1764,10 @@ return array (
       array (
         'name' => 'RecordMode',
         'title' => 'Record Mode',
+        'format' =>
+        array (
+          0 => 8,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -1706,6 +1788,10 @@ return array (
       array (
         'name' => 'ImageSize',
         'title' => 'Image Size',
+        'format' =>
+        array (
+          0 => 8,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -1734,6 +1820,10 @@ return array (
       array (
         'name' => 'EasyShootingMode',
         'title' => 'Easy Shooting Mode',
+        'format' =>
+        array (
+          0 => 8,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -1816,6 +1906,10 @@ return array (
       array (
         'name' => 'DigitalZoom',
         'title' => 'Digital Zoom',
+        'format' =>
+        array (
+          0 => 8,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -1831,6 +1925,10 @@ return array (
       array (
         'name' => 'Contrast',
         'title' => 'Contrast',
+        'format' =>
+        array (
+          0 => 8,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -1843,6 +1941,10 @@ return array (
       array (
         'name' => 'Saturation',
         'title' => 'Saturation',
+        'format' =>
+        array (
+          0 => 8,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -1855,16 +1957,28 @@ return array (
       array (
         'name' => 'Sharpness',
         'title' => 'Sharpness',
+        'format' =>
+        array (
+          0 => 8,
+        ),
       ),
       16 =>
       array (
         'name' => 'ISOSpeed',
         'title' => 'ISO Speed',
+        'format' =>
+        array (
+          0 => 8,
+        ),
       ),
       17 =>
       array (
         'name' => 'MeteringMode',
         'title' => 'Metering Mode',
+        'format' =>
+        array (
+          0 => 8,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -1882,6 +1996,10 @@ return array (
       array (
         'name' => 'FocusType',
         'title' => 'Focus Type',
+        'format' =>
+        array (
+          0 => 8,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -1904,6 +2022,10 @@ return array (
       array (
         'name' => 'AFPointSelected',
         'title' => 'AF Point Selected',
+        'format' =>
+        array (
+          0 => 8,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -1923,6 +2045,10 @@ return array (
       array (
         'name' => 'ExposureMode',
         'title' => 'Exposure Mode',
+        'format' =>
+        array (
+          0 => 8,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2307,46 +2433,82 @@ return array (
       array (
         'name' => 'LongFocalLength',
         'title' => 'Long Focal Length',
+        'format' =>
+        array (
+          0 => 3,
+        ),
       ),
       24 =>
       array (
         'name' => 'ShortFocalLength',
         'title' => 'Short Focal Length',
+        'format' =>
+        array (
+          0 => 3,
+        ),
       ),
       25 =>
       array (
         'name' => 'FocalUnits',
         'title' => 'Focal Units',
+        'format' =>
+        array (
+          0 => 8,
+        ),
       ),
       26 =>
       array (
         'name' => 'MaxAperture',
         'title' => 'Max Aperture',
+        'format' =>
+        array (
+          0 => 8,
+        ),
       ),
       27 =>
       array (
         'name' => 'MinAperture',
         'title' => 'Min Aperture',
+        'format' =>
+        array (
+          0 => 8,
+        ),
       ),
       28 =>
       array (
         'name' => 'FlashActivity',
         'title' => 'Flash Activity',
+        'format' =>
+        array (
+          0 => 8,
+        ),
       ),
       29 =>
       array (
         'name' => 'FlashDetails',
         'title' => 'Flash Details',
+        'format' =>
+        array (
+          0 => 8,
+        ),
       ),
       32 =>
       array (
         'name' => 'FocusContinuous',
         'title' => 'Focus Continuous',
+        'format' =>
+        array (
+          0 => 8,
+        ),
       ),
       33 =>
       array (
         'name' => 'AESetting',
         'title' => 'AE Setting',
+        'format' =>
+        array (
+          0 => 8,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2363,6 +2525,10 @@ return array (
       array (
         'name' => 'ImageStabilization',
         'title' => 'Image Stabilization',
+        'format' =>
+        array (
+          0 => 8,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2384,20 +2550,36 @@ return array (
       array (
         'name' => 'DisplayAperture',
         'title' => 'Display Aperture',
+        'format' =>
+        array (
+          0 => 8,
+        ),
       ),
       36 =>
       array (
         'name' => 'ZoomSourceWidth',
         'title' => 'Zoom Source Width',
+        'format' =>
+        array (
+          0 => 8,
+        ),
       ),
       37 =>
       array (
         'name' => 'ZoomTargetWidth',
         'title' => 'Zoom Target Width',
+        'format' =>
+        array (
+          0 => 8,
+        ),
       ),
       39 =>
       array (
         'name' => 'SpotMeteringMode',
+        'format' =>
+        array (
+          0 => 8,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2410,6 +2592,10 @@ return array (
       40 =>
       array (
         'name' => 'PhotoEffect',
+        'format' =>
+        array (
+          0 => 8,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2429,6 +2615,10 @@ return array (
       array (
         'name' => 'ManualFlashOutput',
         'title' => 'Manual Flash Output',
+        'format' =>
+        array (
+          0 => 8,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2443,6 +2633,10 @@ return array (
       array (
         'name' => 'ColorTone',
         'title' => 'Color Tone',
+        'format' =>
+        array (
+          0 => 8,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2455,6 +2649,10 @@ return array (
       array (
         'name' => 'SRAWQuality',
         'title' => 'SRAW Quality',
+        'format' =>
+        array (
+          0 => 8,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2471,11 +2669,19 @@ return array (
       array (
         'name' => 'FileNumber',
         'title' => 'File Number',
+        'format' =>
+        array (
+          0 => 4,
+        ),
       ),
       3 =>
       array (
         'name' => 'BracketMode',
         'title' => 'Bracket Mode',
+        'format' =>
+        array (
+          0 => 8,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2492,16 +2698,28 @@ return array (
       array (
         'name' => 'BracketValue',
         'title' => 'Bracket Value',
+        'format' =>
+        array (
+          0 => 8,
+        ),
       ),
       5 =>
       array (
         'name' => 'BracketShotNumber',
         'title' => 'Bracket Shot Number',
+        'format' =>
+        array (
+          0 => 8,
+        ),
       ),
       6 =>
       array (
         'name' => 'RawJpgQuality',
         'title' => 'Raw Jpg Quality',
+        'format' =>
+        array (
+          0 => 8,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2520,6 +2738,10 @@ return array (
       array (
         'name' => 'RawJpgSize',
         'title' => 'Raw Jpg Size',
+        'format' =>
+        array (
+          0 => 8,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2548,6 +2770,10 @@ return array (
       array (
         'name' => 'NoiseReduction',
         'title' => 'Noise Reduction',
+        'format' =>
+        array (
+          0 => 8,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2563,6 +2789,10 @@ return array (
       array (
         'name' => 'WBBracketMode',
         'title' => 'WB Bracket Mode',
+        'format' =>
+        array (
+          0 => 8,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2577,16 +2807,28 @@ return array (
       array (
         'name' => 'WBBracketValueAB',
         'title' => 'WB Bracket Value AB',
+        'format' =>
+        array (
+          0 => 8,
+        ),
       ),
       13 =>
       array (
         'name' => 'WBBracketValueGM',
         'title' => 'WB Bracket Value GM',
+        'format' =>
+        array (
+          0 => 8,
+        ),
       ),
       14 =>
       array (
         'name' => 'FilterEffect',
         'title' => 'Filter Effect',
+        'format' =>
+        array (
+          0 => 8,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2603,6 +2845,10 @@ return array (
       array (
         'name' => 'ToningEffect',
         'title' => 'Toning Effect',
+        'format' =>
+        array (
+          0 => 8,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2619,11 +2865,19 @@ return array (
       array (
         'name' => 'MacroMagnification',
         'title' => 'Macro Magnification',
+        'format' =>
+        array (
+          0 => 8,
+        ),
       ),
       19 =>
       array (
         'name' => 'LiveViewShooting',
         'title' => 'Live View Shooting',
+        'format' =>
+        array (
+          0 => 8,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2637,16 +2891,28 @@ return array (
       array (
         'name' => 'FocusDistanceUpper',
         'title' => 'Focus Distance Upper',
+        'format' =>
+        array (
+          0 => 3,
+        ),
       ),
       21 =>
       array (
         'name' => 'FocusDistanceLower',
         'title' => 'Focus Distance Lower',
+        'format' =>
+        array (
+          0 => 3,
+        ),
       ),
       25 =>
       array (
         'name' => 'FlashExposureLock',
         'title' => 'Flash Exposure Lock',
+        'format' =>
+        array (
+          0 => 3,
+        ),
         'text' =>
         array (
           'mapping' =>
@@ -2665,23 +2931,35 @@ return array (
         'title' => 'ISO Speed Used',
         'format' =>
         array (
-          0 => 3,
+          0 => 8,
         ),
       ),
       3 =>
       array (
         'name' => 'MeasuredEV',
         'title' => 'Measured EV',
+        'format' =>
+        array (
+          0 => 8,
+        ),
       ),
       4 =>
       array (
         'name' => 'TargetAperture',
         'title' => 'Target Aperture',
+        'format' =>
+        array (
+          0 => 8,
+        ),
       ),
       5 =>
       array (
         'name' => 'TargetShutterSpeed',
         'title' => 'Target Shutter Speed',
+        'format' =>
+        array (
+          0 => 8,
+        ),
       ),
       7 =>
       array (
@@ -2689,7 +2967,7 @@ return array (
         'title' => 'White Balance Setting',
         'format' =>
         array (
-          0 => 3,
+          0 => 8,
         ),
         'text' =>
         array (
@@ -2726,7 +3004,7 @@ return array (
         'title' => 'Slow Shutter',
         'format' =>
         array (
-          0 => 3,
+          0 => 8,
         ),
         'text' =>
         array (
@@ -2743,6 +3021,10 @@ return array (
       array (
         'name' => 'SequenceNumber',
         'title' => 'Sequence Number',
+        'format' =>
+        array (
+          0 => 8,
+        ),
       ),
       14 =>
       array (
@@ -2750,7 +3032,7 @@ return array (
         'title' => 'AF Point Used',
         'format' =>
         array (
-          0 => 3,
+          0 => 8,
         ),
         'text' =>
         array (
@@ -2771,6 +3053,10 @@ return array (
       array (
         'name' => 'FlashBias',
         'title' => 'Flash Bias',
+        'format' =>
+        array (
+          0 => 8,
+        ),
       ),
       16 =>
       array (
@@ -2778,7 +3064,7 @@ return array (
         'title' => 'Auto Exposure Bracketing',
         'format' =>
         array (
-          0 => 3,
+          0 => 8,
         ),
         'text' =>
         array (
@@ -2796,21 +3082,37 @@ return array (
       array (
         'name' => 'SubjectDistance',
         'title' => 'Subject Distance',
+        'format' =>
+        array (
+          0 => 3,
+        ),
       ),
       21 =>
       array (
         'name' => 'Aperture',
         'title' => 'Aperture',
+        'format' =>
+        array (
+          0 => 8,
+        ),
       ),
       22 =>
       array (
         'name' => 'ShutterSpeed',
         'title' => 'Shutter Speed',
+        'format' =>
+        array (
+          0 => 8,
+        ),
       ),
       23 =>
       array (
         'name' => 'MeasuredEV2',
         'title' => 'Measured EV 2',
+        'format' =>
+        array (
+          0 => 8,
+        ),
       ),
       26 =>
       array (
@@ -2818,7 +3120,7 @@ return array (
         'title' => 'Camera Type',
         'format' =>
         array (
-          0 => 3,
+          0 => 8,
         ),
         'text' =>
         array (
@@ -2837,7 +3139,7 @@ return array (
         'title' => 'Auto Rotate',
         'format' =>
         array (
-          0 => 3,
+          0 => 8,
         ),
         'text' =>
         array (
@@ -2856,7 +3158,7 @@ return array (
         'title' => 'ND Filter',
         'format' =>
         array (
-          0 => 3,
+          0 => 8,
         ),
         'text' =>
         array (
@@ -2874,6 +3176,10 @@ return array (
       array (
         'name' => 'PanoramaFrame',
         'title' => 'Panorama Frame',
+        'format' =>
+        array (
+          0 => 8,
+        ),
       ),
       5 =>
       array (
@@ -2881,7 +3187,7 @@ return array (
         'title' => 'Panorama Direction',
         'format' =>
         array (
-          0 => 3,
+          0 => 8,
         ),
         'text' =>
         array (
