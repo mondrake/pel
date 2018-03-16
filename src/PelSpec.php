@@ -97,7 +97,7 @@ class PelSpec
      * @param int $ifd_id
      *            the IFD id.
      *
-     * @return string
+     * @return string|null
      *            the IFD type.
      */
     public static function getIfdType($ifd_id)
@@ -106,31 +106,31 @@ class PelSpec
     }
 
     /**
-     * Returns the IFD class.
-     *
-     * @param int $ifd_id
-     *            the IFD id.
-     *
-     * @return string
-     *            the IFD class.
-     */
-    public static function getIfdClass($ifd_id)
-    {
-        return isset(self::getMap()['ifdClasses'][$ifd_id]) ? self::getMap()['ifdClasses'][$ifd_id] : null;
-    }
-
-    /**
      * Returns the IFD id given its type.
      *
      * @param string $ifd_type
      *            the IFD type.
      *
-     * @return int
+     * @return int|null
      *            the IFD id.
      */
     public static function getIfdIdByType($ifd_type)
     {
         return isset(self::getMap()['ifdsByType'][$ifd_type]) ? self::getMap()['ifdsByType'][$ifd_type] : null;
+    }
+
+    /**
+     * Returns a Pel IFD to use for loading maker notes.
+     *
+     * @param string $ifd_id
+     *            the IFD id.
+     *
+     * @return int|null
+     *            an IFD id.
+     */
+    public static function getMakerNoteIfd($make, $model)
+    {
+        return isset(self::getMap()['makerNotes'][$make]) ? self::getMap()['makerNotes'][$make] : null;
     }
 
     /**
@@ -173,7 +173,7 @@ class PelSpec
      * @param int $tag_id
      *            the TAG id.
      *
-     * @return string
+     * @return string|null
      *            the TAG name.
      */
     public static function getTagName($ifd_id, $tag_id)
@@ -189,7 +189,7 @@ class PelSpec
      * @param string $tag_name
      *            the TAG name.
      *
-     * @return int
+     * @return int|null
      *            the TAG id.
      */
     public static function getTagIdByName($ifd_id, $tag_name)
@@ -255,7 +255,7 @@ class PelSpec
      * @param int $tag_id
      *            the TAG id.
      *
-     * @return string
+     * @return string|null
      *            the TAG title.
      */
     public static function getTagTitle($ifd_id, $tag_id)

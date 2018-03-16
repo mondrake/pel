@@ -195,7 +195,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
             Pel::maybeThrow(new PelIfdException('Adjusted to: %d.', $n));
         }
 
-        for ($i = 0; $i < $n; $i ++) {
+        for ($i = 0; $i < $n; $i++) {
             // TODO: increment window start instead of using offsets.
             $tag = $d->getShort($offset + 12 * $i);
             $tag_format = $d->getShort($offset + 12 * $i + 2);
