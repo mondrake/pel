@@ -205,8 +205,9 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
             if (!$this->isValidTag($tag)) {
                 Pel::maybeThrow(
                     new PelIfdException(
-                        str_repeat("  ", $nesting_level) . "No specification available for tag 0x%04X, skipping (%d of %d)...",
+                        str_repeat("  ", $nesting_level) . "No specification available for TAG 0x%04X in IFD '%s', skipping (%d of %d)...",
                         $tag,
+                        $this->getName(),
                         $i + 1,
                         $n
                     )
