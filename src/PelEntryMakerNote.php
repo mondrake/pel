@@ -115,7 +115,7 @@ class PelEntryMakerNote extends PelEntryUndefined
         $model = $ifd->getEntry(PelSpec::getTagIdByName($ifd->getType(), 'Model'));
 
         // Get maker note IFD id.
-        if (!$maker_note_ifd_id = PelSpec::getMakerNoteIfd($make, $model)) {
+        if (!$maker_note_ifd_id = PelSpec::getMakerNoteIfd($make->getValue(), $model->getValue())) {
             return;
         }
 
