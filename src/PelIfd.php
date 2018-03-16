@@ -285,6 +285,11 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
         }
 
         Pel::debug(str_repeat("  ", $nesting_level) . "** End of loading IFD '%s'.", $this->getName());
+
+        // Invoke post-load callbacks.
+        foreach (PelSpec::getIfdPostLoadCallbacks($this->type) as $callback) {
+            call_user_func($callback, $d, $this);
+        }
     }
 
     /**
