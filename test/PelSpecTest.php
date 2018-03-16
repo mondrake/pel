@@ -29,6 +29,10 @@ class PelSpecTest extends TestCase
         $this->assertEquals(2, PelSpec::getIfdIdByType('Exif'));
         $this->assertNotNull(PelSpec::getIfdIdByType('Canon Maker Notes'));
 
+        // Test retrieving IFD class.
+        $this->assertEquals('lsolesen\pel\PelIfd', PelSpec::getIfdClass(PelSpec::getIfdIdByType('0')));
+        $this->assertEquals('lsolesen\pel\PelIfdIndexShort', PelSpec::getIfdClass(PelSpec::getIfdIdByType('Canon Camera Settings')));
+
         // Test retrieving TAG name.
         $this->assertEquals('ExifIFDPointer', PelSpec::getTagName(0, 0x8769));
         $this->assertEquals('ExposureTime', PelSpec::getTagName(2, 0x829A));

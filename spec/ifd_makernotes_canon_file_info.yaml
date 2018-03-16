@@ -1,4 +1,5 @@
 type: 'Canon File Information'
+class: PelIfdIndexShort
 tags:
     0x0001:
         name: FileNumber

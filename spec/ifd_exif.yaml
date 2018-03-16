@@ -1,5 +1,6 @@
 const: 2
 type: Exif
+class: PelIfd
 tags:
     0xA302:
         const: CFA_PATTERN

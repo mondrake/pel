@@ -1,5 +1,6 @@
 const: 4
 type: Interoperability
+class: PelIfd
 alias:
   - 'Interop'
 tags:

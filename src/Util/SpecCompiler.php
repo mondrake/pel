@@ -17,7 +17,7 @@ class SpecCompiler
     /**
      * Map of expected IFD level array keys.
      */
-    private $ifdKeys = ['const', 'type', 'alias', 'tags', 'makerNotes'];
+    private $ifdKeys = ['const', 'type', 'class', 'alias', 'tags', 'makerNotes'];
 
     /**
      * Map of expected TAG level array keys.
@@ -139,8 +139,14 @@ DATA;
         // otherwise get a new id.
         $ifd_id = isset($ifd['const']) ? $ifd['const'] : $this->nextIfdId++;
 
+        // Fully qualifies the class name.
+        $ifd['class'] = $this->getFullyQualifiedClassName($ifd['class']);
+
         // 'ifds' entry.
-        $this->map['ifds'][$ifd_id] = $ifd['type'];
+        $this->map['ifds'][$ifd_id] = [
+          'type' => $ifd['type'],
+          'class' => $ifd['class'],
+        ];
 
         // 'ifdsByType' (reverse lookup) entry.
         $this->map['ifdsByType'][$ifd['type']] = $ifd_id;
@@ -207,9 +213,7 @@ DATA;
 
         // Fully qualifies the class name.
         if (isset($tag['class'])) {
-            if (strpos('\\', $tag['class']) === false) {
-                $tag['class'] = $this->defaultNamespace . $tag['class'];
-            }
+            $tag['class'] = $this->getFullyQualifiedClassName($tag['class']);
         }
 
         // Check validity of TAG/text keys.
@@ -222,10 +226,7 @@ DATA;
             // Fully qualifies the decode method.
             if (isset($tag['text']['decode'])) {
                 list($class, $method) = explode('::', $tag['text']['decode']);
-                if (strpos('\\', $class) === false) {
-                    $class = $this->defaultNamespace . $class;
-                }
-                $tag['text']['decode'] = $class . '::' . $method;
+                $tag['text']['decode'] = $this->getFullyQualifiedClassName($class) . '::' . $method;
             }
         }
 
@@ -237,5 +238,22 @@ DATA;
 
         // 'tagsByName' (reverse lookup) entry.
         $this->map['tagsByName'][$ifd_id][$tag['name']] = $tag_id;
+    }
+
+    /**
+     * Fully qualifies a class name.
+     *
+     * @param string $class_name
+     *            the class name.
+     *
+     * @return string
+     *            the fully qualified class name.
+     */
+    protected function getFullyQualifiedClassName($class_name)
+    {
+        if (strpos('\\', $class_name) === false) {
+            return $this->defaultNamespace . $class_name;
+        }
+        return $class_name;
     }
 }

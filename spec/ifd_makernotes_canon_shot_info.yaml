@@ -1,4 +1,5 @@
 type: 'Canon Shot Information'
+class: PelIfdIndexShort
 tags:
     0x0002:
         name: ISOSpeedUsed

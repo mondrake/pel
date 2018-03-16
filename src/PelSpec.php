@@ -102,7 +102,21 @@ class PelSpec
      */
     public static function getIfdType($ifd_id)
     {
-        return isset(self::getMap()['ifds'][$ifd_id]) ? self::getMap()['ifds'][$ifd_id] : null;
+        return isset(self::getMap()['ifds'][$ifd_id]) ? self::getMap()['ifds'][$ifd_id]['type'] : null;
+    }
+
+    /**
+     * Returns the IFD class.
+     *
+     * @param int $ifd_id
+     *            the IFD id.
+     *
+     * @return string
+     *            the IFD class.
+     */
+    public static function getIfdClass($ifd_id)
+    {
+        return isset(self::getMap()['ifds'][$ifd_id]) ? self::getMap()['ifds'][$ifd_id]['class'] : null;
     }
 
     /**

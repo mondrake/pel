@@ -30,6 +30,7 @@ An IFD is fully described by a single YAML file. The file name should convention
 ```
 const: 0
 type: '0'
+class: PelIfd
 alias:
   - 'IFD0'
   - 'Main'
@@ -49,6 +50,7 @@ found in that IFD.
 | ---------- | ----------------------------------------------------------------------------------------------------- |
 | const      | (Legacy) An integer identifying the IFD, corresponding to the constant values found in the `PelIfd` class, like `const IFD0 = 0;`. This will be dropped in a future version of PEL. |
 | type       | A string identifying the IFD type. |
+| class      | A string identifying the IFD's PHP class. |
 | alias      | (Optional) An array of strings alternatively identifying the IFD type. |
 | tags       | An array of TAGs (see below). |
 | makerNotes | (Optional) If the IFD is relative to custom manufacturer notes, this array of string specifies the values of the EXIF/MakerNote TAG that will match this type of maker notes. |

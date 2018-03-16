@@ -93,7 +93,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
      *
      * @var array
      */
-    private $entries = [];
+    protected $entries = [];
 
     /**
      * The type of this directory.
@@ -102,7 +102,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
      *
      * @var int
      */
-    private $type;
+    protected $type;
 
     /**
      * The next directory.
@@ -112,7 +112,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
      *
      * @var PelIfd
      */
-    private $next = null;
+    protected $next = null;
 
     /**
      * Sub-directories pointed to by this directory.
@@ -121,7 +121,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
      *
      * @var array
      */
-    private $sub = [];
+    protected $sub = [];
 
     /**
      * The thumbnail data.
@@ -131,7 +131,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
      *
      * @var PelDataWindow
      */
-    private $thumb_data = null;
+    protected $thumb_data = null;
     // TODO: use this format to choose between the
     // JPEG_INTERCHANGE_FORMAT and STRIP_OFFSETS tags.
     // private $thumb_format;
@@ -164,72 +164,14 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
      * @param int $offset
      *            the offset within the window where the directory will
      *            be found.
+     * @param int $components
+     *            (Optional) the number of components held by this IFD.
+     * @param int $nesting_level
+     *            (Optional) the level of nesting of this IFD in the overall
+     *            structure.
      */
     public function load(PelDataWindow $d, $offset, $components = 1, $nesting_level = 0)
     {
-        // TTTT
-        if ($this->type > PelIfd::INTEROPERABILITY && $this->type !== PelSpec::getIfdIdByType('Canon Maker Notes')) {
-            $index_size = $d->getShort($offset);
-            if ($index_size / $components !== PelFormat::getSize(PelFormat::SHORT)) {
-                Pel::maybeThrow(new PelInvalidDataException('Size of %s does not match the number of entries.', $this->getName()));
-            }
-            $offset += 2;
-            for ($_i = 0; $_i < $components; $_i++) {
-                // Check if PEL can support this TAG.
-                if (!$this->isValidTag($_i + 1)) {
-                    Pel::debug(
-                        str_repeat("  ", $nesting_level) . "No specification available for tag 0x%04X, skipping (%d of %d)...",
-                        $_i + 1,
-                        $_i + 1,
-                        $components
-                    );
-                    continue;
-                }
-
-                $item_format = PelSpec::getTagFormat($this->type, $_i + 1)[0];
-                Pel::debug(
-                    str_repeat("  ", $nesting_level) . 'Tag 0x%04X: (%s) Fmt: %d (%s) Components: %d (%d of %d)...',
-                    $_i + 1,
-                    PelSpec::getTagName($this->type, $_i + 1),
-                    $item_format,
-                    PelFormat::getName($item_format),
-                    1,
-                    $_i + 1,
-                    $components
-                );
-                switch ($item_format) {
-                    case PelFormat::BYTE:
-                        $item_value = $d->getByte($offset + $_i * 2);
-                        break;
-                    case PelFormat::SHORT:
-                        $item_value = $d->getShort($offset + $_i * 2);
-                        break;
-                    case PelFormat::LONG:
-                        $item_value = $d->getLong($offset + $_i * 2);
-                        break;
-                    case PelFormat::RATIONAL:
-                        $item_value = $d->getRational($offset + $_i * 2);
-                        break;
-                    case PelFormat::SBYTE:
-                        $item_value = $d->getSByte($offset + $_i * 2);
-                        break;
-                    case PelFormat::SSHORT:
-                        $item_value = $d->getSShort($offset + $_i * 2);
-                        break;
-                    case PelFormat::SLONG:
-                        $item_value = $d->getSLong($offset + $_i * 2);
-                        break;
-                    case PelFormat::SRATIONAL:
-                        $item_value = $d->getSRattional($offset + $_i * 2);
-                        break;
-                }
-                if ($entry = PelEntry::createNew($this->type, $_i + 1, [$item_value])) {
-                    $this->addEntry($entry);
-                }
-            }
-            return;
-        }
-
         $starting_offset = $offset;
 
         $thumb_offset = 0;
@@ -437,7 +379,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
      * @param int $length
      *            the length of the thumbnail.
      */
-    private function safeSetThumbnail(PelDataWindow $d, $offset, $length)
+    protected function safeSetThumbnail(PelDataWindow $d, $offset, $length)
     {
         /*
          * Load the thumbnail if both the offset and the length is

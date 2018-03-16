@@ -1,4 +1,5 @@
 type: 'Canon Panorama Information'
+class: PelIfdIndexShort
 tags:
     0x0002:
         name: PanoramaFrame

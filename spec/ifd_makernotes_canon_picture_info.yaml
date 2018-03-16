@@ -1,4 +1,5 @@
 type: 'Canon Picture Information'
+class: ???
 tags:
     0x0002:
         name: ImageWidth
