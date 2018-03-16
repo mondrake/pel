@@ -113,7 +113,7 @@ class PelEntryMakerNote extends PelEntryUndefined
 
         // Get Model tag from IFD0.
         $model_entry = $ifd->getEntry(PelSpec::getTagIdByName($ifd->getType(), 'Model'));
-        $model = $model_entry ? $model->getValue() : 'na';
+        $model = $model_entry ? $model_entry->getValue() : 'na';
 
         // Get maker note IFD id.
         if (!$maker_note_ifd_id = PelSpec::getMakerNoteIfd($make->getValue(), $model)) {
