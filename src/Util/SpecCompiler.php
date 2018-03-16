@@ -33,7 +33,7 @@ class SpecCompiler
     private $defaultNamespace;
 
     /** @var int */
-    private $nextIfdId = PelIfd::INTEROPERABILITY + 1;
+    private $nextIfdId;
 
     /** @var Filesystem */
     private $fs;
@@ -61,6 +61,7 @@ class SpecCompiler
         $this->defaultNamespace = $defaultNamespace;
         $this->finder = $finder ? $finder : new Finder();
         $this->fs = $fs ? $fs : new Filesystem();
+        $this->nextIfdId = PelIfd::INTEROPERABILITY + 1;
     }
 
     /**
