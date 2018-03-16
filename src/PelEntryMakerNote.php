@@ -91,8 +91,13 @@ class PelEntryMakerNote extends PelEntryUndefined
         return $this->components . ' bytes unknown MakerNote data';
     }
 
-    /*
-     * @todo.
+    /**
+     * Converts a maker note tag to an IFD structure for dumping.
+     *
+     * @param PelDataWindow $d
+     *            the data window that will provide the data.
+     * @param PelIfd $ifd
+     *            the root PelIfd object.
      */
     public static function tagToIfd(PelDataWindow $d, PelIfd $ifd)
     {
