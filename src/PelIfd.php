@@ -203,11 +203,13 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
 
             // Check if PEL can support this TAG.
             if (!$this->isValidTag($tag)) {
-                Pel::maybeThrow(new PelIfdException(
-                    str_repeat("  ", $nesting_level) . "No specification available for tag 0x%04X, skipping (%d of %d)...",
-                    $tag,
-                    $i + 1,
-                    $n
+                Pel::maybeThrow(
+                    new PelIfdException(
+                        str_repeat("  ", $nesting_level) . "No specification available for tag 0x%04X, skipping (%d of %d)...",
+                        $tag,
+                        $i + 1,
+                        $n
+                    )
                 );
                 continue;
             }
