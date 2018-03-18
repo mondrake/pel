@@ -410,6 +410,6 @@ class CanonPowershotS60Test extends TestCase
         $this->assertEquals($entry->getValue(), '1');
         $this->assertEquals($entry->getText(), 'JPEG');
 
-        $this->assertCount(6, Pel::getExceptions());
+        $this->assertCount(0, Pel::getExceptions());
     }
 }

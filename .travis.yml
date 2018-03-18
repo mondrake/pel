@@ -2,18 +2,18 @@ language: php
 sudo: false
 
 php:
-  #- 5.4
-  #- 5.5
-  #- 5.6
-  #- 7.0
-  #- 7.1
+  - 5.4
+  - 5.5
+  - 5.6
+  - 7.0
+  - 7.1
   - 7.2
-  #- nightly
+  - nightly
 
 matrix:
-#  include:
-#    - php: hhvm
-#      dist: trusty
+  include:
+    - php: hhvm
+      dist: trusty
   fast_finish: true
   allow_failures:
     - php: hhvm
@@ -34,7 +34,7 @@ script:
   #- php examples/dump-image.php -d test/images/1024-2006_1011_093752.jpg
   #- php examples/dump-image.php -d test/images/gh-77.jpg
   #- php examples/dump-image.php -d test/images/no-exif.jpg
-  - php examples/dump-image.php -d test/imagetests/canon-eos-650d.jpg
+  #- php examples/dump-image.php -d test/imagetests/canon-eos-650d.jpg
   #- php examples/dump-image.php -d test/imagetests/canon-ixus-ii.jpg
   #- php examples/dump-image.php -d test/imagetests/canon-powershot-s60.jpg
   #- php examples/dump-image.php -d test/imagetests/apple-iphone.jpg

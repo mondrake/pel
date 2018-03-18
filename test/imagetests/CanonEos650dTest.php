@@ -331,6 +331,6 @@ class CanonEos650dTest extends TestCase
         // Tamron 150-600mm G2
         $this->assertEquals($entry->getText(), 'Canon EF 100-400mm f/4.5-5.6L IS II USM or Tamron Lens');
 
-        $this->assertEquals(12, count(Pel::getExceptions()));
+        $this->assertCount(12, Pel::getExceptions());
     }
 }
