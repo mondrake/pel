@@ -170,7 +170,7 @@ class Tiff extends BlockBase
         }
     }
 
-    public function xxLoadFromData(\DOMElement $dom, DataWindow $data_window, $offset = 0, array $options = [])
+    public function xxLoadFromData(\DOMDocument $doc, \DOMElement $dom, DataWindow $data_window, $offset = 0, array $options = [])
     {
         $this->debug('Parsing {size} bytes of TIFF data...', ['size' => $data_window->getSize()]);
 
@@ -203,7 +203,7 @@ class Tiff extends BlockBase
         $this->debug('First IFD at offset {offset}.', ['offset' => $offset]);
 
         if ($offset > 0) {
-            $ifd0_dom = $this->doc->createElement('ifd');
+            $ifd0_dom = $doc->createElement('ifd');
             $ifd0_dom->setAttribute('xname', 'IFD0');
             $dom->appendChild($ifd0_dom);
 
@@ -226,7 +226,7 @@ class Tiff extends BlockBase
                     // IFD1 shouldn't link further...
                     $this->error('IFD1 links to another IFD!');
                 }*/
-                $ifd1_dom = $this->doc->createElement('ifd');
+                $ifd1_dom = $doc->createElement('ifd');
                 $ifd1_dom->setAttribute('xname', 'IFD1');
                 $dom->appendChild($ifd1_dom);
 
