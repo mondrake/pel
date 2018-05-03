@@ -204,7 +204,7 @@ class Tiff extends BlockBase
 
         if ($offset > 0) {
             $ifd0_dom = $this->doc->createElement('ifd');
-            $ifd0_dom->setAttribute('xname', 'IFD0')
+            $ifd0_dom->setAttribute('xname', 'IFD0');
             $dom->appendChild($ifd0_dom);
 
             // Parse IFD0, this will automatically parse any sub IFDs.
@@ -227,7 +227,7 @@ class Tiff extends BlockBase
                     $this->error('IFD1 links to another IFD!');
                 }*/
                 $ifd1_dom = $this->doc->createElement('ifd');
-                $ifd1_dom->setAttribute('xname', 'IFD1')
+                $ifd1_dom->setAttribute('xname', 'IFD1');
                 $dom->appendChild($ifd1_dom);
 
                 $ifd1 = new Ifd(Spec::getIfdIdByType('IFD1'), $this);
