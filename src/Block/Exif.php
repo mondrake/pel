@@ -46,8 +46,6 @@ class Exif extends BlockBase
      */
     protected $name = 'Exif';
 
-    protected $doc;
-
     /**
      * Construct a new Exif object.
      *
@@ -61,7 +59,6 @@ class Exif extends BlockBase
         if ($parent) {
             $this->setParentElement($parent);
         }
-        $this->doc = new \DOMDocument();
     }
 
     /**
@@ -81,7 +78,7 @@ class Exif extends BlockBase
      *
      * @param DataWindow $data_window
      */
-    public function loadFromData(DataWindow $data_window, $offset = 0, array $options = [])
+    public function loadFromData(\DOMDocument $doc, \DOMElement $dom, DataWindow $data_window, $offset = 0, array $options = [])
     {
         $this->debug('Parsing {size} bytes of Exif data...', ['size' => $data_window->getSize()]);
 
@@ -98,12 +95,12 @@ class Exif extends BlockBase
             return false;
         }
 
-        $tiff_dom = $this->doc->createElement('tiff');
-        $this->doc->appendChild($tiff_dom);
+        $exif_dom = $doc->createElement('exif');
+        $dom->appendChild($exif_dom);
 
         /* The rest of the data is TIFF data. */
         $tiff = new Tiff(false, $this);
-        $tiff->xxLoadFromData($this->doc, $tiff_dom, $data_window);
+        $tiff->loadFromData($doc, $exif_dom, $data_window);
         $this->xxAddSubBlock($tiff);
 
         return true;

@@ -75,6 +75,8 @@ class Jpeg
      */
     private $jpeg_data = null;
 
+    protected $doc;
+
     /**
      * Construct a new JPEG object.
      *
@@ -118,6 +120,8 @@ class Jpeg
         } else {
             throw new InvalidArgumentException('Bad type for $data: %s', gettype($data));
         }
+
+        $this->doc = new \DOMDocument();
     }
 
     /**
@@ -200,7 +204,7 @@ class Jpeg
 
                 if ($marker == JpegMarker::APP1) {
                     $content = new Exif();
-                    if ($content->loadFromData($d->getClone(0, $len)) === false) {
+                    if ($content->loadFromData($this->doc, $this->doc, $d->getClone(0, $len)) === false) {
                         // We store the data as normal JPEG content if it could
                         // not be parsed as Exif data.
                         $content = new JpegContent($d->getClone(0, $len));
