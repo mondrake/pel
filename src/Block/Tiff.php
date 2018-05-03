@@ -343,11 +343,6 @@ class Tiff extends BlockBase
         if ($this->xxGetSubBlockByIndex('Ifd', 0) !== null) {
             $str .= $this->xxGetSubBlockByIndex('Ifd', 0)->__toString();
         }
-
-        $str .= "\n\n<<< DOM >>>\n\n";
-        $str .= $this->doc->saveXML();
-        $str .= "\n\n<<< DOM >>>\n\n";
-
         return $str;
     }
 

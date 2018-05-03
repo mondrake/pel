@@ -155,6 +155,13 @@ class Exif extends BlockBase
      */
     public function __toString()
     {
-        return ExifEye::tra("Dumping Exif data...\n") . $this->xxGetSubBlock('Tiff', 0)->__toString();
+        $str = ExifEye::tra("Dumping Exif data...\n") . $this->xxGetSubBlock('Tiff', 0)->__toString();
+
+        $str .= "\n\n<<< DOM >>>\n\n";
+        $str .= $this->doc->saveXML();
+        $str .= "\n\n<<< DOM >>>\n\n";
+
+        return $str;
+
     }
 }
