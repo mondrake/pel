@@ -159,6 +159,5 @@ class Exif extends BlockBase
         $str .= "\n\n<<< DOM >>>\n\n";
 
         return $str;
-
     }
 }

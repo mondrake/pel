@@ -104,6 +104,8 @@ class Jpeg
      */
     public function __construct($data = false)
     {
+        $this->doc = new \DOMDocument();
+
         if ($data === false) {
             return;
         }
@@ -120,8 +122,6 @@ class Jpeg
         } else {
             throw new InvalidArgumentException('Bad type for $data: %s', gettype($data));
         }
-
-        $this->doc = new \DOMDocument();
     }
 
     /**
