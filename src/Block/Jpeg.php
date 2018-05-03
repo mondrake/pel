@@ -629,6 +629,10 @@ class Jpeg
             }
         }
 
+        $str .= "\n\n<<< DOM >>>\n\n";
+        $str .= $this->doc->saveXML();
+        $str .= "\n\n<<< DOM >>>\n\n";
+
         return $str;
     }
 
