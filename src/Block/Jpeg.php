@@ -203,8 +203,10 @@ class Jpeg
                 $d->setWindowStart(2);
 
                 if ($marker == JpegMarker::APP1) {
+                    $jpeg_dom = $this->doc->createElement('jpeg');
+                    $this->doc->appendChild($exif_dom);
                     $content = new Exif();
-                    if ($content->loadFromData($this->doc, $this->doc, $d->getClone(0, $len)) === false) {
+                    if ($content->loadFromData($this->doc, $jpeg_dom, $d->getClone(0, $len)) === false) {
                         // We store the data as normal JPEG content if it could
                         // not be parsed as Exif data.
                         $content = new JpegContent($d->getClone(0, $len));
