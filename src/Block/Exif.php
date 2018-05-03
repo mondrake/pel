@@ -46,6 +46,8 @@ class Exif extends BlockBase
      */
     protected $name = 'Exif';
 
+    protected $doc;
+
     /**
      * Construct a new Exif object.
      *
@@ -59,6 +61,7 @@ class Exif extends BlockBase
         if ($parent) {
             $this->setParentElement($parent);
         }
+        $this->doc = new \DOMDocument();
     }
 
     /**
@@ -95,10 +98,14 @@ class Exif extends BlockBase
             return false;
         }
 
+        $tiff_dom = $this->doc->createElement('tiff');
+        $this->doc->appendChild($tiff_dom);
+
         /* The rest of the data is TIFF data. */
         $tiff = new Tiff(false, $this);
-        $tiff->loadFromData($data_window);
+        $tiff->xxLoadFromData($tiff_dom, $data_window);
         $this->xxAddSubBlock($tiff);
+
         return true;
     }
 

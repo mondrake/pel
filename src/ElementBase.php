@@ -13,7 +13,7 @@ use Psr\Log\LoggerTrait;
  * serves as a common ancestor to define the methods common to all ExifEye
  * elements (Block and Entry objects).
  */
-abstract class ElementBase extends \DOMElement implements ElementInterface, LoggerInterface
+abstract class ElementBase implements ElementInterface, LoggerInterface
 {
     use LoggerTrait;
 

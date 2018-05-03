@@ -170,6 +170,73 @@ class Tiff extends BlockBase
         }
     }
 
+    public function xxLoadFromData(\DOMElement $dom, DataWindow $data_window, $offset = 0, array $options = [])
+    {
+        $this->debug('Parsing {size} bytes of TIFF data...', ['size' => $data_window->getSize()]);
+
+        /*
+         * There must be at least 8 bytes available: 2 bytes for the byte
+         * order, 2 bytes for the TIFF header, and 4 bytes for the offset
+         * to the first IFD.
+         */
+        if ($data_window->getSize() < 8) {
+            throw new InvalidDataException('Expected at least 8 bytes of TIFF ' . 'data, found just %d bytes.', $data_window->getSize());
+        }
+        /* Byte order */
+        if ($data_window->strcmp(0, 'II')) {
+            $this->debug('Found Intel byte order');
+            $data_window->setByteOrder(ConvertBytes::LITTLE_ENDIAN);
+        } elseif ($data_window->strcmp(0, 'MM')) {
+            $this->debug('Found Motorola byte order');
+            $data_window->setByteOrder(ConvertBytes::BIG_ENDIAN);
+        } else {
+            throw new InvalidDataException('Unknown byte order found in TIFF ' . 'data: 0x%2X%2X', $data_window->getByte(0), $data_window->getByte(1));
+        }
+
+        /* Verify the TIFF header */
+        if ($data_window->getShort(2) != self::TIFF_HEADER) {
+            throw new InvalidDataException('Missing TIFF magic value.');
+        }
+
+        // IFD0.
+        $offset = $data_window->getLong(4);
+        $this->debug('First IFD at offset {offset}.', ['offset' => $offset]);
+
+        if ($offset > 0) {
+            $ifd0_dom = $this->doc->createElement('ifd');
+            $ifd0_dom->setAttribute('xname', 'IFD0')
+            $dom->appendChild($ifd0_dom);
+
+            // Parse IFD0, this will automatically parse any sub IFDs.
+            $ifd0 = new Ifd(Spec::getIfdIdByType('IFD0'), $this);
+            $this->xxAddSubBlock($ifd0);
+            $next_offset = $ifd0->loadFromData($data_window, $offset);
+        }
+
+        // Next IFD. @todo iterate on next_offset
+        if ($next_offset > 0) {
+            // Sanity check: we need 6 bytes.
+            if ($next_offset > $data_window->getSize() - 6) {
+                $this->error('Bogus offset to next IFD: {offset} > {size}!', [
+                    'offset' => $next_offset,
+                    'size' => $data_window->getSize() - 6,
+                ]);
+            } else {
+/*                if (Spec::getIfdType($this->getId()) === 'IFD1') {
+                    // IFD1 shouldn't link further...
+                    $this->error('IFD1 links to another IFD!');
+                }*/
+                $ifd1_dom = $this->doc->createElement('ifd');
+                $ifd1_dom->setAttribute('xname', 'IFD1')
+                $dom->appendChild($ifd1_dom);
+
+                $ifd1 = new Ifd(Spec::getIfdIdByType('IFD1'), $this);
+                $this->xxAddSubBlock($ifd1);
+                $next_offset = $ifd1->loadFromData($data_window, $next_offset);
+            }
+        }
+    }
+
     /**
      * Load data from a file into a TIFF object.
      *
@@ -276,6 +343,10 @@ class Tiff extends BlockBase
         if ($this->xxGetSubBlockByIndex('Ifd', 0) !== null) {
             $str .= $this->xxGetSubBlockByIndex('Ifd', 0)->__toString();
         }
+
+        $str .= "\n\n<<< DOM >>>\n\n";
+        $str .= $this->doc->saveXML();
+        $str .= "\n\n<<< DOM >>>\n\n";
 
         return $str;
     }
