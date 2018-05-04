@@ -140,6 +140,7 @@ class Tiff extends BlockBase
         }
 
         $tiff_dom = $doc->createElement('tiff');
+        $tiff_dom->setAttribute('byte_order', $data_window->getByteOrder());
         $dom->appendChild($tiff_dom);
 
         // IFD0.
@@ -166,10 +167,6 @@ class Tiff extends BlockBase
                     // IFD1 shouldn't link further...
                     $this->error('IFD1 links to another IFD!');
                 }*/
-                $ifd1_dom = $doc->createElement('ifd');
-                $ifd1_dom->setAttribute('xname', 'IFD1');
-                $dom->appendChild($ifd1_dom);
-
                 $ifd1 = new Ifd(Spec::getIfdIdByType('IFD1'), $this);
                 $this->xxAddSubBlock($ifd1);
                 $next_offset = $ifd1->loadFromData($doc, $tiff_dom, $data_window, $next_offset);

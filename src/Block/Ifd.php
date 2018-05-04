@@ -87,6 +87,10 @@ class Ifd extends BlockBase
      */
     public function loadFromData(\DOMDocument $doc, \DOMElement $dom, DataWindow $data_window, $offset = 0, array $options = [])
     {
+        $ifd_dom = $doc->createElement('ifd');
+        $ifd_dom->setAttribute('name', $this->getName());
+        $dom->appendChild($ifd_dom);
+
         $starting_offset = $offset;
 
         // Get the number of tags.
