@@ -206,7 +206,7 @@ class Jpeg
                     $jpeg_dom = $this->doc->createElement('jpeg');
                     $this->doc->appendChild($jpeg_dom);
                     $content = new Exif(null, $this->doc, $jpeg_dom);
-                    if ($content->loadFromData($jpeg_dom, $d->getClone(0, $len)) === false) {
+                    if ($content->loadFromData($d->getClone(0, $len)) === false) {
                         // We store the data as normal JPEG content if it could
                         // not be parsed as Exif data.
                         $content = new JpegContent($d->getClone(0, $len));

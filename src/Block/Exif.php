@@ -86,7 +86,7 @@ class Exif extends BlockBase
      *
      * @param DataWindow $data_window
      */
-    public function loadFromData(\DOMElement $dom, DataWindow $data_window, $offset = 0, array $options = [])
+    public function loadFromData(DataWindow $data_window, $offset = 0, array $options = [])
     {
         $this->debug('Parsing {size} bytes of Exif data...', ['size' => $data_window->getSize()]);
 
@@ -105,7 +105,7 @@ class Exif extends BlockBase
 
         /* The rest of the data is TIFF data. */
         $tiff = new Tiff(false, $this);
-        $tiff->loadFromData($this->dom, $data_window);
+        $tiff->loadFromData($data_window);
         $this->xxAddSubBlock($tiff);
         return true;
     }

@@ -62,7 +62,7 @@ class Ifd extends BlockBase
      *            the type of this IFD, as found in Spec. A
      *            {@link IfdException} will be thrown if unknown.
      */
-    public function __construct($id, $parent = null, \DOMDocument $doc = null)
+    public function __construct($id, $parent = null)
     {
         if (Spec::getIfdType($id) === null) {
             throw new IfdException('Unknown IFD type: %d', $id);
@@ -73,9 +73,12 @@ class Ifd extends BlockBase
 
         if ($parent) {
             $this->setParentElement($parent);
-        }
-        if ($doc) {
-            $this->doc = $doc;
+            $this->doc = $parent->xxgetDoc();
+            $this->dom = $this->doc->createElement($this->getType());
+            $parent->xxgetDom()->appendChild($this->dom);
+            $this->dom->setExifEyeElement($this);
+
+            $this->dom->setAttribute('name', $this->getName());
         }
     }
 
@@ -88,12 +91,8 @@ class Ifd extends BlockBase
      *            the offset within the window where the directory will
      *            be found.
      */
-    public function loadFromData(\DOMElement $dom, DataWindow $data_window, $offset = 0, array $options = [])
+    public function loadFromData(DataWindow $data_window, $offset = 0, array $options = [])
     {
-        $ifd_dom = $this->doc->createElement('ifd');
-        $ifd_dom->setAttribute('name', $this->getName());
-        $dom->appendChild($ifd_dom);
-
         $starting_offset = $offset;
 
         // Get the number of tags.
@@ -141,7 +140,7 @@ class Ifd extends BlockBase
             // Build the TAG object.
             $tag_entry_class = Spec::getEntryClass($this->getId(), $tag_id, $tag_format);
             $tag_entry_arguments = call_user_func($tag_entry_class . '::getInstanceArgumentsFromTagData', $tag_format, $tag_components, $data_window, $tag_data_offset);
-            $tag = new Tag($this, $tag_id, $tag_entry_class, $tag_entry_arguments, $tag_format, $tag_components, $this->doc, $ifd_dom);
+            $tag = new Tag($this, $tag_id, $tag_entry_class, $tag_entry_arguments, $tag_format, $tag_components);
 
             // Load a subIfd.
             if (Spec::isTagAnIfdPointer($this->getId(), $tag->getId())) {
@@ -150,9 +149,9 @@ class Ifd extends BlockBase
                 $o = $data_window->getLong($offset + 12 * $i + 8);
                 if ($starting_offset != $o) {
                     $ifd_class = Spec::getIfdClass($type);
-                    $ifd = new $ifd_class($type, $this, $this->doc);
+                    $ifd = new $ifd_class($type, $this);
                     try {
-                        $ifd->loadFromData($ifd_dom, $data_window, $o, ['components' => $tag->getEntry()->getComponents()]);
+                        $ifd->loadFromData($data_window, $o, ['components' => $tag->getEntry()->getComponents()]);
                         $this->xxAddSubBlock($ifd);
                     } catch (DataWindowOffsetException $e) {
                         $this->error($e->getMessage());

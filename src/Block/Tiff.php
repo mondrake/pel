@@ -115,7 +115,7 @@ class Tiff extends BlockBase
      *            constructed. This should be valid TIFF data, coming either
      *            directly from a TIFF image or from the Exif data in a JPEG image.
      */
-    public function loadFromData(\DOMElement $dom, DataWindow $data_window, $offset = 0, array $options = [])
+    public function loadFromData(DataWindow $data_window, $offset = 0, array $options = [])
     {
         $this->debug('Parsing {size} bytes of TIFF data...', ['size' => $data_window->getSize()]);
 
@@ -153,7 +153,7 @@ class Tiff extends BlockBase
             // Parse IFD0, this will automatically parse any sub IFDs.
             $ifd0 = new Ifd(Spec::getIfdIdByType('IFD0'), $this, $this->doc);
             $this->xxAddSubBlock($ifd0);
-            $next_offset = $ifd0->loadFromData($this->dom, $data_window, $offset);
+            $next_offset = $ifd0->loadFromData($data_window, $offset);
         }
 
         // Next IFD. @todo iterate on next_offset
@@ -171,7 +171,7 @@ class Tiff extends BlockBase
                 }*/
                 $ifd1 = new Ifd(Spec::getIfdIdByType('IFD1'), $this, $this->doc);
                 $this->xxAddSubBlock($ifd1);
-                $next_offset = $ifd1->loadFromData($this->dom, $data_window, $next_offset);
+                $next_offset = $ifd1->loadFromData($data_window, $next_offset);
             }
         }
     }

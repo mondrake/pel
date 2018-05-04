@@ -50,7 +50,7 @@ abstract class BlockBase extends ElementBase
      *
      * @returns BlockBase
      */
-    public function loadFromData(\DOMElement $dom, DataWindow $data_window, $offset = 0, array $options = [])
+    public function loadFromData(DataWindow $data_window, $offset = 0, array $options = [])
     {
     }
 
