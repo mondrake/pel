@@ -633,7 +633,7 @@ class Jpeg
 
         $str .= "\n\n<<< DOM >>>\n\n";
         $formatter = new XmlFormatter();
-        $str .= $formatter->format($this->doc->saveXML());
+        $str .= $formatter->setIndentSize(2)->format($this->doc->saveXML());
         $str .= "\n\n<<< DOM >>>\n\n";
 
         return $str;

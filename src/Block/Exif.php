@@ -105,6 +105,7 @@ class Exif extends BlockBase
         $tiff = new Tiff(false, $this, $this->doc);
         $tiff->loadFromData($exif_dom, $data_window);
         $this->xxAddSubBlock($tiff);
+        $exif_dom->setExifEyeElement($tiff);
 
         return true;
     }

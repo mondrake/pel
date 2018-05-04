@@ -6,9 +6,12 @@ class DOMElement extends \DOMElement
 {
     protected $exifEyeElement;
 
-    public function __construct(ElementInterface $element)
+    public function setExifEyeElement(ElementInterface $element)
     {
-        parent::__construct($element->getType());
         $this->exifEyeElement = $element;
+    }
+    public function getExifEyeElement()
+    {
+        return $this->exifEyeElement;
     }
 }
