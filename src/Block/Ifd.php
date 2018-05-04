@@ -138,7 +138,7 @@ class Ifd extends BlockBase
             // Build the TAG object.
             $tag_entry_class = Spec::getEntryClass($this->getId(), $tag_id, $tag_format);
             $tag_entry_arguments = call_user_func($tag_entry_class . '::getInstanceArgumentsFromTagData', $tag_format, $tag_components, $data_window, $tag_data_offset);
-            $tag = new Tag($this, $tag_id, $tag_entry_class, $tag_entry_arguments, $tag_format, $tag_components);
+            $tag = new Tag($this, $tag_id, $tag_entry_class, $tag_entry_arguments, $tag_format, $tag_components, $doc, $ifd_dom);
 
             // Load a subIfd.
             if (Spec::isTagAnIfdPointer($this->getId(), $tag->getId())) {
@@ -149,7 +149,7 @@ class Ifd extends BlockBase
                     $ifd_class = Spec::getIfdClass($type);
                     $ifd = new $ifd_class($type, $this);
                     try {
-                        $ifd->loadFromData($doc, $dom, $data_window, $o, ['components' => $tag->getEntry()->getComponents()]);
+                        $ifd->loadFromData($doc, $ifd_dom, $data_window, $o, ['components' => $tag->getEntry()->getComponents()]);
                         $this->xxAddSubBlock($ifd);
                     } catch (DataWindowOffsetException $e) {
                         $this->error($e->getMessage());

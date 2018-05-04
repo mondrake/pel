@@ -23,7 +23,7 @@ class Tag extends BlockBase
     /**
      * Constructs a Tag block object.
      */
-    public function __construct(Ifd $ifd, $id, $entry_class, $entry_arguments, $format = null, $components = null)
+    public function __construct(Ifd $ifd, $id, $entry_class, $entry_arguments, $format = null, $components = null, \DOMDocument $doc = null, \DOMElement $dom = null)
     {
         $this->setParentElement($ifd);
 
@@ -64,6 +64,13 @@ class Tag extends BlockBase
                 'components' => $components,
                 'expected_components' => $expected_components,
             ]);
+        }
+
+        if ($doc) {
+            $tag_dom = $doc->createElement('tag');
+            $tag_dom->setAttribute('id', $this->getId());
+            $tag_dom->setAttribute('name', $this->getName());
+            $dom->appendChild($tag_dom);
         }
 
         // Set the Tag's entry.
