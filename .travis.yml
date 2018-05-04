@@ -37,6 +37,7 @@ before_install:
         git clone https://github.com/mondrake/pel.git $EXIFEYE_STAGING_DIR
         cd $EXIFEYE_STAGING_DIR
         composer install --no-interaction --no-progress --no-suggest
+        composer require shanethehat/pretty-xml
       fi
 
   # Copy staged /vendor to running path.
