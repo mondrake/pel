@@ -68,7 +68,9 @@ class Tag extends BlockBase
 
         if ($ifd->xxgetDoc()) {
             $this->dom->setAttribute('id', $this->getId());
-            $this->dom->setAttribute('name', $this->getName());
+            if ($this->getName()) {
+                $this->dom->setAttribute('name', $this->getName());
+            }
         }
 
         // Set the Tag's entry.
