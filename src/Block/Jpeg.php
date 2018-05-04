@@ -104,7 +104,7 @@ class Jpeg
     public function __construct($data = false)
     {
         $this->doc = new \DOMDocument();
-        $this->doc->registerNodeClass('DOMElement', 'ExifEye\core\DOMElement');
+        $this->doc->registerNodeClass('DOMElement', 'ExifEye\\core\\DOMElement');
 
         if ($data === false) {
             return;
