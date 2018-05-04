@@ -104,7 +104,7 @@ class Exif extends BlockBase
         }
 
         /* The rest of the data is TIFF data. */
-        $tiff = new Tiff(false, $this, $this->doc);
+        $tiff = new Tiff(false, $this, $this->doc, $this->dom);
         $tiff->loadFromData($this->dom, $data_window);
         $this->xxAddSubBlock($tiff);
 
