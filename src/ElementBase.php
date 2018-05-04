@@ -69,7 +69,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
             if ($this->doc) {
                 $this->dom = $this->doc->createElement($this->getType());
                 $parent->xxgetDom()->appendChild($this->dom);
-                $this->dom->setExifEyeElement($this);
+                $this->xxgetDom()->setExifEyeElement($this);
             }
         }
     }
@@ -129,7 +129,8 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      */
     public function getPath()
     {
-        return $this->getParentElement() ? $this->getParentElement()->getPath() . '/' . $this->getElementPathFragment() : $this->getElementPathFragment();
+        return $this->xxgetDom()->getNodePath();
+        //return $this->getParentElement() ? $this->getParentElement()->getPath() . '/' . $this->getElementPathFragment() : $this->getElementPathFragment();
     }
 
     /**

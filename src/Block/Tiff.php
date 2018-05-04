@@ -138,7 +138,7 @@ class Tiff extends BlockBase
             throw new InvalidDataException('Missing TIFF magic value.');
         }
 
-        $this->dom->setAttribute('byte_order', $data_window->getByteOrder() ? 'II' : 'MM');
+        $this->xxgetDom()->setAttribute('byte_order', $data_window->getByteOrder() ? 'II' : 'MM');
 
         // IFD0.
         $offset = $data_window->getLong(4);
