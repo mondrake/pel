@@ -18,14 +18,13 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     use LoggerTrait;
 
     protected $doc;
-    protected $dom;
 
     /**
-     * The parent Element object of this element.
+     * The DOM node associated to this element.
      *
-     * @var \ExifEye\core\ElementInterface
+     * @var \DOMNode
      */
-    protected $parentElement;
+    protected $DOMNode;
 
     /**
      * The type of this element.
@@ -64,12 +63,11 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     public function __construct(ElementInterface $parent = null)
     {
         if ($parent) {
-            $this->setParentElement($parent);
             $this->doc = $parent->xxgetDoc();
             if ($this->doc) {
-                $this->dom = $this->doc->createElement($this->getType());
-                $parent->xxgetDom()->appendChild($this->dom);
-                $this->xxgetDom()->setExifEyeElement($this);
+                $this->DOMNode = $this->doc->createElement($this->getType());
+                $parent->getDOMNode()->appendChild($this->DOMNode);
+                $this->getDOMNode()->setExifEyeElement($this);
             }
         }
     }
@@ -78,9 +76,13 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     {
         return $this->doc;
     }
-    public function xxgetDom()
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getDOMNode()
     {
-        return $this->dom;
+        return $this->DOMNode;
     }
 
     /**
@@ -110,18 +112,10 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     /**
      * {@inheritdoc}
      */
-    public function setParentElement(ElementInterface $parent)
-    {
-        $this->parentElement = $parent;
-        return $this;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getParentElement()
     {
-        return $this->parentElement;
+        return $this->getDOMNode() ? $this->getDOMNode()->parentNode->getExifEyeElement() : null;
+        //return $this->parentElement;
     }
 
     /**
@@ -129,7 +123,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      */
     public function getPath()
     {
-        return $this->xxgetDom() ? $this->xxgetDom()->getNodePath() : '';
+        return $this->getDOMNode() ? $this->getDOMNode()->getNodePath() : '';
         //return $this->getParentElement() ? $this->getParentElement()->getPath() . '/' . $this->getElementPathFragment() : $this->getElementPathFragment();
     }
 

@@ -36,12 +36,12 @@ class Thumbnail extends BlockBase
      */
     public function __construct(Ifd $ifd, EntryInterface $entry)
     {
-        $this->setParentElement($ifd);
+        parent::__construct($ifd);
 
         $this->hasSpecification = false;
 
-        $entry->setParentElement($this);
-        $this->setEntry($entry);
+        //$entry->setParentElement($this);
+        //$this->setEntry($entry);
     }
 
     /**

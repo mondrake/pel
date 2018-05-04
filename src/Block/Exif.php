@@ -54,17 +54,14 @@ class Exif extends BlockBase
      * {@link setTiff()} to change the {@link Tiff} object, which is
      * the true holder of the Exif {@link EntryInterface entries}.
      */
-    public function __construct($parent = null, \DOMDocument $doc = null, \DOMElement $dom = null)
+    public function __construct(\DOMDocument $doc = null, \DOMElement $dom = null)
     {
-        if ($parent) {
-            $this->setParentElement($parent);
-        }
         if ($doc) {
             $this->doc = $doc;
             if ($dom) {
                 $this->dom = $this->doc->createElement($this->getType());
                 $dom->appendChild($this->dom);
-                $this->xxgetDom()->setExifEyeElement($this);
+                $this->getDOMNode()->setExifEyeElement($this);
             }
         }
     }

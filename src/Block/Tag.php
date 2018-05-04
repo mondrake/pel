@@ -67,9 +67,9 @@ class Tag extends BlockBase
         }
 
         if ($ifd->xxgetDoc()) {
-            $this->xxgetDom()->setAttribute('id', $this->getId());
+            $this->getDOMNode()->setAttribute('id', $this->getId());
             if ($this->getName()) {
-                $this->xxgetDom()->setAttribute('name', $this->getName());
+                $this->getDOMNode()->setAttribute('name', $this->getName());
             }
         }
 
