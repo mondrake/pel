@@ -47,7 +47,7 @@ class Tiff extends BlockBase
     /**
      * {@inheritdoc}
      */
-    protected $type = 'tiff';
+    protected $type = 'Tiff';
 
     /**
      * {@inheritdoc}
@@ -71,18 +71,14 @@ class Tiff extends BlockBase
      *
      * @param boolean|string|DataWindow $data;
      */
-    public function __construct($data = false, $parent = null, \DOMDocument $doc = null, \DOMElement $dom = null)
+    public function __construct($data = false, $parent = null)
     {
         if ($parent) {
             $this->setParentElement($parent);
-        }
-        if ($doc) {
-            $this->doc = $doc;
-            if ($dom) {
-                $this->dom = $this->doc->createElement($this->getType());
-                $dom->appendChild($this->dom);
-                $this->dom->setExifEyeElement($this);
-            }
+            $this->doc = $parent->xxgetDoc();
+            $this->dom = $this->doc->createElement($this->getType());
+            $dom->appendChild($parent->xxgetDom());
+            $this->dom->setExifEyeElement($this);
         }
         if ($data === false) {
             return;

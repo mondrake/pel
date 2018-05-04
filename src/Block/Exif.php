@@ -34,7 +34,7 @@ class Exif extends BlockBase
     /**
      * {@inheritdoc}
      */
-    protected $type = 'exif';
+    protected $type = 'Exif';
 
     /**
      * {@inheritdoc}
@@ -104,10 +104,9 @@ class Exif extends BlockBase
         }
 
         /* The rest of the data is TIFF data. */
-        $tiff = new Tiff(false, $this, $this->doc, $this->dom);
+        $tiff = new Tiff(false, $this);
         $tiff->loadFromData($this->dom, $data_window);
         $this->xxAddSubBlock($tiff);
-
         return true;
     }
 
@@ -136,7 +135,7 @@ class Exif extends BlockBase
      */
     public function getTiff()
     {
-        return $this->xxGetSubBlock('tiff', 0);
+        return $this->xxGetSubBlock('Tiff', 0);
     }
 
     /**
@@ -146,7 +145,7 @@ class Exif extends BlockBase
      */
     public function getBytes()
     {
-        return self::EXIF_HEADER . $this->xxGetSubBlock('tiff', 0)->getBytes();
+        return self::EXIF_HEADER . $this->xxGetSubBlock('Tiff', 0)->getBytes();
     }
 
     /**
@@ -157,7 +156,6 @@ class Exif extends BlockBase
      */
     public function __toString()
     {
-        $str = ExifEye::tra("Dumping Exif data...\n") . $this->xxGetSubBlock('tiff', 0)->__toString();
-        return $str;
+        return ExifEye::tra("Dumping Exif data...\n") . $this->xxGetSubBlock('Tiff', 0)->__toString();
     }
 }

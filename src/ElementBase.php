@@ -66,6 +66,15 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
         $this->parentElement = $parent;
     }
 
+    public function xxgetDoc()
+    {
+        return $this->doc;
+    }
+    public function xxgetDom()
+    {
+        return $this->dom;
+    }
+
     /**
      * {@inheritdoc}
      */
