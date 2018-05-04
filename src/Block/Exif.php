@@ -59,8 +59,8 @@ class Exif extends BlockBase
         if ($doc) {
             $this->doc = $doc;
             if ($dom) {
-                $this->dom = $this->doc->createElement($this->getType());
-                $dom->appendChild($this->dom);
+                $this->DOMNode = $this->doc->createElement($this->getType());
+                $dom->appendChild($this->getDOMNode());
                 $this->getDOMNode()->setExifEyeElement($this);
             }
         }
