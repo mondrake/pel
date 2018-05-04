@@ -77,7 +77,7 @@ class Tiff extends BlockBase
             $this->setParentElement($parent);
             $this->doc = $parent->xxgetDoc();
             $this->dom = $this->doc->createElement($this->getType());
-            $dom->appendChild($parent->xxgetDom());
+            $parent->xxgetDom()->appendChild($this->dom);
             $this->dom->setExifEyeElement($this);
         }
         if ($data === false) {
