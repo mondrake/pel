@@ -106,6 +106,7 @@ class Jpeg
     {
         $this->doc = new \DOMDocument();
         $this->doc->registerNodeClass('DOMElement', ExifEyeDOMElement::class);
+        //
 
         if ($data === false) {
             return;
