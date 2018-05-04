@@ -25,9 +25,7 @@ class Tag extends BlockBase
      */
     public function __construct(Ifd $ifd, $id, $entry_class, $entry_arguments, $format = null, $components = null)
     {
-        if ($ifd->xxgetDoc()) {
-            parent::__construct($ifd);
-        }
+        parent::__construct($ifd);
 
         $this->id = $id;
         $this->name = Spec::getTagName($this->getParentElement()->getId(), $id);

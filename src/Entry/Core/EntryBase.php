@@ -65,9 +65,7 @@ abstract class EntryBase extends ElementBase implements EntryInterface
      */
     public function __construct(array $data, ElementInterface $parent = null)
     {
-        if ($parent) {
-            $this->setParentElement($parent);
-        }
+        parent::__construct($parent);
         $this->setValue($data);
     }
 
