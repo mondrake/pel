@@ -12,6 +12,7 @@ use ExifEye\core\JpegContent;
 use ExifEye\core\JpegInvalidMarkerException;
 use ExifEye\core\JpegMarker;
 use ExifEye\core\Utility\ConvertBytes;
+use PrettyXml\Formatter as XmlFormatter;
 
 /**
  * Class for handling JPEG data.
@@ -628,7 +629,8 @@ class Jpeg
         }
 
         $str .= "\n\n<<< DOM >>>\n\n";
-        $str .= $this->doc->saveXML();
+        $formatter = new XmlFormatter();
+        $str .= $formatter->format($this->doc->saveXML());
         $str .= "\n\n<<< DOM >>>\n\n";
 
         return $str;
