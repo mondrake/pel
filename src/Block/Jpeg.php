@@ -3,6 +3,7 @@
 namespace ExifEye\core\Block;
 
 use ExifEye\core\DataWindow;
+use ExifEye\core\DOMElement as ExifEyeDOMElement;
 use ExifEye\core\Entry\JpegComment;
 use ExifEye\core\ExifEye;
 use ExifEye\core\ExifEyeException;
@@ -104,7 +105,7 @@ class Jpeg
     public function __construct($data = false)
     {
         $this->doc = new \DOMDocument();
-        $this->doc->registerNodeClass('DOMElement', 'ExifEye\\core\\DOMElement');
+        $this->doc->registerNodeClass('DOMElement', ExifEyeDOMElement::class);
 
         if ($data === false) {
             return;
