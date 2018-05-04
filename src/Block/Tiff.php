@@ -71,13 +71,18 @@ class Tiff extends BlockBase
      *
      * @param boolean|string|DataWindow $data;
      */
-    public function __construct($data = false, $parent = null, \DOMDocument $doc = null)
+    public function __construct($data = false, $parent = null, \DOMDocument $doc = null, \DOMElement $dom = null)
     {
         if ($parent) {
             $this->setParentElement($parent);
         }
         if ($doc) {
             $this->doc = $doc;
+            if ($dom) {
+                $this->dom = $this->doc->createElement($this->getType());
+                $dom->appendChild($this->dom);
+                $this->dom->setExifEyeElement($this);
+            }
         }
         if ($data === false) {
             return;
@@ -142,9 +147,7 @@ class Tiff extends BlockBase
             throw new InvalidDataException('Missing TIFF magic value.');
         }
 
-        $tiff_dom = $this->doc->createElement('tiff');
-        $tiff_dom->setAttribute('byte_order', $data_window->getByteOrder());
-        $dom->appendChild($tiff_dom);
+        $this->dom->setAttribute('byte_order', $data_window->getByteOrder() ? 'II' : 'MM');
 
         // IFD0.
         $offset = $data_window->getLong(4);
@@ -154,7 +157,7 @@ class Tiff extends BlockBase
             // Parse IFD0, this will automatically parse any sub IFDs.
             $ifd0 = new Ifd(Spec::getIfdIdByType('IFD0'), $this, $this->doc);
             $this->xxAddSubBlock($ifd0);
-            $next_offset = $ifd0->loadFromData($tiff_dom, $data_window, $offset);
+            $next_offset = $ifd0->loadFromData($this->dom, $data_window, $offset);
         }
 
         // Next IFD. @todo iterate on next_offset
@@ -172,7 +175,7 @@ class Tiff extends BlockBase
                 }*/
                 $ifd1 = new Ifd(Spec::getIfdIdByType('IFD1'), $this, $this->doc);
                 $this->xxAddSubBlock($ifd1);
-                $next_offset = $ifd1->loadFromData($tiff_dom, $data_window, $next_offset);
+                $next_offset = $ifd1->loadFromData($this->dom, $data_window, $next_offset);
             }
         }
     }

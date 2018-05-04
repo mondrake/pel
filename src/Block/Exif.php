@@ -34,7 +34,7 @@ class Exif extends BlockBase
     /**
      * {@inheritdoc}
      */
-    protected $type = 'Exif';
+    protected $type = 'exif';
 
     /**
      * {@inheritdoc}
@@ -61,11 +61,11 @@ class Exif extends BlockBase
         }
         if ($doc) {
             $this->doc = $doc;
-        }
-        if ($dom) {
-            $this->dom = $this->doc->createElement($this->getType());
-            $dom->appendChild($this->dom);
-            $this->dom->setExifEyeElement($this);
+            if ($dom) {
+                $this->dom = $this->doc->createElement($this->getType());
+                $dom->appendChild($this->dom);
+                $this->dom->setExifEyeElement($this);
+            }
         }
     }
 
@@ -102,9 +102,6 @@ class Exif extends BlockBase
             $this->debug('Exif header not found.');
             return false;
         }
-
-        $exif_dom = $this->doc->createElement('exif');
-        $dom->appendChild($exif_dom);
 
         /* The rest of the data is TIFF data. */
         $tiff = new Tiff(false, $this, $this->doc);
