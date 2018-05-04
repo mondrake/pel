@@ -3,7 +3,6 @@
 namespace ExifEye\core\Block;
 
 use ExifEye\core\DataWindow;
-use ExifEye\core\DOMElement as ExifEyeDOMElement;
 use ExifEye\core\Entry\JpegComment;
 use ExifEye\core\ExifEye;
 use ExifEye\core\ExifEyeException;
@@ -105,8 +104,7 @@ class Jpeg
     public function __construct($data = false)
     {
         $this->doc = new \DOMDocument();
-        $this->doc->registerNodeClass('DOMElement', ExifEyeDOMElement::class);
-        //
+        $this->doc->registerNodeClass('DOMElement', 'ExifEye\core\DOMElement');
 
         if ($data === false) {
             return;
@@ -207,7 +205,7 @@ class Jpeg
                 if ($marker == JpegMarker::APP1) {
                     $jpeg_dom = $this->doc->createElement('jpeg');
                     $this->doc->appendChild($jpeg_dom);
-                    $content = new Exif(null, $this->doc);
+                    $content = new Exif(null, $this->doc, $jpeg_dom);
                     if ($content->loadFromData($jpeg_dom, $d->getClone(0, $len)) === false) {
                         // We store the data as normal JPEG content if it could
                         // not be parsed as Exif data.

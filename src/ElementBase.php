@@ -18,6 +18,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     use LoggerTrait;
 
     protected $doc;
+    protected $dom;
 
     /**
      * The parent Element object of this element.
