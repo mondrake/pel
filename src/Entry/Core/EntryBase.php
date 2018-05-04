@@ -66,8 +66,10 @@ abstract class EntryBase extends ElementBase implements EntryInterface
     public function __construct(array $data, ElementInterface $parent = null)
     {
         parent::__construct($parent);
-        $this->dom->setAttribute('format', $this->getFormat());
-        $this->dom->setAttribute('name', $this->getName());
+        if ($this->dom) {
+            $this->dom->setAttribute('format', $this->getFormat());
+            $this->dom->setAttribute('name', $this->getName());
+        }
         $this->setValue($data);
     }
 
