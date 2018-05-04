@@ -73,13 +73,8 @@ class Tiff extends BlockBase
      */
     public function __construct($data = false, $parent = null)
     {
-        if ($parent) {
-            $this->setParentElement($parent);
-            $this->doc = $parent->xxgetDoc();
-            $this->dom = $this->doc->createElement($this->getType());
-            $parent->xxgetDom()->appendChild($this->dom);
-            $this->dom->setExifEyeElement($this);
-        }
+        parent::__construct($parent);
+        
         if ($data === false) {
             return;
         }

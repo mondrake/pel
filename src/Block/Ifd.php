@@ -67,17 +67,14 @@ class Ifd extends BlockBase
         if (Spec::getIfdType($id) === null) {
             throw new IfdException('Unknown IFD type: %d', $id);
         }
+
+        parent::__construct($parent);
+
         $this->id = $id;
         $this->name = Spec::getIfdType($id);
         $this->hasSpecification = (bool) $this->name;
 
         if ($parent) {
-            $this->setParentElement($parent);
-            $this->doc = $parent->xxgetDoc();
-            $this->dom = $this->doc->createElement($this->getType());
-            $parent->xxgetDom()->appendChild($this->dom);
-            $this->dom->setExifEyeElement($this);
-
             $this->dom->setAttribute('name', $this->getName());
         }
     }

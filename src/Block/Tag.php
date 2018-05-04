@@ -25,7 +25,9 @@ class Tag extends BlockBase
      */
     public function __construct(Ifd $ifd, $id, $entry_class, $entry_arguments, $format = null, $components = null)
     {
-        $this->setParentElement($ifd);
+        if ($ifd->xxgetDoc()) {
+            parent::__construct($ifd);
+        }
 
         $this->id = $id;
         $this->name = Spec::getTagName($this->getParentElement()->getId(), $id);
@@ -67,11 +69,6 @@ class Tag extends BlockBase
         }
 
         if ($ifd->xxgetDoc()) {
-            $this->doc = $ifd->xxgetDoc();
-            $this->dom = $this->doc->createElement($this->getType());
-            $ifd->xxgetDom()->appendChild($this->dom);
-            $this->dom->setExifEyeElement($this);
-
             $this->dom->setAttribute('id', $this->getId());
             $this->dom->setAttribute('name', $this->getName());
         }
