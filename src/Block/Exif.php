@@ -54,10 +54,13 @@ class Exif extends BlockBase
      * {@link setTiff()} to change the {@link Tiff} object, which is
      * the true holder of the Exif {@link EntryInterface entries}.
      */
-    public function __construct($parent = null)
+    public function __construct($parent = null, \DOMDocument $doc = null)
     {
         if ($parent) {
             $this->setParentElement($parent);
+        }
+        if ($doc) {
+            $this->doc = $doc;
         }
     }
 
@@ -78,7 +81,7 @@ class Exif extends BlockBase
      *
      * @param DataWindow $data_window
      */
-    public function loadFromData(\DOMDocument $doc, \DOMElement $dom, DataWindow $data_window, $offset = 0, array $options = [])
+    public function loadFromData(\DOMElement $dom, DataWindow $data_window, $offset = 0, array $options = [])
     {
         $this->debug('Parsing {size} bytes of Exif data...', ['size' => $data_window->getSize()]);
 
@@ -95,12 +98,12 @@ class Exif extends BlockBase
             return false;
         }
 
-        $exif_dom = $doc->createElement('exif');
+        $exif_dom = $this->doc->createElement('exif');
         $dom->appendChild($exif_dom);
 
         /* The rest of the data is TIFF data. */
-        $tiff = new Tiff(false, $this);
-        $tiff->loadFromData($doc, $exif_dom, $data_window);
+        $tiff = new Tiff(false, $this, $this->doc);
+        $tiff->loadFromData($exif_dom, $data_window);
         $this->xxAddSubBlock($tiff);
 
         return true;

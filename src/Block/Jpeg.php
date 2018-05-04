@@ -75,8 +75,6 @@ class Jpeg
      */
     private $jpeg_data = null;
 
-    protected $doc;
-
     /**
      * Construct a new JPEG object.
      *
@@ -205,8 +203,8 @@ class Jpeg
                 if ($marker == JpegMarker::APP1) {
                     $jpeg_dom = $this->doc->createElement('jpeg');
                     $this->doc->appendChild($jpeg_dom);
-                    $content = new Exif();
-                    if ($content->loadFromData($this->doc, $jpeg_dom, $d->getClone(0, $len)) === false) {
+                    $content = new Exif($this->doc);
+                    if ($content->loadFromData($jpeg_dom, $d->getClone(0, $len)) === false) {
                         // We store the data as normal JPEG content if it could
                         // not be parsed as Exif data.
                         $content = new JpegContent($d->getClone(0, $len));

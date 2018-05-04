@@ -71,10 +71,13 @@ class Tiff extends BlockBase
      *
      * @param boolean|string|DataWindow $data;
      */
-    public function __construct($data = false, $parent = null)
+    public function __construct($data = false, $parent = null, \DOMDocument $doc = null)
     {
         if ($parent) {
             $this->setParentElement($parent);
+        }
+        if ($doc) {
+            $this->doc = $doc;
         }
         if ($data === false) {
             return;
@@ -111,7 +114,7 @@ class Tiff extends BlockBase
      *            constructed. This should be valid TIFF data, coming either
      *            directly from a TIFF image or from the Exif data in a JPEG image.
      */
-    public function loadFromData(\DOMDocument $doc, \DOMElement $dom, DataWindow $data_window, $offset = 0, array $options = [])
+    public function loadFromData(\DOMElement $dom, DataWindow $data_window, $offset = 0, array $options = [])
     {
         $this->debug('Parsing {size} bytes of TIFF data...', ['size' => $data_window->getSize()]);
 
@@ -139,7 +142,7 @@ class Tiff extends BlockBase
             throw new InvalidDataException('Missing TIFF magic value.');
         }
 
-        $tiff_dom = $doc->createElement('tiff');
+        $tiff_dom = $this->doc->createElement('tiff');
         $tiff_dom->setAttribute('byte_order', $data_window->getByteOrder());
         $dom->appendChild($tiff_dom);
 
@@ -149,9 +152,9 @@ class Tiff extends BlockBase
 
         if ($offset > 0) {
             // Parse IFD0, this will automatically parse any sub IFDs.
-            $ifd0 = new Ifd(Spec::getIfdIdByType('IFD0'), $this);
+            $ifd0 = new Ifd(Spec::getIfdIdByType('IFD0'), $this, $this->doc);
             $this->xxAddSubBlock($ifd0);
-            $next_offset = $ifd0->loadFromData($doc, $tiff_dom, $data_window, $offset);
+            $next_offset = $ifd0->loadFromData($tiff_dom, $data_window, $offset);
         }
 
         // Next IFD. @todo iterate on next_offset
@@ -167,9 +170,9 @@ class Tiff extends BlockBase
                     // IFD1 shouldn't link further...
                     $this->error('IFD1 links to another IFD!');
                 }*/
-                $ifd1 = new Ifd(Spec::getIfdIdByType('IFD1'), $this);
+                $ifd1 = new Ifd(Spec::getIfdIdByType('IFD1'), $this, $this->doc);
                 $this->xxAddSubBlock($ifd1);
-                $next_offset = $ifd1->loadFromData($doc, $tiff_dom, $data_window, $next_offset);
+                $next_offset = $ifd1->loadFromData($tiff_dom, $data_window, $next_offset);
             }
         }
     }
