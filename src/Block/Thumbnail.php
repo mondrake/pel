@@ -37,11 +37,7 @@ class Thumbnail extends BlockBase
     public function __construct(Ifd $ifd, EntryInterface $entry)
     {
         parent::__construct($ifd);
-
         $this->hasSpecification = false;
-
-        //$entry->setParentElement($this);
-        //$this->setEntry($entry);
     }
 
     /**
@@ -90,7 +86,7 @@ class Thumbnail extends BlockBase
         // Now set the thumbnail normally.
         try {
             $thumbnail_data = static::setThumbnail($data_window->getClone($offset, $length));
-            $thumbnail_entry = new Undefined([$thumbnail_data]);
+            $thumbnail_entry = new Undefined([$thumbnail_data], $ifd);
             $thumbnail_block = new static($ifd, $thumbnail_entry);
             $thumbnail_block->debug('JPEG thumbnail found at offset {offset} of length {length}', [
                 'offset' => $offset,

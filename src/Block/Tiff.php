@@ -74,7 +74,7 @@ class Tiff extends BlockBase
     public function __construct($data = false, $parent = null)
     {
         parent::__construct($parent);
-        
+
         if ($data === false) {
             return;
         }
@@ -137,8 +137,6 @@ class Tiff extends BlockBase
         if ($data_window->getShort(2) != self::TIFF_HEADER) {
             throw new InvalidDataException('Missing TIFF magic value.');
         }
-
-        $this->getDOMNode()->setAttribute('byte_order', $data_window->getByteOrder() ? 'II' : 'MM');
 
         // IFD0.
         $offset = $data_window->getLong(4);
