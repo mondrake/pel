@@ -83,6 +83,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     public function setDOMNode(\DOMNode $DOM_node)
     {
         $this->DOMNode = $DOM_node;
+        $this->DOMNode->setExifEyeElement($this);
         $this->doc = $this->DOMNode->ownerDocument;
         return $this;
     }
