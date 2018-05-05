@@ -80,6 +80,16 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     /**
      * {@inheritdoc}
      */
+    public function setDOMNode(\DOMNode $DOM_node)
+    {
+        $this->DOMNode = $DOM_node;
+        $this->doc = $this->DOMNode->ownerDocument;
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getDOMNode()
     {
         return $this->DOMNode;
