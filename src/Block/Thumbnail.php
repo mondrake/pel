@@ -34,7 +34,7 @@ class Thumbnail extends BlockBase
     /**
      * Constructs a Thumbnail block object.
      */
-    public function __construct(Ifd $ifd, EntryInterface $entry)
+    public function __construct(Ifd $ifd)
     {
         parent::__construct($ifd);
         $this->hasSpecification = false;
@@ -85,9 +85,10 @@ class Thumbnail extends BlockBase
 
         // Now set the thumbnail normally.
         try {
-            $thumbnail_data = static::setThumbnail($data_window->getClone($offset, $length));
-            $thumbnail_entry = new Undefined([$thumbnail_data], $ifd);
-            $thumbnail_block = new static($ifd, $thumbnail_entry);
+            $thumbnail_block = new static($ifd);
+            $thumbnail_data = $this->xxsetThumbnail($data_window->getClone($offset, $length));
+            $thumbnail_entry = new Undefined([$thumbnail_data], $thumbnail_block);
+            $thumbnail_block->setEntry($thumbnail_entry);
             $thumbnail_block->debug('JPEG thumbnail found at offset {offset} of length {length}', [
                 'offset' => $offset,
                 'length' => $length,
@@ -110,7 +111,7 @@ class Thumbnail extends BlockBase
      * @param DataWindow $d
      *            the thumbnail data.
      */
-    public static function setThumbnail(DataWindow $data_window)
+    protected static function xxsetThumbnail(DataWindow $data_window)
     {
         $size = $data_window->getSize();
 

@@ -83,7 +83,6 @@ class CameraTest extends ExifEyeTestCaseBase
 
         // Check entry.
         if (isset($expected['Entry'])) {
-if ('ExifEye\core\Entry\Core\Undefined' === $expected['Entry']['class']) dump($block);
             $entry = $block->getEntry();
             $this->assertInstanceOf($expected['Entry']['class'], $entry, $block->getPath());
             $this->assertEquals($expected['Entry']['components'], $entry->getComponents(), $block->getPath());
