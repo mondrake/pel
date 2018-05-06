@@ -80,6 +80,7 @@ class ReadWriteTest extends ExifEyeTestCaseBase
         $this->assertEquals($ifd->getAttribute('id'), Spec::getIfdIdByType('IFD0'));
 
         foreach ($entries as $entry) {
+dump($entry[0]);
             $ifdTag = $ifd->xxGetSubBlock('Tag', $entry[0]);
             $ifdEntry = $ifdTag->getEntry();
             if ($ifdEntry->getFormat() == Format::ASCII) {
