@@ -70,7 +70,6 @@ class Thumbnail extends BlockBase
             $thumbnail_block = new static($ifd);
             $thumbnail_data = static::xxsetThumbnail($data_window->getClone($offset, $length));
             $thumbnail_entry = new Undefined([$thumbnail_data], $thumbnail_block);
-            $thumbnail_block->setEntry($thumbnail_entry);
             $thumbnail_block->debug('JPEG thumbnail found at offset {offset} of length {length}', [
                 'offset' => $offset,
                 'length' => $length,

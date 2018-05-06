@@ -67,9 +67,9 @@ class Tag extends BlockBase
         }
 
         // Set the Tag's entry.
-        $this->setEntry(new $entry_class($entry_arguments, $this));
+        $entry = new $entry_class($entry_arguments, $this);
         $this->debug("Text: {text}", [
-            'text' => $this->getEntry()->toString(),
+            'text' => $entry->toString(),
         ]);
     }
 

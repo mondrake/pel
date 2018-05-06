@@ -25,13 +25,6 @@ abstract class BlockBase extends ElementBase
      */
     protected $subBlocks = [];
 
-    /**
-     * The block's associated entry.
-     *
-     * @var EntryInterface
-     */
-    protected $entry;
-
     public function hasSpecification()
     {
         return $this->hasSpecification;
@@ -133,25 +126,20 @@ abstract class BlockBase extends ElementBase
     }
 
     /**
-     * Sets the block's associated entry.
-     *
-     * @param EntryInterface $entry
-     *
-     * @return $this
-     */
-    public function setEntry(EntryInterface $entry)
-    {
-        $this->entry = $entry;
-    }
-
-    /**
      * Gets the block's associated entry.
      *
      * @return EntryInterface
      */
     public function getEntry()
     {
-        return $this->entry;
+        if (!$this->DOMNode) {
+            return null;
+        }
+        $children = $this->DOMNode->getElementsByTagName('Entry');
+        if ($children->length === 1) {
+            return $children[0]->getExifEyeElement();
+        }
+        return null;
     }
 
     /**
