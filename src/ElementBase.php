@@ -67,9 +67,9 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     /**
      * {@inheritdoc}
      */
-    public function setDOMNode(ExifEyeDOMElement $DOM_node)
+    public function setDOMNode(ExifEyeDOMElement $node)
     {
-        $this->DOMNode = $DOM_node;
+        $this->DOMNode = $node;
         $this->DOMNode->setExifEyeElement($this);
         $this->doc = $this->DOMNode->ownerDocument;
         return $this;
@@ -105,25 +105,14 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     public function getParentElement()
     {
         return $this->DOMNode ? $this->DOMNode->parentNode->getExifEyeElement() : null;
-        //return $this->parentElement;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getPath()
+    public function getContextPath()
     {
         return $this->DOMNode->getContextPath();
-        //return $this->DOMNode ? $this->DOMNode->getNodePath() : '';
-        //return $this->getParentElement() ? $this->getParentElement()->getPath() . '/' . $this->getElementPathFragment() : $this->getElementPathFragment();
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getElementPathFragment()
-    {
-        return $this->getType() . ':' . $this->getAttribute('name');
     }
 
     /**
@@ -140,7 +129,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     public function toDumpArray()
     {
         return [
-            'path' => $this->getPath(),
+            'path' => $this->getContextPath(),
             'class' => get_class($this),
             'id' => $this->getAttribute('id'),
             'name' => $this->getAttribute('name'),
@@ -153,7 +142,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      */
     public function log($level, $message, array $context = [])
     {
-        $context['path'] = $this->getPath();
+        $context['path'] = $this->getContextPath();
         ExifEye::logger()->log($level, $message, $context);
     }
 }

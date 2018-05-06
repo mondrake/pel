@@ -41,14 +41,6 @@ class Thumbnail extends BlockBase
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function getElementPathFragment()
-    {
-        return $this->getType();
-    }
-
-    /**
      * xx
      * @param DataWindow $data_window
      *            the data from which the thumbnail will be

@@ -25,18 +25,15 @@ interface ElementInterface
     public function getType();
 
     /**
-     * Returns the full path of this element.
+     * Returns a context path for this element.
+     *
+     * It gives whereabouts of the element within the overall structure of the
+     * image. Note that this is not an XPath compliant path, it is mainly used
+     * for logging purposes.
      *
      * @return string
      */
-    public function getPath();
-
-    /**
-     * Returns the path fragment of this element.
-     *
-     * @return string
-     */
-    public function getElementPathFragment();
+    public function getContextPath();
 
     /**
      * Gets validity of the element.

@@ -84,11 +84,11 @@ class CameraTest extends ExifEyeTestCaseBase
         // Check entry.
         if (isset($expected['Entry'])) {
             $entry = $block->getEntry();
-            $this->assertInstanceOf($expected['Entry']['class'], $entry, $block->getPath());
-            $this->assertEquals($expected['Entry']['components'], $entry->getComponents(), $block->getPath());
-            $this->assertEquals($expected['Entry']['format'], Format::getName($entry->getFormat()), $block->getPath());
-            $this->assertEquals(unserialize(base64_decode($expected['Entry']['value'])), $entry->getValue(), $block->getPath());
-            $this->assertEquals($expected['Entry']['text'], $entry->toString(), $block->getPath());
+            $this->assertInstanceOf($expected['Entry']['class'], $entry, $block->getContextPath());
+            $this->assertEquals($expected['Entry']['components'], $entry->getComponents(), $block->getContextPath());
+            $this->assertEquals($expected['Entry']['format'], Format::getName($entry->getFormat()), $block->getContextPath());
+            $this->assertEquals(unserialize(base64_decode($expected['Entry']['value'])), $entry->getValue(), $block->getContextPath());
+            $this->assertEquals($expected['Entry']['text'], $entry->toString(), $block->getContextPath());
         }
 
         // Recursively check sub-blocks.

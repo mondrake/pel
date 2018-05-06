@@ -20,7 +20,7 @@ class ExifEyeDOMElement extends \DOMElement
 
     public function getContextPath()
     {
-        $parent_path = $this->parentNode ? $this->parentNode->getContextPath() : '';
+        $parent_path = $this->parentNode && $this->parentNode instanceof \DOMNode ? $this->parentNode->getContextPath() : '';
 
         $current_fragment = '/' . $this->nodeName;
 

@@ -90,14 +90,6 @@ class Tiff extends BlockBase
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function getElementPathFragment()
-    {
-        return $this->getType();
-    }
-
-    /**
      * Load TIFF data.
      *
      * The data given will be parsed and an internal tree representation

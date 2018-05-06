@@ -72,14 +72,6 @@ abstract class EntryBase extends ElementBase implements EntryInterface
     /**
      * {@inheritdoc}
      */
-    public function getElementPathFragment()
-    {
-        return $this->getType() . '+' . $this->getAttribute('name');
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public static function getInstanceArgumentsFromTagData($format, $components, DataWindow $data_window, $data_offset)
     {
         throw new ExifEyeException('getInstanceArgumentsFromTagData() must be implemented.');

@@ -74,16 +74,6 @@ class Tag extends BlockBase
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function getElementPathFragment()
-    {
-        $tag_path = $this->getType() . ':0x' . str_pad(dechex($this->getAttribute('id')), 4, '0', STR_PAD_LEFT);
-        $tag_path .= $this->getAttribute('name') ? ':' . $this->getAttribute('name') : '';
-        return $tag_path;
-    }
-
-    /**
      * Turn this entry into a string.
      *
      * @return string a string representation of this entry. This is
