@@ -143,7 +143,7 @@ class Ifd extends BlockBase
                 $o = $data_window->getLong($offset + 12 * $i + 8);
                 if ($starting_offset != $o) {
                     $ifd_class = Spec::getIfdClass($type);
-                    $ifd = new $ifd_class($type, $this);
+                    $ifd = new $ifd_class($this, $type);
                     try {
                         $ifd->loadFromData($data_window, $o, ['components' => $tag->getEntry()->getComponents()]);
                         $this->xxAddSubBlock($ifd);

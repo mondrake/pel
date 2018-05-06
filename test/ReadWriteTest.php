@@ -36,13 +36,14 @@ class ReadWriteTest extends ExifEyeTestCaseBase
     {
         $tiff = new Tiff();
         $this->assertNull($tiff->getIfd());
-        $tiff->xxAddSubBlock($ifd);
-        $this->assertNotNull($tiff->getIfd());
 
         $ifd = new Ifd($tiff, Spec::getIfdIdByType('IFD0'));
         foreach ($entries as $entry) {
             $ifd->xxAppendSubBlock(new Tag($ifd, $entry[0], $entry[1], $entry[2]));
         }
+
+        $tiff->xxAddSubBlock($ifd);
+        $this->assertNotNull($tiff->getIfd());
 
         $exif = new Exif();
         $this->assertNull($exif->getTiff());
