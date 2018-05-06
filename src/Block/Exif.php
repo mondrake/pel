@@ -37,16 +37,6 @@ class Exif extends BlockBase
     protected $type = 'Exif';
 
     /**
-     * {@inheritdoc}
-     */
-    protected $id = 0;
-
-    /**
-     * {@inheritdoc}
-     */
-    protected $name = 'Exif';
-
-    /**
      * Construct a new Exif object.
      *
      * The new object will be empty --- use the {@link load()} method to
