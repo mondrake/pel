@@ -79,7 +79,6 @@ class ReadWriteTest extends ExifEyeTestCaseBase
         $this->assertInstanceOf('ExifEye\core\Block\Ifd', $ifd);
         $this->assertEquals($ifd->getAttribute('id'), Spec::getIfdIdByType('IFD0'));
 
-dump(array_keys($ifd->xxGetSubBlocks('Tag')));
         foreach ($entries as $entry) {
             $ifdTag = $ifd->xxGetSubBlock('Tag', $entry[0]);
             $ifdEntry = $ifdTag->getEntry();

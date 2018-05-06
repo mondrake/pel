@@ -65,25 +65,26 @@ class ExifMakerNote extends Undefined
         if (!$exif_ifd = $ifd->xxGetSubBlock('Ifd', Spec::getIfdIdByType('Exif'))) {
             return;
         }
-
+dump($exif_ifd->getName());
         // Get MakerNotes from Exif IFD.
         if (!$maker_note_tag = $exif_ifd->xxGetSubBlockByName('Tag', 'MakerNote')) {
             return;
         }
-
+dump($maker_note_tag->getName());
         // Get Make tag from IFD0.
         if (!$make_tag = $ifd->xxGetSubBlockByName('Tag', 'Make')) {
             return;
         }
-
+dump($make_tag->getName());
         // Get Model tag from IFD0.
         $model_tag = $ifd->xxGetSubBlockByName('Tag', 'Model');
         $model = $model_tag ? $model_tag->getEntry()->getValue() : 'na';
-
+dump($model);
         // Get maker note IFD id.
         if (!$maker_note_ifd_id = Spec::getMakerNoteIfd($make_tag->getEntry()->getValue(), $model)) {
             return;
         }
+dump($maker_note_ifd_id);
 
         // Load maker note into IFD.
         $ifd_class = Spec::getIfdClass($maker_note_ifd_id);
