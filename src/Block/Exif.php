@@ -132,7 +132,7 @@ class Exif extends BlockBase
      */
     public function getTiff()
     {
-        return $this->xxGetSubBlock('Tiff', 0);
+        return $this->xxGetSubBlockByIndex('Tiff', 0);
     }
 
     /**
@@ -142,7 +142,7 @@ class Exif extends BlockBase
      */
     public function getBytes()
     {
-        return self::EXIF_HEADER . $this->xxGetSubBlock('Tiff', 0)->getBytes();
+        return self::EXIF_HEADER . $this->xxGetSubBlockByIndex('Tiff', 0)->getBytes();
     }
 
     /**
