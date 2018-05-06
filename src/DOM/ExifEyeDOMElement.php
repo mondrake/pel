@@ -23,8 +23,10 @@ class ExifEyeDOMElement extends \DOMElement
         $parent_path = $this->parentNode && !($this->parentNode instanceof \DOMDocument) ? $this->parentNode->getContextPath() : '';
 
         $current_fragment = '/' . $this->nodeName;
-        if (count($this->attributes)) {
-            $current_fragment .= var_export($this->attributes, true);
+        if ($this->attributes->length) {
+            foreach ($this->attributes as $attribute) {
+                $current_fragment .= '@' . $attribute->name . '=' . $attribute->value;
+            }
         }
 
         return $parent_path . $current_fragment;

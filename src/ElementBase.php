@@ -112,7 +112,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      */
     public function getContextPath()
     {
-        return $this->DOMNode->getContextPath();
+        return $this->DOMNode ? $this->DOMNode->getContextPath() : '';
     }
 
     /**
