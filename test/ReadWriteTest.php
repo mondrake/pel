@@ -34,7 +34,13 @@ class ReadWriteTest extends ExifEyeTestCaseBase
      */
     public function testWriteRead(array $entries)
     {
+        $doc = new \DOMDocument();
+        $doc->registerNodeClass('DOMElement', 'ExifEye\core\DOM\ExifEyeDOMElement');
+        $test_dom_node = $doc->createElement('test-tiff');
+        $doc->appendChild($test_dom_node);
         $tiff = new Tiff();
+        $tiff->setDOMNode($test_dom_node);
+
         $this->assertNull($tiff->getIfd());
 
         $ifd = new Ifd($tiff, Spec::getIfdIdByType('IFD0'));

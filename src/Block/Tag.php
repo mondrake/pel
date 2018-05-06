@@ -29,6 +29,7 @@ class Tag extends BlockBase
 
         $this->setAttribute('id', $id);
         $this->name = Spec::getTagName($ifd->getAttribute('id'), $id);
+        $this->setAttribute('name', $this->getName());
         $this->hasSpecification = $id > 0xF000 || in_array($id, Spec::getIfdSupportedTagIds($ifd->getAttribute('id')));
 
         // Check if ExifEye has a definition for this TAG.
@@ -64,13 +65,6 @@ class Tag extends BlockBase
                 'components' => $components,
                 'expected_components' => $expected_components,
             ]);
-        }
-
-        if ($ifd->xxgetDoc()) {
-            $this->setAttribute('id', $this->getAttribute('id'));
-            if ($this->getName()) {
-                $this->setAttribute('name', $this->getName());
-            }
         }
 
         // Set the Tag's entry.
