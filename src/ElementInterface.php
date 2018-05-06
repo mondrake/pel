@@ -25,13 +25,6 @@ interface ElementInterface
     public function getType();
 
     /**
-     * Returns the id of this element.
-     *
-     * @return int
-     */
-    public function getAttribute('id');
-
-    /**
      * Returns the name of this element.
      *
      * @return string
