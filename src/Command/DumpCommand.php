@@ -136,11 +136,11 @@ class DumpCommand extends Command
         // xx enable iteration for all next ifds
         $ifd = $tiff->xxGetSubBlockByName('Ifd', 'IFD0');
         if ($ifd) {
-            $json['blocks'][$ifd->getName()] = $ifd->toDumpArray();
+            $json['blocks'][$ifd->getAttribute('name')] = $ifd->toDumpArray();
         }
         $ifd = $tiff->xxGetSubBlockByName('Ifd', 'IFD1');
         if ($ifd) {
-            $json['blocks'][$ifd->getName()] = $ifd->toDumpArray();
+            $json['blocks'][$ifd->getAttribute('name')] = $ifd->toDumpArray();
         }
     }
 }

@@ -35,13 +35,6 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     protected $type;
 
     /**
-     * The name of this element.
-     *
-     * @var string
-     */
-    protected $name;
-
-    /**
      * Whether this element is valid.
      *
      * @var bool
@@ -109,14 +102,6 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     /**
      * {@inheritdoc}
      */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getParentElement()
     {
         return $this->DOMNode ? $this->DOMNode->parentNode->getExifEyeElement() : null;
@@ -137,7 +122,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      */
     public function getElementPathFragment()
     {
-        return $this->getType() . ':' . $this->getName();
+        return $this->getType() . ':' . $this->getAttribute('name');
     }
 
     /**
@@ -157,7 +142,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
             'path' => $this->getPath(),
             'class' => get_class($this),
             'id' => $this->getAttribute('id'),
-            'name' => $this->getName(),
+            'name' => $this->getAttribute('name'),
             'valid' => $this->isValid(),
         ];
     }

@@ -97,7 +97,7 @@ abstract class BlockBase extends ElementBase
     public function xxGetSubBlockByName($type, $name)
     {
         foreach ($this->xxGetSubBlocks($type) as $sub_block) {
-            if ($sub_block->getName() === $name) {
+            if ($sub_block->getAttribute('name') === $name) {
                 return $sub_block;
             }
         }

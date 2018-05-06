@@ -25,13 +25,6 @@ interface ElementInterface
     public function getType();
 
     /**
-     * Returns the name of this element.
-     *
-     * @return string
-     */
-    public function getName();
-
-    /**
      * Returns the full path of this element.
      *
      * @return string

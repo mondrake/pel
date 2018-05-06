@@ -64,16 +64,13 @@ class Ifd extends BlockBase
      */
     public function __construct(BlockBase $parent_block, $id)
     {
-        if (Spec::getIfdType($id) === null) {
-            throw new IfdException('Unknown IFD type: %d', $id);
-        }
-
         parent::__construct($parent_block);
 
         $this->setAttribute('id', $id);
-        $this->name = Spec::getIfdType($id);
-        $this->setAttribute('name', $this->getName());
-        $this->hasSpecification = (bool) $this->name;
+        if ($name = Spec::getIfdType($id)){
+            $this->setAttribute('name', $name);
+            $this->hasSpecification = true;
+        }
     }
 
     /**
@@ -291,7 +288,7 @@ class Ifd extends BlockBase
      */
     public function __toString()
     {
-        $str = ExifEye::fmt(">>>> %s\n", $this->getName());
+        $str = ExifEye::fmt(">>>> %s\n", $this->getAttribute('name'));
 
         // Dump all tags first.
         foreach ($this->xxGetSubBlocks('Tag') as $sub_block) {

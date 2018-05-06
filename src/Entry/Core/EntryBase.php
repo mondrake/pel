@@ -74,7 +74,7 @@ abstract class EntryBase extends ElementBase implements EntryInterface
      */
     public function getElementPathFragment()
     {
-        return $this->getType() . '+' . $this->getName();
+        return $this->getType() . '+' . $this->getAttribute('name');
     }
 
     /**

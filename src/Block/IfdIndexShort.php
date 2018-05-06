@@ -41,8 +41,8 @@ class IfdIndexShort extends Ifd
 
         $index_size = $data_window->getShort($offset);
         if ($index_size / $components !== Format::getSize(Format::SHORT)) {
-            $this->warning('Size of {ifd_type} does not match the number of entries.', [
-                'ifd_type' => $this->getName(),
+            $this->warning('Size of {ifd_name} does not match the number of entries.', [
+                'ifd_name' => $this->getAttribute('name'),
             ]);
         }
         $offset += 2;
