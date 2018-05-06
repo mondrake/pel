@@ -17,4 +17,13 @@ class ExifEyeDOMElement extends \DOMElement
     {
         return $this->exifEyeElement;
     }
+
+    public function getContextPath()
+    {
+        $parent_path = $this->parentNode ? $this->parentNode->getContextPath() : '';
+
+        $current_fragment = '/' . $this->nodeName;
+
+        return $parent_path . $current_fragment;
+    }
 }

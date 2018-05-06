@@ -67,7 +67,7 @@ class Ifd extends BlockBase
         parent::__construct($parent_block);
 
         $this->setAttribute('id', $id);
-        if ($name = Spec::getIfdType($id)){
+        if ($name = Spec::getIfdType($id)) {
             $this->setAttribute('name', $name);
             $this->hasSpecification = true;
         }
