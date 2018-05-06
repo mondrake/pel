@@ -2,6 +2,7 @@
 
 namespace ExifEye\core;
 
+use ExifEye\core\DOM\ExifEyeDOMElement;
 use ExifEye\core\ExifEye;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LoggerTrait;
@@ -66,8 +67,8 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
             $this->doc = $parent->xxgetDoc();
             if ($this->doc) {
                 $this->DOMNode = $this->doc->createElement($this->getType());
-                $parent->getDOMNode()->appendChild($this->getDOMNode());
-                $this->getDOMNode()->setExifEyeElement($this);
+                $parent->DOMNode->appendChild($this->DOMNode);
+                $this->DOMNode->setExifEyeElement($this);
             }
         }
     }
@@ -80,7 +81,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     /**
      * {@inheritdoc}
      */
-    public function setDOMNode(\DOMNode $DOM_node)
+    public function setDOMNode(ExifEyeDOMElement $DOM_node)
     {
         $this->DOMNode = $DOM_node;
         $this->DOMNode->setExifEyeElement($this);
@@ -91,9 +92,9 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     /**
      * {@inheritdoc}
      */
-    public function getDOMNode()
+    public function setAttribute($name, $value)
     {
-        return $this->DOMNode;
+        return $this->DOMNode->setAttribute($name, $value);
     }
 
     /**
@@ -125,7 +126,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      */
     public function getParentElement()
     {
-        return $this->getDOMNode() ? $this->getDOMNode()->parentNode->getExifEyeElement() : null;
+        return $this->DOMNode ? $this->DOMNode->parentNode->getExifEyeElement() : null;
         //return $this->parentElement;
     }
 
@@ -134,7 +135,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      */
     public function getPath()
     {
-        return $this->getDOMNode() ? $this->getDOMNode()->getNodePath() : '';
+        return $this->DOMNode ? $this->DOMNode->getNodePath() : '';
         //return $this->getParentElement() ? $this->getParentElement()->getPath() . '/' . $this->getElementPathFragment() : $this->getElementPathFragment();
     }
 

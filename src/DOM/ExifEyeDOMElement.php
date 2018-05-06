@@ -1,8 +1,10 @@
 <?php
 
-namespace ExifEye\core;
+namespace ExifEye\core\DOM;
 
-class DOMElement extends \DOMElement
+use ExifEye\core\ElementInterface;
+
+class ExifEyeDOMElement extends \DOMElement
 {
     protected $exifEyeElement;
 
@@ -10,6 +12,7 @@ class DOMElement extends \DOMElement
     {
         $this->exifEyeElement = $element;
     }
+
     public function getExifEyeElement()
     {
         return $this->exifEyeElement;

@@ -75,7 +75,7 @@ class Ifd extends BlockBase
         $this->hasSpecification = (bool) $this->name;
 
         if ($parent) {
-            $this->getDOMNode()->setAttribute('name', $this->getName());
+            $this->setAttribute('name', $this->getName());
         }
     }
 

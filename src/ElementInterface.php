@@ -18,13 +18,6 @@ interface ElementInterface
     public function getParentElement();
 
     /**
-     * Gets the DOM node associated to this element.
-     *
-     * @return \DOMNode
-     */
-    public function getDOMNode();
-
-    /**
      * Returns the type of this element.
      *
      * @return string

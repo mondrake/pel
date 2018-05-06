@@ -86,7 +86,7 @@ class PelSpecTest extends ExifEyeTestCaseBase
     public function testGetTagText($expected_text, $expected_class, $ifd, $tag, array $args, $brief = false)
     {
         $doc = new \DOMDocument();
-        $doc->registerNodeClass('DOMElement', 'ExifEye\core\DOMElement');
+        $doc->registerNodeClass('DOMElement', 'ExifEye\core\DOM\ExifEyeDOMElement');
         $test_dom_node = $doc->createElement('test-ifd');
         $doc->appendChild($test_dom_node);
 
