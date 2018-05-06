@@ -64,7 +64,7 @@ abstract class BlockBase extends ElementBase
     {
         $type = $sub_block->getType();
         for ($i = 0; $i < count($this->xxGetSubBlocks($type)); $i++) {
-            if ($sub_block->getId() === $this->xxGetSubBlockByIndex($type, $i)->getId()) {
+            if ($sub_block->getAttribute('id') === $this->xxGetSubBlockByIndex($type, $i)->getAttribute('id')) {
                 $this->subBlocks[$type][$i] = $sub_block;
                 return $this;
             }
@@ -87,7 +87,7 @@ abstract class BlockBase extends ElementBase
     public function xxGetSubBlock($type, $id)
     {
         foreach ($this->xxGetSubBlocks($type) as $sub_block) {
-            if ($sub_block->getId() === $id) {
+            if ($sub_block->getAttribute('id') === $id) {
                 return $sub_block;
             }
         }

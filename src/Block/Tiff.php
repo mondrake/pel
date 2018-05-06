@@ -158,7 +158,7 @@ class Tiff extends BlockBase
                     'size' => $data_window->getSize() - 6,
                 ]);
             } else {
-/*                if (Spec::getIfdType($this->getId()) === 'IFD1') {
+/*                if (Spec::getIfdType($this->getAttribute('id')) === 'IFD1') {
                     // IFD1 shouldn't link further...
                     $this->error('IFD1 links to another IFD!');
                 }*/

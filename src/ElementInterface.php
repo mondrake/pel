@@ -29,7 +29,7 @@ interface ElementInterface
      *
      * @return int
      */
-    public function getId();
+    public function getAttribute('id');
 
     /**
      * Returns the name of this element.

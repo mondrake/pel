@@ -35,13 +35,6 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     protected $type;
 
     /**
-     * The id of this element.
-     *
-     * @var int
-     */
-    protected $id;
-
-    /**
      * The name of this element.
      *
      * @var string
@@ -100,17 +93,17 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     /**
      * {@inheritdoc}
      */
-    public function getType()
+    public function getAttribute($name)
     {
-        return $this->type;
+        return $this->DOMNode->getAttribute($name);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getId()
+    public function getType()
     {
-        return $this->id;
+        return $this->type;
     }
 
     /**
@@ -163,7 +156,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
         return [
             'path' => $this->getPath(),
             'class' => get_class($this),
-            'id' => $this->getId(),
+            'id' => $this->getAttribute('id'),
             'name' => $this->getName(),
             'valid' => $this->isValid(),
         ];
