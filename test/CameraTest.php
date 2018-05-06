@@ -37,7 +37,7 @@ class CameraTest extends ExifEyeTestCaseBase
 
         $exif = $jpeg->getExif();
         $tiff = $exif->getTiff();
-dump(array_keys($tiff->xxGetSubBlocks('Ifd')));
+
         if (isset($test['blocks']['IFD0'])) {
             $this->assertBlock($test['blocks']['IFD0'], $tiff->xxGetSubBlockByName('Ifd', 'IFD0'));
         }
@@ -79,7 +79,7 @@ dump(array_keys($tiff->xxGetSubBlocks('Ifd')));
 
     protected function assertBlock($expected, $block)
     {
-//        $this->assertInstanceOf($expected['class'], $block);
+        $this->assertInstanceOf($expected['class'], $block);
 
         // Check entry.
         if (isset($expected['Entry'])) {
