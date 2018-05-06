@@ -62,21 +62,18 @@ class Ifd extends BlockBase
      *            the type of this IFD, as found in Spec. A
      *            {@link IfdException} will be thrown if unknown.
      */
-    public function __construct($id, $parent = null)
+    public function __construct(BlockBase $parent_block, $id)
     {
         if (Spec::getIfdType($id) === null) {
             throw new IfdException('Unknown IFD type: %d', $id);
         }
 
-        parent::__construct($parent);
+        parent::__construct($parent_block);
 
         $this->setAttribute('id', $id);
         $this->name = Spec::getIfdType($id);
+        $this->setAttribute('name', $this->getName());
         $this->hasSpecification = (bool) $this->name;
-
-        if ($parent) {
-            $this->setAttribute('name', $this->getName());
-        }
     }
 
     /**

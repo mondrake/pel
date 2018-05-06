@@ -144,7 +144,7 @@ class Tiff extends BlockBase
 
         if ($offset > 0) {
             // Parse IFD0, this will automatically parse any sub IFDs.
-            $ifd0 = new Ifd(Spec::getIfdIdByType('IFD0'), $this);
+            $ifd0 = new Ifd($this, Spec::getIfdIdByType('IFD0'));
             $this->xxAddSubBlock($ifd0);
             $next_offset = $ifd0->loadFromData($data_window, $offset);
         }
@@ -162,7 +162,7 @@ class Tiff extends BlockBase
                     // IFD1 shouldn't link further...
                     $this->error('IFD1 links to another IFD!');
                 }*/
-                $ifd1 = new Ifd(Spec::getIfdIdByType('IFD1'), $this);
+                $ifd1 = new Ifd($this, Spec::getIfdIdByType('IFD1'));
                 $this->xxAddSubBlock($ifd1);
                 $next_offset = $ifd1->loadFromData($data_window, $next_offset);
             }

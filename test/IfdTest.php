@@ -4,6 +4,7 @@ namespace ExifEye\Test\core;
 
 use ExifEye\core\Block\Ifd;
 use ExifEye\core\Block\Tag;
+use ExifEye\core\Block\Tiff;
 use ExifEye\core\Entry\Core\Ascii;
 use ExifEye\core\Entry\Time;
 use ExifEye\core\Spec;
@@ -12,7 +13,7 @@ class IfdTest extends ExifEyeTestCaseBase
 {
     public function testIfd()
     {
-        $ifd = new Ifd(Spec::getIfdIdByType('IFD0'));
+        $ifd = new Ifd(new Tiff(), Spec::getIfdIdByType('IFD0'));
 
         $this->assertCount(0, $ifd->xxGetSubBlocks('Tag'));
 

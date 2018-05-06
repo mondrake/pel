@@ -4,6 +4,7 @@ namespace ExifEye\Test\core;
 
 use ExifEye\core\Block\Ifd;
 use ExifEye\core\Block\Tag;
+use ExifEye\core\Block\Tiff;
 use ExifEye\core\Format;
 use ExifEye\core\Spec;
 
@@ -87,12 +88,13 @@ class PelSpecTest extends ExifEyeTestCaseBase
     {
         $doc = new \DOMDocument();
         $doc->registerNodeClass('DOMElement', 'ExifEye\core\DOM\ExifEyeDOMElement');
-        $test_dom_node = $doc->createElement('test-ifd');
+        $test_dom_node = $doc->createElement('test-tiff');
         $doc->appendChild($test_dom_node);
+        $tiff = new Tiff();
+        $tiff->setDOMNode($test_dom_node);
 
         $ifd_id = Spec::getIfdIdByType($ifd);
-        $ifd = new Ifd($ifd_id);
-        $ifd->setDOMNode($test_dom_node);
+        $ifd = new Ifd($tiff, $ifd_id);
 
         $tag_id = Spec::getTagIdByName($ifd_id, $tag);
         $entry_class_name = Spec::getEntryClass($ifd_id, $tag_id);
