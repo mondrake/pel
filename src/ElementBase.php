@@ -80,7 +80,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      */
     public function getAttributes()
     {
-        $attr = []:
+        $attr = [];
         foreach ($this->DOMNode->attributes as $attribute) {
             $attr[$attribute->name] = $attribute->value;
         }
