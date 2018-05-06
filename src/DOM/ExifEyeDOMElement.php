@@ -25,7 +25,7 @@ class ExifEyeDOMElement extends \DOMElement
         $current_fragment = '/' . $this->nodeName;
         if ($this->attributes->length) {
             foreach ($this->attributes as $attribute) {
-                $current_fragment .= '@' . $attribute->name . '=' . $attribute->value;
+                $current_fragment .= ':' . $attribute->value;
             }
         }
 
