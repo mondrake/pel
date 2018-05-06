@@ -128,7 +128,6 @@ abstract class EntryBase extends ElementBase implements EntryInterface
             'clear_value' => serialize($this->getValue()),
             'text' => $this->toString(),
         ]);
-        unset($dump['id'], $dump['name']);
         return $dump;
     }
 }

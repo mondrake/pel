@@ -78,6 +78,18 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     /**
      * {@inheritdoc}
      */
+    public function getAttributes()
+    {
+        $attr = []:
+        foreach ($this->DOMNode->attributes as $attribute) {
+            $attr[$attribute->name] = $attribute->value;
+        }
+        return $attr;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function setAttribute($name, $value)
     {
         return $this->DOMNode->setAttribute($name, $value);
@@ -131,8 +143,6 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
         return [
             'path' => $this->getContextPath(),
             'class' => get_class($this),
-            'id' => $this->getAttribute('id'),
-            'name' => $this->getAttribute('name'),
             'valid' => $this->isValid(),
         ];
     }

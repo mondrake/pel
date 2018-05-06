@@ -159,7 +159,7 @@ abstract class BlockBase extends ElementBase
      */
     public function toDumpArray()
     {
-        $dump = parent::toDumpArray();
+        $dump = array_merge(parent::toDumpArray(), $this->getAttributes());
 
         // Dump Entry if existing.
         if ($this->getEntry()) {
