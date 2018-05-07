@@ -19,6 +19,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     use LoggerTrait;
 
     protected $doc;
+    protected $xPath;
 
     /**
      * The DOM node associated to this element.
@@ -52,6 +53,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
         if ($parent) {
             $this->doc = $parent->xxgetDoc();
             if ($this->doc) {
+                $this->xPath = new \DOMXPath($this->doc);
                 $this->DOMNode = $this->doc->createElement($this->getType());
                 $parent->DOMNode->appendChild($this->DOMNode);
                 $this->DOMNode->setExifEyeElement($this);
@@ -101,6 +103,18 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     public function getAttribute($name)
     {
         return $this->DOMNode->getAttribute($name);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function query($expression)
+    {
+        $node_list = $this->xPath->query($expression, $this->DOMNode);
+        $ret = [];
+        foreach ($node_list as $node) {
+            $ret = $node->getExifEyeElement();
+        }
     }
 
     /**

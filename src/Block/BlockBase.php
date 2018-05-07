@@ -132,14 +132,19 @@ abstract class BlockBase extends ElementBase
      */
     public function getEntry()
     {
-        if (!$this->DOMNode) {
+        $entry = $this->query('/Entry');
+        if ($entry) {
+            return $entry[0];
+        }
+        return null;
+/*        if (!$this->DOMNode) {
             return null;
         }
         $children = $this->DOMNode->getElementsByTagName('Entry');
         if ($children->length === 1) {
             return $children[0]->getExifEyeElement();
         }
-        return null;
+        return null;*/
     }
 
     /**
