@@ -70,6 +70,9 @@ class Ifd extends BlockBase
         if ($name = Spec::getIfdType($id)) {
             $this->setAttribute('name', $name);
             $this->hasSpecification = true;
+        } else {
+            $this->setAttribute('name', 'Unknown');
+            $this->hasSpecification = false;
         }
     }
 

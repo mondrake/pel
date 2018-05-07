@@ -28,7 +28,10 @@ class Tag extends BlockBase
         parent::__construct($parent_block);
 
         $this->setAttribute('id', $id);
-        $this->setAttribute('name', Spec::getTagName($parent_block->getAttribute('id'), $id));
+        $tag_name = Spec::getTagName($parent_block->getAttribute('id'), $id);
+        if ($tag_name !== null) {
+            $this->setAttribute('name', $tag_name);
+        }
         $this->hasSpecification = $id > 0xF000 || in_array($id, Spec::getIfdSupportedTagIds($parent_block->getAttribute('id')));
 
         // Check if ExifEye has a definition for this TAG.
