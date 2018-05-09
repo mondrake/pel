@@ -19,7 +19,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     use LoggerTrait;
 
     protected $doc;
-    public $xPath;
+    protected $xPath;
 
     /**
      * The DOM node associated to this element.
@@ -110,6 +110,10 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      */
     public function query($expression)
     {
+dump($this->xPath->query('/*', $this->DOMNode));
+dump($this->xPath->query('//*', $this->DOMNode));
+dump($this->xPath->query('/Entry', $this->DOMNode));
+dump($this->xPath->query('Entry', $this->DOMNode));
         $node_list = $this->xPath->query($expression, $this->DOMNode);
         $ret = [];
         foreach ($node_list as $node) {
