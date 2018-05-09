@@ -137,14 +137,6 @@ abstract class BlockBase extends ElementBase
             return $entry[0];
         }
         return null;
-/*        if (!$this->DOMNode) {
-            return null;
-        }
-        $children = $this->DOMNode->getElementsByTagName('Entry');
-        if ($children->length === 1) {
-            return $children[0]->getExifEyeElement();
-        }
-        return null;*/
     }
 
     /**
