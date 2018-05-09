@@ -132,7 +132,7 @@ abstract class BlockBase extends ElementBase
      */
     public function getEntry()
     {
-        $entry = $this->query('/Entry');
+        $entry = $this->query('Entry');
         if ($entry) {
             return $entry[0];
         }

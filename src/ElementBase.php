@@ -110,15 +110,18 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      */
     public function query($expression)
     {
-dump($this->xPath->query('Entry', $this->DOMNode));
+/*dump($this->xPath->query('Entry', $this->DOMNode));
 $xx=$this->xPath->query('Entry', $this->DOMNode);
-dump($xx->item(0));
+dump($xx->item(0));*/
         $node_list = $this->xPath->query($expression, $this->DOMNode);
         $ret = [];
-        foreach ($node_list as $node) {
-dump($node);
+/*        foreach ($node_list as $node) {
             $ret[] = $node->getExifEyeElement();
+        }*/
+        for ($i = 0; $i < $node_list->length; $i++) {
+            $ret[] = $node_list->item($i);
         }
+dump($ret);
     }
 
     /**
