@@ -19,7 +19,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     use LoggerTrait;
 
     protected $doc;
-    protected $xPath;
+    public $xPath;
 
     /**
      * The DOM node associated to this element.
