@@ -119,7 +119,7 @@ dump($xx->item(0));*/
             $ret[] = $node->getExifEyeElement();
         }*/
         for ($i = 0; $i < $node_list->length; $i++) {
-            $ret[] = $node_list->item($i);
+            $ret[] = $node_list->item($i)->getExifEyeElement();
         }
 dump($ret);
     }
