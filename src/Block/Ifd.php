@@ -216,10 +216,10 @@ class Ifd extends BlockBase
         foreach ($this->xxGetSubBlocks('Tag') as $tag => $sub_block) {
             // Each entry is 12 bytes long.
             $ifd_area .= ConvertBytes::fromShort($sub_block->getAttribute('id'), $order);
-dump($sub_block->xPath->query('/*', $this->DOMNode));
+/*dump($sub_block->xPath->query('/*', $this->DOMNode));
 dump($sub_block->xPath->query('//*', $this->DOMNode));
 dump($sub_block->xPath->query('/Entry', $this->DOMNode));
-dump($sub_block->xPath->query('Entry', $this->DOMNode));
+dump($sub_block->xPath->query('Entry', $this->DOMNode));*/
             $ifd_area .= ConvertBytes::fromShort($sub_block->getEntry()->getFormat(), $order);
             $ifd_area .= ConvertBytes::fromLong($sub_block->getEntry()->getComponents(), $order);
 
