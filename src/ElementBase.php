@@ -49,13 +49,11 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      */
     public function __construct(ElementInterface $parent)
     {
-        if ($parent) {
-            $this->doc = $parent->xxgetDoc();
-            if ($this->doc) {
-                $this->DOMNode = $this->doc->createElement($this->getType());
-                $parent->xxgetDOMNode()->appendChild($this->xxgetDOMNode());
-                $this->xxgetDOMNode()->setExifEyeElement($this);
-            }
+        $this->doc = $parent->xxgetDoc();
+        if ($this->doc) {
+            $this->DOMNode = $this->doc->createElement($this->getType());
+            $parent->xxgetDOMNode()->appendChild($this->xxgetDOMNode());
+            $this->xxgetDOMNode()->setExifEyeElement($this);
         }
     }
 
