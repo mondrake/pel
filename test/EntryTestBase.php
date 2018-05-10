@@ -2,7 +2,7 @@
 
 namespace ExifEye\Test\core;
 
-use ExifEye\core\ElementInterface;
+use ExifEye\core\ElementBase;
 
 class EntryTestBase extends ExifEyeTestCaseBase
 {
@@ -11,7 +11,7 @@ class EntryTestBase extends ExifEyeTestCaseBase
     public function setUp()
     {
         parent::setUp();
-        $this->mockParentElement = $this->getMockBuilder(ElementInterface::class)->getMock();
+        $this->mockParentElement = $this->getMockBuilder(ElementBase::class)->getMock();
         $this->mockParentElement->method('xxgetDoc')->willReturn(null);
     }
 }
