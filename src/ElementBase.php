@@ -47,7 +47,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      * @param \ExifEye\core\ElementInterface $parent
      *            the parent element of this element.
      */
-    public function __construct(ElementInterface $parent = null)
+    public function __construct(ElementInterface $parent)
     {
         if ($parent) {
             $this->doc = $parent->xxgetDoc();
