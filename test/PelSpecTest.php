@@ -97,7 +97,10 @@ class PelSpecTest extends ExifEyeTestCaseBase
 
         $ifd_id = Spec::getIfdIdByType($ifd_name);
 /*        $ifd = new Ifd($tiff_mock, $ifd_id);*/
-        $ifd_mock = $this->getMockBuilder(Ifd::class)->disableOriginalConstructor()->getMock();
+        $ifd_mock = $this->getMockBuilder(Ifd::class)
+            ->disableOriginalConstructor()
+            ->setMethods(['setAttribute'])
+            ->getMock();
         $ifd_mock->method('setAttribute')->willReturn(null);
 
         $tag_id = Spec::getTagIdByName($ifd_id, $tag);
