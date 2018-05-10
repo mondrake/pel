@@ -58,7 +58,7 @@ abstract class EntryBase extends ElementBase implements EntryInterface
      * @param array $data
      *            the data that this entry will be holding.
      */
-    public function __construct(array $data, ElementInterface $parent = null)
+    public function __construct(array $data, ElementInterface $parent)
     {
         parent::__construct($parent);
         $this->setValue($data);
