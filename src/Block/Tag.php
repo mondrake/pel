@@ -23,7 +23,7 @@ class Tag extends BlockBase
     /**
      * Constructs a Tag block object.
      */
-    public function __construct(BlockBase $parent_block, $id, $entry_class, $entry_arguments, $format = null, $components = null)
+    public function __construct(BlockBase $parent_block, $id, $entry_class, $entry_data, $format = null, $components = null)
     {
         parent::__construct($parent_block);
 
@@ -70,7 +70,7 @@ class Tag extends BlockBase
         }
 
         // Set the Tag's entry.
-        $entry = new $entry_class($entry_arguments, $this);
+        $entry = new $entry_class($this, $entry_data);
         $this->debug("Text: {text}", [
             'text' => $entry->toString(),
         ]);

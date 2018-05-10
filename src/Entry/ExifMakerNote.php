@@ -78,7 +78,7 @@ class ExifMakerNote extends Undefined
 
         // Get Model tag from IFD0.
         $model_tag = $ifd->xxGetSubBlockByName('Tag', 'Model');
-        $model = $model_tag && $model_tag->getEntry() ? $model_tag->getEntry()->getValue() : 'na';
+        $model = $model_tag && $model_tag->getEntry() ? $model_tag->getEntry()->getValue() : 'na';  // xx modelTag should always have an entry, so the check is irrelevant but a test fails
 
         // Get maker note IFD id.
         if (!$maker_note_ifd_id = Spec::getMakerNoteIfd($make_tag->getEntry()->getValue(), $model)) {

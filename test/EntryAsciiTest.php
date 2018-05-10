@@ -7,11 +7,11 @@ use ExifEye\core\Entry\IfdCopyright;
 use ExifEye\core\Entry\Time;
 use ExifEye\core\Spec;
 
-class EntryAsciiTest extends ExifEyeTestCaseBase
+class EntryAsciiTest extends EntryTestBase
 {
     public function testReturnValues()
     {
-        $entry = new Ascii(['foo bar baz']);
+        $entry = new Ascii($this->mockParentElement, ['foo bar baz']);
         $this->assertEquals(12, $entry->getComponents());
         $this->assertEquals('foo bar baz', $entry->getValue());
     }
