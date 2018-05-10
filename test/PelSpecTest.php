@@ -92,15 +92,17 @@ class PelSpecTest extends ExifEyeTestCaseBase
         $doc->appendChild($test_dom_node);
         $tiff = new Tiff();
         $tiff->setDOMNode($test_dom_node);*/
-        $tiff_mock = $this->getMockBuilder(Tiff::class)->disableOriginalConstructor()->getMock();
-        $tiff_mock->method('xxgetDoc')->willReturn(null);
+/*        $tiff_mock = $this->getMockBuilder(Tiff::class)->disableOriginalConstructor()->getMock();
+        $tiff_mock->method('xxgetDoc')->willReturn(null);*/
 
         $ifd_id = Spec::getIfdIdByType($ifd_name);
-        $ifd = new Ifd($tiff_mock, $ifd_id);
+/*        $ifd = new Ifd($tiff_mock, $ifd_id);*/
+        $ifd_mock = $this->getMockBuilder(Ifd::class)->disableOriginalConstructor()->getMock();
+//        $ifd_mock->method('xxgetDoc')->willReturn(null);
 
         $tag_id = Spec::getTagIdByName($ifd_id, $tag);
         $entry_class_name = Spec::getEntryClass($ifd_id, $tag_id);
-        $tag = new Tag($ifd, $tag_id, $entry_class_name, $args);
+        $tag = new Tag($ifd_mock, $tag_id, $entry_class_name, $args);
         $this->assertInstanceOf($expected_class, $tag->getEntry());
         $options['short'] = $brief;  // xx
         $this->assertEquals($expected_text, $tag->getEntry()->toString($options));
