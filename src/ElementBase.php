@@ -53,12 +53,16 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
             $this->doc = $parent->xxgetDoc();
             if ($this->doc) {
                 $this->DOMNode = $this->doc->createElement($this->getType());
-                $parent->DOMNode->appendChild($this->DOMNode);
-                $this->DOMNode->setExifEyeElement($this);
+                $parent->xxgetDOMNode()->appendChild($this->xxgetDOMNode());
+                $this->xxgetDOMNode()->setExifEyeElement($this);
             }
         }
     }
 
+    private function xxgetDOMNode()
+    {
+        return $this->DOMNode;
+    }
     public function xxgetDoc()
     {
         return $this->doc;
@@ -70,8 +74,8 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     public function setDOMNode(ExifEyeDOMElement $node)
     {
         $this->DOMNode = $node;
-        $this->DOMNode->setExifEyeElement($this);
-        $this->doc = $this->DOMNode->ownerDocument;
+        $this->xxgetDOMNode()->setExifEyeElement($this);
+        $this->doc = $this->xxgetDOMNode()->ownerDocument;
         return $this;
     }
 
@@ -81,7 +85,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     public function getAttributes()
     {
         $attr = [];
-        foreach ($this->DOMNode->attributes as $attribute) {
+        foreach ($this->xxgetDOMNode()->attributes as $attribute) {
             $attr[$attribute->name] = $attribute->value;
         }
         return $attr;
@@ -92,7 +96,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      */
     public function setAttribute($name, $value)
     {
-        return $this->DOMNode->setAttribute($name, $value);
+        return $this->xxgetDOMNode()->setAttribute($name, $value);
     }
 
     /**
@@ -100,7 +104,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      */
     public function getAttribute($name)
     {
-        return $this->DOMNode->getAttribute($name);
+        return $this->xxgetDOMNode()->getAttribute($name);
     }
 
     /**
@@ -109,7 +113,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     public function query($expression)
     {
         $x_path = new \DOMXPath($this->doc);
-        $node_list = $x_path->query($expression, $this->DOMNode);
+        $node_list = $x_path->query($expression, $this->xxgetDOMNode());
         $ret = [];
         for ($i = 0; $i < $node_list->length; $i++) {
             $ret[] = $node_list->item($i)->getExifEyeElement();
@@ -130,7 +134,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      */
     public function getParentElement()
     {
-        return $this->DOMNode ? $this->DOMNode->parentNode->getExifEyeElement() : null;
+        return $this->xxgetDOMNode() ? $this->xxgetDOMNode()->parentNode->getExifEyeElement() : null;
     }
 
     /**
@@ -138,7 +142,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      */
     public function getContextPath()
     {
-        return $this->DOMNode ? $this->DOMNode->getContextPath() : '';
+        return $this->xxgetDOMNode() ? $this->xxgetDOMNode()->getContextPath() : '';
     }
 
     /**
