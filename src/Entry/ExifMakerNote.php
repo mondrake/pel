@@ -78,6 +78,7 @@ class ExifMakerNote extends Undefined
 
         // Get Model tag from IFD0.
         $model_tag = $ifd->xxGetSubBlockByName('Tag', 'Model');
+dump($model_tag);
         $model = $model_tag ? $model_tag->getEntry()->getValue() : 'na';
 
         // Get maker note IFD id.
