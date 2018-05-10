@@ -61,7 +61,7 @@ class Tiff extends BlockBase
      *
      * @param boolean|string|DataWindow $data;
      */
-    public function __construct($data = false, $parent = null)
+    public function __construct($data = false, Exif $parent)
     {
         parent::__construct($parent);
 

@@ -18,7 +18,7 @@ class EntryAsciiTest extends EntryTestBase
 
     public function testTime()
     {
-        $entry = new Time([10, Time::UNIX_TIMESTAMP]);
+        $entry = new Time($this->mockParentElement, [10, Time::UNIX_TIMESTAMP]);
         $this->assertEquals(20, $entry->getComponents());
         $this->assertEquals('1970:01:01 00:00:10', $entry->getValue());
         $this->assertEquals(10, $entry->getValue(['type' => Time::UNIX_TIMESTAMP]));
@@ -63,7 +63,7 @@ class EntryAsciiTest extends EntryTestBase
 
     public function testCopyright()
     {
-        $entry = new IfdCopyright([]);
+        $entry = new IfdCopyright($this->mockParentElement, []);
         $value = $entry->getValue();
         $this->assertEquals('', $value[0]);
         $this->assertEquals('', $value[1]);
