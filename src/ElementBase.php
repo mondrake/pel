@@ -91,6 +91,18 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     /**
      * {@inheritdoc}
      */
+    public function first($expression)
+    {
+        $ret = $this->query($expression);
+        if ($ret) {
+            return $ret[0];
+        }
+        return null;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function query($expression)
     {
         $x_path = new \DOMXPath($this->DOMNode->ownerDocument);

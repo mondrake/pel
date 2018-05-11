@@ -34,7 +34,7 @@ class Bug3017880Test extends ExifEyeTestCaseBase
             }
 
             $tiff = $exif->getTiff();
-            $ifd0 = $tiff->query('Ifd')[0];
+            $ifd0 = $tiff->first("Ifd[@name='IFD0']");
             if ($ifd0 === null) {
                 $ifd0 = new Ifd($tiff, Spec::getIfdIdByType('IFD0'));
                 $tiff->xxAddSubBlock($ifd0);
