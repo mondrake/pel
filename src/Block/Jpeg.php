@@ -103,9 +103,6 @@ class Jpeg
      */
     public function __construct($data = false)
     {
-        $this->doc = new \DOMDocument();
-        $this->doc->registerNodeClass('DOMElement', 'ExifEye\core\DOM\ExifEyeDOMElement');
-
         if ($data === false) {
             return;
         }
@@ -203,9 +200,7 @@ class Jpeg
                 $d->setWindowStart(2);
 
                 if ($marker == JpegMarker::APP1) {
-                    $jpeg_dom = $this->doc->createElement('jpeg');
-                    $this->doc->appendChild($jpeg_dom);
-                    $content = new Exif($jpeg_dom);
+                    $content = new Exif();
                     if ($content->loadFromData($d->getClone(0, $len)) === false) {
                         // We store the data as normal JPEG content if it could
                         // not be parsed as Exif data.
@@ -632,7 +627,7 @@ class Jpeg
         $str .= "\n\n<<< DOM >>>\n\n";
         $formatter = new XmlFormatter();
         $formatter->setIndentSize(2);
-        $str .= $formatter->format($this->doc->saveXML());
+        $str .= $formatter->format($this-getExif()->DOMNode->ownerDocument->saveXML());
         $str .= "\n\n<<< DOM >>>\n\n";
 
         return $str;

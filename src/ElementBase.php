@@ -23,7 +23,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      *
      * @var \DOMNode
      */
-    protected $DOMNode;
+    public $DOMNode;
 
     /**
      * The type of this element.
