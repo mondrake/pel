@@ -34,7 +34,7 @@ class Exif extends BlockBase
     /**
      * {@inheritdoc}
      */
-    protected $type = 'Exif';
+    protected $type = 'exif';
 
     /**
      * Construct a new Exif object.
