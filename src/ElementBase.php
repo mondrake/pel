@@ -53,8 +53,9 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
             $parent_node = $doc;
         } else {
             $parent_node = $parent->DOMNode;
+            $doc = $parent->DOMNode->ownerDocument;
         }
-        $this->DOMNode = $parent_node->ownerDocument->createElement($this->getType());
+        $this->DOMNode = $doc->createElement($this->getType());
         $parent_node->appendChild($this->DOMNode);
         $this->DOMNode->setExifEyeElement($this);
     }
