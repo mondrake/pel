@@ -34,7 +34,7 @@ class Bug3017880Test extends ExifEyeTestCaseBase
             if ($exif === null) {
                 $exif = new Exif();
                 $jpeg->setExif($exif);
-                $tiff = new Tiff();
+                $tiff = new Tiff(false, $exif);
                 $tiff->setDOMNode($test_dom_node);
                 $exif->setTiff($tiff);
             }

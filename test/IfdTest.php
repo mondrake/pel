@@ -13,14 +13,11 @@ class IfdTest extends ExifEyeTestCaseBase
 {
     public function testIfd()
     {
-        $doc = new \DOMDocument();
-        $doc->registerNodeClass('DOMElement', 'ExifEye\core\DOM\ExifEyeDOMElement');
-        $test_dom_node = $doc->createElement('test-tiff');
-        $doc->appendChild($test_dom_node);
-        $tiff = new Tiff();
-        $tiff->setDOMNode($test_dom_node);
+        $tiff_mock = $this->getMockBuilder('ExifEye\core\Block\Tiff')
+            ->disableOriginalConstructor()
+            ->getMock();
 
-        $ifd = new Ifd($tiff, Spec::getIfdIdByType('IFD0'));
+        $ifd = new Ifd($tiff_mock, Spec::getIfdIdByType('IFD0'));
 
         $this->assertCount(0, $ifd->xxGetSubBlocks('Tag'));
 
