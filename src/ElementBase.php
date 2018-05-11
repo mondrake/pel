@@ -18,8 +18,6 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
 {
     use LoggerTrait;
 
-    protected $doc;
-
     /**
      * The DOM node associated to this element.
      *
@@ -47,39 +45,18 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      * @param \ExifEye\core\ElementInterface $parent
      *            the parent element of this element.
      */
-    public function __construct(ElementInterface $parent)
+    public function __construct(ElementInterface $parent = null)
     {
-        $this->doc = $parent->xxgetDoc();
-        if ($this->doc) {
-            $this->DOMNode = $this->doc->createElement($this->getType());
-            $parent->xxgetDOMNode()->appendChild($this->xxgetDOMNode());
+        if (!$parent) {
+            $doc = new \DOMDocument();
+            $doc->registerNodeClass('DOMElement', 'ExifEye\core\DOM\ExifEyeDOMElement');
+            $parent_node = $doc;
         } else {
-            $this->doc = new \DOMDocument();
-            $this->doc->registerNodeClass('DOMElement', 'ExifEye\core\DOM\ExifEyeDOMElement');
-            $this->DOMNode = $this->doc->createElement($this->getType());
-            $this->doc->appendChild($this->xxgetDOMNode());
+            $parent_node = $parent->parentNode;
         }
-        $this->xxgetDOMNode()->setExifEyeElement($this);
-    }
-
-    private function xxgetDOMNode()
-    {
-        return $this->DOMNode;
-    }
-    public function xxgetDoc()
-    {
-        return $this->doc;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function setDOMNode(ExifEyeDOMElement $node)
-    {
-        $this->DOMNode = $node;
-        $this->xxgetDOMNode()->setExifEyeElement($this);
-        $this->doc = $this->xxgetDOMNode()->ownerDocument;
-        return $this;
+        $this->DOMNode = $doc->createElement($this->getType());
+        $parent_node->appendChild($this->DOMNode);
+        $this->DOMNode->setExifEyeElement($this);
     }
 
     /**
@@ -88,7 +65,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     public function getAttributes()
     {
         $attr = [];
-        foreach ($this->xxgetDOMNode()->attributes as $attribute) {
+        foreach ($this->DOMNode->attributes as $attribute) {
             $attr[$attribute->name] = $attribute->value;
         }
         return $attr;
@@ -99,7 +76,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      */
     public function setAttribute($name, $value)
     {
-        return $this->xxgetDOMNode()->setAttribute($name, $value);
+        return $this->DOMNode->setAttribute($name, $value);
     }
 
     /**
@@ -107,7 +84,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      */
     public function getAttribute($name)
     {
-        return $this->xxgetDOMNode()->getAttribute($name);
+        return $this->DOMNode->getAttribute($name);
     }
 
     /**
@@ -116,7 +93,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     public function query($expression)
     {
         $x_path = new \DOMXPath($this->doc);
-        $node_list = $x_path->query($expression, $this->xxgetDOMNode());
+        $node_list = $x_path->query($expression, $this->DOMNode);
         $ret = [];
         for ($i = 0; $i < $node_list->length; $i++) {
             $ret[] = $node_list->item($i)->getExifEyeElement();
@@ -137,7 +114,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      */
     public function getParentElement()
     {
-        return $this->xxgetDOMNode()->parentNode && !($this->xxgetDOMNode()->parentNode instanceof \DOMDocument) ? $this->xxgetDOMNode()->parentNode->getExifEyeElement() : null;
+        return $this->DOMNode->parentNode && !($this->DOMNode->parentNode instanceof \DOMDocument) ? $this->DOMNode->parentNode->getExifEyeElement() : null;
     }
 
     /**
@@ -145,7 +122,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      */
     public function getContextPath()
     {
-        return $this->xxgetDOMNode() ? $this->xxgetDOMNode()->getContextPath() : '';
+        return $this->DOMNode ? $this->DOMNode->getContextPath() : '';
     }
 
     /**

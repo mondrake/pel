@@ -12,6 +12,5 @@ class EntryTestBase extends ExifEyeTestCaseBase
     {
         parent::setUp();
         $this->mockParentElement = $this->getMockBuilder('ExifEye\core\ElementBase')->disableOriginalConstructor()->getMock();
-        $this->mockParentElement->method('xxgetDoc')->willReturn(null);
     }
 }
