@@ -34,38 +34,31 @@ class ReadWriteTest extends ExifEyeTestCaseBase
      */
     public function testWriteRead(array $entries)
     {
-        $doc = new \DOMDocument();
-        $doc->registerNodeClass('DOMElement', 'ExifEye\core\DOM\ExifEyeDOMElement');
-        $test_dom_node = $doc->createElement('test-tiff');
-        $doc->appendChild($test_dom_node);
-        $tiff = new Tiff();
-        $tiff->setDOMNode($test_dom_node);
+        $jpeg = new Jpeg(dirname(__FILE__) . '/images/no-exif.jpg');
+        $this->assertNull($jpeg->getExif());
 
+        $exif = new Exif();
+        $jpeg->setExif($exif);
+        $this->assertNotNull($jpeg->getExif());
+        $this->assertNull($jpeg->getTiff());
+
+        $tiff = new Tiff(false, $exif);
+        $exif->setTiff($tiff);
+        $this->assertNotNull($exif->getTiff());
         $this->assertNull($tiff->getIfd());
 
         $ifd = new Ifd($tiff, Spec::getIfdIdByType('IFD0'));
         foreach ($entries as $entry) {
             $ifd->xxAppendSubBlock(new Tag($ifd, $entry[0], $entry[1], $entry[2]));
         }
-
         $tiff->xxAddSubBlock($ifd);
         $this->assertNotNull($tiff->getIfd());
-
-        $exif = new Exif();
-        $this->assertNull($exif->getTiff());
-        $exif->setTiff($tiff);
-        $this->assertNotNull($exif->getTiff());
-
-        $jpeg = new Jpeg(dirname(__FILE__) . '/images/no-exif.jpg');
-        $this->assertNull($jpeg->getExif());
-        $jpeg->setExif($exif);
-        $this->assertNotNull($jpeg->getExif());
 
         $jpeg->saveFile('test-output.jpg');
         $this->assertTrue(file_exists('test-output.jpg'));
         $this->assertTrue(filesize('test-output.jpg') > 0);
 
-        /* Now read the file and see if the entries are still there. */
+        // Now read the file and see if the entries are still there.
         $jpeg = new Jpeg('test-output.jpg');
 
         $exif = $jpeg->getExif();
