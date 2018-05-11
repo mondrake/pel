@@ -86,15 +86,16 @@ class PelSpecTest extends ExifEyeTestCaseBase
      */
     public function testGetTagText($expected_text, $expected_class, $ifd_name, $tag, array $args, $brief = false)
     {
-        $ifd_id = Spec::getIfdIdByType($ifd_name);
-        $ifd_mock = $this->getMockBuilder(Ifd::class)
+        $tiff_mock = $this->getMockBuilder('ExifEye\core\Block\Tiff')
             ->disableOriginalConstructor()
             ->getMock();
-        $ifd_mock->method('getAttribute')->willReturn($ifd_id);
+
+        $ifd_id = Spec::getIfdIdByType($ifd_name);
+        $ifd = new Ifd($tiff_mock, Spec::getIfdIdByType('IFD0'));
 
         $tag_id = Spec::getTagIdByName($ifd_id, $tag);
         $entry_class_name = Spec::getEntryClass($ifd_id, $tag_id);
-        $tag = new Tag($ifd_mock, $tag_id, $entry_class_name, $args);
+        $tag = new Tag($ifd, $tag_id, $entry_class_name, $args);
 
         $this->assertInstanceOf($expected_class, $tag->getEntry());
         $options['short'] = $brief;  // xx
