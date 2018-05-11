@@ -137,7 +137,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      */
     public function getParentElement()
     {
-        return $this->xxgetDOMNode() ? $this->xxgetDOMNode()->parentNode->getExifEyeElement() : null;
+        return $this->xxgetDOMNode()->parentNode ? $this->xxgetDOMNode()->parentNode->getExifEyeElement() : null;
     }
 
     /**
