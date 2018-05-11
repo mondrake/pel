@@ -26,16 +26,10 @@ class Bug3017880Test extends ExifEyeTestCaseBase
             // force strip if you know the image you're branding is an original)
             // $jpeg->clearExif();
 
-            $doc = new \DOMDocument();
-            $doc->registerNodeClass('DOMElement', 'ExifEye\core\DOM\ExifEyeDOMElement');
-            $test_dom_node = $doc->createElement('test-tiff');
-            $doc->appendChild($test_dom_node);
-
             if ($exif === null) {
                 $exif = new Exif();
                 $jpeg->setExif($exif);
                 $tiff = new Tiff(false, $exif);
-                $tiff->setDOMNode($test_dom_node);
                 $exif->setTiff($tiff);
             }
 
