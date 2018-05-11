@@ -20,7 +20,7 @@ class Tags1Test extends ExifEyeTestCaseBase
         $tiff = $exif->getTiff();
         $this->assertInstanceOf('ExifEye\core\Block\Tiff', $tiff);
 
-        $ifd0 = $tiff->getIfd();
+        $ifd0 = $tiff->first("Ifd[@name='IFD0']");
         $this->assertInstanceOf('ExifEye\core\Block\Ifd', $ifd0);
 
         $ratingPercent = $ifd0->xxGetSubBlockByName('Tag', 'RatingPercent');

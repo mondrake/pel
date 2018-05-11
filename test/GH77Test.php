@@ -16,7 +16,7 @@ class GH77Test extends ExifEyeTestCaseBase
         $app1 = $input_jpeg->getExif();
 
         $tiff = $app1->getTiff();
-        $ifd0 = $tiff->getIfd();
+        $ifd0 = $tiff->first("Ifd[@name='IFD0']");
 
         $model = $ifd0->xxGetSubBlockByName('Tag', 'Model')->getEntry()->getValue();
         $this->assertEquals($model, "Canon EOS 5D Mark III");
