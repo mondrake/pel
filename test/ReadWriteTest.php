@@ -45,14 +45,14 @@ class ReadWriteTest extends ExifEyeTestCaseBase
         $tiff = new Tiff(false, $exif);
         $exif->setTiff($tiff);
         $this->assertNotNull($exif->getTiff());
-        $this->assertNull($tiff->getIfd());
+        $this->assertNull($tiff->first("Ifd[@name='IFD0']"));
 
         $ifd = new Ifd($tiff, Spec::getIfdIdByType('IFD0'));
         foreach ($entries as $entry) {
             $ifd->xxAppendSubBlock(new Tag($ifd, $entry[0], $entry[1], $entry[2]));
         }
         $tiff->xxAddSubBlock($ifd);
-        $this->assertNotNull($tiff->getIfd());
+        $this->assertNotNull($tiff->first("Ifd[@name='IFD0']"));
 
         $jpeg->saveFile('test-output.jpg');
         $this->assertTrue(file_exists('test-output.jpg'));
@@ -68,7 +68,7 @@ class ReadWriteTest extends ExifEyeTestCaseBase
         $this->assertInstanceOf('ExifEye\core\Block\Tiff', $tiff);
         $this->assertCount(1, $tiff->xxGetSubBlocks('Ifd'));
 
-        $ifd = $tiff->getIfd();
+        $ifd = $tiff->first("Ifd[@name='IFD0']");
         $this->assertInstanceOf('ExifEye\core\Block\Ifd', $ifd);
         $this->assertEquals($ifd->getAttribute('id'), Spec::getIfdIdByType('IFD0'));
 
