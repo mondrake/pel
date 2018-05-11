@@ -163,17 +163,6 @@ class Tiff extends BlockBase
     }
 
     /**
-     * Return the first IFD.
-     *
-     * @return Ifd the first IFD contained in the TIFF data, if any.
-     *         If there is no IFD null will be returned.
-     */
-    public function getIfd()
-    {
-        return $this->xxGetSubBlockByIndex('Ifd', 0);
-    }
-
-    /**
      * Turn this object into bytes.
      *
      * TIFF images can have {@link ConvertBytes::LITTLE_ENDIAN
