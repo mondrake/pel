@@ -93,7 +93,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      */
     public function query($expression)
     {
-        $x_path = new \DOMXPath($this->doc);
+        $x_path = new \DOMXPath($this->DOMNode->ownerDocument);
         $node_list = $x_path->query($expression, $this->DOMNode);
         $ret = [];
         for ($i = 0; $i < $node_list->length; $i++) {
