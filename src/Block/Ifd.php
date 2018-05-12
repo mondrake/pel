@@ -16,12 +16,6 @@ use ExifEye\core\Spec;
 
 /**
  * Class representing an Image File Directory (IFD).
- *
- * {@link Tiff TIFF data} is structured as a number of Image File
- * Directories, IFDs for short. Each IFD contains a number of {@link
- * EntryInterface entries}, some data and finally a link to the next IFD.
- *
- * @author Martin Geisler <mgeisler@users.sourceforge.net>
  */
 class Ifd extends BlockBase
 {
@@ -53,14 +47,6 @@ class Ifd extends BlockBase
 
     /**
      * Construct a new Image File Directory (IFD).
-     *
-     * The IFD will be empty, use the {@link addEntry()} method to add
-     * an {@link EntryInterface}. Use the {@link setNext()} method to link
-     * this IFD to another.
-     *
-     * @param int $type
-     *            the type of this IFD, as found in Spec. A
-     *            {@link IfdException} will be thrown if unknown.
      */
     public function __construct(BlockBase $parent_block, $id)
     {
@@ -77,13 +63,7 @@ class Ifd extends BlockBase
     }
 
     /**
-     * Load data into a Image File Directory (IFD).
-     *
-     * @param DataWindow $data_window
-     *            the data window that will provide the data.
-     * @param int $offset
-     *            the offset within the window where the directory will
-     *            be found.
+     * {@inheritdoc}
      */
     public function loadFromData(DataWindow $data_window, $offset = 0, array $options = [])
     {
@@ -179,19 +159,7 @@ class Ifd extends BlockBase
     }
 
     /**
-     * Turn this directory into bytes.
-     *
-     * This directory will be turned into a byte string, with the
-     * specified byte order. The offsets will be calculated from the
-     * offset given.
-     *
-     * @param int $offset
-     *            the offset of the first byte of this directory.
-     *
-     * @param boolean $order
-     *            the byte order that should be used when
-     *            turning integers into bytes. This should be one of {@link
-     *            ConvertBytes::LITTLE_ENDIAN} and {@link ConvertBytes::BIG_ENDIAN}.
+     * {@inheritdoc}
      */
     public function toBytes($offset, $order)
     {
@@ -284,10 +252,7 @@ class Ifd extends BlockBase
     }
 
     /**
-     * Turn this directory into text.
-     *
-     * @return string information about the directory, mainly for
-     *         debugging.
+     * {@inheritdoc}
      */
     public function __toString()
     {
