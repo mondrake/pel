@@ -107,7 +107,7 @@ class Exif extends BlockBase
      */
     public function getTiff()
     {
-        return $this->xxGetSubBlockByIndex('Tiff', 0);
+        return $this->first('tiff');
     }
 
     /**
@@ -117,7 +117,7 @@ class Exif extends BlockBase
      */
     public function getBytes()
     {
-        return self::EXIF_HEADER . $this->xxGetSubBlockByIndex('Tiff', 0)->getBytes();
+        return self::EXIF_HEADER . $this->first('tiff')->getBytes();
     }
 
     /**
@@ -128,6 +128,6 @@ class Exif extends BlockBase
      */
     public function __toString()
     {
-        return ExifEye::tra("Dumping Exif data...\n") . $this->xxGetSubBlock('Tiff', 0)->__toString();
+        return ExifEye::tra("Dumping Exif data...\n") . $this->first('tiff')->__toString();
     }
 }

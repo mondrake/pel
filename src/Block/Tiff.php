@@ -47,7 +47,7 @@ class Tiff extends BlockBase
     /**
      * {@inheritdoc}
      */
-    protected $type = 'Tiff';
+    protected $type = 'tiff';
 
     /**
      * Construct a new object for holding TIFF data.
