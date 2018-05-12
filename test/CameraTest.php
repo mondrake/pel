@@ -39,11 +39,11 @@ class CameraTest extends ExifEyeTestCaseBase
         $tiff = $exif->first("tiff");
 
         if (isset($test['blocks']['IFD0'])) {
-            $this->assertBlock($test['blocks']['IFD0'], $tiff->first("Ifd[@name='IFD0']"));
+            $this->assertBlock($test['blocks']['IFD0'], $tiff->first("ifd[@name='IFD0']"));
         }
 
         if (isset($test['blocks']['IFD1'])) {
-            $this->assertBlock($test['blocks']['IFD1'], $tiff->first("Ifd[@name='IFD1']"));
+            $this->assertBlock($test['blocks']['IFD1'], $tiff->first("ifd[@name='IFD1']"));
         }
 
         $handler = ExifEye::logger()->getHandlers()[0]; // xx
