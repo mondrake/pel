@@ -264,7 +264,7 @@ class Ifd extends BlockBase
         }
 
         // Then dump the rest sub-blocks.
-        foreach ($this->query('not(Tag)') as $sub_block) {
+        foreach ($this->query('[not(Tag)]') as $sub_block) {
             $str .= $sub_block->__toString();
         }
 
