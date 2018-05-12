@@ -67,17 +67,17 @@ class ExifMakerNote extends Undefined
         }
 
         // Get MakerNotes from Exif IFD.
-        if (!$maker_note_tag = $exif_ifd->first("Tag[@name='MakerNote']")) {
+        if (!$maker_note_tag = $exif_ifd->first("tag[@name='MakerNote']")) {
             return;
         }
 
         // Get Make tag from IFD0.
-        if (!$make_tag = $ifd->first("Tag[@name='Make']")) {
+        if (!$make_tag = $ifd->first("tag[@name='Make']")) {
             return;
         }
 
         // Get Model tag from IFD0.
-        $model_tag = $ifd->first("Tag[@name='Model']");
+        $model_tag = $ifd->first("tag[@name='Model']");
         $model = $model_tag && $model_tag->getEntry() ? $model_tag->getEntry()->getValue() : 'na';  // xx modelTag should always have an entry, so the check is irrelevant but a test fails
 
         // Get maker note IFD id.
