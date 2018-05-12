@@ -30,7 +30,6 @@ class Bug3017880Test extends ExifEyeTestCaseBase
                 $exif = new Exif();
                 $jpeg->setExif($exif);
                 $tiff = new Tiff(false, $exif);
-                $exif->setTiff($tiff);
             }
 
             $tiff = $exif->first("tiff");

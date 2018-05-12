@@ -43,7 +43,6 @@ class ReadWriteTest extends ExifEyeTestCaseBase
         $this->assertNull($exif->first("tiff"));
 
         $tiff = new Tiff(false, $exif);
-        $exif->setTiff($tiff);
         $this->assertNotNull($exif->first("tiff"));
         $this->assertNull($tiff->first("Ifd[@name='IFD0']"));
 
@@ -66,7 +65,7 @@ class ReadWriteTest extends ExifEyeTestCaseBase
 
         $tiff = $exif->first("tiff");
         $this->assertInstanceOf('ExifEye\core\Block\Tiff', $tiff);
-        $this->assertCount(1, $tiff->xxGetSubBlocks('Ifd'));
+        $this->assertCount(1, $tiff->query("Ifd"));
 
         $ifd = $tiff->first("Ifd[@name='IFD0']");
         $this->assertInstanceOf('ExifEye\core\Block\Ifd', $ifd);

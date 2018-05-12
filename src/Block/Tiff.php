@@ -11,29 +11,6 @@ use ExifEye\core\Spec;
 
 /**
  * Class for handling TIFF data.
- *
- * Exif data is actually an extension of the TIFF file format. TIFF
- * images consist of a number of {@link Ifd Image File Directories}
- * (IFDs), each containing a number of {@link EntryInterface entries}. The
- * IFDs are linked to each other --- one can get hold of the first one
- * with the {@link getIfd()} method.
- *
- * To parse a TIFF image for Exif data one would do:
- *
- * <code>
- * $tiff = new Tiff($data);
- * $ifd0 = $tiff->getIfd();
- * $exif = $ifd0->getSubIfd(Ifd::EXIF);
- * $ifd1 = $ifd0->getNextIfd();
- * </code>
- *
- * Should one have some image data of an unknown type, then the {@link
- * Tiff::isValid()} function is handy: it will quickly test if the
- * data could be valid TIFF data. The {@link Jpeg::isValid()}
- * function does the same for JPEG images.
- *
- * @author Martin Geisler <mgeisler@users.sourceforge.net>
- * @package PEL
  */
 class Tiff extends BlockBase
 {
@@ -51,15 +28,6 @@ class Tiff extends BlockBase
 
     /**
      * Construct a new object for holding TIFF data.
-     *
-     * The new object will be empty (with no {@link Ifd}) unless an
-     * argument is given from which it can initialize itself. This can
-     * either be the filename of a TIFF image or a {@link DataWindow}
-     * object.
-     *
-     * Use {@link setIfd()} to explicitly set the IFD.
-     *
-     * @param boolean|string|DataWindow $data;
      */
     public function __construct($data, Exif $parent)
     {
@@ -80,31 +48,22 @@ class Tiff extends BlockBase
     }
 
     /**
-     * Load TIFF data.
-     *
-     * The data given will be parsed and an internal tree representation
-     * will be built. If the data cannot be parsed correctly, a {@link
-     * InvalidDataException} is thrown, explaining the problem.
-     *
-     * @param
-     *            d
-     *            DataWindow the data from which the object will be
-     *            constructed. This should be valid TIFF data, coming either
-     *            directly from a TIFF image or from the Exif data in a JPEG image.
+     * {@inheritdoc}
      */
     public function loadFromData(DataWindow $data_window, $offset = 0, array $options = [])
     {
+        // xx todo remove exceptions
+
         $this->debug('Parsing {size} bytes of TIFF data...', ['size' => $data_window->getSize()]);
 
-        /*
-         * There must be at least 8 bytes available: 2 bytes for the byte
-         * order, 2 bytes for the TIFF header, and 4 bytes for the offset
-         * to the first IFD.
-         */
+        // There must be at least 8 bytes available: 2 bytes for the byte order,
+        // 2 bytes for the TIFF header, and 4 bytes for the offset to the first
+        // IFD.
         if ($data_window->getSize() < 8) {
             throw new InvalidDataException('Expected at least 8 bytes of TIFF ' . 'data, found just %d bytes.', $data_window->getSize());
         }
-        /* Byte order */
+
+        // Byte order.
         if ($data_window->strcmp(0, 'II')) {
             $this->debug('Found Intel byte order');
             $data_window->setByteOrder(ConvertBytes::LITTLE_ENDIAN);
@@ -115,7 +74,7 @@ class Tiff extends BlockBase
             throw new InvalidDataException('Unknown byte order found in TIFF ' . 'data: 0x%2X%2X', $data_window->getByte(0), $data_window->getByte(1));
         }
 
-        /* Verify the TIFF header */
+        // Verify the TIFF header.
         if ($data_window->getShort(2) != self::TIFF_HEADER) {
             throw new InvalidDataException('Missing TIFF magic value.');
         }
@@ -161,18 +120,7 @@ class Tiff extends BlockBase
     }
 
     /**
-     * Turn this object into bytes.
-     *
-     * TIFF images can have {@link ConvertBytes::LITTLE_ENDIAN
-     * little-endian} or {@link ConvertBytes::BIG_ENDIAN big-endian} byte
-     * order, and so this method takes an argument specifying that.
-     *
-     * @param boolean $order
-     *            the desired byte order of the TIFF data.
-     *            This should be one of {@link ConvertBytes::LITTLE_ENDIAN} or {@link
-     *            ConvertBytes::BIG_ENDIAN}.
-     *
-     * @return string the bytes representing this object.
+     * {@inheritdoc}
      */
     public function toBytes($order = ConvertBytes::LITTLE_ENDIAN)
     {
@@ -233,10 +181,7 @@ class Tiff extends BlockBase
     }
 
     /**
-     * Return a string representation of this object.
-     *
-     * @return string a string describing this object. This is mostly useful
-     *         for debugging.
+     * {@inheritdoc}
      */
     public function __toString()
     {
