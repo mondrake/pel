@@ -122,7 +122,7 @@ class DumpCommand extends Command
     protected function exifToTest($name, $content, &$json)
     {
         if ($content instanceof Exif) {
-            $tiff = $content->getTiff();
+            $tiff = $content->first("tiff");
             if ($tiff instanceof Tiff) {
                 $this->tiffToTest('$tiff', $tiff, $json);
             } else {

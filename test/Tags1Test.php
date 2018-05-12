@@ -17,7 +17,7 @@ class Tags1Test extends ExifEyeTestCaseBase
         $exif = $jpeg->getExif();
         $this->assertInstanceOf('ExifEye\core\Block\Exif', $exif);
 
-        $tiff = $exif->getTiff();
+        $tiff = $exif->first("tiff");
         $this->assertInstanceOf('ExifEye\core\Block\Tiff', $tiff);
 
         $ifd0 = $tiff->first("Ifd[@name='IFD0']");

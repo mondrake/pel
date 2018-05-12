@@ -98,19 +98,6 @@ class Exif extends BlockBase
     }
 
     /**
-     * Get the underlying TIFF object.
-     *
-     * The actual Exif data is stored in a {@link Tiff} object, and
-     * this method provides access to it.
-     *
-     * @return Tiff the TIFF object with the Exif data.
-     */
-    public function getTiff()
-    {
-        return $this->first('tiff');
-    }
-
-    /**
      * Produce bytes for the Exif data.
      *
      * @return string bytes representing this object.
