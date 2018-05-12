@@ -19,18 +19,18 @@ class IfdTest extends ExifEyeTestCaseBase
 
         $ifd = new Ifd($tiff_mock, Spec::getIfdIdByType('IFD0'));
 
-        $this->assertCount(0, $ifd->xxGetSubBlocks('tag'));
+        $this->assertCount(0, $ifd->query('tag'));
 
         $desc = new Ascii($ifd, ['Hello?']);
-        $ifd->xxAddSubBlock(new Tag($ifd, 0x010E, 'ExifEye\core\Entry\Core\Ascii', ['Hello?']));
+        new Tag($ifd, 0x010E, 'ExifEye\core\Entry\Core\Ascii', ['Hello?']));
 
         $date = new Time($ifd, [12345678]);
-        $ifd->xxAddSubBlock(new Tag($ifd, 0x0132, 'ExifEye\core\Entry\Time', [12345678]));
+        new Tag($ifd, 0x0132, 'ExifEye\core\Entry\Time', [12345678]));
 
-        $this->assertCount(2, $ifd->xxGetSubBlocks('tag'));
+        $this->assertCount(2, $ifd->query('tag'));
 
         $tags = [];
-        foreach ($ifd->xxGetSubBlocks('tag') as $tag) {
+        foreach ($ifd->query('tag') as $tag) {
             $tags[$tag->getAttribute('id')] = $tag->getEntry();
         }
 

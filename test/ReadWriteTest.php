@@ -50,7 +50,6 @@ class ReadWriteTest extends ExifEyeTestCaseBase
         foreach ($entries as $entry) {
             $ifd->xxAppendSubBlock(new Tag($ifd, $entry[0], $entry[1], $entry[2]));
         }
-        $tiff->xxAddSubBlock($ifd);
         $this->assertNotNull($tiff->first("ifd[@name='IFD0']"));
 
         $jpeg->saveFile('test-output.jpg');
