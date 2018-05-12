@@ -259,9 +259,9 @@ class Ifd extends BlockBase
         $str = ExifEye::fmt(">>>> %s\n", $this->getAttribute('name'));
 
         // Dump all tags first.
-        foreach ($this->query('tag') as $sub_block) {
+/*        foreach ($this->query('tag') as $sub_block) {
             $str .= $sub_block->__toString();
-        }
+        }*/
 
         // Then dump the rest sub-blocks.
         foreach ($this->query('*[not(self::Tag)]') as $sub_block) {
