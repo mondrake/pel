@@ -38,12 +38,12 @@ class Thumbnail extends BlockBase
      */
     public static function toBlock(DataWindow $data_window, Ifd $ifd)
     {
-        if (!$ifd->xxGetSubBlockByName('Tag', 'ThumbnailOffset') || !$ifd->xxGetSubBlockByName('Tag', 'ThumbnailLength')) {
+        if (!$ifd->xxGetSubBlockByName('tag', 'ThumbnailOffset') || !$ifd->xxGetSubBlockByName('tag', 'ThumbnailLength')) {
             return;
         }
 
-        $offset = $ifd->xxGetSubBlockByName('Tag', 'ThumbnailOffset')->getEntry()->getValue();
-        $length = $ifd->xxGetSubBlockByName('Tag', 'ThumbnailLength')->getEntry()->getValue();
+        $offset = $ifd->xxGetSubBlockByName('tag', 'ThumbnailOffset')->getEntry()->getValue();
+        $length = $ifd->xxGetSubBlockByName('tag', 'ThumbnailLength')->getEntry()->getValue();
 
         // Load the thumbnail only if both the offset and the length are
         // available and positive.

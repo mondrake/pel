@@ -19,7 +19,7 @@ class IfdTest extends ExifEyeTestCaseBase
 
         $ifd = new Ifd($tiff_mock, Spec::getIfdIdByType('IFD0'));
 
-        $this->assertCount(0, $ifd->xxGetSubBlocks('Tag'));
+        $this->assertCount(0, $ifd->xxGetSubBlocks('tag'));
 
         $desc = new Ascii($ifd, ['Hello?']);
         $ifd->xxAddSubBlock(new Tag($ifd, 0x010E, 'ExifEye\core\Entry\Core\Ascii', ['Hello?']));
@@ -27,10 +27,10 @@ class IfdTest extends ExifEyeTestCaseBase
         $date = new Time($ifd, [12345678]);
         $ifd->xxAddSubBlock(new Tag($ifd, 0x0132, 'ExifEye\core\Entry\Time', [12345678]));
 
-        $this->assertCount(2, $ifd->xxGetSubBlocks('Tag'));
+        $this->assertCount(2, $ifd->xxGetSubBlocks('tag'));
 
         $tags = [];
-        foreach ($ifd->xxGetSubBlocks('Tag') as $tag) {
+        foreach ($ifd->xxGetSubBlocks('tag') as $tag) {
             $tags[$tag->getAttribute('id')] = $tag->getEntry();
         }
 

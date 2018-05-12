@@ -79,7 +79,7 @@ class CameraTest extends ExifEyeTestCaseBase
 
     protected function assertBlock($expected, $block)
     {
-        $this->assertInstanceOf($expected['class'], $block, $block->getContextPath());
+        $this->assertInstanceOf($expected['class'], $block, var_export($expected, true));
 
         // Check entry.
         if (isset($expected['Entry'])) {

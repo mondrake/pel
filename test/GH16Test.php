@@ -38,7 +38,7 @@ class GH16Test extends ExifEyeTestCaseBase
         $this->assertCount(1, $tiff->query("ifd[@name='IFD0']/tag"));
 
         $ifd0->xxAddSubBlock(new Tag($ifd0, 0x9C9F, 'ExifEye\core\Entry\WindowsString', [$subject]));
-        $this->assertCount(1, $ifd0->xxGetSubBlocks('Tag'));
+        $this->assertCount(1, $ifd0->xxGetSubBlocks('tag'));
 
         $jpeg->saveFile($this->file);
 
@@ -47,7 +47,7 @@ class GH16Test extends ExifEyeTestCaseBase
         $tiff = $exif->first("tiff");
         $ifd0 = $tiff->first("ifd[@name='IFD0']");
         $this->assertCount(1, $tiff->query("ifd[@name='IFD0']/tag"));
-        $written_subject = $ifd0->xxGetSubBlockByName('Tag', 'WindowsXPSubject')->getEntry()->toString();
+        $written_subject = $ifd0->xxGetSubBlockByName('tag', 'WindowsXPSubject')->getEntry()->toString();
         $this->assertEquals($subject, $written_subject);
     }
 }

@@ -167,7 +167,7 @@ class Ifd extends BlockBase
         $data_area = '';
 
         // Determine number of IFD entries.
-        $n = count($this->xxGetSubBlocks('Tag')) + count($this->query('ifd'));
+        $n = count($this->xxGetSubBlocks('tag')) + count($this->query('ifd'));
         if ($this->xxGetSubBlock('Thumbnail', 0) !== null) {
             // We need two extra entries for the thumbnail offset and length.
             $n += 2;
@@ -181,7 +181,7 @@ class Ifd extends BlockBase
         $end = $offset + 2 + 12 * $n + 4;
 
         // Process the Tags.
-        foreach ($this->xxGetSubBlocks('Tag') as $tag => $sub_block) {
+        foreach ($this->xxGetSubBlocks('tag') as $tag => $sub_block) {
             // Each entry is 12 bytes long.
             $ifd_area .= ConvertBytes::fromShort($sub_block->getAttribute('id'), $order);
             $ifd_area .= ConvertBytes::fromShort($sub_block->getEntry()->getFormat(), $order);
@@ -259,7 +259,7 @@ class Ifd extends BlockBase
         $str = ExifEye::fmt(">>>> %s\n", $this->getAttribute('name'));
 
         // Dump all tags first.
-        foreach ($this->query('Tag') as $sub_block) {
+        foreach ($this->query('tag') as $sub_block) {
             $str .= $sub_block->__toString();
         }
 
