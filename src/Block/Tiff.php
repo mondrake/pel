@@ -176,7 +176,7 @@ class Tiff extends BlockBase
      *
      * @return string the bytes representing this object.
      */
-    public function getBytes($order = ConvertBytes::LITTLE_ENDIAN)
+    public function toBytes($order = ConvertBytes::LITTLE_ENDIAN)
     {
         if ($order == ConvertBytes::LITTLE_ENDIAN) {
             $bytes = 'II';
@@ -187,7 +187,7 @@ class Tiff extends BlockBase
         // TIFF magic number --- fixed value.
         $bytes .= ConvertBytes::fromShort(self::TIFF_HEADER, $order);
 
-        $ifd0 = $this->xxGetSubBlockByName('Ifd', 'IFD0');
+        $ifd0 = $this->first("Ifd[@name='IFD0']");
         if ($ifd0) {
             // IFD0 offset. We will always start IFD0 at an offset of 8
             // bytes (2 bytes for byte order, another 2 bytes for the TIFF
@@ -201,7 +201,7 @@ class Tiff extends BlockBase
             $ifd0_bytes = $ifd0->toBytes(8, $order);
 
             // Deal with IFD1.
-            $ifd1 = $this->xxGetSubBlockByName('Ifd', 'IFD1');
+            $ifd1 = $this->first("Ifd[@name='IFD1']");
             if (!$ifd1) {
                 // No IFD1, link to next IFD is 0.
                 $bytes .= $ifd0_bytes['ifd_area'] . ConvertBytes::fromLong(0, $order) . $ifd0_bytes['data_area'];
@@ -243,10 +243,9 @@ class Tiff extends BlockBase
     public function __toString()
     {
         $str = ExifEye::fmt("Dumping TIFF data...\n");
-        if ($this->xxGetSubBlockByIndex('Ifd', 0) !== null) {
-            $str .= $this->xxGetSubBlockByIndex('Ifd', 0)->__toString();
+        foreach ($this->query("*") as $element) {
+            $str .= $element->__toString();
         }
-
         return $str;
     }
 

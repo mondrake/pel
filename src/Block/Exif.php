@@ -104,7 +104,7 @@ class Exif extends BlockBase
      */
     public function getBytes()
     {
-        return self::EXIF_HEADER . $this->first('tiff')->getBytes();
+        return self::EXIF_HEADER . $this->first('tiff')->toBytes();
     }
 
     /**
