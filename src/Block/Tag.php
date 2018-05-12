@@ -18,7 +18,7 @@ class Tag extends BlockBase
     /**
      * {@inheritdoc}
      */
-    protected $type = 'Tag';
+    protected $type = 'tag';
 
     /**
      * Constructs a Tag block object.
@@ -77,10 +77,7 @@ class Tag extends BlockBase
     }
 
     /**
-     * Turn this entry into a string.
-     *
-     * @return string a string representation of this entry. This is
-     *         mostly for debugging.
+     * {@inheritdoc}
      */
     public function __toString()
     {
