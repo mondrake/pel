@@ -22,7 +22,7 @@ class Ifd extends BlockBase
     /**
      * {@inheritdoc}
      */
-    protected $type = 'Ifd';
+    protected $type = 'ifd';
 
     /**
      * The IFD header bytes to skip.
