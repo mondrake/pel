@@ -126,6 +126,7 @@ class Ifd extends BlockBase
                     $ifd = new $ifd_class($this, $type);
                     try {
                         $ifd->loadFromData($data_window, $o, ['components' => $tag->getEntry()->getComponents()]);
+                        $this->remove("tag[@name='" . $tag->getAttribute('name') . "']");
                     } catch (DataWindowOffsetException $e) {
                         $this->error($e->getMessage());
                     }
