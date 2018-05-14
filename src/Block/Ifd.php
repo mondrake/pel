@@ -126,7 +126,6 @@ class Ifd extends BlockBase
                     $ifd = new $ifd_class($this, $type);
                     try {
                         $ifd->loadFromData($data_window, $o, ['components' => $tag->getEntry()->getComponents()]);
-                        $this->xxAddSubBlock($ifd);
                     } catch (DataWindowOffsetException $e) {
                         $this->error($e->getMessage());
                     }
@@ -137,9 +136,6 @@ class Ifd extends BlockBase
                 }
                 continue;
             }
-
-            // Append the TAG to the IFD.
-            $this->xxAppendSubBlock($tag);
         }
 
         $this->debug(".....END Loading");
@@ -167,8 +163,8 @@ class Ifd extends BlockBase
         $data_area = '';
 
         // Determine number of IFD entries.
-        $n = count($this->xxGetSubBlocks('tag')) + count($this->query('ifd'));
-        if ($this->xxGetSubBlock('Thumbnail', 0) !== null) {
+        $n = count($this->query('tag')) + count($this->query('ifd'));
+        if ($this->first("Thumbnail") !== null) {
             // We need two extra entries for the thumbnail offset and length.
             $n += 2;
         }
@@ -181,7 +177,7 @@ class Ifd extends BlockBase
         $end = $offset + 2 + 12 * $n + 4;
 
         // Process the Tags.
-        foreach ($this->xxGetSubBlocks('tag') as $tag => $sub_block) {
+        foreach ($this->query('tag') as $tag => $sub_block) {
             // Each entry is 12 bytes long.
             $ifd_area .= ConvertBytes::fromShort($sub_block->getAttribute('id'), $order);
             $ifd_area .= ConvertBytes::fromShort($sub_block->getEntry()->getFormat(), $order);
@@ -203,21 +199,21 @@ class Ifd extends BlockBase
         }
 
         // Process the Thumbnail. @todo avoid double writing of tags
-        if ($this->xxGetSubBlock('Thumbnail', 0)) {
+        if ($this->first("Thumbnail")) {
             // TODO: make EntryInterface a class that can be constructed with
             // arguments corresponding to the next four lines.
             $ifd_area .= ConvertBytes::fromShort(Spec::getTagIdByName($this->getAttribute('id'), 'ThumbnailLength'), $order);
             $ifd_area .= ConvertBytes::fromShort(Format::LONG, $order);
             $ifd_area .= ConvertBytes::fromLong(1, $order);
-            $ifd_area .= ConvertBytes::fromLong($this->xxGetSubBlock('Thumbnail', 0)->getEntry()->getComponents(), $order);
+            $ifd_area .= ConvertBytes::fromLong($this->first("Thumbnail")->getEntry()->getComponents(), $order);
 
             $ifd_area .= ConvertBytes::fromShort(Spec::getTagIdByName($this->getAttribute('id'), 'ThumbnailOffset'), $order);
             $ifd_area .= ConvertBytes::fromShort(Format::LONG, $order);
             $ifd_area .= ConvertBytes::fromLong(1, $order);
             $ifd_area .= ConvertBytes::fromLong($end, $order);
 
-            $data_area .= $this->xxGetSubBlock('Thumbnail', 0)->getEntry()->toBytes();
-            $end += $this->xxGetSubBlock('Thumbnail', 0)->getEntry()->getComponents();
+            $data_area .= $this->first("Thumbnail")->getEntry()->toBytes();
+            $end += $this->first("Thumbnail")->getEntry()->getComponents();
         }
 
         // Process sub IFDs.

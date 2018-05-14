@@ -96,7 +96,7 @@ class CameraTest extends ExifEyeTestCaseBase
         if (isset($expected['blocks'])) {
             foreach ($expected['blocks'] as $block_type => $expected_blocks) {
                 foreach ($expected_blocks as $i => $expected_block) {
-                    $this->assertBlock($expected_block, $block->xxGetSubBlockByIndex($block_type, $i));
+                    $this->assertBlock($expected_block, $block->query($block_type)[$i]);
                 }
             }
         }

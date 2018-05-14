@@ -48,7 +48,7 @@ class ReadWriteTest extends ExifEyeTestCaseBase
 
         $ifd = new Ifd($tiff, Spec::getIfdIdByType('IFD0'));
         foreach ($entries as $entry) {
-            $ifd->xxAppendSubBlock(new Tag($ifd, $entry[0], $entry[1], $entry[2]));
+            new Tag($ifd, $entry[0], $entry[1], $entry[2]);
         }
         $this->assertNotNull($tiff->first("ifd[@name='IFD0']"));
 
@@ -71,7 +71,7 @@ class ReadWriteTest extends ExifEyeTestCaseBase
         $this->assertEquals($ifd->getAttribute('id'), Spec::getIfdIdByType('IFD0'));
 
         foreach ($entries as $entry) {
-            $ifdTag = $ifd->xxGetSubBlock('tag', $entry[0]);
+            $ifdTag = $ifd->first("tag[@id='" . $entry[0] . "']");
             $ifdEntry = $ifdTag->getEntry();
             if ($ifdEntry->getFormat() == Format::ASCII) {
                 $ifdValue = $ifdTag->getEntry()->getValue();

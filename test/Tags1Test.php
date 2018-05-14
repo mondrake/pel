@@ -30,15 +30,15 @@ class Tags1Test extends ExifEyeTestCaseBase
         $exifIfd = $ifd0->first("ifd[@name='Exif']");
         $this->assertInstanceOf('ExifEye\core\Block\Ifd', $exifIfd);
 
-        $offsetTime = $exifIfd->xxGetSubBlockByName('tag', 'OffsetTime');
+        $offsetTime = $exifIfd->first("tag[@name='OffsetTime']");
         $this->assertInstanceOf('ExifEye\core\Entry\Core\Ascii', $offsetTime->getEntry());
         $this->assertEquals('-09:00', $offsetTime->getEntry()->getValue());
 
-        $offsetTimeDigitized = $exifIfd->xxGetSubBlockByName('tag', 'OffsetTimeDigitized');
+        $offsetTimeDigitized = $exifIfd->first("tag[@name='OffsetTimeDigitized']");
         $this->assertInstanceOf('ExifEye\core\Entry\Core\Ascii', $offsetTimeDigitized->getEntry());
         $this->assertEquals('-10:00', $offsetTimeDigitized->getEntry()->getValue());
 
-        $offsetTimeOriginal = $exifIfd->xxGetSubBlockByName('tag', 'OffsetTimeOriginal');
+        $offsetTimeOriginal = $exifIfd->first("tag[@name='OffsetTimeOriginal']");
         $this->assertInstanceOf('ExifEye\core\Entry\Core\Ascii', $offsetTimeOriginal->getEntry());
         $this->assertEquals('-11:00', $offsetTimeOriginal->getEntry()->getValue());
     }
