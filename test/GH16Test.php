@@ -36,10 +36,11 @@ class GH16Test extends ExifEyeTestCaseBase
         $this->assertEquals('Ïðåâåä, ìåäâåä!', $ifd0->first("tag[@name='WindowsXPSubject']/Entry")->toString());
 
         $ifd0->remove("tag[@name='WindowsXPSubject']");
-        $new_entry_value = "Превед, медвед!";
+//        $new_entry_value = "Превед, медвед!";
+        $new_entry_value = "BINGOBONG";
         new Tag($ifd0, 0x9C9F, 'ExifEye\core\Entry\WindowsString', [$new_entry_value]);
         $this->assertCount(1, $ifd0->query('tag'));
-
+dump($ifd0->DOMNode->ownerDocument->saveXML());
         $jpeg->saveFile($this->file);
 
         $jpeg = new Jpeg($this->file);
