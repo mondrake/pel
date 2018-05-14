@@ -107,7 +107,6 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     {
         $ret = $this->query($expression);
         if ($ret) {
-            $ret[0]->DOMNode->setExifEyeElement(null);
             $ret[0]->DOMNode->ownerDocument->removeChild($ret[0]->DOMNode);
         }
     }
