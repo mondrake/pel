@@ -29,28 +29,26 @@ class GH16Test extends ExifEyeTestCaseBase
 
     public function testThisDoesNotWorkAsExpected()
     {
+        // Parse test file.
         $jpeg = new Jpeg($this->file);
         $exif = $jpeg->getExif();
         $ifd0 = $exif->first("tiff/ifd[@name='IFD0']");
         $this->assertCount(1, $ifd0->query("tag"));
         $this->assertEquals('Ïðåâåä, ìåäâåä!', $ifd0->first("tag[@name='WindowsXPSubject']/Entry")->toString());
 
-dump($ifd0->DOMNode->ownerDocument->saveXML());
+        // Change the value of the Tag's entry and save the file to disk.
         $ifd0->remove("tag[@name='WindowsXPSubject']");
-dump($ifd0->DOMNode->ownerDocument->saveXML());
         $new_entry_value = "Превед, медвед!";
         new Tag($ifd0, 0x9C9F, 'ExifEye\core\Entry\WindowsString', [$new_entry_value]);
-dump($ifd0->DOMNode->ownerDocument->saveXML());
         $this->assertCount(1, $ifd0->query('tag'));
         $this->assertEquals($new_entry_value, $ifd0->first("tag[@name='WindowsXPSubject']/Entry")->toString());
-dump($ifd0->DOMNode->ownerDocument->saveXML());
         $jpeg->saveFile($this->file);
 
+        // Parse the test file again and check the Tag's new value was saved.
         $r_jpeg = new Jpeg($this->file);
         $r_exif = $r_jpeg->getExif();
         $r_ifd0 = $r_exif->first("tiff/ifd[@name='IFD0']");
         $this->assertCount(1, $r_exif->query("tiff/ifd[@name='IFD0']/tag"));
-        $written_subject = $r_ifd0->first("tag[@name='WindowsXPSubject']/Entry")->toString();
-        $this->assertEquals($new_entry_value, $written_subject);
+        $this->assertEquals($new_entry_value, $r_ifd0->first("tag[@name='WindowsXPSubject']/Entry")->toString());
     }
 }
