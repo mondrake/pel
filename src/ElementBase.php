@@ -103,6 +103,18 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     /**
      * {@inheritdoc}
      */
+    public function remove($expression)
+    {
+        $ret = $this->query($expression);
+        if ($ret) {
+            $ret[0]->DOMNode->setExifEyeElement(null);
+            $ret[0]->DOMNode->ownerDocument->remove($ret[0]->DOMNode):
+        }
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function query($expression)
     {
         $x_path = new \DOMXPath($this->DOMNode->ownerDocument);
