@@ -107,7 +107,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     {
         $ret = $this->query($expression);
         if ($ret) {
-            $ret[0]->DOMNode->ownerDocument->removeChild($ret[0]->DOMNode);
+            $ret[0]->DOMNode->parent->removeChild($ret[0]->DOMNode);
         }
     }
 
