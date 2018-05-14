@@ -29,14 +29,14 @@ class GH16Test extends ExifEyeTestCaseBase
 
     public function testThisDoesNotWorkAsExpected()
     {
-        $subject = "Превед, медвед!";
-
         $jpeg = new Jpeg($this->file);
         $exif = $jpeg->getExif();
         $ifd0 = $exif->first("tiff/ifd[@name='IFD0']");
-        $this->assertCount(1, $exif->query("tiff/ifd[@name='IFD0']/tag"));
+        $this->assertCount(1, $ifd0->query("tag"));
+        $this->assertEquals("BINGO", $ifd0->first("tag[@name='WindowsXPSubject']/Entry")->toString());
 
-        new Tag($ifd0, 0x9C9F, 'ExifEye\core\Entry\WindowsString', [$subject]);
+        $new_entry_value = "Превед, медвед!";
+        new Tag($ifd0, 0x9C9F, 'ExifEye\core\Entry\WindowsString', [$new_entry_value]);
         $this->assertCount(1, $ifd0->query('tag'));
 
         $jpeg->saveFile($this->file);
@@ -46,6 +46,6 @@ class GH16Test extends ExifEyeTestCaseBase
         $ifd0 = $exif->first("tiff/ifd[@name='IFD0']");
         $this->assertCount(1, $exif->query("tiff/ifd[@name='IFD0']/tag"));
         $written_subject = $ifd0->first("tag[@name='WindowsXPSubject']/Entry")->toString();
-        $this->assertEquals($subject, $written_subject);
+        $this->assertEquals($new_entry_value, $written_subject);
     }
 }
