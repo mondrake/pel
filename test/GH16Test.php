@@ -34,14 +34,14 @@ class GH16Test extends ExifEyeTestCaseBase
         $exif = $jpeg->getExif();
         $ifd0 = $exif->first("tiff/ifd[@name='IFD0']");
         $this->assertCount(1, $ifd0->query("tag"));
-        $this->assertEquals('Ïðåâåä, ìåäâåä!', $ifd0->first("tag[@name='WindowsXPSubject']/Entry")->toString());
+        $this->assertEquals('Ïðåâåä, ìåäâåä!', $ifd0->first("tag[@name='WindowsXPSubject']/entry")->toString());
 
         // Change the value of the Tag's entry and save the file to disk.
         $ifd0->remove("tag[@name='WindowsXPSubject']");
         $new_entry_value = "Превед, медвед!";
         new Tag($ifd0, 0x9C9F, 'ExifEye\core\Entry\WindowsString', [$new_entry_value]);
         $this->assertCount(1, $ifd0->query('tag'));
-        $this->assertEquals($new_entry_value, $ifd0->first("tag[@name='WindowsXPSubject']/Entry")->toString());
+        $this->assertEquals($new_entry_value, $ifd0->first("tag[@name='WindowsXPSubject']/entry")->toString());
         $jpeg->saveFile($this->file);
 
         // Parse the test file again and check the Tag's new value was saved.
@@ -49,6 +49,6 @@ class GH16Test extends ExifEyeTestCaseBase
         $r_exif = $r_jpeg->getExif();
         $r_ifd0 = $r_exif->first("tiff/ifd[@name='IFD0']");
         $this->assertCount(1, $r_exif->query("tiff/ifd[@name='IFD0']/tag"));
-        $this->assertEquals($new_entry_value, $r_ifd0->first("tag[@name='WindowsXPSubject']/Entry")->toString());
+        $this->assertEquals($new_entry_value, $r_ifd0->first("tag[@name='WindowsXPSubject']/entry")->toString());
     }
 }

@@ -47,7 +47,7 @@ abstract class BlockBase extends ElementBase
      */
     public function getEntry()
     {
-        $entry = $this->query('Entry');
+        $entry = $this->query('entry');
         if ($entry) {
             return $entry[0];
         }
@@ -61,14 +61,9 @@ abstract class BlockBase extends ElementBase
     {
         $dump = array_merge(parent::toDumpArray(), $this->getAttributes());
 
-        // Dump Entry if existing.
-        if ($this->getEntry()) {
-            $dump['Entry'] = $this->getEntry()->toDumpArray();
-        }
-
         // Dump sub-Blocks.
-        foreach ($this->query("*") as $sub_block) {
-            $dump['blocks'][$sub_block->getType()] = $sub_block->toDumpArray();
+        foreach ($this->query("*") as $sub_element) {
+            $dump['elements'][$sub_element->getType()] = $sub_element->toDumpArray();
         }
 
         return $dump;
