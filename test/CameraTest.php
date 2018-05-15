@@ -2,6 +2,7 @@
 
 namespace ExifEye\Test\core;
 
+use ExifEye\core\Entry\Core\EntryInterface;
 use ExifEye\core\ExifEye;
 use ExifEye\core\Format;
 use ExifEye\core\Block\Jpeg;
@@ -36,14 +37,9 @@ class CameraTest extends ExifEyeTestCaseBase
         $jpeg = new Jpeg(dirname(__FILE__) . '/imagetests/' . $test['jpeg']);
 
         $exif = $jpeg->getExif();
-        $tiff = $exif->first("tiff");
 
-        if (isset($test['blocks']['IFD0'])) {
-            $this->assertBlock($test['blocks']['IFD0'], $tiff->first("ifd[@name='IFD0']"));
-        }
-
-        if (isset($test['blocks']['IFD1'])) {
-            $this->assertBlock($test['blocks']['IFD1'], $tiff->first("ifd[@name='IFD1']"));
+        if (isset($test['elements'])) {
+            $this->assertBlock($test['elements'], $exif);
         }
 
         $handler = ExifEye::logger()->getHandlers()[0]; // xx
@@ -79,25 +75,21 @@ class CameraTest extends ExifEyeTestCaseBase
 
     protected function assertBlock($expected, $block)
     {
-        $this->assertInstanceOf($expected['class'], $block, var_export($expected, true));
+        $this->assertInstanceOf($expected['class'], $block, $block->getContextPath());
 
         // Check entry.
-        if (isset($expected['Entry'])) {
-            $entry = $block->getEntry();
-            $this->assertInstanceOf($expected['Entry']['class'], $entry, $block->getContextPath());
-            $this->assertEquals($expected['Entry']['components'], $entry->getComponents(), $block->getContextPath());
-            $this->assertEquals($expected['Entry']['format'], Format::getName($entry->getFormat()), $block->getContextPath());
-            $this->assertEquals(unserialize(base64_decode($expected['Entry']['value'])), $entry->getValue(), $block->getContextPath());
-            $this->assertEquals($expected['Entry']['text'], $entry->toString(), $block->getContextPath());
+        if ($block instanceof EntryInterface) {
+            $this->assertEquals($expected['components'], $block->getComponents(), $block->getContextPath());
+            $this->assertEquals($expected['format'], Format::getName($block->getFormat()), $block->getContextPath());
+            $this->assertEquals(unserialize(base64_decode($expected['value'])), $block->getValue(), $block->getContextPath());
+            $this->assertEquals($expected['text'], $block->toString(), $block->getContextPath());
         }
 
         // Recursively check sub-blocks.
         // xx @todo add checking count of blocks by type
-        if (isset($expected['blocks'])) {
-            foreach ($expected['blocks'] as $block_type => $expected_blocks) {
-                foreach ($expected_blocks as $i => $expected_block) {
-                    $this->assertBlock($expected_block, $block->query($block_type)[$i]);
-                }
+        if (isset($expected['elements'])) {
+            foreach ($expected['elements'] as $i => $expected_block) {
+                $this->assertBlock($expected_block, $block->query($block->getType())[$i]);
             }
         }
     }
