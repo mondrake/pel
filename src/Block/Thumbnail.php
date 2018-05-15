@@ -19,7 +19,7 @@ class Thumbnail extends BlockBase
     /**
      * {@inheritdoc}
      */
-    protected $type = 'Thumbnail';
+    protected $type = 'thumbnail';
 
     /**
      * Constructs a Thumbnail block object.
