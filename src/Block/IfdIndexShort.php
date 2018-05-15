@@ -16,7 +16,7 @@ class IfdIndexShort extends Ifd
     /**
      * {@inheritdoc}
      */
-    protected $type = 'IfdIndexShort';
+    protected $type = 'ifdIndexShort';
 
     /**
      * Load data into a Image File Directory (IFD).

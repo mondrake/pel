@@ -663,9 +663,9 @@ blocks:
                                 name: CanonMakerNotes
                                 valid: true
                                 blocks:
-                                    IfdIndexShort:
+                                    ifdIndexShort:
                                         -
-                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings'
+                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings'
                                             class: ExifEye\core\Block\IfdIndexShort
                                             id: 6
                                             name: CanonCameraSettings
@@ -673,13 +673,13 @@ blocks:
                                             blocks:
                                                 tag:
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0001:MacroMode'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0001:MacroMode'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 1
                                                         name: MacroMode
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0001:MacroMode/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0001:MacroMode/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -688,13 +688,13 @@ blocks:
                                                             clear_value: 'i:2;'
                                                             text: Normal
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0002:SelfTimer'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0002:SelfTimer'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 2
                                                         name: SelfTimer
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0002:SelfTimer/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0002:SelfTimer/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -703,13 +703,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 0
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0003:Quality'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0003:Quality'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 3
                                                         name: Quality
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0003:Quality/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0003:Quality/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -718,13 +718,13 @@ blocks:
                                                             clear_value: 'i:2;'
                                                             text: Normal
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0004:CanonFlashMode'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0004:CanonFlashMode'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 4
                                                         name: CanonFlashMode
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0004:CanonFlashMode/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0004:CanonFlashMode/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -733,13 +733,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 'Off'
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0005:ContinuousDrive'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0005:ContinuousDrive'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 5
                                                         name: ContinuousDrive
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0005:ContinuousDrive/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0005:ContinuousDrive/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -748,13 +748,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: Single
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0006'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0006'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 6
                                                         name: null
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0006/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0006/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -763,13 +763,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 0
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0007:FocusMode'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0007:FocusMode'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 7
                                                         name: FocusMode
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0007:FocusMode/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0007:FocusMode/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -778,13 +778,13 @@ blocks:
                                                             clear_value: 'i:4;'
                                                             text: Single
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0008'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0008'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 8
                                                         name: null
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0008/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0008/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -793,13 +793,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 0
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0009:RecordMode'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0009:RecordMode'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 9
                                                         name: RecordMode
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0009:RecordMode/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0009:RecordMode/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -808,13 +808,13 @@ blocks:
                                                             clear_value: 'i:1;'
                                                             text: JPEG
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x000a:CanonImageSize'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x000a:CanonImageSize'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 10
                                                         name: CanonImageSize
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x000a:CanonImageSize/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x000a:CanonImageSize/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -823,13 +823,13 @@ blocks:
                                                             clear_value: 'i:2;'
                                                             text: Small
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x000b:EasyMode'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x000b:EasyMode'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 11
                                                         name: EasyMode
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x000b:EasyMode/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x000b:EasyMode/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -838,13 +838,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 'Full auto'
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x000c:DigitalZoom'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x000c:DigitalZoom'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 12
                                                         name: DigitalZoom
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x000c:DigitalZoom/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x000c:DigitalZoom/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -853,13 +853,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: None
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x000d:Contrast'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x000d:Contrast'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 13
                                                         name: Contrast
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x000d:Contrast/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x000d:Contrast/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -868,13 +868,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: Normal
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x000e:Saturation'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x000e:Saturation'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 14
                                                         name: Saturation
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x000e:Saturation/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x000e:Saturation/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -883,13 +883,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: Normal
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x000f:Sharpness'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x000f:Sharpness'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 15
                                                         name: Sharpness
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x000f:Sharpness/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x000f:Sharpness/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -898,13 +898,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 0
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0010:CameraISO'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0010:CameraISO'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 16
                                                         name: CameraISO
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0010:CameraISO/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0010:CameraISO/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -913,13 +913,13 @@ blocks:
                                                             clear_value: 'i:15;'
                                                             text: 15
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0011:MeteringMode'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0011:MeteringMode'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 17
                                                         name: MeteringMode
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0011:MeteringMode/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0011:MeteringMode/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -928,13 +928,13 @@ blocks:
                                                             clear_value: 'i:3;'
                                                             text: Evaluative
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0012:FocusRange'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0012:FocusRange'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 18
                                                         name: FocusRange
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0012:FocusRange/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0012:FocusRange/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -943,13 +943,13 @@ blocks:
                                                             clear_value: 'i:1;'
                                                             text: Auto
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0013:AFPoint'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0013:AFPoint'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 19
                                                         name: AFPoint
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0013:AFPoint/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0013:AFPoint/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -958,13 +958,13 @@ blocks:
                                                             clear_value: 'i:16385;'
                                                             text: 'Auto AF point selection'
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0014:CanonExposureMode'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0014:CanonExposureMode'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 20
                                                         name: CanonExposureMode
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0014:CanonExposureMode/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0014:CanonExposureMode/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -973,13 +973,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: Easy
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0015'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0015'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 21
                                                         name: null
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0015/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0015/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -988,13 +988,13 @@ blocks:
                                                             clear_value: 'i:32767;'
                                                             text: 32767
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0016:LensType'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0016:LensType'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 22
                                                         name: LensType
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0016:LensType/Entry+Short'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0016:LensType/Entry+Short'
                                                             class: ExifEye\core\Entry\Core\Short
                                                             valid: true
                                                             format: Short
@@ -1003,13 +1003,13 @@ blocks:
                                                             clear_value: 'i:65535;'
                                                             text: n/a
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0017:MaxFocalLength'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0017:MaxFocalLength'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 23
                                                         name: MaxFocalLength
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0017:MaxFocalLength/Entry+Short'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0017:MaxFocalLength/Entry+Short'
                                                             class: ExifEye\core\Entry\Core\Short
                                                             valid: true
                                                             format: Short
@@ -1018,13 +1018,13 @@ blocks:
                                                             clear_value: 'i:662;'
                                                             text: 662
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0018:MinFocalLength'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0018:MinFocalLength'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 24
                                                         name: MinFocalLength
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0018:MinFocalLength/Entry+Short'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0018:MinFocalLength/Entry+Short'
                                                             class: ExifEye\core\Entry\Core\Short
                                                             valid: true
                                                             format: Short
@@ -1033,13 +1033,13 @@ blocks:
                                                             clear_value: 'i:186;'
                                                             text: 186
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0019:FocalUnits'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0019:FocalUnits'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 25
                                                         name: FocalUnits
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0019:FocalUnits/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0019:FocalUnits/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1048,13 +1048,13 @@ blocks:
                                                             clear_value: 'i:32;'
                                                             text: 32
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x001a:MaxAperture'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x001a:MaxAperture'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 26
                                                         name: MaxAperture
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x001a:MaxAperture/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x001a:MaxAperture/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1063,13 +1063,13 @@ blocks:
                                                             clear_value: 'i:157;'
                                                             text: 157
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x001b:MinAperture'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x001b:MinAperture'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 27
                                                         name: MinAperture
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x001b:MinAperture/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x001b:MinAperture/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1078,13 +1078,13 @@ blocks:
                                                             clear_value: 'i:192;'
                                                             text: 192
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x001c:FlashActivity'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x001c:FlashActivity'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 28
                                                         name: FlashActivity
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x001c:FlashActivity/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x001c:FlashActivity/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1093,13 +1093,13 @@ blocks:
                                                             clear_value: 'i:-1;'
                                                             text: -1
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x001d:FlashDetails'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x001d:FlashDetails'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 29
                                                         name: FlashDetails
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x001d:FlashDetails/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x001d:FlashDetails/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1108,13 +1108,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 0
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x001e'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x001e'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 30
                                                         name: null
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x001e/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x001e/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1123,13 +1123,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 0
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x001f'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x001f'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 31
                                                         name: null
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x001f/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x001f/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1138,13 +1138,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 0
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0020:FocusContinuous'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0020:FocusContinuous'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 32
                                                         name: FocusContinuous
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0020:FocusContinuous/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0020:FocusContinuous/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1153,13 +1153,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: Single
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0021:AESetting'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0021:AESetting'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 33
                                                         name: AESetting
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0021:AESetting/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0021:AESetting/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1168,13 +1168,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 'Normal AE'
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0022:ImageStabilization'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0022:ImageStabilization'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 34
                                                         name: ImageStabilization
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0022:ImageStabilization/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0022:ImageStabilization/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1183,13 +1183,13 @@ blocks:
                                                             clear_value: 'i:-1;'
                                                             text: -1
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0023:DisplayAperture'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0023:DisplayAperture'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 35
                                                         name: DisplayAperture
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0023:DisplayAperture/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0023:DisplayAperture/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1198,13 +1198,13 @@ blocks:
                                                             clear_value: 'i:53;'
                                                             text: 53
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0024:ZoomSourceWidth'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0024:ZoomSourceWidth'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 36
                                                         name: ZoomSourceWidth
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0024:ZoomSourceWidth/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0024:ZoomSourceWidth/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1213,13 +1213,13 @@ blocks:
                                                             clear_value: 'i:2592;'
                                                             text: 2592
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0025:ZoomTargetWidth'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0025:ZoomTargetWidth'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 37
                                                         name: ZoomTargetWidth
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0025:ZoomTargetWidth/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0025:ZoomTargetWidth/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1228,13 +1228,13 @@ blocks:
                                                             clear_value: 'i:2592;'
                                                             text: 2592
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0026'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0026'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 38
                                                         name: null
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0026/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0026/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1243,13 +1243,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 0
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0027:SpotMeteringMode'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0027:SpotMeteringMode'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 39
                                                         name: SpotMeteringMode
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0027:SpotMeteringMode/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0027:SpotMeteringMode/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1258,13 +1258,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: Center
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0028:PhotoEffect'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0028:PhotoEffect'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 40
                                                         name: PhotoEffect
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0028:PhotoEffect/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0028:PhotoEffect/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1273,13 +1273,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 'Off'
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0029:ManualFlashOutput'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0029:ManualFlashOutput'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 41
                                                         name: ManualFlashOutput
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0029:ManualFlashOutput/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0029:ManualFlashOutput/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1288,13 +1288,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: n/a
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x002a:ColorTone'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x002a:ColorTone'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 42
                                                         name: ColorTone
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x002a:ColorTone/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x002a:ColorTone/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1303,13 +1303,13 @@ blocks:
                                                             clear_value: 'i:32767;'
                                                             text: 32767
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x002b'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x002b'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 43
                                                         name: null
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x002b/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x002b/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1318,13 +1318,13 @@ blocks:
                                                             clear_value: 'i:32767;'
                                                             text: 32767
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x002c'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x002c'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 44
                                                         name: null
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x002c/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x002c/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1333,13 +1333,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 0
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x002d'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x002d'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 45
                                                         name: null
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x002d/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x002d/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1348,13 +1348,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 0
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x002e:SRAWQuality'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x002e:SRAWQuality'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 46
                                                         name: SRAWQuality
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x002e:SRAWQuality/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x002e:SRAWQuality/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1363,7 +1363,7 @@ blocks:
                                                             clear_value: 'i:2;'
                                                             text: 'sRAW2 (sRAW)'
                                         -
-                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation'
+                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation'
                                             class: ExifEye\core\Block\IfdIndexShort
                                             id: 8
                                             name: CanonShotInformation
@@ -1371,13 +1371,13 @@ blocks:
                                             blocks:
                                                 tag:
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0001:AutoISO'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0001:AutoISO'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 1
                                                         name: AutoISO
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0001:AutoISO/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0001:AutoISO/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1386,13 +1386,13 @@ blocks:
                                                             clear_value: 'i:32;'
                                                             text: 32
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0002:BaseISO'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0002:BaseISO'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 2
                                                         name: BaseISO
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0002:BaseISO/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0002:BaseISO/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1401,13 +1401,13 @@ blocks:
                                                             clear_value: 'i:128;'
                                                             text: 128
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0003:MeasuredEV'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0003:MeasuredEV'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 3
                                                         name: MeasuredEV
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0003:MeasuredEV/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0003:MeasuredEV/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1416,13 +1416,13 @@ blocks:
                                                             clear_value: 'i:54;'
                                                             text: 54
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0004:TargetAperture'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0004:TargetAperture'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 4
                                                         name: TargetAperture
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0004:TargetAperture/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0004:TargetAperture/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1431,13 +1431,13 @@ blocks:
                                                             clear_value: 'i:154;'
                                                             text: 154
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0005:TargetShutterSpeed'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0005:TargetShutterSpeed'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 5
                                                         name: TargetShutterSpeed
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0005:TargetShutterSpeed/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0005:TargetShutterSpeed/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1446,13 +1446,13 @@ blocks:
                                                             clear_value: 'i:96;'
                                                             text: 96
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0006:ExposureCompensation'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0006:ExposureCompensation'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 6
                                                         name: ExposureCompensation
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0006:ExposureCompensation/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0006:ExposureCompensation/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1461,13 +1461,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 0
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0007:WhiteBalanceSetting'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0007:WhiteBalanceSetting'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 7
                                                         name: WhiteBalanceSetting
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0007:WhiteBalanceSetting/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0007:WhiteBalanceSetting/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1476,13 +1476,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: Auto
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0008:SlowShutter'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0008:SlowShutter'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 8
                                                         name: SlowShutter
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0008:SlowShutter/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0008:SlowShutter/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1491,13 +1491,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 'Off'
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0009:SequenceNumber'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0009:SequenceNumber'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 9
                                                         name: SequenceNumber
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0009:SequenceNumber/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0009:SequenceNumber/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1506,13 +1506,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 0
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x000a:OpticalZoomCode'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x000a:OpticalZoomCode'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 10
                                                         name: OpticalZoomCode
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x000a:OpticalZoomCode/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x000a:OpticalZoomCode/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1521,13 +1521,13 @@ blocks:
                                                             clear_value: 'i:8;'
                                                             text: 8
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x000b'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x000b'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 11
                                                         name: null
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x000b/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x000b/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1536,13 +1536,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 0
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x000c:CameraTemperature'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x000c:CameraTemperature'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 12
                                                         name: CameraTemperature
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x000c:CameraTemperature/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x000c:CameraTemperature/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1551,13 +1551,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 0
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x000d:FlashGuideNumber'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x000d:FlashGuideNumber'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 13
                                                         name: FlashGuideNumber
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x000d:FlashGuideNumber/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x000d:FlashGuideNumber/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1566,13 +1566,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 0
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x000e:AFPointsInFocus'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x000e:AFPointsInFocus'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 14
                                                         name: AFPointsInFocus
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x000e:AFPointsInFocus/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x000e:AFPointsInFocus/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1581,13 +1581,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 0
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x000f:FlashExposureComp'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x000f:FlashExposureComp'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 15
                                                         name: FlashExposureComp
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x000f:FlashExposureComp/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x000f:FlashExposureComp/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1596,13 +1596,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 0
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0010:AutoExposureBracketing'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0010:AutoExposureBracketing'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 16
                                                         name: AutoExposureBracketing
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0010:AutoExposureBracketing/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0010:AutoExposureBracketing/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1611,13 +1611,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 'Off'
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0011:AEBBracketValue'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0011:AEBBracketValue'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 17
                                                         name: AEBBracketValue
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0011:AEBBracketValue/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0011:AEBBracketValue/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1626,13 +1626,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 0
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0012:ControlMode'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0012:ControlMode'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 18
                                                         name: ControlMode
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0012:ControlMode/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0012:ControlMode/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1641,13 +1641,13 @@ blocks:
                                                             clear_value: 'i:1;'
                                                             text: 'Camera Local Control'
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0013:FocusDistanceUpper'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0013:FocusDistanceUpper'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 19
                                                         name: FocusDistanceUpper
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0013:FocusDistanceUpper/Entry+Short'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0013:FocusDistanceUpper/Entry+Short'
                                                             class: ExifEye\core\Entry\Core\Short
                                                             valid: true
                                                             format: Short
@@ -1656,13 +1656,13 @@ blocks:
                                                             clear_value: 'i:106;'
                                                             text: 106
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0014:FocusDistanceLower'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0014:FocusDistanceLower'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 20
                                                         name: FocusDistanceLower
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0014:FocusDistanceLower/Entry+Short'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0014:FocusDistanceLower/Entry+Short'
                                                             class: ExifEye\core\Entry\Core\Short
                                                             valid: true
                                                             format: Short
@@ -1671,13 +1671,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 0
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0015:FNumber'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0015:FNumber'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 21
                                                         name: FNumber
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0015:FNumber/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0015:FNumber/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1686,13 +1686,13 @@ blocks:
                                                             clear_value: 'i:157;'
                                                             text: 157
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0016:ExposureTime'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0016:ExposureTime'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 22
                                                         name: ExposureTime
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0016:ExposureTime/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0016:ExposureTime/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1701,13 +1701,13 @@ blocks:
                                                             clear_value: 'i:96;'
                                                             text: 96
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0017:MeasuredEV2'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0017:MeasuredEV2'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 23
                                                         name: MeasuredEV2
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0017:MeasuredEV2/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0017:MeasuredEV2/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1716,13 +1716,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 0
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0018:BulbDuration'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0018:BulbDuration'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 24
                                                         name: BulbDuration
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0018:BulbDuration/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0018:BulbDuration/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1731,13 +1731,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 0
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0019'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0019'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 25
                                                         name: null
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0019/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0019/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1746,13 +1746,13 @@ blocks:
                                                             clear_value: 'i:1;'
                                                             text: 1
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x001a:CameraType'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x001a:CameraType'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 26
                                                         name: CameraType
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x001a:CameraType/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x001a:CameraType/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1761,13 +1761,13 @@ blocks:
                                                             clear_value: 'i:250;'
                                                             text: Compact
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x001b:AutoRotate'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x001b:AutoRotate'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 27
                                                         name: AutoRotate
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x001b:AutoRotate/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x001b:AutoRotate/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1776,13 +1776,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: None
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x001c:NDFilter'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x001c:NDFilter'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 28
                                                         name: NDFilter
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x001c:NDFilter/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x001c:NDFilter/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1791,13 +1791,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 'Off'
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x001d:SelfTimer2'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x001d:SelfTimer2'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 29
                                                         name: SelfTimer2
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x001d:SelfTimer2/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x001d:SelfTimer2/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1806,13 +1806,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 0
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x001e'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x001e'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 30
                                                         name: null
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x001e/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x001e/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1821,13 +1821,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 0
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x001f'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x001f'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 31
                                                         name: null
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x001f/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x001f/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1836,13 +1836,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 0
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0020'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0020'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 32
                                                         name: null
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0020/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0020/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1851,13 +1851,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 0
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0021:FlashOutput'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0021:FlashOutput'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 33
                                                         name: FlashOutput
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0021:FlashOutput/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0021:FlashOutput/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -1866,13 +1866,13 @@ blocks:
                                                             clear_value: 'i:0;'
                                                             text: 0
                                                     -
-                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0022'
+                                                        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0022'
                                                         class: ExifEye\core\Block\Tag
                                                         id: 34
                                                         name: null
                                                         valid: true
                                                         Entry:
-                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0022/Entry+SignedShort'
+                                                            path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0022/Entry+SignedShort'
                                                             class: ExifEye\core\Entry\Core\SignedShort
                                                             valid: true
                                                             format: SignedShort
@@ -2224,52 +2224,52 @@ errors: {  }
 warnings: {  }
 notices:
     -
-        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0006'
+        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0006'
         message: 'No tag info available; Format SignedShort, Components 1'
     -
-        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0008'
+        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0008'
         message: 'No tag info available; Format SignedShort, Components 1'
     -
-        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0015'
+        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0015'
         message: 'No tag info available; Format SignedShort, Components 1'
     -
-        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x001e'
+        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x001e'
         message: 'No tag info available; Format SignedShort, Components 1'
     -
-        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x001f'
+        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x001f'
         message: 'No tag info available; Format SignedShort, Components 1'
     -
-        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x0026'
+        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x0026'
         message: 'No tag info available; Format SignedShort, Components 1'
     -
-        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x002b'
+        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x002b'
         message: 'No tag info available; Format SignedShort, Components 1'
     -
-        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x002c'
+        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x002c'
         message: 'No tag info available; Format SignedShort, Components 1'
     -
-        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonCameraSettings/tag:0x002d'
+        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:0x002d'
         message: 'No tag info available; Format SignedShort, Components 1'
     -
         path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/tag:0x0003'
         message: 'No tag info available; Format Short, Components 4'
     -
-        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x000b'
+        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x000b'
         message: 'No tag info available; Format SignedShort, Components 1'
     -
-        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0019'
+        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0019'
         message: 'No tag info available; Format SignedShort, Components 1'
     -
-        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x001e'
+        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x001e'
         message: 'No tag info available; Format SignedShort, Components 1'
     -
-        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x001f'
+        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x001f'
         message: 'No tag info available; Format SignedShort, Components 1'
     -
-        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0020'
+        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0020'
         message: 'No tag info available; Format SignedShort, Components 1'
     -
-        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/IfdIndexShort:CanonShotInformation/tag:0x0022'
+        path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:0x0022'
         message: 'No tag info available; Format SignedShort, Components 1'
     -
         path: 'Tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/tag:0x0000'
