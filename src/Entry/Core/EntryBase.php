@@ -26,7 +26,7 @@ abstract class EntryBase extends ElementBase implements EntryInterface
     /**
      * {@inheritdoc}
      */
-    protected $type = 'Entry';
+    protected $type = 'entry';
 
     /**
      * The format of this entry.
