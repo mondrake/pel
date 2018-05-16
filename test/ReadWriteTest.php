@@ -72,15 +72,19 @@ class ReadWriteTest extends ExifEyeTestCaseBase
 
         foreach ($entries as $entry_name => $entry) {
 dump($entry_name . ' ' . $entry[0]);
-            $ifdTag = $ifd->first('tag[@id="' . (int) $entry[0] . '"]');
+            $x_expr = 'tag[@id="' . (int) $entry[0] . '"]';
+            $ifdTag = $ifd->first($x_expr);
 if ($entry[0] == 62209) {
-$str = "\n\n<<< DOM >>>\n\n";
+/*$str = "\n\n<<< DOM >>>\n\n";
 $formatter = new \PrettyXml\Formatter();
 $formatter->setIndentSize(1);
 $str .= $formatter->format($ifd->DOMNode->ownerDocument->saveXML());
 //$str .= $ifd->DOMNode->ownerDocument->saveXML();
 $str .= "\n\n<<< DOM >>>\n\n";
-dump($str);
+dump($str);*/
+$x_path = new \DOMXPath($ifd->DOMNode->ownerDocument);
+dump($x_path->query($x_expr, $ifd->DOMNode);
+dump($x_path->query('tag', $ifd->DOMNode);
 }
             $ifdEntry = $ifdTag->getEntry();
             if ($ifdEntry->getFormat() == Format::ASCII) {
