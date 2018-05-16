@@ -73,7 +73,7 @@ class ReadWriteTest extends ExifEyeTestCaseBase
 
         foreach ($entries as $entry_name => $entry) {
 //dump($entry_name . ' ' . $entry[0]);
-            $x_expr = 'tag[@id="' . (int) $entry[0] . '"]';
+            $x_expr = 'tag[@id="' . (int) $entry[0] . '"]/entry';
 //            $ifdTag = $ifd->first($x_expr);
 //if ($entry[0] == 62209) {
 /*$str = "\n\n<<< DOM >>>\n\n";
@@ -88,13 +88,13 @@ dump($x_path->query($x_expr, $ifd->DOMNode)->item(0));
 dump($x_path->query('tag', $ifd->DOMNode));
 }*/
             $x_path = new \DOMXPath($ifd->DOMNode->ownerDocument);
-            $ifdTagNode = $x_path->query($x_expr, $ifd->DOMNode)->item(0);
-if ($entry[0] == 62209) dump($ifdTagNode);
-            $ifdTag = $ifdTagNode->getExifEyeElement();
-if ($entry[0] == 62209) dump($ifdTag);
-            $ifdEntry = $ifdTag->getEntry();
-            if ($ifdEntry->getFormat() == Format::ASCII) {
-                $ifdValue = $ifdTag->getEntry()->getValue();
+            $tagEntryNode = $x_path->query($x_expr, $ifd->DOMNode)->item(0);
+if ($entry[0] == 62209) dump($tagEntryNode);
+            //$ifdTag = $ifdTagNode->getExifEyeElement();
+            $tagEntry = $tagEntryNode->getExifEyeElement();
+if ($entry[0] == 62209) dump($tagEntry);
+            if ($tagEntry->getFormat() == Format::ASCII) {
+                $ifdValue = $tagEntry->getValue();
                 $entryValue = $entry[3];
                 // cut off after the first nul byte
                 // since $ifdValue comes from parsed ifd,
