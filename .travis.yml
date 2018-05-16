@@ -38,6 +38,8 @@ before_install:
         mkdir -p $EXIFEYE_STAGING_DIR
         cp -r $HOME/build/mondrake/pel $EXIFEYE_STAGING_DIR
         cd $EXIFEYE_STAGING_DIR
+        ls
+        ls ..
         composer install --no-interaction --no-progress --no-suggest
       fi
 
