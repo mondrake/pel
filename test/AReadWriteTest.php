@@ -18,7 +18,7 @@ use ExifEye\core\Block\Ifd;
 use ExifEye\core\Format;
 use ExifEye\core\Spec;
 
-class ReadWriteTest extends ExifEyeTestCaseBase
+class AReadWriteTest extends ExifEyeTestCaseBase
 {
     /**
      * {@inheritdoc}
@@ -34,6 +34,7 @@ class ReadWriteTest extends ExifEyeTestCaseBase
      */
     public function tearDown()
     {
+        parent::tearDown();
         unlink(dirname(__FILE__) . '/test-output.jpg');
     }
 
