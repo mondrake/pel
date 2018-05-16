@@ -73,7 +73,7 @@ class ReadWriteTest extends ExifEyeTestCaseBase
         foreach ($entries as $entry_name => $entry) {
 dump($entry_name . ' ' . $entry[0]);
             $ifdTag = $ifd->first("tag[@id='" . $entry[0] . "']");
-if ($entry[0] = 62209) {
+if ($entry[0] == 62209) {
 $str = "\n\n<<< DOM >>>\n\n";
 $formatter = new \PrettyXml\Formatter();
 $formatter->setIndentSize(1);
