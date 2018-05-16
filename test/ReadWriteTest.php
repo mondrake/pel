@@ -86,7 +86,7 @@ dump($str);*/
 dump($x_path->query($x_expr, $ifd->DOMNode)->item(0));
 dump($x_path->query('tag', $ifd->DOMNode));
 }*/
-            x_path = new \DOMXPath($ifd->DOMNode->ownerDocument);
+            $x_path = new \DOMXPath($ifd->DOMNode->ownerDocument);
             $ifdTag = $x_path->query($x_expr, $ifd->DOMNode)->item(0);
             $ifdEntry = $ifdTag->getEntry();
             if ($ifdEntry->getFormat() == Format::ASCII) {
