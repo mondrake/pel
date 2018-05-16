@@ -71,7 +71,7 @@ class ReadWriteTest extends ExifEyeTestCaseBase
         $this->assertEquals($ifd->getAttribute('id'), Spec::getIfdIdByType('IFD0'));
 
 $str = "\n\n<<< DOM >>>\n\n";
-$formatter = new PrettyXml\Formatter();
+$formatter = new \PrettyXml\Formatter();
 $formatter->setIndentSize(1);
 $str .= $formatter->format($ifd->DOMNode->ownerDocument->saveXML());
 //$str .= $ifd->DOMNode->ownerDocument->saveXML();
