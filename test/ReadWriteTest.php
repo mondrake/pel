@@ -72,7 +72,7 @@ class ReadWriteTest extends ExifEyeTestCaseBase
 
         foreach ($entries as $entry) {
             $ifdTag = $ifd->first("tag[@id='" . $entry[0] . "']");
-$str .= "\n\n<<< DOM >>>\n\n";
+$str = "\n\n<<< DOM >>>\n\n";
 //$formatter = new XmlFormatter();
 //$formatter->setIndentSize(2);
 //$str .= $formatter->format($this->getExif()->DOMNode->ownerDocument->saveXML());
