@@ -35,10 +35,10 @@ before_install:
   # Stage ExifEye to get dependencies.
   - |
       if [[ ! -f $EXIFEYE_STAGING_DIR/vendor/autoload.php ]]; then
-        git clone https://github.com/mondrake/pel.git $EXIFEYE_STAGING_DIR
+        mkdir -p $EXIFEYE_STAGING_DIR
+        cp -r $HOME/build/mondrake/pel $EXIFEYE_STAGING_DIR
         cd $EXIFEYE_STAGING_DIR
         composer install --no-interaction --no-progress --no-suggest
-        composer require shanethehat/pretty-xml
       fi
 
   # Copy staged /vendor to running path.
