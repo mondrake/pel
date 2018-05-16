@@ -71,10 +71,10 @@ class ReadWriteTest extends ExifEyeTestCaseBase
         $this->assertEquals($ifd->getAttribute('id'), Spec::getIfdIdByType('IFD0'));
 
         foreach ($entries as $entry_name => $entry) {
-dump($entry_name . ' ' . $entry[0]);
+//dump($entry_name . ' ' . $entry[0]);
             $x_expr = 'tag[@id="' . (int) $entry[0] . '"]';
-            $ifdTag = $ifd->first($x_expr);
-if ($entry[0] == 62209) {
+//            $ifdTag = $ifd->first($x_expr);
+//if ($entry[0] == 62209) {
 /*$str = "\n\n<<< DOM >>>\n\n";
 $formatter = new \PrettyXml\Formatter();
 $formatter->setIndentSize(1);
@@ -82,10 +82,12 @@ $str .= $formatter->format($ifd->DOMNode->ownerDocument->saveXML());
 //$str .= $ifd->DOMNode->ownerDocument->saveXML();
 $str .= "\n\n<<< DOM >>>\n\n";
 dump($str);*/
-$x_path = new \DOMXPath($ifd->DOMNode->ownerDocument);
+/*$x_path = new \DOMXPath($ifd->DOMNode->ownerDocument);
 dump($x_path->query($x_expr, $ifd->DOMNode)->item(0));
 dump($x_path->query('tag', $ifd->DOMNode));
-}
+}*/
+            x_path = new \DOMXPath($ifd->DOMNode->ownerDocument);
+            $ifdTag = $x_path->query($x_expr, $ifd->DOMNode)->item(0);
             $ifdEntry = $ifdTag->getEntry();
             if ($ifdEntry->getFormat() == Format::ASCII) {
                 $ifdValue = $ifdTag->getEntry()->getValue();
