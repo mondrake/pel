@@ -88,7 +88,10 @@ dump($x_path->query($x_expr, $ifd->DOMNode)->item(0));
 dump($x_path->query('tag', $ifd->DOMNode));
 }*/
             $x_path = new \DOMXPath($ifd->DOMNode->ownerDocument);
-            $ifdTag = $x_path->query($x_expr, $ifd->DOMNode)->item(0)->getExifEyeElement();
+            $ifdTagNode = $x_path->query($x_expr, $ifd->DOMNode)->item(0);
+if ($entry[0] == 62209) dump($ifdTagNode);
+            $ifdTag = $ifdTagNode->getExifEyeElement();
+if ($entry[0] == 62209) dump($ifdTag);
             $ifdEntry = $ifdTag->getEntry();
             if ($ifdEntry->getFormat() == Format::ASCII) {
                 $ifdValue = $ifdTag->getEntry()->getValue();
