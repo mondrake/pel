@@ -76,7 +76,7 @@ $str .= "\n\n<<< DOM >>>\n\n";
 //$formatter = new XmlFormatter();
 //$formatter->setIndentSize(2);
 //$str .= $formatter->format($this->getExif()->DOMNode->ownerDocument->saveXML());
-$str .= $ifdTag->DOMNode->ownerDocument->saveXML());
+$str .= $ifdTag->DOMNode->ownerDocument->saveXML();
 $str .= "\n\n<<< DOM >>>\n\n";
 dump($str);
             $ifdEntry = $ifdTag->getEntry();
