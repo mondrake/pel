@@ -70,15 +70,15 @@ class ReadWriteTest extends ExifEyeTestCaseBase
         $this->assertInstanceOf('ExifEye\core\Block\Ifd', $ifd);
         $this->assertEquals($ifd->getAttribute('id'), Spec::getIfdIdByType('IFD0'));
 
-$str = "\n\n<<< DOM >>>\n\n";
+/*$str = "\n\n<<< DOM >>>\n\n";
 $formatter = new \PrettyXml\Formatter();
 $formatter->setIndentSize(1);
 $str .= $formatter->format($ifd->DOMNode->ownerDocument->saveXML());
 //$str .= $ifd->DOMNode->ownerDocument->saveXML();
 $str .= "\n\n<<< DOM >>>\n\n";
-dump($str);
+dump($str);*/
         foreach ($entries as $entry) {
-dump($entry[0]);
+//dump($entry[0]);
             $ifdTag = $ifd->first("tag[@id='" . $entry[0] . "']");
             $ifdEntry = $ifdTag->getEntry();
             if ($ifdEntry->getFormat() == Format::ASCII) {
