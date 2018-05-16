@@ -78,6 +78,7 @@ $str .= "\n\n<<< DOM >>>\n\n";
 //$str .= $formatter->format($this->getExif()->DOMNode->ownerDocument->saveXML());
 $str .= $ifdTag->DOMNode->ownerDocument->saveXML());
 $str .= "\n\n<<< DOM >>>\n\n";
+dump($str);
             $ifdEntry = $ifdTag->getEntry();
             if ($ifdEntry->getFormat() == Format::ASCII) {
                 $ifdValue = $ifdTag->getEntry()->getValue();
