@@ -118,8 +118,8 @@ class Thumbnail extends BlockBase
     public function __toString()
     {
         $str = ExifEye::fmt(">>>> Thumbnail\n");
-        foreach ($this->query('*') as $sub_block) {
-            $str .= $sub_block->__toString();
+        foreach ($this->query('entry') as $sub_block) {
+            $str .= $sub_block->toString();
         }
         return $str;
     }
