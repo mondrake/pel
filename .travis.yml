@@ -37,15 +37,13 @@ before_install:
       if [[ ! -f $EXIFEYE_STAGING_DIR/vendor/autoload.php ]]; then
         mkdir -p $EXIFEYE_STAGING_DIR
         cp -r $HOME/build/mondrake/pel $EXIFEYE_STAGING_DIR
-        cd $EXIFEYE_STAGING_DIR
-        ls
-        ls ..
+        cd $EXIFEYE_STAGING_DIR/pel
         composer install --no-interaction --no-progress --no-suggest
       fi
 
   # Copy staged /vendor to running path.
   - mkdir -p $HOME/build/mondrake/pel/vendor
-  - cp -r $EXIFEYE_STAGING_DIR/vendor $HOME/build/mondrake/pel
+  - cp -r $EXIFEYE_STAGING_DIR/pel/vendor $HOME/build/mondrake/pel
   - cd $HOME/build/mondrake/pel
 
 install:
