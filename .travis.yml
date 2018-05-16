@@ -57,8 +57,8 @@ script:
   - php bin/exifeye compile
   #- php bin/exifeye dump test/imagetests/
   - ./vendor/bin/phpcs --runtime-set ignore_warnings_on_exit 1
-  #- ./vendor/bin/phpunit --coverage-clover build/logs/clover.xml ./test
-  - ./vendor/bin/phpunit test/ReadWriteTest.php
+  - ./vendor/bin/phpunit --coverage-clover build/logs/clover.xml ./test
+  #- ./vendor/bin/phpunit test/ReadWriteTest.php
   - php examples/dump-image.php -d  test/broken_images/gh-10-a.jpg
   #- php examples/dump-image.php -d  test/broken_images/gh-10-b.jpg
   #- php examples/dump-image.php -d  test/broken_images/gh-11.jpg
