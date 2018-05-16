@@ -77,10 +77,10 @@ $str .= $formatter->format($ifd->DOMNode->ownerDocument->saveXML());
 //$str .= $ifd->DOMNode->ownerDocument->saveXML();
 $str .= "\n\n<<< DOM >>>\n\n";
 dump($str);*/
-dump($ifd);
         foreach ($entries as $entry_name => $entry) {
 dump($entry_name . ' ' . $entry[0]);
             $ifdTag = $ifd->first("tag[@id='" . $entry[0] . "']");
+dump($ifdTag);
             $ifdEntry = $ifdTag->getEntry();
             if ($ifdEntry->getFormat() == Format::ASCII) {
                 $ifdValue = $ifdTag->getEntry()->getValue();
