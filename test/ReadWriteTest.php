@@ -83,8 +83,8 @@ $str .= $formatter->format($ifd->DOMNode->ownerDocument->saveXML());
 $str .= "\n\n<<< DOM >>>\n\n";
 dump($str);*/
 $x_path = new \DOMXPath($ifd->DOMNode->ownerDocument);
-dump($x_path->query($x_expr, $ifd->DOMNode);
-dump($x_path->query('tag', $ifd->DOMNode);
+dump($x_path->query($x_expr, $ifd->DOMNode));
+dump($x_path->query('tag', $ifd->DOMNode));
 }
             $ifdEntry = $ifdTag->getEntry();
             if ($ifdEntry->getFormat() == Format::ASCII) {
