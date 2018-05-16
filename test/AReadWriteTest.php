@@ -81,10 +81,7 @@ class AReadWriteTest extends ExifEyeTestCaseBase
         $this->assertEquals($ifd->getAttribute('id'), Spec::getIfdIdByType('IFD0'));
 
         foreach ($entries as $entry_name => $entry) {
-            $x_expr = 'tag[@id="' . (int) $entry[0] . '"]/entry';
-            $x_path = new \DOMXPath($ifd->DOMNode->ownerDocument);
-            $tagEntryNode = $x_path->query($x_expr, $ifd->DOMNode)->item(0);
-            $tagEntry = $tagEntryNode->getExifEyeElement();
+            $tagEntry = $ifd->first('tag[@id="' . (int) $entry[0] . '"]/entry');
             if ($tagEntry->getFormat() == Format::ASCII) {
                 $ifdValue = $tagEntry->getValue();
                 $entryValue = $entry[3];
