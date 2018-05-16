@@ -12,7 +12,6 @@ use ExifEye\core\JpegContent;
 use ExifEye\core\JpegInvalidMarkerException;
 use ExifEye\core\JpegMarker;
 use ExifEye\core\Utility\ConvertBytes;
-use PrettyXml\Formatter as XmlFormatter;
 
 /**
  * Class for handling JPEG data.
@@ -623,12 +622,6 @@ class Jpeg
                 $str .= ExifEye::tra("  Content    : Unknown\n");
             }
         }
-
-        $str .= "\n\n<<< DOM >>>\n\n";
-        $formatter = new XmlFormatter();
-        $formatter->setIndentSize(2);
-        $str .= $formatter->format($this->getExif()->DOMNode->ownerDocument->saveXML());
-        $str .= "\n\n<<< DOM >>>\n\n";
 
         return $str;
     }
