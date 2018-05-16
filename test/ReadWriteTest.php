@@ -52,14 +52,15 @@ class ReadWriteTest extends ExifEyeTestCaseBase
         }
         $this->assertNotNull($tiff->first("ifd[@name='IFD0']"));
 
+        $this->assertFalse(file_exists('test-output.jpg'));
         $jpeg->saveFile('test-output.jpg');
         $this->assertTrue(file_exists('test-output.jpg'));
         $this->assertTrue(filesize('test-output.jpg') > 0);
 
         // Now read the file and see if the entries are still there.
-        $jpeg = new Jpeg('test-output.jpg');
+        $r_jpeg = new Jpeg('test-output.jpg');
 
-        $exif = $jpeg->getExif();
+        $exif = $r_jpeg->getExif();
         $this->assertInstanceOf('ExifEye\core\Block\Exif', $exif);
 
         $tiff = $exif->first("tiff");
