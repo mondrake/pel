@@ -39,7 +39,7 @@ class CameraTest extends ExifEyeTestCaseBase
         $exif = $jpeg->getExif();
 
         if (isset($test['elements'])) {
-            $this->assertBlock($test['elements'], $exif);
+            $this->assertElement($test['elements'], $exif);
         }
 
         $handler = ExifEye::logger()->getHandlers()[0]; // xx
@@ -73,16 +73,16 @@ class CameraTest extends ExifEyeTestCaseBase
         }
     }
 
-    protected function assertBlock($expected, $block)
+    protected function assertElement($expected, $element)
     {
-        $this->assertInstanceOf($expected['class'], $block, $block->getContextPath());
+        $this->assertInstanceOf($expected['class'], $element, $expected['path']);
 
         // Check entry.
-        if ($block instanceof EntryInterface) {
-            $this->assertEquals($expected['components'], $block->getComponents(), $block->getContextPath());
-            $this->assertEquals($expected['format'], Format::getName($block->getFormat()), $block->getContextPath());
-            $this->assertEquals(unserialize(base64_decode($expected['value'])), $block->getValue(), $block->getContextPath());
-            $this->assertEquals($expected['text'], $block->toString(), $block->getContextPath());
+        if ($element instanceof EntryInterface) {
+            $this->assertEquals($expected['components'], $element->getComponents(), $element->getContextPath());
+            $this->assertEquals($expected['format'], Format::getName($element->getFormat()), $element->getContextPath());
+            $this->assertEquals(unserialize(base64_decode($expected['value'])), $element->getValue(), $element->getContextPath());
+            $this->assertEquals($expected['text'], $element->toString(), $element->getContextPath());
         }
 
         // Recursively check sub-blocks.
@@ -90,7 +90,7 @@ class CameraTest extends ExifEyeTestCaseBase
         if (isset($expected['elements'])) {
             foreach ($expected['elements'] as $type => $expected_type_elements) {
                 foreach ($expected_type_elements as $i => $expected_element) {
-                    $this->assertBlock($expected_element, $block->query($type)[$i]);
+                    $this->assertElement($expected_element, $element->query($type)[$i]);
                 }
             }
         }
