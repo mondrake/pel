@@ -30,6 +30,14 @@ class ReadWriteTest extends ExifEyeTestCaseBase
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function tearDown()
+    {
+        unlink(dirname(__FILE__) . '/test-output.jpg');
+    }
+
+    /**
      * @dataProvider writeEntryProvider
      */
     public function testWriteRead(array $entries)
@@ -52,13 +60,13 @@ class ReadWriteTest extends ExifEyeTestCaseBase
         }
         $this->assertNotNull($tiff->first("ifd[@name='IFD0']"));
 
-        $this->assertFalse(file_exists('test-output.jpg'));
-        $jpeg->saveFile('test-output.jpg');
-        $this->assertTrue(file_exists('test-output.jpg'));
-        $this->assertTrue(filesize('test-output.jpg') > 0);
+        $this->assertFalse(file_exists(dirname(__FILE__) . '/test-output.jpg'));
+        $jpeg->saveFile(dirname(__FILE__) . '/test-output.jpg');
+        $this->assertTrue(file_exists(dirname(__FILE__) . '/test-output.jpg'));
+        $this->assertTrue(filesize(dirname(__FILE__) . '/test-output.jpg') > 0);
 
         // Now read the file and see if the entries are still there.
-        $r_jpeg = new Jpeg('test-output.jpg');
+        $r_jpeg = new Jpeg(dirname(__FILE__) . '/test-output.jpg');
 
         $exif = $r_jpeg->getExif();
         $this->assertInstanceOf('ExifEye\core\Block\Exif', $exif);
@@ -106,11 +114,9 @@ if ($entry[0] == 62209) dump($tagEntry);
                 }
                 $this->assertEquals($ifdValue, $canonicalEntry);
             } else {
-                $this->assertEquals($ifdTag->getEntry()->getValue(), $entry[3]);
+                $this->assertEquals($tagEntry->getValue(), $entry[3]);
             }
         }
-
-        unlink('test-output.jpg');
     }
 
     public function writeEntryProvider()
