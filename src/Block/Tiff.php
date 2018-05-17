@@ -28,7 +28,7 @@ class Tiff extends BlockBase
     /**
      * Construct a new object for holding TIFF data.
      */
-    public function __construct($data, Exif $parent)
+    public function __construct($data, Exif $parent = null)
     {
         parent::__construct($parent);
 

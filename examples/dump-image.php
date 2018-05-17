@@ -101,8 +101,7 @@ if (Jpeg::isValid($data)) {
     $img->load($data);
     $root = $img->getExif();
 } else {
-    $img = new Tiff();
-    $img->loadFromData($data);
+    $img = new Tiff($data);
     if ($img->isValid()) {
         $root = $img;
     }
