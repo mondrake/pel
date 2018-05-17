@@ -88,5 +88,4 @@ script:
   #- php bin/exifeye dump test/broken_images/
 
 after_script:
-  - ls vendor/bin
-  - ./vendor/bin/coveralls -v build/logs/clover.xml
+  - if [ "$TRAVIS_PHP_VERSION" == "7.2" ]; then ./vendor/bin/php-coveralls -v --coverage_clover build/logs/clover.xml; fi
