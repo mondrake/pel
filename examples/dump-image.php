@@ -100,11 +100,15 @@ if (Jpeg::isValid($data)) {
     $img = new Jpeg();
     $img->load($data);
     $root = $img->getExif();
-} elseif (Tiff::xxisValid($data)) {
-    $img = new Tiff();
-    $img->load($data);
-    $root = $img;
 } else {
+    $img = new Tiff();
+    $img->loadFromData($data);
+    if ($img->isValid()) {
+        $root = $img;
+    }
+}
+
+if (!isset($root)) {
     print("Unrecognized image format! The first 16 bytes follow:\n");
     ConvertBytes::dump($data->getBytes(0, 16));
     exit(1);
