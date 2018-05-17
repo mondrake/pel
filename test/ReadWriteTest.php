@@ -36,6 +36,7 @@ class ReadWriteTest extends ExifEyeTestCaseBase
     {
         parent::tearDown();
         unlink(dirname(__FILE__) . '/test-output.jpg');
+        gc_collect_cycles();
     }
 
     /**
@@ -83,8 +84,6 @@ class ReadWriteTest extends ExifEyeTestCaseBase
         $this->assertInstanceOf('ExifEye\core\Block\Ifd', $ifd);
         $this->assertEquals($ifd->getAttribute('id'), Spec::getIfdIdByType('IFD0'));
 
-        $r_jpeg = $exif = $tiff = null;
-
         foreach ($entries as $entry_name => $entry) {
             $tagEntry = $ifd->first('tag[@id="' . (int) $entry[0] . '"]/entry');
             if ($tagEntry->getFormat() == Format::ASCII) {
@@ -103,6 +102,8 @@ class ReadWriteTest extends ExifEyeTestCaseBase
                 $this->assertEquals($tagEntry->getValue(), $entry[3]);
             }
         }
+
+        $r_jpeg = $exif = $tiff = $ifd = null;
     }
 
     public function writeEntryProvider()
