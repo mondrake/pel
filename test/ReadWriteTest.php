@@ -18,7 +18,7 @@ use ExifEye\core\Block\Ifd;
 use ExifEye\core\Format;
 use ExifEye\core\Spec;
 
-class AReadWriteTest extends ExifEyeTestCaseBase
+class ReadWriteTest extends ExifEyeTestCaseBase
 {
     /**
      * {@inheritdoc}
