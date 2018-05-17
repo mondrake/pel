@@ -143,6 +143,15 @@ tags:
         name: Artist
         title: Artist
         format: Ascii
+    0x013D:
+        name: Predictor
+        title: 'Predictor'
+        components: 1
+        format: Short
+        text:
+            mapping:
+                1: 'None'
+                2: 'Horizontal differencing'
     0x013E:
         name: WhitePoint
         title: 'White Point'
@@ -153,6 +162,22 @@ tags:
         title: 'Primary Chromaticities'
         components: 6
         format: Rational
+    0x0152:
+        name: ExtraSamples
+        title: 'Extra Samples'
+        components: 1
+        format: Short
+        text:
+            mapping:
+                0: 'Unspecified'
+                1: 'Associated Alpha'
+                2: 'Unassociated Alpha'
+    0x0153:
+        name: SampleFormat
+        title: 'Sample Format'
+        components: 4
+        format: Short
+        # xx add decode class
     0x0156:
         name: TransferRange
         title: 'Transfer Range'
@@ -206,6 +231,12 @@ tags:
         title: 'Reference Black/White'
         components: 6
         format: Rational
+    0x02bc:
+        name: ApplicationNotes
+        title: 'Application Notes'
+        format: Byte
+        class: ExifEye\core\Entry\IfdApplicationNotes
+        # xx add ifd for XMP tags
     0x4746:
         name: Rating
         title: 'Star Rating'
