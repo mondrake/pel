@@ -181,18 +181,6 @@ class Tiff extends BlockBase
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function __toString()
-    {
-        $str = ExifEye::fmt("Dumping TIFF data...\n");
-        foreach ($this->query("*") as $element) {
-            $str .= $element->__toString();
-        }
-        return $str;
-    }
-
-    /**
      * Check if data is valid TIFF data.
      *
      * This will read just enough data from the data window to determine

@@ -2,7 +2,6 @@
 
 namespace ExifEye\core\Block;
 
-use ExifEye\core\Block\Exception\TagException;
 use ExifEye\core\DataWindow;
 use ExifEye\core\Entry\Core\EntryInterface;
 use ExifEye\core\ExifEye;
@@ -74,17 +73,5 @@ class Tag extends BlockBase
         $this->debug("Text: {text}", [
             'text' => $entry->toString(),
         ]);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function __toString()
-    {
-        if (!$this->getAttribute('name')) {
-            return '';
-        }
-        $entry_title = Spec::getTagTitle($this->getParentElement()->getAttribute('id'), $this->getAttribute('id')) ?: '*** UNKNOWN ***';
-        return substr(str_pad($entry_title, 30, ' '), 0, 30) . ' = ' . $this->getEntry()->toString() . "\n";
     }
 }

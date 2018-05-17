@@ -524,22 +524,4 @@ class DataWindow
         /* All characters matches each other, return true. */
         return true;
     }
-
-    /**
-     * Return a string representation of the data window.
-     *
-     * @return string a description of the window with information about
-     *         the number of bytes accessible, the total number of bytes, and
-     *         the window start and stop.
-     */
-    public function __toString()
-    {
-        return ExifEye::fmt(
-            'DataWindow: %d bytes in [%d, %d] of %d bytes',
-            $this->size,
-            $this->start,
-            $this->start + $this->size,
-            strlen($this->data)
-        );
-    }
 }

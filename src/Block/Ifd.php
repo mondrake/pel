@@ -2,7 +2,6 @@
 
 namespace ExifEye\core\Block;
 
-use ExifEye\core\Block\Exception\IfdException;
 use ExifEye\core\Block\Tag;
 use ExifEye\core\DataWindow;
 use ExifEye\core\DataWindowOffsetException;
@@ -246,31 +245,5 @@ class Ifd extends BlockBase
         }
 
         return ['ifd_area' => $ifd_area, 'data_area' => $data_area];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function __toString()
-    {
-        $str = ExifEye::fmt(">>>> %s\n", $this->getAttribute('name'));
-
-        $sub_elements = $this->query('*');
-
-        // Dump all tags first.
-        foreach ($sub_elements as $element) {
-            if ($element->getType() === 'tag') {
-                $str .= $element->__toString();
-            }
-        }
-
-        // Then dump the rest sub-blocks.
-        foreach ($sub_elements as $element) {
-            if ($element->getType() !== 'tag') {
-                $str .= $element->__toString();
-            }
-        }
-
-        return $str;
     }
 }
