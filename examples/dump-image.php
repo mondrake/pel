@@ -37,7 +37,9 @@ use ExifEye\core\Utility\DumpLogFormatter;
 function dump_element(ElementInterface $element)
 {
     if ($element instanceof EntryInterface) {
-        print($element->toString());
+        $ifd_name = $element->getParentElement()->getParentElement()->getAttribute('name');
+        $tag_title = Spec::getTagTitle($element->getParentElement()->getParentElement()->getAttribute('id'), $element->getParentElement()->getAttribute('id')) ?: '*** UNKNOWN ***';
+        print substr(str_pad($ifd_name . '/' . $tag_title, 30, ' '), 0, 30) . ' = ' . $element->toString() . "\n";
     }
 
     foreach ($element->query('*') as $sub_element) {
