@@ -24,11 +24,8 @@
  * Boston, MA 02110-1301 USA
  */
 
-/* Make PEL speak the users language, if it is available. */
-setlocale(LC_ALL, '');
-
-require_once dirname(__FILE__) . '/../vendor/autoload.php';
-
+use ExifEye\core\ElementInterface;
+use ExifEye\core\Entry\Core\EntryInterface;
 use ExifEye\core\ExifEye;
 use ExifEye\core\DataWindow;
 use ExifEye\core\Utility\ConvertBytes;
@@ -36,6 +33,22 @@ use ExifEye\core\Block\Jpeg;
 use ExifEye\core\Block\Tiff;
 use Monolog\Handler\StreamHandler;
 use ExifEye\core\Utility\DumpLogFormatter;
+
+function dump_element(ElementInterface $element)
+{
+    if ($element instanceof EntryInterface) {
+        print($element->toString());
+    }
+
+    foreach ($element->query('*') as $sub_element) {
+        dump_element($sub_element);
+    }
+}
+
+/* Make PEL speak the users language, if it is available. */
+setlocale(LC_ALL, '');
+
+require_once dirname(__FILE__) . '/../vendor/autoload.php';
 
 $prog = array_shift($argv);
 $file = '';
@@ -79,7 +92,7 @@ ExifEye::logger()->pushHandler($log_handler);
 /* Load data from file */
 $data = new DataWindow(file_get_contents($file));
 
-/* Check data validity */
+/* Check data validity and load to object */
 if (Jpeg::isValid($data)) {
     $img = new Jpeg();
     $img->load($data);
@@ -94,6 +107,4 @@ if (Jpeg::isValid($data)) {
     exit(1);
 }
 
-/* Dump the information */
-$dump_array = $root->toDumpArray();
-dump($dump_array);
+dump_element($root);
