@@ -27,6 +27,7 @@
 use ExifEye\core\ElementInterface;
 use ExifEye\core\Entry\Core\EntryInterface;
 use ExifEye\core\ExifEye;
+use ExifEye\core\Spec;
 use ExifEye\core\DataWindow;
 use ExifEye\core\Utility\ConvertBytes;
 use ExifEye\core\Block\Jpeg;
