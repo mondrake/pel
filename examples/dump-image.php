@@ -82,18 +82,17 @@ $data = new DataWindow(file_get_contents($file));
 /* Check data validity */
 if (Jpeg::isValid($data)) {
     $img = new Jpeg();
+    $img->load($data);
     $root = $img->getExif();
 } elseif (Tiff::xxisValid($data)) {
     $img = new Tiff();
+    $img->load($data);
     $root = $img;
 } else {
     print("Unrecognized image format! The first 16 bytes follow:\n");
     ConvertBytes::dump($data->getBytes(0, 16));
     exit(1);
 }
-
-/* Load the data in the Image object. */
-$img->load($data);
 
 /* Dump the information */
 $dump_array = $root->toDumpArray();
