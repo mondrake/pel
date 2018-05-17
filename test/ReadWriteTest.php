@@ -66,6 +66,9 @@ class ReadWriteTest extends ExifEyeTestCaseBase
         $this->assertTrue(file_exists(dirname(__FILE__) . '/test-output.jpg'));
         $this->assertTrue(filesize(dirname(__FILE__) . '/test-output.jpg') > 0);
 
+        // Release the object loaded while reading from file.
+        $jpeg = null;
+
         // Now read the file and see if the entries are still there.
         $r_jpeg = new Jpeg(dirname(__FILE__) . '/test-output.jpg');
 
