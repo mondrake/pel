@@ -102,8 +102,6 @@ class ReadWriteTest extends ExifEyeTestCaseBase
                 $this->assertEquals($tagEntry->getValue(), $entry[3]);
             }
         }
-
-        $r_jpeg = $exif = $tiff = $ifd = null;
     }
 
     public function writeEntryProvider()
