@@ -70,31 +70,31 @@ if (! is_readable($file)) {
     exit(1);
 }
 
-/*
- * We typically need lots of RAM to parse TIFF images since they tend
- * to be big and uncompressed.
- */
-ini_set('memory_limit', '32M');
-
-$data = new DataWindow(file_get_contents($file));
-
-if (Jpeg::isValid($data)) {
-    $img = new Jpeg();
-} elseif (Tiff::xxisValid($data)) {
-    $img = new Tiff();
-} else {
-    print("Unrecognized image format! The first 16 bytes follow:\n");
-    ConvertBytes::dump($data->getBytes(0, 16));
-    exit(1);
-}
-
 /* Set logging */
 $log_handler = new StreamHandler('php://stdout');
 $log_formatter = new DumpLogFormatter();
 $log_handler->setFormatter($log_formatter);
 ExifEye::logger()->pushHandler($log_handler);
 
-/* Try loading the data. */
+/* Load data from file */
+$data = new DataWindow(file_get_contents($file));
+
+/* Check data validity */
+if (Jpeg::isValid($data)) {
+    $img = new Jpeg();
+    $root = $img->getExif();
+} elseif (Tiff::xxisValid($data)) {
+    $img = new Tiff();
+    $root = $img;
+} else {
+    print("Unrecognized image format! The first 16 bytes follow:\n");
+    ConvertBytes::dump($data->getBytes(0, 16));
+    exit(1);
+}
+
+/* Load the data in the Image object. */
 $img->load($data);
 
-print($img);
+/* Dump the information */
+$dump_array = $root->toDumpArray();
+dump($dump_array);
