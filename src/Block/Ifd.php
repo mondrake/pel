@@ -51,7 +51,6 @@ class Ifd extends BlockBase
     {
         parent::__construct($parent_block);
 
-        $this->setAttribute('id', $id);
         if ($name = Spec::getIfdType($id)) {
             $this->setAttribute('name', $name);
             $this->hasSpecification = true;
@@ -111,14 +110,14 @@ class Ifd extends BlockBase
             }
 
             // Build the TAG object.
-            $tag_entry_class = Spec::getEntryClass($this->getAttribute('id'), $tag_id, $tag_format);
+            $tag_entry_class = Spec::getEntryClass($this, $tag_id, $tag_format);
             $tag_entry_arguments = call_user_func($tag_entry_class . '::getInstanceArgumentsFromTagData', $tag_format, $tag_components, $data_window, $tag_data_offset);
             $tag = new Tag($this, $tag_id, $tag_entry_class, $tag_entry_arguments, $tag_format, $tag_components);
 
             // Load a subIfd.
-            if (Spec::isTagAnIfdPointer($this->getAttribute('id'), $tag->getAttribute('id'))) {
+            if (Spec::isTagAnIfdPointer($this, $tag->getAttribute('id'))) {
                 // If the tag is an IFD pointer, loads the IFD.
-                $type = Spec::getIfdIdFromTag($this->getAttribute('id'), $tag->getAttribute('id'));
+                $type = Spec::getIfdIdFromTag($this, $tag->getAttribute('id'));
                 $o = $data_window->getLong($offset + 12 * $i + 8);
                 if ($starting_offset != $o) {
                     $ifd_class = Spec::getIfdClass($type);
@@ -141,7 +140,7 @@ class Ifd extends BlockBase
         $this->debug(".....END Loading");
 
         // Invoke post-load callbacks.
-        foreach (Spec::getIfdPostLoadCallbacks($this->getAttribute('id')) as $callback) {
+        foreach (Spec::getIfdPostLoadCallbacks($this) as $callback) {
             $this->debug("START... {callback}", [
                 'callback' => $callback,
             ]);
@@ -202,12 +201,12 @@ class Ifd extends BlockBase
         if ($this->first("thumbnail")) {
             // TODO: make EntryInterface a class that can be constructed with
             // arguments corresponding to the next four lines.
-            $ifd_area .= ConvertBytes::fromShort(Spec::getTagIdByName($this->getAttribute('id'), 'ThumbnailLength'), $order);
+            $ifd_area .= ConvertBytes::fromShort(Spec::getTagIdByName($this, 'ThumbnailLength'), $order);
             $ifd_area .= ConvertBytes::fromShort(Format::LONG, $order);
             $ifd_area .= ConvertBytes::fromLong(1, $order);
             $ifd_area .= ConvertBytes::fromLong($this->first("thumbnail")->getEntry()->getComponents(), $order);
 
-            $ifd_area .= ConvertBytes::fromShort(Spec::getTagIdByName($this->getAttribute('id'), 'ThumbnailOffset'), $order);
+            $ifd_area .= ConvertBytes::fromShort(Spec::getTagIdByName($this, 'ThumbnailOffset'), $order);
             $ifd_area .= ConvertBytes::fromShort(Format::LONG, $order);
             $ifd_area .= ConvertBytes::fromLong(1, $order);
             $ifd_area .= ConvertBytes::fromLong($end, $order);
@@ -220,11 +219,11 @@ class Ifd extends BlockBase
         $sub_bytes = '';
         foreach ($this->query('ifd') as $sub) {
             if (Spec::getIfdType($sub->getType()) === 'Exif') {
-                $tag = Spec::getTagIdByName($this->getAttribute('id'), 'ExifIFDPointer');
+                $tag = Spec::getTagIdByName($this, 'ExifIFDPointer');
             } elseif (Spec::getIfdType($sub->getType()) === 'GPS') {
-                $tag = Spec::getTagIdByName($this->getAttribute('id'), 'GPSInfoIFDPointer');
+                $tag = Spec::getTagIdByName($this, 'GPSInfoIFDPointer');
             } elseif (Spec::getIfdType($sub->getType()) === 'Interoperability') {
-                $tag = Spec::getTagIdByName($this->getAttribute('id'), 'InteroperabilityIFDPointer');
+                $tag = Spec::getTagIdByName($this, 'InteroperabilityIFDPointer');
             } else {
                 // ConvertBytes::BIG_ENDIAN is the default used by Convert.
                 $tag = ConvertBytes::BIG_ENDIAN;
