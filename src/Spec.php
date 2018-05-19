@@ -243,9 +243,11 @@ class Spec
      * @return array
      *            the array of formats supported by the TAG.
      */
-    public static function getTagFormat($ifd_id, $tag_id)
+    public static function getTagFormat(BlockBase $parent_block, $tag_id)
     {
-        $format = isset(self::getMap()['tags'][$ifd_id][$tag_id]['format']) ? self::getMap()['tags'][$ifd_id][$tag_id]['format'] : [];
+        $xx_parent_block_id = self::getIfdIdByType($parent_block->getAttribute('name'));
+
+        $format = isset(self::getMap()['tags'][$xx_parent_block_id][$tag_id]['format']) ? self::getMap()['tags'][$xx_parent_block_id][$tag_id]['format'] : [];
         return empty($format) ? null : $format;
     }
 
@@ -293,9 +295,11 @@ class Spec
      */
     public static function getEntryClass(BlockBase $parent_block, $tag_id, $format = null)
     {
+        $xx_parent_block_id = self::getIfdIdByType($parent_block->getAttribute('name'));
+
         // Return the specific tag class, if defined.
-        if (isset(self::getMap()['tags'][$parent_block][$tag_id]['class'])) {
-            return self::getMap()['tags'][$parent_block][$tag_id]['class'];
+        if (isset(self::getMap()['tags'][$xx_parent_block_id][$tag_id]['class'])) {
+            return self::getMap()['tags'][$xx_parent_block_id][$tag_id]['class'];
         }
 
         // If format is not passed in, try getting it from the spec.
@@ -324,9 +328,11 @@ class Spec
      * @return string|null
      *            the TAG title.
      */
-    public static function getTagTitle($ifd_id, $tag_id)
+    public static function getTagTitle(BlockBase $parent_block, $tag_id)
     {
-        return isset(self::getMap()['tags'][$ifd_id][$tag_id]['title']) ? self::getMap()['tags'][$ifd_id][$tag_id]['title'] : null;
+        $xx_parent_block_id = self::getIfdIdByType($parent_block->getAttribute('name'));
+
+        return isset(self::getMap()['tags'][$xx_parent_block_id][$tag_id]['title']) ? self::getMap()['tags'][$xx_parent_block_id][$tag_id]['title'] : null;
     }
 
     /**
