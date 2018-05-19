@@ -291,18 +291,18 @@ class Spec
      * @return string
      *            the TAG class.
      */
-    public static function getEntryClass($ifd_id, $tag_id, $format = null)
+    public static function getEntryClass(BlockBase $parent_block, $tag_id, $format = null)
     {
         // Return the specific tag class, if defined.
-        if (isset(self::getMap()['tags'][$ifd_id][$tag_id]['class'])) {
-            return self::getMap()['tags'][$ifd_id][$tag_id]['class'];
+        if (isset(self::getMap()['tags'][$parent_block][$tag_id]['class'])) {
+            return self::getMap()['tags'][$parent_block][$tag_id]['class'];
         }
 
         // If format is not passed in, try getting it from the spec.
         if ($format === null) {
-            $formats = self::getTagFormat($ifd_id, $tag_id);
+            $formats = self::getTagFormat($parent_block, $tag_id);
             if (empty($formats)) {
-                throw new ExifEyeException('No format can be derived for tag: 0x%04X (%s) in ifd: \'%s\'', $tag_id, self::getTagName($ifd_id, $tag_id), self::getIfdType($ifd_id));
+                throw new ExifEyeException('No format can be derived for tag: 0x%04X (%s) in ifd: \'%s\'', $tag_id, self::getTagName($parent_block, $tag_id), self::getIfdType($parent_block));
             }
             $format = $formats[0];
         }
