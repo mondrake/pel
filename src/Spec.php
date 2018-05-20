@@ -93,9 +93,11 @@ class Spec
      *            an simple array, with values the TAG identifiers supported by
      *            the IFD.
      */
-    public static function getIfdSupportedTagIds($ifd_id)
+    public static function getIfdSupportedTagIds(BlockBase $block)
     {
-        return array_keys(self::getMap()['tags'][$ifd_id]);
+        $xx_block_id = self::getIfdIdByType($block->getAttribute('name'));
+
+        return array_keys(self::getMap()['tags'][$$xx_block_id]);
     }
 
     /**
@@ -107,9 +109,11 @@ class Spec
      * @return string|null
      *            the IFD type.
      */
-    public static function getIfdType($ifd_id)
+    public static function getIfdType(BlockBase $block)
     {
-        return isset(self::getMap()['ifds'][$ifd_id]) ? self::getMap()['ifds'][$ifd_id] : null;
+        $xx_block_id = self::getIfdIdByType($block->getAttribute('name'));
+
+        return isset(self::getMap()['ifds'][$xx_block_id]) ? self::getMap()['ifds'][$xx_block_id] : null;
     }
 
     /**
