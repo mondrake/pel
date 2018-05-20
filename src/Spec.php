@@ -123,9 +123,11 @@ class Spec
      * @return string|null
      *            the IFD class.
      */
-    public static function getIfdClass($ifd_id)
+    public static function getIfdClass($block_name)
     {
-        return isset(self::getMap()['ifdClasses'][$ifd_id]) ? self::getMap()['ifdClasses'][$ifd_id] : null;
+        $xx_block_id = self::getIfdIdByType($block_name);
+
+        return isset(self::getMap()['ifdClasses'][$xx_block_id]) ? self::getMap()['ifdClasses'][$xx_block_id] : null;
     }
 
     /**

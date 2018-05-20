@@ -18,14 +18,18 @@ class PelSpecTest extends ExifEyeTestCaseBase
      */
     public function testDefaultSpec()
     {
+        $tiff_mock = $this->getMockBuilder('ExifEye\core\Block\Tiff')
+            ->disableOriginalConstructor()
+            ->getMock();
+
         // Test retrieving IFD id by type.
         $this->assertEquals(Spec::getIfdIdByType('IFD0'), Spec::getIfdIdByType('0'));
         $this->assertEquals(Spec::getIfdIdByType('IFD0'), Spec::getIfdIdByType('Main'));
         $this->assertNotNull(Spec::getIfdIdByType('CanonMakerNotes'));
 
         // Test retrieving IFD class.
-        $this->assertEquals('ExifEye\core\Block\Ifd', Spec::getIfdClass(Spec::getIfdIdByType('IFD0')));
-        $this->assertEquals('ExifEye\core\Block\IfdIndexShort', Spec::getIfdClass(Spec::getIfdIdByType('CanonCameraSettings')));
+        $this->assertEquals('ExifEye\core\Block\Ifd', Spec::getIfdClass('IFD0'));
+        $this->assertEquals('ExifEye\core\Block\IfdIndexShort', Spec::getIfdClass('CanonCameraSettings'));
 
         // Test retrieving IFD post-load callbacks.
         $this->assertEquals(['ExifEye\core\Block\Thumbnail::toBlock', 'ExifEye\core\Entry\ExifMakerNote::tagToIfd'], Spec::getIfdPostLoadCallbacks(Spec::getIfdIdByType('IFD0')));
