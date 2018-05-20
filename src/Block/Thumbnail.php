@@ -74,7 +74,7 @@ class Thumbnail extends BlockBase
                 $size --;
             }
             if ($size != $dataxx->getSize()) {
-                $this->warning('Decrementing thumbnail size to {size} bytes', [
+                $ifd->warning('Decrementing thumbnail size to {size} bytes', [
                     'size' => $size,
                 ]);
             }
