@@ -47,17 +47,12 @@ class Ifd extends BlockBase
     /**
      * Construct a new Image File Directory (IFD).
      */
-    public function __construct(BlockBase $parent_block, $id)
+    public function __construct(BlockBase $parent_block, $name)
     {
         parent::__construct($parent_block);
 
-        if ($name = Spec::getIfdType($id)) {
-            $this->setAttribute('name', $name);
-            $this->hasSpecification = true;
-        } else {
-            $this->setAttribute('name', 'Unknown');
-            $this->hasSpecification = false;
-        }
+        $this->setAttribute('name', $name);
+        $this->hasSpecification = Spec::getIfdIdByType($name) ? true : false;
     }
 
     /**

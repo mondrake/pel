@@ -91,7 +91,7 @@ class PelSpecTest extends ExifEyeTestCaseBase
             ->getMock();
 
         $ifd_id = Spec::getIfdIdByType($ifd_name);
-        $ifd = new Ifd($tiff_mock, Spec::getIfdIdByType($ifd_name));
+        $ifd = new Ifd($tiff_mock, $ifd_name);
 
         $tag_id = Spec::getTagIdByName($ifd_id, $tag);
         $entry_class_name = Spec::getEntryClass($ifd_id, $tag_id);
