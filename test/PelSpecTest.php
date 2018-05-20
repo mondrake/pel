@@ -36,8 +36,8 @@ class PelSpecTest extends ExifEyeTestCaseBase
         $this->assertEquals([], Spec::getIfdPostLoadCallbacks(Spec::getIfdIdByType('CanonCameraSettings')));
 
         // Test retrieving maker note IFD.
-        $this->assertEquals(Spec::getIfdIdByType('CanonMakerNotes'), Spec::getMakerNoteIfd('Canon', 'any'));
-        $this->assertNull(Spec::getMakerNoteIfd('Minolta', 'any'));
+        $this->assertEquals(Spec::getIfdIdByType('CanonMakerNotes'), Spec::getMakerNoteIfdName('Canon', 'any'));
+        $this->assertNull(Spec::getMakerNoteIfdName('Minolta', 'any'));
 
         // Test retrieving TAG name.
         $this->assertEquals('ExifIFDPointer', Spec::getTagName(Spec::getIfdIdByType('IFD0'), 0x8769));

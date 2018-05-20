@@ -139,9 +139,13 @@ class Spec
      * @return int|null
      *            an IFD id.
      */
-    public static function getMakerNoteIfd($make, $model)
+    public static function getMakerNoteIfdName($make, $model)
     {
-        return isset(self::getMap()['makerNotes'][$make]) ? self::getMap()['makerNotes'][$make] : null;
+        $ifd_id = isset(self::getMap()['makerNotes'][$make]) ? self::getMap()['makerNotes'][$make] : null;
+        if ($ifd_id !== null) {
+            return self::getMap()['ifds'][$ifd_id];
+        }
+        return null;
     }
 
     /**
@@ -192,6 +196,7 @@ class Spec
     public static function getIfdPostLoadCallbacks(BlockBase $block)
     {
         $xx_block_id = self::getIfdIdByType($block->getAttribute('name'));
+
         return self::getMap()['ifdPostLoadCallbacks'][$xx_block_id];
     }
 
