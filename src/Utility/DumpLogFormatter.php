@@ -9,7 +9,7 @@ use Bramus\Monolog\Formatter\ColoredLineFormatter;
  */
 class DumpLogFormatter extends ColoredLineFormatter
 {
-    const MAX_PATH = 50;
+    const MAX_PATH = 40;
 
     /**
      * {@inheritdoc}
