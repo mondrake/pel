@@ -112,11 +112,11 @@ class Ifd extends BlockBase
             // Load a subIfd.
             if (Spec::isTagAnIfdPointer($this, $tag->getAttribute('id'))) {
                 // If the tag is an IFD pointer, loads the IFD.
-                $type = Spec::getIfdIdFromTag($this, $tag->getAttribute('id'));
+                $ifd_name = Spec::getIfdNameFromTag($this, $tag->getAttribute('id'));
                 $o = $data_window->getLong($offset + 12 * $i + 8);
                 if ($starting_offset != $o) {
-                    $ifd_class = Spec::getIfdClass($type);
-                    $ifd = new $ifd_class($this, $type);
+                    $ifd_class = Spec::getIfdClass($ifd_name);
+                    $ifd = new $ifd_class($this, $ifd_name);
                     try {
                         $ifd->loadFromData($data_window, $o, ['components' => $tag->getEntry()->getComponents()]);
                         $this->remove("tag[@name='" . $tag->getAttribute('name') . "']");

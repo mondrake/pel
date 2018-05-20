@@ -58,9 +58,9 @@ class PelSpecTest extends ExifEyeTestCaseBase
 
         // Check methods identifying an IFD pointer TAG.
         $this->assertTrue(Spec::isTagAnIfdPointer($ifd_0, 0x8769));
-        $this->assertEquals($ifd_exif, Spec::getIfdIdFromTag($ifd_0, 0x8769));
+        $this->assertEquals('Exif', Spec::getIfdNameFromTag($ifd_0, 0x8769));
         $this->assertFalse(Spec::isTagAnIfdPointer($ifd_exif, 0x829A));
-        $this->assertNull(Spec::getIfdIdFromTag($ifd_0, 0x829A));
+        $this->assertNull(Spec::getIfdNameFromTag($ifd_0, 0x829A));
 
         // Check getTagFormat.
         $this->assertEquals([Format::UNDEFINED], Spec::getTagFormat($ifd_exif, 0x9286));

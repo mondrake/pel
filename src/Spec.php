@@ -177,11 +177,16 @@ class Spec
      * @return int|null
      *            the IFD id, or null if the TAG is not an IFD pointer.
      */
-    public static function getIfdIdFromTag(BlockBase $parent_block, $tag_id)
+    public static function getIfdNameFromTag(BlockBase $parent_block, $tag_id)
     {
         $xx_parent_block_id = self::getIfdIdByType($parent_block->getAttribute('name'));
 
-        return isset(self::getMap()['tags'][$xx_parent_block_id][$tag_id]['ifd']) ? self::getMap()['tags'][$xx_parent_block_id][$tag_id]['ifd'] : null;
+        $ifd_id = isset(self::getMap()['tags'][$xx_parent_block_id][$tag_id]['ifd']) ? self::getMap()['tags'][$xx_parent_block_id][$tag_id]['ifd'] : null;
+
+        if ($ifd_id !== null) {
+            return self::getMap()['ifds'][$ifd_id];
+        }
+        return null;
     }
 
     /**
