@@ -97,23 +97,7 @@ class Spec
     {
         $xx_block_id = self::getIfdIdByType($block->getAttribute('name'));
 
-        return array_keys(self::getMap()['tags'][$$xx_block_id]);
-    }
-
-    /**
-     * Returns the IFD type.
-     *
-     * @param int $ifd_id
-     *            the IFD id.
-     *
-     * @return string|null
-     *            the IFD type.
-     */
-    public static function getIfdType(BlockBase $block)
-    {
-        $xx_block_id = self::getIfdIdByType($block->getAttribute('name'));
-
-        return isset(self::getMap()['ifds'][$xx_block_id]) ? self::getMap()['ifds'][$xx_block_id] : null;
+        return array_keys(self::getMap()['tags'][$xx_block_id]);
     }
 
     /**
@@ -322,7 +306,12 @@ class Spec
         if ($format === null) {
             $formats = self::getTagFormat($parent_block, $tag_id);
             if (empty($formats)) {
-                throw new ExifEyeException('No format can be derived for tag: 0x%04X (%s) in ifd: \'%s\'', $tag_id, self::getTagName($parent_block, $tag_id), self::getIfdType($parent_block));
+                throw new ExifEyeException(
+                    'No format can be derived for tag: 0x%04X (%s) in ifd: \'%s\'',
+                    $tag_id,
+                    self::getTagName($parent_block, $tag_id),
+                    $parent_block->getAttribute('name')
+                );
             }
             $format = $formats[0];
         }

@@ -213,11 +213,11 @@ class Ifd extends BlockBase
         // Process sub IFDs.
         $sub_bytes = '';
         foreach ($this->query('ifd') as $sub) {
-            if (Spec::getIfdType($sub->getType()) === 'Exif') {
+            if ($sub->getType() === 'Exif') {
                 $tag = Spec::getTagIdByName($this, 'ExifIFDPointer');
-            } elseif (Spec::getIfdType($sub->getType()) === 'GPS') {
+            } elseif ($sub->getType() === 'GPS') {
                 $tag = Spec::getTagIdByName($this, 'GPSInfoIFDPointer');
-            } elseif (Spec::getIfdType($sub->getType()) === 'Interoperability') {
+            } elseif ($sub->getType() === 'Interoperability') {
                 $tag = Spec::getTagIdByName($this, 'InteroperabilityIFDPointer');
             } else {
                 // ConvertBytes::BIG_ENDIAN is the default used by Convert.
