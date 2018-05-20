@@ -187,9 +187,10 @@ class Spec
      * @return array
      *            the post-load callbacks.
      */
-    public static function getIfdPostLoadCallbacks($ifd_id)
+    public static function getIfdPostLoadCallbacks(BlockBase $block)
     {
-        return self::getMap()['ifdPostLoadCallbacks'][$ifd_id];
+        $xx_block_id = self::getIfdIdByType($block->getAttribute('name'));
+        return self::getMap()['ifdPostLoadCallbacks'][$xx_block_id];
     }
 
     /**
