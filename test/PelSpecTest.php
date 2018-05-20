@@ -48,27 +48,27 @@ class PelSpecTest extends ExifEyeTestCaseBase
 
         // Test retrieving TAG name.
         $this->assertEquals('ExifIFDPointer', Spec::getTagName($ifd_0, 0x8769));
-        $this->assertEquals('ExposureTime', Spec::getTagName(Spec::getIfdIdByType('Exif'), 0x829A));
+        $this->assertEquals('ExposureTime', Spec::getTagName($ifd_exif, 0x829A));
         $this->assertEquals('Compression', Spec::getTagName($ifd_0, 0x0103));
 
         // Test retrieving TAG id by name.
         $this->assertEquals(0x8769, Spec::getTagIdByName($ifd_0, 'ExifIFDPointer'));
-        $this->assertEquals(0x829A, Spec::getTagIdByName(Spec::getIfdIdByType('Exif'), 'ExposureTime'));
+        $this->assertEquals(0x829A, Spec::getTagIdByName($ifd_exif, 'ExposureTime'));
         $this->assertEquals(0x0103, Spec::getTagIdByName($ifd_0, 'Compression'));
 
         // Check methods identifying an IFD pointer TAG.
         $this->assertTrue(Spec::isTagAnIfdPointer($ifd_0, 0x8769));
-        $this->assertEquals(Spec::getIfdIdByType('Exif'), Spec::getIfdIdFromTag($ifd_0, 0x8769));
-        $this->assertFalse(Spec::isTagAnIfdPointer(Spec::getIfdIdByType('Exif'), 0x829A));
+        $this->assertEquals($ifd_exif, Spec::getIfdIdFromTag($ifd_0, 0x8769));
+        $this->assertFalse(Spec::isTagAnIfdPointer($ifd_exif, 0x829A));
         $this->assertNull(Spec::getIfdIdFromTag($ifd_0, 0x829A));
 
         // Check getTagFormat.
-        $this->assertEquals([Format::UNDEFINED], Spec::getTagFormat(Spec::getIfdIdByType('Exif'), 0x9286));
-        $this->assertEquals([Format::SHORT, Format::LONG], Spec::getTagFormat(Spec::getIfdIdByType('Exif'), 0xA002));
+        $this->assertEquals([Format::UNDEFINED], Spec::getTagFormat($ifd_exif, 0x9286));
+        $this->assertEquals([Format::SHORT, Format::LONG], Spec::getTagFormat($ifd_exif, 0xA002));
 
         // Check getTagTitle.
         $this->assertEquals('Exif IFD Pointer', Spec::getTagTitle($ifd_0, 0x8769));
-        $this->assertEquals('Exposure Time', Spec::getTagTitle(Spec::getIfdIdByType('Exif'), 0x829A));
+        $this->assertEquals('Exposure Time', Spec::getTagTitle($ifd_exif, 0x829A));
         $this->assertEquals('Compression', Spec::getTagTitle($ifd_0, 0x0103));
     }
 
