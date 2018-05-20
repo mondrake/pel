@@ -165,15 +165,17 @@ class Spec
      * @return bool
      *            TRUE or FALSE.
      */
-    public static function isTagAnIfdPointer($ifd_id, $tag_id)
+    public static function isTagAnIfdPointer(BlockBase $parent_block, $tag_id)
     {
-        return isset(self::getMap()['tags'][$ifd_id][$tag_id]['ifd']);
+        $xx_parent_block_id = self::getIfdIdByType($parent_block->getAttribute('name'));
+
+        return isset(self::getMap()['tags'][$xx_parent_block_id][$tag_id]['ifd']);
     }
 
     /**
      * Returns the IFD id the TAG points to.
      *
-     * @param int $ifd_id
+     * @param int $xx_parent_block_id
      *            the IFD id.
      * @param int $tag_id
      *            the TAG id.
@@ -181,15 +183,17 @@ class Spec
      * @return int|null
      *            the IFD id, or null if the TAG is not an IFD pointer.
      */
-    public static function getIfdIdFromTag($ifd_id, $tag_id)
+    public static function getIfdIdFromTag(BlockBase $parent_block, $tag_id)
     {
-        return isset(self::getMap()['tags'][$ifd_id][$tag_id]['ifd']) ? self::getMap()['tags'][$ifd_id][$tag_id]['ifd'] : null;
+        $xx_parent_block_id = self::getIfdIdByType($parent_block->getAttribute('name'));
+
+        return isset(self::getMap()['tags'][$xx_parent_block_id][$tag_id]['ifd']) ? self::getMap()['tags'][$xx_parent_block_id][$tag_id]['ifd'] : null;
     }
 
     /**
      * Returns the IFD post-load callbacks.
      *
-     * @param int $ifd_id
+     * @param int $xx_parent_block_id
      *            the IFD id.
      *
      * @return array
@@ -211,9 +215,11 @@ class Spec
      * @return string|null
      *            the TAG name.
      */
-    public static function getTagName($ifd_id, $tag_id)
+    public static function getTagName(BlockBase $parent_block, $tag_id)
     {
-        return isset(self::getMap()['tags'][$ifd_id][$tag_id]['name']) ? self::getMap()['tags'][$ifd_id][$tag_id]['name'] : null;
+        $xx_parent_block_id = self::getIfdIdByType($parent_block->getAttribute('name'));
+
+        return isset(self::getMap()['tags'][$xx_parent_block_id][$tag_id]['name']) ? self::getMap()['tags'][$xx_parent_block_id][$tag_id]['name'] : null;
     }
 
     /**
@@ -227,9 +233,11 @@ class Spec
      * @return int|null
      *            the TAG id.
      */
-    public static function getTagIdByName($ifd_id, $tag_name)
+    public static function getTagIdByName(BlockBase $parent_block, $tag_name)
     {
-        return isset(self::getMap()['tagsByName'][$ifd_id][$tag_name]) ? self::getMap()['tagsByName'][$ifd_id][$tag_name] : null;
+        $xx_parent_block_id = self::getIfdIdByType($parent_block->getAttribute('name'));
+
+        return isset(self::getMap()['tagsByName'][$xx_parent_block_id][$tag_name]) ? self::getMap()['tagsByName'][$xx_parent_block_id][$tag_name] : null;
     }
 
     /**
@@ -262,9 +270,11 @@ class Spec
      * @return int|null
      *            the TAG count of data components.
      */
-    public static function getTagComponents($ifd_id, $tag_id)
+    public static function getTagComponents(BlockBase $parent_block, $tag_id)
     {
-        return isset(self::getMap()['tags'][$ifd_id][$tag_id]['components']) ? self::getMap()['tags'][$ifd_id][$tag_id]['components'] : null;
+        $xx_parent_block_id = self::getIfdIdByType($parent_block->getAttribute('name'));
+
+        return isset(self::getMap()['tags'][$xx_parent_block_id][$tag_id]['components']) ? self::getMap()['tags'][$xx_parent_block_id][$tag_id]['components'] : null;
     }
 
     /**
@@ -277,9 +287,11 @@ class Spec
      *
      * @return bool
      */
-    public static function getTagSkip($ifd_id, $tag_id)
+    public static function getTagSkip(BlockBase $parent_block, $tag_id)
     {
-        return isset(self::getMap()['tags'][$ifd_id][$tag_id]['skip']) ? self::getMap()['tags'][$ifd_id][$tag_id]['skip'] : false;
+        $xx_parent_block_id = self::getIfdIdByType($parent_block->getAttribute('name'));
+
+        return isset(self::getMap()['tags'][$xx_parent_block_id][$tag_id]['skip']) ? self::getMap()['tags'][$xx_parent_block_id][$tag_id]['skip'] : false;
     }
 
     /**
