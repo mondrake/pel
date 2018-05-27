@@ -40,6 +40,9 @@ class JpegSegment extends BlockBase
     {
         $this->debug("START... Loading");
 
+        $exif = new Exif($this);
+        $exif->loadFromData($data_window, $offset);
+
         $this->debug(".....END Loading");
 
         return true;
