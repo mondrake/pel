@@ -45,6 +45,7 @@ class JpegSegment extends BlockBase
             $ret = $exif->loadFromData($data_window, $offset);
         } else {
             $this->debug('Exif header not found.');
+            $ret = false;
         }
 
         $this->debug(".....END Loading");
