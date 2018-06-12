@@ -209,14 +209,6 @@ class Jpeg
                     }
                     $this->appendSection($marker, $content);
                     $d->setWindowStart($len);
-/*                    $content = new Exif();
-                    if ($content->loadFromData($d->getClone(0, $len)) === false) {
-                        // We store the data as normal JPEG content if it could
-                        // not be parsed as Exif data.
-                        $content = new JpegContent($d->getClone(0, $len));
-                    }
-                    $this->appendSection($marker, $content);
-                    $d->setWindowStart($len); */
                 } elseif ($marker == JpegMarker::COM) {
                     $content = new JpegComment();
                     $content->load($d->getClone(0, $len));
