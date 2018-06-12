@@ -31,7 +31,7 @@ class MisplacedExifTest extends ExifEyeTestCaseBase
             ++$idx;
         }
         $this->assertNotNull($exifIdx);
-        $app1_segment = new JpegSegment('APP1');
+        $app1_segment = new JpegSegment('APP1', $jpeg);
         $newExif = new Exif($app1_segment);
         $jpeg->setExif($newExif);
         // Ensure EXIF is set to correct position among sections
