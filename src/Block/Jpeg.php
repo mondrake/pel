@@ -614,7 +614,7 @@ class Jpeg extends BlockBase
      *
      * @see Tiff::isValid()
      */
-    public static function isValid(DataWindow $d)
+    public static function xxisValid(DataWindow $d)
     {
         /* JPEG data is stored in big-endian format. */
         $d->setByteOrder(ConvertBytes::BIG_ENDIAN);
