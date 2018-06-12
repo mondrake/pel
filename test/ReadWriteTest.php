@@ -76,10 +76,9 @@ class ReadWriteTest extends ExifEyeTestCaseBase
         // Now read the file and see if the entries are still there.
         $r_jpeg = new Jpeg(dirname(__FILE__) . '/test-output.jpg');
 
-        $exif = $r_jpeg->getExif();
-        $this->assertInstanceOf('ExifEye\core\Block\Exif', $exif);
+        $this->assertInstanceOf('ExifEye\core\Block\Exif', $r_jpeg->first("segment/exif"));
 
-        $tiff = $exif->first("tiff");
+        $tiff = $r_jpeg->first("segment/exif/tiff");
         $this->assertInstanceOf('ExifEye\core\Block\Tiff', $tiff);
         $this->assertCount(1, $tiff->query("ifd"));
 
