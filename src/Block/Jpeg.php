@@ -391,6 +391,8 @@ class Jpeg extends BlockBase
                 ++ $idx;
             }
         }
+        // xx
+        $this->remove("segment[@name='APP1']");
     }
 
     /**
