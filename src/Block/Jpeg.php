@@ -48,8 +48,12 @@ use ExifEye\core\Utility\ConvertBytes;
  * @author Martin Geisler <mgeisler@users.sourceforge.net>
  * @package PEL
  */
-class Jpeg
+class Jpeg extends BlockBase
 {
+    /**
+     * {@inheritdoc}
+     */
+    protected $type = 'jpeg';
 
     /**
      * The sections in the JPEG data.
@@ -102,18 +106,20 @@ class Jpeg
      */
     public function __construct($data = false)
     {
+        parent::__construct();
+
         if ($data === false) {
             return;
         }
 
         if (is_string($data)) {
-            ExifEye::logger()->debug('Initializing Jpeg object from {data}', ['data' => $data]);
+            $this->debug('Initializing Jpeg object from {data}', ['data' => $data]);
             $this->loadFile($data);
         } elseif ($data instanceof DataWindow) {
-            ExifEye::logger()->debug('Initializing Jpeg object from DataWindow.');
+            $this->debug('Initializing Jpeg object from DataWindow.');
             $this->load($data);
         } elseif (is_resource($data) && get_resource_type($data) == 'gd') {
-            ExifEye::logger()->debug('Initializing Jpeg object from image resource.');
+            $this->debug('Initializing Jpeg object from image resource.');
             $this->load(new DataWindow($data));
         } else {
             throw new InvalidArgumentException('Bad type for $data: %s', gettype($data));
@@ -157,7 +163,7 @@ class Jpeg
      */
     public function load(DataWindow $d)
     {
-        ExifEye::logger()->debug('Parsing {size} bytes...', ['size' => $d->getSize()]);
+        $this->debug('Parsing {size} bytes...', ['size' => $d->getSize()]);
 
         /* JPEG data is stored in big-endian format. */
         $d->setByteOrder(ConvertBytes::BIG_ENDIAN);
@@ -193,7 +199,7 @@ class Jpeg
                  */
                 $len = $d->getShort(0) - 2;
 
-                ExifEye::logger()->debug('Found {name} section of length {size}', ['name' => JpegMarker::getName($marker), 'size' => $len]);
+                $this->debug('Found {name} section of length {size}', ['name' => JpegMarker::getName($marker), 'size' => $len]);
 
                 /* Skip past the length. */
                 $d->setWindowStart(2);
@@ -235,14 +241,14 @@ class Jpeg
                         }
 
                         $this->jpeg_data = $d->getClone(0, $length - 2);
-                        ExifEye::logger()->debug('JPEG data: {data}', ['data' => $this->jpeg_data->toString()]);
+                        $this->debug('JPEG data: {data}', ['data' => $this->jpeg_data->toString()]);
 
                         /* Append the EOI. */
                         $this->appendSection(JpegMarker::EOI, new JpegContent(new DataWindow()));
 
                         /* Now check to see if there are any trailing data. */
                         if ($length != $d->getSize()) {
-                            ExifEye::logger()->error('Found trailing content after EOI: {size} bytes', [
+                            $this->error('Found trailing content after EOI: {size} bytes', [
                                 'size' => $d->getSize() - $length,
                             ]);
                             $content = new JpegContent($d->getClone($length));
