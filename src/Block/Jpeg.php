@@ -205,7 +205,7 @@ class Jpeg extends BlockBase
                 $d->setWindowStart(2);
 
                 if ($marker == JpegMarker::APP1) {
-                    $app1_segment = new JpegSegment(JpegMarker::getName($marker));
+                    $app1_segment = new JpegSegment(JpegMarker::getName($marker), $this);
                     if ($app1_segment->loadFromData($d->getClone(0, $len)) === false) {
                         // We store the data as normal JPEG content if it could
                         // not be parsed as Exif data.

@@ -26,7 +26,7 @@ class JpegSegment extends BlockBase
     /**
      * Construct a new JPEG segment object.
      */
-    public function __construct($name, BlockBase $parent_block = null)
+    public function __construct($name, BlockBase $parent_block)
     {
         parent::__construct($parent_block);
 
