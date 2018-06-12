@@ -49,7 +49,7 @@ class GH21Test extends ExifEyeTestCaseBase
 
         $output_jpeg = new Jpeg($scaled);
 
-        $exif = $input_jpeg->getExif();
+        $exif = $input_jpeg->first("segment/exif");
 
         if ($exif !== null) {
             $output_jpeg->setExif($exif);
@@ -58,7 +58,7 @@ class GH21Test extends ExifEyeTestCaseBase
         file_put_contents($this->file, $output_jpeg->getBytes());
 
         $jpeg = new Jpeg($this->file);
-        $exifin = $jpeg->getExif();
+        $exifin = $jpeg->first("segment/exif");
         $this->assertEquals($exif, $exifin);
     }
 }

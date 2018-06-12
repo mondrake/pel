@@ -358,26 +358,6 @@ class Jpeg extends BlockBase
     }
 
     /**
-     * Get first valid APP1 Exif section data.
-     *
-     * Use this to get the @{link Exif Exif data} stored.
-     *
-     * @return Exif the Exif data found or null if the image has no
-     *         Exif data.
-     */
-    public function getExif()
-    {
-        $sections_count = count($this->sections);
-        for ($i = 0; $i < $sections_count; $i ++) {
-            $section = $this->getSection(JpegMarker::APP1, $i);
-            if ($section instanceof Exif) {
-                return $section;
-            }
-        }
-        return null;
-    }
-
-    /**
      * Get ICC data.
      *
      * Use this to get the @{link JpegContent ICC data} stored.

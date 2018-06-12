@@ -40,7 +40,7 @@ class MisplacedExifTest extends ExifEyeTestCaseBase
         $this->assertNotSame($sections1[$exifIdx][1], $sections2[$exifIdx][1]);
         $this->assertSame($newExif, $sections2[$exifIdx][1]);
 
-        $this->assertInstanceOf('ExifEye\core\Block\Exif', $jpeg->getExif());
+        $this->assertInstanceOf('ExifEye\core\Block\Exif', $jpeg->first("segment/exif"));
         $jpeg->clearExif();
         // Assert that only EXIF section is gone and all other shifted correctly.
         $sections3 = $jpeg->getSections();
@@ -54,6 +54,6 @@ class MisplacedExifTest extends ExifEyeTestCaseBase
             $this->assertSame($sections2[$s2idx][0], $sections3[$idx][0]);
             $this->assertSame($sections2[$s2idx][1], $sections3[$idx][1]);
         }
-        $this->assertNotInstanceOf('ExifEye\core\Block\Exif', $jpeg->getExif());
+        $this->assertNotInstanceOf('ExifEye\core\Block\Exif', $jpeg->first("segment/exif"));
     }
 }

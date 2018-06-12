@@ -36,7 +36,7 @@ class CameraTest extends ExifEyeTestCaseBase
 
         $jpeg = new Jpeg(dirname(__FILE__) . '/imagetests/' . $test['jpeg']);
 
-        $exif = $jpeg->getExif();
+        $exif = $jpeg->first("segment/exif");
 
         if (isset($test['elements'])) {
             $this->assertElement($test['elements'], $exif);

@@ -111,7 +111,7 @@ class DumpCommand extends Command
 
     protected function jpegToTest($name, Jpeg $jpeg, &$json)
     {
-        $exif = $jpeg->getExif();
+        $exif = $jpeg->first("segment/exif");
         if ($exif == null) {
             $json['elements'] = [];
         } else {
