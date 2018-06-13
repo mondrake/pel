@@ -14,23 +14,15 @@ class MisplacedExifTest extends ExifEyeTestCaseBase
     // manipulations. It may fail it this changes.
     public function testRead()
     {
-        // Image contains non-EXIF APP1 section ahead of the EXIF one
+        // Image contains non-EXIF APP1 section ahead of the EXIF one.
         $jpeg = new Jpeg(dirname(__FILE__) . '/broken_images/misplaced-exif.jpg');
-        // Assert we just have loaded correct file for the test
-        $this->assertNotInstanceOf('ExifEye\core\Block\Exif', $jpeg->getSection(JpegMarker::APP1));
 
-        // Manually find exif APP1 section index
-        $sections1 = $jpeg->getSections();
-        $exifIdx = null;
-        $idx = 0;
-        foreach ($sections1 as $section) {
-            if (($section[0] == JpegMarker::APP1) && ($section[1] instanceof Exif)) {
-                $exifIdx = $idx;
-                break;
-            }
-            ++$idx;
-        }
-        $this->assertNotNull($exifIdx);
+        // Assert we just have loaded correct file for the test.
+        $app1 = $jpeg->query("segment[@name='APP1']");
+        $this->assertCount(2, $app1);
+        $this->assertNull($app1[0]->first("exif"));
+        $this->assertInstanceOf('ExifEye\core\Block\Exif', $app1[1]->first("exif"));
+
         $app1_segment = new JpegSegment('APP1', $jpeg);
         $newExif = new Exif($app1_segment);
         $jpeg->setExif($newExif);
