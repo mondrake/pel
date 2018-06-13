@@ -220,24 +220,22 @@ class Jpeg extends BlockBase
                         $this->jpeg_data = $d->getClone(0, $length - 2);
                         $this->debug('JPEG data: {data}', ['data' => $this->jpeg_data->toString()]);
 
-                        /* Append the EOI. */
+                        // Append the EOI.
                         $eoi_segment = new JpegSegment(JpegMarker::getName(JpegMarker::EOI), $this);
                         new JpegContent($eoi_segment, new DataWindow());
 
-                        /* Now check to see if there are any trailing data. */
+                        // Now check to see if there are any trailing data.
                         if ($length != $d->getSize()) {
                             $this->error('Found trailing content after EOI: {size} bytes', [
                                 'size' => $d->getSize() - $length,
                             ]);
-                            $content = new JpegContent($this, $d->getClone($length));
-                            /*
-                             * We don't have a proper JPEG marker for trailing
-                             * garbage, so we just use 0x00...
-                             */
-                            $this->appendSection(0x00, $content);
+                            // We don't have a proper JPEG marker for trailing
+                            // garbage, so we just use 0x00...
+                            $trail_segment = new JpegSegment('00', $this);
+                            new JpegContent($trail_segment, $d->getClone($length));
                         }
 
-                        /* Done with the loop. */
+                        // Done with the loop.
                         break;
                     }
                 }
