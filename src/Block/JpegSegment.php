@@ -29,8 +29,8 @@ class JpegSegment extends BlockBase
     public function __construct($name, BlockBase $parent_block)
     {
         parent::__construct($parent_block);
-
         $this->setAttribute('name', $name);
+        $this->debug('Found {name} section', ['name' => $name);
     }
 
     /**

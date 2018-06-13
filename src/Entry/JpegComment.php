@@ -3,7 +3,7 @@
 namespace ExifEye\core\Entry;
 
 use ExifEye\core\DataWindow;
-use ExifEye\core\JpegContent;
+use ExifEye\core\Block\JpegContent;
 
 /**
  * Class representing JPEG comments.

@@ -8,7 +8,6 @@ use ExifEye\core\ExifEye;
 use ExifEye\core\ExifEyeException;
 use ExifEye\core\InvalidArgumentException;
 use ExifEye\core\InvalidDataException;
-use ExifEye\core\JpegContent;
 use ExifEye\core\JpegInvalidMarkerException;
 use ExifEye\core\JpegMarker;
 use ExifEye\core\Utility\ConvertBytes;
@@ -173,15 +172,14 @@ class Jpeg extends BlockBase
             $d->setWindowStart($i + 1);
 
             if ($marker == JpegMarker::SOI || $marker == JpegMarker::EOI) {
-                $content = new JpegContent(new DataWindow());
+                $segment = new JpegSegment(JpegMarker::getName($marker), $this);
+                new JpegContent($segment, new DataWindow());
             } else {
                 /*
                  * Read the length of the section. The length includes the
                  * two bytes used to store the length.
                  */
                 $len = $d->getShort(0) - 2;
-
-                $this->debug('Found {name} section of length {size}', ['name' => JpegMarker::getName($marker), 'size' => $len]);
 
                 /* Skip past the length. */
                 $d->setWindowStart(2);
@@ -191,7 +189,7 @@ class Jpeg extends BlockBase
                     if ($app1_segment->loadFromData($d->getClone(0, $len)) === false) {
                         // We store the data as normal JPEG content if it could
                         // not be parsed as Exif data.
-                        $content = new JpegContent($d->getClone(0, $len));
+                        $content = new JpegContent($this, $d->getClone(0, $len));
                     } else {
                         $content = $app1_segment->first('exif');
                     }
@@ -201,7 +199,7 @@ class Jpeg extends BlockBase
                     $content->load($d->getClone(0, $len));
                     $d->setWindowStart($len);
                 } else {
-                    $content = new JpegContent($d->getClone(0, $len));
+                    $content = new JpegContent($this, $d->getClone(0, $len));
                     /* Skip past the data. */
                     $d->setWindowStart($len);
 
@@ -223,14 +221,14 @@ class Jpeg extends BlockBase
                         $this->debug('JPEG data: {data}', ['data' => $this->jpeg_data->toString()]);
 
                         /* Append the EOI. */
-                        //$this->appendSection(JpegMarker::EOI, new JpegContent(new DataWindow()));
+                        //$this->appendSection(JpegMarker::EOI, new JpegContent($this, new DataWindow()));
 
                         /* Now check to see if there are any trailing data. */
                         if ($length != $d->getSize()) {
                             $this->error('Found trailing content after EOI: {size} bytes', [
                                 'size' => $d->getSize() - $length,
                             ]);
-                            $content = new JpegContent($d->getClone($length));
+                            $content = new JpegContent($this, $d->getClone($length));
                             /*
                              * We don't have a proper JPEG marker for trailing
                              * garbage, so we just use 0x00...
