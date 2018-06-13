@@ -30,7 +30,7 @@ class JpegSegment extends BlockBase
     {
         parent::__construct($parent_block);
         $this->setAttribute('name', $name);
-        $this->debug('Found {name} section', ['name' => $name);
+        $this->debug('Found {name} segment', ['name' => $name]);
     }
 
     /**
