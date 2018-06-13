@@ -191,10 +191,12 @@ class Jpeg extends BlockBase
                         // not be parsed as Exif data.
                         new JpegContent($app1_segment, $d->getClone(0, $len));
                     }
+                    $d->setWindowStart($len);
                 } elseif ($marker == JpegMarker::COM) {
                     $com_segment = new JpegSegment(JpegMarker::getName($marker), $this);
                     $content = new JpegComment($com_segment);
                     $content->load($d->getClone(0, $len));
+                    $d->setWindowStart($len);
                 } else {
                     $segment = new JpegSegment(JpegMarker::getName($marker), $this);
                     $content = new JpegContent($segment, $d->getClone(0, $len));
@@ -232,7 +234,7 @@ class Jpeg extends BlockBase
                              * We don't have a proper JPEG marker for trailing
                              * garbage, so we just use 0x00...
                              */
-                            //$this->appendSection(0x00, $content);
+                            $this->appendSection(0x00, $content);
                         }
 
                         /* Done with the loop. */
