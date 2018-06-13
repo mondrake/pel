@@ -10,6 +10,7 @@ use ExifEye\core\ExifEye;
 use ExifEye\core\Format;
 use ExifEye\core\InvalidArgumentException;
 use ExifEye\core\InvalidDataException;
+use ExifEye\core\JpegMarker;
 use ExifEye\core\Utility\ConvertBytes;
 use ExifEye\core\Spec;
 
@@ -26,11 +27,13 @@ class JpegSegment extends BlockBase
     /**
      * Construct a new JPEG segment object.
      */
-    public function __construct($name, BlockBase $parent_block)
+    public function __construct($id, BlockBase $parent_block)
     {
         parent::__construct($parent_block);
+        $this->setAttribute('id', $id);
+        $name = JpegMarker::getName($id);
         $this->setAttribute('name', $name);
-        $this->debug('Found {name} segment', ['name' => $name]);
+        $this->debug('{name} segment - {desc}', ['name' => $name, 'desc' => JpegMarker::getDescription($id)]);
     }
 
     /**

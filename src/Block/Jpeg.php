@@ -172,7 +172,7 @@ class Jpeg extends BlockBase
             $d->setWindowStart($i + 1);
 
             if ($marker == JpegMarker::SOI || $marker == JpegMarker::EOI) {
-                $segment = new JpegSegment(JpegMarker::getName($marker), $this);
+                $segment = new JpegSegment($marker, $this);
                 new JpegContent($segment, new DataWindow());
             } else {
                 /*
@@ -185,7 +185,7 @@ class Jpeg extends BlockBase
                 $d->setWindowStart(2);
 
                 if ($marker == JpegMarker::APP1) {
-                    $app1_segment = new JpegSegment(JpegMarker::getName($marker), $this);
+                    $app1_segment = new JpegSegment($marker, $this);
                     if ($app1_segment->loadFromData($d->getClone(0, $len)) === false) {
                         // We store the data as normal JPEG content if it could
                         // not be parsed as Exif data.
@@ -193,12 +193,12 @@ class Jpeg extends BlockBase
                     }
                     $d->setWindowStart($len);
                 } elseif ($marker == JpegMarker::COM) {
-                    $com_segment = new JpegSegment(JpegMarker::getName($marker), $this);
+                    $com_segment = new JpegSegment($marker, $this);
                     $content = new JpegComment($com_segment);
                     $content->load($d->getClone(0, $len));
                     $d->setWindowStart($len);
                 } else {
-                    $segment = new JpegSegment(JpegMarker::getName($marker), $this);
+                    $segment = new JpegSegment($marker, $this);
                     $content = new JpegContent($segment, $d->getClone(0, $len));
                     /* Skip past the data. */
                     $d->setWindowStart($len);
@@ -221,7 +221,7 @@ class Jpeg extends BlockBase
                         $this->debug('JPEG data: {data}', ['data' => $this->jpeg_data->toString()]);
 
                         // Append the EOI.
-                        $eoi_segment = new JpegSegment(JpegMarker::getName(JpegMarker::EOI), $this);
+                        $eoi_segment = new JpegSegment(JpegMarker::EOI, $this);
                         new JpegContent($eoi_segment, new DataWindow());
 
                         // Now check to see if there are any trailing data.
@@ -231,7 +231,7 @@ class Jpeg extends BlockBase
                             ]);
                             // We don't have a proper JPEG marker for trailing
                             // garbage, so we just use 0x00...
-                            $trail_segment = new JpegSegment('00', $this);
+                            $trail_segment = new JpegSegment(0x00, $this);
                             new JpegContent($trail_segment, $d->getClone($length));
                         }
 
