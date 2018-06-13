@@ -48,7 +48,7 @@ class ReadWriteTest extends ExifEyeTestCaseBase
         $jpeg = new Jpeg(dirname(__FILE__) . '/images/no-exif.jpg');
         $this->assertNull($jpeg->first("segment/exif"));
 
-        $app1_segment = new JpegSegment('APP1', $jpeg);
+        $app1_segment = new JpegSegment(0xE1, $jpeg);
 
         $exif = new Exif($app1_segment);
         $this->assertNotNull($jpeg->first("segment/exif"));
