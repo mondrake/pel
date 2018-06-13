@@ -2,7 +2,9 @@
 
 namespace ExifEye\Test\core;
 
+use ExifEye\core\Block\Exif;
 use ExifEye\core\Block\Jpeg;
+use ExifEye\core\Block\JpegSegment;
 
 class GH21Test extends ExifEyeTestCaseBase
 {
@@ -52,7 +54,9 @@ class GH21Test extends ExifEyeTestCaseBase
         $exif = $input_jpeg->first("segment/exif");
 
         if ($exif !== null) {
-            $output_jpeg->setExif($exif);
+            $output_jpeg->remove('segment[exif]');
+            $app1_segment = new JpegSegment(0xE1, $output_jpeg);
+            new Exif($app1_segment);
         }
 
         file_put_contents($this->file, $output_jpeg->getBytes());
