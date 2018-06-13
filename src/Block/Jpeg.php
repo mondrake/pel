@@ -266,28 +266,6 @@ class Jpeg extends BlockBase
     {
         $bytes = '';
 
-/*        foreach ($this->sections as $section) {
-            $m = $section[0];
-            $c = $section[1];
-
-            /* Write the marker */
-          //  $bytes .= "\xFF" . JpegMarker::getBytes($m);
-            /* Skip over empty markers. */
-      /*      if ($m == JpegMarker::SOI || $m == JpegMarker::EOI) {
-                continue;
-            }
-
-            $data = $c->toBytes();
-            $size = strlen($data) + 2;
-
-            $bytes .= ConvertBytes::fromShort($size, ConvertBytes::BIG_ENDIAN);
-            $bytes .= $data;
-
-            /* In case of SOS, we need to write the JPEG data. */
-        /*    if ($m == JpegMarker::SOS) {
-                $bytes .= $this->jpeg_data->getBytes();
-            }
-        }*/
         foreach ($this->query("segment") as $segment) {
             $m = $segment->getAttribute('id');
 

@@ -59,8 +59,12 @@ class JpegSegment extends BlockBase
     /**
      * {@inheritdoc}
      */
-    public function toBytes($offset, $order)
+    public function toBytes()
     {
-        return 'xxx';
+        $bytes = '';
+        foreach ($this->query("*") as $sub) {
+            $bytes .= $sub->toBytes();
+        }
+        return $bytes;
     }
 }
