@@ -173,7 +173,6 @@ class Jpeg extends BlockBase
 
             if ($marker == JpegMarker::SOI || $marker == JpegMarker::EOI) {
                 $segment = new JpegSegment($marker, $this);
-                //new JpegContent($segment, new DataWindow());
             } else {
                 /*
                  * Read the length of the section. The length includes the
@@ -222,7 +221,6 @@ class Jpeg extends BlockBase
 
                         // Append the EOI.
                         $eoi_segment = new JpegSegment(JpegMarker::EOI, $this);
-                        //new JpegContent($eoi_segment, new DataWindow());
 
                         // Now check to see if there are any trailing data.
                         if ($length != $d->getSize()) {
@@ -290,7 +288,6 @@ class Jpeg extends BlockBase
                 $bytes .= $this->jpeg_data->getBytes();
             }
         }*/
-        $segments = ;
         foreach ($jpeg->query("segment") as $segment) {
             $m = $segment->getAttribute('id');
 
