@@ -36,26 +36,14 @@ class MisplacedExifTest extends ExifEyeTestCaseBase
         $this->assertInstanceOf('ExifEye\core\Block\Exif', $app1[2]->first("exif"));
         $this->assertSame($newExif, $app1[2]->first("exif"));
 
-/*        $sections2 = $jpeg->getSections();
-        $this->assertSame($sections1[$exifIdx][0], $sections2[$exifIdx][0]);
-        $this->assertNotSame($sections1[$exifIdx][1], $sections2[$exifIdx][1]);
-        $this->assertSame($newExif, $sections2[$exifIdx][1]);
-
-        $this->assertInstanceOf('ExifEye\core\Block\Exif', $jpeg->first("segment/exif"));*/
+        // Remove the first APP1 segment containing a valid EXIF block.
         $jpeg->clearExif();
 
         // Assert that only EXIF section is gone and all other shifted correctly.
-        $sections3 = $jpeg->getSections();
-        $numSections3 = count($sections3);
-        for ($idx = 0; $idx < $numSections3; ++$idx) {
-            if ($idx >= $exifIdx) {
-                $s2idx = $idx + 1;
-            } else {
-                $s2idx = $idx;
-            }
-            $this->assertSame($sections2[$s2idx][0], $sections3[$idx][0]);
-            $this->assertSame($sections2[$s2idx][1], $sections3[$idx][1]);
-        }
-        $this->assertNotInstanceOf('ExifEye\core\Block\Exif', $jpeg->first("segment/exif"));
+        $app1 = $jpeg->query("segment[@name='APP1']");
+        $this->assertCount(2, $app1);
+        $this->assertNull($app1[0]->first("exif"));
+        $this->assertInstanceOf('ExifEye\core\Block\Exif', $app1[1]->first("exif"));
+        $this->assertSame($newExif, $app1[1]->first("exif"));
     }
 }
