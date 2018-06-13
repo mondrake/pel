@@ -189,17 +189,15 @@ class Jpeg extends BlockBase
                     if ($app1_segment->loadFromData($d->getClone(0, $len)) === false) {
                         // We store the data as normal JPEG content if it could
                         // not be parsed as Exif data.
-                        $content = new JpegContent($this, $d->getClone(0, $len));
-                    } else {
-                        $content = $app1_segment->first('exif');
+                        new JpegContent($app1_segment, $d->getClone(0, $len));
                     }
-                    $d->setWindowStart($len);
                 } elseif ($marker == JpegMarker::COM) {
-                    $content = new JpegComment();
+                    $com_segment = new JpegSegment(JpegMarker::getName($marker), $this);
+                    $content = new JpegComment($com_segment);
                     $content->load($d->getClone(0, $len));
-                    $d->setWindowStart($len);
                 } else {
-                    $content = new JpegContent($this, $d->getClone(0, $len));
+                    $segment = new JpegSegment(JpegMarker::getName($marker), $this);
+                    $content = new JpegContent($segment, $d->getClone(0, $len));
                     /* Skip past the data. */
                     $d->setWindowStart($len);
 
@@ -221,7 +219,8 @@ class Jpeg extends BlockBase
                         $this->debug('JPEG data: {data}', ['data' => $this->jpeg_data->toString()]);
 
                         /* Append the EOI. */
-                        //$this->appendSection(JpegMarker::EOI, new JpegContent($this, new DataWindow()));
+                        $eoi_segment = new JpegSegment(JpegMarker::getName(JpegMarker::EOI), $this);
+                        new JpegContent($eoi_segment, new DataWindow());
 
                         /* Now check to see if there are any trailing data. */
                         if ($length != $d->getSize()) {
@@ -241,7 +240,7 @@ class Jpeg extends BlockBase
                     }
                 }
             }
-        } /* while ($d->getSize() > 0) */
+        }
     }
 
     /**
