@@ -145,7 +145,7 @@ class Jpeg extends BlockBase
      */
     public function load(DataWindow $d)
     {
-        $this->debug('Parsing {size} bytes...', ['size' => $d->getSize()]);
+        $this->debug('Parsing {size} bytes of JPEG data...', ['size' => $d->getSize()]);
 
         /* JPEG data is stored in big-endian format. */
         $d->setByteOrder(ConvertBytes::BIG_ENDIAN);
@@ -173,7 +173,7 @@ class Jpeg extends BlockBase
 
             if ($marker == JpegMarker::SOI || $marker == JpegMarker::EOI) {
                 $segment = new JpegSegment($marker, $this);
-                new JpegContent($segment, new DataWindow());
+                //new JpegContent($segment, new DataWindow());
             } else {
                 /*
                  * Read the length of the section. The length includes the
@@ -222,7 +222,7 @@ class Jpeg extends BlockBase
 
                         // Append the EOI.
                         $eoi_segment = new JpegSegment(JpegMarker::EOI, $this);
-                        new JpegContent($eoi_segment, new DataWindow());
+                        //new JpegContent($eoi_segment, new DataWindow());
 
                         // Now check to see if there are any trailing data.
                         if ($length != $d->getSize()) {
@@ -268,14 +268,14 @@ class Jpeg extends BlockBase
     {
         $bytes = '';
 
-        foreach ($this->sections as $section) {
+/*        foreach ($this->sections as $section) {
             $m = $section[0];
             $c = $section[1];
 
             /* Write the marker */
-            $bytes .= "\xFF" . JpegMarker::getBytes($m);
+          //  $bytes .= "\xFF" . JpegMarker::getBytes($m);
             /* Skip over empty markers. */
-            if ($m == JpegMarker::SOI || $m == JpegMarker::EOI) {
+      /*      if ($m == JpegMarker::SOI || $m == JpegMarker::EOI) {
                 continue;
             }
 
@@ -286,9 +286,27 @@ class Jpeg extends BlockBase
             $bytes .= $data;
 
             /* In case of SOS, we need to write the JPEG data. */
-            if ($m == JpegMarker::SOS) {
+        /*    if ($m == JpegMarker::SOS) {
                 $bytes .= $this->jpeg_data->getBytes();
             }
+        }*/
+        $segments = ;
+        foreach ($jpeg->query("segment") as $segment) {
+            $m = $segment->getAttribute('id');
+
+            // Add the marker.
+            $bytes .= "\xFF" . JpegMarker::getBytes($m);
+
+            // Skip over empty markers.
+            if ($m == JpegMarker::SOI || $m == JpegMarker::EOI) {
+                continue;
+            }
+
+            // Add the segment bytes.
+            $data = $segment->toBytes();
+            $size = strlen($data) + 2;
+            $bytes .= ConvertBytes::fromShort($size, ConvertBytes::BIG_ENDIAN);
+            $bytes .= $data;
         }
 
         return $bytes;
