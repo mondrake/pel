@@ -10,11 +10,11 @@ use ExifEye\core\Block\Jpeg;
 
 class MisplacedExifTest extends ExifEyeTestCaseBase
 {
-    // NOTE: this test relies on the assumption that internal Jpeg::sections order is kept between section
+    // NOTE: this test relies on the assumption that internal Jpeg::sections order is kept between segment
     // manipulations. It may fail it this changes.
     public function testRead()
     {
-        // Image contains non-EXIF APP1 section ahead of the EXIF one.
+        // Image contains non-EXIF APP1 segment ahead of the EXIF one.
         $jpeg = new Jpeg(dirname(__FILE__) . '/broken_images/misplaced-exif.jpg');
 
         // Assert we just have loaded correct file for the test.
@@ -23,17 +23,27 @@ class MisplacedExifTest extends ExifEyeTestCaseBase
         $this->assertNull($app1[0]->first("exif"));
         $this->assertInstanceOf('ExifEye\core\Block\Exif', $app1[1]->first("exif"));
 
+        // Add a new APP1 segment.
         $app1_segment = new JpegSegment('APP1', $jpeg);
         $newExif = new Exif($app1_segment);
         $jpeg->setExif($newExif);
-        // Ensure EXIF is set to correct position among sections
-        $sections2 = $jpeg->getSections();
+
+        // Ensure new APP1 segment is set to correct position among segments.
+        $app1 = $jpeg->query("segment[@name='APP1']");
+        $this->assertCount(3, $app1);
+        $this->assertNull($app1[0]->first("exif"));
+        $this->assertInstanceOf('ExifEye\core\Block\Exif', $app1[1]->first("exif"));
+        $this->assertInstanceOf('ExifEye\core\Block\Exif', $app1[2]->first("exif"));
+        $this->assertSame($newExif, $app1[2]->first("exif"));
+
+/*        $sections2 = $jpeg->getSections();
         $this->assertSame($sections1[$exifIdx][0], $sections2[$exifIdx][0]);
         $this->assertNotSame($sections1[$exifIdx][1], $sections2[$exifIdx][1]);
         $this->assertSame($newExif, $sections2[$exifIdx][1]);
 
-        $this->assertInstanceOf('ExifEye\core\Block\Exif', $jpeg->first("segment/exif"));
+        $this->assertInstanceOf('ExifEye\core\Block\Exif', $jpeg->first("segment/exif"));*/
         $jpeg->clearExif();
+
         // Assert that only EXIF section is gone and all other shifted correctly.
         $sections3 = $jpeg->getSections();
         $numSections3 = count($sections3);
