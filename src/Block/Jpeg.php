@@ -393,7 +393,7 @@ class Jpeg extends BlockBase
         }
         // xx
         //$this->remove("segment[@name='APP1']");
-        $this->remove("segment/exif");
+        $this->remove("segment[exif]");
     }
 
     /**
