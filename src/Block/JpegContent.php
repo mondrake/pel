@@ -1,6 +1,6 @@
 <?php
 
-namespace ExifEye\core;
+namespace ExifEye\core\Block;
 
 use ExifEye\core\DataWindow;
 
