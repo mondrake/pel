@@ -4,8 +4,6 @@ namespace ExifEye\Test\core;
 
 use ExifEye\core\Block\Exif;
 use ExifEye\core\Block\JpegSegment;
-use ExifEye\core\ExifEye;
-use ExifEye\core\JpegMarker;
 use ExifEye\core\Block\Jpeg;
 
 class MisplacedExifTest extends ExifEyeTestCaseBase
