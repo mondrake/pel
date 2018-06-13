@@ -56,9 +56,6 @@ class Exif extends BlockBase
         return self::EXIF_HEADER . $this->first('tiff')->toBytes();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public static function isExifSegment(DataWindow $data_window)
     {
         // There must be at least 6 bytes for the Exif header.

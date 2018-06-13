@@ -26,7 +26,6 @@ class MisplacedExifTest extends ExifEyeTestCaseBase
         // Add a new APP1 segment.
         $app1_segment = new JpegSegment('APP1', $jpeg);
         $newExif = new Exif($app1_segment);
-        $jpeg->setExif($newExif);
 
         // Ensure new APP1 segment is set to correct position among segments.
         $app1 = $jpeg->query("segment[@name='APP1']");
