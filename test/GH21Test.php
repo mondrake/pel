@@ -65,7 +65,6 @@ class GH21Test extends ExifEyeTestCaseBase
         $exif_block->loadFromData(new DataWindow($exif->toBytes()));
 
         file_put_contents($this->file, $out_jpeg->getBytes());
-$out_jpeg->saveFile(dirname(__FILE__) . '/images/gh-21-tmp-xxx.jpg');
         
         $jpeg = new Jpeg($this->file);
         $exifin = $jpeg->first("segment/exif");

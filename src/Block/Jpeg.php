@@ -195,6 +195,7 @@ class Jpeg extends BlockBase
                     $com_segment = new JpegSegment($marker, $this);
                     $content = new JpegComment($com_segment);
                     $content->load($d->getClone(0, $len));
+dump($content);
                     $d->setWindowStart($len);
                 } else {
                     $segment = new JpegSegment($marker, $this);
