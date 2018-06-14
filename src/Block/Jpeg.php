@@ -224,7 +224,7 @@ class Jpeg extends BlockBase
 
                         // Now check to see if there are any trailing data.
                         if ($length != $d->getSize()) {
-                            $this->error('Found trailing content after EOI: {size} bytes', [
+                            $this->warning('Found trailing content after EOI: {size} bytes', [
                                 'size' => $d->getSize() - $length,
                             ]);
                             // We don't have a proper JPEG marker for trailing
