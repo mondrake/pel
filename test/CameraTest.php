@@ -16,6 +16,15 @@ use Symfony\Component\Yaml\Yaml;
  */
 class CameraTest extends ExifEyeTestCaseBase
 {
+    /**
+     * {@inheritdoc}
+     */
+    public function tearDown()
+    {
+        parent::tearDown();
+        gc_collect_cycles();
+    }
+
     public function imageFileProvider()
     {
         $finder = new Finder();
