@@ -3,7 +3,6 @@
 namespace ExifEye\core\Block;
 
 use ExifEye\core\DataWindow;
-use ExifEye\core\Entry\JpegComment;
 use ExifEye\core\ExifEye;
 use ExifEye\core\ExifEyeException;
 use ExifEye\core\InvalidArgumentException;
@@ -194,7 +193,7 @@ class Jpeg extends BlockBase
                 } elseif ($marker == JpegMarker::COM) {
                     $com_segment = new JpegSegment($marker, $this);
                     $content = new JpegComment($com_segment);
-                    $content->load($d->getClone(0, $len));
+                    $content->loadFromData($d->getClone(0, $len));
                     $d->setWindowStart($len);
                 } else {
                     $segment = new JpegSegment($marker, $this);
