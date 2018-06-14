@@ -50,15 +50,22 @@ class GH21Test extends ExifEyeTestCaseBase
             $original_h
         );
 
-        $output_jpeg = new Jpeg($scaled);
+        $out_jpeg = new Jpeg($scaled);
 
         $exif = $input_jpeg->first("segment/exif");
-        $app1_segment = new JpegSegment(0xE1, $output_jpeg);
-        $exif_block = new Exif($app1_segment);
+
+        // Find the COM segment in the output file.
+        $out_com_segment = $out_jpeg->first("segment[@name='COM']");
+
+        // Insert the APP1 segment before the COM one.
+        $out_app1_segment = new JpegSegment(0xE1, $out_jpeg, $out_com_segment);
+
+        // Add the EXIF block to the APP1 segment.
+        $exif_block = new Exif($out_app1_segment);
         $exif_block->loadFromData(new DataWindow($exif->toBytes()));
 
-        file_put_contents($this->file, $output_jpeg->getBytes());
-$output_jpeg->saveFile(dirname(__FILE__) . '/images/gh-21-tmp-xxx.jpg');
+        file_put_contents($this->file, $out_jpeg->getBytes());
+$out_jpeg->saveFile(dirname(__FILE__) . '/images/gh-21-tmp-xxx.jpg');
         
         $jpeg = new Jpeg($this->file);
         $exifin = $jpeg->first("segment/exif");

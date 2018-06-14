@@ -27,9 +27,9 @@ class JpegSegment extends BlockBase
     /**
      * Construct a new JPEG segment object.
      */
-    public function __construct($id, BlockBase $parent_block)
+    public function __construct($id, Jpeg $jpeg, JpegSegment $reference = null)
     {
-        parent::__construct($parent_block);
+        parent::__construct($jpeg, $reference);
         $this->setAttribute('id', $id);
         $name = JpegMarker::getName($id);
         $this->setAttribute('name', $name);
