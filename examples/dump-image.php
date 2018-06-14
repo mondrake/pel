@@ -99,7 +99,7 @@ $data = new DataWindow(file_get_contents($file));
 if (Jpeg::xxisValid($data)) {
     $img = new Jpeg();
     $img->load($data);
-    $root = $img->first("segment/exif");
+    $root = $img;
 } else {
     $img = new Tiff($data);
     if ($img->isValid()) {
