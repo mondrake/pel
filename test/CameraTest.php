@@ -45,12 +45,9 @@ class CameraTest extends ExifEyeTestCaseBase
         $test = Yaml::parse($imageDumpFile->getContents());
 
         $image = Image::loadFromFile($imageDumpFile->getPath() . '/' . $test['fileName']);
-        $jpeg = $image->root();
-
-        $exif = $jpeg->first("segment/exif");
 
         if (isset($test['elements'])) {
-            $this->assertElement($test['elements'], $exif);
+            $this->assertElement($test['elements'], $image->root());
         }
 
         $handler = ExifEye::logger()->getHandlers()[0]; // xx
