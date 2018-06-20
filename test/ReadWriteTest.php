@@ -60,7 +60,7 @@ class ReadWriteTest extends ExifEyeTestCaseBase
         $this->assertNotNull($jpeg->first("segment/exif"));
         $this->assertNull($exif->first("tiff"));
 
-        $tiff = new Tiff(false, $exif);
+        $tiff = new Tiff($exif);
         $this->assertNotNull($exif->first("tiff"));
         $this->assertNull($tiff->first("ifd[@name='IFD0']"));
 

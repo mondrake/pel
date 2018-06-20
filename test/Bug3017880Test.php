@@ -34,7 +34,7 @@ class Bug3017880Test extends ExifEyeTestCaseBase
                     ->getMock();
 
                 $exif = new Exif($app1_segment_mock);
-                $tiff = new Tiff(false, $exif);
+                $tiff = new Tiff($exif);
             }
 
             $tiff = $exif->first("tiff");
