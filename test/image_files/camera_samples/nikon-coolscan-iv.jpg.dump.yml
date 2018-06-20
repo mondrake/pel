@@ -167,49 +167,119 @@ elements:
                                                                             valid: true
                                                                             id: '36864'
                                                                             name: ExifVersion
-                                                                            elements: { entry: [{ path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36864:ExifVersion/entry', class: ExifEye\core\Entry\ExifVersion, valid: true, format: Undefined, components: 4, value: czozOiIyLjEiOw==, clear_value: 's:3:"2.1";', text: 'Exif Version 2.1' }] }
+                                                                            elements:
+                                                                                entry:
+                                                                                    -
+                                                                                        path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36864:ExifVersion/entry'
+                                                                                        class: ExifEye\core\Entry\ExifVersion
+                                                                                        valid: true
+                                                                                        format: Undefined
+                                                                                        components: 4
+                                                                                        value: czozOiIyLjEiOw==
+                                                                                        clear_value: 's:3:"2.1";'
+                                                                                        text: 'Exif Version 2.1'
                                                                         -
                                                                             path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37121:ComponentsConfiguration'
                                                                             class: ExifEye\core\Block\Tag
                                                                             valid: true
                                                                             id: '37121'
                                                                             name: ComponentsConfiguration
-                                                                            elements: { entry: [{ path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37121:ComponentsConfiguration/entry', class: ExifEye\core\Entry\ExifComponentsConfiguration, valid: true, format: Undefined, components: 4, value: czo0OiIBAgMAIjs=, clear_value: !!binary czo0OiIBAgMAIjs=, text: 'Y Cb Cr -' }] }
+                                                                            elements:
+                                                                                entry:
+                                                                                    -
+                                                                                        path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37121:ComponentsConfiguration/entry'
+                                                                                        class: ExifEye\core\Entry\ExifComponentsConfiguration
+                                                                                        valid: true
+                                                                                        format: Undefined
+                                                                                        components: 4
+                                                                                        value: czo0OiIBAgMAIjs=
+                                                                                        clear_value: !!binary czo0OiIBAgMAIjs=
+                                                                                        text: 'Y Cb Cr -'
                                                                         -
                                                                             path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37500:MakerNote'
                                                                             class: ExifEye\core\Block\Tag
                                                                             valid: true
                                                                             id: '37500'
                                                                             name: MakerNote
-                                                                            elements: { entry: [{ path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37500:MakerNote/entry', class: ExifEye\core\Entry\ExifMakerNote, valid: true, format: Undefined, components: 32, value: YToyOntpOjA7czozMjoiAgABAAcABAAAADAxMDAQDgQAAQAAABYBAAAAAAAABQAiO2k6MTtpOjI0ODt9, clear_value: !!binary YToyOntpOjA7czozMjoiAgABAAcABAAAADAxMDAQDgQAAQAAABYBAAAAAAAABQAiO2k6MTtpOjI0ODt9, text: '32 bytes MakerNote data' }] }
+                                                                            elements:
+                                                                                entry:
+                                                                                    -
+                                                                                        path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37500:MakerNote/entry'
+                                                                                        class: ExifEye\core\Entry\ExifMakerNote
+                                                                                        valid: true
+                                                                                        format: Undefined
+                                                                                        components: 32
+                                                                                        value: YToyOntpOjA7czozMjoiAgABAAcABAAAADAxMDAQDgQAAQAAABYBAAAAAAAABQAiO2k6MTtpOjI0ODt9
+                                                                                        clear_value: !!binary YToyOntpOjA7czozMjoiAgABAAcABAAAADAxMDAQDgQAAQAAABYBAAAAAAAABQAiO2k6MTtpOjI0ODt9
+                                                                                        text: '32 bytes MakerNote data'
                                                                         -
                                                                             path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40960:FlashPixVersion'
                                                                             class: ExifEye\core\Block\Tag
                                                                             valid: true
                                                                             id: '40960'
                                                                             name: FlashPixVersion
-                                                                            elements: { entry: [{ path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40960:FlashPixVersion/entry', class: ExifEye\core\Entry\ExifFlashPixVersion, valid: true, format: Undefined, components: 4, value: czozOiIxLjAiOw==, clear_value: 's:3:"1.0";', text: 'FlashPix Version 1.0' }] }
+                                                                            elements:
+                                                                                entry:
+                                                                                    -
+                                                                                        path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40960:FlashPixVersion/entry'
+                                                                                        class: ExifEye\core\Entry\ExifFlashPixVersion
+                                                                                        valid: true
+                                                                                        format: Undefined
+                                                                                        components: 4
+                                                                                        value: czozOiIxLjAiOw==
+                                                                                        clear_value: 's:3:"1.0";'
+                                                                                        text: 'FlashPix Version 1.0'
                                                                         -
                                                                             path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40961:ColorSpace'
                                                                             class: ExifEye\core\Block\Tag
                                                                             valid: true
                                                                             id: '40961'
                                                                             name: ColorSpace
-                                                                            elements: { entry: [{ path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40961:ColorSpace/entry', class: ExifEye\core\Entry\Core\Short, valid: true, format: Short, components: 1, value: aToxOw==, clear_value: 'i:1;', text: sRGB }] }
+                                                                            elements:
+                                                                                entry:
+                                                                                    -
+                                                                                        path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40961:ColorSpace/entry'
+                                                                                        class: ExifEye\core\Entry\Core\Short
+                                                                                        valid: true
+                                                                                        format: Short
+                                                                                        components: 1
+                                                                                        value: aToxOw==
+                                                                                        clear_value: 'i:1;'
+                                                                                        text: sRGB
                                                                         -
                                                                             path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40962:PixelXDimension'
                                                                             class: ExifEye\core\Block\Tag
                                                                             valid: true
                                                                             id: '40962'
                                                                             name: PixelXDimension
-                                                                            elements: { entry: [{ path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40962:PixelXDimension/entry', class: ExifEye\core\Entry\Core\Long, valid: true, format: Long, components: 1, value: aTo5NjA7, clear_value: 'i:960;', text: 960 }] }
+                                                                            elements:
+                                                                                entry:
+                                                                                    -
+                                                                                        path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40962:PixelXDimension/entry'
+                                                                                        class: ExifEye\core\Entry\Core\Long
+                                                                                        valid: true
+                                                                                        format: Long
+                                                                                        components: 1
+                                                                                        value: aTo5NjA7
+                                                                                        clear_value: 'i:960;'
+                                                                                        text: 960
                                                                         -
                                                                             path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40963:PixelYDimension'
                                                                             class: ExifEye\core\Block\Tag
                                                                             valid: true
                                                                             id: '40963'
                                                                             name: PixelYDimension
-                                                                            elements: { entry: [{ path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40963:PixelYDimension/entry', class: ExifEye\core\Entry\Core\Long, valid: true, format: Long, components: 1, value: aTo3NTU7, clear_value: 'i:755;', text: 755 }] }
+                                                                            elements:
+                                                                                entry:
+                                                                                    -
+                                                                                        path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40963:PixelYDimension/entry'
+                                                                                        class: ExifEye\core\Entry\Core\Long
+                                                                                        valid: true
+                                                                                        format: Long
+                                                                                        components: 1
+                                                                                        value: aTo3NTU7
+                                                                                        clear_value: 'i:755;'
+                                                                                        text: 755
                                                             -
                                                                 path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS'
                                                                 class: ExifEye\core\Block\Ifd

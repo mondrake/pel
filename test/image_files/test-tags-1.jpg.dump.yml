@@ -150,56 +150,136 @@ elements:
                                                                             valid: true
                                                                             id: '36864'
                                                                             name: ExifVersion
-                                                                            elements: { entry: [{ path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36864:ExifVersion/entry', class: ExifEye\core\Entry\ExifVersion, valid: true, format: Undefined, components: 4, value: czozOiIyLjEiOw==, clear_value: 's:3:"2.1";', text: 'Exif Version 2.1' }] }
+                                                                            elements:
+                                                                                entry:
+                                                                                    -
+                                                                                        path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36864:ExifVersion/entry'
+                                                                                        class: ExifEye\core\Entry\ExifVersion
+                                                                                        valid: true
+                                                                                        format: Undefined
+                                                                                        components: 4
+                                                                                        value: czozOiIyLjEiOw==
+                                                                                        clear_value: 's:3:"2.1";'
+                                                                                        text: 'Exif Version 2.1'
                                                                         -
                                                                             path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36867:DateTimeOriginal'
                                                                             class: ExifEye\core\Block\Tag
                                                                             valid: true
                                                                             id: '36867'
                                                                             name: DateTimeOriginal
-                                                                            elements: { entry: [{ path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36867:DateTimeOriginal/entry', class: ExifEye\core\Entry\Time, valid: true, format: Ascii, components: 20, value: czoxOToiMTk3MDowMTowMSAwMDowMDowMCI7, clear_value: 's:19:"1970:01:01 00:00:00";', text: '1970:01:01 00:00:00' }] }
+                                                                            elements:
+                                                                                entry:
+                                                                                    -
+                                                                                        path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36867:DateTimeOriginal/entry'
+                                                                                        class: ExifEye\core\Entry\Time
+                                                                                        valid: true
+                                                                                        format: Ascii
+                                                                                        components: 20
+                                                                                        value: czoxOToiMTk3MDowMTowMSAwMDowMDowMCI7
+                                                                                        clear_value: 's:19:"1970:01:01 00:00:00";'
+                                                                                        text: '1970:01:01 00:00:00'
                                                                         -
                                                                             path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36868:DateTimeDigitized'
                                                                             class: ExifEye\core\Block\Tag
                                                                             valid: true
                                                                             id: '36868'
                                                                             name: DateTimeDigitized
-                                                                            elements: { entry: [{ path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36868:DateTimeDigitized/entry', class: ExifEye\core\Entry\Time, valid: true, format: Ascii, components: 20, value: czoxOToiMTk3MDowMTowMSAwMDowMDowMCI7, clear_value: 's:19:"1970:01:01 00:00:00";', text: '1970:01:01 00:00:00' }] }
+                                                                            elements:
+                                                                                entry:
+                                                                                    -
+                                                                                        path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36868:DateTimeDigitized/entry'
+                                                                                        class: ExifEye\core\Entry\Time
+                                                                                        valid: true
+                                                                                        format: Ascii
+                                                                                        components: 20
+                                                                                        value: czoxOToiMTk3MDowMTowMSAwMDowMDowMCI7
+                                                                                        clear_value: 's:19:"1970:01:01 00:00:00";'
+                                                                                        text: '1970:01:01 00:00:00'
                                                                         -
                                                                             path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36880:OffsetTime'
                                                                             class: ExifEye\core\Block\Tag
                                                                             valid: true
                                                                             id: '36880'
                                                                             name: OffsetTime
-                                                                            elements: { entry: [{ path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36880:OffsetTime/entry', class: ExifEye\core\Entry\Core\Ascii, valid: true, format: Ascii, components: 7, value: czo2OiItMDk6MDAiOw==, clear_value: 's:6:"-09:00";', text: '-09:00' }] }
+                                                                            elements:
+                                                                                entry:
+                                                                                    -
+                                                                                        path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36880:OffsetTime/entry'
+                                                                                        class: ExifEye\core\Entry\Core\Ascii
+                                                                                        valid: true
+                                                                                        format: Ascii
+                                                                                        components: 7
+                                                                                        value: czo2OiItMDk6MDAiOw==
+                                                                                        clear_value: 's:6:"-09:00";'
+                                                                                        text: '-09:00'
                                                                         -
                                                                             path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36881:OffsetTimeOriginal'
                                                                             class: ExifEye\core\Block\Tag
                                                                             valid: true
                                                                             id: '36881'
                                                                             name: OffsetTimeOriginal
-                                                                            elements: { entry: [{ path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36881:OffsetTimeOriginal/entry', class: ExifEye\core\Entry\Core\Ascii, valid: true, format: Ascii, components: 7, value: czo2OiItMTE6MDAiOw==, clear_value: 's:6:"-11:00";', text: '-11:00' }] }
+                                                                            elements:
+                                                                                entry:
+                                                                                    -
+                                                                                        path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36881:OffsetTimeOriginal/entry'
+                                                                                        class: ExifEye\core\Entry\Core\Ascii
+                                                                                        valid: true
+                                                                                        format: Ascii
+                                                                                        components: 7
+                                                                                        value: czo2OiItMTE6MDAiOw==
+                                                                                        clear_value: 's:6:"-11:00";'
+                                                                                        text: '-11:00'
                                                                         -
                                                                             path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36882:OffsetTimeDigitized'
                                                                             class: ExifEye\core\Block\Tag
                                                                             valid: true
                                                                             id: '36882'
                                                                             name: OffsetTimeDigitized
-                                                                            elements: { entry: [{ path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36882:OffsetTimeDigitized/entry', class: ExifEye\core\Entry\Core\Ascii, valid: true, format: Ascii, components: 7, value: czo2OiItMTA6MDAiOw==, clear_value: 's:6:"-10:00";', text: '-10:00' }] }
+                                                                            elements:
+                                                                                entry:
+                                                                                    -
+                                                                                        path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36882:OffsetTimeDigitized/entry'
+                                                                                        class: ExifEye\core\Entry\Core\Ascii
+                                                                                        valid: true
+                                                                                        format: Ascii
+                                                                                        components: 7
+                                                                                        value: czo2OiItMTA6MDAiOw==
+                                                                                        clear_value: 's:6:"-10:00";'
+                                                                                        text: '-10:00'
                                                                         -
                                                                             path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40960:FlashPixVersion'
                                                                             class: ExifEye\core\Block\Tag
                                                                             valid: true
                                                                             id: '40960'
                                                                             name: FlashPixVersion
-                                                                            elements: { entry: [{ path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40960:FlashPixVersion/entry', class: ExifEye\core\Entry\ExifFlashPixVersion, valid: true, format: Undefined, components: 4, value: czozOiIxLjAiOw==, clear_value: 's:3:"1.0";', text: 'FlashPix Version 1.0' }] }
+                                                                            elements:
+                                                                                entry:
+                                                                                    -
+                                                                                        path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40960:FlashPixVersion/entry'
+                                                                                        class: ExifEye\core\Entry\ExifFlashPixVersion
+                                                                                        valid: true
+                                                                                        format: Undefined
+                                                                                        components: 4
+                                                                                        value: czozOiIxLjAiOw==
+                                                                                        clear_value: 's:3:"1.0";'
+                                                                                        text: 'FlashPix Version 1.0'
                                                                         -
                                                                             path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40961:ColorSpace'
                                                                             class: ExifEye\core\Block\Tag
                                                                             valid: true
                                                                             id: '40961'
                                                                             name: ColorSpace
-                                                                            elements: { entry: [{ path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40961:ColorSpace/entry', class: ExifEye\core\Entry\Core\Short, valid: true, format: Short, components: 1, value: aTo2NTUzNTs=, clear_value: 'i:65535;', text: Uncalibrated }] }
+                                                                            elements:
+                                                                                entry:
+                                                                                    -
+                                                                                        path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40961:ColorSpace/entry'
+                                                                                        class: ExifEye\core\Entry\Core\Short
+                                                                                        valid: true
+                                                                                        format: Short
+                                                                                        components: 1
+                                                                                        value: aTo2NTUzNTs=
+                                                                                        clear_value: 'i:65535;'
+                                                                                        text: Uncalibrated
                                                 -
                                                     path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD1'
                                                     class: ExifEye\core\Block\Ifd

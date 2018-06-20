@@ -128,7 +128,17 @@ elements:
                                                                             valid: true
                                                                             id: '0'
                                                                             name: GPSVersionID
-                                                                            elements: { entry: [{ path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:0:GPSVersionID/entry', class: ExifEye\core\Entry\GPSVersionId, valid: true, format: Byte, components: 4, value: YTo0OntpOjA7aToyO2k6MTtpOjM7aToyO2k6MDtpOjM7aTowO30=, clear_value: 'a:4:{i:0;i:2;i:1;i:3;i:2;i:0;i:3;i:0;}', text: 2.3.0.0 }] }
+                                                                            elements:
+                                                                                entry:
+                                                                                    -
+                                                                                        path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:0:GPSVersionID/entry'
+                                                                                        class: ExifEye\core\Entry\GPSVersionId
+                                                                                        valid: true
+                                                                                        format: Byte
+                                                                                        components: 4
+                                                                                        value: YTo0OntpOjA7aToyO2k6MTtpOjM7aToyO2k6MDtpOjM7aTowO30=
+                                                                                        clear_value: 'a:4:{i:0;i:2;i:1;i:3;i:2;i:0;i:3;i:0;}'
+                                                                                        text: 2.3.0.0
                                                             -
                                                                 path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif'
                                                                 class: ExifEye\core\Block\Ifd
@@ -142,21 +152,51 @@ elements:
                                                                             valid: true
                                                                             id: '36864'
                                                                             name: ExifVersion
-                                                                            elements: { entry: [{ path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36864:ExifVersion/entry', class: ExifEye\core\Entry\ExifVersion, valid: false, format: Undefined, components: 4, value: czozOiIwLjAiOw==, clear_value: 's:3:"0.0";', text: 'Exif Version 0.0' }] }
+                                                                            elements:
+                                                                                entry:
+                                                                                    -
+                                                                                        path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36864:ExifVersion/entry'
+                                                                                        class: ExifEye\core\Entry\ExifVersion
+                                                                                        valid: false
+                                                                                        format: Undefined
+                                                                                        components: 4
+                                                                                        value: czozOiIwLjAiOw==
+                                                                                        clear_value: 's:3:"0.0";'
+                                                                                        text: 'Exif Version 0.0'
                                                                         -
                                                                             path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37520:SubSecTime'
                                                                             class: ExifEye\core\Block\Tag
                                                                             valid: true
                                                                             id: '37520'
                                                                             name: SubSecTime
-                                                                            elements: { entry: [{ path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37520:SubSecTime/entry', class: ExifEye\core\Entry\Core\Ascii, valid: true, format: Ascii, components: 2, value: czoxOiIwIjs=, clear_value: 's:1:"0";', text: '0' }] }
+                                                                            elements:
+                                                                                entry:
+                                                                                    -
+                                                                                        path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37520:SubSecTime/entry'
+                                                                                        class: ExifEye\core\Entry\Core\Ascii
+                                                                                        valid: true
+                                                                                        format: Ascii
+                                                                                        components: 2
+                                                                                        value: czoxOiIwIjs=
+                                                                                        clear_value: 's:1:"0";'
+                                                                                        text: '0'
                                                                         -
                                                                             path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36880:OffsetTime'
                                                                             class: ExifEye\core\Block\Tag
                                                                             valid: true
                                                                             id: '36880'
                                                                             name: OffsetTime
-                                                                            elements: { entry: [{ path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36880:OffsetTime/entry', class: ExifEye\core\Entry\Core\Ascii, valid: true, format: Ascii, components: 7, value: czo2OiIrMDA6MDAiOw==, clear_value: 's:6:"+00:00";', text: '+00:00' }] }
+                                                                            elements:
+                                                                                entry:
+                                                                                    -
+                                                                                        path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36880:OffsetTime/entry'
+                                                                                        class: ExifEye\core\Entry\Core\Ascii
+                                                                                        valid: true
+                                                                                        format: Ascii
+                                                                                        components: 7
+                                                                                        value: czo2OiIrMDA6MDAiOw==
+                                                                                        clear_value: 's:6:"+00:00";'
+                                                                                        text: '+00:00'
                                                 -
                                                     path: '/jpeg/segment:225:APP1/exif/tiff/ifd:IFD1'
                                                     class: ExifEye\core\Block\Ifd
