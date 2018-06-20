@@ -15,7 +15,7 @@ use Symfony\Component\Yaml\Yaml;
 /**
  * Test camera images stored in the imagetest directory.
  */
-class CameraTest extends ExifEyeTestCaseBase
+class ImageFilesTest extends ExifEyeTestCaseBase
 {
     /**
      * {@inheritdoc}
