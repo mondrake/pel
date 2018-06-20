@@ -52,7 +52,7 @@ class DumpCommand extends Command
         $fs = new Filesystem();
 
         $finder = new Finder();
-        $finder->files()->in($input->getArgument('file-path'))->notName('*.yml');
+        $finder->files()->in($input->getArgument('file-path'))->name('*.jpg')->name('*.JPG')->name('*.tiff');
 
         foreach ($finder as $file) {
             ExifEye::clearLogger();
@@ -104,6 +104,6 @@ class DumpCommand extends Command
             ];
         }
 
-        return Yaml::dump($json, 20);
+        return Yaml::dump($json, 40);
     }
 }
