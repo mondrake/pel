@@ -30,7 +30,8 @@ class GH16Test extends ExifEyeTestCaseBase
     public function testThisDoesNotWorkAsExpected()
     {
         // Parse test file.
-        $jpeg = new Jpeg($this->file);
+        $image = Image::loadFromFile($this->file);
+        $jpeg = $image->root();
         $exif = $jpeg->first("segment/exif");
         $ifd0 = $exif->first("tiff/ifd[@name='IFD0']");
         $this->assertCount(1, $ifd0->query("tag"));
