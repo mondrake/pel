@@ -64,7 +64,7 @@ class Image
 
     public static function loadFromFile($path)
     {
-        $data_window = new DataWindow(file_get_contents($filename));
+        $data_window = new DataWindow(file_get_contents($path));
         
         // Is file a JPEG image?
         if ($d->getBytes(0, 2) === '0xFFD8') {
@@ -74,9 +74,7 @@ class Image
         // Is file a TIFF image?
         return new static('image/tiff', $data_window);
         
-        $d->setByteOrder(ConvertBytes::BIG_ENDIAN);
-        $i = self::getJpgSectionStart($d);
-        
+        throw new ExifEyeException('Unrecognized image format.');
     }
 
     /**
