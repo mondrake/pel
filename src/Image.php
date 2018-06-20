@@ -67,6 +67,7 @@ class Image
         $data_window = new DataWindow(file_get_contents($path));
         
         // Is file a JPEG image?
+dump($data_window->getBytes(0, 2));
         if ($data_window->getBytes(0, 2) === '0xFFD8') {
             return new static('image/jpeg', $data_window);
         }

@@ -97,9 +97,9 @@ ExifEye::logger()->pushHandler($log_handler);
 $image = Image::loadFromFile($file);
 
 /* Check data validity and load to object */
-if ($image->getMimeType === 'image/jpeg') {
+if ($image->getMimeType() === 'image/jpeg') {
     $root = $image->first("jpeg");
-} elseif ($image->getMimeType === 'image/tiff') {
+} elseif ($image->getMimeType() === 'image/tiff') {
     $root = $image->first("tiff");
 }
 
