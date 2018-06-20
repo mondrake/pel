@@ -5,6 +5,7 @@ namespace ExifEye\Test\core;
 use ExifEye\core\Block\Jpeg;
 use ExifEye\core\Block\Tiff;
 use ExifEye\core\ExifEye;
+use ExifEye\core\Image;
 
 class GH77Test extends ExifEyeTestCaseBase
 {
