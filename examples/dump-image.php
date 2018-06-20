@@ -27,6 +27,7 @@
 use ExifEye\core\ElementInterface;
 use ExifEye\core\Entry\Core\EntryInterface;
 use ExifEye\core\ExifEye;
+use ExifEye\core\Image;
 use ExifEye\core\Spec;
 use ExifEye\core\DataWindow;
 use ExifEye\core\Utility\ConvertBytes;
@@ -93,23 +94,17 @@ $log_handler->setFormatter($log_formatter);
 ExifEye::logger()->pushHandler($log_handler);
 
 /* Load data from file */
-$data = new DataWindow(file_get_contents($file));
+$image = Image::loadFromFile($file);
 
 /* Check data validity and load to object */
-if (Jpeg::xxisValid($data)) {
-    $img = new Jpeg();
-    $img->load($data);
-    $root = $img;
-} else {
-    $img = new Tiff($data);
-    if ($img->isValid()) {
-        $root = $img;
-    }
+if ($image->getMimeType === 'image/jpeg') {
+    $root = $image->first("jpeg");
+} elseif ($image->getMimeType === 'image/tiff') {
+    $root = $image->first("tiff");
 }
 
 if (!isset($root)) {
-    print("Unrecognized image format! The first 16 bytes follow:\n");
-    ConvertBytes::dump($data->getBytes(0, 16));
+    print("Unrecognized image format!\n");
     exit(1);
 }
 

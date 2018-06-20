@@ -42,6 +42,11 @@ class Image
         }
     }
 
+    public function getMimeType()
+    {
+        return $this->mimeType;
+    }
+
     public function first($expression)
     {
         return $this->root->first($expression);
