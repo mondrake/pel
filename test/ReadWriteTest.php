@@ -18,6 +18,7 @@ use ExifEye\core\ExifEye;
 use ExifEye\core\Block\Ifd;
 use ExifEye\core\Format;
 use ExifEye\core\Spec;
+use ExifEye\core\Image;
 
 class ReadWriteTest extends ExifEyeTestCaseBase
 {
@@ -79,7 +80,8 @@ class ReadWriteTest extends ExifEyeTestCaseBase
         $jpeg = null;
 
         // Now read the file and see if the entries are still there.
-        $r_jpeg = new Jpeg(dirname(__FILE__) . '/test-output.jpg');
+        $r_image = Image::loadFromFile(dirname(__FILE__) . '/test-output.jpg');
+        $r_jpeg = $r_image->root();
 
         $this->assertInstanceOf('ExifEye\core\Block\Exif', $r_jpeg->first("segment/exif"));
 
