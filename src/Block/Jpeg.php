@@ -241,17 +241,6 @@ class Jpeg extends BlockBase
     }
 
     /**
-     * Load data from a file into a JPEG object.
-     *
-     * @param
-     *            string the filename. This must be a readable file.
-     */
-    public function loadFile($filename)
-    {
-        $this->load(new DataWindow(file_get_contents($filename)));
-    }
-
-    /**
      * Turn this JPEG object into bytes.
      *
      * The bytes returned by this method is ready to be stored in a file
@@ -261,7 +250,7 @@ class Jpeg extends BlockBase
      * @return string bytes representing this JPEG object, including all
      *         its sections and their associated data.
      */
-    public function getBytes()
+    public function toBytes()
     {
         $bytes = '';
 
@@ -289,46 +278,5 @@ class Jpeg extends BlockBase
         }
 
         return $bytes;
-    }
-
-    /**
-     * Save the JPEG object as a JPEG image in a file.
-     *
-     * @param
-     *            string the filename to save in. An existing file with the
-     *            same name will be overwritten!
-     *
-     * @return integer|FALSE The number of bytes that were written to the
-     *         file, or FALSE on failure.
-     */
-    public function saveFile($filename)
-    {
-        return file_put_contents($filename, $this->getBytes());
-    }
-
-    /**
-     * Test data to see if it could be a valid JPEG image.
-     *
-     * The function will only look at the first few bytes of the data,
-     * and try to determine if it could be a valid JPEG image based on
-     * those bytes. This means that the check is more like a heuristic
-     * than a rigorous check.
-     *
-     * @param
-     *            DataWindow the bytes that will be checked.
-     *
-     * @return boolean true if the bytes look like the beginning of a
-     *         JPEG image, false otherwise.
-     *
-     * @see Tiff::isValid()
-     */
-    public static function xxisValid(DataWindow $d)
-    {
-        /* JPEG data is stored in big-endian format. */
-        $d->setByteOrder(ConvertBytes::BIG_ENDIAN);
-
-        $i = self::getJpgSectionStart($d);
-
-        return $d->getByte($i) == JpegMarker::SOI;
     }
 }
