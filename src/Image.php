@@ -71,16 +71,19 @@ class Image
 
     public static function loadFromFile($path)
     {
-        $data_window = new DataWindow(file_get_contents($path));
-        
+        return static::loadFromData(new DataWindow(file_get_contents($path)));
+    }
+
+    public static function loadFromData(DataWindow $data_window)
+    {
         // Is file a JPEG image?
         if ($data_window->getByte(0) === 0xFF && $data_window->getByte(1) === 0xD8) {
             return new static('image/jpeg', $data_window);
         }
-        
+
         // Is file a TIFF image?
         return new static('image/tiff', $data_window);
-        
+
         throw new ExifEyeException('Unrecognized image format.');
     }
 

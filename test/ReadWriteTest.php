@@ -72,7 +72,7 @@ class ReadWriteTest extends ExifEyeTestCaseBase
         $this->assertNotNull($tiff->first("ifd[@name='IFD0']"));
 
         $this->assertFalse(file_exists(dirname(__FILE__) . '/test-output.jpg'));
-        $jpeg->saveFile(dirname(__FILE__) . '/test-output.jpg');
+        $image->saveToFile(dirname(__FILE__) . '/test-output.jpg');
         $this->assertTrue(file_exists(dirname(__FILE__) . '/test-output.jpg'));
         $this->assertTrue(filesize(dirname(__FILE__) . '/test-output.jpg') > 0);
 
