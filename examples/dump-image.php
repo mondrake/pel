@@ -104,7 +104,7 @@ if ($image->getMimeType() === 'image/jpeg') {
 }
 
 if (!isset($root)) {
-    print("Unrecognized image format!\n");
+    print("dump-image: Unrecognized image format!\n");
     exit(1);
 }
 
