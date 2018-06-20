@@ -31,7 +31,7 @@ class GH21Test extends ExifEyeTestCaseBase
         $input_image = Image::loadFromFile($this->file);
         $input_jpeg = $input_image->root();
 
-        $original = ImageCreateFromString($input_jpeg->getBytes());
+        $original = ImageCreateFromString($input_jpeg->toBytes());
         $original_w = ImagesX($original);
         $original_h = ImagesY($original);
 
