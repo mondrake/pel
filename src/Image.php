@@ -32,10 +32,12 @@ class Image
         $this->mimeType = $mime_type;
         switch ($this->mimeType) {
             case 'image/jpeg':
-                $this->root = new Jpeg($data_window);
+                $this->root = new Jpeg();
+                $this->root->load($data_window);
                 return;
             case 'image/tiff':
-                $this->root = new Tiff($data_window);
+                $this->root = new Tiff();
+                $this->root->loadFromData($data_window);
                 return;
             default:
                 throw new ExifEyeException('Unrecognized image format.');

@@ -45,7 +45,9 @@ class ReadWriteTest extends ExifEyeTestCaseBase
      */
     public function testWriteRead(array $entries)
     {
-        $jpeg = new Jpeg(dirname(__FILE__) . '/images/no-exif.jpg');
+        $image = Image::loadFromFile(dirname(__FILE__) . '/images/no-exif.jpg');
+        $jpeg = $image->root();
+
         $this->assertNull($jpeg->first("segment/exif"));
 
         // Find the COM segment.
