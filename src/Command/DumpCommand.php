@@ -99,7 +99,7 @@ class DumpCommand extends Command
                     continue;
             }
             $json[$key][] = [
-                'path' => $record['context']['path'],
+                'path' => isset($record['context']['path']) ? $record['context']['path'] : '*** missing ***',
                 'message' => $record['message'],
             ];
         }
