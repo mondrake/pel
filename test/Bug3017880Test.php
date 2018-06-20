@@ -15,7 +15,7 @@ class Bug3017880Test extends ExifEyeTestCaseBase
 {
     public function testThisDoesNotWorkAsExpected()
     {
-        $filename = dirname(__FILE__) . '/images/bug3017880.jpg';
+        $filename = dirname(__FILE__) . '/image_files/bug3017880.jpg';
         try {
             $exif = null;
             $success = 1; // return true by default, as this function may not resave the file, but it's still success

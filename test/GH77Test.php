@@ -11,7 +11,7 @@ class GH77Test extends ExifEyeTestCaseBase
 {
     public function testReturnModel()
     {
-        $file = dirname(__FILE__) . '/images/gh-77.jpg';
+        $file = dirname(__FILE__) . '/image_files/gh-77.jpg';
 
         $image = Image::loadFromFile($file);
         $input_jpeg = $image->root();

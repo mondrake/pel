@@ -14,7 +14,7 @@ class MisplacedExifTest extends ExifEyeTestCaseBase
     public function testRead()
     {
         // Image contains non-EXIF APP1 segment ahead of the EXIF one.
-        $image = Image::loadFromFile(dirname(__FILE__) . '/broken_images/misplaced-exif.jpg');
+        $image = Image::loadFromFile(dirname(__FILE__) . '/image_files/broken_images/misplaced-exif.jpg');
         $jpeg = $image->root();
 
         // Assert we just have loaded correct file for the test.
