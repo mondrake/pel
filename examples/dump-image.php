@@ -96,17 +96,9 @@ ExifEye::logger()->pushHandler($log_handler);
 /* Load data from file */
 $image = Image::loadFromFile($file);
 
-/* Check data validity and load to object */
-dump($image->getMimeType());
-if ($image->getMimeType() === 'image/jpeg') {
-    $root = $image->first("jpeg");
-} elseif ($image->getMimeType() === 'image/tiff') {
-    $root = $image->first("tiff");
-}
-
-if (!isset($root)) {
+if ($image->root() === null) {
     print("dump-image: Unrecognized image format!\n");
     exit(1);
 }
 
-dump_element($root);
+dump_element($image->root());
