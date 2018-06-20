@@ -1,0 +1,12 @@
+fileName: COPYING
+mimeType: image/tiff
+elements:
+    path: /tiff
+    class: ExifEye\core\Block\Tiff
+    valid: false
+errors:
+    -
+        path: /tiff
+        message: 'Unknown byte order found in TIFF data: 0x9 0x9'
+warnings: {  }
+notices: {  }
