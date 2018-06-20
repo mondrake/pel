@@ -7,6 +7,7 @@ use ExifEye\core\ExifEye;
 use ExifEye\core\Format;
 use ExifEye\core\Block\Jpeg;
 use ExifEye\Test\core\ExifEyeTestCaseBase;
+use ExifEye\core\Image;
 use ExifEye\core\Spec;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Yaml\Yaml;
@@ -43,7 +44,8 @@ class CameraTest extends ExifEyeTestCaseBase
     {
         $test = Yaml::parse($imageDumpFile->getContents());
 
-        $jpeg = new Jpeg(dirname(__FILE__) . '/imagetests/' . $test['jpeg']);
+        $image = Image::loadFromFile(dirname(__FILE__) . '/imagetests/' . $test['jpeg']);
+        $jpeg = $image->root();
 
         $exif = $jpeg->first("segment/exif");
 
