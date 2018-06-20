@@ -85,7 +85,7 @@ class Image
     /**
      * Save the Image object as a file.
      */
-    public static function saveToFile($path)
+    public function saveToFile($path)
     {
         return file_put_contents($path, $this->root->toBytes());
     }

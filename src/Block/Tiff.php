@@ -31,19 +31,6 @@ class Tiff extends BlockBase
     public function __construct($data, Exif $parent = null)
     {
         parent::__construct($parent);
-
-        if ($data === false) {
-            return;
-        }
-        if (is_string($data)) {
-            $this->debug('Initializing Tiff object from {data}', ['data' => $data]);
-            $this->loadFile($data);
-        } elseif ($data instanceof DataWindow) {
-            $this->debug('Initializing Tiff object from DataWindow.');
-            $this->loadFromData($data);
-        } else {
-            throw new InvalidArgumentException('Bad type for $data: %s', gettype($data));
-        }
     }
 
     /**

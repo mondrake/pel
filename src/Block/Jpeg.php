@@ -61,53 +61,6 @@ class Jpeg extends BlockBase
     private $jpeg_data = null;
 
     /**
-     * Construct a new JPEG object.
-     *
-     * The new object will be empty unless an argument is given from
-     * which it can initialize itself. This can either be the filename
-     * of a JPEG image, a {@link DataWindow} object or a PHP image
-     * resource handle.
-     *
-     * New Exif data (in the form of a {@link Exif} object) can be
-     * inserted with the {@link setExif()} method:
-     *
-     * <code>
-     * $jpeg = new Jpeg($data);
-     * // Create container for the Exif information:
-     * $exif = new Exif();
-     * // Now Add a Tiff object with a Ifd object with one or more
-     * // objects to $exif... Finally add $exif to $jpeg:
-     * $jpeg->setExif($exif);
-     * </code>
-     *
-     * @param
-     *            mixed the data that this JPEG. This can either be a
-     *            filename, a {@link DataWindow} object, or a PHP image resource
-     *            handle.
-     */
-    public function __construct($data = false)
-    {
-        parent::__construct();
-
-        if ($data === false) {
-            return;
-        }
-
-        if (is_string($data)) {
-            $this->debug('Initializing Jpeg object from {data}', ['data' => $data]);
-            $this->loadFile($data);
-        } elseif ($data instanceof DataWindow) {
-            $this->debug('Initializing Jpeg object from DataWindow.');
-            $this->load($data);
-        } elseif (is_resource($data) && get_resource_type($data) == 'gd') {
-            $this->debug('Initializing Jpeg object from image resource.');
-            $this->load(new DataWindow($data));
-        } else {
-            throw new InvalidArgumentException('Bad type for $data: %s', gettype($data));
-        }
-    }
-
-    /**
      * JPEG sections start with 0xFF. The first byte that is not
      * 0xFF is a marker (hopefully).
      *
