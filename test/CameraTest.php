@@ -29,7 +29,7 @@ class CameraTest extends ExifEyeTestCaseBase
     public function imageFileProvider()
     {
         $finder = new Finder();
-        $finder->files()->in(dirname(__FILE__) . '/image_files/camera_samples')->name('*.test.yml');
+        $finder->files()->in(dirname(__FILE__) . '/image_files')->name('*.dump.yml');
         $result = [];
         foreach ($finder as $file) {
             $result[$file->getBasename()] = [$file];
@@ -44,7 +44,7 @@ class CameraTest extends ExifEyeTestCaseBase
     {
         $test = Yaml::parse($imageDumpFile->getContents());
 
-        $image = Image::loadFromFile(dirname(__FILE__) . '/image_files/camera_samples/' . $test['jpeg']);
+        $image = Image::loadFromFile(dirname(__FILE__) . '/image_files/' . $test['fileName']);
         $jpeg = $image->root();
 
         $exif = $jpeg->first("segment/exif");
