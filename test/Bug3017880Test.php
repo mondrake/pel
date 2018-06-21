@@ -50,7 +50,7 @@ class Bug3017880Test extends ExifEyeTestCaseBase
                 new Tag($ifd0, 0x0131, 'ExifEye\core\Entry\Core\Ascii', [$software_name]);
                 $resave_file = 1;
             } else {
-                $software_tag->getEntry()->setValue([$software_name]);
+                $software_tag->first("entry")->setValue([$software_name]);
                 $resave_file = 1;
             }
 
