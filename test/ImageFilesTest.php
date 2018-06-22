@@ -51,15 +51,15 @@ class ImageFilesTest extends ExifEyeTestCaseBase
         }
 
         $log_dump = $image->dumpLog();
-dump(array_keys($log_dump));
+
         if (isset($test['errors'])) {
-            $this->assertEquals(count($test['errors']), count($log_dump['ERROR']));
+            $this->assertEquals(count($test['errors']), isset($log_dump['ERROR']) ? count($log_dump['ERROR']) : 0);
         }
         if (isset($test['warnings'])) {
-            $this->assertEquals(count($test['warnings']), count($log_dump['WARNING']));
+            $this->assertEquals(count($test['warnings']), isset($log_dump['WARNING']) ? count($log_dump['WARNING']) : 0);
         }
         if (isset($test['notices'])) {
-            $this->assertEquals(count($test['notices']), count($log_dump['NOTICE']));
+            $this->assertEquals(count($test['notices']), isset($log_dump['NOTICE']) ? count($log_dump['NOTICE']) : 0);
         }
     }
 
