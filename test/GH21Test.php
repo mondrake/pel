@@ -52,7 +52,7 @@ class GH21Test extends ExifEyeTestCaseBase
             $original_h
         );
 
-        $out_image = Image::loadFromData(new DataWindow($scaled));
+        $out_image = Image::createFromData(new DataWindow($scaled));
         $out_jpeg = $out_image->root();
 
         $exif = $input_jpeg->first("segment/exif");

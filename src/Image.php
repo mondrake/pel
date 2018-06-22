@@ -2,6 +2,7 @@
 
 namespace ExifEye\core;
 
+use ExifEye\core\Block\BlockBase;
 use ExifEye\core\Block\Jpeg;
 use ExifEye\core\Block\Tiff;
 use ExifEye\core\Utility\ConvertBytes;
@@ -9,7 +10,7 @@ use ExifEye\core\Utility\ConvertBytes;
 /**
  * Class to handle image data.
  */
-class Image
+class Image extends BlockBase
 {
     /**
      * The MIME type of the image.
@@ -17,13 +18,6 @@ class Image
      * @var string
      */
     protected $mimeType;
-
-    /**
-     * The MIME type of the image.
-     *
-     * @var string
-     */
-    protected $root;
 
     /**
      * Constructs a new Image object.
@@ -40,8 +34,8 @@ class Image
         // JPEG image?
         if ($data_window->getBytes(0, 3) === "\xFF\xD8\xFF") {
             $this->mimeType = 'image/jpeg';
-            $this->root = new Jpeg();
-            $this->root->loadFromData($data_window);
+            $jpeg = new Jpeg();
+            $jpeg->loadFromData($data_window);
             return;
         }
 
@@ -51,8 +45,8 @@ class Image
             $data_window->setByteOrder($byte_order === 'II' ? ConvertBytes::LITTLE_ENDIAN : ConvertBytes::BIG_ENDIAN);
             if ($data_window->getShort(2) === Tiff::TIFF_HEADER) {
                 $this->mimeType = 'image/tiff';
-                $this->root = new Tiff();
-                $this->root->loadFromData($data_window);
+                $tiff = new Tiff();
+                $tiff->loadFromData($data_window);
                 return;
             }
         }
@@ -63,26 +57,6 @@ class Image
     public function getMimeType()
     {
         return $this->mimeType;
-    }
-
-    public function root()
-    {
-        return $this->root;
-    }
-
-    public function first($expression)
-    {
-        return $this->root->first($expression);
-    }
-
-    public function remove($expression)
-    {
-        return $this->root->remove($expression);
-    }
-
-    public function query($expression)
-    {
-        return $this->root->query($expression);
     }
 
     public static function loadFromFile($path)
@@ -126,6 +100,6 @@ class Image
      */
     public function saveToFile($path)
     {
-        return file_put_contents($path, $this->root->toBytes());
+        return file_put_contents($path, $this->toBytes());
     }
 }
