@@ -95,7 +95,9 @@ $logger = new Logger('dump-image');
 $log_handler = new StreamHandler('php://stdout');
 $log_formatter = new DumpLogFormatter();
 $log_handler->setFormatter($log_formatter);
-$logger->pushHandler($log_handler);
+$logger
+    ->pushHandler($log_handler)
+    ->pushProcessor(new PsrLogMessageProcessor());
 
 /* Load data from file */
 $image = Image::loadFromFile($file, $logger);
