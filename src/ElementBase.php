@@ -191,6 +191,6 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     public function log($level, $message, array $context = [])
     {
         $context['path'] = $this->getContextPath();
-        $this->DOMNode->ownerDocument->getExifEyeElement()->logger()->log($level, $message, $context);
+        $this->DOMNode->ownerDocument->documentElement->getExifEyeElement()->logger()->log($level, $message, $context);
     }
 }
