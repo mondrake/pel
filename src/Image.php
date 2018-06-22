@@ -76,13 +76,19 @@ class Image
 
     public static function loadFromData(DataWindow $data_window)
     {
-        // Is file a JPEG image?
+        // JPEG image?
         if ($data_window->getBytes(0, 3) === 0xFFD8FF) {
             return new static('image/jpeg', $data_window);
         }
 
-        // Is file a TIFF image?
-        return new static('image/tiff', $data_window);
+        // TIFF image?
+        $byte_order = $data_window->getBytes(0, 2);
+        if ($byte_order === 'II' || $byte_order === 'MM') {
+            $data_window->setByteOrder($byte_order === 'II' ? ConvertBytes::LITTLE_ENDIAN : ConvertBytes::BIG_ENDIAN);
+            if ($data_window->getShort(2) === Tiff::TIFF_HEADER) {
+                return new static('image/tiff', $data_window);
+            }
+        }
 
         throw new ExifEyeException('Unrecognized image format.');
     }
