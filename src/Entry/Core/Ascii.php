@@ -33,7 +33,7 @@ class Ascii extends EntryBase
         $size = $data_window->getSize();
         if ($data_offset + $components > $size - 1) {
             $bytes_to_get = $size - $data_offset - 1;
-            $this->warning('Ascii entry reading {actual} bytes instead of {expected} to avoid data window overflow', [
+            $parent_block->warning('Ascii entry reading {actual} bytes instead of {expected} to avoid data window overflow', [
                 'actual' => $bytes_to_get,
                 'expected' => $components,
             ]);
@@ -47,7 +47,7 @@ class Ascii extends EntryBase
         if ($str !== false) {
             return [$str];
         } else {
-            $this->notice('Ascii entry \'{bytes}\' missing final NUL character.', [
+            $parent_block->notice('Ascii entry \'{bytes}\' missing final NUL character.', [
                 'bytes' => $bytes,
             ]);
             return [$bytes];
