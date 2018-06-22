@@ -50,34 +50,16 @@ class ImageFilesTest extends ExifEyeTestCaseBase
             $this->assertElement($test['elements'], $image->getElement("*"));
         }
 
-        $handler = ExifEye::logger()->getHandlers()[0]; // xx
-        $errors = 0;
-        $warnings = 0;
-        $notices = 0;
-        foreach ($handler->getRecords() as $record) {
-            switch ($record['level_name']) {
-                case 'NOTICE':
-                    ++$notices;
-                    break;
-                case 'WARNING':
-                    ++$warnings;
-                    break;
-                case 'ERROR':
-                    ++$errors;
-                    break;
-                default:
-                    continue;
-            }
-        }
+        $log_dump = $image->dumpLog();
 
         if (isset($test['errors'])) {
-            $this->assertEquals(count($test['errors']), $errors);
+            $this->assertEquals(count($test['errors']), count($log_dump['ERROR']));
         }
         if (isset($test['warnings'])) {
-            $this->assertEquals(count($test['warnings']), $warnings);
+            $this->assertEquals(count($test['warnings']), count($log_dump['WARNING']));
         }
         if (isset($test['notices'])) {
-            $this->assertEquals(count($test['notices']), $notices);
+            $this->assertEquals(count($test['notices']), count($log_dump['NOTICE']));
         }
     }
 

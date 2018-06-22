@@ -30,6 +30,15 @@ class Image extends BlockBase
 
     protected $logger;
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->logger = (new Logger('exifeye'))
+          ->pushHandler(new TestHandler(Logger::INFO))
+          ->pushProcessor(new PsrLogMessageProcessor());
+          //->pushProcessor(new IntrospectionProcessor());
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -68,24 +77,20 @@ class Image extends BlockBase
 
     public function logger()
     {
-        if (!isset($this->logger)) {
-            $this->logger = (new Logger('exifeye'))
-              ->pushHandler(new TestHandler(Logger::INFO))
-              ->pushProcessor(new PsrLogMessageProcessor());
-              //->pushProcessor(new IntrospectionProcessor());
-        }
         return $this->logger;
     }
 
     /**
-     * Clear list of stored exceptions.
-     *
-     * Use this function before a call to some method if you intend to
-     * check for exceptions afterwards.
+     * {@inheritdoc}
      */
-    public function clearLogger()
+    public function dumpLog()
     {
-        $this->logger = null;
+        $handler = $this->logger()->getHandlers()[0]; // xx
+        $ret = [];
+        foreach ($handler->getRecords() as $record) {
+            $ret[$record['level_name']][] = $record;
+        }
+        return $ret;
     }
 
     public function getMimeType()
