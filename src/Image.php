@@ -13,6 +13,11 @@ use ExifEye\core\Utility\ConvertBytes;
 class Image extends BlockBase
 {
     /**
+     * {@inheritdoc}
+     */
+    protected $type = 'image';
+
+    /**
      * The MIME type of the image.
      *
      * @var string
