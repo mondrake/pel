@@ -55,7 +55,6 @@ class DumpCommand extends Command
         $finder->files()->in($input->getArgument('file-path'))->name('*.jpg')->name('*.JPG')->name('*.tiff');
 
         foreach ($finder as $file) {
-            ExifEye::clearLogger();
             $yaml = $this->fileToDump($file);
             $output->write($yaml);
             $fs->dumpFile((string) $file . '.dump.yml', $yaml);
