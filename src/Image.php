@@ -42,6 +42,7 @@ class Image
             $this->mimeType = 'image/jpeg';
             $this->root = new Jpeg();
             $this->root->loadFromData($data_window);
+            return;
         }
 
         // TIFF image?
@@ -52,6 +53,7 @@ class Image
                 $this->mimeType = 'image/tiff';
                 $this->root = new Tiff();
                 $this->root->loadFromData($data_window);
+                return;
             }
         }
 
