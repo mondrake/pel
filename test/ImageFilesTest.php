@@ -51,7 +51,7 @@ class ImageFilesTest extends ExifEyeTestCaseBase
         }
 
         $log_dump = $image->dumpLog();
-
+dump($log_dump);
         if (isset($test['errors'])) {
             $this->assertEquals(count($test['errors']), count($log_dump['ERROR']));
         }
