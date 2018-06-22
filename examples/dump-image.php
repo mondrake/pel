@@ -59,11 +59,18 @@ require_once dirname(__FILE__) . '/../vendor/autoload.php';
 
 $prog = array_shift($argv);
 $file = '';
+$logger = null;
 
 while (! empty($argv)) {
     switch ($argv[0]) {
         case '-d':
-            ExifEye::setDebug(true);
+            $logger = new Logger('dump-image');
+            $log_handler = new StreamHandler('php://stdout');
+            $log_formatter = new DumpLogFormatter();
+            $log_handler->setFormatter($log_formatter);
+            $logger
+                ->pushHandler($log_handler)
+                ->pushProcessor(new PsrLogMessageProcessor());
             break;
         case '-s':
             ExifEye::setStrictParsing(true);
@@ -89,15 +96,6 @@ if (! is_readable($file)) {
     printf("Unable to read %s!\n", $file);
     exit(1);
 }
-
-/* Set logging */
-$logger = new Logger('dump-image');
-$log_handler = new StreamHandler('php://stdout');
-$log_formatter = new DumpLogFormatter();
-$log_handler->setFormatter($log_formatter);
-$logger
-    ->pushHandler($log_handler)
-    ->pushProcessor(new PsrLogMessageProcessor());
 
 /* Load data from file */
 $image = Image::loadFromFile($file, $logger);

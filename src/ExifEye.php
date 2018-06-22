@@ -25,17 +25,6 @@ class ExifEye
     private static $hasdgetext = null;
 
     /**
-     * Flag for controlling debug information.
-     *
-     * The methods producing debug information ({@link debug()} and
-     * {@link warning()}) will only output something if this variable is
-     * set to true.
-     *
-     * @var boolean
-     */
-    private static $debug = false;
-
-    /**
      * Flag for strictness of parsing.
      *
      * If this variable is set to true, then most errors while loading
@@ -129,28 +118,6 @@ class ExifEye
     public static function getStrictParsing()
     {
         return self::$strict;
-    }
-
-    /**
-     * Enable/disable debugging output.
-     *
-     * @param boolean $flag
-     *            use true to enable debug output, false to
-     *            diable.
-     */
-    public static function setDebug($flag)
-    {
-        self::$debug = $flag;
-    }
-
-    /**
-     * Get current setting for debug output.
-     *
-     * @return boolean true if debug is enabled, false otherwise.
-     */
-    public static function getDebug()
-    {
-        return self::$debug;
     }
 
     /**
