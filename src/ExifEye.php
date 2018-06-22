@@ -2,11 +2,6 @@
 
 namespace ExifEye\core;
 
-use Monolog\Logger;
-use Monolog\Handler\TestHandler;
-use Monolog\Processor\PsrLogMessageProcessor;
-use Monolog\Processor\IntrospectionProcessor;
-
 /**
  * Class with miscellaneous static methods.
  *
@@ -56,8 +51,6 @@ class ExifEye
      */
     private static $strict = false;
 
-    private static $logger;
-
     /**
      * Quality setting for encoding JPEG images.
      *
@@ -103,28 +96,6 @@ class ExifEye
     public static function getJPEGQuality()
     {
         return self::$quality;
-    }
-
-    /**
-     * Clear list of stored exceptions.
-     *
-     * Use this function before a call to some method if you intend to
-     * check for exceptions afterwards.
-     */
-    public static function clearLogger()
-    {
-        static::$logger = null;
-    }
-
-    public static function logger()
-    {
-        if (!isset(static::$logger)) {
-            static::$logger = (new Logger('exifeye'))
-              ->pushHandler(new TestHandler(Logger::INFO))
-              ->pushProcessor(new PsrLogMessageProcessor());
-              //->pushProcessor(new IntrospectionProcessor());
-        }
-        return static::$logger;
     }
 
     /**

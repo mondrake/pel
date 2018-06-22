@@ -6,6 +6,10 @@ use ExifEye\core\Block\BlockBase;
 use ExifEye\core\Block\Jpeg;
 use ExifEye\core\Block\Tiff;
 use ExifEye\core\Utility\ConvertBytes;
+use Monolog\Logger;
+use Monolog\Handler\TestHandler;
+use Monolog\Processor\PsrLogMessageProcessor;
+use Monolog\Processor\IntrospectionProcessor;
 
 /**
  * Class to handle image data.
@@ -23,6 +27,8 @@ class Image extends BlockBase
      * @var string
      */
     protected $mimeType;
+
+    protected $logger;
 
     /**
      * {@inheritdoc}
@@ -58,6 +64,28 @@ class Image extends BlockBase
     public function toBytes()
     {
         return $this->getElement('*')->toBytes();
+    }
+
+    public function logger()
+    {
+        if (!isset($this->logger)) {
+            $this->logger = (new Logger('exifeye'))
+              ->pushHandler(new TestHandler(Logger::INFO))
+              ->pushProcessor(new PsrLogMessageProcessor());
+              //->pushProcessor(new IntrospectionProcessor());
+        }
+        return $this->logger;
+    }
+
+    /**
+     * Clear list of stored exceptions.
+     *
+     * Use this function before a call to some method if you intend to
+     * check for exceptions afterwards.
+     */
+    public function clearLogger()
+    {
+        $this->logger = null;
     }
 
     public function getMimeType()
