@@ -28,13 +28,15 @@ class Image extends BlockBase
     protected $mimeType;
 
     protected $logger;
+    protected $externalLogger;
 
-    public function __construct()
+    public function __construct($external_logger = null)
     {
         parent::__construct();
         $this->logger = (new Logger('exifeye'))
           ->pushHandler(new TestHandler(Logger::INFO))
           ->pushProcessor(new PsrLogMessageProcessor());
+        $this->externalLogger = $external_logger;
     }
 
     /**
@@ -78,6 +80,11 @@ class Image extends BlockBase
         return $this->logger;
     }
 
+    public function externalLogger()
+    {
+        return $this->externalLogger;
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -96,7 +103,7 @@ class Image extends BlockBase
         return $this->mimeType;
     }
 
-    public static function loadFromFile($path)
+    public static function loadFromFile($path, $external_logger = null)
     {
         $magic_file_info = new DataWindow(file_get_contents($path, false, null, 0, 10));
 
@@ -117,7 +124,7 @@ class Image extends BlockBase
         }
 
         if ($recognized_format) {
-            $image = new static();
+            $image = new static($external_logger);
             $image->loadFromData(new DataWindow(file_get_contents($path)));
             return $image;
         }
@@ -125,9 +132,9 @@ class Image extends BlockBase
         throw new ExifEyeException('Unrecognized image format.');
     }
 
-    public static function createFromData(DataWindow $data_window)
+    public static function createFromData(DataWindow $data_window, $external_logger = null)
     {
-        $image = new static();
+        $image = new static($external_logger);
         $image->loadFromData($data_window);
         return $image;
     }
