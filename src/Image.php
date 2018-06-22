@@ -72,13 +72,28 @@ class Image
 
     public static function loadFromFile($path)
     {
-        return static::loadFromData(new DataWindow(file_get_contents($path)));
+        $magic_file_info = new DataWindow(file_get_contents($path, FALSE, NULL, 0, 10));
+
+        // JPEG image?
+        if ($magic_file_info->getBytes(0, 3) === "\xFF\xD8\xFF") {
+            return new static('image/jpeg', new DataWindow(file_get_contents($path)));
+        }
+
+        // TIFF image?
+        $byte_order = $magic_file_info->getBytes(0, 2);
+        if ($byte_order === 'II' || $byte_order === 'MM') {
+            $magic_file_info->setByteOrder($byte_order === 'II' ? ConvertBytes::LITTLE_ENDIAN : ConvertBytes::BIG_ENDIAN);
+            if ($magic_file_info->getShort(2) === Tiff::TIFF_HEADER) {
+                return new static('image/tiff', new DataWindow(file_get_contents($path)));
+            }
+        }
+
+        throw new ExifEyeException('Unrecognized image format.');
     }
 
     public static function loadFromData(DataWindow $data_window)
     {
         // JPEG image?
-//        if ($data_window->getBytes(0) === 0xFF && $data_window->getBytes(1) === 0xD8 && $data_window->getBytes(2) === 0xFF) {
         if ($data_window->getBytes(0, 3) === "\xFF\xD8\xFF") {
             return new static('image/jpeg', $data_window);
         }
