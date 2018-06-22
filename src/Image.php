@@ -77,6 +77,7 @@ class Image
     public static function loadFromData(DataWindow $data_window)
     {
         // JPEG image?
+dump([dechex($data_window->getByte(0)), dechex($data_window->getByte(1)), dechex($data_window->getByte(2))]);
         if ($data_window->getBytes(0, 3) === 0xFFD8FF) {
             return new static('image/jpeg', $data_window);
         }
