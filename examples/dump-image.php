@@ -74,7 +74,7 @@ while (! empty($argv)) {
                 ->pushProcessor(new PsrLogMessageProcessor());
             break;
         case '-s':
-            $fail_on_error = 'warning';
+            $fail_on_error = 'error';
             break;
         default:
             $file = $argv[0];

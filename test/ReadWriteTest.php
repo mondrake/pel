@@ -71,7 +71,7 @@ class ReadWriteTest extends ExifEyeTestCaseBase
         $jpeg = null;
 
         // Now read the file and see if the entries are still there.
-        $r_image = Image::loadFromFile(dirname(__FILE__) . '/test-output.jpg', null, Logger::ERROR);
+        $r_image = Image::loadFromFile(dirname(__FILE__) . '/test-output.jpg', null, 'error');
         $r_jpeg = $r_image->getElement("jpeg");
 
 
