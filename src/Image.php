@@ -67,7 +67,7 @@ class Image extends BlockBase
 
     public static function loadFromFile($path)
     {
-        $magic_file_info = new DataWindow(file_get_contents($path, FALSE, NULL, 0, 10));
+        $magic_file_info = new DataWindow(file_get_contents($path, false, null, 0, 10));
 
         $recognized_format = false;
 
