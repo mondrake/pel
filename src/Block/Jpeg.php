@@ -61,24 +61,6 @@ class Jpeg extends BlockBase
     private $jpeg_data = null;
 
     /**
-     * JPEG sections start with 0xFF. The first byte that is not
-     * 0xFF is a marker (hopefully).
-     *
-     * @param DataWindow $d
-     *
-     * @return integer
-     */
-    protected static function getJpgSectionStart($d)
-    {
-        for ($i = 0; $i < 7; $i ++) {
-            if ($d->getByte($i) != 0xFF) {
-                 break;
-            }
-        }
-        return $i;
-    }
-
-    /**
      * Load data into a JPEG object.
      *
      * The data supplied will be parsed and turned into an object
@@ -231,5 +213,23 @@ class Jpeg extends BlockBase
         }
 
         return $bytes;
+    }
+
+    /**
+     * JPEG sections start with 0xFF. The first byte that is not
+     * 0xFF is a marker (hopefully).
+     *
+     * @param DataWindow $d
+     *
+     * @return integer
+     */
+    protected function getJpgSectionStart($d)
+    {
+        for ($i = 0; $i < 7; $i ++) {
+            if ($d->getByte($i) != 0xFF) {
+                 break;
+            }
+        }
+        return $i;
     }
 }

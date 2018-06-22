@@ -33,7 +33,7 @@ class Image
         switch ($this->mimeType) {
             case 'image/jpeg':
                 $this->root = new Jpeg();
-                $this->root->load($data_window);
+                $this->root->loadFromData($data_window);
                 return;
             case 'image/tiff':
                 $this->root = new Tiff();
@@ -77,7 +77,7 @@ class Image
     public static function loadFromData(DataWindow $data_window)
     {
         // Is file a JPEG image?
-        if ($data_window->getByte(0) === 0xFF && $data_window->getByte(1) === 0xD8) {
+        if ($data_window->getBytes(0, 3) === 0xFFD8FF) {
             return new static('image/jpeg', $data_window);
         }
 
