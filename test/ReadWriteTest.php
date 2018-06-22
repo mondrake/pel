@@ -37,7 +37,7 @@ class ReadWriteTest extends ExifEyeTestCaseBase
      */
     public function testWriteRead(array $entries)
     {
-        $image = Image::loadFromFile(dirname(__FILE__) . '/image_files/no-exif.jpg', null, Logger::ERROR);
+        $image = Image::loadFromFile(dirname(__FILE__) . '/image_files/no-exif.jpg', null, 'error');
         $jpeg = $image->getElement("jpeg");
 
         $this->assertNull($jpeg->getElement("segment/exif"));

@@ -38,7 +38,7 @@ class Image extends BlockBase
           ->pushHandler(new TestHandler(Logger::INFO))
           ->pushProcessor(new PsrLogMessageProcessor());
         $this->externalLogger = $external_logger;
-        $this->failLevel = $fail_level;
+        $this->failLevel = Logger::toMonologLevel($fail_level);
     }
 
     /**
