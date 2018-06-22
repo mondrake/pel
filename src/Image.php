@@ -9,7 +9,6 @@ use ExifEye\core\Utility\ConvertBytes;
 use Monolog\Logger;
 use Monolog\Handler\TestHandler;
 use Monolog\Processor\PsrLogMessageProcessor;
-use Monolog\Processor\IntrospectionProcessor;
 
 /**
  * Class to handle image data.
@@ -36,7 +35,6 @@ class Image extends BlockBase
         $this->logger = (new Logger('exifeye'))
           ->pushHandler(new TestHandler(Logger::INFO))
           ->pushProcessor(new PsrLogMessageProcessor());
-          //->pushProcessor(new IntrospectionProcessor());
     }
 
     /**

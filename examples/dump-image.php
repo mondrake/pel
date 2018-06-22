@@ -33,8 +33,11 @@ use ExifEye\core\DataWindow;
 use ExifEye\core\Utility\ConvertBytes;
 use ExifEye\core\Block\Jpeg;
 use ExifEye\core\Block\Tiff;
-use Monolog\Handler\StreamHandler;
 use ExifEye\core\Utility\DumpLogFormatter;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+use Monolog\Handler\TestHandler;
+use Monolog\Processor\PsrLogMessageProcessor;
 
 function dump_element(ElementInterface $element)
 {
@@ -88,13 +91,14 @@ if (! is_readable($file)) {
 }
 
 /* Set logging */
+$logger = new Logger('dump-image');
 $log_handler = new StreamHandler('php://stdout');
 $log_formatter = new DumpLogFormatter();
 $log_handler->setFormatter($log_formatter);
-ExifEye::logger()->pushHandler($log_handler);
+$logger->pushHandler($log_handler);
 
 /* Load data from file */
-$image = Image::loadFromFile($file);
+$image = Image::loadFromFile($file, $logger);
 
 if ($image === null) {
     print("dump-image: Unrecognized image format!\n");
