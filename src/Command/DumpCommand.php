@@ -71,7 +71,7 @@ class DumpCommand extends Command
         $image = Image::loadFromFile((string) $file);
         $json['fileName'] = $file->getBaseName();
         $json['mimeType'] = $image->getMimeType();
-        $json['elements'] = $image->first("*")->toDumpArray();
+        $json['elements'] = $image->getElement("*")->toDumpArray();
 
 /*        foreach (ExifEye::logger()->getHandlers() as $handler) {
             if ($handler instanceof Monolog\Handler\TestHandler) {

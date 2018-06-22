@@ -4,6 +4,7 @@ namespace ExifEye\core;
 
 use ExifEye\core\DOM\ExifEyeDOMElement;
 use ExifEye\core\ExifEye;
+use ExifEye\core\ExifEyeException;
 use Psr\Log\LoggerInterface;
 use Psr\Log\LoggerTrait;
 
@@ -101,13 +102,17 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     /**
      * {@inheritdoc}
      */
-    public function first($expression)
+    public function getElement($expression)
     {
         $ret = $this->query($expression);
-        if ($ret) {
-            return $ret[0];
+        switch (count($ret)) {
+            case 0:
+                return null;
+            case 1:
+                return $ret[0];
+            default:
+                throw new ExifEyeException("Multiple elements returned for '%s'", $expression);
         }
-        return null;
     }
 
     /**

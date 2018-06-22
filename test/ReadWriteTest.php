@@ -47,29 +47,29 @@ class ReadWriteTest extends ExifEyeTestCaseBase
     public function testWriteRead(array $entries)
     {
         $image = Image::loadFromFile(dirname(__FILE__) . '/image_files/no-exif.jpg');
-        $jpeg = $image->first("jpeg");
+        $jpeg = $image->getElement("jpeg");
 
-        $this->assertNull($jpeg->first("segment/exif"));
+        $this->assertNull($jpeg->getElement("segment/exif"));
 
         // Find the COM segment.
-        $com_segment = $jpeg->first("segment[@name='COM']");
+        $com_segment = $jpeg->getElement("segment[@name='COM']");
 
         // Insert the APP1 segment before the COM one.
         $app1_segment = new JpegSegment(0xE1, $jpeg, $com_segment);
 
         $exif = new Exif($app1_segment);
-        $this->assertNotNull($jpeg->first("segment/exif"));
-        $this->assertNull($exif->first("tiff"));
+        $this->assertNotNull($jpeg->getElement("segment/exif"));
+        $this->assertNull($exif->getElement("tiff"));
 
         $tiff = new Tiff($exif);
-        $this->assertNotNull($exif->first("tiff"));
-        $this->assertNull($tiff->first("ifd[@name='IFD0']"));
+        $this->assertNotNull($exif->getElement("tiff"));
+        $this->assertNull($tiff->getElement("ifd[@name='IFD0']"));
 
         $ifd = new Ifd($tiff, 'IFD0');
         foreach ($entries as $entry) {
             new Tag($ifd, $entry[0], $entry[1], $entry[2]);
         }
-        $this->assertNotNull($tiff->first("ifd[@name='IFD0']"));
+        $this->assertNotNull($tiff->getElement("ifd[@name='IFD0']"));
 
         $this->assertFalse(file_exists(dirname(__FILE__) . '/test-output.jpg'));
         $image->saveToFile(dirname(__FILE__) . '/test-output.jpg');
@@ -81,21 +81,21 @@ class ReadWriteTest extends ExifEyeTestCaseBase
 
         // Now read the file and see if the entries are still there.
         $r_image = Image::loadFromFile(dirname(__FILE__) . '/test-output.jpg');
-        $r_jpeg = $r_image->first("jpeg");
+        $r_jpeg = $r_image->getElement("jpeg");
 
 
-        $this->assertInstanceOf('ExifEye\core\Block\Exif', $r_jpeg->first("segment/exif"));
+        $this->assertInstanceOf('ExifEye\core\Block\Exif', $r_jpeg->getElement("segment/exif"));
 
-        $tiff = $r_jpeg->first("segment/exif/tiff");
+        $tiff = $r_jpeg->getElement("segment/exif/tiff");
         $this->assertInstanceOf('ExifEye\core\Block\Tiff', $tiff);
         $this->assertCount(1, $tiff->query("ifd"));
 
-        $ifd = $tiff->first("ifd[@name='IFD0']");
+        $ifd = $tiff->getElement("ifd[@name='IFD0']");
         $this->assertInstanceOf('ExifEye\core\Block\Ifd', $ifd);
         $this->assertEquals($ifd->getAttribute('name'), 'IFD0');
 
         foreach ($entries as $entry_name => $entry) {
-            $tagEntry = $ifd->first('tag[@id="' . (int) $entry[0] . '"]/entry');
+            $tagEntry = $ifd->getElement('tag[@id="' . (int) $entry[0] . '"]/entry');
             if ($tagEntry->getFormat() == Format::ASCII) {
                 $ifdValue = $tagEntry->getValue();
                 $entryValue = $entry[3];

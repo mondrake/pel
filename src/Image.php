@@ -57,7 +57,7 @@ class Image extends BlockBase
      */
     public function toBytes()
     {
-        return $this->first('*')->toBytes();
+        return $this->getElement('*')->toBytes();
     }
 
     public function getMimeType()
