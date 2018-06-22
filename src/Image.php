@@ -52,6 +52,14 @@ class Image extends BlockBase
         throw new ExifEyeException('Unrecognized image format.');
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function toBytes()
+    {
+        return $this->first('*')->toBytes();
+    }
+
     public function getMimeType()
     {
         return $this->mimeType;
