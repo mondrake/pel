@@ -60,6 +60,7 @@ require_once dirname(__FILE__) . '/../vendor/autoload.php';
 $prog = array_shift($argv);
 $file = '';
 $logger = null;
+$fail_on_error = false;
 
 while (! empty($argv)) {
     switch ($argv[0]) {
@@ -73,7 +74,7 @@ while (! empty($argv)) {
                 ->pushProcessor(new PsrLogMessageProcessor());
             break;
         case '-s':
-            ExifEye::setStrictParsing(true);
+            $fail_on_error = Logger::ERROR;
             break;
         default:
             $file = $argv[0];
@@ -98,7 +99,7 @@ if (! is_readable($file)) {
 }
 
 /* Load data from file */
-$image = Image::loadFromFile($file, $logger);
+$image = Image::loadFromFile($file, $logger, $fail_on_error);
 
 if ($image === null) {
     print("dump-image: Unrecognized image format!\n");

@@ -29,14 +29,16 @@ class Image extends BlockBase
 
     protected $logger;
     protected $externalLogger;
+    protected $failLevel;
 
-    public function __construct($external_logger = null)
+    public function __construct($external_logger = null, $fail_level = false)
     {
         parent::__construct();
         $this->logger = (new Logger('exifeye'))
           ->pushHandler(new TestHandler(Logger::INFO))
           ->pushProcessor(new PsrLogMessageProcessor());
         $this->externalLogger = $external_logger;
+        $this->failLevel = $fail_level;
     }
 
     /**
@@ -85,6 +87,11 @@ class Image extends BlockBase
         return $this->externalLogger;
     }
 
+    public function getFailLevel()
+    {
+        return $this->failLevel;
+    }
+
     /**
      * {@inheritdoc}
      */
@@ -103,7 +110,7 @@ class Image extends BlockBase
         return $this->mimeType;
     }
 
-    public static function loadFromFile($path, $external_logger = null)
+    public static function loadFromFile($path, $external_logger = null, $fail_level = false)
     {
         $magic_file_info = new DataWindow(file_get_contents($path, false, null, 0, 10));
 
@@ -124,7 +131,7 @@ class Image extends BlockBase
         }
 
         if ($recognized_format) {
-            $image = new static($external_logger);
+            $image = new static($external_logger, $fail_level);
             $image->loadFromData(new DataWindow(file_get_contents($path)));
             return $image;
         }
@@ -132,9 +139,9 @@ class Image extends BlockBase
         throw new ExifEyeException('Unrecognized image format.');
     }
 
-    public static function createFromData(DataWindow $data_window, $external_logger = null)
+    public static function createFromData(DataWindow $data_window, $external_logger = null, $fail_level = false)
     {
-        $image = new static($external_logger);
+        $image = new static($external_logger, $fail_level);
         $image->loadFromData($data_window);
         return $image;
     }

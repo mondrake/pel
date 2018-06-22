@@ -25,22 +25,6 @@ class ExifEye
     private static $hasdgetext = null;
 
     /**
-     * Flag for strictness of parsing.
-     *
-     * If this variable is set to true, then most errors while loading
-     * images will result in exceptions being thrown. Otherwise a
-     * warning will be emitted (using {@link ExifEye::warning}) and the
-     * exceptions will be appended to {@link ExifEye::$exceptions}.
-     *
-     * Some errors will still be fatal and result in thrown exceptions,
-     * but an effort will be made to skip over as much garbage as
-     * possible.
-     *
-     * @var boolean
-     */
-    private static $strict = false;
-
-    /**
      * Quality setting for encoding JPEG images.
      *
      * This controls the quality used then PHP image resources are
@@ -85,39 +69,6 @@ class ExifEye
     public static function getJPEGQuality()
     {
         return self::$quality;
-    }
-
-    /**
-     * Enable/disable strict parsing.
-     *
-     * If strict parsing is enabled, then most errors while loading
-     * images will result in exceptions being thrown. Otherwise a
-     * warning will be emitted (using {@link ExifEye::warning}) and the
-     * exceptions will be stored for later use via {@link
-     * getExceptions()}.
-     *
-     * Some errors will still be fatal and result in thrown exceptions,
-     * but an effort will be made to skip over as much garbage as
-     * possible.
-     *
-     * @param boolean $flag
-     *            use true to enable strict parsing, false to
-     *            diable.
-     */
-    public static function setStrictParsing($flag)
-    {
-        self::$strict = $flag;
-    }
-
-    /**
-     * Get current setting for strict parsing.
-     *
-     * @return boolean true if strict parsing is in effect, false
-     *         otherwise.
-     */
-    public static function getStrictParsing()
-    {
-        return self::$strict;
     }
 
     /**

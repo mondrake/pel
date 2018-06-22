@@ -25,15 +25,6 @@ class ReadWriteTest extends ExifEyeTestCaseBase
     /**
      * {@inheritdoc}
      */
-    public function setUp()
-    {
-        parent::setUp();
-        ExifEye::setStrictParsing(true);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function tearDown()
     {
         parent::tearDown();
@@ -46,7 +37,7 @@ class ReadWriteTest extends ExifEyeTestCaseBase
      */
     public function testWriteRead(array $entries)
     {
-        $image = Image::loadFromFile(dirname(__FILE__) . '/image_files/no-exif.jpg');
+        $image = Image::loadFromFile(dirname(__FILE__) . '/image_files/no-exif.jpg', null, Logger::ERROR);
         $jpeg = $image->getElement("jpeg");
 
         $this->assertNull($jpeg->getElement("segment/exif"));
@@ -80,7 +71,7 @@ class ReadWriteTest extends ExifEyeTestCaseBase
         $jpeg = null;
 
         // Now read the file and see if the entries are still there.
-        $r_image = Image::loadFromFile(dirname(__FILE__) . '/test-output.jpg');
+        $r_image = Image::loadFromFile(dirname(__FILE__) . '/test-output.jpg', null, Logger::ERROR);
         $r_jpeg = $r_image->getElement("jpeg");
 
 
