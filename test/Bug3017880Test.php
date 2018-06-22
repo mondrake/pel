@@ -21,7 +21,7 @@ class Bug3017880Test extends ExifEyeTestCaseBase
             $success = 1; // return true by default, as this function may not resave the file, but it's still success
             $resave_file = 0;
             $image = Image::loadFromFile($filename);
-            $jpeg = $image->root();
+            $jpeg = $image->first("jpeg");
             $this->assertInstanceOf('\ExifEye\core\Block\Jpeg', $jpeg);
 
             // should all exif data on photo be cleared (gd and iu will always strip it anyway, so only

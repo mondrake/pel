@@ -61,6 +61,14 @@ class Jpeg extends BlockBase
     private $jpeg_data = null;
 
     /**
+     * Construct a new object for holding JPEG data.
+     */
+    public function __construct(BlockBase $parent = null)
+    {
+        parent::__construct($parent);
+    }
+
+    /**
      * Load data into a JPEG object.
      *
      * The data supplied will be parsed and turned into an object

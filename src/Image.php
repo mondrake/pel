@@ -20,13 +20,6 @@ class Image extends BlockBase
     protected $mimeType;
 
     /**
-     * Constructs a new Image object.
-     */
-    public function __construct()
-    {
-    }
-
-    /**
      * {@inheritdoc}
      */
     public function loadFromData(DataWindow $data_window, $offset = 0, array $options = [])
@@ -34,7 +27,7 @@ class Image extends BlockBase
         // JPEG image?
         if ($data_window->getBytes(0, 3) === "\xFF\xD8\xFF") {
             $this->mimeType = 'image/jpeg';
-            $jpeg = new Jpeg();
+            $jpeg = new Jpeg($this);
             $jpeg->loadFromData($data_window);
             return;
         }
@@ -45,7 +38,7 @@ class Image extends BlockBase
             $data_window->setByteOrder($byte_order === 'II' ? ConvertBytes::LITTLE_ENDIAN : ConvertBytes::BIG_ENDIAN);
             if ($data_window->getShort(2) === Tiff::TIFF_HEADER) {
                 $this->mimeType = 'image/tiff';
-                $tiff = new Tiff();
+                $tiff = new Tiff($this);
                 $tiff->loadFromData($data_window);
                 return;
             }
