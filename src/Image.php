@@ -4,6 +4,7 @@ namespace ExifEye\core;
 
 use ExifEye\core\Block\Jpeg;
 use ExifEye\core\Block\Tiff;
+use ExifEye\core\Utility\ConvertBytes;
 
 /**
  * Class to handle image data.
