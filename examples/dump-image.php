@@ -87,14 +87,15 @@ if (!is_readable($file)) {
 try {
     /* Load data from file */
     $image = Image::loadFromFile($file, $logger, $fail_on_error);
-    if ($image === null) {
-        print("dump-image: Unrecognized image format!\n");
-        exit(1);
-    }
-    dump_element($image);
 } catch (ExifEyeException $e) {
     $err = $e->getMessage();
 }
+
+if ($image === null) {
+    print("dump-image: Unrecognized image format!\n");
+    exit(1);
+}
+dump_element($image);
 
 unset($image);
 unset($logger);
