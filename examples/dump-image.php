@@ -96,4 +96,4 @@ try {
     print("dump-image: Error while reading image: " . $e->getMessage());
 }
 
-exit(0);  // xx decide exit code
+//exit(0);  // xx decide exit code
