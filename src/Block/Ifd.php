@@ -4,7 +4,7 @@ namespace ExifEye\core\Block;
 
 use ExifEye\core\Block\Tag;
 use ExifEye\core\DataWindow;
-use ExifEye\core\DataWindowOffsetException;
+use ExifEye\core\DataWindowException;
 use ExifEye\core\Entry\Core\EntryInterface;
 use ExifEye\core\ExifEye;
 use ExifEye\core\Format;
@@ -120,7 +120,7 @@ class Ifd extends BlockBase
                     try {
                         $ifd->loadFromData($data_window, $o, ['components' => $tag->getElement("entry")->getComponents()]);
                         $this->remove("tag[@name='" . $tag->getAttribute('name') . "']");
-                    } catch (DataWindowOffsetException $e) {
+                    } catch (DataWindowException $e) {
                         $this->error($e->getMessage());
                     }
                 } else {

@@ -31,6 +31,20 @@ class Image extends BlockBase
     protected $externalLogger;
     protected $failLevel;
 
+    /**
+     * Quality setting for encoding JPEG images.
+     *
+     * This controls the quality used then PHP image resources are
+     * encoded into JPEG images. This happens when you create a
+     * {@link Jpeg} object based on an image resource.
+     *
+     * The default is 75 for average quality images, but you can change
+     * this to an integer between 0 and 100.
+     *
+     * @var int
+     */
+    protected $quality = 75;
+
     public function __construct($external_logger = null, $fail_level = false)
     {
         parent::__construct();
@@ -75,6 +89,28 @@ class Image extends BlockBase
     public function toBytes()
     {
         return $this->getElement('*')->toBytes();
+    }
+
+    /**
+     * Set the JPEG encoding quality.
+     *
+     * @param int $quality
+     *            an integer between 0 and 100 with 75 being
+     *            average quality and 95 very good quality.
+     */
+    public function setJPEGQuality($quality)
+    {
+        $this->$quality = $quality;
+    }
+
+    /**
+     * Get current setting for JPEG encoding quality.
+     *
+     * @return int the quality.
+     */
+    public function getJPEGQuality()
+    {
+        return $this->$quality;
     }
 
     public function logger()

@@ -4,7 +4,6 @@ namespace ExifEye\core\Block;
 
 use ExifEye\core\Block\Tag;
 use ExifEye\core\DataWindow;
-use ExifEye\core\DataWindowOffsetException;
 use ExifEye\core\Entry\Core\EntryInterface;
 use ExifEye\core\ExifEye;
 use ExifEye\core\Format;

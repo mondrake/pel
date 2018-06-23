@@ -25,20 +25,6 @@ class ExifEye
     private static $hasdgetext = null;
 
     /**
-     * Quality setting for encoding JPEG images.
-     *
-     * This controls the quality used then PHP image resources are
-     * encoded into JPEG images. This happens when you create a
-     * {@link Jpeg} object based on an image resource.
-     *
-     * The default is 75 for average quality images, but you can change
-     * this to an integer between 0 and 100.
-     *
-     * @var int
-     */
-    private static $quality = 75;
-
-    /**
      * Returns the current version of ExifEye.
      *
      * @return string
@@ -47,28 +33,6 @@ class ExifEye
     public static function version()
     {
         return '1.0.0-dev';
-    }
-
-    /**
-     * Set the JPEG encoding quality.
-     *
-     * @param int $quality
-     *            an integer between 0 and 100 with 75 being
-     *            average quality and 95 very good quality.
-     */
-    public static function setJPEGQuality($quality)
-    {
-        self::$quality = $quality;
-    }
-
-    /**
-     * Get current setting for JPEG encoding quality.
-     *
-     * @return int the quality.
-     */
-    public static function getJPEGQuality()
-    {
-        return self::$quality;
     }
 
     /**

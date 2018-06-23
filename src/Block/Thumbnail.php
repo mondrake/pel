@@ -4,7 +4,7 @@ namespace ExifEye\core\Block;
 
 use ExifEye\core\Block\Ifd;
 use ExifEye\core\DataWindow;
-use ExifEye\core\DataWindowWindowException;
+use ExifEye\core\DataWindowException;
 use ExifEye\core\Entry\Core\EntryInterface;
 use ExifEye\core\Entry\Core\Undefined;
 use ExifEye\core\ExifEye;
@@ -93,7 +93,7 @@ class Thumbnail extends BlockBase
                 'offset' => $offset,
                 'length' => $length,
             ]);
-        } catch (DataWindowWindowException $e) {
+        } catch (DataWindowException $e) {
             $ifd->error($e->getMessage());
         }
     }
