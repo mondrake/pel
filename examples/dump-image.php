@@ -7,26 +7,12 @@
  * writing all Exif headers in JPEG and TIFF images using PHP.
  *
  * Copyright (C) 2004, 2005, 2006 Martin Geisler.
- *
- * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation; either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program in the file COPYING; if not, write to the
- * Free Software Foundation, Inc., 51 Franklin St, Fifth Floor,
- * Boston, MA 02110-1301 USA
  */
 
 use ExifEye\core\ElementInterface;
 use ExifEye\core\Entry\Core\EntryInterface;
 use ExifEye\core\ExifEye;
+use ExifEye\core\ExifEyeException;
 use ExifEye\core\Image;
 use ExifEye\core\Spec;
 use ExifEye\core\DataWindow;
@@ -93,17 +79,20 @@ if (empty($file)) {
     exit(1);
 }
 
-if (! is_readable($file)) {
-    printf("Unable to read %s!\n", $file);
+if (!is_readable($file)) {
+    printf("dump-image: Unable to read %s!\n", $file);
     exit(1);
 }
 
-/* Load data from file */
-$image = Image::loadFromFile($file, $logger, $fail_on_error);
-
-if ($image === null) {
-    print("dump-image: Unrecognized image format!\n");
-    exit(1);
+try {
+    /* Load data from file */
+    $image = Image::loadFromFile($file, $logger, $fail_on_error);
+    if ($image === null) {
+        print("dump-image: Unrecognized image format!\n");
+        exit(1);
+    }
+    dump_element($image);
+} catch (ExifEyeException $e) {
+    print("dump-image: Error while reading image: " . $e->getMessage());
+    exit(0);  // xx decide exit code
 }
-
-dump_element($image);
