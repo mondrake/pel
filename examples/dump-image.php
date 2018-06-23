@@ -94,8 +94,12 @@ try {
     dump_element($image);
     unset($image);
 } catch (ExifEyeException $e) {
-    print("dump-image: Error while reading image: " . $e->getMessage());
+    $err = $e->getMessage();
+    unset($image);
 }
 
-print ("Done.");
+if (isset($err)) {
+    print("dump-image: Error while reading image: " . $e->getMessage() . "\n");
+}
+//print("Done.\n"");
 //exit(0);  // xx decide exit code
