@@ -28,6 +28,13 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     public $DOMNode;
 
     /**
+     * The Xpath object associated to the root element.
+     *
+     * @var \DOMXPath|null
+     */
+    public $xPath;
+
+    /**
      * The type of this element.
      *
      * @var string
@@ -56,6 +63,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
             $doc = new \DOMDocument();
             $doc->registerNodeClass('DOMElement', 'ExifEye\core\DOM\ExifEyeDOMElement');
             $parent_node = $doc;
+            $xPath = new \DOMXPath($doc);
         } else {
             $parent_node = $parent->DOMNode;
             $doc = $parent->DOMNode->ownerDocument;
@@ -133,8 +141,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      */
     public function query($expression)
     {
-        $x_path = new \DOMXPath($this->DOMNode->ownerDocument);
-        $node_list = $x_path->query($expression, $this->DOMNode);
+        $node_list = $this->DOMNode->ownerDocument->getExifEyeElement()->xPath->query($expression, $this->DOMNode);
         $ret = [];
         for ($i = 0; $i < $node_list->length; $i++) {
             $ret[] = $node_list->item($i)->getExifEyeElement();
