@@ -100,5 +100,5 @@ if (!isset($err)) {
 } else {
     print("dump-image: Error while reading image: " . $err . "\n");
 }
-print("Done.\n"");
+print("Done.\n");
 exit(0);  // xx decide exit code
