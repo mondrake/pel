@@ -141,7 +141,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      */
     public function query($expression)
     {
-        $node_list = $this->DOMNode->ownerDocument->getExifEyeElement()->xPath->query($expression, $this->DOMNode);
+        $node_list = $this->getRootElement()->xPath->query($expression, $this->DOMNode);
         $ret = [];
         for ($i = 0; $i < $node_list->length; $i++) {
             $ret[] = $node_list->item($i)->getExifEyeElement();
@@ -163,6 +163,14 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     public function getParentElement()
     {
         return $this->DOMNode->parentNode && !($this->DOMNode->parentNode instanceof \DOMDocument) ? $this->DOMNode->parentNode->getExifEyeElement() : null;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getRootElement()
+    {
+        return $this->DOMNode->ownerDocument->documentElement->getExifEyeElement();
     }
 
     /**
@@ -199,7 +207,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     public function log($level, $message, array $context = [])
     {
         $context['path'] = $this->getContextPath();
-        $root_element = $this->DOMNode->ownerDocument->documentElement->getExifEyeElement();
+        $root_element = $this->getRootElement();
         if (method_exists($root_element, 'logger')) {  // xx should be logging anyway
             $root_element->logger()->log($level, $message, $context);
         }
