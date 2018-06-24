@@ -7,7 +7,6 @@ use ExifEye\core\ExifEye;
 use ExifEye\core\ExifEyeException;
 use ExifEye\core\InvalidArgumentException;
 use ExifEye\core\InvalidDataException;
-use ExifEye\core\JpegInvalidMarkerException;
 use ExifEye\core\JpegMarker;
 use ExifEye\core\Utility\ConvertBytes;
 
@@ -90,7 +89,10 @@ class Jpeg extends BlockBase
             $marker = $data_window->getByte($i);
 
             if (!JpegMarker::isValid($marker)) {
-                throw new JpegInvalidMarkerException($marker, $i);
+                $this->error('Invalid marker found at offset {offset}: 0x{marker}', [
+                    'offset' => $offset,
+                    'marker' => dec2hex($marker),
+                ]);
             }
 
             /*
