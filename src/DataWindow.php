@@ -84,7 +84,7 @@ class DataWindow
             ImageJpeg($data, null, 75); // xx check quality
             $this->data = ob_get_clean();
         } else {
-            throw new InvalidArgumentException('Bad type for $data: %s', gettype($data));
+            throw new DataWindowException('Bad type for $data: %s', gettype($data));
         }
 
         $this->order = $endianess;

@@ -8,8 +8,6 @@ use ExifEye\core\DataWindowException;
 use ExifEye\core\Entry\Core\EntryInterface;
 use ExifEye\core\ExifEye;
 use ExifEye\core\Format;
-use ExifEye\core\InvalidArgumentException;
-use ExifEye\core\InvalidDataException;
 use ExifEye\core\Utility\ConvertBytes;
 use ExifEye\core\Spec;
 

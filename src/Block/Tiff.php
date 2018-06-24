@@ -4,7 +4,6 @@ namespace ExifEye\core\Block;
 
 use ExifEye\core\DataWindow;
 use ExifEye\core\ExifEye;
-use ExifEye\core\InvalidArgumentException;
 use ExifEye\core\Utility\ConvertBytes;
 use ExifEye\core\Spec;
 
