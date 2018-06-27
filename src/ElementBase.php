@@ -113,7 +113,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      */
     public function getMultipleElements($expression)
     {
-        $node_list = $this->getRootElement()->xPath->getMultipleElements($expression, $this->DOMNode);
+        $node_list = $this->getRootElement()->xPath->query($expression, $this->DOMNode);
         $ret = [];
         for ($i = 0; $i < $node_list->length; $i++) {
             $ret[] = $node_list->item($i)->getExifEyeElement();
