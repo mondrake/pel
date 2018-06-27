@@ -10,6 +10,21 @@ namespace ExifEye\core;
 interface ElementInterface
 {
     /**
+     * Returns the type of this element.
+     *
+     * @return string
+     */
+    public function getType();
+
+    /**
+     * Gets the root ancestor element of this element.
+     *
+     * @return \ExifEye\core\ElementInterface
+     *            the root ancestor element of this element.
+     */
+    public function getRootElement();
+
+    /**
      * Gets the parent element of this element.
      *
      * @return \ExifEye\core\ElementInterface
@@ -17,12 +32,13 @@ interface ElementInterface
      */
     public function getParentElement();
 
-    /**
-     * Returns the type of this element.
-     *
-     * @return string
-     */
-    public function getType();
+    public function getMultipleElements($expression);
+    public function getElement($expression);
+    public function removeElement($expression);
+
+    public function getAttributes()
+    public function setAttribute($name, $value)
+    public function getAttribute($name)
 
     /**
      * Returns a context path for this element.
