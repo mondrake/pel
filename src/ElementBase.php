@@ -25,14 +25,14 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      *
      * @var \DOMNode
      */
-    public $DOMNode;
+    protected $DOMNode;
 
     /**
      * The Xpath object associated to the root element.
      *
      * @var \DOMXPath|null
      */
-    public $xPath;
+    protected $xPath;
 
     /**
      * The type of this element.
