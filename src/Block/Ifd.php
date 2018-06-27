@@ -117,7 +117,7 @@ class Ifd extends BlockBase
                     $ifd = new $ifd_class($this, $ifd_name);
                     try {
                         $ifd->loadFromData($data_window, $o, ['components' => $tag->getElement("entry")->getComponents()]);
-                        $this->remove("tag[@name='" . $tag->getAttribute('name') . "']");
+                        $this->removeElement("tag[@name='" . $tag->getAttribute('name') . "']");
                     } catch (DataWindowException $e) {
                         $this->error($e->getMessage());
                     }

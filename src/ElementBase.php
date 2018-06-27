@@ -111,6 +111,19 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     /**
      * {@inheritdoc}
      */
+    public function query($expression)
+    {
+        $node_list = $this->getRootElement()->xPath->query($expression, $this->DOMNode);
+        $ret = [];
+        for ($i = 0; $i < $node_list->length; $i++) {
+            $ret[] = $node_list->item($i)->getExifEyeElement();
+        }
+        return $ret;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function getElement($expression)
     {
         $ret = $this->query($expression);
@@ -127,26 +140,12 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     /**
      * {@inheritdoc}
      */
-    public function remove($expression)
+    public function removeElement($expression)
     {
         $ret = $this->query($expression);
         if ($ret) {
-            $ret[0]->DOMNode->resetExifEyeElement();
             $ret[0]->DOMNode->parentNode->removeChild($ret[0]->DOMNode);
         }
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function query($expression)
-    {
-        $node_list = $this->getRootElement()->xPath->query($expression, $this->DOMNode);
-        $ret = [];
-        for ($i = 0; $i < $node_list->length; $i++) {
-            $ret[] = $node_list->item($i)->getExifEyeElement();
-        }
-        return $ret;
     }
 
     /**

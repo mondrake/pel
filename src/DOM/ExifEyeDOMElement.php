@@ -13,11 +13,6 @@ class ExifEyeDOMElement extends \DOMElement
         $this->exifEyeElement = $element;
     }
 
-    public function resetExifEyeElement()
-    {
-        $this->exifEyeElement = null;
-    }
-
     public function getExifEyeElement()
     {
         return $this->exifEyeElement;

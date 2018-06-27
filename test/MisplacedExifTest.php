@@ -36,7 +36,7 @@ class MisplacedExifTest extends ExifEyeTestCaseBase
         $this->assertSame($newExif, $app1[2]->getElement("exif"));
 
         // Remove the first APP1 segment containing a valid EXIF block.
-        $jpeg->remove("segment[exif]");
+        $jpeg->removeElement("segment[exif]");
 
         // Assert that only EXIF section is gone and all other shifted correctly.
         $app1 = $jpeg->query("segment[@name='APP1']");
