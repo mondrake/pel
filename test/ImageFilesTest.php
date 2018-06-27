@@ -80,7 +80,7 @@ class ImageFilesTest extends ExifEyeTestCaseBase
         if (isset($expected['elements'])) {
             foreach ($expected['elements'] as $type => $expected_type_elements) {
                 foreach ($expected_type_elements as $i => $expected_element) {
-                    $this->assertElement($expected_element, $element->query($type)[$i]);
+                    $this->assertElement($expected_element, $element->getMultipleElements($type)[$i]);
                 }
             }
         }

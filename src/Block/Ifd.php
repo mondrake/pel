@@ -155,7 +155,7 @@ class Ifd extends BlockBase
         $data_area = '';
 
         // Determine number of IFD entries.
-        $n = count($this->query('tag')) + count($this->query('ifd'));
+        $n = count($this->getMultipleElements('tag')) + count($this->getMultipleElements('ifd'));
         if ($this->getElement("thumbnail") !== null) {
             // We need two extra entries for the thumbnail offset and length.
             $n += 2;
@@ -169,7 +169,7 @@ class Ifd extends BlockBase
         $end = $offset + 2 + 12 * $n + 4;
 
         // Process the Tags.
-        foreach ($this->query('tag') as $tag => $sub_block) {
+        foreach ($this->getMultipleElements('tag') as $tag => $sub_block) {
             // Each entry is 12 bytes long.
             $ifd_area .= ConvertBytes::fromShort($sub_block->getAttribute('id'), $order);
             $ifd_area .= ConvertBytes::fromShort($sub_block->getElement("entry")->getFormat(), $order);
@@ -210,7 +210,7 @@ class Ifd extends BlockBase
 
         // Process sub IFDs.
         $sub_bytes = '';
-        foreach ($this->query('ifd') as $sub) {
+        foreach ($this->getMultipleElements('ifd') as $sub) {
             if ($sub->getType() === 'Exif') {
                 $tag = Spec::getTagIdByName($this, 'ExifIFDPointer');
             } elseif ($sub->getType() === 'GPS') {

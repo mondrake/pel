@@ -111,9 +111,9 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     /**
      * {@inheritdoc}
      */
-    public function query($expression)
+    public function getMultipleElements($expression)
     {
-        $node_list = $this->getRootElement()->xPath->query($expression, $this->DOMNode);
+        $node_list = $this->getRootElement()->xPath->getMultipleElements($expression, $this->DOMNode);
         $ret = [];
         for ($i = 0; $i < $node_list->length; $i++) {
             $ret[] = $node_list->item($i)->getExifEyeElement();
@@ -126,7 +126,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      */
     public function getElement($expression)
     {
-        $ret = $this->query($expression);
+        $ret = $this->getMultipleElements($expression);
         switch (count($ret)) {
             case 0:
                 return null;
@@ -142,7 +142,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      */
     public function removeElement($expression)
     {
-        $ret = $this->query($expression);
+        $ret = $this->getMultipleElements($expression);
         if ($ret) {
             $ret[0]->DOMNode->parentNode->removeChild($ret[0]->DOMNode);
         }

@@ -59,7 +59,7 @@ class JpegSegment extends BlockBase
     public function toBytes()
     {
         $bytes = '';
-        foreach ($this->query("*") as $sub) {
+        foreach ($this->getMultipleElements("*") as $sub) {
             $bytes .= $sub->toBytes();
         }
         return $bytes;
