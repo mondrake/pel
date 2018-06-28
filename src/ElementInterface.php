@@ -36,9 +36,9 @@ interface ElementInterface
     public function getElement($expression);
     public function removeElement($expression);
 
-    public function getAttributes()
-    public function setAttribute($name, $value)
-    public function getAttribute($name)
+    public function getAttributes();
+    public function getAttribute($name);
+    public function setAttribute($name, $value);
 
     /**
      * Returns a context path for this element.
