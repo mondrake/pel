@@ -4,6 +4,7 @@ namespace ExifEye\core\Block;
 
 use ExifEye\core\DataWindow;
 use ExifEye\core\Entry\Core\Ascii;
+use ExifEye\core\Utility\ConvertBytes;
 
 /**
  * Class representing JPEG comments.

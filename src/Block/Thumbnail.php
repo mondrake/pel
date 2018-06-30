@@ -10,6 +10,7 @@ use ExifEye\core\Entry\Core\Undefined;
 use ExifEye\core\ExifEye;
 use ExifEye\core\JpegMarker;
 use ExifEye\core\Spec;
+use ExifEye\core\Utility\ConvertBytes;
 
 /**
  * Class used to hold data for a JPEG Thumbnail.
