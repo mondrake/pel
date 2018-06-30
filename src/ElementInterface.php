@@ -51,8 +51,8 @@ interface ElementInterface
      *            an XPath expression identifying the sub-element to be
      *            selected.
      *
-     * @return \ExifEye\core\ElementInterface[]
-     *            the selected children elements of this element.
+     * @return \ExifEye\core\ElementInterface
+     *            the selected child elements of this element.
      *
      * @throws \ExifEye\core\ExifEyeException
      *            when multiple elements fulfil the XPath expression.
@@ -66,8 +66,9 @@ interface ElementInterface
      *            an XPath expression identifying the sub-element to be
      *            removed.
      *
-     * @return \ExifEye\core\ElementInterface[]
-     *            the selected children elements of this element.
+     * @return bool
+     *            true if the element was removed, false if the element is not
+     *            existing.
      *
      * @throws \ExifEye\core\ExifEyeException
      *            when multiple elements fulfil the XPath expression.
@@ -77,15 +78,32 @@ interface ElementInterface
     /**
      * Gets the DOM attributes associated to this element.
      *
-     * @return \ExifEye\core\ElementInterface[]
-     *            the selected children elements of this element.
-     *
-     * @throws \ExifEye\core\ExifEyeException
-     *            when multiple elements fulfil the XPath expression.
+     * @return string[]
+     *            an associative array with the DOM attribute names as keys, and
+     *            the DOM attribute values as values.
      */
     public function getAttributes();
 
+    /**
+     * Gets the value of a DOM attribute associated to this element.
+     *
+     * @param string $name
+     *            the name of the DOM attribute.
+     *
+     * @return string|null
+     *            the DOM attribute value, or null if the attribute is not
+     *            existing.
+     */
     public function getAttribute($name);
+
+    /**
+     * Sets the value of a DOM attribute associated to this element.
+     *
+     * @param string $name
+     *            the name of the DOM attribute.
+     * @param string $value
+     *            the value of the DOM attribute.
+     */
     public function setAttribute($name, $value);
 
     /**

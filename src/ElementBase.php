@@ -59,8 +59,12 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      */
     public function __construct(ElementInterface $parent = null, ElementInterface $reference = null)
     {
+        // If $parent is null, this Element is the root of the DOM document that
+        // stores the image structure.
         if (!$parent || !is_object($parent->DOMNode)) {
             $doc = new \DOMDocument();
+            // @todo change syntax to ExifEyeDOMElement::class when dropping
+            // PHP 5.4 support.
             $doc->registerNodeClass('DOMElement', 'ExifEye\core\DOM\ExifEyeDOMElement');
             $this->xPath = new \DOMXPath($doc);
             $parent_node = $doc;
@@ -77,35 +81,32 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
             $parent_node->appendChild($this->DOMNode);
         }
 
+        // Assign this Element as the payload of the DOM node.
         $this->DOMNode->setExifEyeElement($this);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getAttributes()
+    public function getType()
     {
-        $attr = [];
-        foreach ($this->DOMNode->attributes as $attribute) {
-            $attr[$attribute->name] = $attribute->value;
-        }
-        return $attr;
+        return $this->type;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function setAttribute($name, $value)
+    public function getRootElement()
     {
-        return $this->DOMNode->setAttribute($name, $value);
+        return $this->DOMNode->ownerDocument->documentElement->getExifEyeElement();
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getAttribute($name)
+    public function getParentElement()
     {
-        return $this->DOMNode->getAttribute($name);
+        return $this->DOMNode->getExifEyeElement() !== $this->getRootElement() ? $this->DOMNode->parentNode->getExifEyeElement() : null;
     }
 
     /**
@@ -143,33 +144,43 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     public function removeElement($expression)
     {
         $ret = $this->getMultipleElements($expression);
-        if ($ret) {
-            $ret[0]->DOMNode->parentNode->removeChild($ret[0]->DOMNode);
+        switch (count($ret)) {
+            case 0:
+                return false;
+            case 1:
+                $ret[0]->DOMNode->parentNode->removeChild($ret[0]->DOMNode);
+                return true;
+            default:
+                throw new ExifEyeException("Multiple elements exist for '%s', cannot remove from structure", $expression);
         }
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getType()
+    public function getAttributes()
     {
-        return $this->type;
+        $attr = [];
+        foreach ($this->DOMNode->attributes as $attribute) {
+            $attr[$attribute->name] = $attribute->value;
+        }
+        return $attr;
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getParentElement()
+    public function setAttribute($name, $value)
     {
-        return $this->DOMNode->parentNode && !($this->DOMNode->parentNode instanceof \DOMDocument) ? $this->DOMNode->parentNode->getExifEyeElement() : null;
+        return $this->DOMNode->setAttribute($name, $value);
     }
 
     /**
      * {@inheritdoc}
      */
-    public function getRootElement()
+    public function getAttribute($name)
     {
-        return $this->DOMNode->ownerDocument->documentElement->getExifEyeElement();
+        return $this->DOMNode->getAttribute($name);
     }
 
     /**
@@ -177,7 +188,16 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      */
     public function getContextPath()
     {
-        return $this->DOMNode ? $this->DOMNode->getContextPath() : '';
+      $parent_path = $this->getParentElement() ? $this->getParentElement()->getContextPath() : '';
+
+      $current_fragment = '/' . $this->DOMNode->nodeName;
+      if ($this->DOMNode->attributes->length) {
+          foreach ($this->DOMNode->attributes as $attribute) {
+              $current_fragment .= ':' . $attribute->value;
+          }
+      }
+
+      return $parent_path . $current_fragment;
     }
 
     /**
