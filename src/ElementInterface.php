@@ -2,6 +2,8 @@
 
 namespace ExifEye\core;
 
+use ExifEye\core\Utility\ConvertBytes;
+
 /**
  * Interface for Element objects.
  *
@@ -123,6 +125,20 @@ interface ElementInterface
      * @return bool
      */
     public function isValid();
+
+    /**
+     * Returns the bytes representing this element.
+     *
+     * The returned value may be a PHP string in case of a single sequence of
+     * bytes, or an array in case multiple sequences are needed.
+     *
+     * @param bool $byte_order
+     *            the byte order to use for numeric values, which must be either
+     *            ConvertBytes::LITTLE_ENDIAN or ConvertBytes::BIG_ENDIAN.
+     *
+     * @return string|string[]
+     */
+    public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN);
 
     /**
      * Returns a dump of the element in an array.

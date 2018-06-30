@@ -188,8 +188,10 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      */
     public function getContextPath()
     {
+      // Get the path before this element.
       $parent_path = $this->getParentElement() ? $this->getParentElement()->getContextPath() : '';
 
+      // Build the path fragment related to this node.
       $current_fragment = '/' . $this->DOMNode->nodeName;
       if ($this->DOMNode->attributes->length) {
           foreach ($this->DOMNode->attributes as $attribute) {

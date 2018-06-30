@@ -4,7 +4,6 @@ namespace ExifEye\core\Entry\Core;
 
 use ExifEye\core\Block\BlockBase;
 use ExifEye\core\DataWindow;
-use ExifEye\core\Utility\ConvertBytes;
 
 /**
  * Interface for Entry objects.
@@ -65,17 +64,6 @@ interface EntryInterface
      * @return mixed
      */
     public function getValue(array $options = []);
-
-    /**
-     * Returns the bytes representing this entry.
-     *
-     * @param bool $byte_order
-     *            the byte order to use for numeric values, which must be either
-     *            ConvertBytes::LITTLE_ENDIAN or ConvertBytes::BIG_ENDIAN.
-     *
-     * @return string
-     */
-    public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN);
 
     /**
      * Gets the value of this entry as text.
