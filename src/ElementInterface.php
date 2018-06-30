@@ -32,11 +32,59 @@ interface ElementInterface
      */
     public function getParentElement();
 
+    /**
+     * Gets multiple children elements of this element.
+     *
+     * @param string $expression
+     *            an XPath expression identifying the sub-elements to be
+     *            selected.
+     *
+     * @return \ExifEye\core\ElementInterface[]
+     *            the selected children elements of this element.
+     */
     public function getMultipleElements($expression);
+
+    /**
+     * Gets a single child element of this element.
+     *
+     * @param string $expression
+     *            an XPath expression identifying the sub-element to be
+     *            selected.
+     *
+     * @return \ExifEye\core\ElementInterface[]
+     *            the selected children elements of this element.
+     *
+     * @throws \ExifEye\core\ExifEyeException
+     *            when multiple elements fulfil the XPath expression.
+     */
     public function getElement($expression);
+
+    /**
+     * Removes a single child element of this element.
+     *
+     * @param string $expression
+     *            an XPath expression identifying the sub-element to be
+     *            removed.
+     *
+     * @return \ExifEye\core\ElementInterface[]
+     *            the selected children elements of this element.
+     *
+     * @throws \ExifEye\core\ExifEyeException
+     *            when multiple elements fulfil the XPath expression.
+     */
     public function removeElement($expression);
 
+    /**
+     * Gets the DOM attributes associated to this element.
+     *
+     * @return \ExifEye\core\ElementInterface[]
+     *            the selected children elements of this element.
+     *
+     * @throws \ExifEye\core\ExifEyeException
+     *            when multiple elements fulfil the XPath expression.
+     */
     public function getAttributes();
+
     public function getAttribute($name);
     public function setAttribute($name, $value);
 
