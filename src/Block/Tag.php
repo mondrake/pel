@@ -81,4 +81,11 @@ class Tag extends BlockBase
     public function loadFromData(DataWindow $data_window, $offset = 0, array $options = [])
     {
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function toBytes($order = ConvertBytes::LITTLE_ENDIAN)
+    {
+    }
 }

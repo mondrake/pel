@@ -38,6 +38,13 @@ class Thumbnail extends BlockBase
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function toBytes($order = ConvertBytes::LITTLE_ENDIAN)
+    {
+    }
+
+    /**
      * xx
      * @param DataWindow $data_window
      *            the data from which the thumbnail will be
