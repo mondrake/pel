@@ -225,6 +225,14 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     /**
      * {@inheritdoc}
      */
+    public function toXML()
+    {
+        return $this->DOMNode->saveXML();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function log($level, $message, array $context = [])
     {
         $context['path'] = $this->getContextPath();
