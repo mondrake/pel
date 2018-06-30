@@ -127,6 +127,38 @@ interface ElementInterface
     public function isValid();
 
     /**
+     * Returns the value of this element, if the element supports it.
+     *
+     * For a formatted version of the value, use ::toString() instead.
+     *
+     * @param array $options
+     *            (Optional) an array of options to format the value.
+     *
+     * @return mixed
+     *
+     * @throws \ExifEye\core\ExifEyeException
+     *            when the element does not support returning a value.
+     */
+    public function getValue(array $options = []);
+
+    /**
+     * Gets the value of this element as text.
+     *
+     * The value will be returned in a format suitable for presentation, e.g.
+     * rationals will be returned as 'x/y', ASCII strings will be returned as
+     * themselves, undefined sequences of bytes as themselves etc.
+     *
+     * @param array $options
+     *            (Optional) an array of options to format the value.
+     *
+     * @return string
+     *
+     * @throws \ExifEye\core\ExifEyeException
+     *            when the element does not support returning a value.
+     */
+    public function toString(array $options = []);
+
+    /**
      * Returns the bytes representing this element.
      *
      * The returned value may be a PHP string in case of a single sequence of

@@ -50,32 +50,4 @@ interface EntryInterface
      * @return $this
      */
     public function setValue(array $value);
-
-    /**
-     * Returns the value of this entry.
-     *
-     * The value returned will generally be the same as the one supplied to the
-     * constructor or with ::setValue(). For a formatted version of the value,
-     * use ::toString() instead.
-     *
-     * @param array $options
-     *            (optional) an array of options to format the value.
-     *
-     * @return mixed
-     */
-    public function getValue(array $options = []);
-
-    /**
-     * Gets the value of this entry as text.
-     *
-     * The value will be returned in a format suitable for presentation, e.g.
-     * rationals will be returned as 'x/y', ASCII strings will be returned as
-     * themselves etc.
-     *
-     * @param array $options
-     *            (optional) an array of options to format the value.
-     *
-     * @return string
-     */
-    public function toString(array $options = []);
 }

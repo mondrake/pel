@@ -213,6 +213,22 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     /**
      * {@inheritdoc}
      */
+    public function getValue(array $options = [])
+    {
+        throw new ExifEyeException("'%s' does not support the getValue method.", $this->getType());
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function toString(array $options = [])
+    {
+        throw new ExifEyeException("'%s' does not support the toString method.", $this->getType());
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function toDumpArray()
     {
         return [
