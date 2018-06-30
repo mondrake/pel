@@ -49,7 +49,7 @@ class Exif extends BlockBase
     /**
      * {@inheritdoc}
      */
-    public function toBytes()
+    public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN)
     {
         return self::EXIF_HEADER . $this->getElement('tiff')->toBytes();
     }

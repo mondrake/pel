@@ -86,7 +86,7 @@ class Image extends BlockBase
     /**
      * {@inheritdoc}
      */
-    public function toBytes()
+    public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN)
     {
         return $this->getElement('*')->toBytes();
     }

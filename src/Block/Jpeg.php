@@ -179,7 +179,7 @@ class Jpeg extends BlockBase
      * @return string bytes representing this JPEG object, including all
      *         its sections and their associated data.
      */
-    public function toBytes()
+    public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN)
     {
         $bytes = '';
 

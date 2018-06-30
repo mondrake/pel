@@ -51,7 +51,7 @@ class JpegContent extends BlockBase
      *         will match the bytes given to {@link __construct the
      *         constructor}.
      */
-    public function toBytes()
+    public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN)
     {
 // xx why this??? $this->data should never be null but this happened when
 // renamed getBytes to toBytes in entry classes
