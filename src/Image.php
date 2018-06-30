@@ -131,6 +131,14 @@ class Image extends BlockBase
     /**
      * {@inheritdoc}
      */
+    public function toXML()
+    {
+        return $this->DOMNode->ownerDocument->saveXML();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function dumpLog()
     {
         $handler = $this->logger()->getHandlers()[0]; // xx
