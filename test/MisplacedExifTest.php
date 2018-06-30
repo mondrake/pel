@@ -41,7 +41,7 @@ dump($jpeg->getMultipleElements("segment[exif]"));
 dump("xxxxxx\n");
 dump($jpeg->getMultipleElements("segment[exif][0]"));
 dump("xxxxxx\n");
-dump($jpeg->getMultipleElements("(segment[exif])[0]"));
+dump($jpeg->getMultipleElements("segment[1]"));
         $jpeg->removeElement("(segment[exif])[0]");
 
         // Assert that only EXIF section is gone and all other shifted correctly.
