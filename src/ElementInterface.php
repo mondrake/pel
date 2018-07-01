@@ -38,8 +38,7 @@ interface ElementInterface
      * Gets multiple children elements of this element.
      *
      * @param string $expression
-     *            an XPath expression identifying the sub-elements to be
-     *            selected.
+     *            an XPath expression identifying the sub-elements to be selected.
      *
      * @return \ExifEye\core\ElementInterface[]
      *            the selected children elements of this element.
@@ -50,8 +49,7 @@ interface ElementInterface
      * Gets a single child element of this element.
      *
      * @param string $expression
-     *            an XPath expression identifying the sub-element to be
-     *            selected.
+     *            an XPath expression identifying the sub-element to be selected.
      *
      * @return \ExifEye\core\ElementInterface
      *            the selected child elements of this element.
@@ -65,12 +63,10 @@ interface ElementInterface
      * Removes a single child element of this element.
      *
      * @param string $expression
-     *            an XPath expression identifying the sub-element to be
-     *            removed.
+     *            an XPath expression identifying the sub-element to be removed.
      *
      * @return bool
-     *            true if the element was removed, false if the element is not
-     *            existing.
+     *            true if the element was removed, false if the element is not existing.
      *
      * @throws \ExifEye\core\ExifEyeException
      *            when multiple elements fulfil the XPath expression.
@@ -81,8 +77,8 @@ interface ElementInterface
      * Gets the DOM attributes associated to this element.
      *
      * @return string[]
-     *            an associative array with the DOM attribute names as keys, and
-     *            the DOM attribute values as values.
+     *            an associative array with the DOM attribute names as keys, and the DOM
+     *            attribute values as values.
      */
     public function getAttributes();
 
@@ -93,8 +89,7 @@ interface ElementInterface
      *            the name of the DOM attribute.
      *
      * @return string|null
-     *            the DOM attribute value, or null if the attribute is not
-     *            existing.
+     *            the DOM attribute value, or null if the attribute is not existing.
      */
     public function getAttribute($name);
 
@@ -111,9 +106,8 @@ interface ElementInterface
     /**
      * Returns a context path for this element.
      *
-     * It gives whereabouts of the element within the overall structure of the
-     * image. Note that this is not an XPath compliant path, it is mainly used
-     * for logging purposes.
+     * It gives whereabouts of the element within the overall structure of the image. Note
+     * that this is not an XPath compliant path, it is mainly used for logging purposes.
      *
      * @return string
      */
@@ -144,9 +138,9 @@ interface ElementInterface
     /**
      * Gets the value of this element as text.
      *
-     * The value will be returned in a format suitable for presentation, e.g.
-     * rationals will be returned as 'x/y', ASCII strings will be returned as
-     * themselves, undefined sequences of bytes as themselves etc.
+     * The value will be returned in a format suitable for presentation, e.g. rationals will
+     * be returned as 'x/y', ASCII strings will be returned as themselves, undefined
+     * sequences of bytes as themselves etc.
      *
      * @param array $options
      *            (Optional) an array of options to format the value.
@@ -161,8 +155,8 @@ interface ElementInterface
     /**
      * Returns the bytes representing this element.
      *
-     * The returned value may be a PHP string in case of a single sequence of
-     * bytes, or an array in case multiple sequences are needed.
+     * The returned value may be a PHP string in case of a single sequence of bytes, or an
+     * array in case multiple sequences are needed.
      *
      * @param bool $byte_order
      *            the byte order to use for numeric values, which must be either

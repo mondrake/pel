@@ -86,6 +86,22 @@ class Tag extends BlockBase
     /**
      * {@inheritdoc}
      */
+    public function getValue(array $options = [])
+    {
+        return $this->getElement("entry")->getValue($options);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function toString(array $options = [])
+    {
+      return $this->getElement("entry")->toString($options);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function toBytes($order = ConvertBytes::LITTLE_ENDIAN)
     {
     }
