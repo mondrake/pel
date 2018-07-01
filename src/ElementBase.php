@@ -250,7 +250,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
             if ($root_element->externalLogger) {  // xx should be logging anyway
                 $root_element->externalLogger->log($level, $message, $context);
             }
-            if ($root_element->getFailLevel !== false && Logger::toMonologLevel($level) >= $root_element->getFailLevel) {  // xx should be logging anyway
+            if ($root_element->failLevel !== false && Logger::toMonologLevel($level) >= $root_element->failLevel) {  // xx should be logging anyway
                 throw new ExifEyeException($message);
             }
         }
