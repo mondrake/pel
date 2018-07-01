@@ -1,5 +1,5 @@
 type: 'AppleMakerNotes'
-class: ExifEye\core\Block\IfdMakerNoteApple
+class: ExifEye\Apple\Block\MakerNote
 makerNotes:
   - 'Apple'
 tags:
