@@ -32,7 +32,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      *
      * @var \DOMXPath|null
      */
-    protected $xPath;
+    protected $XPath;
 
     /**
      * The type of this element.
@@ -66,7 +66,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
             // @todo change syntax to ExifEyeDOMElement::class when dropping
             // PHP 5.4 support.
             $doc->registerNodeClass('DOMElement', 'ExifEye\core\DOM\ExifEyeDOMElement');
-            $this->xPath = new \DOMXPath($doc);
+            $this->XPath = new \DOMXPath($doc);
             $parent_node = $doc;
         } else {
             $doc = $parent->DOMNode->ownerDocument;
@@ -114,7 +114,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
      */
     public function getMultipleElements($expression)
     {
-        $node_list = $this->getRootElement()->xPath->query($expression, $this->DOMNode);
+        $node_list = $this->getRootElement()->XPath->query($expression, $this->DOMNode);
         $ret = [];
         for ($i = 0; $i < $node_list->length; $i++) {
             $ret[] = $node_list->item($i)->getExifEyeElement();
