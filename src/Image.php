@@ -6,6 +6,7 @@ use ExifEye\core\Block\BlockBase;
 use ExifEye\core\Block\Jpeg;
 use ExifEye\core\Block\Tiff;
 use ExifEye\core\Utility\ConvertBytes;
+use Psr\Log\LoggerInterface;
 use Monolog\Logger;
 use Monolog\Handler\TestHandler;
 use Monolog\Processor\PsrLogMessageProcessor;
@@ -27,32 +28,67 @@ class Image extends BlockBase
      */
     protected $mimeType;
 
+    /**
+     * The internal logger instance for this Image object.
+     *
+     * @var \Monolog\Logger
+     */
     protected $logger;
+
+    /**
+     * A PSR-3 compliant logger callback.
+     *
+     * Consuming code can have higher level logging facilities in place. Any
+     * entry sent to the internal logger will also be sent to the callback, if
+     * specified.
+     *
+     * @var \Psr\Log\LoggerInterface
+     */
     protected $externalLogger;
+
+    /**
+     * The minimum log level for failure.
+     *
+     * ExifEye normally intercepts and logs image parsing issues without
+     * breaking the flow. However it is possible to enable hard failures by
+     * defining the minimum log level at which the parsing process will breaking
+     * and throw an ExifEyeException.
+     *
+     * @var int
+     */
     protected $failLevel;
 
     /**
      * Quality setting for encoding JPEG images.
      *
-     * This controls the quality used then PHP image resources are
-     * encoded into JPEG images. This happens when you create a
-     * {@link Jpeg} object based on an image resource.
+     * This controls the quality used then PHP image resources are encoded into
+     * JPEG images. This happens when you create a Jpeg object based on an image
+     * resource.
      *
-     * The default is 75 for average quality images, but you can change
-     * this to an integer between 0 and 100.
+     * The default is 75 for average quality images, but you can change this to
+     * an integer between 0 and 100.
      *
      * @var int
      */
     protected $quality = 75;
 
-    public function __construct($external_logger = null, $fail_level = false)
+    /**
+     * Constructs an Image object.
+     *
+     * @param \Psr\Log\LoggerInterface $external_logger
+     *            (Optional) a PSR-3 compliant logger callback.
+     * @param string $fail_level
+     *            (Optional) a PSR-3 compliant log level. Any log entry at this
+     *            level or above will force image parsing to stop.
+     */
+    public function __construct(LoggerInterface $external_logger = null, $fail_level = false)
     {
         parent::__construct();
         $this->logger = (new Logger('exifeye'))
           ->pushHandler(new TestHandler(Logger::INFO))
           ->pushProcessor(new PsrLogMessageProcessor());
         $this->externalLogger = $external_logger;
-        $this->failLevel = Logger::toMonologLevel($fail_level);
+        $this->failLevel = $fail_level !== false ? Logger::toMonologLevel($fail_level) : false;
     }
 
     /**
@@ -128,17 +164,11 @@ class Image extends BlockBase
         return $this->failLevel;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function toXML()
     {
         return $this->DOMNode->ownerDocument->saveXML();
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function dumpLog()
     {
         $handler = $this->logger()->getHandlers()[0]; // xx
