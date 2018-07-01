@@ -96,27 +96,18 @@ class Image extends BlockBase
      */
     public function loadFromData(DataWindow $data_window, $offset = 0, array $options = [])
     {
-        // JPEG image?
-        if ($data_window->getBytes(0, 3) === "\xFF\xD8\xFF") {
-            $this->mimeType = 'image/jpeg';
-            $jpeg = new Jpeg($this);
-            $jpeg->loadFromData($data_window);
+        $handling_class = static::determineImageHandlingClass($data_window);
+
+        if ($handling_class) {
+            $image_handler = new $handling_class($this);
+            $image_handler->loadFromData($data_window);
             return;
+        } else {
+            $this->error('Unrecognized image format.');
+            $this->isValid = false;
         }
 
-        // TIFF image?
-        $byte_order = $data_window->getBytes(0, 2);
-        if ($byte_order === 'II' || $byte_order === 'MM') {
-            $data_window->setByteOrder($byte_order === 'II' ? ConvertBytes::LITTLE_ENDIAN : ConvertBytes::BIG_ENDIAN);
-            if ($data_window->getShort(2) === Tiff::TIFF_HEADER) {
-                $this->mimeType = 'image/tiff';
-                $tiff = new Tiff($this);
-                $tiff->loadFromData($data_window);
-                return;
-            }
-        }
-
-        throw new ExifEyeException('Unrecognized image format.');
+        return;
     }
 
     /**
@@ -204,7 +195,7 @@ class Image extends BlockBase
         return $image;
     }
 
-    protected static determineImageHandlingClass(DataWindow $data_window) {
+    protected static function determineImageHandlingClass(DataWindow $data_window) {
         // JPEG image?
         if ($data_window->getBytes(0, 3) === "\xFF\xD8\xFF") {
             return '\ExifEye\core\Block\Jpeg';
