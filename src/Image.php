@@ -101,7 +101,6 @@ class Image extends BlockBase
         if ($handling_class) {
             $image_handler = new $handling_class($this);
             $image_handler->loadFromData($data_window);
-            return;
         } else {
             $this->error('Unrecognized image format.');
             $this->isValid = false;
