@@ -184,40 +184,42 @@ class Image extends BlockBase
         return $this->mimeType;
     }
 
-    public static function loadFromFile($path, $external_logger = null, $fail_level = false)
+    public static function loadFromFile($path, LoggerInterface $external_logger = null, $fail_level = false)
     {
         $magic_file_info = new DataWindow(file_get_contents($path, false, null, 0, 10));
 
-        $recognized_format = false;
-
-        // JPEG image?
-        if ($magic_file_info->getBytes(0, 3) === "\xFF\xD8\xFF") {
-            $recognized_format = true;
-        }
-
-        // TIFF image?
-        $byte_order = $magic_file_info->getBytes(0, 2);
-        if ($byte_order === 'II' || $byte_order === 'MM') {
-            $magic_file_info->setByteOrder($byte_order === 'II' ? ConvertBytes::LITTLE_ENDIAN : ConvertBytes::BIG_ENDIAN);
-            if ($magic_file_info->getShort(2) === Tiff::TIFF_HEADER) {
-                $recognized_format = true;
-            }
-        }
-
-        if ($recognized_format) {
+        if (static::determineImageHandlingClass($magic_file_info) !== false) {
             $image = new static($external_logger, $fail_level);
             $image->loadFromData(new DataWindow(file_get_contents($path)));
             return $image;
         }
 
-        throw new ExifEyeException('Unrecognized image format.');
+        return false;
     }
 
-    public static function createFromData(DataWindow $data_window, $external_logger = null, $fail_level = false)
+    public static function createFromData(DataWindow $data_window, LoggerInterface $external_logger = null, $fail_level = false)
     {
         $image = new static($external_logger, $fail_level);
         $image->loadFromData($data_window);
         return $image;
+    }
+
+    protected static determineImageHandlingClass(DataWindow $data_window) {
+        // JPEG image?
+        if ($data_window->getBytes(0, 3) === "\xFF\xD8\xFF") {
+            return '\ExifEye\core\Block\Jpeg';
+        }
+
+        // TIFF image?
+        $byte_order = $data_window->getBytes(0, 2);
+        if ($byte_order === 'II' || $byte_order === 'MM') {
+            $data_window->setByteOrder($byte_order === 'II' ? ConvertBytes::LITTLE_ENDIAN : ConvertBytes::BIG_ENDIAN);
+            if ($data_window->getShort(2) === Tiff::TIFF_HEADER) {
+                return '\ExifEye\core\Block\Tiff';
+            }
+        }
+
+        return false;
     }
 
     /**
