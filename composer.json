@@ -24,11 +24,11 @@
     "require": {
         "php": ">=5.4.0",
         "ext-gd": "*",
-        "ext-exif": "*",
         "psr/log": "*",
         "monolog/monolog": "*"
     },
     "require-dev" : {
+        "ext-exif": "*",
         "phpunit/phpunit": "*",
         "squizlabs/php_codesniffer": "*",
         "satooshi/php-coveralls": "*",
