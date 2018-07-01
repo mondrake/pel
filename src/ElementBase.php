@@ -246,6 +246,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
         $context['path'] = $this->getContextPath();
         $root_element = $this->getRootElement();
         if (method_exists($root_element, 'logger')) {  // xx should be logging anyway
+dump($message);
             $root_element->logger->log($level, $message, $context);
             if ($root_element->externalLogger) {  // xx should be logging anyway
                 $root_element->externalLogger->log($level, $message, $context);
