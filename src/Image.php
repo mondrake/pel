@@ -121,8 +121,8 @@ class Image extends BlockBase
      * Set the JPEG encoding quality.
      *
      * @param int $quality
-     *            an integer between 0 and 100 with 75 being
-     *            average quality and 95 very good quality.
+     *            an integer between 0 and 100 with 75 being average quality
+     *            and 95 very good quality.
      */
     public function setJPEGQuality($quality)
     {
@@ -139,21 +139,6 @@ class Image extends BlockBase
         return $this->$quality;
     }
 
-    public function logger()
-    {
-        return $this->logger;
-    }
-
-    public function externalLogger()
-    {
-        return $this->externalLogger;
-    }
-
-    public function getFailLevel()
-    {
-        return $this->failLevel;
-    }
-
     public function toXML()
     {
         return $this->DOMNode->ownerDocument->saveXML();
@@ -161,7 +146,7 @@ class Image extends BlockBase
 
     public function dumpLog()
     {
-        $handler = $this->logger()->getHandlers()[0]; // xx
+        $handler = $this->logger->getHandlers()[0]; // xx
         $ret = [];
         foreach ($handler->getRecords() as $record) {
             $ret[$record['level_name']][] = $record;

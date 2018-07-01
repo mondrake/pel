@@ -246,13 +246,13 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
         $context['path'] = $this->getContextPath();
         $root_element = $this->getRootElement();
         if (method_exists($root_element, 'logger')) {  // xx should be logging anyway
-            $root_element->logger()->log($level, $message, $context);
-        }
-        if (method_exists($root_element, 'externalLogger') && $root_element->externalLogger()) {  // xx should be logging anyway
-            $root_element->externalLogger()->log($level, $message, $context);
-        }
-        if (method_exists($root_element, 'getFailLevel') && $root_element->getFailLevel() !== false && Logger::toMonologLevel($level) >= $root_element->getFailLevel()) {  // xx should be logging anyway
-            throw new ExifEyeException($message);
+            $root_element->logger->log($level, $message, $context);
+            if ($root_element->externalLogger) {  // xx should be logging anyway
+                $root_element->externalLogger->log($level, $message, $context);
+            }
+            if ($root_element->getFailLevel !== false && Logger::toMonologLevel($level) >= $root_element->getFailLevel) {  // xx should be logging anyway
+                throw new ExifEyeException($message);
+            }
         }
     }
 }
