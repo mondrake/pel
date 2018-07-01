@@ -148,6 +148,7 @@ class Image extends BlockBase
     {
         $handler = $this->logger->getHandlers()[0]; // xx
         $ret = [];
+dump($handler->getRecords());
         foreach ($handler->getRecords() as $record) {
             $ret[$record['level_name']][] = $record;
         }
