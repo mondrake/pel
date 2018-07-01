@@ -3,6 +3,8 @@
 namespace ExifEye\Apple\Block;
 
 use ExifEye\core\Block\Ifd;
+use ExifEye\core\DataWindow;
+use CFPropertyList\CFPropertyList;
 
 class MakerNote extends Ifd
 {
@@ -41,7 +43,9 @@ class MakerNote extends Ifd
             return;
         }
 
-dump($apple_run_time_entry->getValue());
+        $plist = new CFPropertyList();
+        $plist->parse($apple_run_time_entry->getValue());
+dump($plist->toArray());
 return;
         $length = $ifd->getElement("tag[@name='ThumbnailLength']/entry")->getValue();
 
