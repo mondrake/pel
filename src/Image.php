@@ -179,7 +179,8 @@ class Image extends BlockBase
         return $image;
     }
 
-    protected static function determineImageHandlingClass(DataWindow $data_window) {
+    protected static function determineImageHandlingClass(DataWindow $data_window)
+    {
         // JPEG image?
         if ($data_window->getBytes(0, 3) === "\xFF\xD8\xFF") {
             return '\ExifEye\core\Block\Jpeg';

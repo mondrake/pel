@@ -96,7 +96,7 @@ class Tag extends BlockBase
      */
     public function toString(array $options = [])
     {
-      return $this->getElement("entry")->toString($options);
+        return $this->getElement("entry")->toString($options);
     }
 
     /**
