@@ -5,6 +5,7 @@ namespace ExifEye\Apple\Block;
 use ExifEye\core\Block\Ifd;
 use ExifEye\core\DataWindow;
 use CFPropertyList\CFPropertyList;
+use ExifEye\core\Spec;
 
 class RunTime extends Ifd
 {
@@ -17,7 +18,6 @@ class RunTime extends Ifd
 
         $plist = new CFPropertyList();
         $plist->parse($data_window->getBytes($options['data_offset'], $options['components']));
-        dump($plist->toArray());
         
         // Build a TAG object for each PList item.
         foreach ($plist->toArray() as $tag_name => $value) {
