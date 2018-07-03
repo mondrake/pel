@@ -16,7 +16,7 @@ class RunTime extends Ifd
         dump($offset);
         dump($options);
         $plist = new CFPropertyList();
-        dump($data_window->getBytes($offset, $options['components']));
+        dump($data_window->getBytes(0, $options['components']));
         $plist->parse($data_window->getBytes($offset, $options['components']));
         dump($plist->toArray());
     }
