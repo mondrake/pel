@@ -3,6 +3,7 @@
 namespace ExifEye\Apple\Block;
 
 use ExifEye\core\Block\Ifd;
+use ExifEye\core\Block\Tag;
 use ExifEye\core\DataWindow;
 use CFPropertyList\CFPropertyList;
 use ExifEye\core\Spec;
@@ -24,7 +25,6 @@ class RunTime extends Ifd
             $tag_id = Spec::getTagIdByName($this, $tag_name);
             $tag_format = Spec::getTagFormat($this, $tag_id)[0];
             $tag_entry_class = Spec::getEntryClass($this, $tag_id, $tag_format);
-dump($tag_entry_class);
             $tag = new Tag($this, $tag_id, $tag_entry_class, [$value], $tag_format, 1);
         }
 
