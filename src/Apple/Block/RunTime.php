@@ -9,6 +9,18 @@ use CFPropertyList\CFPropertyList;
 class RunTime extends Ifd
 {
     /**
+     * {@inheritdoc}
+     */
+    public function loadFromData(DataWindow $data_window, $offset = 0, array $options = [])
+    {
+        dump($offset);
+        dump($options);
+        $plist = new CFPropertyList();
+        $plist->parse($data_window->getBytes($offset));
+        dump($plist->toArray());
+    }
+
+    /**
      * xx
      * @param DataWindow $data_window
      *            the data from which the thumbnail will be
