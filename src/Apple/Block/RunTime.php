@@ -13,11 +13,8 @@ class RunTime extends Ifd
      */
     public function loadFromData(DataWindow $data_window, $offset = 0, array $options = [])
     {
-        dump($offset);
-        dump($options);
         $plist = new CFPropertyList();
-        dump($data_window->getBytes($options['data_offset'], $options['components']));
-        $plist->parse($data_window->getBytes($offset, $options['components']));
+        $plist->parse($data_window->getBytes($options['data_offset'], $options['components']));
         dump($plist->toArray());
     }
 
