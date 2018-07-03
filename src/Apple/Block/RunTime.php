@@ -21,13 +21,10 @@ class RunTime extends Ifd
         
         // Build a TAG object for each PList item.
         foreach ($plist->toArray() as $tag_name => $value) {
-dump([$tag_name, $value]);
             $tag_id = Spec::getTagIdByName($this, $tag_name);
-dump([$tag_id]);
-            $tag_format = Spec::getTagFormat($this, $tag_id);
-dump([$tag_format]);
+            $tag_format = Spec::getTagFormat($this, $tag_id)[0];
             $tag_entry_class = Spec::getEntryClass($this, $tag_id, $tag_format);
-dump([$tag_entry_class]);
+dump($tag_entry_class);
             $tag = new Tag($this, $tag_id, $tag_entry_class, [$value], $tag_format, 1);
         }
 
