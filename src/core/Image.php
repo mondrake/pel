@@ -234,7 +234,7 @@ class Image extends BlockBase
         $ret = [];
         foreach ($handler->getRecords() as $record) {
             if (($level_name && $record['level_name'] === $level_name) || !$level_name) {
-                $ret[$record['level_name']][] = $record;
+                $ret[] = $record;
             }
         }
         return $ret;

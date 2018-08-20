@@ -68,7 +68,7 @@ class DumpCommand extends Command
         $image = Image::loadFromFile((string) $file);
         $yaml['fileName'] = $file->getBaseName();
         $yaml['mimeType'] = $image->getMimeType();
-        $yaml['elements'] = $image->toDumpArray();
+        $yaml['blocks'] = $image->toDumpArray();
         $yaml['log'] = [];
         foreach (['error', 'warning', 'notice'] as $level) {
             foreach ($image->dumpLog($level) as $record) {
