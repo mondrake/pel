@@ -22,7 +22,7 @@ class Image extends BlockBase
     protected $type = 'image';
 
     /**
-     * The handling class for the image.
+     * The Block handling class for the image.
      *
      * @var string
      */
@@ -57,20 +57,6 @@ class Image extends BlockBase
      * @var int
      */
     protected $failLevel;
-
-    /**
-     * Quality setting for encoding JPEG images.
-     *
-     * This controls the quality used then PHP image resources are encoded into
-     * JPEG images. This happens when you create a Jpeg object based on an image
-     * resource.
-     *
-     * The default is 75 for average quality images, but you can change this to
-     * an integer between 0 and 100.
-     *
-     * @var int
-     */
-    protected $quality = 75;
 
     /**
      * Creates an Image object from a file.
@@ -142,7 +128,7 @@ class Image extends BlockBase
     protected static function determineImageHandlingClass(DataWindow $data_window)
     {
         // JPEG image?
-        if ($data_window->getBytes(0, 3) === "\xFF\xD8\xFF") {
+        if ($data_window->getBytes(0, 3) === Jpeg::JPEG_HEADER) {
             return '\ExifEye\core\Block\Jpeg';
         }
 
@@ -199,35 +185,13 @@ class Image extends BlockBase
     }
 
     /**
-     * Set the JPEG encoding quality.
-     *
-     * @param int $quality
-     *            an integer between 0 and 100 with 75 being average quality
-     *            and 95 very good quality.
-     */
-    public function setJPEGQuality($quality)
-    {
-        $this->$quality = $quality;
-    }
-
-    /**
-     * Get current setting for JPEG encoding quality.
-     *
-     * @return int the quality.
-     */
-    public function getJPEGQuality()
-    {
-        return $this->$quality;
-    }
-
-    /**
      * Determines the MIME type of the image.
      *
      * @returns string
      */
     public function getMimeType()
     {
-        return $this->imageClass::getMimeType();
+        return $this->getElement('*')->getMimeType();
     }
 
     /**
@@ -258,14 +222,20 @@ class Image extends BlockBase
     /**
      * Returns the log entries of the Image.
      *
+     * @param string $level_name
+     *            (Optional) If specified, filters only for the entries of they
+     *            specified severity level.
+     *
      * @returns array
      */
-    public function dumpLog()
+    public function dumpLog($level_name = null)
     {
-        $handler = $this->logger->getHandlers()[0]; // xx
+        $handler = $this->logger->getHandlers()[0];
         $ret = [];
         foreach ($handler->getRecords() as $record) {
-            $ret[$record['level_name']][] = $record;
+            if (($level_name && $record['level_name'] === $level_name) || !$level_name) {
+                $ret[$record['level_name']][] = $record;
+            }
         }
         return $ret;
     }

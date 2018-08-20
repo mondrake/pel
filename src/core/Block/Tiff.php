@@ -4,6 +4,7 @@ namespace ExifEye\core\Block;
 
 use ExifEye\core\DataWindow;
 use ExifEye\core\ExifEye;
+use ExifEye\core\Image;
 use ExifEye\core\Utility\ConvertBytes;
 use ExifEye\core\Spec;
 
@@ -25,19 +26,9 @@ class Tiff extends BlockBase
     protected $type = 'tiff';
 
     /**
-     * Returns the MIME type of the image.
-     *
-     * @returns string
+     * Constructs a Block for holding a TIFF image.
      */
-    public static function getMimeType()
-    {
-        return 'image/tiff';
-    }
-
-    /**
-     * Construct a new object for holding TIFF data.
-     */
-    public function __construct(BlockBase $parent = null)
+    public function __construct(Image $parent = null)
     {
         parent::__construct($parent);
     }
@@ -156,5 +147,15 @@ class Tiff extends BlockBase
         }
 
         return $bytes;
+    }
+
+    /**
+     * Returns the MIME type of the image.
+     *
+     * @returns string
+     */
+    public function getMimeType()
+    {
+        return 'image/tiff';
     }
 }
