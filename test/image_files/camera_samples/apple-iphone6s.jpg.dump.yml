@@ -1,5 +1,5 @@
 fileName: apple-iphone6s.jpg
-mimeType: null
+mimeType: image/jpeg
 elements:
     path: /image/jpeg
     class: ExifEye\core\Block\Jpeg

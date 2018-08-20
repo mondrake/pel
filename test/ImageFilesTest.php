@@ -47,6 +47,8 @@ class ImageFilesTest extends ExifEyeTestCaseBase
         $image = Image::loadFromFile($imageDumpFile->getPath() . '/' . $test['fileName']);
 //dump(@exif_read_data($imageDumpFile->getPath() . '/' . $test['fileName']));
 
+        $this->assertEquals($test['mimeType'], $image->getMimeType());
+
         if (isset($test['elements'])) {
             $this->assertElement($test['elements'], $image->getElement("*"));
         }
