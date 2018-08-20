@@ -231,6 +231,8 @@ class Image extends BlockBase
     public function dumpLog($level_name = null)
     {
         $handler = $this->logger->getHandlers()[0];
+return $handler->getRecords();
+
         $ret = [];
         foreach ($handler->getRecords() as $record) {
             if (($level_name && $record['level_name'] === $level_name) || !$level_name) {

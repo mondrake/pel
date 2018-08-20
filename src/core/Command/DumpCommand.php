@@ -69,7 +69,7 @@ class DumpCommand extends Command
         $yaml['fileName'] = $file->getBaseName();
         $yaml['mimeType'] = $image->getMimeType();
         $yaml['blocks'] = $image->toDumpArray();
-        $yaml['log'] = [];
+/*        $yaml['log'] = [];
         foreach (['error', 'warning', 'notice'] as $level) {
             foreach ($image->dumpLog($level) as $record) {
                 $yaml['log'][$level][] = [
@@ -77,7 +77,8 @@ class DumpCommand extends Command
                     'message' => $record['message'],
                 ];
             }
-        }
+        }*/
+$yaml['log'] = $image->dumpLog();
 
         return Yaml::dump($yaml, 40);
     }
