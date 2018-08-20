@@ -69,17 +69,15 @@ class DumpCommand extends Command
         $yaml['fileName'] = $file->getBaseName();
         $yaml['mimeType'] = $image->getMimeType();
         $yaml['blocks'] = $image->toDumpArray();
-/*        $yaml['log'] = [];
-        foreach (['error', 'warning', 'notice'] as $level) {
+        $yaml['log'] = [];
+        foreach (['ERROR', 'WARNING', 'NOTICE'] as $level) {
             foreach ($image->dumpLog($level) as $record) {
                 $yaml['log'][$level][] = [
                     'path' => isset($record['context']['path']) ? $record['context']['path'] : '*** missing ***',
                     'message' => $record['message'],
                 ];
             }
-        }*/
-$yaml['log'] = $image->dumpLog();
-
+        }
         return Yaml::dump($yaml, 40);
     }
 }
