@@ -172,7 +172,7 @@ class Image extends BlockBase
     public function __construct($image_class, LoggerInterface $external_logger = null, $fail_level = false)
     {
         parent::__construct();
-        $this->$imageClass = $image_class;
+        $this->imageClass = $image_class;
         $this->logger = (new Logger('exifeye'))
           ->pushHandler(new TestHandler(Logger::INFO))
           ->pushProcessor(new PsrLogMessageProcessor());
