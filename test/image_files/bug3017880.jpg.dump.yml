@@ -1,5 +1,5 @@
 fileName: bug3017880.jpg
-mimeType: null
+mimeType: image/jpeg
 elements:
     path: /image/jpeg
     class: ExifEye\core\Block\Jpeg

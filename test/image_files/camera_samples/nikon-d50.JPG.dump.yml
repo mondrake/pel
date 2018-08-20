@@ -1,5 +1,5 @@
 fileName: nikon-d50.JPG
-mimeType: null
+mimeType: image/jpeg
 elements:
     path: /image/jpeg
     class: ExifEye\core\Block\Jpeg

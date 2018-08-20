@@ -1,5 +1,5 @@
 fileName: sample-1.tiff
-mimeType: null
+mimeType: image/tiff
 elements:
     path: /image/tiff
     class: ExifEye\core\Block\Tiff

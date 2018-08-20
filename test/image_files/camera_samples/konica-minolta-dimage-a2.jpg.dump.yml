@@ -1,5 +1,5 @@
 fileName: konica-minolta-dimage-a2.jpg
-mimeType: null
+mimeType: image/jpeg
 elements:
     path: /image/jpeg
     class: ExifEye\core\Block\Jpeg
