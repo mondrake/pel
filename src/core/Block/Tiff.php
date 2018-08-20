@@ -28,7 +28,7 @@ class Tiff extends BlockBase
     /**
      * Constructs a Block for holding a TIFF image.
      */
-    public function __construct(Image $parent = null)
+    public function __construct(BlockBase $parent = null)
     {
         parent::__construct($parent);
     }
