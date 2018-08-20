@@ -223,10 +223,11 @@ class Image extends BlockBase
      * Returns the log entries of the Image.
      *
      * @param string $level_name
-     *            (Optional) If specified, filters only for the entries of they
-     *            specified severity level.
+     *            (Optional) If specified, filters only the entries
+     *            of the specified severity level.
      *
      * @returns array
+     *            An array of Monolog entries.
      */
     public function dumpLog($level_name = null)
     {

@@ -1,0 +1,217 @@
+type: jpeg
+blocks:
+    0xC0:
+        name: SOF0
+        title: 'Encoding (baseline)'
+        class: ExifEye\core\Entry\ExifVersion
+    0xC1:
+        name: SOF1
+        title: 'Encoding (extended sequential)'
+        class: ExifEye\core\Entry\ExifVersion
+    0xC2:
+        name: SOF2
+        title: 'Encoding (progressive)'
+        class: ExifEye\core\Entry\ExifVersion
+    0xC3:
+        name: SOF3
+        title: 'Encoding (lossless)'
+        class: ExifEye\core\Entry\ExifVersion
+    0xC4:
+        name: DHT
+        title: 'Define Huffman table'
+        class: ExifEye\core\Entry\ExifVersion
+    0xC5:
+        name: SOF5
+        title: 'Encoding (differential sequential)'
+        class: ExifEye\core\Entry\ExifVersion
+    0xC6:
+        name: SOF6
+        title: 'Encoding (differential progressive)'
+        class: ExifEye\core\Entry\ExifVersion
+    0xC7:
+        name: SOF7
+        title: 'Encoding (differential lossless)'
+        class: ExifEye\core\Entry\ExifVersion
+    0xC8:
+        name: JPG
+        title: 'Extension'
+        class: ExifEye\core\Entry\ExifVersion
+    0xC9:
+        name: SOF9
+        title: 'Encoding (extended sequential, arithmetic)'
+        class: ExifEye\core\Entry\ExifVersion
+    0xCA:
+        name: SOF10
+        title: 'Encoding (progressive, arithmetic)'
+        class: ExifEye\core\Entry\ExifVersion
+    0xCB:
+        name: SOF11
+        title: 'Encoding (lossless, arithmetic)'
+        class: ExifEye\core\Entry\ExifVersion
+    0xCC:
+        name: DAC
+        title: 'Define arithmetic coding conditioning'
+        class: ExifEye\core\Entry\ExifVersion
+    0xCD:
+        name: SOF13
+        title: 'Encoding (differential sequential, arithmetic)'
+        class: ExifEye\core\Entry\ExifVersion
+    0xCE:
+        name: SOF14
+        title: 'Encoding (differential progressive, arithmetic)'
+        class: ExifEye\core\Entry\ExifVersion
+    0xCF:
+        name: SOF15
+        title: 'Encoding (differential lossless, arithmetic)'
+        class: ExifEye\core\Entry\ExifVersion
+    0xD0:
+        name: RST0
+        title: 'Restart 0'
+        class: ExifEye\core\Entry\ExifVersion
+    0xD1:
+        name: RST1
+        title: 'Restart 1'
+        class: ExifEye\core\Entry\ExifVersion
+    0xD2:
+        name: RST2
+        title: 'Restart 2'
+        class: ExifEye\core\Entry\ExifVersion
+    0xD3:
+        name: RST3
+        title: 'Restart 3'
+        class: ExifEye\core\Entry\ExifVersion
+    0xD4:
+        name: RST4
+        title: 'Restart 4'
+        class: ExifEye\core\Entry\ExifVersion
+    0xD5:
+        name: RST5
+        title: 'Restart 5'
+        class: ExifEye\core\Entry\ExifVersion
+    0xD6:
+        name: RST6
+        title: 'Restart 6'
+        class: ExifEye\core\Entry\ExifVersion
+    0xD7:
+        name: RST7
+        title: 'Restart 7'
+        class: ExifEye\core\Entry\ExifVersion
+    0xD8:
+        name: SOI
+        title: 'Start of image'
+    0xD9:
+        name: EOI
+        title: 'End of image'
+    0xDA:
+        name: SOS
+        title: 'Start of scan'
+    0xDB:
+        name: DQT
+        title: 'Define quantization table'
+    0xDC:
+        name: DNL
+        title: 'Define number of lines'
+    0xDD:
+        name: DRI
+        title: 'Define restart interval'
+    0xDE:
+        name: DHP
+        title: 'Define hierarchical progression'
+    0xDF:
+        name: EXP
+        title: 'Expand reference component'
+    0xE0:
+        name: APP0
+        title: 'Application segment 0'
+    0xE1:
+        # When a JPEG image contains Exif data, the data will normally be
+        # stored in this section.
+        name: APP1
+        title: 'Application segment 1'
+    0xE2:
+        name: APP2
+        title: 'Application segment 2'
+    0xE3:
+        name: APP3
+        title: 'Application segment 3'
+    0xE4:
+        name: APP4
+        title: 'Application segment 4'
+    0xE5:
+        name: APP5
+        title: 'Application segment 5'
+    0xE6:
+        name: APP6
+        title: 'Application segment 6'
+    0xE7:
+        name: APP7
+        title: 'Application segment 7'
+    0xE8:
+        name: APP8
+        title: 'Application segment 8'
+    0xE9:
+        name: APP9
+        title: 'Application segment 9'
+    0xEA:
+        name: APP10
+        title: 'Application segment 10'
+    0xEB:
+        name: APP11
+        title: 'Application segment 11'
+    0xEC:
+        name: APP12
+        title: 'Application segment 12'
+    0xED:
+        name: APP13
+        title: 'Application segment 13'
+    0xEE:
+        name: APP14
+        title: 'Application segment 14'
+    0xEF:
+        name: APP15
+        title: 'Application segment 5'
+    0xF0:
+        name: JPG0
+        title: 'Extension 0'
+    0xF1:
+        name: JPG1
+        title: 'Extension 1'
+    0xF2:
+        name: JPG2
+        title: 'Extension 2'
+    0xF3:
+        name: JPG3
+        title: 'Extension 3'
+    0xF4:
+        name: JPG4
+        title: 'Extension 4'
+    0xF5:
+        name: JPG5
+        title: 'Extension 5'
+    0xF6:
+        name: JPG6
+        title: 'Extension 6'
+    0xF7:
+        name: JPG7
+        title: 'Extension 7'
+    0xF8:
+        name: JPG8
+        title: 'Extension 8'
+    0xF9:
+        name: JPG9
+        title: 'Extension 9'
+    0xFA:
+        name: JPG10
+        title: 'Extension 10'
+    0xFB:
+        name: JPG11
+        title: 'Extension 11'
+    0xFC:
+        name: JPG12
+        title: 'Extension 12'
+    0xFD:
+        name: JPG13
+        title: 'Extension 13'
+    0xFE:
+        name: COM
+        title: 'Comment'
