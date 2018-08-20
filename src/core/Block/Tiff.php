@@ -25,6 +25,16 @@ class Tiff extends BlockBase
     protected $type = 'tiff';
 
     /**
+     * Returns the MIME type of the image.
+     *
+     * @returns string
+     */
+    public static function getMimeType()
+    {
+        return 'image/tiff';
+    }
+
+    /**
      * Construct a new object for holding TIFF data.
      */
     public function __construct(BlockBase $parent = null)

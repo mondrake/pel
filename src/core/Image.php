@@ -22,11 +22,11 @@ class Image extends BlockBase
     protected $type = 'image';
 
     /**
-     * The MIME type of the image.
+     * The handling class for the image.
      *
      * @var string
      */
-    protected $mimeType;
+    protected $imageClass;
 
     /**
      * The internal logger instance for this Image object.
@@ -73,17 +73,106 @@ class Image extends BlockBase
     protected $quality = 75;
 
     /**
+     * Creates an Image object from a file.
+     *
+     * @param string $path
+     *            the path to an image file on the file system.
+     * @param \Psr\Log\LoggerInterface $external_logger
+     *            (Optional) a PSR-3 compliant logger callback.
+     * @param string $fail_level
+     *            (Optional) a PSR-3 compliant log level. Any log entry at this
+     *            level or above will force image parsing to stop.
+     *
+     * @returns Image|false
+     *            the Image object if successful, or false if the file cannot
+     *            be parsed.
+     */
+    public static function loadFromFile($path, LoggerInterface $external_logger = null, $fail_level = false)
+    {
+        $magic_file_info = new DataWindow(file_get_contents($path, false, null, 0, 10));
+        $handling_class = static::determineImageHandlingClass($magic_file_info);
+
+        if ($handling_class !== false) {
+            $image = new static($handling_class, $external_logger, $fail_level);
+            $image->loadFromData(new DataWindow(file_get_contents($path)));
+            return $image;
+        }
+
+        return false;
+    }
+
+    /**
+     * Creates an Image object from data.
+     *
+     * @param DataWindow $data_window
+     *            the data window that will provide the data.
+     * @param \Psr\Log\LoggerInterface $external_logger
+     *            (Optional) a PSR-3 compliant logger callback.
+     * @param string $fail_level
+     *            (Optional) a PSR-3 compliant log level. Any log entry at this
+     *            level or above will force image parsing to stop.
+     *
+     * @returns Image|false
+     *            the Image object if successful, or false if the data cannot
+     *            be parsed.
+     */
+    public static function createFromData(DataWindow $data_window, LoggerInterface $external_logger = null, $fail_level = false)
+    {
+        $handling_class = static::determineImageHandlingClass($data_window);
+
+        if ($handling_class !== false) {
+            $image = new static($handling_class, $external_logger, $fail_level);
+            $image->loadFromData($data_window);
+            return $image;
+        }
+
+        return false;
+    }
+
+    /**
+     * Determines the PHP class to use for parsing the image data.
+     *
+     * @param DataWindow $data_window
+     *            the data window that will provide the data.
+     *
+     * @returns string|false
+     *            the PHP fully qualified class name if successful, or false if
+     *            the data cannot be parsed.
+     */
+    protected static function determineImageHandlingClass(DataWindow $data_window)
+    {
+        // JPEG image?
+        if ($data_window->getBytes(0, 3) === "\xFF\xD8\xFF") {
+            return '\ExifEye\core\Block\Jpeg';
+        }
+
+        // TIFF image?
+        $byte_order = $data_window->getBytes(0, 2);
+        if ($byte_order === 'II' || $byte_order === 'MM') {
+            $data_window->setByteOrder($byte_order === 'II' ? ConvertBytes::LITTLE_ENDIAN : ConvertBytes::BIG_ENDIAN);
+            if ($data_window->getShort(2) === Tiff::TIFF_HEADER) {
+                return '\ExifEye\core\Block\Tiff';
+            }
+        }
+
+        return false;
+    }
+
+    /**
      * Constructs an Image object.
      *
+     * @param string $image_class
+     *            The handling class for the image.
      * @param \Psr\Log\LoggerInterface $external_logger
      *            (Optional) a PSR-3 compliant logger callback.
      * @param string $fail_level
      *            (Optional) a PSR-3 compliant log level. Any log entry at this
      *            level or above will force image parsing to stop.
      */
-    public function __construct(LoggerInterface $external_logger = null, $fail_level = false)
+    public function __construct($image_class, LoggerInterface $external_logger = null, $fail_level = false)
     {
         parent::__construct();
+        $this->imageClass = $image_class;
         $this->logger = (new Logger('exifeye'))
           ->pushHandler(new TestHandler(Logger::INFO))
           ->pushProcessor(new PsrLogMessageProcessor());
@@ -96,16 +185,8 @@ class Image extends BlockBase
      */
     public function loadFromData(DataWindow $data_window, $offset = 0, array $options = [])
     {
-        $handling_class = static::determineImageHandlingClass($data_window);
-
-        if ($handling_class) {
-            $image_handler = new $handling_class($this);
-            $image_handler->loadFromData($data_window);
-        } else {
-            $this->error('Unrecognized image format.');
-            $this->isValid = false;
-        }
-
+        $image_handler = new $handling_class($this);
+        $image_handler->loadFromData($data_window);
         return;
     }
 
@@ -139,11 +220,46 @@ class Image extends BlockBase
         return $this->$quality;
     }
 
+    /**
+     * Determines the MIME type of the image.
+     *
+     * @returns string
+     */
+    public function getMimeType()
+    {
+        return $this->imageClass::getMimeType();
+    }
+
+    /**
+     * Save the Image object as a file.
+     *
+     * @param string $path
+     *            the path to the image file on the file system.
+     *
+     * @return int|false
+     *            The number of bytes that were written to the file, or FALSE on
+     *            failure.
+     */
+    public function saveToFile($path)
+    {
+        return file_put_contents($path, $this->toBytes());
+    }
+
+    /**
+     * Returns the DOM structure of the Image object as an XML string.
+     *
+     * @returns string
+     */
     public function toXML()
     {
         return $this->DOMNode->ownerDocument->saveXML();
     }
 
+    /**
+     * Returns the log entries of the Image.
+     *
+     * @returns array
+     */
     public function dumpLog()
     {
         $handler = $this->logger->getHandlers()[0]; // xx
@@ -152,57 +268,5 @@ class Image extends BlockBase
             $ret[$record['level_name']][] = $record;
         }
         return $ret;
-    }
-
-    public function getMimeType()
-    {
-        return $this->mimeType;
-    }
-
-    public static function loadFromFile($path, LoggerInterface $external_logger = null, $fail_level = false)
-    {
-        $magic_file_info = new DataWindow(file_get_contents($path, false, null, 0, 10));
-
-        if (static::determineImageHandlingClass($magic_file_info) !== false) {
-            $image = new static($external_logger, $fail_level);
-            $image->loadFromData(new DataWindow(file_get_contents($path)));
-            return $image;
-        }
-
-        return false;
-    }
-
-    public static function createFromData(DataWindow $data_window, LoggerInterface $external_logger = null, $fail_level = false)
-    {
-        $image = new static($external_logger, $fail_level);
-        $image->loadFromData($data_window);
-        return $image;
-    }
-
-    protected static function determineImageHandlingClass(DataWindow $data_window)
-    {
-        // JPEG image?
-        if ($data_window->getBytes(0, 3) === "\xFF\xD8\xFF") {
-            return '\ExifEye\core\Block\Jpeg';
-        }
-
-        // TIFF image?
-        $byte_order = $data_window->getBytes(0, 2);
-        if ($byte_order === 'II' || $byte_order === 'MM') {
-            $data_window->setByteOrder($byte_order === 'II' ? ConvertBytes::LITTLE_ENDIAN : ConvertBytes::BIG_ENDIAN);
-            if ($data_window->getShort(2) === Tiff::TIFF_HEADER) {
-                return '\ExifEye\core\Block\Tiff';
-            }
-        }
-
-        return false;
-    }
-
-    /**
-     * Save the Image object as a file.
-     */
-    public function saveToFile($path)
-    {
-        return file_put_contents($path, $this->toBytes());
     }
 }

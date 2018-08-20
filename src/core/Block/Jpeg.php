@@ -58,6 +58,16 @@ class Jpeg extends BlockBase
     private $jpeg_data = null;
 
     /**
+     * Returns the MIME type of the image.
+     *
+     * @returns string
+     */
+    public static function getMimeType()
+    {
+        return 'image/jpeg';
+    }
+
+    /**
      * Construct a new object for holding JPEG data.
      */
     public function __construct(BlockBase $parent = null)
