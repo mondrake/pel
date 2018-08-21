@@ -192,6 +192,7 @@ class Jpeg extends BlockBase
 
             // Skip over empty markers.
             if ($m === Spec::getElementIdByName($this->getType(), 'SOI') || $m === Spec::getElementIdByName($this->getType(), 'EOI')) {
+dump($m);
                 continue;
             }
 
