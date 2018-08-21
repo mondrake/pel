@@ -206,6 +206,38 @@ class Spec
     }
 
     /**
+     * Returns the name of an element.
+     *
+     * @param string $parent_type
+     *            the type where this element is placed.
+     * @param string|int $element_id
+     *            the element id.
+     *
+     * @return string|null
+     *            the element name.
+     */
+    public static function getElementName($parent_type, $element_id)
+    {
+        return isset(self::getMap()['elements'][$parent_type][$element_id]['name']) ? self::getMap()['elements'][$parent_type][$element_id]['name'] : null;
+    }
+
+    /**
+     * Returns the title of an element.
+     *
+     * @param string $parent_type
+     *            the type where this element is placed.
+     * @param string|int $element_id
+     *            the element id.
+     *
+     * @return string|null
+     *            the element title.
+     */
+    public static function getElementTitle($parent_type, $element_id)
+    {
+        return isset(self::getMap()['elements'][$parent_type][$element_id]['title']) ? self::getMap()['elements'][$parent_type][$element_id]['title'] : null;
+    }
+
+    /**
      * Returns the TAG name.
      *
      * @param int $ifd_id
