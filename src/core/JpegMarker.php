@@ -67,6 +67,6 @@ class JpegMarker
      */
     public static function getDescription($marker)
     {
-        return Spec::getElementTitle('jpeg', $marker));
+        return Spec::getElementTitle('jpeg', $marker);
     }
 }
