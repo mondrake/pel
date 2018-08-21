@@ -49,8 +49,8 @@ class ImageFilesTest extends ExifEyeTestCaseBase
 
         $this->assertEquals($test['mimeType'], $image->getMimeType());
 
-        if (isset($test['blocks'])) {
-            $this->assertElement($test['blocks'], $image);
+        if (isset($test['elements'])) {
+            $this->assertElement($test['elements'], $image);
         }
 
         foreach (['ERROR', 'WARNING', 'NOTICE'] as $level) {
