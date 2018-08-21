@@ -5,7 +5,6 @@ namespace ExifEye\core\Block;
 use ExifEye\core\DataWindow;
 use ExifEye\core\ExifEye;
 use ExifEye\core\ExifEyeException;
-use ExifEye\core\Image;
 use ExifEye\core\JpegMarker;
 use ExifEye\core\Utility\ConvertBytes;
 
