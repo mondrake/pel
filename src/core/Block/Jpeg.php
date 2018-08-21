@@ -100,7 +100,7 @@ class Jpeg extends BlockBase
 
             $marker = $data_window->getByte($i);
 
-            if (!JpegMarker::isValid($marker)) {
+            if (!in_array(Spec::getTypeSupportedElementIds(), $marker)) {
                 $this->error('Invalid marker found at offset {offset}: 0x{marker}', [
                     'offset' => $offset,
                     'marker' => dec2hex($marker),
@@ -198,7 +198,7 @@ class Jpeg extends BlockBase
             $m = $segment->getAttribute('id');
 
             // Add the marker.
-            $bytes .= "\xFF" . JpegMarker::getBytes($m);
+            $bytes .= "\xFF" . chr($m);
 
             // Skip over empty markers.
             if ($m == self::JPEG_SOI || $m == self::JPEG_EOI) {
