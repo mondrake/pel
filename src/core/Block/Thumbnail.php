@@ -8,7 +8,6 @@ use ExifEye\core\DataWindowException;
 use ExifEye\core\Entry\Core\EntryInterface;
 use ExifEye\core\Entry\Core\Undefined;
 use ExifEye\core\ExifEye;
-use ExifEye\core\JpegMarker;
 use ExifEye\core\Spec;
 use ExifEye\core\Utility\ConvertBytes;
 

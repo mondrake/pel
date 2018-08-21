@@ -42,31 +42,4 @@ class JpegMarker
     {
         return chr($marker);
     }
-
-    /**
-     * Return the short name for a marker, e.g., 'SOI' for the Start
-     * of Image marker.
-     *
-     * @param integer $marker
-     *            the marker as defined in {@link JpegMarker}
-     *
-     * @return string
-     */
-    public static function getName($marker)
-    {
-        return Spec::getElementName('jpeg', $marker);
-    }
-
-    /**
-     * Returns a description of a JPEG marker.
-     *
-     * @param integer $marker
-     *            the marker as defined in {@link JpegMarker}
-     *
-     * @return string
-     */
-    public static function getDescription($marker)
-    {
-        return Spec::getElementTitle('jpeg', $marker);
-    }
 }

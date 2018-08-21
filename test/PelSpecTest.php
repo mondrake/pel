@@ -237,4 +237,22 @@ class PelSpecTest extends ExifEyeTestCaseBase
           ],
         ];
     }
+
+    public function testJpegSegmentNames()
+    {
+        $this->assertEquals('SOF0', Spec::getElementName('jpeg', 0xC0));
+        $this->assertEquals('RST3', Spec::getElementName('jpeg', 0xD3));
+        $this->assertEquals('APP3', Spec::getElementName('jpeg', 0xE3));
+        $this->assertEquals('JPG11',Spec::getElementName('jpeg', 0xFB));
+        $this->assertEquals(null, Spec::getElementName('jpeg', 100));
+    }
+
+    public function testJpegSegmentTitles()
+    {
+        $this->assertEquals('Encoding (baseline)', Spec::getElementTitle('jpeg', 0xC0));
+        $this->assertEquals(ExifEye::fmt('Restart %d', 3), Spec::getElementTitle('jpeg', 0xD3));
+        $this->assertEquals(ExifEye::fmt('Application segment %d', 3), Spec::getElementTitle('jpeg', 0xE3));
+        $this->assertEquals(ExifEye::fmt('Extension %d', 11), Spec::getElementTitle('jpeg', 0xFB));
+        $this->assertEquals(null, Spec::getElementTitle('jpeg', 100));
+    }
 }

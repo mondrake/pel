@@ -5,7 +5,6 @@ namespace ExifEye\core\Block;
 use ExifEye\core\DataWindow;
 use ExifEye\core\ExifEye;
 use ExifEye\core\ExifEyeException;
-use ExifEye\core\JpegMarker;
 use ExifEye\core\Utility\ConvertBytes;
 use ExifEye\core\Spec;
 
@@ -15,10 +14,10 @@ use ExifEye\core\Spec;
  * The {@link Jpeg} class defined here provides an abstraction for
  * dealing with a JPEG file. The file will be contain a number of
  * sections containing some {@link JpegContent content} identified
- * by a {@link JpegMarker marker}.
+ * by a marker.
  *
- * The {@link getExif()} method is used get hold of the {@link
- * JpegMarker::APP1 APP1} section which stores Exif data. So if
+ * The {@link getExif()} method is used get hold of the
+ * APP1 section which stores Exif data. So if
  * the name of the JPEG file is stored in $filename, then one would
  * get hold of the Exif data by saying:
  *
