@@ -51,17 +51,6 @@ class Jpeg extends BlockBase
     const JPEG_HEADER = "\xFF\xD8\xFF";
 
     /**
-     * JPEG SOI (Start Of Image).
-     */
-    const JPEG_SOI = 0xD8;
-
-    /**
-     * JPEG EOI (End Of Image).
-     */
-    const JPEG_EOI = 0xD9;
-    const JPEG_SOS = 0xDA;
-
-    /**
      * {@inheritdoc}
      */
     protected $type = 'jpeg';
@@ -100,7 +89,7 @@ class Jpeg extends BlockBase
 
             $marker = $data_window->getByte($i);
 
-            if (!in_array(Spec::getTypeSupportedElementIds($this->getType()), $marker)) {
+            if (!in_array($marker, Spec::getTypeSupportedElementIds($this->getType()))) {
                 $this->error('Invalid marker found at offset {offset}: 0x{marker}', [
                     'offset' => $offset,
                     'marker' => dec2hex($marker),
@@ -151,7 +140,7 @@ class Jpeg extends BlockBase
                          */
 
                         $length = $data_window->getSize();
-                        while ($data_window->getByte($length - 2) != 0xFF || $data_window->getByte($length - 1) != self::JPEG_EOI) {
+                        while ($data_window->getByte($length - 2) != 0xFF || $data_window->getByte($length - 1) != Spec::getElementIdByName($this->getType(), 'EOI')) {
                             $length --;
                         }
 
@@ -159,7 +148,7 @@ class Jpeg extends BlockBase
                         $this->debug('JPEG data: {data}', ['data' => $this->jpeg_data->toString()]);
 
                         // Append the EOI.
-                        $eoi_segment = new JpegSegment(self::JPEG_EOI, $this);
+                        $eoi_segment = new JpegSegment(Spec::getElementIdByName($this->getType(), 'EOI'), $this);
 
                         // Now check to see if there are any trailing data.
                         if ($length != $data_window->getSize()) {
@@ -201,7 +190,7 @@ class Jpeg extends BlockBase
             $bytes .= "\xFF" . chr($m);
 
             // Skip over empty markers.
-            if ($m == self::JPEG_SOI || $m == self::JPEG_EOI) {
+            if ($m === Spec::getElementIdByName($this->getType(), 'SOI') || $m === Spec::getElementIdByName($this->getType(), 'EOI')) {
                 continue;
             }
 
@@ -212,7 +201,7 @@ class Jpeg extends BlockBase
             $bytes .= $data;
 
             // In case of SOS, we need to write the JPEG data.
-            if ($m == self::JPEG_SOS) {
+            if ($m == Spec::getElementIdByName($this->getType(), 'SOS')) {
                 $bytes .= $this->jpeg_data->getBytes();
             }
         }
