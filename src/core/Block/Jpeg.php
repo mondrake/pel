@@ -99,7 +99,9 @@ class Jpeg extends BlockBase
             // Move window so first byte becomes first byte in this section.
             $data_window->setWindowStart($i + 1);
 
-            if ($marker == JpegMarker::SOI || $marker == JpegMarker::EOI) {
+            $element_name = Spec::getElementName($this->getType(), $marker);
+
+            if ($element_name === 'SOI' || $element_name === 'EOI') {
                 $segment = new JpegSegment($marker, $this);
             } else {
                 // Read the length of the section. The length includes the two
@@ -109,7 +111,7 @@ class Jpeg extends BlockBase
                 // Skip past the length.
                 $data_window->setWindowStart(2);
 
-                if ($marker == JpegMarker::APP1) {
+                if ($element_name === 'APP1') {
                     $app1_segment = new JpegSegment($marker, $this);
                     if ($app1_segment->loadFromData($data_window->getClone(0, $len)) === false) {
                         // We store the data as normal JPEG content if it could
@@ -117,7 +119,7 @@ class Jpeg extends BlockBase
                         new JpegContent($app1_segment, $data_window->getClone(0, $len));
                     }
                     $data_window->setWindowStart($len);
-                } elseif ($marker == JpegMarker::COM) {
+                } elseif ($element_name === 'COM') {
                     $com_segment = new JpegSegment($marker, $this);
                     $content = new JpegComment($com_segment);
                     $content->loadFromData($data_window->getClone(0, $len));
@@ -129,7 +131,7 @@ class Jpeg extends BlockBase
                     $data_window->setWindowStart($len);
 
                     /* In case of SOS, image data will follow. */
-                    if ($marker == JpegMarker::SOS) {
+                    if ($element_name === 'SOS') {
                         /*
                          * Some images have some trailing (garbage?) following the
                          * EOI marker. To handle this we seek backwards until we
