@@ -1,6 +1,6 @@
 fileName: sample-1.tiff
 mimeType: image/tiff
-blocks:
+elements:
     path: /image
     class: ExifEye\core\Image
     valid: true
