@@ -26,7 +26,7 @@ class JpegMarker
      */
     public static function isValid($marker)
     {
-        return ($marker >= 192 && $marker <= self::COM);
+        return ($marker >= 192 && $marker <= 254);
     }
 
     /**
