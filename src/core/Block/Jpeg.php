@@ -60,6 +60,7 @@ class Jpeg extends BlockBase
      * JPEG EOI (End Of Image).
      */
     const JPEG_EOI = 0xD9;
+    const JPEG_SOS = 0xDA;
 
     /**
      * {@inheritdoc}

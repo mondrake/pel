@@ -24,7 +24,7 @@ class PelJpegMarkerTest extends ExifEyeTestCaseBase
         $this->assertEquals('Encoding (baseline)', $jpegMarker::getDescription(0xC0));
         $this->assertEquals(ExifEye::fmt('Restart %d', 3), $jpegMarker::getDescription(0xD3));
         $this->assertEquals(ExifEye::fmt('Application segment %d', 3), $jpegMarker::getDescription(0xE3));
-        $this->assertEquals(ExifEye::fmt('Extension %d', 11), $jpegMarker::getDescription(JpegMarker::JPG11));
+        $this->assertEquals(ExifEye::fmt('Extension %d', 11), $jpegMarker::getDescription(0xFB));
         $this->assertEquals(null, $jpegMarker::getDescription(100));
     }
 }
