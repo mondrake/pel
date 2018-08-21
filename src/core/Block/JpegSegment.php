@@ -29,7 +29,7 @@ class JpegSegment extends BlockBase
         $this->setAttribute('id', $id);
         $name = Spec::getElementName($jpeg->getType(), $id);
         $this->setAttribute('name', $name);
-        $this->debug('{name} segment - {desc}', ['name' => $name, 'desc' => Spec::getElementTile($jpeg->getType(), $id)]);
+        $this->debug('{name} segment - {desc}', ['name' => $name, 'desc' => Spec::getElementTitle($jpeg->getType(), $id)]);
     }
 
     /**
