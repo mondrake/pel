@@ -7,6 +7,7 @@ use ExifEye\core\ExifEye;
 use ExifEye\core\ExifEyeException;
 use ExifEye\core\JpegMarker;
 use ExifEye\core\Utility\ConvertBytes;
+use ExifEye\core\Spec;
 
 /**
  * Class for handling JPEG data.
