@@ -83,7 +83,7 @@ class Image extends BlockBase
             $image->loadFromData(new DataWindow(file_get_contents($path)));
             return $image;
         }
-
+dump([$path, $magic_file_info]);
         return false;
     }
 
