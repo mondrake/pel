@@ -194,7 +194,7 @@ class Jpeg extends BlockBase
             if ($m === Spec::getElementIdByName($this->getType(), 'SOI') || $m === Spec::getElementIdByName($this->getType(), 'EOI')) {
                 continue;
             }
-
+dump($m);
             // Add the segment bytes.
             $data = $segment->toBytes();
             $size = strlen($data) + 2;

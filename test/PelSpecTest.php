@@ -245,9 +245,9 @@ class PelSpecTest extends ExifEyeTestCaseBase
         $this->assertEquals(0xD3, Spec::getElementIdByName('jpeg', 'RST3'));
         $this->assertEquals(0xE3, Spec::getElementIdByName('jpeg', 'APP3'));
         $this->assertEquals(0xFB, Spec::getElementIdByName('jpeg', 'JPG11'));
-        $this->assertEquals(0xC0, Spec::getElementIdByName('jpeg', 'SOI'));
-        $this->assertEquals(0xC0, Spec::getElementIdByName('jpeg', 'EOI'));
-        $this->assertEquals(0xC0, Spec::getElementIdByName('jpeg', 'SOS'));
+        $this->assertEquals(0xD8, Spec::getElementIdByName('jpeg', 'SOI'));
+        $this->assertEquals(0xD9, Spec::getElementIdByName('jpeg', 'EOI'));
+        $this->assertEquals(0xDA, Spec::getElementIdByName('jpeg', 'SOS'));
         $this->assertEquals(null, Spec::getElementIdByName('jpeg', 'missing'));
     }
 
