@@ -6,6 +6,7 @@ use ExifEye\core\Block\Ifd;
 use ExifEye\core\Block\IfdIndexShort;
 use ExifEye\core\Block\Tag;
 use ExifEye\core\Block\Tiff;
+use ExifEye\core\ExifEye;
 use ExifEye\core\Format;
 use ExifEye\core\Spec;
 
