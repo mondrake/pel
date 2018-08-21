@@ -100,7 +100,7 @@ class Jpeg extends BlockBase
 
             $marker = $data_window->getByte($i);
 
-            if (!in_array(Spec::getTypeSupportedElementIds(), $marker)) {
+            if (!in_array(Spec::getTypeSupportedElementIds($this->getType()), $marker)) {
                 $this->error('Invalid marker found at offset {offset}: 0x{marker}', [
                     'offset' => $offset,
                     'marker' => dec2hex($marker),
