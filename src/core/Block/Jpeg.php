@@ -187,7 +187,8 @@ class Jpeg extends BlockBase
             $m = $segment->getAttribute('id');
 
             // Add the marker.
-            $bytes .= "\xFF" . chr($m);
+            $bytes .= "\xFF";
+            $bytes .= chr($m);
 
             // Skip over empty markers.
             if ($m === Spec::getElementIdByName($this->getType(), 'SOI') || $m === Spec::getElementIdByName($this->getType(), 'EOI')) {
