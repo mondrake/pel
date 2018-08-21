@@ -11,20 +11,20 @@ class PelJpegMarkerTest extends ExifEyeTestCaseBase
     public function testNames()
     {
         $jpegMarker = new JpegMarker();
-        $this->assertEquals($jpegMarker::getName(JpegMarker::SOF0), 'SOF0');
-        $this->assertEquals($jpegMarker::getName(JpegMarker::RST3), 'RST3');
-        $this->assertEquals($jpegMarker::getName(JpegMarker::APP3), 'APP3');
-        $this->assertEquals($jpegMarker::getName(JpegMarker::JPG11), 'JPG11');
-        $this->assertEquals($jpegMarker::getName(100), ExifEye::fmt('Unknown marker: 0x%02X', 100));
+        $this->assertEquals('SOF0', $jpegMarker::getName(0xC0));
+        $this->assertEquals('RST3', $jpegMarker::getName(0xD3));
+        $this->assertEquals('APP3', $jpegMarker::getName(0xE3));
+        $this->assertEquals('JPG11',$jpegMarker::getName(0xFB));
+        $this->assertEquals(null, $jpegMarker::getName(100));
     }
 
     public function testDescriptions()
     {
         $jpegMarker = new JpegMarker();
-        $this->assertEquals($jpegMarker::getDescription(JpegMarker::SOF0), 'Encoding (baseline)');
-        $this->assertEquals($jpegMarker::getDescription(JpegMarker::RST3), ExifEye::fmt('Restart %d', 3));
-        $this->assertEquals($jpegMarker::getDescription(JpegMarker::APP3), ExifEye::fmt('Application segment %d', 3));
-        $this->assertEquals($jpegMarker::getDescription(JpegMarker::JPG11), ExifEye::fmt('Extension %d', 11));
-        $this->assertEquals($jpegMarker::getDescription(100), ExifEye::fmt('Unknown marker: 0x%02X', 100));
+        $this->assertEquals('Encoding (baseline)', $jpegMarker::getDescription(0xC0));
+        $this->assertEquals(ExifEye::fmt('Restart %d', 3), $jpegMarker::getDescription(0xD3));
+        $this->assertEquals(ExifEye::fmt('Application segment %d', 3), $jpegMarker::getDescription(0xE3));
+        $this->assertEquals(ExifEye::fmt('Extension %d', 11), $jpegMarker::getDescription(JpegMarker::JPG11));
+        $this->assertEquals(null, $jpegMarker::getDescription(100));
     }
 }

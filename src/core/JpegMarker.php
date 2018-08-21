@@ -54,7 +54,7 @@ class JpegMarker
      */
     public static function getName($marker)
     {
-        return Spec::getElementName('jpeg', $marker) ?: ExifEye::fmt('Unknown marker: 0x%02X', $marker);
+        return Spec::getElementName('jpeg', $marker);
     }
 
     /**
@@ -67,6 +67,6 @@ class JpegMarker
      */
     public static function getDescription($marker)
     {
-        return Spec::getElementTitle('jpeg', $marker) ?: ExifEye::fmt('Unknown marker: 0x%02X', $marker);
+        return Spec::getElementTitle('jpeg', $marker));
     }
 }
