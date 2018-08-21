@@ -48,6 +48,7 @@ class GH16Test extends ExifEyeTestCaseBase
 
         // Parse the test file again and check the Tag's new value was saved.
         $r_image = Image::loadFromFile($this->file);
+dump($r_image->dumpLog());
         $r_jpeg = $r_image->getElement("jpeg");
         $r_exif = $r_jpeg->getElement("jpegSegment/exif");
         $r_ifd0 = $r_exif->getElement("tiff/ifd[@name='IFD0']");
