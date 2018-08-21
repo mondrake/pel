@@ -52,6 +52,16 @@ class Jpeg extends BlockBase
     const JPEG_HEADER = "\xFF\xD8\xFF";
 
     /**
+     * JPEG SOI (Start Of Image).
+     */
+    const JPEG_SOI = 0xD8;
+
+    /**
+     * JPEG EOI (End Of Image).
+     */
+    const JPEG_EOI = 0xD9;
+
+    /**
      * {@inheritdoc}
      */
     protected $type = 'jpeg';
@@ -141,7 +151,7 @@ class Jpeg extends BlockBase
                          */
 
                         $length = $data_window->getSize();
-                        while ($data_window->getByte($length - 2) != 0xFF || $data_window->getByte($length - 1) != JpegMarker::EOI) {
+                        while ($data_window->getByte($length - 2) != 0xFF || $data_window->getByte($length - 1) != self::JPEG_EOI) {
                             $length --;
                         }
 
@@ -149,7 +159,7 @@ class Jpeg extends BlockBase
                         $this->debug('JPEG data: {data}', ['data' => $this->jpeg_data->toString()]);
 
                         // Append the EOI.
-                        $eoi_segment = new JpegSegment(JpegMarker::EOI, $this);
+                        $eoi_segment = new JpegSegment(self::JPEG_EOI, $this);
 
                         // Now check to see if there are any trailing data.
                         if ($length != $data_window->getSize()) {
@@ -191,7 +201,7 @@ class Jpeg extends BlockBase
             $bytes .= "\xFF" . JpegMarker::getBytes($m);
 
             // Skip over empty markers.
-            if ($m == JpegMarker::SOI || $m == JpegMarker::EOI) {
+            if ($m == self::JPEG_SOI || $m == self::JPEG_EOI) {
                 continue;
             }
 
@@ -202,7 +212,7 @@ class Jpeg extends BlockBase
             $bytes .= $data;
 
             // In case of SOS, we need to write the JPEG data.
-            if ($m == JpegMarker::SOS) {
+            if ($m == self::JPEG_SOS) {
                 $bytes .= $this->jpeg_data->getBytes();
             }
         }
