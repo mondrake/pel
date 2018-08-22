@@ -253,6 +253,6 @@ elements:
         name: JPG13
         title: 'Extension 13'
     0xFE:
-        type: jpegSegment
+        class: ExifEye\core\Block\JpegComment
         name: COM
         title: 'Comment'
