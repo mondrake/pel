@@ -5,6 +5,7 @@ namespace ExifEye\core\Block;
 use ExifEye\core\DataWindow;
 use ExifEye\core\ElementBase;
 use ExifEye\core\Entry\Core\EntryInterface;
+use ExifEye\core\Utility\ConvertBytes;
 
 /**
  * Class representing an Exif TAG.
