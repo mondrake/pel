@@ -958,11 +958,16 @@ elements:
                             id: '219'
                             name: DQT
                             elements:
-                                jpegContent:
+                                entry:
                                     -
-                                        path: '/image/jpeg/jpegSegment:219:DQT/jpegContent'
-                                        class: ExifEye\core\Block\JpegContent
+                                        path: '/image/jpeg/jpegSegment:219:DQT/entry'
+                                        class: ExifEye\core\Entry\Core\Undefined
                                         valid: true
+                                        format: Undefined
+                                        components: 130
+                                        value: czoxMzA6IgAIBQYHBgUIBwYHCQgICQwUDQwLCwwYERIOFB0ZHh4cGRwbICQuJyAiKyIbHCg2KCsvMTM0Mx8mODw4MjwuMjMxAQgJCQwKDBcNDRcxIRwhMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTEiOw==
+                                        clear_value: !!binary czoxMzA6IgAIBQYHBgUIBwYHCQgICQwUDQwLCwwYERIOFB0ZHh4cGRwbICQuJyAiKyIbHCg2KCsvMTM0Mx8mODw4MjwuMjMxAQgJCQwKDBcNDRcxIRwhMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTEiOw==
+                                        text: '130 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:221:DRI'
                             class: ExifEye\core\Block\JpegSegment
@@ -970,11 +975,16 @@ elements:
                             id: '221'
                             name: DRI
                             elements:
-                                jpegContent:
+                                entry:
                                     -
-                                        path: '/image/jpeg/jpegSegment:221:DRI/jpegContent'
-                                        class: ExifEye\core\Block\JpegContent
+                                        path: '/image/jpeg/jpegSegment:221:DRI/entry'
+                                        class: ExifEye\core\Entry\Core\Undefined
                                         valid: true
+                                        format: Undefined
+                                        components: 2
+                                        value: czoyOiIABCI7
+                                        clear_value: !!binary czoyOiIABCI7
+                                        text: '2 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:192:SOF0'
                             class: ExifEye\core\Block\JpegSegment
@@ -982,11 +992,16 @@ elements:
                             id: '192'
                             name: SOF0
                             elements:
-                                jpegContent:
+                                entry:
                                     -
-                                        path: '/image/jpeg/jpegSegment:192:SOF0/jpegContent'
-                                        class: ExifEye\core\Block\JpegContent
+                                        path: '/image/jpeg/jpegSegment:192:SOF0/entry'
+                                        class: ExifEye\core\Entry\Core\Undefined
                                         valid: true
+                                        format: Undefined
+                                        components: 15
+                                        value: czoxNToiCAQABgADASEAAhEBAxEBIjs=
+                                        clear_value: !!binary czoxNToiCAQABgADASEAAhEBAxEBIjs=
+                                        text: '15 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:196:DHT'
                             class: ExifEye\core\Block\JpegSegment
@@ -994,11 +1009,16 @@ elements:
                             id: '196'
                             name: DHT
                             elements:
-                                jpegContent:
+                                entry:
                                     -
-                                        path: '/image/jpeg/jpegSegment:196:DHT/jpegContent'
-                                        class: ExifEye\core\Block\JpegContent
+                                        path: '/image/jpeg/jpegSegment:196:DHT/entry'
+                                        class: ExifEye\core\Entry\Core\Undefined
                                         valid: true
+                                        format: Undefined
+                                        components: 416
+                                        value: czo0MTY6IgAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoLEAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+foBAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKCxEAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6Ijs=
+                                        clear_value: !!binary czo0MTY6IgAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoLEAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+foBAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKCxEAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6Ijs=
+                                        text: '416 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:218:SOS'
                             class: ExifEye\core\Block\JpegSegment
@@ -1006,11 +1026,16 @@ elements:
                             id: '218'
                             name: SOS
                             elements:
-                                jpegContent:
+                                entry:
                                     -
-                                        path: '/image/jpeg/jpegSegment:218:SOS/jpegContent'
-                                        class: ExifEye\core\Block\JpegContent
+                                        path: '/image/jpeg/jpegSegment:218:SOS/entry'
+                                        class: ExifEye\core\Entry\Core\Undefined
                                         valid: true
+                                        format: Undefined
+                                        components: 10
+                                        value: czoxMDoiAwEAAhEDEQA/ACI7
+                                        clear_value: !!binary czoxMDoiAwEAAhEDEQA/ACI7
+                                        text: '10 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:217:EOI'
                             class: ExifEye\core\Block\JpegSegment
