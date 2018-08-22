@@ -93,7 +93,7 @@ class Jpeg extends BlockBase
             $segment_class = Spec::getElementHandlingClass($this->getType(), $segment_id);
 
             // Move window so first byte becomes first byte in this section.
-            $data_window->setWindowStart($i + 1);
+/*            $data_window->setWindowStart($i + 1);
             if (!in_array($segment_name, ['SOI', 'EOI'])) {
                 $len = $data_window->getShort(0) - 2;
                 // Skip past the length.
@@ -105,9 +105,9 @@ class Jpeg extends BlockBase
 
             if (!in_array($segment_name, ['SOI', 'EOI'])) {
                 $data_window->setWindowStart($len);
-            }
+            }*/
 
-/*            if ($segment_name === 'SOI' || $segment_name === 'EOI') {
+            if ($segment_name === 'SOI' || $segment_name === 'EOI') {
                 $segment = new $segment_class($segment_id, $this);
             } else {
                 // Read the length of the section. The length includes the two
@@ -168,7 +168,9 @@ class Jpeg extends BlockBase
                         break;
                     }
                 }
-            }*/
+            }
+
+            
         }
 
         return $this;
