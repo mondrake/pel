@@ -32,7 +32,7 @@ elements:
                                         valid: true
                         -
                             path: '/image/jpeg/jpegSegment:225:APP1'
-                            class: ExifEye\core\Block\JpegSegment
+                            class: ExifEye\core\Block\JpegSegmentApp1
                             valid: true
                             id: '225'
                             name: APP1
@@ -430,7 +430,7 @@ elements:
                                         text: 'Created with GIMP'
                         -
                             path: '/image/jpeg/jpegSegment:225:APP1'
-                            class: ExifEye\core\Block\JpegSegment
+                            class: ExifEye\core\Block\JpegSegmentApp1
                             valid: true
                             id: '225'
                             name: APP1

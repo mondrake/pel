@@ -5656,7 +5656,7 @@ return array (
       ),
       225 =>
       array (
-        'type' => 'jpegSegment',
+        'class' => 'ExifEye\\core\\Block\\JpegSegmentApp1',
         'name' => 'APP1',
         'title' => 'Application segment 1',
       ),
