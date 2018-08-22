@@ -2,36 +2,13 @@
 
 namespace ExifEye\core\Block;
 
-use ExifEye\core\Block\Tag;
 use ExifEye\core\DataWindow;
-use ExifEye\core\Entry\Core\EntryInterface;
-use ExifEye\core\ExifEye;
-use ExifEye\core\Format;
-use ExifEye\core\Utility\ConvertBytes;
-use ExifEye\core\Spec;
 
 /**
  * Class representing a generic JPEG data segment.
  */
-class JpegSegment extends BlockBase
+class JpegSegment extends JpegSegmentBase
 {
-    /**
-     * {@inheritdoc}
-     */
-    protected $type = 'jpegSegment';
-
-    /**
-     * Construct a new JPEG segment object.
-     */
-    public function __construct($id, Jpeg $jpeg, JpegSegment $reference = null)
-    {
-        parent::__construct($jpeg, $reference);
-        $this->setAttribute('id', $id);
-        $name = Spec::getElementName($jpeg->getType(), $id);
-        $this->setAttribute('name', $name);
-        $this->debug('{name} segment - {desc}', ['name' => $name, 'desc' => Spec::getElementTitle($jpeg->getType(), $id)]);
-    }
-
     /**
      * {@inheritdoc}
      */
@@ -50,17 +27,5 @@ class JpegSegment extends BlockBase
         $this->debug(".....END Loading");
 
         return $ret;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN)
-    {
-        $bytes = '';
-        foreach ($this->getMultipleElements("*") as $sub) {
-            $bytes .= $sub->toBytes();
-        }
-        return $bytes;
     }
 }

@@ -9,13 +9,8 @@ use ExifEye\core\Utility\ConvertBytes;
 /**
  * Class representing a JPEG comment segment.
  */
-class JpegComment extends JpegSegment
+class JpegSegmentCom extends JpegSegmentBase
 {
-    /**
-     * {@inheritdoc}
-     */
-    protected $type = 'jpegSegment';
-
     /**
      * {@inheritdoc}
      */

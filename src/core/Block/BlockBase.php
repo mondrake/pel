@@ -46,6 +46,18 @@ abstract class BlockBase extends ElementBase
     /**
      * {@inheritdoc}
      */
+    public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN)
+    {
+        $bytes = '';
+        foreach ($this->getMultipleElements("*") as $sub) {
+            $bytes .= $sub->toBytes();
+        }
+        return $bytes;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function toDumpArray()
     {
         $dump = array_merge(parent::toDumpArray(), $this->getAttributes());
