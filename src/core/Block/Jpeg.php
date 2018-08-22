@@ -85,7 +85,7 @@ class Jpeg extends BlockBase
             if (!in_array($segment_id, Spec::getTypeSupportedElementIds($this->getType()))) {
                 $this->error('Invalid marker found at offset {offset}: 0x{marker}', [
                     'offset' => $offset,
-                    'marker' => dec2hex($segment_id),
+                    'marker' => dechex($segment_id),
                 ]);
             }
 
@@ -98,14 +98,14 @@ class Jpeg extends BlockBase
                 $len = $data_window->getShort(0) - 2;
                 // Skip past the length.
                 $data_window->setWindowStart(2);
-            } else {
-                $len = 0;
             }
 
             $segment = new $segment_class($segment_id, $this);
             $segment->loadFromData($data_window);
 
-            $data_window->setWindowStart($len);
+            if (!in_array($segment_name, ['SOI', 'EOI'])) {
+                $data_window->setWindowStart($len);
+            }
 
 /*            if ($segment_name === 'SOI' || $segment_name === 'EOI') {
                 $segment = new $segment_class($segment_id, $this);
