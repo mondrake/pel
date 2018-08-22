@@ -7,23 +7,14 @@ use ExifEye\core\Entry\Core\Ascii;
 use ExifEye\core\Utility\ConvertBytes;
 
 /**
- * Class representing JPEG comments.
+ * Class representing a JPEG comment segment.
  */
-class JpegComment extends BlockBase
+class JpegComment extends JpegSegment
 {
     /**
      * {@inheritdoc}
      */
     protected $type = 'jpegComment';
-
-    /**
-     * Constructs a JpegComment block object.
-     */
-    public function __construct(JpegSegment $parent)
-    {
-        parent::__construct($parent);
-        $this->hasSpecification = false;
-    }
 
     /**
      * {@inheritdoc}
