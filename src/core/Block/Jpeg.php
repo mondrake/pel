@@ -111,7 +111,8 @@ class Jpeg extends BlockBase
                     if ($segment->loadFromData($data_window->getClone(0, $len)) === false) {
                         // We store the data as normal JPEG content if it could
                         // not be parsed as Exif data.
-                        new Undefined($segment, [($data_window->getClone(0, $len))->getBytes()]);
+                        $dxx = $data_window->getClone(0, $len);
+                        new Undefined($segment, [$dxx->getBytes()]);
                     }
                     $data_window->setWindowStart($len);
                 } elseif ($segment_name === 'COM') {
@@ -148,7 +149,8 @@ class Jpeg extends BlockBase
                             // We don't have a proper JPEG marker for trailing
                             // garbage, so we just use 0x00...
                             $trail_segment = new $segment_class(0x00, $this);
-                            new Undefined($trail_segment, [($data_window->getClone($length))->getBytes()]);
+                            $dxx = $data_window->getClone($length);
+                            new Undefined($trail_segment, [$dxx->getBytes()]);
                         }
 
                         // Done with the loop.
