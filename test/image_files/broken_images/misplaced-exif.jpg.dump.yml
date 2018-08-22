@@ -261,6 +261,23 @@ elements:
                                                                                         clear_value: !!binary czoxNDU3OiL/2P/gABBKRklGAAEBAAABAAEAAP/bAEMACAYGBwYFCAcHBwkJCAoMFA0MCwsMGRITDxQdGh8eHRocHCAkLicgIiwjHBwoNyksMDE0NDQfJzk9ODI8LjM0Mv/bAEMBCQkJDAsMGA0NGDIhHCEyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMv/AABEIAHoAxAMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/APf6KKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiuI+IE2qfbNAs9Le833NxMHjtLoW7SBYWYfOQRgEZ/CsK6+Il9o3hHTJ45I9QvYraWS/WS3kZyIn2NzH8q/MGG88ZAOMGgD1SivMta8U6tqN5CLc2ltp0Ov2NmVErLcuTJGzHjgqQSMdxk+1bHxH1+bS9NtNPsb57O+vpTtnjiaQxIg3M21QTydq9P4qAO1orynWvEGp+IW8PS6M2r773SrqbyNOmSMpcI8SgybyAVViwI5PPSpLuXxVceMXs7WbUnvLaGwZ2gmRbOMtu84yKxydwU42g9O1AHqVFctYNd2/wAR9StJNQuri2k06K5SGVhsiZpZFwoAGBhR7+9dTQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQBnatoOk69DHFq2n297HE29FnjDBTjGRmoLnwn4eu4LeC40Wwlit42ihRoFIjRhggccA1sUUAZUvhnQ59RXUJdJs3vUKFZzCN4KEFeevBAx9KvGztjeremBDdLGYhLj5ghOSufTIB/Cp6KAKVvpGnWtyLm3soI5h5mHVACPMYM//fRUE+pFTx2lvFdTXUcKLPOFWWQD5nC52gnvjJ/OpqKAMePwpoEWsnWI9Hs11IuXN0Ih5m45BOfXk1sUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQB//2SI7
                                                                                         text: '1457 bytes of data'
                         -
+                            path: '/image/jpeg/jpegSegment:254:COM'
+                            class: ExifEye\core\Block\JpegSegmentCom
+                            valid: true
+                            id: '254'
+                            name: COM
+                            elements:
+                                entry:
+                                    -
+                                        path: '/image/jpeg/jpegSegment:254:COM/entry'
+                                        class: ExifEye\core\Entry\Core\Ascii
+                                        valid: true
+                                        format: Ascii
+                                        components: 18
+                                        value: czoxNzoiQ3JlYXRlZCB3aXRoIEdJTVAiOw==
+                                        clear_value: 's:17:"Created with GIMP";'
+                                        text: 'Created with GIMP'
+                        -
                             path: '/image/jpeg/jpegSegment:219:DQT'
                             class: ExifEye\core\Block\JpegSegment
                             valid: true
@@ -338,24 +355,6 @@ elements:
                             valid: true
                             id: '217'
                             name: EOI
-                    jpegComment:
-                        -
-                            path: '/image/jpeg/jpegComment:254:COM'
-                            class: ExifEye\core\Block\JpegComment
-                            valid: true
-                            id: '254'
-                            name: COM
-                            elements:
-                                entry:
-                                    -
-                                        path: '/image/jpeg/jpegComment:254:COM/entry'
-                                        class: ExifEye\core\Entry\Core\Ascii
-                                        valid: true
-                                        format: Ascii
-                                        components: 18
-                                        value: czoxNzoiQ3JlYXRlZCB3aXRoIEdJTVAiOw==
-                                        clear_value: 's:17:"Created with GIMP";'
-                                        text: 'Created with GIMP'
 log:
     ERROR:
         -

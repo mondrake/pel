@@ -5830,7 +5830,7 @@ return array (
       ),
       254 =>
       array (
-        'class' => 'ExifEye\\core\\Block\\JpegComment',
+        'class' => 'ExifEye\\core\\Block\\JpegSegmentCom',
         'name' => 'COM',
         'title' => 'Comment',
       ),
