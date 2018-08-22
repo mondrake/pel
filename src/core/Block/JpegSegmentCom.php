@@ -21,6 +21,7 @@ class JpegSegmentCom extends JpegSegmentBase
         $entry->debug("Text: {text}", [
             'text' => $entry->toString(),
         ]);
+        return $this;
     }
 
     /**

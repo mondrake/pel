@@ -3,6 +3,8 @@
 namespace ExifEye\core\Block;
 
 use ExifEye\core\DataWindow;
+use ExifEye\core\Entry\Core\Undefined;
+use ExifEye\core\Utility\ConvertBytes;
 
 /**
  * Class representing a generic JPEG data segment.
@@ -14,18 +16,19 @@ class JpegSegment extends JpegSegmentBase
      */
     public function loadFromData(DataWindow $data_window, $offset = 0, array $options = [])
     {
-        $this->debug("START... Loading");
+        // Load data in an Undefined entry.
+        $entry = new Undefined($this, [$data_window->getBytes()]);
+        $entry->debug("Text: {text}", [
+            'text' => $entry->toString(),
+        ]);
+        return $this;
+    }
 
-        if (Exif::isExifSegment($data_window)) {
-            $exif = new Exif($this);
-            $ret = $exif->loadFromData($data_window, $offset);
-        } else {
-            $this->debug('Exif header not found.');
-            $ret = false;
-        }
-
-        $this->debug(".....END Loading");
-
-        return $ret;
+    /**
+     * {@inheritdoc}
+     */
+    public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN)
+    {
+        return $this->getElement("entry")->toBytes();
     }
 }
