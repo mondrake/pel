@@ -50,6 +50,8 @@ class Jpeg extends BlockBase
      */
     const JPEG_HEADER = "\xFF\xD8\xFF";
 
+    private $jpeg_data;
+
     /**
      * {@inheritdoc}
      */
@@ -91,9 +93,70 @@ class Jpeg extends BlockBase
 
             $segment_name = Spec::getElementName($this->getType(), $segment_id);
             $segment_class = Spec::getElementHandlingClass($this->getType(), $segment_id);
+            $segment = new $segment_class($segment_id, $this);
 
             // Move window so first byte becomes first byte in this section.
             $data_window->setWindowStart($i + 1);
+
+            if (!in_array($segment_name, ['SOI', 'EOI'])) {
+                // Read the length of the section. The length includes the two
+                // bytes used to store the length.
+                $len = $data_window->getShort(0) - 2;
+
+                // Skip past the length.
+                $data_window->setWindowStart(2);
+
+                if ($segment_name === 'APP1') {
+                    if ($segment->loadFromData($data_window->getClone(0, $len)) === false) {
+                        // We store the data as normal JPEG content if it could
+                        // not be parsed as Exif data.
+                        new JpegContent($segment, $data_window->getClone(0, $len));
+                    }
+                    $data_window->setWindowStart($len);
+                } elseif ($segment_name === 'COM') {
+                    $content = new JpegComment($segment);
+                    $content->loadFromData($data_window->getClone(0, $len));
+                    $data_window->setWindowStart($len);
+                } else {
+                    $content = new JpegContent($segment, $data_window->getClone(0, $len));
+                    // Skip past the data.
+                    $data_window->setWindowStart($len);
+
+                    // In case of SOS, image data will follow.
+                    if ($segment_name === 'SOS') {
+                        // Some images have some trailing (garbage?) following the
+                        // EOI marker. To handle this we seek backwards until we
+                        // find the EOI marker. Any trailing content is stored as
+                        // a JpegContent object.
+                        $length = $data_window->getSize();
+                        while ($data_window->getByte($length - 2) != 0xFF || $data_window->getByte($length - 1) != Spec::getElementIdByName($this->getType(), 'EOI')) {
+                            $length --;
+                        }
+
+                        $this->jpeg_data = $data_window->getClone(0, $length - 2);
+                        $this->debug('JPEG data: {data}', ['data' => $this->jpeg_data->toString()]);
+
+                        // Append the EOI.
+                        $eoi_segment = new $segment_class(Spec::getElementIdByName($this->getType(), 'EOI'), $this);
+
+                        // Now check to see if there are any trailing data.
+                        if ($length != $data_window->getSize()) {
+                            $this->warning('Found trailing content after EOI: {size} bytes', [
+                                'size' => $data_window->getSize() - $length,
+                            ]);
+                            // We don't have a proper JPEG marker for trailing
+                            // garbage, so we just use 0x00...
+                            $trail_segment = new $segment_class(0x00, $this);
+                            new JpegContent($trail_segment, $data_window->getClone($length));
+                        }
+
+                        // Done with the loop.
+                        break;
+                    }
+                }
+            }
+
+
 /*            if (!in_array($segment_name, ['SOI', 'EOI'])) {
                 $len = $data_window->getShort(0) - 2;
                 // Skip past the length.
@@ -107,7 +170,7 @@ class Jpeg extends BlockBase
                 $data_window->setWindowStart($len);
             }*/
 
-            if ($segment_name === 'SOI' || $segment_name === 'EOI') {
+/*            if ($segment_name === 'SOI' || $segment_name === 'EOI') {
                 $segment = new $segment_class($segment_id, $this);
             } else {
                 // Read the length of the section. The length includes the two
@@ -168,7 +231,7 @@ class Jpeg extends BlockBase
                         break;
                     }
                 }
-            }
+            }*/
 
 
         }
