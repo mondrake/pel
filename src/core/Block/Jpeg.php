@@ -117,7 +117,8 @@ class Jpeg extends BlockBase
                     $segment->loadFromData($data_window->getClone(0, $len));
                     $data_window->setWindowStart($len);
                 } else {
-                    $content = new JpegContent($segment, $data_window->getClone(0, $len));
+                    $segment->loadFromData($data_window->getClone(0, $len));
+                    //$content = new JpegContent($segment, $data_window->getClone(0, $len));
                     // Skip past the data.
                     $data_window->setWindowStart($len);
 
