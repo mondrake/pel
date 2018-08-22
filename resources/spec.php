@@ -5449,6 +5449,7 @@ return array (
   ),
   'types' =>
   array (
+    'jpegSegment' => 'ExifEye\\core\\Block\\JpegSegment',
     'jpeg' => 'ExifEye\\core\\Block\\Jpeg',
   ),
   'elements' =>
@@ -5829,7 +5830,7 @@ return array (
       ),
       254 =>
       array (
-        'type' => 'jpegSegment',
+        'class' => 'ExifEye\\core\\Block\\JpegComment',
         'name' => 'COM',
         'title' => 'Comment',
       ),

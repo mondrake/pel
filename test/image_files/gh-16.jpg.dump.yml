@@ -75,29 +75,6 @@ elements:
                                                                                         clear_value: !!binary YToyOntpOjA7czoyNzoiw4/DsMOlw6LDpcOkLCDDrMOlw6TDosOlw6QhIjtpOjE7czozMDoizwDwAOUA4gDlAOQALAAgAOwA5QDkAOIA5QDkACEAIjt9
                                                                                         text: 'Ïðåâåä, ìåäâåä!'
                         -
-                            path: '/image/jpeg/jpegSegment:254:COM'
-                            class: ExifEye\core\Block\JpegSegment
-                            valid: true
-                            id: '254'
-                            name: COM
-                            elements:
-                                jpegComment:
-                                    -
-                                        path: '/image/jpeg/jpegSegment:254:COM/jpegComment'
-                                        class: ExifEye\core\Block\JpegComment
-                                        valid: true
-                                        elements:
-                                            entry:
-                                                -
-                                                    path: '/image/jpeg/jpegSegment:254:COM/jpegComment/entry'
-                                                    class: ExifEye\core\Entry\Core\Ascii
-                                                    valid: true
-                                                    format: Ascii
-                                                    components: 18
-                                                    value: czoxNzoiQ3JlYXRlZCB3aXRoIEdJTVAiOw==
-                                                    clear_value: 's:17:"Created with GIMP";'
-                                                    text: 'Created with GIMP'
-                        -
                             path: '/image/jpeg/jpegSegment:219:DQT'
                             class: ExifEye\core\Block\JpegSegment
                             valid: true
@@ -199,6 +176,24 @@ elements:
                             valid: true
                             id: '217'
                             name: EOI
+                    jpegComment:
+                        -
+                            path: '/image/jpeg/jpegComment:254:COM'
+                            class: ExifEye\core\Block\JpegComment
+                            valid: true
+                            id: '254'
+                            name: COM
+                            elements:
+                                entry:
+                                    -
+                                        path: '/image/jpeg/jpegComment:254:COM/entry'
+                                        class: ExifEye\core\Entry\Core\Ascii
+                                        valid: true
+                                        format: Ascii
+                                        components: 18
+                                        value: czoxNzoiQ3JlYXRlZCB3aXRoIEdJTVAiOw==
+                                        clear_value: 's:17:"Created with GIMP";'
+                                        text: 'Created with GIMP'
 log:
     WARNING:
         -

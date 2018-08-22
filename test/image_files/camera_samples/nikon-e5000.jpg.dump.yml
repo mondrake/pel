@@ -813,15 +813,15 @@ elements:
                             id: '217'
                             name: EOI
                         -
-                            path: '/image/jpeg/jpegSegment:0:Unknown marker: 0x00'
+                            path: '/image/jpeg/jpegSegment:0:'
                             class: ExifEye\core\Block\JpegSegment
                             valid: true
                             id: '0'
-                            name: 'Unknown marker: 0x00'
+                            name: ''
                             elements:
                                 jpegContent:
                                     -
-                                        path: '/image/jpeg/jpegSegment:0:Unknown marker: 0x00/jpegContent'
+                                        path: '/image/jpeg/jpegSegment:0:/jpegContent'
                                         class: ExifEye\core\Block\JpegContent
                                         valid: true
 log:
