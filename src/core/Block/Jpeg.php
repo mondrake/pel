@@ -13,7 +13,7 @@ use ExifEye\core\Spec;
  *
  * The {@link Jpeg} class defined here provides an abstraction for
  * dealing with a JPEG file. The file will be contain a number of
- * sections containing some {@link JpegContent content} identified
+ * segments containing some content identified
  * by a marker.
  *
  * The {@link getExif()} method is used get hold of the
@@ -110,7 +110,7 @@ class Jpeg extends BlockBase
                     if ($segment->loadFromData($data_window->getClone(0, $len)) === false) {
                         // We store the data as normal JPEG content if it could
                         // not be parsed as Exif data.
-                        new JpegContent($segment, $data_window->getClone(0, $len));
+                        new Undefined($segment, [($data_window->getClone(0, $len))->getBytes()]);
                     }
                     $data_window->setWindowStart($len);
                 } elseif ($segment_name === 'COM') {
@@ -118,7 +118,7 @@ class Jpeg extends BlockBase
                     $data_window->setWindowStart($len);
                 } else {
                     $segment->loadFromData($data_window->getClone(0, $len));
-                    //$content = new JpegContent($segment, $data_window->getClone(0, $len));
+
                     // Skip past the data.
                     $data_window->setWindowStart($len);
 
@@ -127,7 +127,7 @@ class Jpeg extends BlockBase
                         // Some images have some trailing (garbage?) following the
                         // EOI marker. To handle this we seek backwards until we
                         // find the EOI marker. Any trailing content is stored as
-                        // a JpegContent object.
+                        // a Undefined Entry object.
                         $length = $data_window->getSize();
                         while ($data_window->getByte($length - 2) != 0xFF || $data_window->getByte($length - 1) != Spec::getElementIdByName($this->getType(), 'EOI')) {
                             $length --;
@@ -147,7 +147,7 @@ class Jpeg extends BlockBase
                             // We don't have a proper JPEG marker for trailing
                             // garbage, so we just use 0x00...
                             $trail_segment = new $segment_class(0x00, $this);
-                            new JpegContent($trail_segment, $data_window->getClone($length));
+                            new Undefined($trail_segment, [($data_window->getClone($length))->getBytes()]);
                         }
 
                         // Done with the loop.
