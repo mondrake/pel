@@ -18,9 +18,7 @@ class JpegSegment extends JpegSegmentBase
     {
         // Load data in an Undefined entry.
         $entry = new Undefined($this, [$data_window->getBytes()]);
-        $entry->debug("Text: {text}", [
-            'text' => $entry->toString(),
-        ]);
+        $entry->debug("{text}", ['text' => $entry->toString()]);
         return $this;
     }
 
