@@ -36,7 +36,7 @@ class JpegSegment extends JpegSegmentBase
     public function toDumpArray()
     {
         $dump = parent::toDumpArray();
-
+dump($dump);
         unset($dump['elements']['entry']['value']);
         unset($dump['elements']['entry']['clear_value']);
 
