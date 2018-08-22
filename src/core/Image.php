@@ -173,7 +173,7 @@ class Image extends BlockBase
     {
         $image_handler = new $this->imageClass($this);
         $image_handler->loadFromData($data_window);
-        return;
+        return $this;
     }
 
     /**
