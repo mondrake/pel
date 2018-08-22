@@ -23,7 +23,7 @@ class JpegComment extends JpegSegment
     {
         // Set the Comments's entry.
         $entry = new Ascii($this, [$data_window->getBytes()]);
-        $this->debug("Text: {text}", [
+        $entry->debug("Text: {text}", [
             'text' => $entry->toString(),
         ]);
     }

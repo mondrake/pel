@@ -175,7 +175,7 @@ class Jpeg extends BlockBase
     {
         $bytes = '';
 
-        foreach ($this->getMultipleElements("jpegSegment") as $segment) {
+        foreach ($this->getMultipleElements("*") as $segment) {
             $m = $segment->getAttribute('id');
 
             // Add the marker.
