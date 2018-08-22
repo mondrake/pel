@@ -100,7 +100,8 @@ class Jpeg extends BlockBase
             $data_window->setWindowStart($i + 1);
 
             $element_name = Spec::getElementName($this->getType(), $marker);
-
+            $element_class = Spec::getElementHandlingClass($this->getType(), $marker);
+dump($element_class);
             if ($element_name === 'SOI' || $element_name === 'EOI') {
                 $segment = new JpegSegment($marker, $this);
             } else {

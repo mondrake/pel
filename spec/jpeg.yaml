@@ -1,4 +1,5 @@
 type: jpeg
+title: JPEG image
 class: ExifEye\core\Block\Jpeg
 elements:
     0xC0:

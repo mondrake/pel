@@ -11,7 +11,7 @@ use ExifEye\core\Utility\ConvertBytes;
 use ExifEye\core\Spec;
 
 /**
- * Class representing a JPEG data segment.
+ * Class representing a generic JPEG data segment.
  */
 class JpegSegment extends BlockBase
 {
