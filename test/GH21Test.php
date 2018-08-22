@@ -70,6 +70,7 @@ class GH21Test extends ExifEyeTestCaseBase
         $out_image->saveToFile($this->file);
 
         $image = Image::loadFromFile($this->file);
+dump($image);
         $jpeg = $image->getElement("jpeg");
         $exifin = $jpeg->getElement("jpegSegment/exif");
         $this->assertEquals($exif, $exifin);

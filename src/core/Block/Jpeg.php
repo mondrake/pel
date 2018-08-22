@@ -114,8 +114,6 @@ class Jpeg extends BlockBase
                     }
                     $data_window->setWindowStart($len);
                 } elseif ($segment_name === 'COM') {
-//                    $content = new JpegComment($segment);
-//                    $content->loadFromData($data_window->getClone(0, $len));
                     $segment->loadFromData($data_window->getClone(0, $len));
                     $data_window->setWindowStart($len);
                 } else {
