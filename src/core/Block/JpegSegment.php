@@ -29,4 +29,17 @@ class JpegSegment extends JpegSegmentBase
     {
         return $this->getElement("entry")->toBytes();
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function toDumpArray()
+    {
+        $dump = parent::toDumpArray();
+
+        unset($dump['elements']['entry']['value']);
+        unset($dump['elements']['entry']['clear_value']);
+
+        return $dump;
+    }
 }
