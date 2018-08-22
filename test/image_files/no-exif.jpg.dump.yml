@@ -32,8 +32,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 14
-                                        value: czoxNDoiSkZJRgABAQEASABIAAAiOw==
-                                        clear_value: !!binary czoxNDoiSkZJRgABAQEASABIAAAiOw==
                                         text: '14 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:254:COM'
@@ -66,8 +64,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 65
-                                        value: czo2NToiAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx4iOw==
-                                        clear_value: !!binary czo2NToiAAUDBAQEAwUEBAQFBQUGBwwIBwcHBw8LCwkMEQ8SEhEPERETFhwXExQaFRERGCEYGh0dHx8fExciJCIeJBweHx4iOw==
                                         text: '65 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:219:DQT'
@@ -83,8 +79,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 65
-                                        value: czo2NToiAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4iOw==
-                                        clear_value: !!binary czo2NToiAQUFBQcGBw4ICA4eFBEUHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4eHh4iOw==
                                         text: '65 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:192:SOF0'
@@ -100,8 +94,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 15
-                                        value: czoxNToiCAEAAQADASIAAhEBAxEBIjs=
-                                        clear_value: !!binary czoxNToiCAEAAQADASIAAhEBAxEBIjs=
                                         text: '15 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:196:DHT'
@@ -117,8 +109,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 26
-                                        value: czoyNjoiAAACAwEBAQEAAAAAAAAAAAACAwQFBgEABwgiOw==
-                                        clear_value: !!binary czoyNjoiAAACAwEBAQEAAAAAAAAAAAACAwQFBgEABwgiOw==
                                         text: '26 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:196:DHT'
@@ -134,8 +124,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 40
-                                        value: czo0MDoiEAEBAAEDAwMDBQEBAQAAAAABAAIDBAURITESMlEiQVIGExRCYRUjcSI7
-                                        clear_value: !!binary czo0MDoiEAEBAAEDAwMDBQEBAQAAAAABAAIDBAURITESMlEiQVIGExRCYRUjcSI7
                                         text: '40 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:196:DHT'
@@ -151,8 +139,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 26
-                                        value: czoyNjoiAQEAAgMBAQEAAAAAAAAAAAACAwQFBgcBAAgiOw==
-                                        clear_value: !!binary czoyNjoiAQEAAgMBAQEAAAAAAAAAAAACAwQFBgcBAAgiOw==
                                         text: '26 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:196:DHT'
@@ -168,8 +154,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 38
-                                        value: czozODoiEQEBAAICAQIGAgMBAAAAAAABAAIDBBEFEkEGExQiMVEVIRYyMyMiOw==
-                                        clear_value: !!binary czozODoiEQEBAAICAQIGAgMBAAAAAAABAAIDBBEFEkEGExQiMVEVIRYyMyMiOw==
                                         text: '38 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:218:SOS'
@@ -185,8 +169,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 10
-                                        value: czoxMDoiAwEAAhEDEQA/ACI7
-                                        clear_value: !!binary czoxMDoiAwEAAhEDEQA/ACI7
                                         text: '10 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:217:EOI'

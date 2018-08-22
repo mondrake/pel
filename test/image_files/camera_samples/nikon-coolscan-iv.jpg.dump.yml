@@ -32,8 +32,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 14
-                                        value: czoxNDoiSkZJRgABAgEH0AfQAAAiOw==
-                                        clear_value: !!binary czoxNDoiSkZJRgABAgEH0AfQAAAiOw==
                                         text: '14 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:225:APP1'
@@ -310,8 +308,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 494
-                                        value: czo0OTQ6IklDQ19QUk9GSUxFAAEBAAAB4E5LT04CIAAAbW50clJHQiBYWVogB88ADAAIAA4AKAAeYWNzcEFQUEwAAAAAbm9uZQAAAAEAAAAAAAAAAAAAAAAAAPbWAAEAAAAA0y0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJZGVzYwAAAPAAAABDclhZWgAAATQAAAAUZ1hZWgAAAUgAAAAUYlhZWgAAAVwAAAAUclRSQwAAAXAAAAAOZ1RSQwAAAYAAAAAOYlRSQwAAAZAAAAAOd3RwdAAAAaAAAAAUY3BydAAAAbQAAAAsZGVzYwAAAAAAAAAWTmlrb24gc1JHQiA0LjAuMC4zMDAwAAAAAAAAAAAAAAAWTmlrb24gc1JHQiA0LjAuMC4zMDAwAABYWVogAAAAAAAAb6IAADj2AAADkFhZWiAAAAAAAABilAAAt4UAABjZWFlaIAAAAAAAACSfAAAPhAAAtshjdXJ2AAAAAAAAAAECMwAAY3VydgAAAAAAAAABAjMAAGN1cnYAAAAAAAAAAQIzAABYWVogAAAAAAAA81QAAQAAAAEWz3RleHQAAAAATmlrb24gSW5jLiAmIE5pa29uIENvcnBvcmF0aW9uIDIwMDEAIjs=
-                                        clear_value: !!binary czo0OTQ6IklDQ19QUk9GSUxFAAEBAAAB4E5LT04CIAAAbW50clJHQiBYWVogB88ADAAIAA4AKAAeYWNzcEFQUEwAAAAAbm9uZQAAAAEAAAAAAAAAAAAAAAAAAPbWAAEAAAAA0y0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJZGVzYwAAAPAAAABDclhZWgAAATQAAAAUZ1hZWgAAAUgAAAAUYlhZWgAAAVwAAAAUclRSQwAAAXAAAAAOZ1RSQwAAAYAAAAAOYlRSQwAAAZAAAAAOd3RwdAAAAaAAAAAUY3BydAAAAbQAAAAsZGVzYwAAAAAAAAAWTmlrb24gc1JHQiA0LjAuMC4zMDAwAAAAAAAAAAAAAAAWTmlrb24gc1JHQiA0LjAuMC4zMDAwAABYWVogAAAAAAAAb6IAADj2AAADkFhZWiAAAAAAAABilAAAt4UAABjZWFlaIAAAAAAAACSfAAAPhAAAtshjdXJ2AAAAAAAAAAECMwAAY3VydgAAAAAAAAABAjMAAGN1cnYAAAAAAAAAAQIzAABYWVogAAAAAAAA81QAAQAAAAEWz3RleHQAAAAATmlrb24gSW5jLiAmIE5pa29uIENvcnBvcmF0aW9uIDIwMDEAIjs=
                                         text: '494 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:219:DQT'
@@ -327,8 +323,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 130
-                                        value: czoxMzA6IgASDg4OEA4VEBAVHhMREx4jGhUVGiMiFxcXFxciEQwMDAwMDBEMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMARQTExYZFhsXFxsUDg4OFBQODg4OFBEMDAwMDBERDAwMDAwMEQwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwiOw==
-                                        clear_value: !!binary czoxMzA6IgASDg4OEA4VEBAVHhMREx4jGhUVGiMiFxcXFxciEQwMDAwMDBEMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMARQTExYZFhsXFxsUDg4OFBQODg4OFBEMDAwMDBERDAwMDAwMEQwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwiOw==
                                         text: '130 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:196:DHT'
@@ -344,8 +338,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 416
-                                        value: czo0MTY6IgAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoLAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+hEAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6Ijs=
-                                        clear_value: !!binary czo0MTY6IgAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoLAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgsQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+hEAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6Ijs=
                                         text: '416 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:192:SOF0'
@@ -361,8 +353,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 15
-                                        value: czoxNToiCALzA8ADASIAAhEBAxEBIjs=
-                                        clear_value: !!binary czoxNToiCALzA8ADASIAAhEBAxEBIjs=
                                         text: '15 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:218:SOS'
@@ -378,8 +368,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 10
-                                        value: czoxMDoiAwEAAhEDEQA/ACI7
-                                        clear_value: !!binary czoxMDoiAwEAAhEDEQA/ACI7
                                         text: '10 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:217:EOI'
