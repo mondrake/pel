@@ -177,14 +177,6 @@ class Image extends BlockBase
     }
 
     /**
-     * {@inheritdoc}
-     */
-    public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN)
-    {
-        return $this->getElement('*')->toBytes();
-    }
-
-    /**
      * Determines the MIME type of the image.
      *
      * @returns string
