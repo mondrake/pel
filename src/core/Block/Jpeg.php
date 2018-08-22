@@ -89,6 +89,9 @@ class Jpeg extends BlockBase
                 ]);
             }
 
+            $segment_name = Spec::getElementName($this->getType(), $segment_id);
+            $segment_class = Spec::getElementHandlingClass($this->getType(), $segment_id);
+
             // Move window so first byte becomes first byte in this section.
             $data_window->setWindowStart($i + 1);
             if (!in_array($segment_name, ['SOI', 'EOI'])) {
@@ -99,8 +102,6 @@ class Jpeg extends BlockBase
                 $len = 0;
             }
 
-            $segment_name = Spec::getElementName($this->getType(), $segment_id);
-            $segment_class = Spec::getElementHandlingClass($this->getType(), $segment_id);
             $segment = new $segment_class($segment_id, $this);
             $segment->loadFromData($data_window);
 
