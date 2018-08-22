@@ -14,7 +14,7 @@ class JpegComment extends JpegSegment
     /**
      * {@inheritdoc}
      */
-    protected $type = 'jpegComment';
+    protected $type = 'jpegSegment';
 
     /**
      * {@inheritdoc}
