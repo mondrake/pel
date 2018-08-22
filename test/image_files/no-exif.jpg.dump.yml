@@ -31,29 +31,6 @@ elements:
                                         class: ExifEye\core\Block\JpegContent
                                         valid: true
                         -
-                            path: '/image/jpeg/jpegSegment:254:COM'
-                            class: ExifEye\core\Block\JpegSegment
-                            valid: true
-                            id: '254'
-                            name: COM
-                            elements:
-                                jpegComment:
-                                    -
-                                        path: '/image/jpeg/jpegSegment:254:COM/jpegComment'
-                                        class: ExifEye\core\Block\JpegComment
-                                        valid: true
-                                        elements:
-                                            entry:
-                                                -
-                                                    path: '/image/jpeg/jpegSegment:254:COM/jpegComment/entry'
-                                                    class: ExifEye\core\Entry\Core\Ascii
-                                                    valid: true
-                                                    format: Ascii
-                                                    components: 46
-                                                    value: czo0NToiVGVzdCBpbWFnZSBmb3IgUEVMLCB3aXRoIG5vIEVYSUYgaW5mb3JtYXRpb24uIjs=
-                                                    clear_value: 's:45:"Test image for PEL, with no EXIF information.";'
-                                                    text: 'Test image for PEL, with no EXIF information.'
-                        -
                             path: '/image/jpeg/jpegSegment:219:DQT'
                             class: ExifEye\core\Block\JpegSegment
                             valid: true
@@ -155,4 +132,22 @@ elements:
                             valid: true
                             id: '217'
                             name: EOI
+                    jpegComment:
+                        -
+                            path: '/image/jpeg/jpegComment:254:COM'
+                            class: ExifEye\core\Block\JpegComment
+                            valid: true
+                            id: '254'
+                            name: COM
+                            elements:
+                                entry:
+                                    -
+                                        path: '/image/jpeg/jpegComment:254:COM/entry'
+                                        class: ExifEye\core\Entry\Core\Ascii
+                                        valid: true
+                                        format: Ascii
+                                        components: 46
+                                        value: czo0NToiVGVzdCBpbWFnZSBmb3IgUEVMLCB3aXRoIG5vIEVYSUYgaW5mb3JtYXRpb24uIjs=
+                                        clear_value: 's:45:"Test image for PEL, with no EXIF information.";'
+                                        text: 'Test image for PEL, with no EXIF information.'
 log: {  }

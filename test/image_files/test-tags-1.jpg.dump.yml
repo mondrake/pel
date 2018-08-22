@@ -412,29 +412,6 @@ elements:
                                                                                         clear_value: !!binary czoxMjU1OiL/2P/gABBKRklGAAEBAAABAAEAAP/bAEMACAYGBwYFCAcHBwkJCAoMFA0MCwsMGRITDxQdGh8eHRocHCAkLicgIiwjHBwoNyksMDE0NDQfJzk9ODI8LjM0Mv/bAEMBCQkJDAsMGA0NGDIhHCEyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMv/AABEIAHoAxAMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/APf6KKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigCjquoS6baCeLTbzUGLhfKtAhccHn52UY49e4rB0z4haTfWcV7exXGj2c6g29xqbwxJNzjC4kJJ/AV1leXXPw31kWGiG2vIDdWVi1nNELqSFGBbduVwjH2IK88elAHc3/ivQdNMqXOrWSzRwNceR56eY0YXdkKTyMDNT6Hrmn+ItJg1LTLhJ7eVQcqwYocAlWwSAwzgjtXB2fw61O1vbcQNYWtsLYQ3MkdxLI84EJjCsjLt4OMOCDhQMV2vhey1DTfDtnYalHaLPaxLCDayM6OqqAG+ZVIJxyMfiaANiiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD//ZIjs=
                                                                                         text: '1255 bytes of data'
                         -
-                            path: '/image/jpeg/jpegSegment:254:COM'
-                            class: ExifEye\core\Block\JpegSegment
-                            valid: true
-                            id: '254'
-                            name: COM
-                            elements:
-                                jpegComment:
-                                    -
-                                        path: '/image/jpeg/jpegSegment:254:COM/jpegComment'
-                                        class: ExifEye\core\Block\JpegComment
-                                        valid: true
-                                        elements:
-                                            entry:
-                                                -
-                                                    path: '/image/jpeg/jpegSegment:254:COM/jpegComment/entry'
-                                                    class: ExifEye\core\Entry\Core\Ascii
-                                                    valid: true
-                                                    format: Ascii
-                                                    components: 18
-                                                    value: czoxNzoiQ3JlYXRlZCB3aXRoIEdJTVAiOw==
-                                                    clear_value: 's:17:"Created with GIMP";'
-                                                    text: 'Created with GIMP'
-                        -
                             path: '/image/jpeg/jpegSegment:225:APP1'
                             class: ExifEye\core\Block\JpegSegment
                             valid: true
@@ -524,4 +501,22 @@ elements:
                             valid: true
                             id: '217'
                             name: EOI
+                    jpegComment:
+                        -
+                            path: '/image/jpeg/jpegComment:254:COM'
+                            class: ExifEye\core\Block\JpegComment
+                            valid: true
+                            id: '254'
+                            name: COM
+                            elements:
+                                entry:
+                                    -
+                                        path: '/image/jpeg/jpegComment:254:COM/entry'
+                                        class: ExifEye\core\Entry\Core\Ascii
+                                        valid: true
+                                        format: Ascii
+                                        components: 18
+                                        value: czoxNzoiQ3JlYXRlZCB3aXRoIEdJTVAiOw==
+                                        clear_value: 's:17:"Created with GIMP";'
+                                        text: 'Created with GIMP'
 log: {  }
