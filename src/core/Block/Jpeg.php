@@ -69,7 +69,8 @@ class Jpeg extends BlockBase
             }
 
             if ($segment_name === 'SOS') {
-                $len = $data_window->getSize();
+                $len = $data_window->getSize()-2;
+                $data_window->setWindowStart(12);
             } else {
                 // Read the length of the section. The length includes the two
                 // bytes used to store the length.
