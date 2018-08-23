@@ -25,9 +25,9 @@ class JpegSegmentSos extends JpegSegmentBase
         // find the EOI marker. Any trailing content is stored as
         // a Undefined Entry object.
         $length = $data_window->getSize();
-        while ($data_window->getByte($length - 2) !== JpegSegment::JPEG_DELIMITER || $data_window->getByte($length - 1) != self::JPEG_EOI) {
-            $length --;
-        }
+//        while ($data_window->getByte($length - 2) !== JpegSegment::JPEG_DELIMITER || $data_window->getByte($length - 1) != self::JPEG_EOI) {
+//            $length --;
+//        }
 
   //                $this->jpeg_data = $data_window->getClone(0, $length - 2);
   //dump($this->jpeg_data);
