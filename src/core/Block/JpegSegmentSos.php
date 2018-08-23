@@ -11,6 +11,11 @@ use ExifEye\core\Entry\Core\Undefined;
 class JpegSegmentSos extends JpegSegmentBase
 {
     /**
+     * JPEG EOI marker.
+     */
+    const JPEG_EOI = 0xD9;
+
+    /**
      * {@inheritdoc}
      */
     public function loadFromData(DataWindow $data_window, $offset = 0, array $options = [])
@@ -20,10 +25,11 @@ class JpegSegmentSos extends JpegSegmentBase
         // find the EOI marker. Any trailing content is stored as
         // a Undefined Entry object.
         $length = $data_window->getSize();
-        while ($data_window->getByte($length - 2) !== JpegSegment::JPEG_DELIMITER || $data_window->getByte($length - 1) != Spec::getElementIdByName($this->getParentElement()->getType(), 'EOI')) {
+dump('xxx-a-'.$length);
+        while ($data_window->getByte($length - 2) !== JpegSegment::JPEG_DELIMITER || $data_window->getByte($length - 1) != self::JPEG_EOI) {
             $length --;
         }
-
+dump('xxx-b-'.$length);
   //                $this->jpeg_data = $data_window->getClone(0, $length - 2);
   //dump($this->jpeg_data);
         // Load data in an Undefined entry.
@@ -34,7 +40,7 @@ class JpegSegmentSos extends JpegSegmentBase
         $this->debug('JPEG data ---');
 
         // Append the EOI.
-        new JpegSegment(Spec::getElementIdByName($this->getParentElement()->getType(), 'EOI'), $this->getParentElement());
+        new JpegSegment(self::JPEG_EOI, $this->getParentElement());
 
         // Now check to see if there are any trailing data.
         if ($length != $data_window->getSize()) {
