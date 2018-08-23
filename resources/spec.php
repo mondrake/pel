@@ -5605,16 +5605,19 @@ return array (
         'type' => 'jpegSegment',
         'name' => 'SOI',
         'title' => 'Start of image',
+        'markerOnly' => true,
       ),
       217 =>
       array (
         'type' => 'jpegSegment',
         'name' => 'EOI',
         'title' => 'End of image',
+        'markerOnly' => true,
       ),
       218 =>
       array (
         'type' => 'jpegSegment',
+        'class' => 'ExifEye\\core\\Block\\JpegSegmentSos',
         'name' => 'SOS',
         'title' => 'Start of scan',
       ),
@@ -5656,6 +5659,7 @@ return array (
       ),
       225 =>
       array (
+        'type' => 'jpegSegment',
         'class' => 'ExifEye\\core\\Block\\JpegSegmentApp1',
         'name' => 'APP1',
         'title' => 'Application segment 1',
@@ -5830,6 +5834,7 @@ return array (
       ),
       254 =>
       array (
+        'type' => 'jpegSegment',
         'class' => 'ExifEye\\core\\Block\\JpegSegmentCom',
         'name' => 'COM',
         'title' => 'Comment',

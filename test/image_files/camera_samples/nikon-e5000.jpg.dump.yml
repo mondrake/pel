@@ -817,7 +817,7 @@ elements:
                                         text: '416 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:218:SOS'
-                            class: ExifEye\core\Block\JpegSegment
+                            class: ExifEye\core\Block\JpegSegmentSos
                             valid: true
                             id: '218'
                             name: SOS
@@ -828,31 +828,12 @@ elements:
                                         class: ExifEye\core\Entry\Core\Undefined
                                         valid: true
                                         format: Undefined
-                                        components: 10
-                                        text: '10 bytes of data'
+                                        components: 277315
+                                        text: '277315 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:217:EOI'
                             class: ExifEye\core\Block\JpegSegment
                             valid: true
                             id: '217'
                             name: EOI
-                        -
-                            path: '/image/jpeg/jpegSegment:0:'
-                            class: ExifEye\core\Block\JpegSegment
-                            valid: true
-                            id: '0'
-                            name: ''
-                            elements:
-                                entry:
-                                    -
-                                        path: '/image/jpeg/jpegSegment:0:/entry'
-                                        class: ExifEye\core\Entry\Core\Undefined
-                                        valid: true
-                                        format: Undefined
-                                        components: 1396
-                                        text: '1396 bytes of data'
-log:
-    WARNING:
-        -
-            path: /image/jpeg
-            message: 'Found trailing content after EOI: 1396 bytes'
+log: {  }

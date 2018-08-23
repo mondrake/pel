@@ -1073,7 +1073,7 @@ elements:
                                         text: '47 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:218:SOS'
-                            class: ExifEye\core\Block\JpegSegment
+                            class: ExifEye\core\Block\JpegSegmentSos
                             valid: true
                             id: '218'
                             name: SOS
@@ -1084,8 +1084,8 @@ elements:
                                         class: ExifEye\core\Entry\Core\Undefined
                                         valid: true
                                         format: Undefined
-                                        components: 10
-                                        text: '10 bytes of data'
+                                        components: 45609
+                                        text: '45609 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:217:EOI'
                             class: ExifEye\core\Block\JpegSegment
