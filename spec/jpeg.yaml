@@ -102,10 +102,12 @@ elements:
         type: jpegSegment
         name: SOI
         title: 'Start of image'
+        markerOnly: true
     0xD9:
         type: jpegSegment
         name: EOI
         title: 'End of image'
+        markerOnly: true
     0xDA:
         type: jpegSegment
         name: SOS
