@@ -195,7 +195,7 @@ class Spec
      */
     public static function getElementHandlingClass($type, $element_id)
     {
-        $class = self::getElementPropertyValue($type, $element_id, 'class')
+        $class = self::getElementPropertyValue($type, $element_id, 'class');
         if ($class !== null) {
             return $class;
         }
