@@ -17,8 +17,6 @@ class Jpeg extends BlockBase
      */
     const JPEG_HEADER = "\xFF\xD8\xFF";
 
-    public $jpeg_data; // xx
-
     /**
      * {@inheritdoc}
      */
@@ -84,7 +82,7 @@ class Jpeg extends BlockBase
             $data_window->setWindowStart($len);
 
             // In case of SOS, image data will follow.
-            if ($segment_name === 'SOS') {
+/*            if ($segment_name === 'SOS') {
                 // Some images have some trailing (garbage?) following the
                 // EOI marker. To handle this we seek backwards until we
                 // find the EOI marker. Any trailing content is stored as
@@ -115,7 +113,7 @@ dump($this->jpeg_data);
 
                 // Done with the loop.
                 break;
-            }
+            }*/
 
         }
 
