@@ -50,7 +50,7 @@ class Jpeg extends BlockBase
             $segment_id = $data_window->getByte($i);
 
             if (!in_array($segment_id, Spec::getTypeSupportedElementIds($this->getType()))) {
-                $this->error('Invalid marker found at offset {offset}: 0x{marker}', [
+                $this->warning('Invalid marker found at offset {offset}: 0x{marker}', [
                     'offset' => $offset,
                     'marker' => dechex($segment_id),
                 ]);
@@ -81,43 +81,11 @@ class Jpeg extends BlockBase
             // Skip past the data.
             $data_window->setWindowStart($len);
 
-            // In case of SOS, image data will follow.
+            // In case of SOS, image data will follow and the load complete.
             if ($segment_name === 'SOS') {
-                // Some images have some trailing (garbage?) following the
-                // EOI marker. To handle this we seek backwards until we
-                // find the EOI marker. Any trailing content is stored as
-                // a Undefined Entry object.
-                $length = $data_window->getSize();
-                while ($data_window->getByte($length - 2) !== JpegSegment::JPEG_DELIMITER || $data_window->getByte($length - 1) != Spec::getElementIdByName($this->getType(), 'EOI')) {
-                    $length --;
-                }
-
-//                $this->jpeg_data = $data_window->getClone(0, $length - 2);
-//dump($this->jpeg_data);
-//                $this->debug('JPEG data: {data}', ['data' => $this->jpeg_data->toString()]);
-                $this->debug('JPEG data ---');
-
-                // Append the EOI.
-                $eoi_segment = new $segment_class(Spec::getElementIdByName($this->getType(), 'EOI'), $this);
-
-                // Now check to see if there are any trailing data.
-                if ($length != $data_window->getSize()) {
-                    $this->warning('Found trailing content after EOI: {size} bytes', [
-                        'size' => $data_window->getSize() - $length,
-                    ]);
-                    // We don't have a proper JPEG marker for trailing
-                    // garbage, so we just use 0x00...
-                    $trail_segment = new $segment_class(0x00, $this);
-                    $dxx = $data_window->getClone($length);
-                    new Undefined($trail_segment, [$dxx->getBytes()]);
-                }
-
-                // Done with the loop.
                 break;
             }
-
         }
-
         return $this;
     }
 
