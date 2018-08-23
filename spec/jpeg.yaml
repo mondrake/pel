@@ -110,6 +110,7 @@ elements:
         markerOnly: true
     0xDA:
         type: jpegSegment
+        class: ExifEye\core\Block\JpegSegmentSos
         name: SOS
         title: 'Start of scan'
     0xDB:
@@ -139,6 +140,7 @@ elements:
     0xE1:
         # When a JPEG image contains Exif data, the data will normally be
         # stored in this segment.
+        type: jpegSegment
         class: ExifEye\core\Block\JpegSegmentApp1
         name: APP1
         title: 'Application segment 1'
@@ -255,6 +257,7 @@ elements:
         name: JPG13
         title: 'Extension 13'
     0xFE:
+        type: jpegSegment
         class: ExifEye\core\Block\JpegSegmentCom
         name: COM
         title: 'Comment'
