@@ -44,7 +44,7 @@ abstract class JpegSegmentBase extends BlockBase
 
         // Add the marker.
         $marker = $this->getAttribute('id');
-        $bytes .= chr($m);
+        $bytes .= chr($marker);
 
         // Get the segment data.
         $data = '';
@@ -59,7 +59,7 @@ abstract class JpegSegmentBase extends BlockBase
             $bytes .= $data;
 
             // In case of SOS, we need to write the JPEG data.
-            if ($m == Spec::getElementIdByName($this->getParentElement()->getType(), 'SOS')) {
+            if ($marker == Spec::getElementIdByName($this->getParentElement()->getType(), 'SOS')) {
                 $bytes .= $this->getParentElement()->jpeg_data->getBytes();
             }
         }
