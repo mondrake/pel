@@ -33,7 +33,7 @@ dump('xxx-b-'.$length);
   //                $this->jpeg_data = $data_window->getClone(0, $length - 2);
   //dump($this->jpeg_data);
         // Load data in an Undefined entry.
-        $entry = new Undefined($this, [$data_window->getBytes(0, $length)]);
+        $entry = new Undefined($this, [$data_window->getBytes(0, $length - 1)]);
         $entry->debug("Scan: {text}", ['text' => $entry->toString()]);
 
         //        $this->debug('JPEG data: {data}', ['data' => $this->jpeg_data->toString()]);
