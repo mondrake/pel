@@ -93,71 +93,75 @@ class Jpeg extends BlockBase
             }
 
             $segment_name = Spec::getElementName($this->getType(), $segment_id);
+            $segment_marker_only = Spec::getElementPropertyValue($this->getType(), $segment_id, 'markerOnly');
             $segment_class = Spec::getElementHandlingClass($this->getType(), $segment_id);
             $segment = new $segment_class($segment_id, $this);
 
             // Move window so first byte becomes first byte in this section.
             $data_window->setWindowStart($i + 1);
 
-            if (!in_array($segment_name, ['SOI', 'EOI'])) {
-                // Read the length of the section. The length includes the two
-                // bytes used to store the length.
-                $len = $data_window->getShort(0) - 2;
+            if ($segment_marker_only) {
+                continue;
+            }
 
-                // Skip past the length.
-                $data_window->setWindowStart(2);
+            // Read the length of the section. The length includes the two
+            // bytes used to store the length.
+            $len = $data_window->getShort(0) - 2;
 
-                if ($segment_name === 'APP1') {
-                    if ($segment->loadFromData($data_window->getClone(0, $len)) === false) {
-                        // We store the data as normal JPEG content if it could
-                        // not be parsed as Exif data.
-                        $dxx = $data_window->getClone(0, $len);
-                        new Undefined($segment, [$dxx->getBytes()]);
+            // Skip past the length.
+            $data_window->setWindowStart(2);
+
+            if ($segment_name === 'APP1') {
+                if ($segment->loadFromData($data_window->getClone(0, $len)) === false) {
+                    // We store the data as normal JPEG content if it could
+                    // not be parsed as Exif data.
+                    $dxx = $data_window->getClone(0, $len);
+                    new Undefined($segment, [$dxx->getBytes()]);
+                }
+                $data_window->setWindowStart($len);
+            } elseif ($segment_name === 'COM') {
+                $segment->loadFromData($data_window->getClone(0, $len));
+                $data_window->setWindowStart($len);
+            } else {
+                $segment->loadFromData($data_window->getClone(0, $len));
+
+                // Skip past the data.
+                $data_window->setWindowStart($len);
+
+                // In case of SOS, image data will follow.
+                if ($segment_name === 'SOS') {
+                    // Some images have some trailing (garbage?) following the
+                    // EOI marker. To handle this we seek backwards until we
+                    // find the EOI marker. Any trailing content is stored as
+                    // a Undefined Entry object.
+                    $length = $data_window->getSize();
+                    while ($data_window->getByte($length - 2) !== JpegSegment::JPEG_DELIMITER || $data_window->getByte($length - 1) != Spec::getElementIdByName($this->getType(), 'EOI')) {
+                        $length --;
                     }
-                    $data_window->setWindowStart($len);
-                } elseif ($segment_name === 'COM') {
-                    $segment->loadFromData($data_window->getClone(0, $len));
-                    $data_window->setWindowStart($len);
-                } else {
-                    $segment->loadFromData($data_window->getClone(0, $len));
 
-                    // Skip past the data.
-                    $data_window->setWindowStart($len);
+                    $this->jpeg_data = $data_window->getClone(0, $length - 2);
+                    $this->debug('JPEG data: {data}', ['data' => $this->jpeg_data->toString()]);
 
-                    // In case of SOS, image data will follow.
-                    if ($segment_name === 'SOS') {
-                        // Some images have some trailing (garbage?) following the
-                        // EOI marker. To handle this we seek backwards until we
-                        // find the EOI marker. Any trailing content is stored as
-                        // a Undefined Entry object.
-                        $length = $data_window->getSize();
-                        while ($data_window->getByte($length - 2) != 0xFF || $data_window->getByte($length - 1) != Spec::getElementIdByName($this->getType(), 'EOI')) {
-                            $length --;
-                        }
+                    // Append the EOI.
+                    $eoi_segment = new $segment_class(Spec::getElementIdByName($this->getType(), 'EOI'), $this);
 
-                        $this->jpeg_data = $data_window->getClone(0, $length - 2);
-                        $this->debug('JPEG data: {data}', ['data' => $this->jpeg_data->toString()]);
-
-                        // Append the EOI.
-                        $eoi_segment = new $segment_class(Spec::getElementIdByName($this->getType(), 'EOI'), $this);
-
-                        // Now check to see if there are any trailing data.
-                        if ($length != $data_window->getSize()) {
-                            $this->warning('Found trailing content after EOI: {size} bytes', [
-                                'size' => $data_window->getSize() - $length,
-                            ]);
-                            // We don't have a proper JPEG marker for trailing
-                            // garbage, so we just use 0x00...
-                            $trail_segment = new $segment_class(0x00, $this);
-                            $dxx = $data_window->getClone($length);
-                            new Undefined($trail_segment, [$dxx->getBytes()]);
-                        }
-
-                        // Done with the loop.
-                        break;
+                    // Now check to see if there are any trailing data.
+                    if ($length != $data_window->getSize()) {
+                        $this->warning('Found trailing content after EOI: {size} bytes', [
+                            'size' => $data_window->getSize() - $length,
+                        ]);
+                        // We don't have a proper JPEG marker for trailing
+                        // garbage, so we just use 0x00...
+                        $trail_segment = new $segment_class(0x00, $this);
+                        $dxx = $data_window->getClone($length);
+                        new Undefined($trail_segment, [$dxx->getBytes()]);
                     }
+
+                    // Done with the loop.
+                    break;
                 }
             }
+
         }
 
         return $this;
@@ -181,7 +185,7 @@ class Jpeg extends BlockBase
             $m = $segment->getAttribute('id');
 
             // Add the marker.
-            $bytes .= "\xFF";
+            $bytes .= chr(JpegSegment::JPEG_DELIMITER);
             $bytes .= chr($m);
 
             // Skip over empty markers.
@@ -215,7 +219,7 @@ class Jpeg extends BlockBase
     protected function getJpgSectionStart($d)
     {
         for ($i = 0; $i < 7; $i ++) {
-            if ($d->getByte($i) != 0xFF) {
+            if ($d->getByte($i) !== JpegSegment::JPEG_DELIMITER) {
                  break;
             }
         }

@@ -10,6 +10,11 @@ use ExifEye\core\Spec;
 abstract class JpegSegmentBase extends BlockBase
 {
     /**
+     * JPEG delimiter.
+     */
+    const JPEG_DELIMITER = 0xFF;
+
+    /**
      * {@inheritdoc}
      */
     protected $type = 'jpegSegment';
