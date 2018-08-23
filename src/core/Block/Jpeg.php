@@ -82,7 +82,7 @@ class Jpeg extends BlockBase
             $data_window->setWindowStart($len);
 
             // In case of SOS, image data will follow.
-/*            if ($segment_name === 'SOS') {
+            if ($segment_name === 'SOS') {
                 // Some images have some trailing (garbage?) following the
                 // EOI marker. To handle this we seek backwards until we
                 // find the EOI marker. Any trailing content is stored as
@@ -92,9 +92,10 @@ class Jpeg extends BlockBase
                     $length --;
                 }
 
-                $this->jpeg_data = $data_window->getClone(0, $length - 2);
-dump($this->jpeg_data);
-                $this->debug('JPEG data: {data}', ['data' => $this->jpeg_data->toString()]);
+//                $this->jpeg_data = $data_window->getClone(0, $length - 2);
+//dump($this->jpeg_data);
+//                $this->debug('JPEG data: {data}', ['data' => $this->jpeg_data->toString()]);
+                $this->debug('JPEG data ---');
 
                 // Append the EOI.
                 $eoi_segment = new $segment_class(Spec::getElementIdByName($this->getType(), 'EOI'), $this);
@@ -113,7 +114,7 @@ dump($this->jpeg_data);
 
                 // Done with the loop.
                 break;
-            }*/
+            }
 
         }
 
