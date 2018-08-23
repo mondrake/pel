@@ -23,12 +23,4 @@ class JpegSegmentCom extends JpegSegmentBase
         ]);
         return $this;
     }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN)
-    {
-        return $this->getElement("entry")->toBytes();
-    }
 }

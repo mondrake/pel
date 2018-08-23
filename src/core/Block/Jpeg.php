@@ -4,45 +4,10 @@ namespace ExifEye\core\Block;
 
 use ExifEye\core\DataWindow;
 use ExifEye\core\Entry\Core\Undefined;
-use ExifEye\core\ExifEye;
-use ExifEye\core\ExifEyeException;
-use ExifEye\core\Utility\ConvertBytes;
 use ExifEye\core\Spec;
 
 /**
- * Class for handling JPEG data.
- *
- * The {@link Jpeg} class defined here provides an abstraction for
- * dealing with a JPEG file. The file will be contain a number of
- * segments containing some content identified
- * by a marker.
- *
- * The {@link getExif()} method is used get hold of the
- * APP1 section which stores Exif data. So if
- * the name of the JPEG file is stored in $filename, then one would
- * get hold of the Exif data by saying:
- *
- * <code>
- * $jpeg = new Jpeg($filename);
- * $exif = $jpeg->getExif();
- * $tiff = $exif->getTiff();
- * $ifd0 = $tiff->getIfd();
- * $exif = $ifd0->getSubIfd(Ifd::EXIF);
- * $ifd1 = $ifd0->getNextIfd();
- * </code>
- *
- * The $idf0 and $ifd1 variables will then be two {@link Tiff TIFF}
- * {@link Ifd Image File Directories}, in which the data is stored
- * under the keys found in {@link PelTag}.
- *
- * Should one have some image data (in the form of a {@link
- * DataWindow}) of an unknown type, then the {@link
- * Jpeg::isValid()} function is handy: it will quickly test if the
- * data could be valid JPEG data. The {@link Tiff::isValid()}
- * function does the same for TIFF images.
- *
- * @author Martin Geisler <mgeisler@users.sourceforge.net>
- * @package PEL
+ * Class for handling a JPEG image data.
  */
 class Jpeg extends BlockBase
 {
@@ -51,7 +16,7 @@ class Jpeg extends BlockBase
      */
     const JPEG_HEADER = "\xFF\xD8\xFF";
 
-    private $jpeg_data;
+    public $jpeg_data; // xx
 
     /**
      * {@inheritdoc}
@@ -165,47 +130,6 @@ class Jpeg extends BlockBase
         }
 
         return $this;
-    }
-
-    /**
-     * Turn this JPEG object into bytes.
-     *
-     * The bytes returned by this method is ready to be stored in a file
-     * as a valid JPEG image. Use the {@link saveFile()} convenience
-     * method to do this.
-     *
-     * @return string bytes representing this JPEG object, including all
-     *         its sections and their associated data.
-     */
-    public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN)
-    {
-        $bytes = '';
-
-        foreach ($this->getMultipleElements("*") as $segment) {
-            $m = $segment->getAttribute('id');
-
-            // Add the marker.
-            $bytes .= chr(JpegSegment::JPEG_DELIMITER);
-            $bytes .= chr($m);
-
-            // Skip over empty markers.
-            if ($m == Spec::getElementIdByName($this->getType(), 'SOI') || $m == Spec::getElementIdByName($this->getType(), 'EOI')) {
-                continue;
-            }
-
-            // Add the segment bytes.
-            $data = $segment->toBytes();
-            $size = strlen($data) + 2;
-            $bytes .= ConvertBytes::fromShort($size, ConvertBytes::BIG_ENDIAN);
-            $bytes .= $data;
-
-            // In case of SOS, we need to write the JPEG data.
-            if ($m == Spec::getElementIdByName($this->getType(), 'SOS')) {
-                $bytes .= $this->jpeg_data->getBytes();
-            }
-        }
-
-        return $bytes;
     }
 
     /**
