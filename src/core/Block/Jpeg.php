@@ -78,12 +78,7 @@ class Jpeg extends BlockBase
             $data_window->setWindowStart(2);
 
             if ($segment_name === 'APP1') {
-                if ($segment->loadFromData($data_window->getClone(0, $len)) === false) {
-                    // We store the data as normal JPEG content if it could
-                    // not be parsed as Exif data.
-                    $dxx = $data_window->getClone(0, $len);
-                    new Undefined($segment, [$dxx->getBytes()]);
-                }
+                $segment->loadFromData($data_window->getClone(0, $len));
                 $data_window->setWindowStart($len);
             } elseif ($segment_name === 'COM') {
                 $segment->loadFromData($data_window->getClone(0, $len));
