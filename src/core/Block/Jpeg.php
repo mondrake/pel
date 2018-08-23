@@ -95,6 +95,7 @@ class Jpeg extends BlockBase
                 }
 
                 $this->jpeg_data = $data_window->getClone(0, $length - 2);
+dump($this->jpeg_data);
                 $this->debug('JPEG data: {data}', ['data' => $this->jpeg_data->toString()]);
 
                 // Append the EOI.
@@ -125,14 +126,14 @@ class Jpeg extends BlockBase
      * JPEG sections start with 0xFF. The first byte that is not
      * 0xFF is a marker (hopefully).
      *
-     * @param DataWindow $d
+     * @param DataWindow $data_window
      *
      * @return integer
      */
-    protected function getJpgSectionStart($d)
+    protected function getJpgSectionStart($data_window)
     {
         for ($i = 0; $i < 7; $i ++) {
-            if ($d->getByte($i) !== JpegSegment::JPEG_DELIMITER) {
+            if ($data_window->getByte($i) !== JpegSegment::JPEG_DELIMITER) {
                  break;
             }
         }
