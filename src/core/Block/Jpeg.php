@@ -68,25 +68,26 @@ class Jpeg extends BlockBase
                 continue;
             }
 
-            // Read the length of the section. The length includes the two
-            // bytes used to store the length.
-if ($segment_name === 'SOS') {
-dump('aaa-'.$data_window->getSize());
-}
-            $len = $data_window->getShort(0) - 2;
-
-            // Skip past the length.
-            $data_window->setWindowStart(2);
+            if ($segment_name === 'SOS') {
+                $len = $data_window->getShort(0) - 2;
+dump('aaa-'.$len);
+            } else {
+                // Read the length of the section. The length includes the two
+                // bytes used to store the length.
+                $len = $data_window->getShort(0) - 2;
+                // Skip past the length.
+                $data_window->setWindowStart(2);
+            }
 
             // Load the segment.
             $segment->loadFromData($data_window->getClone(0, $len));
 
-            // Skip past the data.
-            $data_window->setWindowStart($len);
-
             // In case of SOS, image data will follow and the load complete.
             if ($segment_name === 'SOS') {
                 break;
+            } else {
+                // Skip past the data.
+                $data_window->setWindowStart($len);
             }
         }
         return $this;
