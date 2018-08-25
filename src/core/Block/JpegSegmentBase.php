@@ -47,6 +47,14 @@ abstract class JpegSegmentBase extends BlockBase
     /**
      * {@inheritdoc}
      */
+    public function getComponents()
+    {
+        return $this->components;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN)
     {
         $bytes = '';

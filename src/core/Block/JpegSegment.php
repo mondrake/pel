@@ -16,6 +16,12 @@ class JpegSegment extends JpegSegmentBase
      */
     public function loadFromData(DataWindow $data_window, $offset = 0, array $options = [])
     {
+        // Skip loading if the segment is a pure marker.
+        if ($this->payload === 'none') {
+            $this->components = 0;
+            return $this;
+        }
+
         // Load data in an Undefined entry.
         $entry = new Undefined($this, [$data_window->getBytes()]);
         $entry->debug("{text}", ['text' => $entry->toString()]);

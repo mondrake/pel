@@ -44,8 +44,9 @@ class Jpeg extends BlockBase
         // segment is read, the start of the data window will be moved forward,
         // and after the last section we will terminate with no data left in the
         // window.
-        while ($data_window->getSize() > 0) {
-            $i = $this->getJpgSectionStart($data_window);
+        $i = $offset;
+        while ($i < $data_window->getSize()) {
+            $i = $this->getJpegMarkerOffset($data_window, $i);
 
             $segment_id = $data_window->getByte($i);
 
@@ -61,34 +62,32 @@ class Jpeg extends BlockBase
             $segment = new $segment_class($segment_id, $this);
 
             // Move window so first byte becomes first byte in this section.
-            $data_window->setWindowStart($i + 1);
+            //$data_window->setWindowStart($i + 1);
 
-            // Skip loading if the segment is a pure marker.
-            if (Spec::getElementPropertyValue($this->getType(), $segment_id, 'payload') === 'none') {
-                continue;
-            }
-
-            if ($segment_name === 'SOS') {
-                $data_window->setWindowStart(12);
+            /*if ($segment_name === 'SOS') {
+                //$data_window->setWindowStart(12);
                 $len = $data_window->getSize()-1;
             } else {
                 // Read the length of the section. The length includes the two
                 // bytes used to store the length.
                 $len = $data_window->getShort(0) - 2;
                 // Skip past the length.
-                $data_window->setWindowStart(2);
-            }
+                //$data_window->setWindowStart(2);
+            }*/
 
             // Load the segment.
-            $segment->loadFromData($data_window->getClone(0, $len));
+            $segment->loadFromData($data_window, $i + 1);
 
             // In case of SOS, image data will follow and the load complete.
-            if ($segment_name === 'SOS') {
+            /*if ($segment_name === 'SOS') {
                 break;
             } else {
                 // Skip past the data.
-                $data_window->setWindowStart($len);
-            }
+                //$data_window->setWindowStart($len);
+            }*/
+
+            // Position to end of segment.
+            $i = $i + 2 + $segment->getComponents();
         }
         return $this;
     }
@@ -101,14 +100,13 @@ class Jpeg extends BlockBase
      *
      * @return integer
      */
-    protected function getJpgSectionStart($data_window)
+    protected function getJpegMarkerOffset($data_window, $offset)
     {
-        for ($i = 0; $i < 7; $i ++) {
+        for ($i = $offset; $i < $offset + 7; $i ++) {
             if ($data_window->getByte($i) !== JpegSegment::JPEG_DELIMITER) {
-                 break;
+                return $i;
             }
         }
-        return $i;
     }
 
     /**
