@@ -73,10 +73,10 @@ elements:
                                                                                         class: ExifEye\core\Entry\WindowsString
                                                                                         valid: true
                                                                                         format: Byte
-                                                                                        components: 32
-                                                                                        value: YToyOntpOjA7czoyNzoiw4/DsMOlw6LDpcOkLCDDrMOlw6TDosOlw6QhIjtpOjE7czozMDoizwDwAOUA4gDlAOQALAAgAOwA5QDkAOIA5QDkACEAIjt9
-                                                                                        clear_value: !!binary YToyOntpOjA7czoyNzoiw4/DsMOlw6LDpcOkLCDDrMOlw6TDosOlw6QhIjtpOjE7czozMDoizwDwAOUA4gDlAOQALAAgAOwA5QDkAOIA5QDkACEAIjt9
-                                                                                        text: 'Ïðåâåä, ìåäâåä!'
+                                                                                        components: 34
+                                                                                        value: YToyOntpOjA7czoyODoiw4/DsMOlw6LDpcOkLCDDrMOlw6TDosOlw6QhACI7aToxO3M6MzI6Is8A8ADlAOIA5QDkACwAIADsAOUA5ADiAOUA5AAhAAAAIjt9
+                                                                                        clear_value: !!binary YToyOntpOjA7czoyODoiw4/DsMOlw6LDpcOkLCDDrMOlw6TDosOlw6QhACI7aToxO3M6MzI6Is8A8ADlAOIA5QDkACwAIADsAOUA5ADiAOUA5AAhAAAAIjt9
+                                                                                        text: "Ïðåâåä, ìåäâåä!\0"
                         -
                             path: '/image/jpeg/jpegSegment:254:COM'
                             class: ExifEye\core\Block\JpegSegmentCom
@@ -212,16 +212,12 @@ elements:
                                         class: ExifEye\core\Entry\Core\Undefined
                                         valid: true
                                         format: Undefined
-                                        components: 119231
-                                        text: '119231 bytes of data'
+                                        components: 119243
+                                        text: '119243 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:217:EOI'
                             class: ExifEye\core\Block\JpegSegment
                             valid: true
                             id: '217'
                             name: EOI
-log:
-    WARNING:
-        -
-            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0'
-            message: 'WindowsString entry reading 31 bytes instead of 32 to avoid data window overflow'
+log: {  }

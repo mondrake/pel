@@ -731,6 +731,11 @@ elements:
                                                                                                     value: aTowOw==
                                                                                                     clear_value: 'i:0;'
                                                                                                     text: Normal
+                                                            -
+                                                                path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD1'
+                                                                class: ExifEye\core\Block\Ifd
+                                                                valid: true
+                                                                name: IFD1
                         -
                             path: '/image/jpeg/jpegSegment:219:DQT'
                             class: ExifEye\core\Block\JpegSegment
@@ -849,8 +854,8 @@ elements:
                                         class: ExifEye\core\Entry\Core\Undefined
                                         valid: true
                                         format: Undefined
-                                        components: 1236
-                                        text: '1236 bytes of data'
+                                        components: 1248
+                                        text: '1248 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:217:EOI'
                             class: ExifEye\core\Block\JpegSegment
@@ -862,9 +867,6 @@ log:
         -
             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif'
             message: 'Bogus offset to next IFD: 8, same as offset being loaded from.'
-        -
-            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff'
-            message: 'Bogus offset to next IFD: 2716 > 2710!'
     WARNING:
         -
             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:282:XResolution'
@@ -896,3 +898,6 @@ log:
         -
             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37386:FocalLength'
             message: 'Found SignedRational data format, expected Rational'
+        -
+            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD1'
+            message: 'Adjusted to: -130.'
