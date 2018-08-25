@@ -87,7 +87,8 @@ class Jpeg extends BlockBase
                 //$data_window->setWindowStart($len);
             }*/
 
-            // Position to end of segment.
+            // Position to end of the segment. It is defined by the currently
+            // offset + JPEG marker (2 bytes) + the bytes of the payload.
             $i = $i + 2 + $segment->getComponents();
         }
         return $this;

@@ -16,8 +16,11 @@ class JpegSegmentCom extends JpegSegmentBase
      */
     public function loadFromData(DataWindow $data_window, $offset = 0, array $options = [])
     {
+        // Read the length of the segment. The length includes the two bytes
+        // used to store the length.
+        $this->components = $data_window->getShort($offset);
         // Set the Comments's entry.
-        $entry = new Ascii($this, [$data_window->getBytes()]);
+        $entry = new Ascii($this, [$data_window->getBytes($offset + 2, $this->components - 2)]);
         $entry->debug("Text: {text}", [
             'text' => $entry->toString(),
         ]);
