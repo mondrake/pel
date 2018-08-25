@@ -30,7 +30,7 @@ dump('length1:' . $length);
         while ($data_window->getByte($length - 2) !== JpegSegment::JPEG_DELIMITER || $data_window->getByte($length - 1) != self::JPEG_EOI) {
             $length --;
         }
-        $this->components = $length - $offset;
+        $this->components = $length - $offset - 2;
 dump('length2:' . $length);
 dump('comp:' . $this->components);
 
