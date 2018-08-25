@@ -26,15 +26,16 @@ class JpegSegmentSos extends JpegSegmentBase
         // which we store in a RawData object.
 dump('offset:' . $offset);
         $length = $data_window->getSize();
-dump('length:' . $offset);
+dump('length1:' . $length);
         while ($data_window->getByte($length - 2) !== JpegSegment::JPEG_DELIMITER || $data_window->getByte($length - 1) != self::JPEG_EOI) {
             $length --;
         }
         $this->components = $length - $offset;
+dump('length2:' . $length);
 dump('comp:' . $this->components);
 
         // Load data in an Undefined entry.
-        $entry = new Undefined($this, [$data_window->getBytes($offset, $this->components - 1)]);
+        $entry = new Undefined($this, [$data_window->getBytes($offset, $this->components)]);
         $entry->debug("Scan: {text}", ['text' => $entry->toString()]);
         $this->debug('JPEG data: {data}', ['data' => $data_window->toString()]);
 
