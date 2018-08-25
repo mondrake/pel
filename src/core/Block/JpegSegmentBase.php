@@ -2,11 +2,12 @@
 
 namespace ExifEye\core\Block;
 
+use ExifEye\core\DataWindow;
 use ExifEye\core\Spec;
 use ExifEye\core\Utility\ConvertBytes;
 
 /**
- * Class representing a generic JPEG data segment.
+ * Abstract class for JPEG data segments.
  */
 abstract class JpegSegmentBase extends BlockBase
 {
