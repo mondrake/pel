@@ -3,6 +3,7 @@
 namespace ExifEye\core\Block;
 
 use ExifEye\core\DataWindow;
+use ExifEye\core\Entry\Core\Undefined;
 use ExifEye\core\Spec;
 use ExifEye\core\Utility\ConvertBytes;
 
