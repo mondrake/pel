@@ -26,7 +26,7 @@ abstract class JpegSegmentBase extends BlockBase
     protected $payload;
 
     /**
-     * The segment data length.
+     * The expected segment data length, for fixed size payloads.
      */
     protected $components;
 

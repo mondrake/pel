@@ -64,7 +64,7 @@ class Jpeg extends BlockBase
             $data_window->setWindowStart($i + 1);
 
             // Skip loading if the segment is a pure marker.
-            if (Spec::getElementPropertyValue($this->getType(), $segment_id, 'markerOnly')) {
+            if (Spec::getElementPropertyValue($this->getType(), $segment_id, 'payload') === 'none') {
                 continue;
             }
 
