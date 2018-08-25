@@ -45,7 +45,9 @@ abstract class JpegSegmentBase extends BlockBase
     }
 
     /**
-     * {@inheritdoc}
+     * Returns the segment data length.
+     *
+     * @return int
      */
     public function getComponents()
     {

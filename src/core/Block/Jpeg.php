@@ -50,6 +50,7 @@ class Jpeg extends BlockBase
 
             $segment_id = $data_window->getByte($i);
 
+            // Warn if an unidentified segment is detected.
             if (!in_array($segment_id, Spec::getTypeSupportedElementIds($this->getType()))) {
                 $this->warning('Invalid marker found at offset {offset}: 0x{marker}', [
                     'offset' => $offset,
