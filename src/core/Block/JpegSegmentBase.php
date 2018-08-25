@@ -21,6 +21,16 @@ abstract class JpegSegmentBase extends BlockBase
     protected $type = 'jpegSegment';
 
     /**
+     * The segment payload type.
+     */
+    protected $payload;
+
+    /**
+     * The segment data length.
+     */
+    protected $components;
+
+    /**
      * Construct a new JPEG segment object.
      */
     public function __construct($id, Jpeg $jpeg, JpegSegmentBase $reference = null)
@@ -29,6 +39,8 @@ abstract class JpegSegmentBase extends BlockBase
         $this->setAttribute('id', $id);
         $name = Spec::getElementName($jpeg->getType(), $id);
         $this->setAttribute('name', $name);
+        $this->payload = Spec::getElementPropertyValue($jpeg->getType(), $id, 'payload');
+        $this->components = Spec::getElementPropertyValue($jpeg->getType(), $id, 'components');
         $this->debug('{name} segment - {desc}', ['name' => $name, 'desc' => Spec::getElementTitle($jpeg->getType(), $id)]);
     }
 
@@ -45,6 +57,11 @@ abstract class JpegSegmentBase extends BlockBase
         // Add the marker.
         $marker = $this->getAttribute('id');
         $bytes .= chr($marker);
+
+        // Return if no payload.
+        if ($this->payload === 'none') {
+            return $bytes;
+        }
 
         // Get the segment data.
         $data = '';
