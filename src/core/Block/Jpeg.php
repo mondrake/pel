@@ -47,20 +47,20 @@ class Jpeg extends BlockBase
         while ($i < $data_window->getSize()) {
             // Get next JPEG marker.
             $i = $this->getJpegMarkerOffset($data_window, $i);
-            $segment_id = $data_window->getByte($i);
+            $segment_id = $data_window->getByte($i++);
 
             // Warn if an unidentified segment is detected.
             if (!in_array($segment_id, Spec::getTypeSupportedElementIds($this->getType()))) {
                 $this->warning('Invalid marker found at offset {offset}: 0x{marker}', [
                     'offset' => $offset,
-                    'marker' => dechex($segment_id),
+                    'marker' => strtoupper(dechex($segment_id)),
                 ]);
             }
 
             // Create and load the ExifEye JPEG segment object.
             $segment_class = Spec::getElementHandlingClass($this->getType(), $segment_id);
             $segment = new $segment_class($segment_id, $this);
-            $segment->loadFromData($data_window, $i + 1);
+            $segment->loadFromData($data_window, $i);
 
             // In case of image scan segment, the load is now complete.
             if ($segment->getPayload() === 'scan') {
@@ -69,7 +69,7 @@ class Jpeg extends BlockBase
 
             // Position to end of the segment. It is defined by the current
             // offset + JPEG marker (2 bytes) + the bytes of the payload.
-            $i = $i + 2 + $segment->getComponents();
+            $i += $segment->getComponents();
         }
 
         return $this;

@@ -152,9 +152,8 @@ elements:
         type: jpegSegment
         name: DRI
         title: 'Define restart interval'
-        payload: variable
-#        payload: fixed
-#        components: 4
+        payload: fixed
+        components: 4
     0xDE:
         type: jpegSegment
         name: DHP

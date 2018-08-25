@@ -81,7 +81,7 @@ abstract class JpegSegmentBase extends BlockBase
                 // bytes used to store the length.
                 $this->components = $data_window->getShort($offset);
                 // Load data in an Undefined entry.
-                $entry = new Undefined($this, [$data_window->getBytes($offset + 2, $this->components - 2)]);
+                $entry = new Undefined($this, [$data_window->getBytes($offset, $this->components)]);
                 break;
             case 'fixed':
                 // Load data in an Undefined entry.
@@ -106,27 +106,9 @@ abstract class JpegSegmentBase extends BlockBase
         $marker = $this->getAttribute('id');
         $bytes .= chr($marker);
 
-        // Return if no payload.
-        if ($this->payload === 'none') {
-            return $bytes;
-        }
-
-        // Get the segment data.
-        $data = '';
-        foreach ($this->getMultipleElements("*") as $sub) {
-            $data .= $sub->toBytes();
-        }
-
-        // Add the segment bytes.
-        if ($data !== '') {
-            $size = strlen($data) + 2;
-            $bytes .= ConvertBytes::fromShort($size, ConvertBytes::BIG_ENDIAN);
-            $bytes .= $data;
-
-            // In case of SOS, we need to write the JPEG data.
-/*            if ($marker == Spec::getElementIdByName($this->getParentElement()->getType(), 'SOS')) {
-                $bytes .= $this->getParentElement()->jpeg_data->getBytes();
-            }*/
+        // Add the payload.
+        if ($this->payload !== 'none') {
+            $bytes .= $this->getElements("entry")->toBytes();
         }
 
         return $bytes;
