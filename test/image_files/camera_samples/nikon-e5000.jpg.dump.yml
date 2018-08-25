@@ -31,8 +31,8 @@ elements:
                                         class: ExifEye\core\Entry\Core\Undefined
                                         valid: true
                                         format: Undefined
-                                        components: 14
-                                        text: '14 bytes of data'
+                                        components: 16
+                                        text: '16 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:225:APP1'
                             class: ExifEye\core\Block\JpegSegmentApp1
@@ -738,8 +738,8 @@ elements:
                                         class: ExifEye\core\Entry\Core\Undefined
                                         valid: true
                                         format: Undefined
-                                        components: 10924
-                                        text: '10924 bytes of data'
+                                        components: 10926
+                                        text: '10926 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:238:APP14'
                             class: ExifEye\core\Block\JpegSegment
@@ -753,8 +753,8 @@ elements:
                                         class: ExifEye\core\Entry\Core\Undefined
                                         valid: true
                                         format: Undefined
-                                        components: 12
-                                        text: '12 bytes of data'
+                                        components: 14
+                                        text: '14 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:219:DQT'
                             class: ExifEye\core\Block\JpegSegment
@@ -768,8 +768,8 @@ elements:
                                         class: ExifEye\core\Entry\Core\Undefined
                                         valid: true
                                         format: Undefined
-                                        components: 130
-                                        text: '130 bytes of data'
+                                        components: 132
+                                        text: '132 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:192:SOF0'
                             class: ExifEye\core\Block\JpegSegment
@@ -783,8 +783,8 @@ elements:
                                         class: ExifEye\core\Entry\Core\Undefined
                                         valid: true
                                         format: Undefined
-                                        components: 15
-                                        text: '15 bytes of data'
+                                        components: 17
+                                        text: '17 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:221:DRI'
                             class: ExifEye\core\Block\JpegSegment
@@ -798,8 +798,8 @@ elements:
                                         class: ExifEye\core\Entry\Core\Undefined
                                         valid: true
                                         format: Undefined
-                                        components: 2
-                                        text: '2 bytes of data'
+                                        components: 4
+                                        text: '4 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:196:DHT'
                             class: ExifEye\core\Block\JpegSegment
@@ -813,8 +813,8 @@ elements:
                                         class: ExifEye\core\Entry\Core\Undefined
                                         valid: true
                                         format: Undefined
-                                        components: 416
-                                        text: '416 bytes of data'
+                                        components: 418
+                                        text: '418 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:218:SOS'
                             class: ExifEye\core\Block\JpegSegmentSos
@@ -836,4 +836,24 @@ elements:
                             valid: true
                             id: '217'
                             name: EOI
-log: {  }
+                    rawData:
+                        -
+                            path: /image/jpeg/rawData
+                            class: ExifEye\core\Block\RawData
+                            valid: true
+                            elements:
+                                entry:
+                                    -
+                                        path: /image/jpeg/rawData/entry
+                                        class: ExifEye\core\Entry\Core\Undefined
+                                        valid: true
+                                        format: Undefined
+                                        components: 1394
+                                        value: czoxMzk0OiIDAAAvMKGyw9QcAgAAAgACHAJ4A1BEYXRlaW5hbWUgOiBEU0NOMDQ0MS5KUEcNCkRhdGVpZ3L232UgOiA2NzMuMiBLQiAoNjg5MzMxIEJ5dGUpDQpBdWZuYWhtZWRhdHVtIDogMjAwMi8wNS8yMSAxNDo1Mzo1Mg0KQmlsZGdy9t9lIDogMTYwMCB4IDEyMDAgUGl4ZWwNCkF1Zmz2c3VuZyA6IDMwMCB4IDMwMCBkcGkNCkZhcmJ0aWVmZSA6IDggQml0L0thbmFsDQpTY2j8dHplbiA6IEF1cw0KQXVzYmxlbmRlbiA6IEF1cw0KS2FtZXJhLUlEIDogTi9BDQpLYW1lcmEgOiBFNTAwMA0KUXVhbGl05HRzbW9kdXMgOiBGRUlODQpNZXNzbWV0aG9kZSA6IE1laHJmZWxkDQpCZWxpY2h0dW5nc2JldHJpZWJzYXJ0IDogUHJvZ3JhbW1hdXRvbWF0aWsNClNwZWVkbGlnaHQgOiBOZWluDQpCcmVubndlaXRlIDogNy4xIG1tDQpWZXJzY2hsdXNzemVpdCA6IDEvNjAuOSBTZWt1bmRlDQpCbGVuZGUgOiBGMi44DQpCZWxpY2h0dW5nc2tvcnJla3R1ciA6IDAgRVYNCkZlc3RlciBXZWnfYWJnbGVpY2ggOiBBdXRvbWF0aWsNCk9iamVrdGl2IDogSW50ZWdyaWVydA0KQmxpdHotU3luY2hyb25pc2llcnVuZ3Ntb2R1cyA6IEVyc3RlciBWZXJzY2hsdXNzdm9yaGFuZw0KQmVsaWNodHVuZ3NkaWZmZXJlbnogOiBOL0ENCkZsZXhpYmxlcyBQcm9ncmFtbSA6IE4vQQ0KRW1wZmluZGxpY2hrZWl0IDogQXV0bw0KU2No5HJmdW5nIDogQXV0b21hdGlrDQpGYXJibW9kdXMgOiBGYXJiZQ0KRmFyYmVpbnN0ZWxsdW5nZW4gOiBOL0ENCkZhcmJz5HR0aWd1bmcgOiBOL0ENCkZhcmJz5HR0aWd1bmcgOiAwIE5vcm1hbA0KVG9ud2VydGtvcnJla3R1ciA6IEF1dG9tYXRpaw0KQnJlaXRlIChHUFMpIDogTi9BDQpM5G5nZSAoR1BTKSA6IE4vQQ0KSPZoZSAoR1BTKSA6IE4vQRwC6AHNTW9kZWwgOiAgICAgICAgICAgICAgICAgICAgCUU1MDAwDQpTb2Z0d2FyZSA6ICAgICAgICAgICAgICAgIAlFNTAwMHYxLjYNCkdQUyBJbmZvIDogICAgICAgICAgICAgICAgCTY5MiANCkRhdGUgYW5kIFRpbWUgOiAgICAgICAJMjAwMjowNToyMSAxNDo1Mzo1Mg0KRXhwb3N1cmUgVGltZSA6ICAgICAgCTEvNjAgU2VjDQpBcGVydHVyZSA6ICAgICAgICAgICAgICAgICAJMToyLjgNCkZsYXNoIDogICAgICAgICAgICAgICAgICAgICAJTm8NClpvb20gTGVuZ3RoIDogICAgICAgICAJNyBtbQ0KRXhwb3N1cmUgUHJvZ3JhbSA6CU5vcm1hbA0KSVNPIFNwZWVkIDogICAgICAgICAgICAgCTEwMCANCkV4cG9zdXJlIEJpYXMgOiAgICAgIAkwLjAwMCANCk1ldGVyaW5nIE1vZGUgOiAgICAgIAlQYXR0ZXJuDQpMaWdodCBTb3VyY2UgOiAgICAgICAgICAJVW5rbm93bg0KWm9vbSBMZW5ndGggOiAgICAgICAgIAk3IG1tDQoAAQAABTihssPUAAAGQAAABLAAAAADAAEZQAAAAAARIiIRAAAAAAAAAAAAAYagAAGGoAACAAAAMqGywyI7
+                                        clear_value: !!binary czoxMzk0OiIDAAAvMKGyw9QcAgAAAgACHAJ4A1BEYXRlaW5hbWUgOiBEU0NOMDQ0MS5KUEcNCkRhdGVpZ3L232UgOiA2NzMuMiBLQiAoNjg5MzMxIEJ5dGUpDQpBdWZuYWhtZWRhdHVtIDogMjAwMi8wNS8yMSAxNDo1Mzo1Mg0KQmlsZGdy9t9lIDogMTYwMCB4IDEyMDAgUGl4ZWwNCkF1Zmz2c3VuZyA6IDMwMCB4IDMwMCBkcGkNCkZhcmJ0aWVmZSA6IDggQml0L0thbmFsDQpTY2j8dHplbiA6IEF1cw0KQXVzYmxlbmRlbiA6IEF1cw0KS2FtZXJhLUlEIDogTi9BDQpLYW1lcmEgOiBFNTAwMA0KUXVhbGl05HRzbW9kdXMgOiBGRUlODQpNZXNzbWV0aG9kZSA6IE1laHJmZWxkDQpCZWxpY2h0dW5nc2JldHJpZWJzYXJ0IDogUHJvZ3JhbW1hdXRvbWF0aWsNClNwZWVkbGlnaHQgOiBOZWluDQpCcmVubndlaXRlIDogNy4xIG1tDQpWZXJzY2hsdXNzemVpdCA6IDEvNjAuOSBTZWt1bmRlDQpCbGVuZGUgOiBGMi44DQpCZWxpY2h0dW5nc2tvcnJla3R1ciA6IDAgRVYNCkZlc3RlciBXZWnfYWJnbGVpY2ggOiBBdXRvbWF0aWsNCk9iamVrdGl2IDogSW50ZWdyaWVydA0KQmxpdHotU3luY2hyb25pc2llcnVuZ3Ntb2R1cyA6IEVyc3RlciBWZXJzY2hsdXNzdm9yaGFuZw0KQmVsaWNodHVuZ3NkaWZmZXJlbnogOiBOL0ENCkZsZXhpYmxlcyBQcm9ncmFtbSA6IE4vQQ0KRW1wZmluZGxpY2hrZWl0IDogQXV0bw0KU2No5HJmdW5nIDogQXV0b21hdGlrDQpGYXJibW9kdXMgOiBGYXJiZQ0KRmFyYmVpbnN0ZWxsdW5nZW4gOiBOL0ENCkZhcmJz5HR0aWd1bmcgOiBOL0ENCkZhcmJz5HR0aWd1bmcgOiAwIE5vcm1hbA0KVG9ud2VydGtvcnJla3R1ciA6IEF1dG9tYXRpaw0KQnJlaXRlIChHUFMpIDogTi9BDQpM5G5nZSAoR1BTKSA6IE4vQQ0KSPZoZSAoR1BTKSA6IE4vQRwC6AHNTW9kZWwgOiAgICAgICAgICAgICAgICAgICAgCUU1MDAwDQpTb2Z0d2FyZSA6ICAgICAgICAgICAgICAgIAlFNTAwMHYxLjYNCkdQUyBJbmZvIDogICAgICAgICAgICAgICAgCTY5MiANCkRhdGUgYW5kIFRpbWUgOiAgICAgICAJMjAwMjowNToyMSAxNDo1Mzo1Mg0KRXhwb3N1cmUgVGltZSA6ICAgICAgCTEvNjAgU2VjDQpBcGVydHVyZSA6ICAgICAgICAgICAgICAgICAJMToyLjgNCkZsYXNoIDogICAgICAgICAgICAgICAgICAgICAJTm8NClpvb20gTGVuZ3RoIDogICAgICAgICAJNyBtbQ0KRXhwb3N1cmUgUHJvZ3JhbSA6CU5vcm1hbA0KSVNPIFNwZWVkIDogICAgICAgICAgICAgCTEwMCANCkV4cG9zdXJlIEJpYXMgOiAgICAgIAkwLjAwMCANCk1ldGVyaW5nIE1vZGUgOiAgICAgIAlQYXR0ZXJuDQpMaWdodCBTb3VyY2UgOiAgICAgICAgICAJVW5rbm93bg0KWm9vbSBMZW5ndGggOiAgICAgICAgIAk3IG1tDQoAAQAABTihssPUAAAGQAAABLAAAAADAAEZQAAAAAARIiIRAAAAAAAAAAAAAYagAAGGoAACAAAAMqGywyI7
+                                        text: '1394 bytes of data'
+log:
+    WARNING:
+        -
+            path: '/image/jpeg/jpegSegment:218:SOS'
+            message: 'Found trailing content after EOI: 1396 bytes'
