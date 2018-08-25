@@ -20,19 +20,19 @@ class JpegSegmentSos extends JpegSegmentBase
      */
     public function loadFromData(DataWindow $data_window, $offset = 0, array $options = [])
     {
-        // This segment is last before End Of Image, and its lenght needs to be
+        // This segment is last before End Of Image, and its length needs to be
         // determined by finding the EOI marker backwards from the end of data.
         // Some images have some trailing (garbage?) following the EOI marker,
         // which we store in a RawData object.
-dump('offset:' . $offset);
+#dump('offset:' . $offset);
         $length = $data_window->getSize();
-dump('length1:' . $length);
+#dump('length1:' . $length);
         while ($data_window->getByte($length - 2) !== JpegSegment::JPEG_DELIMITER || $data_window->getByte($length - 1) != self::JPEG_EOI) {
             $length --;
         }
         $this->components = $length - $offset - 2;
-dump('length2:' . $length);
-dump('comp:' . $this->components);
+#dump('length2:' . $length);
+#dump('comp:' . $this->components);
 
         // Load data in an Undefined entry.
         $entry = new Undefined($this, [$data_window->getBytes($offset, $this->components)]);
@@ -55,6 +55,26 @@ dump('comp:' . $this->components);
         }*/
 
         return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN)
+    {
+        $bytes = '';
+
+        // Add the delimiter.
+        $bytes .= chr(JpegSegment::JPEG_DELIMITER);
+
+        // Add the marker.
+        $marker = $this->getAttribute('id');
+        $bytes .= chr($marker);
+
+        // Get the segment data.
+        $bytes .= $this->getElement("entry")->toBytes();
+
+        return $bytes;
     }
 
     /**
