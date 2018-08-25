@@ -20,29 +20,26 @@ class JpegSegmentSos extends JpegSegmentBase
      */
     public function loadFromData(DataWindow $data_window, $offset = 0, array $options = [])
     {
-        // Some images have some trailing (garbage?) following the
-        // EOI marker. To handle this we seek backwards until we
-        // find the EOI marker. Any trailing content is stored as
-        // a Undefined Entry object.
+        // This segment is last before End Of Image, and its lenght needs to be
+        // determined by finding the EOI marker backwards from the end of data.
+        // Some images have some trailing (garbage?) following the EOI marker,
+        // which we store in a RawData object.
         $length = $data_window->getSize();
-//        while ($data_window->getByte($length - 2) !== JpegSegment::JPEG_DELIMITER || $data_window->getByte($length - 1) != self::JPEG_EOI) {
-//            $length --;
-//        }
+        while ($data_window->getByte($length - 2) !== JpegSegment::JPEG_DELIMITER || $data_window->getByte($length - 1) != self::JPEG_EOI) {
+            $length --;
+        }
+        $this->components = $length - $offset;
 
-  //                $this->jpeg_data = $data_window->getClone(0, $length - 2);
-  //dump($this->jpeg_data);
         // Load data in an Undefined entry.
-        $entry = new Undefined($this, [$data_window->getBytes(0, $length - 1)]);
+        $entry = new Undefined($this, [$data_window->getBytes($offset, $this->components - 1)]);
         $entry->debug("Scan: {text}", ['text' => $entry->toString()]);
-
-        //        $this->debug('JPEG data: {data}', ['data' => $this->jpeg_data->toString()]);
         $this->debug('JPEG data: {data}', ['data' => $data_window->toString()]);
 
         // Append the EOI.
         new JpegSegment(self::JPEG_EOI, $this->getParentElement());
 
         // Now check to see if there are any trailing data.
-        if ($length != $data_window->getSize()) {
+/*        if ($length != $data_window->getSize()) {
             $this->warning('Found trailing content after EOI: {size} bytes', [
                 'size' => $data_window->getSize() - $length,
             ]);
@@ -51,7 +48,7 @@ class JpegSegmentSos extends JpegSegmentBase
             $trail_segment = new JpegSegment(0x00, $this->getParentElement());
             $dxx = $data_window->getClone($length);
             new Undefined($trail_segment, [$dxx->getBytes()]);
-        }
+        }*/
 
         return $this;
     }
