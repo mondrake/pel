@@ -41,13 +41,12 @@ class Jpeg extends BlockBase
         $data_window->setByteOrder(ConvertBytes::BIG_ENDIAN);
 
         // Run through the data to read the segments in the image. After each
-        // segment is read, the start of the data window will be moved forward,
-        // and after the last section we will terminate with no data left in the
-        // window.
+        // segment is read, the offset will be moved forward, and after the last
+        // segment we will terminate.
         $i = $offset;
         while ($i < $data_window->getSize()) {
+            // Get next JPEG marker.
             $i = $this->getJpegMarkerOffset($data_window, $i);
-
             $segment_id = $data_window->getByte($i);
 
             // Warn if an unidentified segment is detected.
@@ -58,41 +57,21 @@ class Jpeg extends BlockBase
                 ]);
             }
 
+            // Create and load the ExifEye JPEG segment object.
             $segment_class = Spec::getElementHandlingClass($this->getType(), $segment_id);
             $segment = new $segment_class($segment_id, $this);
-
-            // Move window so first byte becomes first byte in this section.
-            //$data_window->setWindowStart($i + 1);
-
-            /*if ($segment_name === 'SOS') {
-                //$data_window->setWindowStart(12);
-                $len = $data_window->getSize()-1;
-            } else {
-                // Read the length of the section. The length includes the two
-                // bytes used to store the length.
-                $len = $data_window->getShort(0) - 2;
-                // Skip past the length.
-                //$data_window->setWindowStart(2);
-            }*/
-
-            // Load the segment.
             $segment->loadFromData($data_window, $i + 1);
 
-            // In case of Start Of Scan, after loading image data the load is
-            // complete.
+            // In case of image scan segment, the load is now complete.
             if ($segment->getPayload() === 'scan') {
                 break;
             }
-
-            /*else {
-                // Skip past the data.
-                //$data_window->setWindowStart($len);
-            }*/
 
             // Position to end of the segment. It is defined by the currently
             // offset + JPEG marker (2 bytes) + the bytes of the payload.
             $i = $i + 2 + $segment->getComponents();
         }
+        
         return $this;
     }
 
