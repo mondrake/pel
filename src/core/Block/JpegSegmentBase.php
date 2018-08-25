@@ -107,8 +107,8 @@ abstract class JpegSegmentBase extends BlockBase
         $bytes .= chr($marker);
 
         // Add the payload.
-        if ($this->payload !== 'none') {
-            $bytes .= $this->getElement("entry")->toBytes();
+        if ($entry = $this->getElement("entry")) {
+            $bytes .= $entry->toBytes();
         }
 
         return $bytes;
