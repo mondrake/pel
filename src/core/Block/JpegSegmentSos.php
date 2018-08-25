@@ -26,7 +26,8 @@ class JpegSegmentSos extends JpegSegmentBase
         // Some images have some trailing (garbage?) following the EOI marker,
         // which we store in a RawData object.
 #dump('offset:' . $offset);
-        $length = $data_window->getSize();
+        $size = $data_window->getSize();
+        $length = $size;
 #dump('length1:' . $length);
         while ($data_window->getByte($length - 2) !== JpegSegment::JPEG_DELIMITER || $data_window->getByte($length - 1) != self::JPEG_EOI) {
             $length --;
@@ -38,22 +39,20 @@ class JpegSegmentSos extends JpegSegmentBase
         // Load data in an Undefined entry.
         $entry = new Undefined($this, [$data_window->getBytes($offset, $this->components)]);
         $entry->debug("Scan: {text}", ['text' => $entry->toString()]);
-        $this->debug('JPEG data: {data}', ['data' => $data_window->toString()]);
 
         // Append the EOI.
         new JpegSegment(self::JPEG_EOI, $this->getParentElement());
 
         // Now check to see if there are any trailing data.
-/*        if ($length != $data_window->getSize()) {
-            $this->warning('Found trailing content after EOI: {size} bytes', [
-                'size' => $data_window->getSize() - $length,
-            ]);
-            // We don't have a proper JPEG marker for trailing
-            // garbage, so we just use 0x00...
-            $trail_segment = new JpegSegment(0x00, $this->getParentElement());
-            $dxx = $data_window->getClone($length);
-            new Undefined($trail_segment, [$dxx->getBytes()]);
-        }*/
+        $end_offset = $offset + $this->components + 2;
+        if ($end_offset < $size) {
+            $raw_components = $size - $end_offset;
+            $this->warning('Found trailing content after EOI: {size} bytes', ['size' => $raw_components]);
+            // There is no JPEG marker for trailing garbage, so we just load
+            // the data in a RawData object.
+            $trail = new RawData($this->getParentElement());
+            $trail->loadFromData($data_window, $end_offset + 1, ['components' => $raw_components]);
+        }
 
         return $this;
     }
