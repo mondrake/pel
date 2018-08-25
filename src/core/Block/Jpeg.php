@@ -58,7 +58,6 @@ class Jpeg extends BlockBase
                 ]);
             }
 
-            $segment_name = Spec::getElementName($this->getType(), $segment_id);
             $segment_class = Spec::getElementHandlingClass($this->getType(), $segment_id);
             $segment = new $segment_class($segment_id, $this);
 
@@ -79,10 +78,13 @@ class Jpeg extends BlockBase
             // Load the segment.
             $segment->loadFromData($data_window, $i + 1);
 
-            // In case of SOS, image data will follow and the load complete.
-            /*if ($segment_name === 'SOS') {
+            // In case of Start Of Scan, after loading image data the load is
+            // complete.
+            if ($segment->getPayload() === 'scan') {
                 break;
-            } else {
+            }
+
+            /*else {
                 // Skip past the data.
                 //$data_window->setWindowStart($len);
             }*/

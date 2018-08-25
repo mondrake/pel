@@ -17,13 +17,17 @@ class JpegSegmentApp1 extends JpegSegmentBase
     {
         $this->debug("START... Loading");
 
-        if (Exif::isExifSegment($data_window)) {
+        // Read the length of the segment. The length includes the two bytes
+        // used to store the length.
+        $this->components = $data_window->getShort($offset);
+
+        if (Exif::isExifSegment($data_window, $offset + 2)) {
             $exif = new Exif($this);
-            $ret = $exif->loadFromData($data_window, $offset);
+            $ret = $exif->loadFromData($data_window, $offset + 2);
         } else {
-            // We store the data as normal JPEG content if it could
-            // not be parsed as Exif data.
-            $entry = new Undefined($this, [$data_window->getBytes()]);
+            // We store the data as normal JPEG content if it could not be
+            // parsed as Exif data.
+            $entry = new Undefined($this, [$data_window->getBytes($offset + 2, $this->components - 2)]);
             $entry->debug("Exif header not found. Loaded {text}", ['text' => $entry->toString()]);
         }
 
