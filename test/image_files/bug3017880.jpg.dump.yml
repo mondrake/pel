@@ -120,20 +120,12 @@ elements:
                                         class: ExifEye\core\Entry\Core\Undefined
                                         valid: true
                                         format: Undefined
-                                        components: 4262
-                                        text: '4262 bytes of data'
+                                        components: 4274
+                                        text: '4274 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:217:EOI'
                             class: ExifEye\core\Block\JpegSegment
                             valid: true
                             id: '217'
                             name: EOI
-log:
-    WARNING:
-        -
-            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0'
-            message: 'Ascii entry reading 10 bytes instead of 11 to avoid data window overflow'
-    NOTICE:
-        -
-            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0'
-            message: 'Ascii entry ''Example V2'' missing final NUL character.'
+log: {  }

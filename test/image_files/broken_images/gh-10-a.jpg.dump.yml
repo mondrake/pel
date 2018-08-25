@@ -817,8 +817,8 @@ elements:
                                         class: ExifEye\core\Entry\Core\Undefined
                                         valid: true
                                         format: Undefined
-                                        components: 24693
-                                        text: '24693 bytes of data'
+                                        components: 24705
+                                        text: '24705 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:217:EOI'
                             class: ExifEye\core\Block\JpegSegment
@@ -829,7 +829,7 @@ log:
     ERROR:
         -
             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0'
-            message: 'Window [1002, 712] does not fit in window [0, 712]'
+            message: 'Offset -1 not within [0, 14811]'
     WARNING:
         -
             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:306:DateTime'
@@ -840,6 +840,3 @@ log:
         -
             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36868:DateTimeDigitized'
             message: 'Found 21 data components, expected 20'
-        -
-            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0'
-            message: 'Thumbnail length 14812 bytes adjusted to -290 bytes.'

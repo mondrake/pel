@@ -534,8 +534,8 @@ elements:
                                         class: ExifEye\core\Entry\Core\Undefined
                                         valid: true
                                         format: Undefined
-                                        components: 1609
-                                        text: '1609 bytes of data'
+                                        components: 1621
+                                        text: '1621 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:217:EOI'
                             class: ExifEye\core\Block\JpegSegment
