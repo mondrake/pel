@@ -5665,8 +5665,7 @@ return array (
         'type' => 'jpegSegment',
         'name' => 'DRI',
         'title' => 'Define restart interval',
-        'payload' => 'fixed',
-        'components' => 4,
+        'payload' => 'variable',
       ),
       222 =>
       array (
