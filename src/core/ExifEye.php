@@ -107,7 +107,7 @@ class ExifEye
     }
 
 
-    public static dumpHex($input, $dump_lenght = 4)
+    public static function dumpHex($input, $dump_lenght = 4)
     {
         $input_length = strlen($input);
 
@@ -121,7 +121,7 @@ class ExifEye
             $dump_length = $input_length;
         }
 
-        $tmp = substr($input, $input_lenght);
+        $tmp = substr($input, $dump_length);
         $tmp = bin2hex($tmp);
         $ret .= chunk_split($tmp, 2, ' ');
 
