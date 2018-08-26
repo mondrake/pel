@@ -121,11 +121,11 @@ class ExifEye
             $dump_length = $input_length;
         }
 
-        $tmp = substr($input, $dump_length);
+        $tmp = substr($input, 0, $dump_length);
         $tmp = bin2hex($tmp);
         $ret .= chunk_split($tmp, 2, ' ');
 
-        $ret .= ' ]';
+        $ret .= ']';
 
         return $ret;
     }
