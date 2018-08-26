@@ -964,8 +964,8 @@ elements:
                                         class: ExifEye\core\Entry\Core\Undefined
                                         valid: true
                                         format: Undefined
-                                        components: 130
-                                        text: '130 bytes of data'
+                                        components: 132
+                                        text: '132 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:221:DRI'
                             class: ExifEye\core\Block\JpegSegment
@@ -979,8 +979,8 @@ elements:
                                         class: ExifEye\core\Entry\Core\Undefined
                                         valid: true
                                         format: Undefined
-                                        components: 2
-                                        text: '2 bytes of data'
+                                        components: 4
+                                        text: '4 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:192:SOF0'
                             class: ExifEye\core\Block\JpegSegment
@@ -994,8 +994,8 @@ elements:
                                         class: ExifEye\core\Entry\Core\Undefined
                                         valid: true
                                         format: Undefined
-                                        components: 15
-                                        text: '15 bytes of data'
+                                        components: 17
+                                        text: '17 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:196:DHT'
                             class: ExifEye\core\Block\JpegSegment
@@ -1009,8 +1009,8 @@ elements:
                                         class: ExifEye\core\Entry\Core\Undefined
                                         valid: true
                                         format: Undefined
-                                        components: 416
-                                        text: '416 bytes of data'
+                                        components: 418
+                                        text: '418 bytes of data'
                         -
                             path: '/image/jpeg/jpegSegment:218:SOS'
                             class: ExifEye\core\Block\JpegSegmentSos
