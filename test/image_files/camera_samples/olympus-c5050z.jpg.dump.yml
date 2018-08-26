@@ -61,7 +61,6 @@ elements:
                                                                                         components: 32
                                                                                         value: czozMToiT0xZTVBVUyBESUdJVEFMIENBTUVSQSAgICAgICAgICI7
                                                                                         clear_value: 's:31:"OLYMPUS DIGITAL CAMERA         ";'
-                                                                                        bytes_hash: 928e8c1456d56c8adacedcd696e1b60caaed1c32ce4e2cbf5ea09a16da7680ad
                                                                                         text: 'OLYMPUS DIGITAL CAMERA         '
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:271:Make'
@@ -79,7 +78,6 @@ elements:
                                                                                         components: 24
                                                                                         value: czoyMzoiT0xZTVBVUyBPUFRJQ0FMIENPLixMVEQiOw==
                                                                                         clear_value: 's:23:"OLYMPUS OPTICAL CO.,LTD";'
-                                                                                        bytes_hash: 272d754b9539bb25d8b8293224ab2e1a1e88e19ea24cfd5b87708330bb21023d
                                                                                         text: 'OLYMPUS OPTICAL CO.,LTD'
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:272:Model'
@@ -97,7 +95,6 @@ elements:
                                                                                         components: 7
                                                                                         value: czo2OiJDNTA1MFoiOw==
                                                                                         clear_value: 's:6:"C5050Z";'
-                                                                                        bytes_hash: 8c57a379115d93915da55092e2f456a853b192838bdd1b4c3faff2fb2e756537
                                                                                         text: C5050Z
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:274:Orientation'
@@ -115,7 +112,6 @@ elements:
                                                                                         components: 1
                                                                                         value: aToxOw==
                                                                                         clear_value: 'i:1;'
-                                                                                        bytes_hash: 47dc540c94ceb704a23875c11273e16bb0b8a87aed84de911f2133568115f254
                                                                                         text: 'top - left'
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:282:XResolution'
@@ -133,7 +129,6 @@ elements:
                                                                                         components: 1
                                                                                         value: YToyOntpOjA7aTo3MjtpOjE7aToxO30=
                                                                                         clear_value: 'a:2:{i:0;i:72;i:1;i:1;}'
-                                                                                        bytes_hash: 2aefa085fcca66b9437773316dc7a1aebe8ac11614b03e744f60f0b6f9ae54e1
                                                                                         text: 72/1
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:283:YResolution'
@@ -151,7 +146,6 @@ elements:
                                                                                         components: 1
                                                                                         value: YToyOntpOjA7aTo3MjtpOjE7aToxO30=
                                                                                         clear_value: 'a:2:{i:0;i:72;i:1;i:1;}'
-                                                                                        bytes_hash: 2aefa085fcca66b9437773316dc7a1aebe8ac11614b03e744f60f0b6f9ae54e1
                                                                                         text: 72/1
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:296:ResolutionUnit'
@@ -169,7 +163,6 @@ elements:
                                                                                         components: 1
                                                                                         value: aToyOw==
                                                                                         clear_value: 'i:2;'
-                                                                                        bytes_hash: 99be5efb88ca2013bd8e4eb035fd42d5245468fe9afa70d8ba9c1c419a48c4e8
                                                                                         text: Inch
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:305:Software'
@@ -187,7 +180,6 @@ elements:
                                                                                         components: 8
                                                                                         value: czo3OiJ2NTU4LTgzIjs=
                                                                                         clear_value: 's:7:"v558-83";'
-                                                                                        bytes_hash: 611d056f1e79aefa50a149341b6361d0b343e593625818d9d7dd6b5e47773879
                                                                                         text: v558-83
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:306:DateTime'
@@ -205,7 +197,6 @@ elements:
                                                                                         components: 20
                                                                                         value: czoxOToiMDAwMDowMDowMCAwMDowMDowMCI7
                                                                                         clear_value: 's:19:"0000:00:00 00:00:00";'
-                                                                                        bytes_hash: a64fe69c067c506f32cfd0a5814529debccd2c88f3b2300a9b92a076d55e5006
                                                                                         text: '0000:00:00 00:00:00'
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:531:YCbCrPositioning'
@@ -223,7 +214,6 @@ elements:
                                                                                         components: 1
                                                                                         value: aToyOw==
                                                                                         clear_value: 'i:2;'
-                                                                                        bytes_hash: 99be5efb88ca2013bd8e4eb035fd42d5245468fe9afa70d8ba9c1c419a48c4e8
                                                                                         text: co-sited
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:50341:PrintIM'
@@ -241,7 +231,6 @@ elements:
                                                                                         components: 244
                                                                                         value: czoyNDQ6IlByaW50SU0AMDI1MAAAFAABABQAFAACAAEAAAADAIgAAAAHAAAAAAAIAAAAAAAJAAAAAAAKAAAAAAALANAAAAAMAAAAAAANAAAAAAAOAOgAAAAAAQEAAAABAf8AAAACAYMAAAADAYMAAAAEAYAAAAAFAYMAAAAGAYMAAAAHAYCAgAAQAYAAAAAJEQAAECcAAAsPAAAQJwAAlwUAABAnAACwCAAAECcAAAEcAAAQJwAAXgIAABAnAACLAAAAECcAAMsDAAAQJwAA5RsAABAnAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiOw==
                                                                                         clear_value: !!binary czoyNDQ6IlByaW50SU0AMDI1MAAAFAABABQAFAACAAEAAAADAIgAAAAHAAAAAAAIAAAAAAAJAAAAAAAKAAAAAAALANAAAAAMAAAAAAANAAAAAAAOAOgAAAAAAQEAAAABAf8AAAACAYMAAAADAYMAAAAEAYAAAAAFAYMAAAAGAYMAAAAHAYCAgAAQAYAAAAAJEQAAECcAAAsPAAAQJwAAlwUAABAnAACwCAAAECcAAAEcAAAQJwAAXgIAABAnAACLAAAAECcAAMsDAAAQJwAA5RsAABAnAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiOw==
-                                                                                        bytes_hash: 79b385bf657d927631e16572089b240854314f88fcb678217b5014f53510682a
                                                                                         text: '244 bytes of data [ 50 72 69 6E 74 49 ... 00 00 00 00 00 00 ]'
                                                                     ifd:
                                                                         -
@@ -267,7 +256,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: YToyOntpOjA7aToxMDtpOjE7aTo0MDt9
                                                                                                     clear_value: 'a:2:{i:0;i:10;i:1;i:40;}'
-                                                                                                    bytes_hash: 1f5f5f741730f6f4b5f6368019ed5a7c5e37343fac8a7b5e7d2e7c5c93d462e2
                                                                                                     text: '1/4 sec.'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:33437:FNumber'
@@ -285,7 +273,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: YToyOntpOjA7aToyNjtpOjE7aToxMDt9
                                                                                                     clear_value: 'a:2:{i:0;i:26;i:1;i:10;}'
-                                                                                                    bytes_hash: 5f4b6dc97c7e5d15ade2c803036bddbccd4cdafaeec7a78ca267def6e2b1754a
                                                                                                     text: f/2.6
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:34850:ExposureProgram'
@@ -303,7 +290,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aToyOw==
                                                                                                     clear_value: 'i:2;'
-                                                                                                    bytes_hash: 99be5efb88ca2013bd8e4eb035fd42d5245468fe9afa70d8ba9c1c419a48c4e8
                                                                                                     text: 'Normal program'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:34855:ISOSpeedRatings'
@@ -321,7 +307,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aTo2NDs=
                                                                                                     clear_value: 'i:64;'
-                                                                                                    bytes_hash: eec4121f2a07b61aba16414812aa9afc39ab0a136360a5ace2240dc19b0464eb
                                                                                                     text: 64
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36864:ExifVersion'
@@ -339,7 +324,6 @@ elements:
                                                                                                     components: 4
                                                                                                     value: czozOiIyLjIiOw==
                                                                                                     clear_value: 's:3:"2.2";'
-                                                                                                    bytes_hash: 42ca2cc50238a49486ffbdacfe7229988db5049c4bb1c5f1de26fdb0883a48a0
                                                                                                     text: 'Exif Version 2.2'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36867:DateTimeOriginal'
@@ -357,7 +341,6 @@ elements:
                                                                                                     components: 20
                                                                                                     value: czoxOToiMDAwMDowMDowMCAwMDowMDowMCI7
                                                                                                     clear_value: 's:19:"0000:00:00 00:00:00";'
-                                                                                                    bytes_hash: a64fe69c067c506f32cfd0a5814529debccd2c88f3b2300a9b92a076d55e5006
                                                                                                     text: '0000:00:00 00:00:00'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36868:DateTimeDigitized'
@@ -375,7 +358,6 @@ elements:
                                                                                                     components: 20
                                                                                                     value: czoxOToiMDAwMDowMDowMCAwMDowMDowMCI7
                                                                                                     clear_value: 's:19:"0000:00:00 00:00:00";'
-                                                                                                    bytes_hash: a64fe69c067c506f32cfd0a5814529debccd2c88f3b2300a9b92a076d55e5006
                                                                                                     text: '0000:00:00 00:00:00'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37121:ComponentsConfiguration'
@@ -393,7 +375,6 @@ elements:
                                                                                                     components: 4
                                                                                                     value: czo0OiIBAgMAIjs=
                                                                                                     clear_value: !!binary czo0OiIBAgMAIjs=
-                                                                                                    bytes_hash: 1666d9845b241586380fe85194c47f1d1868c4d7d30ba806ecc6d581df9eeadc
                                                                                                     text: 'Y Cb Cr -'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37122:CompressedBitsPerPixel'
@@ -411,7 +392,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: YToyOntpOjA7aToyO2k6MTtpOjE7fQ==
                                                                                                     clear_value: 'a:2:{i:0;i:2;i:1;i:1;}'
-                                                                                                    bytes_hash: 7b2ed67587fcbc411fcb4b71b1cef1ef6cd9edf948148414cf5f0ab21362b9aa
                                                                                                     text: 2/1
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37380:ExposureBiasValue'
@@ -429,7 +409,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: YToyOntpOjA7aTowO2k6MTtpOjEwO30=
                                                                                                     clear_value: 'a:2:{i:0;i:0;i:1;i:10;}'
-                                                                                                    bytes_hash: dd73a46975594b97bfef18db6ea376dafa119d27bfa7b0e2f94e0e3e67420f42
                                                                                                     text: '0.0'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37381:MaxApertureValue'
@@ -447,7 +426,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: YToyOntpOjA7aToyODtpOjE7aToxMDt9
                                                                                                     clear_value: 'a:2:{i:0;i:28;i:1;i:10;}'
-                                                                                                    bytes_hash: 4fba140f7315a66df6d4de21b4a92a26248a9a96a0c83a33b8b9ecf3cb10301b
                                                                                                     text: 28/10
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37383:MeteringMode'
@@ -465,7 +443,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aTo1Ow==
                                                                                                     clear_value: 'i:5;'
-                                                                                                    bytes_hash: 2921a11f25dadaa24aa79a548e4e81508c2e5e56af2d833d65e2bcce448ce2f5
                                                                                                     text: Pattern
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37384:LightSource'
@@ -483,7 +460,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aTowOw==
                                                                                                     clear_value: 'i:0;'
-                                                                                                    bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                     text: Unknown
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37385:Flash'
@@ -501,7 +477,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aToxNjs=
                                                                                                     clear_value: 'i:16;'
-                                                                                                    bytes_hash: 707bf0b938f307b5c222e670598b865d5e1f8a8003df82c7abbf7c9f8fa4d720
                                                                                                     text: 'Flash did not fire, compulsory flash mode.'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37386:FocalLength'
@@ -519,7 +494,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: YToyOntpOjA7aToyMTM7aToxO2k6MTA7fQ==
                                                                                                     clear_value: 'a:2:{i:0;i:213;i:1;i:10;}'
-                                                                                                    bytes_hash: 127c5173b0cf2932cf5fd8ff0387a3bbdcee4cc0b3dd287071fff5752b9961e1
                                                                                                     text: '21.3 mm'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37500:MakerNote'
@@ -537,7 +511,6 @@ elements:
                                                                                                     components: 600
                                                                                                     value: YToyOntpOjA7czo2MDA6Ik9MWU1QAAEAEAAAAgQAAwAAANYFAAABAgMAAQAAAAEAAAACAgMAAQAAAAAAAAADAgMAAQAAAAAAAAAEAgUAAQAAAOIFAAAFAgUAAQAAAOoFAAAGAggABgAAAPIFAAAHAgIACAAAAP4FAAAIAgIANAAAAAYGAAAJAgcAIAAAAEIGAAAAAwMAAQAAAAAAAAABAwMAAQAAAAAAAAACAwMAAQAAAAEAAAADAwMAAQAAAAAAAAAEAwMAAQAAAAAAAAAADwcA/gAAAGIGAAAAAAAAAAAAAAAAAAAAAAAAZAAAAGQAAACIAwAAZAAAAAMADQASABkAOABJAFNYNTU4AAAAW3BpY3R1cmVJbmZvXSBSZXNvbHV0aW9uPTEgW0NhbWVyYSBJbmZvXSBUeXBlPVNYNTU4AAAAAAAAAAAAT0xZTVBVUyBESUdJVEFMIENBTUVSQQD///////////8AAAAAAAAAAAAAAAAAAAAAMc8TAAAAAAHoSAAAA7UAAeXTAAAUVQAAFFUBAB8AC6kAEgMxAQABwAHmAfwB6dAAAOgRSgAAFBQAAAAAAAAAAAAAAAAAAAscAABAAAsZAAAAZwAAAGcA6BZJAAAAEgADy6b//////////////////////////xlhEjEAdgE/Ac8CWQEVAgACnAAwC5UNFAIAAMkDiwIAAW4DkwPtAXIBANBbAAwADAACA1IAAQAAAAAACQAyAAoAAAABAEgAhwBkAHgODg4OEREREQAAAAAAABQdDhcAAAoAGwAAGgAAAAABADIPQkAPAABkKiAAACI7aToxO2k6MTI4ODt9
                                                                                                     clear_value: !!binary YToyOntpOjA7czo2MDA6Ik9MWU1QAAEAEAAAAgQAAwAAANYFAAABAgMAAQAAAAEAAAACAgMAAQAAAAAAAAADAgMAAQAAAAAAAAAEAgUAAQAAAOIFAAAFAgUAAQAAAOoFAAAGAggABgAAAPIFAAAHAgIACAAAAP4FAAAIAgIANAAAAAYGAAAJAgcAIAAAAEIGAAAAAwMAAQAAAAAAAAABAwMAAQAAAAAAAAACAwMAAQAAAAEAAAADAwMAAQAAAAAAAAAEAwMAAQAAAAAAAAAADwcA/gAAAGIGAAAAAAAAAAAAAAAAAAAAAAAAZAAAAGQAAACIAwAAZAAAAAMADQASABkAOABJAFNYNTU4AAAAW3BpY3R1cmVJbmZvXSBSZXNvbHV0aW9uPTEgW0NhbWVyYSBJbmZvXSBUeXBlPVNYNTU4AAAAAAAAAAAAT0xZTVBVUyBESUdJVEFMIENBTUVSQQD///////////8AAAAAAAAAAAAAAAAAAAAAMc8TAAAAAAHoSAAAA7UAAeXTAAAUVQAAFFUBAB8AC6kAEgMxAQABwAHmAfwB6dAAAOgRSgAAFBQAAAAAAAAAAAAAAAAAAAscAABAAAsZAAAAZwAAAGcA6BZJAAAAEgADy6b//////////////////////////xlhEjEAdgE/Ac8CWQEVAgACnAAwC5UNFAIAAMkDiwIAAW4DkwPtAXIBANBbAAwADAACA1IAAQAAAAAACQAyAAoAAAABAEgAhwBkAHgODg4OEREREQAAAAAAABQdDhcAAAoAGwAAGgAAAAABADIPQkAPAABkKiAAACI7aToxO2k6MTI4ODt9
-                                                                                                    bytes_hash: null
                                                                                                     text: '600 bytes MakerNote data'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37510:UserComment'
@@ -555,7 +528,6 @@ elements:
                                                                                                     components: 125
                                                                                                     value: YToyOntpOjA7czoxMTc6IiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICI7aToxO3M6MDoiIjt9
                                                                                                     clear_value: 'a:2:{i:0;s:117:"                                                                                                                     ";i:1;s:0:"";}'
-                                                                                                    bytes_hash: 652413a4822d78c1bed4ebe59bd1c942bca07b6834f9685231bf6337b3971ab1
                                                                                                     text: '                                                                                                                     '
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40960:FlashPixVersion'
@@ -573,7 +545,6 @@ elements:
                                                                                                     components: 4
                                                                                                     value: czozOiIxLjAiOw==
                                                                                                     clear_value: 's:3:"1.0";'
-                                                                                                    bytes_hash: 5e7b571a60a7c187d6a4cb8bbedbe4e69d4caa49b51d9ddf3320afd793f146bf
                                                                                                     text: 'FlashPix Version 1.0'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40961:ColorSpace'
@@ -591,7 +562,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aToxOw==
                                                                                                     clear_value: 'i:1;'
-                                                                                                    bytes_hash: 47dc540c94ceb704a23875c11273e16bb0b8a87aed84de911f2133568115f254
                                                                                                     text: sRGB
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40962:PixelXDimension'
@@ -609,7 +579,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aTo2NDA7
                                                                                                     clear_value: 'i:640;'
-                                                                                                    bytes_hash: 47e4832e73aa4486603c98ec56f86a96a95a202254467d711d361b930cd02caf
                                                                                                     text: 640
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40963:PixelYDimension'
@@ -627,7 +596,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aTo0ODA7
                                                                                                     clear_value: 'i:480;'
-                                                                                                    bytes_hash: 961ae28829f0b1cfbd073eff070ac5ea8994618c0e84fab4764367464a14b854
                                                                                                     text: 480
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:41728:FileSource'
@@ -645,7 +613,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: czoxOiIDIjs=
                                                                                                     clear_value: !!binary czoxOiIDIjs=
-                                                                                                    bytes_hash: 084fed08b978af4d7d196a7446a86b58009e636b611db16211b65a9aadff29c5
                                                                                                     text: DSC
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:41729:SceneType'
@@ -663,7 +630,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: czoxOiIBIjs=
                                                                                                     clear_value: !!binary czoxOiIBIjs=
-                                                                                                    bytes_hash: 4bf5122f344554c53bde2ebb8cd2b7e3d1600ad631c385a5d7cce23c7785459a
                                                                                                     text: 'Directly photographed'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:41985:CustomRendered'
@@ -681,7 +647,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aTowOw==
                                                                                                     clear_value: 'i:0;'
-                                                                                                    bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                     text: 'Normal process'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:41986:ExposureMode'
@@ -699,7 +664,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aTowOw==
                                                                                                     clear_value: 'i:0;'
-                                                                                                    bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                     text: 'Auto exposure'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:41987:WhiteBalance'
@@ -717,7 +681,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aToxOw==
                                                                                                     clear_value: 'i:1;'
-                                                                                                    bytes_hash: 47dc540c94ceb704a23875c11273e16bb0b8a87aed84de911f2133568115f254
                                                                                                     text: 'Manual white balance'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:41988:DigitalZoomRatio'
@@ -735,7 +698,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: YToyOntpOjA7aTowO2k6MTtpOjEwMDt9
                                                                                                     clear_value: 'a:2:{i:0;i:0;i:1;i:100;}'
-                                                                                                    bytes_hash: f2f3d219dfaef4ad7dcdeac16fa8e277071029026b1cdd5c694e0e577d20bdbd
                                                                                                     text: 0/100
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:41990:SceneCaptureType'
@@ -753,7 +715,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aTowOw==
                                                                                                     clear_value: 'i:0;'
-                                                                                                    bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                     text: Standard
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:41991:GainControl'
@@ -771,7 +732,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aTowOw==
                                                                                                     clear_value: 'i:0;'
-                                                                                                    bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                     text: Normal
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:41992:Contrast'
@@ -789,7 +749,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aTowOw==
                                                                                                     clear_value: 'i:0;'
-                                                                                                    bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                     text: Normal
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:41993:Saturation'
@@ -807,7 +766,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aTowOw==
                                                                                                     clear_value: 'i:0;'
-                                                                                                    bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                     text: Normal
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:41994:Sharpness'
@@ -825,7 +783,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aTowOw==
                                                                                                     clear_value: 'i:0;'
-                                                                                                    bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                     text: Normal
                                                                                 ifd:
                                                                                     -
@@ -851,7 +808,6 @@ elements:
                                                                                                                 components: 4
                                                                                                                 value: czozOiJSOTgiOw==
                                                                                                                 clear_value: 's:3:"R98";'
-                                                                                                                bytes_hash: 3c013d3ab26e4330d8b866ea2aa1b79258d1cfaddf3e411f48876b520903f6d5
                                                                                                                 text: R98
                                                                                                 -
                                                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:Interoperability/tag:2:InteroperabilityVersion'
@@ -869,7 +825,6 @@ elements:
                                                                                                                 components: 4
                                                                                                                 value: czozOiIxLjAiOw==
                                                                                                                 clear_value: 's:3:"1.0";'
-                                                                                                                bytes_hash: 5e7b571a60a7c187d6a4cb8bbedbe4e69d4caa49b51d9ddf3320afd793f146bf
                                                                                                                 text: 'Interoperability Version 1.0'
                                                             -
                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD1'
@@ -894,7 +849,6 @@ elements:
                                                                                         components: 1
                                                                                         value: aTo2Ow==
                                                                                         clear_value: 'i:6;'
-                                                                                        bytes_hash: ceb827ad3d3884fd4d50ae6099d6d50c09a21e72ebd309708e8b69d93df19e55
                                                                                         text: 'JPEG (old-style)'
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD1/tag:282:XResolution'
@@ -912,7 +866,6 @@ elements:
                                                                                         components: 1
                                                                                         value: YToyOntpOjA7aTo3MjtpOjE7aToxO30=
                                                                                         clear_value: 'a:2:{i:0;i:72;i:1;i:1;}'
-                                                                                        bytes_hash: 2aefa085fcca66b9437773316dc7a1aebe8ac11614b03e744f60f0b6f9ae54e1
                                                                                         text: 72/1
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD1/tag:283:YResolution'
@@ -930,7 +883,6 @@ elements:
                                                                                         components: 1
                                                                                         value: YToyOntpOjA7aTo3MjtpOjE7aToxO30=
                                                                                         clear_value: 'a:2:{i:0;i:72;i:1;i:1;}'
-                                                                                        bytes_hash: 2aefa085fcca66b9437773316dc7a1aebe8ac11614b03e744f60f0b6f9ae54e1
                                                                                         text: 72/1
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD1/tag:296:ResolutionUnit'
@@ -948,7 +900,6 @@ elements:
                                                                                         components: 1
                                                                                         value: aToyOw==
                                                                                         clear_value: 'i:2;'
-                                                                                        bytes_hash: 99be5efb88ca2013bd8e4eb035fd42d5245468fe9afa70d8ba9c1c419a48c4e8
                                                                                         text: Inch
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD1/tag:513:ThumbnailOffset'
@@ -966,7 +917,6 @@ elements:
                                                                                         components: 1
                                                                                         value: aTo0MDg0Ow==
                                                                                         clear_value: 'i:4084;'
-                                                                                        bytes_hash: bc771c6388d857174ab0a8629d2832d9b828b0ed15d0c87adf3f838b5d0c57ac
                                                                                         text: 4084
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD1/tag:514:ThumbnailLength'
@@ -984,7 +934,6 @@ elements:
                                                                                         components: 1
                                                                                         value: aToyNzA5Ow==
                                                                                         clear_value: 'i:2709;'
-                                                                                        bytes_hash: 5dbcb18305952e62f22cdb821801e75ef72ed55728d32a9d4499b96e59279b3e
                                                                                         text: 2709
                                                                     thumbnail:
                                                                         -
@@ -1001,7 +950,6 @@ elements:
                                                                                         components: 2709
                                                                                         value: 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
                                                                                         clear_value: !!binary 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
-                                                                                        bytes_hash: cd455fb58d379b2a15907010b7b0adc54e737452d004be340e4348e04aee77af
                                                                                         text: '2709 bytes of data [ FF D8 FF DB 00 C5 ... D3 49 4C 0F FF D9 ]'
                         -
                             path: '/image/jpeg/jpegSegment:219:DQT'
@@ -1017,7 +965,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 197
-                                        bytes_hash: c3fa8a67ad2b3b1334dbbb9ef94d0b6fd4d4cbda2f120068f00a98fbaedbf8b5
                                         text: '197 bytes of data [ 00 C5 00 04 03 03 ... 1C 1C 1C 1C 1C 1C ]'
                         -
                             path: '/image/jpeg/jpegSegment:196:DHT'
@@ -1033,7 +980,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 418
-                                        bytes_hash: 403d2314bbba2bba82dcc023a90ab42891e776dbfe4013913cf28a1ee18ff3ec
                                         text: '418 bytes of data [ 01 A2 00 00 01 05 ... F5 F6 F7 F8 F9 FA ]'
                         -
                             path: '/image/jpeg/jpegSegment:192:SOF0'
@@ -1049,7 +995,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 17
-                                        bytes_hash: 951424c9df7d71734dbf26ba772ceb551a13021b41d56842be8bab0815ae2c9f
                                         text: '17 bytes of data [ 00 11 08 01 E0 02 ... 02 11 01 03 11 01 ]'
                         -
                             path: '/image/jpeg/jpegSegment:218:SOS'
@@ -1065,7 +1010,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 38653
-                                        bytes_hash: 5383a7a1acf0d061fb526fe1532815f518da3ce73d99826f5bd2c2dc065490bb
                                         text: '38653 bytes of data [ 00 0C 03 01 00 02 ... CD 21 F5 AA 0B 9F ]'
                         -
                             path: '/image/jpeg/jpegSegment:217:EOI'

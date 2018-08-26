@@ -32,7 +32,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 16
-                                        bytes_hash: 3eaae40fc3672091bca14e4fa3aef414b1fdeb8882be3d2a46aef5b514de5fee
                                         text: '16 bytes of data [ 00 10 4A 46 49 46 ... 00 B4 00 B4 00 00 ]'
                         -
                             path: '/image/jpeg/jpegSegment:225:APP1'
@@ -77,7 +76,6 @@ elements:
                                                                                         components: 6
                                                                                         value: czo1OiJDYW5vbiI7
                                                                                         clear_value: 's:5:"Canon";'
-                                                                                        bytes_hash: b5edee73f941eea170ee29869f58904d00d5f0cc7bf17fba04fb1ed50e5c48e0
                                                                                         text: Canon
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:272:Model'
@@ -95,7 +93,6 @@ elements:
                                                                                         components: 19
                                                                                         value: czoxODoiQ2Fub24gUG93ZXJTaG90IEczIjs=
                                                                                         clear_value: 's:18:"Canon PowerShot G3";'
-                                                                                        bytes_hash: 3dfa933cd0ceb8518f09e4a4d41fa2cf5880f9d615d25fddcdbe0d582bba602c
                                                                                         text: 'Canon PowerShot G3'
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:274:Orientation'
@@ -113,7 +110,6 @@ elements:
                                                                                         components: 1
                                                                                         value: aTo4Ow==
                                                                                         clear_value: 'i:8;'
-                                                                                        bytes_hash: e545d395bb3fd971f91bf9a2b6722831df704efae6c1aa9da0989ed0970b77bb
                                                                                         text: 'left - bottom'
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:282:XResolution'
@@ -131,7 +127,6 @@ elements:
                                                                                         components: 1
                                                                                         value: YToyOntpOjA7aToxODA7aToxO2k6MTt9
                                                                                         clear_value: 'a:2:{i:0;i:180;i:1;i:1;}'
-                                                                                        bytes_hash: 8354c1ea329666ba9fcef7d5adf95cc8227f5b9af381fddc8e3cb8a6937a13b8
                                                                                         text: 180/1
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:283:YResolution'
@@ -149,7 +144,6 @@ elements:
                                                                                         components: 1
                                                                                         value: YToyOntpOjA7aToxODA7aToxO2k6MTt9
                                                                                         clear_value: 'a:2:{i:0;i:180;i:1;i:1;}'
-                                                                                        bytes_hash: 8354c1ea329666ba9fcef7d5adf95cc8227f5b9af381fddc8e3cb8a6937a13b8
                                                                                         text: 180/1
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:296:ResolutionUnit'
@@ -167,7 +161,6 @@ elements:
                                                                                         components: 1
                                                                                         value: aToyOw==
                                                                                         clear_value: 'i:2;'
-                                                                                        bytes_hash: 99be5efb88ca2013bd8e4eb035fd42d5245468fe9afa70d8ba9c1c419a48c4e8
                                                                                         text: Inch
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:306:DateTime'
@@ -185,7 +178,6 @@ elements:
                                                                                         components: 20
                                                                                         value: czoxOToiMjAwNDowOTowNiAxMjo0MTozMCI7
                                                                                         clear_value: 's:19:"2004:09:06 12:41:30";'
-                                                                                        bytes_hash: 9e9638977a9e2580c2391bad3356fffed10cdda3ae5fcc5d26531cff25201a5b
                                                                                         text: '2004:09:06 12:41:30'
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:531:YCbCrPositioning'
@@ -203,7 +195,6 @@ elements:
                                                                                         components: 1
                                                                                         value: aToxOw==
                                                                                         clear_value: 'i:1;'
-                                                                                        bytes_hash: 47dc540c94ceb704a23875c11273e16bb0b8a87aed84de911f2133568115f254
                                                                                         text: centered
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:41495'
@@ -220,7 +211,6 @@ elements:
                                                                                         components: 1
                                                                                         value: aToyOw==
                                                                                         clear_value: 'i:2;'
-                                                                                        bytes_hash: 99be5efb88ca2013bd8e4eb035fd42d5245468fe9afa70d8ba9c1c419a48c4e8
                                                                                         text: 2
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:41985'
@@ -237,7 +227,6 @@ elements:
                                                                                         components: 1
                                                                                         value: aTowOw==
                                                                                         clear_value: 'i:0;'
-                                                                                        bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                         text: 0
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:41986'
@@ -254,7 +243,6 @@ elements:
                                                                                         components: 1
                                                                                         value: aTowOw==
                                                                                         clear_value: 'i:0;'
-                                                                                        bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                         text: 0
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:41987'
@@ -271,7 +259,6 @@ elements:
                                                                                         components: 1
                                                                                         value: aTowOw==
                                                                                         clear_value: 'i:0;'
-                                                                                        bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                         text: 0
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:41988'
@@ -288,7 +275,6 @@ elements:
                                                                                         components: 1
                                                                                         value: YToyOntpOjA7aToyMjcyO2k6MTtpOjIyNzI7fQ==
                                                                                         clear_value: 'a:2:{i:0;i:2272;i:1;i:2272;}'
-                                                                                        bytes_hash: b8494318f6b8cae4094d52e078ef0dd0b1d2dd06cbe9d8827e5c921dd7e9de06
                                                                                         text: 2272/2272
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:41990'
@@ -305,7 +291,6 @@ elements:
                                                                                         components: 1
                                                                                         value: aTowOw==
                                                                                         clear_value: 'i:0;'
-                                                                                        bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                         text: 0
                                                                     ifd:
                                                                         -
@@ -331,7 +316,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: YToyOntpOjA7aToxO2k6MTtpOjI1MDt9
                                                                                                     clear_value: 'a:2:{i:0;i:1;i:1;i:250;}'
-                                                                                                    bytes_hash: 0091fef27803edd410d5266c5737c978a2af2fddeafd238562c8a05a9ba3c4c6
                                                                                                     text: '1/250 sec.'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:33437:FNumber'
@@ -349,7 +333,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: YToyOntpOjA7aTo0MDtpOjE7aToxMDt9
                                                                                                     clear_value: 'a:2:{i:0;i:40;i:1;i:10;}'
-                                                                                                    bytes_hash: 283639d212a817a66947bb80399f10a6834fa707a89a44c198944d3ae6561039
                                                                                                     text: f/4.0
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36864:ExifVersion'
@@ -367,7 +350,6 @@ elements:
                                                                                                     components: 4
                                                                                                     value: czozOiIyLjIiOw==
                                                                                                     clear_value: 's:3:"2.2";'
-                                                                                                    bytes_hash: 42ca2cc50238a49486ffbdacfe7229988db5049c4bb1c5f1de26fdb0883a48a0
                                                                                                     text: 'Exif Version 2.2'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36867:DateTimeOriginal'
@@ -385,7 +367,6 @@ elements:
                                                                                                     components: 20
                                                                                                     value: czoxOToiMjAwNDowOTowNiAxMjo0MTozMCI7
                                                                                                     clear_value: 's:19:"2004:09:06 12:41:30";'
-                                                                                                    bytes_hash: 9e9638977a9e2580c2391bad3356fffed10cdda3ae5fcc5d26531cff25201a5b
                                                                                                     text: '2004:09:06 12:41:30'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36868:DateTimeDigitized'
@@ -403,7 +384,6 @@ elements:
                                                                                                     components: 20
                                                                                                     value: czoxOToiMjAwNDowOTowNiAxMjo0MTozMCI7
                                                                                                     clear_value: 's:19:"2004:09:06 12:41:30";'
-                                                                                                    bytes_hash: 9e9638977a9e2580c2391bad3356fffed10cdda3ae5fcc5d26531cff25201a5b
                                                                                                     text: '2004:09:06 12:41:30'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37121:ComponentsConfiguration'
@@ -421,7 +401,6 @@ elements:
                                                                                                     components: 4
                                                                                                     value: czo0OiIBAgMAIjs=
                                                                                                     clear_value: !!binary czo0OiIBAgMAIjs=
-                                                                                                    bytes_hash: 1666d9845b241586380fe85194c47f1d1868c4d7d30ba806ecc6d581df9eeadc
                                                                                                     text: 'Y Cb Cr -'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37122:CompressedBitsPerPixel'
@@ -439,7 +418,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: YToyOntpOjA7aTozO2k6MTtpOjE7fQ==
                                                                                                     clear_value: 'a:2:{i:0;i:3;i:1;i:1;}'
-                                                                                                    bytes_hash: f5bd7cea475f5b00862f9725fe5d6fffe54dc86724895171eac28345106ef72f
                                                                                                     text: 3/1
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37377:ShutterSpeedValue'
@@ -457,7 +435,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: YToyOntpOjA7aToyNTU7aToxO2k6MzI7fQ==
                                                                                                     clear_value: 'a:2:{i:0;i:255;i:1;i:32;}'
-                                                                                                    bytes_hash: 1fe6e083d1d945bebc561f0767afc95c67bb785b2d761fca515a12ab05a263a1
                                                                                                     text: '255/32 sec. (APEX: 15)'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37378:ApertureValue'
@@ -475,7 +452,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: YToyOntpOjA7aToxMjg7aToxO2k6MzI7fQ==
                                                                                                     clear_value: 'a:2:{i:0;i:128;i:1;i:32;}'
-                                                                                                    bytes_hash: e830fa0127fca536e52f89f5286316a10880c5a5d40a4f0cca66dfb23c76cfae
                                                                                                     text: '4.0'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37380:ExposureBiasValue'
@@ -493,7 +469,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: YToyOntpOjA7aTowO2k6MTtpOjM7fQ==
                                                                                                     clear_value: 'a:2:{i:0;i:0;i:1;i:3;}'
-                                                                                                    bytes_hash: 9ae4c9d0864c30005acac91f21015f39e35691a056d606a097c8cf8380275a17
                                                                                                     text: '0.0'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37381:MaxApertureValue'
@@ -511,7 +486,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: YToyOntpOjA7aTo3MztpOjE7aTozMjt9
                                                                                                     clear_value: 'a:2:{i:0;i:73;i:1;i:32;}'
-                                                                                                    bytes_hash: 13fc56f4e2c0aaaa19cde570ddd08e31d3a418333ac05a2ecf1c7ae23e8f0a56
                                                                                                     text: 73/32
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37383:MeteringMode'
@@ -529,7 +503,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aTo1Ow==
                                                                                                     clear_value: 'i:5;'
-                                                                                                    bytes_hash: 2921a11f25dadaa24aa79a548e4e81508c2e5e56af2d833d65e2bcce448ce2f5
                                                                                                     text: Pattern
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37385:Flash'
@@ -547,7 +520,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aToyNDs=
                                                                                                     clear_value: 'i:24;'
-                                                                                                    bytes_hash: 78a23af8da46b1b37e8767921a2d3f528fdc8eca37cea8aea775fd2b283d3776
                                                                                                     text: 'Flash did not fire, auto mode.'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37386:FocalLength'
@@ -565,7 +537,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: YToyOntpOjA7aTo0MDY7aToxO2k6MzI7fQ==
                                                                                                     clear_value: 'a:2:{i:0;i:406;i:1;i:32;}'
-                                                                                                    bytes_hash: e9938a241c8f3551188d416f8838d95d6e761dbaa9a045da5e000874b77ea7eb
                                                                                                     text: '12.7 mm'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37500:MakerNote'
@@ -583,7 +554,6 @@ elements:
                                                                                                     components: 606
                                                                                                     value: YToyOntpOjA7czo2MDY6Ig4AAQADAC4AAABcBAAAAgADAAQAAAC4BAAAAwADAAQAAADABAAABAADACIAAADIBAAAAAADAAYAAAAMBQAAAAADAAQAAAAYBQAAEgADACQAAAAgBQAAEwADAAQAAABoBQAABgACACAAAABwBQAABwACABgAAACQBQAACAAEAAEAAAC6fxQACQACACAAAACoBQAAEAAEAAEAAAAAABkBDQADACIAAADIBQAAAAAAAFwAAgAAAAMABQAAAAAABAAAAAEAAAAAAAAAAAAAAAAADwADAAEABSAAAP////+aA+YAIABPAMAAAAAAAAAAAAAAAAAA//8AAOAI4AgAAAAAAAAAAP9/AAAAAAAAAgCWAR4B1wAABAAAAAAAAEQAAACAAAIBgAD/AAAAAAAAAAAABQAAAAAAAAAAAAAAAAAAAAEALAIAAIAAAgEAAAAAAAD6AAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJAAEA4AioBuAI1ACZASYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAElNRzpQb3dlclNob3QgRzMgSlBFRwAAAAAAAAAAAAAARmlybXdhcmUgVmVyc2lvbiAxLjAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEAAkAWAIBgAGAAYABgAGAAYABgAGAQAAAAAAAJQAAAAAACgAAAPv/CgBRAGYBHgAAAPwDAAAAAAAAAAAAAHYAAAAAACI7aToxO2k6NjY5O30=
                                                                                                     clear_value: !!binary YToyOntpOjA7czo2MDY6Ig4AAQADAC4AAABcBAAAAgADAAQAAAC4BAAAAwADAAQAAADABAAABAADACIAAADIBAAAAAADAAYAAAAMBQAAAAADAAQAAAAYBQAAEgADACQAAAAgBQAAEwADAAQAAABoBQAABgACACAAAABwBQAABwACABgAAACQBQAACAAEAAEAAAC6fxQACQACACAAAACoBQAAEAAEAAEAAAAAABkBDQADACIAAADIBQAAAAAAAFwAAgAAAAMABQAAAAAABAAAAAEAAAAAAAAAAAAAAAAADwADAAEABSAAAP////+aA+YAIABPAMAAAAAAAAAAAAAAAAAA//8AAOAI4AgAAAAAAAAAAP9/AAAAAAAAAgCWAR4B1wAABAAAAAAAAEQAAACAAAIBgAD/AAAAAAAAAAAABQAAAAAAAAAAAAAAAAAAAAEALAIAAIAAAgEAAAAAAAD6AAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJAAEA4AioBuAI1ACZASYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAElNRzpQb3dlclNob3QgRzMgSlBFRwAAAAAAAAAAAAAARmlybXdhcmUgVmVyc2lvbiAxLjAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABEAAkAWAIBgAGAAYABgAGAAYABgAGAQAAAAAAAJQAAAAAACgAAAPv/CgBRAGYBHgAAAPwDAAAAAAAAAAAAAHYAAAAAACI7aToxO2k6NjY5O30=
-                                                                                                    bytes_hash: null
                                                                                                     text: '606 bytes MakerNote data'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37510:UserComment'
@@ -601,7 +571,6 @@ elements:
                                                                                                     components: 264
                                                                                                     value: YToyOntpOjA7czoyNTY6IgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAiO2k6MTtzOjA6IiI7fQ==
                                                                                                     clear_value: "a:2:{i:0;s:256:\"\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\";i:1;s:0:\"\";}"
-                                                                                                    bytes_hash: 44b8aa4d28701168922acf61435ea4bb442f97b0b14ad7a2510ed68874ee2a72
                                                                                                     text: "\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0"
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40960:FlashPixVersion'
@@ -619,7 +588,6 @@ elements:
                                                                                                     components: 4
                                                                                                     value: czozOiIxLjAiOw==
                                                                                                     clear_value: 's:3:"1.0";'
-                                                                                                    bytes_hash: 5e7b571a60a7c187d6a4cb8bbedbe4e69d4caa49b51d9ddf3320afd793f146bf
                                                                                                     text: 'FlashPix Version 1.0'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40961:ColorSpace'
@@ -637,7 +605,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aToxOw==
                                                                                                     clear_value: 'i:1;'
-                                                                                                    bytes_hash: 47dc540c94ceb704a23875c11273e16bb0b8a87aed84de911f2133568115f254
                                                                                                     text: sRGB
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40962:PixelXDimension'
@@ -655,7 +622,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aToyMjcyOw==
                                                                                                     clear_value: 'i:2272;'
-                                                                                                    bytes_hash: e59905cec2da53c1dbcbf39eb4738e413bbeeefb700b1f20c44255984a5d3889
                                                                                                     text: 2272
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40963:PixelYDimension'
@@ -673,7 +639,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aToxNzA0Ow==
                                                                                                     clear_value: 'i:1704;'
-                                                                                                    bytes_hash: 888cfd4f76ade851ae4c39fd472473338ae797318d824546855c6fa60543b08a
                                                                                                     text: 1704
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40965:InteroperabilityIFDPointer'
@@ -691,7 +656,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aToxNTcyOw==
                                                                                                     clear_value: 'i:1572;'
-                                                                                                    bytes_hash: e4229ffb0bbec7cef9a0c33f6b388107003dbfc980ba05b9d2055754f97369b0
                                                                                                     text: 1572
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:41486:FocalPlaneXResolution'
@@ -709,7 +673,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: YToyOntpOjA7aToyMjcyMDAwO2k6MTtpOjI4MDt9
                                                                                                     clear_value: 'a:2:{i:0;i:2272000;i:1;i:280;}'
-                                                                                                    bytes_hash: 60d918f709e14ad55deefc0be73d6f4b8a41531c775f639e2526e18207368259
                                                                                                     text: 2272000/280
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:41487:FocalPlaneYResolution'
@@ -727,7 +690,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: YToyOntpOjA7aToxNzA0MDAwO2k6MTtpOjIxMDt9
                                                                                                     clear_value: 'a:2:{i:0;i:1704000;i:1;i:210;}'
-                                                                                                    bytes_hash: 2dc6dfd952ad4ca9f47a7ae0cd546ea34b532d3e5bbe23f3308b0c06d2352337
                                                                                                     text: 1704000/210
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:41488:FocalPlaneResolutionUnit'
@@ -745,7 +707,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aToyOw==
                                                                                                     clear_value: 'i:2;'
-                                                                                                    bytes_hash: 99be5efb88ca2013bd8e4eb035fd42d5245468fe9afa70d8ba9c1c419a48c4e8
                                                                                                     text: Inch
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:41728:FileSource'
@@ -763,7 +724,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: czoxOiIDIjs=
                                                                                                     clear_value: !!binary czoxOiIDIjs=
-                                                                                                    bytes_hash: 084fed08b978af4d7d196a7446a86b58009e636b611db16211b65a9aadff29c5
                                                                                                     text: DSC
                                                                                 ifd:
                                                                                     -
@@ -801,7 +761,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aToxODY4ODs=
                                                                                                                             clear_value: 'i:18688;'
-                                                                                                                            bytes_hash: 8b218b1d3c571d7f8f754bcac93c85e9abf4a384dadd24abce3cd2d3755ace66
                                                                                                                             text: 18688
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:2:SelfTimer'
@@ -819,7 +778,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aToxODI1Mzs=
                                                                                                                             clear_value: 'i:18253;'
-                                                                                                                            bytes_hash: 6f496e9738ca13d116978af2d9a3b15922fd01087585ba27f0aae705fa77bc65
                                                                                                                             text: 18253
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:3:Quality'
@@ -837,7 +795,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aToyMDUzODs=
                                                                                                                             clear_value: 'i:20538;'
-                                                                                                                            bytes_hash: b0695a8866bc27f9b51ea6d73d41813bd2daf5e7b483a6dac16ab7d000f3838e
                                                                                                                             text: 20538
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:4:CanonFlashMode'
@@ -855,7 +812,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTozMDU3NTs=
                                                                                                                             clear_value: 'i:30575;'
-                                                                                                                            bytes_hash: 153078218f243968d9b217d3cfb5e24122d16c7a90e8c01cf92347afa45d106b
                                                                                                                             text: 30575
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:5:ContinuousDrive'
@@ -873,7 +829,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aToyOTI4NTs=
                                                                                                                             clear_value: 'i:29285;'
-                                                                                                                            bytes_hash: cc7e4412564ba8a761bd32ab4cc6086bac3c2c9e580367e0b0eb32a4316f9154
                                                                                                                             text: 29285
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:6'
@@ -890,7 +845,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aToyNjcwNzs=
                                                                                                                             clear_value: 'i:26707;'
-                                                                                                                            bytes_hash: 6385e7644d771232f72b371d77f076326bfae29a8f520ac763b6ac8cfe271e58
                                                                                                                             text: 26707
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:7:FocusMode'
@@ -908,7 +862,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aToyOTgwNzs=
                                                                                                                             clear_value: 'i:29807;'
-                                                                                                                            bytes_hash: 0a19b4727d1fbd3a43ba819816b0ec8fb670b37b9cab4c0327aa0a3f9d162443
                                                                                                                             text: 29807
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:8'
@@ -925,7 +878,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aToxODIwODs=
                                                                                                                             clear_value: 'i:18208;'
-                                                                                                                            bytes_hash: da39319503780ab8cc23284c29e5bfe806a13f6ac32949fddf3ffa401e17c849
                                                                                                                             text: 18208
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:9:RecordMode'
@@ -943,7 +895,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTo4MjQzOw==
                                                                                                                             clear_value: 'i:8243;'
-                                                                                                                            bytes_hash: 70d25f2c1428def16804c3b346ee8d13edcce0709b4aca0b24e6698c8afcaa6e
                                                                                                                             text: 8243
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:10:CanonImageSize'
@@ -961,7 +912,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aToyMDU1NDs=
                                                                                                                             clear_value: 'i:20554;'
-                                                                                                                            bytes_hash: 569ec6135d377e8ac326be2be2fd4cd8f3538fc3c23f33a89e81a4ed83671b7e
                                                                                                                             text: 20554
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:11:EasyMode'
@@ -979,7 +929,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aToxODI0NTs=
                                                                                                                             clear_value: 'i:18245;'
-                                                                                                                            bytes_hash: 29fc5deef180ae86cde702484a18907a55a581dac8e5c2b3453985ec8a5b8578
                                                                                                                             text: 18245
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:12:DigitalZoom'
@@ -997,7 +946,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: None
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:13:Contrast'
@@ -1015,7 +963,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: Normal
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:14:Saturation'
@@ -1033,7 +980,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: Normal
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:15:Sharpness'
@@ -1051,7 +997,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 0
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:16:CameraISO'
@@ -1069,7 +1014,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 0
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:17:MeteringMode'
@@ -1087,7 +1031,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aToxNzkyMDs=
                                                                                                                             clear_value: 'i:17920;'
-                                                                                                                            bytes_hash: c02b4bb4ab96197a9a5a4537d8b87f27c1c8f3f9572d215c505c5f3339ee4399
                                                                                                                             text: 17920
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:18:FocusRange'
@@ -1105,7 +1048,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aToyOTI4OTs=
                                                                                                                             clear_value: 'i:29289;'
-                                                                                                                            bytes_hash: 08c85bd37cdd0ffce8c39ecd7c7f0ff94e6f45af2aa986673b0c9f1a8a2fffea
                                                                                                                             text: 29289
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:19:AFPoint'
@@ -1123,7 +1065,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTozMDU3Mzs=
                                                                                                                             clear_value: 'i:30573;'
-                                                                                                                            bytes_hash: bade9ea57931f2ef43df04da9c1afc263971bca2cc9d0eb931f88ae8293323a9
                                                                                                                             text: 30573
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:20:CanonExposureMode'
@@ -1141,7 +1082,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aToyOTI4MTs=
                                                                                                                             clear_value: 'i:29281;'
-                                                                                                                            bytes_hash: ab5b62081b1d305e78d0daadb2cd23470b3faeb65af7370627798b7219ea2061
                                                                                                                             text: 29281
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:21'
@@ -1158,7 +1098,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTo4MjkzOw==
                                                                                                                             clear_value: 'i:8293;'
-                                                                                                                            bytes_hash: f3401e2083d1f1d4a098c1091a3a9592d0c197a98d0f352d5f97be8c5ddf63d1
                                                                                                                             text: 8293
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:22:LensType'
@@ -1176,7 +1115,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aToyNTk0Mjs=
                                                                                                                             clear_value: 'i:25942;'
-                                                                                                                            bytes_hash: 2dfb4247f67b4118edbf074d2a07f30d812a7c9d7ec7a536de69e2c4fb69bcef
                                                                                                                             text: 25942
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:23:MaxFocalLength'
@@ -1194,7 +1132,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aToyOTU1NDs=
                                                                                                                             clear_value: 'i:29554;'
-                                                                                                                            bytes_hash: 571b0e35550136585f653a70460974d32f85879142300ecb361eff423ac62cd4
                                                                                                                             text: 29554
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:24:MinFocalLength'
@@ -1212,7 +1149,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aToyODUyMTs=
                                                                                                                             clear_value: 'i:28521;'
-                                                                                                                            bytes_hash: 4021fadf187fd2c8277aad0fbc5e8fc4e7f1c75fbb38b6337160f125444790b2
                                                                                                                             text: 28521
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:25:FocalUnits'
@@ -1230,7 +1166,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTo4MzAyOw==
                                                                                                                             clear_value: 'i:8302;'
-                                                                                                                            bytes_hash: 810ec9dd94477aeb42f7efff2ce01c4e5f1c091b09fb1b7e5534fa9b58a4109d
                                                                                                                             text: 8302
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:26:MaxAperture'
@@ -1248,7 +1183,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aToxMTgyNTs=
                                                                                                                             clear_value: 'i:11825;'
-                                                                                                                            bytes_hash: c977dbe785221d34114d345fdf8ff4e18bb4af66750751dbea29407f9738735f
                                                                                                                             text: 11825
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:27:MinAperture'
@@ -1266,7 +1200,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aToxMjMzNjs=
                                                                                                                             clear_value: 'i:12336;'
-                                                                                                                            bytes_hash: f1534392279bddbf9d43dde8701cb5be14b82f76ec6607bf8d6ad557f60f304e
                                                                                                                             text: 12336
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:28:FlashActivity'
@@ -1284,7 +1217,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 0
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:29:FlashDetails'
@@ -1302,7 +1234,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 0
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:30'
@@ -1319,7 +1250,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 0
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:31'
@@ -1336,7 +1266,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 0
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:32:FocusContinuous'
@@ -1354,7 +1283,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: Single
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:33:AESetting'
@@ -1372,7 +1300,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 'Normal AE'
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:34:ImageStabilization'
@@ -1390,7 +1317,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 'Off'
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:35:DisplayAperture'
@@ -1408,7 +1334,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 0
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:36:ZoomSourceWidth'
@@ -1426,7 +1351,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 0
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:37:ZoomTargetWidth'
@@ -1444,7 +1368,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 0
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:38'
@@ -1461,7 +1384,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 0
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:39:SpotMeteringMode'
@@ -1479,7 +1401,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: Center
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:40:PhotoEffect'
@@ -1497,7 +1418,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 'Off'
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:41:ManualFlashOutput'
@@ -1515,7 +1435,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: n/a
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:42:ColorTone'
@@ -1533,7 +1452,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: Normal
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:43'
@@ -1550,7 +1468,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 0
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:44'
@@ -1567,7 +1484,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 0
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:45'
@@ -1584,7 +1500,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aToxNzQwODs=
                                                                                                                             clear_value: 'i:17408;'
-                                                                                                                            bytes_hash: 08a2afecc9feaef6737f055c177a56a363d28a78d7b259b8c5f66b32174f2e7d
                                                                                                                             text: 17408
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonCameraSettings/tag:46:SRAWQuality'
@@ -1602,7 +1517,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aToyMzA0Ow==
                                                                                                                             clear_value: 'i:2304;'
-                                                                                                                            bytes_hash: c87479cd656e7e3ad6bd8db402e8027df454b2b0c42ff29e093458beb98a23d4
                                                                                                                             text: 2304
                                                                                                 -
                                                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation'
@@ -1627,7 +1541,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTozODQ7
                                                                                                                             clear_value: 'i:384;'
-                                                                                                                            bytes_hash: 4f2e968b543c835e6648ddcc49faeb6987b4c293d8cd50a2db5d109741007579
                                                                                                                             text: 384
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:2:BaseISO'
@@ -1645,7 +1558,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aToxNjUxMjs=
                                                                                                                             clear_value: 'i:16512;'
-                                                                                                                            bytes_hash: 607b306244cab5c6e8670d7525e1af04304b5d2c3a8a1ad791cb01de20e22117
                                                                                                                             text: 16512
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:3:MeasuredEV'
@@ -1663,7 +1575,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 0
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:4:TargetAperture'
@@ -1681,7 +1592,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 0
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:5:TargetShutterSpeed'
@@ -1699,7 +1609,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTo5NDcyOw==
                                                                                                                             clear_value: 'i:9472;'
-                                                                                                                            bytes_hash: ebd20c41d4a39831b36b4f82cbbb061a05e1ae2ced7d8f63240cc63a02c73099
                                                                                                                             text: 9472
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:6:ExposureCompensation'
@@ -1717,7 +1626,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 0
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:7:WhiteBalanceSetting'
@@ -1735,7 +1643,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: Auto
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:8:SlowShutter'
@@ -1753,7 +1660,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aToyNTYwOw==
                                                                                                                             clear_value: 'i:2560;'
-                                                                                                                            bytes_hash: 67ebbd370daa02ba9aadd05d8e091e862d0d8bcadafdf2a22360240a42fe922e
                                                                                                                             text: 2560
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:9:SequenceNumber'
@@ -1771,7 +1677,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 0
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:10:OpticalZoomCode'
@@ -1789,7 +1694,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTotMTI4MDs=
                                                                                                                             clear_value: 'i:-1280;'
-                                                                                                                            bytes_hash: 95811f41d3d5c58240be155bb7d1dcb8f47add7e3417c24e1d52d41653013926
                                                                                                                             text: -1280
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:11'
@@ -1806,7 +1710,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aToyODE1Ow==
                                                                                                                             clear_value: 'i:2815;'
-                                                                                                                            bytes_hash: e4688624e5f1ad0629505e6768e3bb36244f2f3e33e751215afa820334a76ed3
                                                                                                                             text: 2815
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:12:CameraTemperature'
@@ -1824,7 +1727,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aToyMDczNjs=
                                                                                                                             clear_value: 'i:20736;'
-                                                                                                                            bytes_hash: eb58a298566237e5fc4c5a0c879bb9e1537019391ec06968e498290fb82938b7
                                                                                                                             text: 20736
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:13:FlashGuideNumber'
@@ -1842,7 +1744,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aToyNjExMjs=
                                                                                                                             clear_value: 'i:26112;'
-                                                                                                                            bytes_hash: f5a06d3c52937089c51b7c6c1cc1948ccdc5581328b2ebb578e8cca66a7b5221
                                                                                                                             text: 26112
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:14:AFPointsInFocus'
@@ -1860,7 +1761,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTo3NjgxOw==
                                                                                                                             clear_value: 'i:7681;'
-                                                                                                                            bytes_hash: 5df7504bc193ee4c3deadede1459eccca172e87cca35e81f11ce14be5e94acaf
                                                                                                                             text: 7681
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:15:FlashExposureComp'
@@ -1878,7 +1778,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 0
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:16:AutoExposureBracketing'
@@ -1896,7 +1795,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTotMTAyNDs=
                                                                                                                             clear_value: 'i:-1024;'
-                                                                                                                            bytes_hash: 67587acca92f43dc61b4c60e1fe7fb9e4b5820bf2d236de1af052de57219f27f
                                                                                                                             text: -1024
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:17:AEBBracketValue'
@@ -1914,7 +1812,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTozOw==
                                                                                                                             clear_value: 'i:3;'
-                                                                                                                            bytes_hash: 9b4fb24edd6d1d8830e272398263cdbf026b97392cc35387b991dc0248a628f9
                                                                                                                             text: 3
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:18:ControlMode'
@@ -1932,7 +1829,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: n/a
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:19:FocusDistanceUpper'
@@ -1950,7 +1846,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 0
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:20:FocusDistanceLower'
@@ -1968,7 +1863,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 0
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:21:FNumber'
@@ -1986,7 +1880,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 0
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:22:ExposureTime'
@@ -2004,7 +1897,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTozMDIwODs=
                                                                                                                             clear_value: 'i:30208;'
-                                                                                                                            bytes_hash: 3a7d613e4be9748f7bae02e6537e0f0815ea14b3a96c32b76247127b58a33c91
                                                                                                                             text: 30208
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:23:MeasuredEV2'
@@ -2022,7 +1914,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 0
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:24:BulbDuration'
@@ -2040,7 +1931,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 0
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:25'
@@ -2057,7 +1947,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 0
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:26:CameraType'
@@ -2075,7 +1964,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: n/a
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:27:AutoRotate'
@@ -2093,7 +1981,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: None
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:28:NDFilter'
@@ -2111,7 +1998,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 'Off'
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:29:SelfTimer2'
@@ -2129,7 +2015,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 0
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:30'
@@ -2146,7 +2031,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 0
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:31'
@@ -2163,7 +2047,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 0
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:32'
@@ -2180,7 +2063,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 0
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:33:FlashOutput'
@@ -2198,7 +2080,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 0
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifdIndexShort:CanonShotInformation/tag:34'
@@ -2215,7 +2096,6 @@ elements:
                                                                                                                             components: 1
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                                             text: 0
                                                                                             tag:
                                                                                                 -
@@ -2234,7 +2114,6 @@ elements:
                                                                                                                 components: 4
                                                                                                                 value: YTo0OntpOjA7aToyMzA0O2k6MTtpOjIyNTI4O2k6MjtpOjI1ODtpOjM7aTozODQ7fQ==
                                                                                                                 clear_value: 'a:4:{i:0;i:2304;i:1;i:22528;i:2;i:258;i:3;i:384;}'
-                                                                                                                bytes_hash: bdc08ee3388a993265c7b1a237c007d340864297576012434ff17126152c8856
                                                                                                                 text: '2304, 22528, 258, 384'
                                                                                                 -
                                                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/tag:3'
@@ -2251,7 +2130,6 @@ elements:
                                                                                                                 components: 4
                                                                                                                 value: YTo0OntpOjA7aTozODQ7aToxO2k6Mzg0O2k6MjtpOjM4NDtpOjM7aTozODQ7fQ==
                                                                                                                 clear_value: 'a:4:{i:0;i:384;i:1;i:384;i:2;i:384;i:3;i:384;}'
-                                                                                                                bytes_hash: 10f8d94bbf47c09472dbc948640fe8abb24dce82f232d7990f91727a26dfddca
                                                                                                                 text: '384, 384, 384, 384'
                                                                                                 -
                                                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/tag:0'
@@ -2268,7 +2146,6 @@ elements:
                                                                                                                 components: 6
                                                                                                                 value: YTo2OntpOjA7aTowO2k6MTtpOjA7aToyO2k6MDtpOjM7aTowO2k6NDtpOjA7aTo1O2k6MDt9
                                                                                                                 clear_value: 'a:6:{i:0;i:0;i:1;i:0;i:2;i:0;i:3;i:0;i:4;i:0;i:5;i:0;}'
-                                                                                                                bytes_hash: 15ec7bf0b50732b49f8228e07d24365338f9e3ab994b00af08e5a3bffe55fd8b
                                                                                                                 text: '0, 0, 0, 0, 0, 0'
                                                                                                 -
                                                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/tag:0'
@@ -2285,7 +2162,6 @@ elements:
                                                                                                                 components: 4
                                                                                                                 value: YTo0OntpOjA7aTowO2k6MTtpOjA7aToyO2k6MDtpOjM7aTowO30=
                                                                                                                 clear_value: 'a:4:{i:0;i:0;i:1;i:0;i:2;i:0;i:3;i:0;}'
-                                                                                                                bytes_hash: af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc
                                                                                                                 text: '0, 0, 0, 0'
                                                                                                 -
                                                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/tag:18:PictureInfo'
@@ -2303,7 +2179,6 @@ elements:
                                                                                                                 components: 36
                                                                                                                 value: YTozNjp7aTowO2k6MDtpOjE7aTowO2k6MjtpOjA7aTozO2k6MDtpOjQ7aTowO2k6NTtpOjA7aTo2O2k6MDtpOjc7aTowO2k6ODtpOjA7aTo5O2k6MDtpOjEwO2k6MDtpOjExO2k6MDtpOjEyO2k6MDtpOjEzO2k6MDtpOjE0O2k6MDtpOjE1O2k6MDtpOjE2O2k6MDtpOjE3O2k6MDtpOjE4O2k6MDtpOjE5O2k6MDtpOjIwO2k6MDtpOjIxO2k6MDtpOjIyO2k6MDtpOjIzO2k6MDtpOjI0O2k6MDtpOjI1O2k6MDtpOjI2O2k6MDtpOjI3O2k6MDtpOjI4O2k6MDtpOjI5O2k6MDtpOjMwO2k6MDtpOjMxO2k6MDtpOjMyO2k6MDtpOjMzO2k6MDtpOjM0O2k6MDtpOjM1O2k6MDt9
                                                                                                                 clear_value: 'a:36:{i:0;i:0;i:1;i:0;i:2;i:0;i:3;i:0;i:4;i:0;i:5;i:0;i:6;i:0;i:7;i:0;i:8;i:0;i:9;i:0;i:10;i:0;i:11;i:0;i:12;i:0;i:13;i:0;i:14;i:0;i:15;i:0;i:16;i:0;i:17;i:0;i:18;i:0;i:19;i:0;i:20;i:0;i:21;i:0;i:22;i:0;i:23;i:0;i:24;i:0;i:25;i:0;i:26;i:0;i:27;i:0;i:28;i:0;i:29;i:0;i:30;i:0;i:31;i:0;i:32;i:0;i:33;i:0;i:34;i:0;i:35;i:0;}'
-                                                                                                                bytes_hash: 834a709ba2534ebe3ee1397fd4f7bd288b2acc1d20a08d6c862dcd99b6f04400
                                                                                                                 text: '0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0'
                                                                                                 -
                                                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/tag:19:ThumbnailImageValidArea'
@@ -2321,7 +2196,6 @@ elements:
                                                                                                                 components: 4
                                                                                                                 value: YTo0OntpOjA7aTowO2k6MTtpOjA7aToyO2k6MDtpOjM7aTowO30=
                                                                                                                 clear_value: 'a:4:{i:0;i:0;i:1;i:0;i:2;i:0;i:3;i:0;}'
-                                                                                                                bytes_hash: af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc
                                                                                                                 text: '0, 0, 0, 0'
                                                                                                 -
                                                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/tag:6:ImageType'
@@ -2339,7 +2213,6 @@ elements:
                                                                                                                 components: 1
                                                                                                                 value: czowOiIiOw==
                                                                                                                 clear_value: 's:0:"";'
-                                                                                                                bytes_hash: 6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d
                                                                                                                 text: ''
                                                                                                 -
                                                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/tag:7:FirmwareVersion'
@@ -2357,7 +2230,6 @@ elements:
                                                                                                                 components: 1
                                                                                                                 value: czowOiIiOw==
                                                                                                                 clear_value: 's:0:"";'
-                                                                                                                bytes_hash: 6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d
                                                                                                                 text: ''
                                                                                                 -
                                                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/tag:8:FileNumber'
@@ -2375,7 +2247,6 @@ elements:
                                                                                                                 components: 1
                                                                                                                 value: aToxMzQzNDE4Ow==
                                                                                                                 clear_value: 'i:1343418;'
-                                                                                                                bytes_hash: 7c7f0bdab441a13f9bd307846935876447f2e541d5797c079efc290ee552996f
                                                                                                                 text: 1343418
                                                                                                 -
                                                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/tag:9:OwnerName'
@@ -2393,7 +2264,6 @@ elements:
                                                                                                                 components: 1
                                                                                                                 value: czowOiIiOw==
                                                                                                                 clear_value: 's:0:"";'
-                                                                                                                bytes_hash: 6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d
                                                                                                                 text: ''
                                                                                                 -
                                                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/tag:16:ModelID'
@@ -2411,7 +2281,6 @@ elements:
                                                                                                                 components: 1
                                                                                                                 value: aToxODQxNTYxNjs=
                                                                                                                 clear_value: 'i:18415616;'
-                                                                                                                bytes_hash: f7fe9c0542b04021d77b6c7472d95490f8a023357c995a7f378b7a8d9e6d6e56
                                                                                                                 text: 'PowerShot G3'
                                                                                                 -
                                                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/tag:13:CameraInfo'
@@ -2429,7 +2298,6 @@ elements:
                                                                                                                 components: 34
                                                                                                                 value: YTozNDp7aTowO2k6MDtpOjE7aTowO2k6MjtpOjA7aTozO2k6MDtpOjQ7aTowO2k6NTtpOjA7aTo2O2k6MDtpOjc7aTowO2k6ODtpOjA7aTo5O2k6MDtpOjEwO2k6MDtpOjExO2k6MDtpOjEyO2k6MDtpOjEzO2k6MDtpOjE0O2k6MDtpOjE1O2k6MDtpOjE2O2k6MDtpOjE3O2k6MDtpOjE4O2k6MDtpOjE5O2k6MDtpOjIwO2k6MDtpOjIxO2k6MDtpOjIyO2k6MDtpOjIzO2k6MDtpOjI0O2k6MDtpOjI1O2k6MDtpOjI2O2k6MDtpOjI3O2k6MDtpOjI4O2k6MDtpOjI5O2k6MDtpOjMwO2k6ODg3NTtpOjMxO2k6NjE0NDtpOjMyO2k6MTtpOjMzO2k6MTYzODQ7fQ==
                                                                                                                 clear_value: 'a:34:{i:0;i:0;i:1;i:0;i:2;i:0;i:3;i:0;i:4;i:0;i:5;i:0;i:6;i:0;i:7;i:0;i:8;i:0;i:9;i:0;i:10;i:0;i:11;i:0;i:12;i:0;i:13;i:0;i:14;i:0;i:15;i:0;i:16;i:0;i:17;i:0;i:18;i:0;i:19;i:0;i:20;i:0;i:21;i:0;i:22;i:0;i:23;i:0;i:24;i:0;i:25;i:0;i:26;i:0;i:27;i:0;i:28;i:0;i:29;i:0;i:30;i:8875;i:31;i:6144;i:32;i:1;i:33;i:16384;}'
-                                                                                                                bytes_hash: a709fa8042550294bb5e588297e6af8845655c20bf90e308bbcddeae3ed5f963
                                                                                                                 text: '0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8875, 6144, 1, 16384'
                         -
                             path: '/image/jpeg/jpegSegment:219:DQT'
@@ -2445,7 +2313,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 67
-                                        bytes_hash: 6e194ed2dbf2f405608e7c5763cc2a7067f3d81477047517d92b558954bf1a21
                                         text: '67 bytes of data [ 00 43 00 03 02 02 ... 14 18 12 14 15 14 ]'
                         -
                             path: '/image/jpeg/jpegSegment:219:DQT'
@@ -2461,7 +2328,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 67
-                                        bytes_hash: 86a19b9238513cc54853936865d923ed31006cb4735790f95b28051160c9007a
                                         text: '67 bytes of data [ 00 43 01 03 04 04 ... 14 14 14 14 14 14 ]'
                         -
                             path: '/image/jpeg/jpegSegment:192:SOF0'
@@ -2477,7 +2343,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 17
-                                        bytes_hash: afbd57565210148e68d5021b27779f43b5556129fe2d78f2c17ff55fca068b3c
                                         text: '17 bytes of data [ 00 11 08 00 96 00 ... 02 11 01 03 11 01 ]'
                         -
                             path: '/image/jpeg/jpegSegment:196:DHT'
@@ -2493,7 +2358,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 29
-                                        bytes_hash: cf30793c8e52a7e26fcae5b3c8eecd984ec9d85c654fe1984dbea234712a4d0b
                                         text: '29 bytes of data [ 00 1D 00 00 01 05 ... 06 08 03 09 02 01 ]'
                         -
                             path: '/image/jpeg/jpegSegment:196:DHT'
@@ -2509,7 +2373,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 72
-                                        bytes_hash: 5c4f78c00f617eb1f5545426f94cf36b568d95604f2699cc6afec71c6355b0ba
                                         text: '72 bytes of data [ 00 48 10 00 01 03 ... 73 83 E1 94 C2 F1 ]'
                         -
                             path: '/image/jpeg/jpegSegment:196:DHT'
@@ -2525,7 +2388,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 26
-                                        bytes_hash: 01ffece43ed0389bf19e3169b95dba8cecb3a69a7dbee031157c25741ae88dd2
                                         text: '26 bytes of data [ 00 1A 01 00 01 05 ... 01 02 03 05 06 00 ]'
                         -
                             path: '/image/jpeg/jpegSegment:196:DHT'
@@ -2541,7 +2403,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 51
-                                        bytes_hash: 2ed42ff4c3635c7b077102c1eff3132c7ad31c19d241af0a738c702c11632010
                                         text: '51 bytes of data [ 00 33 11 00 02 02 ... F0 34 81 C1 E1 F1 ]'
                         -
                             path: '/image/jpeg/jpegSegment:218:SOS'
@@ -2557,7 +2418,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 10111
-                                        bytes_hash: 3ae5acefbb879ba1af8f1e4e5eb8bbe62cb5ce73edba30ea6c2a74bc939840aa
                                         text: '10111 bytes of data [ 00 0C 03 01 00 02 ... 3D AB E9 3B 26 7F ]'
                         -
                             path: '/image/jpeg/jpegSegment:217:EOI'

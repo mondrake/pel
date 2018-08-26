@@ -32,7 +32,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 16
-                                        bytes_hash: 0f939134443056b7a76b473b29a711e33db67b6e05b7ad6e56c1856835dd0269
                                         text: '16 bytes of data [ 00 10 4A 46 49 46 ... 00 48 00 48 00 00 ]'
                         -
                             path: '/image/jpeg/jpegSegment:225:APP1'
@@ -77,7 +76,6 @@ elements:
                                                                                         components: 6
                                                                                         value: czo1OiJBcHBsZSI7
                                                                                         clear_value: 's:5:"Apple";'
-                                                                                        bytes_hash: f5c2aa000f998f8662b133cff27277377f5510b3b6a4b12f4da6c3cedd921f0e
                                                                                         text: Apple
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:272:Model'
@@ -95,7 +93,6 @@ elements:
                                                                                         components: 9
                                                                                         value: czo4OiJpUGhvbmUgNyI7
                                                                                         clear_value: 's:8:"iPhone 7";'
-                                                                                        bytes_hash: af6cfbb1138182c42ddfe587c2dbfa1fcff931c19a593836d0dc3df05ba38d99
                                                                                         text: 'iPhone 7'
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:274:Orientation'
@@ -113,7 +110,6 @@ elements:
                                                                                         components: 1
                                                                                         value: aToxOw==
                                                                                         clear_value: 'i:1;'
-                                                                                        bytes_hash: 47dc540c94ceb704a23875c11273e16bb0b8a87aed84de911f2133568115f254
                                                                                         text: 'top - left'
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:282:XResolution'
@@ -131,7 +127,6 @@ elements:
                                                                                         components: 1
                                                                                         value: YToyOntpOjA7aTo3MjtpOjE7aToxO30=
                                                                                         clear_value: 'a:2:{i:0;i:72;i:1;i:1;}'
-                                                                                        bytes_hash: 2aefa085fcca66b9437773316dc7a1aebe8ac11614b03e744f60f0b6f9ae54e1
                                                                                         text: 72/1
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:283:YResolution'
@@ -149,7 +144,6 @@ elements:
                                                                                         components: 1
                                                                                         value: YToyOntpOjA7aTo3MjtpOjE7aToxO30=
                                                                                         clear_value: 'a:2:{i:0;i:72;i:1;i:1;}'
-                                                                                        bytes_hash: 2aefa085fcca66b9437773316dc7a1aebe8ac11614b03e744f60f0b6f9ae54e1
                                                                                         text: 72/1
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:296:ResolutionUnit'
@@ -167,7 +161,6 @@ elements:
                                                                                         components: 1
                                                                                         value: aToyOw==
                                                                                         clear_value: 'i:2;'
-                                                                                        bytes_hash: 99be5efb88ca2013bd8e4eb035fd42d5245468fe9afa70d8ba9c1c419a48c4e8
                                                                                         text: Inch
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:305:Software'
@@ -185,7 +178,6 @@ elements:
                                                                                         components: 7
                                                                                         value: czo2OiIxMS4yLjEiOw==
                                                                                         clear_value: 's:6:"11.2.1";'
-                                                                                        bytes_hash: 870310ddbf5df95b182d8abe3b3e52916c5904fd7234d12bd327c15e027f68a0
                                                                                         text: 11.2.1
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:306:DateTime'
@@ -203,7 +195,6 @@ elements:
                                                                                         components: 20
                                                                                         value: czoxOToiMjAxODowMjoyNCAxMjoyNjo1MSI7
                                                                                         clear_value: 's:19:"2018:02:24 12:26:51";'
-                                                                                        bytes_hash: 763e86ebe0fbd1b8c123fad78b8a0f9fb6af845a13a6d5dea8d5c1be85ed5736
                                                                                         text: '2018:02:24 12:26:51'
                                                                     ifd:
                                                                         -
@@ -229,7 +220,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: YToyOntpOjA7aToxO2k6MTtpOjg3NzI7fQ==
                                                                                                     clear_value: 'a:2:{i:0;i:1;i:1;i:8772;}'
-                                                                                                    bytes_hash: 45166a8c8b9f90cfd69e04528904101b655eb5d2b4fc28f29360fb06905d5c0f
                                                                                                     text: '1/8772 sec.'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:33437:FNumber'
@@ -247,7 +237,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: YToyOntpOjA7aTo5O2k6MTtpOjU7fQ==
                                                                                                     clear_value: 'a:2:{i:0;i:9;i:1;i:5;}'
-                                                                                                    bytes_hash: 22da04fc13297c3caa86c6d394cb3224f3d985c4b38f66cb824f175ab3146c41
                                                                                                     text: f/1.8
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:34850:ExposureProgram'
@@ -265,7 +254,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aToyOw==
                                                                                                     clear_value: 'i:2;'
-                                                                                                    bytes_hash: 99be5efb88ca2013bd8e4eb035fd42d5245468fe9afa70d8ba9c1c419a48c4e8
                                                                                                     text: 'Normal program'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:34855:ISOSpeedRatings'
@@ -283,7 +271,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aToyNTs=
                                                                                                     clear_value: 'i:25;'
-                                                                                                    bytes_hash: 4cab73ce2a7e6220975001c8a354143267a3c1ce8bf7692313e654481e616a93
                                                                                                     text: 25
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36864:ExifVersion'
@@ -301,7 +288,6 @@ elements:
                                                                                                     components: 4
                                                                                                     value: czo0OiIyLjIxIjs=
                                                                                                     clear_value: 's:4:"2.21";'
-                                                                                                    bytes_hash: a67ae99df04ecbdbbd885e266be5c7ffaba85d003ca5b9c9e7ac1c5699acb1ac
                                                                                                     text: 'Exif Version 2.21'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36867:DateTimeOriginal'
@@ -319,7 +305,6 @@ elements:
                                                                                                     components: 20
                                                                                                     value: czoxOToiMjAxODowMjoyNCAxMjoyNjo1MSI7
                                                                                                     clear_value: 's:19:"2018:02:24 12:26:51";'
-                                                                                                    bytes_hash: 763e86ebe0fbd1b8c123fad78b8a0f9fb6af845a13a6d5dea8d5c1be85ed5736
                                                                                                     text: '2018:02:24 12:26:51'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36868:DateTimeDigitized'
@@ -337,7 +322,6 @@ elements:
                                                                                                     components: 20
                                                                                                     value: czoxOToiMjAxODowMjoyNCAxMjoyNjo1MSI7
                                                                                                     clear_value: 's:19:"2018:02:24 12:26:51";'
-                                                                                                    bytes_hash: 763e86ebe0fbd1b8c123fad78b8a0f9fb6af845a13a6d5dea8d5c1be85ed5736
                                                                                                     text: '2018:02:24 12:26:51'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37121:ComponentsConfiguration'
@@ -355,7 +339,6 @@ elements:
                                                                                                     components: 4
                                                                                                     value: czo0OiIBAgMAIjs=
                                                                                                     clear_value: !!binary czo0OiIBAgMAIjs=
-                                                                                                    bytes_hash: 1666d9845b241586380fe85194c47f1d1868c4d7d30ba806ecc6d581df9eeadc
                                                                                                     text: 'Y Cb Cr -'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37377:ShutterSpeedValue'
@@ -373,7 +356,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: YToyOntpOjA7aToxNDg2NztpOjE7aToxMTM1O30=
                                                                                                     clear_value: 'a:2:{i:0;i:14867;i:1;i:1135;}'
-                                                                                                    bytes_hash: 738ee88d6b7bb8a0ddb50506ea948f52f725015d0770dcb9bf7ad3b0c736056c
                                                                                                     text: '14867/1135 sec. (APEX: 93)'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37378:ApertureValue'
@@ -391,7 +373,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: YToyOntpOjA7aToyMTU5O2k6MTtpOjEyNzM7fQ==
                                                                                                     clear_value: 'a:2:{i:0;i:2159;i:1;i:1273;}'
-                                                                                                    bytes_hash: c31384e642d6ca65b660e1b37400e6168702eb36f93843d5161d718c3cf24fc4
                                                                                                     text: '1.8'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37379:BrightnessValue'
@@ -409,7 +390,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: YToyOntpOjA7aToxNTkwNztpOjE7aToxMzA4O30=
                                                                                                     clear_value: 'a:2:{i:0;i:15907;i:1;i:1308;}'
-                                                                                                    bytes_hash: 1da313bbe09674ddb708d2999a4f9fb94a8955c10579eb89e9ceb39430206da4
                                                                                                     text: '12.161314984709'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37380:ExposureBiasValue'
@@ -427,7 +407,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: YToyOntpOjA7aTowO2k6MTtpOjE7fQ==
                                                                                                     clear_value: 'a:2:{i:0;i:0;i:1;i:1;}'
-                                                                                                    bytes_hash: 01acecb507abfe1a354aa8064f4af5d3f1acd019e37db3c11c97523b71c76e9d
                                                                                                     text: '0.0'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37383:MeteringMode'
@@ -445,7 +424,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aTo1Ow==
                                                                                                     clear_value: 'i:5;'
-                                                                                                    bytes_hash: 2921a11f25dadaa24aa79a548e4e81508c2e5e56af2d833d65e2bcce448ce2f5
                                                                                                     text: Pattern
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37385:Flash'
@@ -463,7 +441,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aToxNjs=
                                                                                                     clear_value: 'i:16;'
-                                                                                                    bytes_hash: 707bf0b938f307b5c222e670598b865d5e1f8a8003df82c7abbf7c9f8fa4d720
                                                                                                     text: 'Flash did not fire, compulsory flash mode.'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37386:FocalLength'
@@ -481,7 +458,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: YToyOntpOjA7aTozOTk7aToxO2k6MTAwO30=
                                                                                                     clear_value: 'a:2:{i:0;i:399;i:1;i:100;}'
-                                                                                                    bytes_hash: b52372b71473a5e8da9fe75b8a19512c0ec709703c9c4f0536e9ccd1ba90f7a1
                                                                                                     text: '4.0 mm'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37396:SubjectArea'
@@ -499,7 +475,6 @@ elements:
                                                                                                     components: 4
                                                                                                     value: YTo0OntpOjA7aToyMDE1O2k6MTtpOjE1MTE7aToyO2k6MjIxNztpOjM7aToxMzMwO30=
                                                                                                     clear_value: 'a:4:{i:0;i:2015;i:1;i:1511;i:2;i:2217;i:3;i:1330;}'
-                                                                                                    bytes_hash: 2d6cefbec7e1c74ae77c0a131756b734b5b534e39f602d57457e033adedd0e95
                                                                                                     text: 'Within rectangle (width 2015, height 1511) around (x,y) = (2217,1330)'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37500:MakerNote'
@@ -517,7 +492,6 @@ elements:
                                                                                                     components: 1024
                                                                                                     value: YToyOntpOjA7czoxMDI0OiJBcHBsZSBpT1MAAAFNTQATAAEACQAAAAEAAAAJAAIABwAAAi4AAAD4AAMABwAAAGgAAAMmAAQACQAAAAEAAAABAAUACQAAAAEAAAClAAYACQAAAAEAAACiAAcACQAAAAEAAAABAAgACgAAAAMAAAOOAAwACgAAAAIAAAOmAA0ACQAAAAEAAAAoAA4ACQAAAAEAAAAEABAACQAAAAEAAAABABEAAgAAACUAAAO2ABQACQAAAAEAAAABABYAAgAAAB0AAAPcABcACQAAAAEAAAAAABkACQAAAAEAAAAAABoAAgAAAAYAAAP6AB8ACQAAAAEAAAAAAAAAAGJwbGlzdDAwTxECAEwASQBGAEQAQQA/AD0AOwA6ADkANwA2ADUANQA1ADUAVABRAE4ATABJAEYAQwBBAD8APgA8ADsAOwA6ADkAOQBfAFsAWABVAFIATgBLAEkARgBHAFAATgBAAHMAkQCrAGwAaQBkAGAAXQBZAFUAUgBQAIMAnAChAIkApgCRAK8AfgB6AIYAfgBtAHcAYwBfAG4ApQCrAKIAkABpAKcA/wCbAKQAtQC5AIgAkwB2AHIA0wCpALQAogCoAM8A+wDeALAA2gCqAJoAewCRANwAagCTAKgAkgCTADYAcQBdADMAvQCsAOEA2wCTAIUAcgBaAH0AlQCdAHsAMgBCAEEAOQCgALMAugC5AMcAiQCZAHsAfQCNAKkAWwAyAGIANwAlAJYAvQDTAFgBJwI2AeYAbgG9AJgAtgBbAC0AVAAtACcAiQFbAY0BnwGfAb0BEgKCAhwCqQEGAj0AMQBYAC8AJgAvATgBagFQAZABMQFmAdIBLgInAtcBKQArAC8ANAA7AGoAcwCbAI0A1QDqAK0AqgDxABQB4AAsADAANwBcAEsAigCnAHYAewCsANMAsAFMAfwA/gCuAC4ALAArAEwAbAAQAVAB2wC+APUAMgF2AU8CwAG3AH0AWgBxALoA2gDXADEAkQBkAEMAlQBSAUMBYAFBAQ8BFwEIARoBKQEiAREBAAgAAAAAAAACAQAAAAAAAAABAAAAAAAAAAAAAAAAAAACDGJwbGlzdDAw1AECAwQFBgcIVWZsYWdzVXZhbHVlWXRpbWVzY2FsZVVlcG9jaBABEwAAijxS5iwVEjuaygAQAAgRFx0nLS84PQAAAAAAAAEBAAAAAAAAAAkAAAAAAAAAAAAAAAAAAAA////lzQAAGjkAAAEZAAAOJQAAAkcAABRzAAAAiQAAAQAAAAA9AAAAIDZBQjU1OEU0LUMzMEEtNDg3Ri05NDQzLTI5RjRCM0NDMUY0RQAAQWFvbmpxMXlKZVBrblNTWUYvVHUwcjAwY1RMOQAAcTgyNXMAIjtpOjE7aTo2ODg7fQ==
                                                                                                     clear_value: !!binary YToyOntpOjA7czoxMDI0OiJBcHBsZSBpT1MAAAFNTQATAAEACQAAAAEAAAAJAAIABwAAAi4AAAD4AAMABwAAAGgAAAMmAAQACQAAAAEAAAABAAUACQAAAAEAAAClAAYACQAAAAEAAACiAAcACQAAAAEAAAABAAgACgAAAAMAAAOOAAwACgAAAAIAAAOmAA0ACQAAAAEAAAAoAA4ACQAAAAEAAAAEABAACQAAAAEAAAABABEAAgAAACUAAAO2ABQACQAAAAEAAAABABYAAgAAAB0AAAPcABcACQAAAAEAAAAAABkACQAAAAEAAAAAABoAAgAAAAYAAAP6AB8ACQAAAAEAAAAAAAAAAGJwbGlzdDAwTxECAEwASQBGAEQAQQA/AD0AOwA6ADkANwA2ADUANQA1ADUAVABRAE4ATABJAEYAQwBBAD8APgA8ADsAOwA6ADkAOQBfAFsAWABVAFIATgBLAEkARgBHAFAATgBAAHMAkQCrAGwAaQBkAGAAXQBZAFUAUgBQAIMAnAChAIkApgCRAK8AfgB6AIYAfgBtAHcAYwBfAG4ApQCrAKIAkABpAKcA/wCbAKQAtQC5AIgAkwB2AHIA0wCpALQAogCoAM8A+wDeALAA2gCqAJoAewCRANwAagCTAKgAkgCTADYAcQBdADMAvQCsAOEA2wCTAIUAcgBaAH0AlQCdAHsAMgBCAEEAOQCgALMAugC5AMcAiQCZAHsAfQCNAKkAWwAyAGIANwAlAJYAvQDTAFgBJwI2AeYAbgG9AJgAtgBbAC0AVAAtACcAiQFbAY0BnwGfAb0BEgKCAhwCqQEGAj0AMQBYAC8AJgAvATgBagFQAZABMQFmAdIBLgInAtcBKQArAC8ANAA7AGoAcwCbAI0A1QDqAK0AqgDxABQB4AAsADAANwBcAEsAigCnAHYAewCsANMAsAFMAfwA/gCuAC4ALAArAEwAbAAQAVAB2wC+APUAMgF2AU8CwAG3AH0AWgBxALoA2gDXADEAkQBkAEMAlQBSAUMBYAFBAQ8BFwEIARoBKQEiAREBAAgAAAAAAAACAQAAAAAAAAABAAAAAAAAAAAAAAAAAAACDGJwbGlzdDAw1AECAwQFBgcIVWZsYWdzVXZhbHVlWXRpbWVzY2FsZVVlcG9jaBABEwAAijxS5iwVEjuaygAQAAgRFx0nLS84PQAAAAAAAAEBAAAAAAAAAAkAAAAAAAAAAAAAAAAAAAA////lzQAAGjkAAAEZAAAOJQAAAkcAABRzAAAAiQAAAQAAAAA9AAAAIDZBQjU1OEU0LUMzMEEtNDg3Ri05NDQzLTI5RjRCM0NDMUY0RQAAQWFvbmpxMXlKZVBrblNTWUYvVHUwcjAwY1RMOQAAcTgyNXMAIjtpOjE7aTo2ODg7fQ==
-                                                                                                    bytes_hash: null
                                                                                                     text: '1024 bytes MakerNote data'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37521:SubSecTimeOriginal'
@@ -535,7 +509,6 @@ elements:
                                                                                                     components: 4
                                                                                                     value: czozOiI2MTEiOw==
                                                                                                     clear_value: 's:3:"611";'
-                                                                                                    bytes_hash: a9ddb6ea63ea9b90b7a73809f56eacfc318c337d3f0454199553292784c09f52
                                                                                                     text: '611'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37522:SubSecTimeDigitized'
@@ -553,7 +526,6 @@ elements:
                                                                                                     components: 4
                                                                                                     value: czozOiI2MTEiOw==
                                                                                                     clear_value: 's:3:"611";'
-                                                                                                    bytes_hash: a9ddb6ea63ea9b90b7a73809f56eacfc318c337d3f0454199553292784c09f52
                                                                                                     text: '611'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40960:FlashPixVersion'
@@ -571,7 +543,6 @@ elements:
                                                                                                     components: 4
                                                                                                     value: czozOiIxLjAiOw==
                                                                                                     clear_value: 's:3:"1.0";'
-                                                                                                    bytes_hash: 5e7b571a60a7c187d6a4cb8bbedbe4e69d4caa49b51d9ddf3320afd793f146bf
                                                                                                     text: 'FlashPix Version 1.0'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40961:ColorSpace'
@@ -589,7 +560,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aToxOw==
                                                                                                     clear_value: 'i:1;'
-                                                                                                    bytes_hash: 47dc540c94ceb704a23875c11273e16bb0b8a87aed84de911f2133568115f254
                                                                                                     text: sRGB
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40962:PixelXDimension'
@@ -607,7 +577,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aTo0MDMyOw==
                                                                                                     clear_value: 'i:4032;'
-                                                                                                    bytes_hash: d6062fb4496340377838da4cacdbb36f026217f5adb4234ca39bd9952283aab2
                                                                                                     text: 4032
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:40963:PixelYDimension'
@@ -625,7 +594,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aTozMDI0Ow==
                                                                                                     clear_value: 'i:3024;'
-                                                                                                    bytes_hash: 7ba9f0ac2df48bccf3cbea35847bebf4e8b903f5c1d8fd03217ededaf69e5654
                                                                                                     text: 3024
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:41495:SensingMethod'
@@ -643,7 +611,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aToyOw==
                                                                                                     clear_value: 'i:2;'
-                                                                                                    bytes_hash: 99be5efb88ca2013bd8e4eb035fd42d5245468fe9afa70d8ba9c1c419a48c4e8
                                                                                                     text: 'One-chip color area sensor'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:41729:SceneType'
@@ -661,7 +628,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: czoxOiIBIjs=
                                                                                                     clear_value: !!binary czoxOiIBIjs=
-                                                                                                    bytes_hash: 4bf5122f344554c53bde2ebb8cd2b7e3d1600ad631c385a5d7cce23c7785459a
                                                                                                     text: 'Directly photographed'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:41986:ExposureMode'
@@ -679,7 +645,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aTowOw==
                                                                                                     clear_value: 'i:0;'
-                                                                                                    bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                     text: 'Auto exposure'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:41987:WhiteBalance'
@@ -697,7 +662,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aTowOw==
                                                                                                     clear_value: 'i:0;'
-                                                                                                    bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                     text: 'Auto white balance'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:41989:FocalLengthIn35mmFilm'
@@ -715,7 +679,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aToyODs=
                                                                                                     clear_value: 'i:28;'
-                                                                                                    bytes_hash: 8e2ada6ef626983be1fe9a365ceeb424ee59b884e144f7541cf191116876de04
                                                                                                     text: 28
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:41990:SceneCaptureType'
@@ -733,7 +696,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aTowOw==
                                                                                                     clear_value: 'i:0;'
-                                                                                                    bytes_hash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                                     text: Standard
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:42034:LensInfo'
@@ -751,7 +713,6 @@ elements:
                                                                                                     components: 4
                                                                                                     value: YTo0OntpOjA7YToyOntpOjA7aTozOTk7aToxO2k6MTAwO31pOjE7YToyOntpOjA7aTozOTk7aToxO2k6MTAwO31pOjI7YToyOntpOjA7aTo5O2k6MTtpOjU7fWk6MzthOjI6e2k6MDtpOjk7aToxO2k6NTt9fQ==
                                                                                                     clear_value: 'a:4:{i:0;a:2:{i:0;i:399;i:1;i:100;}i:1;a:2:{i:0;i:399;i:1;i:100;}i:2;a:2:{i:0;i:9;i:1;i:5;}i:3;a:2:{i:0;i:9;i:1;i:5;}}'
-                                                                                                    bytes_hash: 9ede23a983fb6c7ae901f4f5142ff7d4c39e2d717c7d30b6a390edc1a0e29485
                                                                                                     text: '399/100, 399/100, 9/5, 9/5'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:42035:LensMake'
@@ -769,7 +730,6 @@ elements:
                                                                                                     components: 6
                                                                                                     value: czo1OiJBcHBsZSI7
                                                                                                     clear_value: 's:5:"Apple";'
-                                                                                                    bytes_hash: f5c2aa000f998f8662b133cff27277377f5510b3b6a4b12f4da6c3cedd921f0e
                                                                                                     text: Apple
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:42036:LensModel'
@@ -787,7 +747,6 @@ elements:
                                                                                                     components: 34
                                                                                                     value: czozMzoiaVBob25lIDcgYmFjayBjYW1lcmEgMy45OW1tIGYvMS44Ijs=
                                                                                                     clear_value: 's:33:"iPhone 7 back camera 3.99mm f/1.8";'
-                                                                                                    bytes_hash: 058717aca05fe0f31d74af6d3cf2417fbed7e1e84b4a841f09234b64ce955d8a
                                                                                                     text: 'iPhone 7 back camera 3.99mm f/1.8'
                                                                                 ifd:
                                                                                     -
@@ -812,7 +771,6 @@ elements:
                                                                                                                 components: 1
                                                                                                                 value: aTo5Ow==
                                                                                                                 clear_value: 'i:9;'
-                                                                                                                bytes_hash: 9f076b7eb7fdc0311cd3208cdbbebbf8014dd3a05e35191c96947b358a362b40
                                                                                                                 text: 9
                                                                                                 -
                                                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:AppleMakerNotes/tag:2'
@@ -829,7 +787,6 @@ elements:
                                                                                                                 components: 558
                                                                                                                 value: czo1NTg6ImJwbGlzdDAwTxECAEwASQBGAEQAQQA/AD0AOwA6ADkANwA2ADUANQA1ADUAVABRAE4ATABJAEYAQwBBAD8APgA8ADsAOwA6ADkAOQBfAFsAWABVAFIATgBLAEkARgBHAFAATgBAAHMAkQCrAGwAaQBkAGAAXQBZAFUAUgBQAIMAnAChAIkApgCRAK8AfgB6AIYAfgBtAHcAYwBfAG4ApQCrAKIAkABpAKcA/wCbAKQAtQC5AIgAkwB2AHIA0wCpALQAogCoAM8A+wDeALAA2gCqAJoAewCRANwAagCTAKgAkgCTADYAcQBdADMAvQCsAOEA2wCTAIUAcgBaAH0AlQCdAHsAMgBCAEEAOQCgALMAugC5AMcAiQCZAHsAfQCNAKkAWwAyAGIANwAlAJYAvQDTAFgBJwI2AeYAbgG9AJgAtgBbAC0AVAAtACcAiQFbAY0BnwGfAb0BEgKCAhwCqQEGAj0AMQBYAC8AJgAvATgBagFQAZABMQFmAdIBLgInAtcBKQArAC8ANAA7AGoAcwCbAI0A1QDqAK0AqgDxABQB4AAsADAANwBcAEsAigCnAHYAewCsANMAsAFMAfwA/gCuAC4ALAArAEwAbAAQAVAB2wC+APUAMgF2AU8CwAG3AH0AWgBxALoA2gDXADEAkQBkAEMAlQBSAUMBYAFBAQ8BFwEIARoBKQEiAREBAAgAAAAAAAACAQAAAAAAAAABAAAAAAAAAAAAAAAAAAACDCI7
                                                                                                                 clear_value: !!binary czo1NTg6ImJwbGlzdDAwTxECAEwASQBGAEQAQQA/AD0AOwA6ADkANwA2ADUANQA1ADUAVABRAE4ATABJAEYAQwBBAD8APgA8ADsAOwA6ADkAOQBfAFsAWABVAFIATgBLAEkARgBHAFAATgBAAHMAkQCrAGwAaQBkAGAAXQBZAFUAUgBQAIMAnAChAIkApgCRAK8AfgB6AIYAfgBtAHcAYwBfAG4ApQCrAKIAkABpAKcA/wCbAKQAtQC5AIgAkwB2AHIA0wCpALQAogCoAM8A+wDeALAA2gCqAJoAewCRANwAagCTAKgAkgCTADYAcQBdADMAvQCsAOEA2wCTAIUAcgBaAH0AlQCdAHsAMgBCAEEAOQCgALMAugC5AMcAiQCZAHsAfQCNAKkAWwAyAGIANwAlAJYAvQDTAFgBJwI2AeYAbgG9AJgAtgBbAC0AVAAtACcAiQFbAY0BnwGfAb0BEgKCAhwCqQEGAj0AMQBYAC8AJgAvATgBagFQAZABMQFmAdIBLgInAtcBKQArAC8ANAA7AGoAcwCbAI0A1QDqAK0AqgDxABQB4AAsADAANwBcAEsAigCnAHYAewCsANMAsAFMAfwA/gCuAC4ALAArAEwAbAAQAVAB2wC+APUAMgF2AU8CwAG3AH0AWgBxALoA2gDXADEAkQBkAEMAlQBSAUMBYAFBAQ8BFwEIARoBKQEiAREBAAgAAAAAAAACAQAAAAAAAAABAAAAAAAAAAAAAAAAAAACDCI7
-                                                                                                                bytes_hash: 3e67e4d4720b822e62cca05f0a32cac528ec9866f3274dff8c017f6ffe61d26f
                                                                                                                 text: '558 bytes of data [ 62 70 6C 69 73 74 ... 00 00 00 00 02 0C ]'
                                                                                                 -
                                                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:AppleMakerNotes/tag:4'
@@ -846,7 +803,6 @@ elements:
                                                                                                                 components: 1
                                                                                                                 value: aToxOw==
                                                                                                                 clear_value: 'i:1;'
-                                                                                                                bytes_hash: 67abdd721024f0ff4e0b3f4c2fc13bc5bad42d0b7851d456d88d203d15aaa450
                                                                                                                 text: 1
                                                                                                 -
                                                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:AppleMakerNotes/tag:5'
@@ -863,7 +819,6 @@ elements:
                                                                                                                 components: 1
                                                                                                                 value: aToxNjU7
                                                                                                                 clear_value: 'i:165;'
-                                                                                                                bytes_hash: b202c25d3eadd61c87a3a0cd25df5a2527731241a8307c86843670eb6ea8c8da
                                                                                                                 text: 165
                                                                                                 -
                                                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:AppleMakerNotes/tag:6'
@@ -880,7 +835,6 @@ elements:
                                                                                                                 components: 1
                                                                                                                 value: aToxNjI7
                                                                                                                 clear_value: 'i:162;'
-                                                                                                                bytes_hash: 77f21bfb1847d74d16cd3bce4c78919601008e6b3098f6cc937febe1ff8028e8
                                                                                                                 text: 162
                                                                                                 -
                                                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:AppleMakerNotes/tag:7'
@@ -897,7 +851,6 @@ elements:
                                                                                                                 components: 1
                                                                                                                 value: aToxOw==
                                                                                                                 clear_value: 'i:1;'
-                                                                                                                bytes_hash: 67abdd721024f0ff4e0b3f4c2fc13bc5bad42d0b7851d456d88d203d15aaa450
                                                                                                                 text: 1
                                                                                                 -
                                                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:AppleMakerNotes/tag:8:AccelerationVector'
@@ -915,7 +868,6 @@ elements:
                                                                                                                 components: 3
                                                                                                                 value: YTozOntpOjA7YToyOntpOjA7ZDotNjcwNztpOjE7aTo2NzEzO31pOjE7YToyOntpOjA7aToyODE7aToxO2k6MzYyMTt9aToyO2E6Mjp7aTowO2k6NTgzO2k6MTtpOjUyMzU7fX0=
                                                                                                                 clear_value: 'a:3:{i:0;a:2:{i:0;d:-6707;i:1;i:6713;}i:1;a:2:{i:0;i:281;i:1;i:3621;}i:2;a:2:{i:0;i:583;i:1;i:5235;}}'
-                                                                                                                bytes_hash: 2e4c8098d865757c0c49b0df11f941e412084f6bd94bb2c4da08f41f6c042e50
                                                                                                                 text: '-6707/6713, 281/3621, 583/5235'
                                                                                                 -
                                                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:AppleMakerNotes/tag:12'
@@ -932,7 +884,6 @@ elements:
                                                                                                                 components: 2
                                                                                                                 value: YToyOntpOjA7YToyOntpOjA7aToxMzc7aToxO2k6MjU2O31pOjE7YToyOntpOjA7aTo2MTtpOjE7aTozMjt9fQ==
                                                                                                                 clear_value: 'a:2:{i:0;a:2:{i:0;i:137;i:1;i:256;}i:1;a:2:{i:0;i:61;i:1;i:32;}}'
-                                                                                                                bytes_hash: 5fb2dfd309acc3d98c022edb67657df1da8b8ae73eef3a724cfac68c47cb0067
                                                                                                                 text: '137/256, 61/32'
                                                                                                 -
                                                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:AppleMakerNotes/tag:13'
@@ -949,7 +900,6 @@ elements:
                                                                                                                 components: 1
                                                                                                                 value: aTo0MDs=
                                                                                                                 clear_value: 'i:40;'
-                                                                                                                bytes_hash: 1a00f51f3029fa4b7e61b9bf7aa9de5a64798857872981f7e056e4f437171955
                                                                                                                 text: 40
                                                                                                 -
                                                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:AppleMakerNotes/tag:14'
@@ -966,7 +916,6 @@ elements:
                                                                                                                 components: 1
                                                                                                                 value: aTo0Ow==
                                                                                                                 clear_value: 'i:4;'
-                                                                                                                bytes_hash: fb5e512425fc9449316ec95969ebe71e2d576dbab833d61e2a5b9330fd70ee02
                                                                                                                 text: 4
                                                                                                 -
                                                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:AppleMakerNotes/tag:16'
@@ -983,7 +932,6 @@ elements:
                                                                                                                 components: 1
                                                                                                                 value: aToxOw==
                                                                                                                 clear_value: 'i:1;'
-                                                                                                                bytes_hash: 67abdd721024f0ff4e0b3f4c2fc13bc5bad42d0b7851d456d88d203d15aaa450
                                                                                                                 text: 1
                                                                                                 -
                                                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:AppleMakerNotes/tag:17:ContentIdentifier'
@@ -1001,7 +949,6 @@ elements:
                                                                                                                 components: 37
                                                                                                                 value: czozNjoiNkFCNTU4RTQtQzMwQS00ODdGLTk0NDMtMjlGNEIzQ0MxRjRFIjs=
                                                                                                                 clear_value: 's:36:"6AB558E4-C30A-487F-9443-29F4B3CC1F4E";'
-                                                                                                                bytes_hash: d9d01ca7c9007ff75e5f9ad49d83acdc687d540e22e8170cafc62681780680c1
                                                                                                                 text: 6AB558E4-C30A-487F-9443-29F4B3CC1F4E
                                                                                                 -
                                                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:AppleMakerNotes/tag:20'
@@ -1018,7 +965,6 @@ elements:
                                                                                                                 components: 1
                                                                                                                 value: aToxOw==
                                                                                                                 clear_value: 'i:1;'
-                                                                                                                bytes_hash: 67abdd721024f0ff4e0b3f4c2fc13bc5bad42d0b7851d456d88d203d15aaa450
                                                                                                                 text: 1
                                                                                                 -
                                                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:AppleMakerNotes/tag:22'
@@ -1035,7 +981,6 @@ elements:
                                                                                                                 components: 29
                                                                                                                 value: czoyODoiQWFvbmpxMXlKZVBrblNTWUYvVHUwcjAwY1RMOSI7
                                                                                                                 clear_value: 's:28:"Aaonjq1yJePknSSYF/Tu0r00cTL9";'
-                                                                                                                bytes_hash: bd3cfcfcaacddb378c3ae0239959a3e6f26e56566337a40dbb09274eeb1b9b1f
                                                                                                                 text: Aaonjq1yJePknSSYF/Tu0r00cTL9
                                                                                                 -
                                                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:AppleMakerNotes/tag:23'
@@ -1052,7 +997,6 @@ elements:
                                                                                                                 components: 1
                                                                                                                 value: aTowOw==
                                                                                                                 clear_value: 'i:0;'
-                                                                                                                bytes_hash: df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119
                                                                                                                 text: 0
                                                                                                 -
                                                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:AppleMakerNotes/tag:25'
@@ -1069,7 +1013,6 @@ elements:
                                                                                                                 components: 1
                                                                                                                 value: aTowOw==
                                                                                                                 clear_value: 'i:0;'
-                                                                                                                bytes_hash: df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119
                                                                                                                 text: 0
                                                                                                 -
                                                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:AppleMakerNotes/tag:26'
@@ -1086,7 +1029,6 @@ elements:
                                                                                                                 components: 6
                                                                                                                 value: czo1OiJxODI1cyI7
                                                                                                                 clear_value: 's:5:"q825s";'
-                                                                                                                bytes_hash: 2fdde25c05e15b2555baf968bb8c6dae3abd9c28b9615726fc93135fccd8f3be
                                                                                                                 text: q825s
                                                                                                 -
                                                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:AppleMakerNotes/tag:31'
@@ -1103,7 +1045,6 @@ elements:
                                                                                                                 components: 1
                                                                                                                 value: aTowOw==
                                                                                                                 clear_value: 'i:0;'
-                                                                                                                bytes_hash: df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119
                                                                                                                 text: 0
                                                                                             ifd:
                                                                                                 -
@@ -1129,7 +1070,6 @@ elements:
                                                                                                                             components: 2
                                                                                                                             value: aToxOw==
                                                                                                                             clear_value: 'i:1;'
-                                                                                                                            bytes_hash: e79e418e48623569d75e2a7b09ae88ed9b77b126a445b9ff9dc6989a08efa079
                                                                                                                             text: 1
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:AppleMakerNotes/ifd:AppleRunTime/tag:2:value'
@@ -1147,7 +1087,6 @@ elements:
                                                                                                                             components: 16
                                                                                                                             value: czoxNToiMTUxOTkxNjkzNDg3MTI1Ijs=
                                                                                                                             clear_value: 's:15:"151991693487125";'
-                                                                                                                            bytes_hash: 969b3405efab186c8fd75a658db32b067120a85531909d36805ede55527a99e3
                                                                                                                             text: '151991693487125'
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:AppleMakerNotes/ifd:AppleRunTime/tag:3:timescale'
@@ -1165,7 +1104,6 @@ elements:
                                                                                                                             components: 11
                                                                                                                             value: aToxMDAwMDAwMDAwOw==
                                                                                                                             clear_value: 'i:1000000000;'
-                                                                                                                            bytes_hash: 5e46bbecccef0ddcb3cae03ba8feb33056115d4459b84a12b2dae2fa0f3bd69f
                                                                                                                             text: 1000000000
                                                                                                             -
                                                                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:AppleMakerNotes/ifd:AppleRunTime/tag:4:epoch'
@@ -1183,7 +1121,6 @@ elements:
                                                                                                                             components: 2
                                                                                                                             value: aTowOw==
                                                                                                                             clear_value: 'i:0;'
-                                                                                                                            bytes_hash: e4f60d0aa6d7f3d3b6a6494b1c861b99f649c6f9ec51abaf201b20f297327c95
                                                                                                                             text: 0
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS'
@@ -1208,7 +1145,6 @@ elements:
                                                                                                     components: 2
                                                                                                     value: czoxOiJOIjs=
                                                                                                     clear_value: 's:1:"N";'
-                                                                                                    bytes_hash: e9f86cefcfd61558fe75da7d4ea48a6c82d93191c6d49579aab49f99e543dcad
                                                                                                     text: 'N'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:2:GPSLatitude'
@@ -1226,7 +1162,6 @@ elements:
                                                                                                     components: 3
                                                                                                     value: YTozOntpOjA7YToyOntpOjA7aTo0NjtpOjE7aToxO31pOjE7YToyOntpOjA7aTozMjtpOjE7aToxO31pOjI7YToyOntpOjA7aTo0NTQwO2k6MTtpOjEwMDt9fQ==
                                                                                                     clear_value: 'a:3:{i:0;a:2:{i:0;i:46;i:1;i:1;}i:1;a:2:{i:0;i:32;i:1;i:1;}i:2;a:2:{i:0;i:4540;i:1;i:100;}}'
-                                                                                                    bytes_hash: ae1410d73df593c21e7df19ed402c67dc78931d5833c492486934c3acc07b923
                                                                                                     text: '46° 32'' 45.4" (46.55°)'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:3:GPSLongitudeRef'
@@ -1244,7 +1179,6 @@ elements:
                                                                                                     components: 2
                                                                                                     value: czoxOiJFIjs=
                                                                                                     clear_value: 's:1:"E";'
-                                                                                                    bytes_hash: e6691dfe4d55fb0af0da179453a9f94c71a5fcad27ff9623ce5f1bf748459135
                                                                                                     text: E
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:4:GPSLongitude'
@@ -1262,7 +1196,6 @@ elements:
                                                                                                     components: 3
                                                                                                     value: YTozOntpOjA7YToyOntpOjA7aToxMTtpOjE7aToxO31pOjE7YToyOntpOjA7aTo1OTtpOjE7aToxO31pOjI7YToyOntpOjA7aTozNTI1O2k6MTtpOjEwMDt9fQ==
                                                                                                     clear_value: 'a:3:{i:0;a:2:{i:0;i:11;i:1;i:1;}i:1;a:2:{i:0;i:59;i:1;i:1;}i:2;a:2:{i:0;i:3525;i:1;i:100;}}'
-                                                                                                    bytes_hash: eda2d504574c789f0e78a625283d95a0fe4d3710f342e7b55f75fdbed5d96265
                                                                                                     text: '11° 59'' 35.25" (11.99°)'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:5:GPSAltitudeRef'
@@ -1280,7 +1213,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: aTowOw==
                                                                                                     clear_value: 'i:0;'
-                                                                                                    bytes_hash: 6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d
                                                                                                     text: 0
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:6:GPSAltitude'
@@ -1298,7 +1230,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: YToyOntpOjA7aTo3Njg2MztpOjE7aTozNDt9
                                                                                                     clear_value: 'a:2:{i:0;i:76863;i:1;i:34;}'
-                                                                                                    bytes_hash: 8dead9bf6899b7e582e071871ce22ba923df06fe2bc02c38dc610dc68deefdc0
                                                                                                     text: 76863/34
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:12:GPSSpeedRef'
@@ -1316,7 +1247,6 @@ elements:
                                                                                                     components: 2
                                                                                                     value: czoxOiJLIjs=
                                                                                                     clear_value: 's:1:"K";'
-                                                                                                    bytes_hash: ab3fae4e024f63b2d32d0a6c381835d845f54bc721a16727fda4bf3ab5f1f706
                                                                                                     text: K
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:13:GPSSpeed'
@@ -1334,7 +1264,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: YToyOntpOjA7aTozNjk7aToxO2k6MjE0MjQ7fQ==
                                                                                                     clear_value: 'a:2:{i:0;i:369;i:1;i:21424;}'
-                                                                                                    bytes_hash: 5219e8c09c84d200e65cc05ea761b62781bac9cd3aa382abbe95f33fa7ab2afe
                                                                                                     text: 369/21424
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:16:GPSImgDirectionRef'
@@ -1352,7 +1281,6 @@ elements:
                                                                                                     components: 2
                                                                                                     value: czoxOiJUIjs=
                                                                                                     clear_value: 's:1:"T";'
-                                                                                                    bytes_hash: 766caa663e1025b9accd7ededd24fbc8193180e028eedae2f41d6bb0b1d36468
                                                                                                     text: T
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:17:GPSImgDirection'
@@ -1370,7 +1298,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: YToyOntpOjA7aToxNjc4OTtpOjE7aTozODM7fQ==
                                                                                                     clear_value: 'a:2:{i:0;i:16789;i:1;i:383;}'
-                                                                                                    bytes_hash: 02db784c1a1e48c13ec80e8de9f7d4a4c07deed328a06af40264c564850c1c39
                                                                                                     text: 16789/383
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:23:GPSDestBearingRef'
@@ -1388,7 +1315,6 @@ elements:
                                                                                                     components: 2
                                                                                                     value: czoxOiJUIjs=
                                                                                                     clear_value: 's:1:"T";'
-                                                                                                    bytes_hash: 766caa663e1025b9accd7ededd24fbc8193180e028eedae2f41d6bb0b1d36468
                                                                                                     text: T
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:24:GPSDestBearing'
@@ -1406,7 +1332,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: YToyOntpOjA7aToxNjc4OTtpOjE7aTozODM7fQ==
                                                                                                     clear_value: 'a:2:{i:0;i:16789;i:1;i:383;}'
-                                                                                                    bytes_hash: 02db784c1a1e48c13ec80e8de9f7d4a4c07deed328a06af40264c564850c1c39
                                                                                                     text: 16789/383
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:31:GPSHPositioningError'
@@ -1424,7 +1349,6 @@ elements:
                                                                                                     components: 1
                                                                                                     value: YToyOntpOjA7aToyNDtpOjE7aToxO30=
                                                                                                     clear_value: 'a:2:{i:0;i:24;i:1;i:1;}'
-                                                                                                    bytes_hash: 9a35e995276f5220ce7388b89cdb71db5c864e8019b90f980c12617d83870371
                                                                                                     text: 24/1
                         -
                             path: '/image/jpeg/jpegSegment:225:APP1'
@@ -1440,7 +1364,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 2572
-                                        bytes_hash: 13d9b070fbc40a743368ebd23be252e663c12085edfd68b2ca418aa9f7c83b37
                                         text: '2572 bytes of data [ 68 74 74 70 3A 2F ... 22 77 22 3F 3E 00 ]'
                         -
                             path: '/image/jpeg/jpegSegment:237:APP13'
@@ -1456,7 +1379,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 120
-                                        bytes_hash: dd6513ffe5667ec4dbea8a6018b69ea5fbbc5179bd5216cbca63665541f5006c
                                         text: '120 bytes of data [ 00 78 50 68 6F 74 ... D3 71 77 14 C2 AA ]'
                         -
                             path: '/image/jpeg/jpegSegment:192:SOF0'
@@ -1472,7 +1394,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 17
-                                        bytes_hash: f23e84ec405bdc88d36c0446eb743ff771329ae6d2820bc6f77732cb0f307e8f
                                         text: '17 bytes of data [ 00 11 08 0B D0 0F ... 02 11 01 03 11 01 ]'
                         -
                             path: '/image/jpeg/jpegSegment:196:DHT'
@@ -1488,7 +1409,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 31
-                                        bytes_hash: 0624b34178f34c535318048c023f43db0990f608e03de09bc4c5332c2d739ff0
                                         text: '31 bytes of data [ 00 1F 00 00 01 05 ... 06 07 08 09 0A 0B ]'
                         -
                             path: '/image/jpeg/jpegSegment:196:DHT'
@@ -1504,7 +1424,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 181
-                                        bytes_hash: adfb3a46ea73b578d68521fac8507aad92dbe1fece8b40eafa373c3e8f6960d7
                                         text: '181 bytes of data [ 00 B5 10 00 02 01 ... F5 F6 F7 F8 F9 FA ]'
                         -
                             path: '/image/jpeg/jpegSegment:196:DHT'
@@ -1520,7 +1439,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 31
-                                        bytes_hash: ed102dcc936e4cfccfe0cc7c230528401c4c41a01b461db3764bbb1b5441c029
                                         text: '31 bytes of data [ 00 1F 01 00 03 01 ... 06 07 08 09 0A 0B ]'
                         -
                             path: '/image/jpeg/jpegSegment:196:DHT'
@@ -1536,7 +1454,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 181
-                                        bytes_hash: f33351c792f5b921dd9243a984411e3d479c2a214f12c2073914eca0bf084365
                                         text: '181 bytes of data [ 00 B5 11 00 02 01 ... F5 F6 F7 F8 F9 FA ]'
                         -
                             path: '/image/jpeg/jpegSegment:219:DQT'
@@ -1552,7 +1469,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 67
-                                        bytes_hash: d229f7360269862140cc673e3a8136a89b8e0fb39add0adb8640988ced496de8
                                         text: '67 bytes of data [ 00 43 00 02 02 02 ... 0F 0F 0F 0F 0F 0F ]'
                         -
                             path: '/image/jpeg/jpegSegment:219:DQT'
@@ -1568,7 +1484,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 67
-                                        bytes_hash: f717045fd7b62d0896590a7f91f1ff14e33df50b605a32a6103faafce2f12bf7
                                         text: '67 bytes of data [ 00 43 01 02 03 03 ... 10 10 10 10 10 10 ]'
                         -
                             path: '/image/jpeg/jpegSegment:221:DRI'
@@ -1584,7 +1499,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 4
-                                        bytes_hash: ff666a076960c40230d4d288289ca81e7beb54004f5c602b5c39d0f70b3209e3
                                         text: '4 bytes of data [ 00 04 00 FC ]'
                         -
                             path: '/image/jpeg/jpegSegment:218:SOS'
@@ -1600,7 +1514,6 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 3658511
-                                        bytes_hash: 73a93edce53977d8d4e042b864643b459ae9e5e055bf9026130b73c9f2ee9ab6
                                         text: '3658511 bytes of data [ 00 0C 03 01 00 02 ... E4 F3 5C EE 26 87 ]'
                         -
                             path: '/image/jpeg/jpegSegment:217:EOI'
