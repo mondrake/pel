@@ -107,17 +107,17 @@ class ExifEye
     }
 
 
-    public static function dumpHex($input, $dump_lenght = 4)
+    public static function dumpHex($input, $dump_length = 4)
     {
         $input_length = strlen($input);
 
-        if ($input_lenght === 0) {
+        if ($input_length === 0) {
             return null;
         }
 
         $ret = '[ ';
 
-        if ($input_lenght <= $dump_lenght) {
+        if ($input_length <= $dump_length) {
             $dump_length = $input_length;
         }
 
