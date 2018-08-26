@@ -51,7 +51,7 @@ class JpegSegmentSos extends JpegSegmentBase
             // There is no JPEG marker for trailing garbage, so we just load
             // the data in a RawData object.
             $trail = new RawData($this->getParentElement());
-            $trail->loadFromData($data_window, $end_offset + 1, ['components' => $raw_components]);
+            $trail->loadFromData($data_window, $end_offset, ['components' => $raw_components]);
         }
 
         return $this;

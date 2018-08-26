@@ -119,11 +119,23 @@ class ExifEye
 
         if ($input_length <= $dump_length) {
             $dump_length = $input_length;
+            $tmp = substr($input, 0, $dump_length);
+            $tmp = bin2hex($tmp);
+            $tmp = strtoupper($tmp);
+            $ret .= chunk_split($tmp, 2, ' ');
+        } else {
+            $left_length = round($dump_length / 2);
+            $tmp = substr($input, 0, $left_length);
+            $tmp = bin2hex($tmp);
+            $tmp = strtoupper($tmp);
+            $ret .= chunk_split($tmp, 2, ' ');
+            $ret .= '... ';
+            $right_length = $dump_length - $left_length;
+            $tmp = substr($input, -$right_length);
+            $tmp = bin2hex($tmp);
+            $tmp = strtoupper($tmp);
+            $ret .= chunk_split($tmp, 2, ' ');
         }
-
-        $tmp = substr($input, 0, $dump_length);
-        $tmp = bin2hex($tmp);
-        $ret .= chunk_split($tmp, 2, ' ');
 
         $ret .= ']';
 
