@@ -105,4 +105,29 @@ class ExifEye
             return $str;
         }
     }
+
+
+    public static dumpHex($input, $dump_lenght = 4)
+    {
+        $input_length = strlen($input);
+
+        if ($input_lenght === 0) {
+            return null;
+        }
+
+        $ret = '[ ';
+
+        if ($input_lenght <= $dump_lenght) {
+            $dump_length = $input_length;
+        }
+
+        $tmp = substr($input, $input_lenght);
+        $tmp = bin2hex($tmp);
+        $ret .= chunk_split($tmp, 2, ' ');
+
+        $ret .= ' ]';
+
+        return $ret;
+    }
+
 }
