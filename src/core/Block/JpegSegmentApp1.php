@@ -43,17 +43,17 @@ class JpegSegmentApp1 extends JpegSegmentBase
     public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN)
     {
         if ($exif = $this->getElement("exif")) {
-            $bytes = '';
-            // Add the delimiter.
-            $bytes .= chr(JpegSegment::JPEG_DELIMITER);
-            // Add the marker.
-            $marker = $this->getAttribute('id');
-            $bytes .= chr($marker);
+            $bytes = $this->getMarkerBytes();
+
             // Get the payload.
             $data = $exif->toBytes();
+
             // Add the data lenght.
             $bytes .= ConvertBytes::fromShort(strlen($data), ConvertBytes::LITTLE_ENDIAN);
+
+            // Add the data.
             $bytes .= $data;
+
             return $bytes;
         }
 

@@ -97,14 +97,7 @@ abstract class JpegSegmentBase extends BlockBase
      */
     public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN)
     {
-        $bytes = '';
-
-        // Add the delimiter.
-        $bytes .= chr(JpegSegment::JPEG_DELIMITER);
-
-        // Add the marker.
-        $marker = $this->getAttribute('id');
-        $bytes .= chr($marker);
+        $bytes = $this->getMarkerBytes();
 
         // Add the payload.
         if ($entry = $this->getElement("entry")) {
@@ -112,5 +105,13 @@ abstract class JpegSegmentBase extends BlockBase
         }
 
         return $bytes;
+    }
+
+    /**
+     * Returns the marker bytes for the segment.
+     */
+    protected function getMarkerBytes()
+    {
+        return chr(JpegSegment::JPEG_DELIMITER) . chr($this->getAttribute('id'));
     }
 }

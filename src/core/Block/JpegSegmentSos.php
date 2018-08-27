@@ -56,26 +56,6 @@ class JpegSegmentSos extends JpegSegmentBase
     /**
      * {@inheritdoc}
      */
-    public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN)
-    {
-        $bytes = '';
-
-        // Add the delimiter.
-        $bytes .= chr(JpegSegment::JPEG_DELIMITER);
-
-        // Add the marker.
-        $marker = $this->getAttribute('id');
-        $bytes .= chr($marker);
-
-        // Get the segment data.
-        $bytes .= $this->getElement("entry")->toBytes();
-
-        return $bytes;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function toDumpArray()
     {
         $dump = parent::toDumpArray();

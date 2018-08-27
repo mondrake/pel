@@ -28,4 +28,24 @@ class JpegSegmentCom extends JpegSegmentBase
 
         return $this;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN)
+    {
+        $bytes = $this->getMarkerBytes();
+
+        // Get the payload.
+        $comment = $this->getElement("entry")
+        $data = $comment->toBytes();
+
+        // Add the data lenght.
+        $bytes .= ConvertBytes::fromShort(strlen($data), ConvertBytes::LITTLE_ENDIAN);
+
+        // Add the data.
+        $bytes .= $data;
+
+        return $bytes;
+    }
 }
