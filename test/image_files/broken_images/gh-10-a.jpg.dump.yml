@@ -727,8 +727,8 @@ elements:
                                         class: ExifEye\core\Entry\Core\Undefined
                                         valid: true
                                         format: Undefined
-                                        components: 4636
-                                        text: '4636 bytes of data [ 68 74 74 70 3A 2F ... 3D 27 77 27 3F 3E ]'
+                                        components: 4638
+                                        text: '4638 bytes of data [ 12 1E 68 74 74 70 ... 3D 27 77 27 3F 3E ]'
                         -
                             path: '/image/jpeg/jpegSegment:226:APP2'
                             class: ExifEye\core\Block\JpegSegment
@@ -829,7 +829,7 @@ log:
     ERROR:
         -
             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0'
-            message: 'Offset -1 not within [0, 14811]'
+            message: 'Offset -1 not within [0, 14812]'
     WARNING:
         -
             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:306:DateTime'

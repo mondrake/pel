@@ -3464,8 +3464,8 @@ elements:
                                         class: ExifEye\core\Entry\Core\Undefined
                                         valid: true
                                         format: Undefined
-                                        components: 2940
-                                        text: '2940 bytes of data [ 68 74 74 70 3A 2F ... 27 72 27 3F 3E 0A ]'
+                                        components: 2942
+                                        text: '2942 bytes of data [ 0B 7E 68 74 74 70 ... 27 72 27 3F 3E 0A ]'
                         -
                             path: '/image/jpeg/jpegSegment:219:DQT'
                             class: ExifEye\core\Block\JpegSegment

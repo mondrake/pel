@@ -46,8 +46,8 @@ elements:
                                         class: ExifEye\core\Entry\Core\Undefined
                                         valid: true
                                         format: Undefined
-                                        components: 454
-                                        text: '454 bytes of data [ 68 74 74 70 3A 2F ... 22 77 22 3F 3E 0A ]'
+                                        components: 456
+                                        text: '456 bytes of data [ 01 C8 68 74 74 70 ... 22 77 22 3F 3E 0A ]'
                         -
                             path: '/image/jpeg/jpegSegment:225:APP1'
                             class: ExifEye\core\Block\JpegSegmentApp1
