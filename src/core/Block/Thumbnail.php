@@ -81,8 +81,10 @@ class Thumbnail extends BlockBase
 
         // Now set the thumbnail normally.
         try {
+dump(['pre', $offset, $length]);
             $dataxx = $data_window->getClone($offset, $length);
             $size = $dataxx->getSize();
+dump(['post', $offset, $length, $size]);
             // Now move backwards until we find the EOI JPEG marker.
             while ($dataxx->getByte($size - 2) !== JpegSegment::JPEG_DELIMITER || $dataxx->getByte($size - 1) != Spec::getElementIdByName('jpeg', 'EOI')) {
                 $size --;
