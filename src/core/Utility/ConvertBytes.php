@@ -2,6 +2,8 @@
 
 namespace ExifEye\core\Utility;
 
+use ExifEye\core\ExifEye;
+
 /**
  * Conversion functions to and from bytes and integers.
  *
