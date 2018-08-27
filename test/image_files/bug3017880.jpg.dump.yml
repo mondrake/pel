@@ -1,5 +1,6 @@
 fileName: bug3017880.jpg
 mimeType: image/jpeg
+fileContentHash: c187ee42965e45844fbe6371ac38dbcdb2126ea69c17c01fee2ab0ba6c6ba616
 elements:
     path: /image
     class: ExifEye\core\Image
@@ -32,6 +33,7 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 132
+                                        bytesHash: e251d92b9de1e01252e2a81e06cf007c890f4b80893dc77b081fed0ccb09a597
                                         text: '132 bytes of data [ 00 84 00 09 06 06 ... 4F 4F 4F 4F 4F 4F ]'
                         -
                             path: '/image/jpeg/jpegSegment:225:APP1'
@@ -74,8 +76,7 @@ elements:
                                                                                         valid: true
                                                                                         format: Ascii
                                                                                         components: 11
-                                                                                        value: czoxMDoiRXhhbXBsZSBWMiI7
-                                                                                        clear_value: 's:10:"Example V2";'
+                                                                                        bytesHash: 5175be687cf17efcc85c38d9b785fcab030f20065935a7fe7223a8a168f4e1d7
                                                                                         text: 'Example V2'
                         -
                             path: '/image/jpeg/jpegSegment:192:SOF0'
@@ -91,6 +92,7 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 17
+                                        bytesHash: f088169de6a87ecb097b0c4d5fb55dc5beae1909d5e9aebd6a2165da07931973
                                         text: '17 bytes of data [ 00 11 08 00 78 00 ... 02 11 01 03 11 01 ]'
                         -
                             path: '/image/jpeg/jpegSegment:196:DHT'
@@ -106,6 +108,7 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 418
+                                        bytesHash: 403d2314bbba2bba82dcc023a90ab42891e776dbfe4013913cf28a1ee18ff3ec
                                         text: '418 bytes of data [ 01 A2 00 00 01 05 ... F5 F6 F7 F8 F9 FA ]'
                         -
                             path: '/image/jpeg/jpegSegment:218:SOS'
@@ -121,6 +124,7 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 4274
+                                        bytesHash: 7a7bdb1dc746cfce3afa05f5c98989f3872af045b1d2babfbc9c28f962c8b1ed
                                         text: '4274 bytes of data [ 00 0C 03 01 00 02 ... 7B 0A B4 BA 0B CC ]'
                         -
                             path: '/image/jpeg/jpegSegment:217:EOI'

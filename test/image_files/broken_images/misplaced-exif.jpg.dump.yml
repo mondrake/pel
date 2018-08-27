@@ -1,5 +1,6 @@
 fileName: misplaced-exif.jpg
 mimeType: image/jpeg
+fileContentHash: b14a62158bfab96530f8c257cb619371a39ca5d28c9e23a65e95e7b4ac4ba3b2
 elements:
     path: /image
     class: ExifEye\core\Image
@@ -32,6 +33,7 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 16
+                                        bytesHash: 561b0b9f969d16c5d3a62db01df610f0fbacd33315eee2e2f3b7acf61817f277
                                         text: '16 bytes of data [ 00 10 4A 46 49 46 ... 00 48 00 48 00 00 ]'
                         -
                             path: '/image/jpeg/jpegSegment:225:APP1'
@@ -47,6 +49,7 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 456
+                                        bytesHash: 65b4dc3b316de26b17200db1712982bdd4ee9373110360d74d4a978ce5320ee5
                                         text: '456 bytes of data [ 01 C8 68 74 74 70 ... 22 77 22 3F 3E 0A ]'
                         -
                             path: '/image/jpeg/jpegSegment:225:APP1'
@@ -89,8 +92,7 @@ elements:
                                                                                         valid: true
                                                                                         format: Byte
                                                                                         components: 2
-                                                                                        value: YToyOntpOjA7czowOiIiO2k6MTtzOjA6IiI7fQ==
-                                                                                        clear_value: 'a:2:{i:0;s:0:"";i:1;s:0:"";}'
+                                                                                        bytesHash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                         text: ''
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:270:ImageDescription'
@@ -106,8 +108,7 @@ elements:
                                                                                         valid: true
                                                                                         format: Ascii
                                                                                         components: 6
-                                                                                        value: czo1OiJUZXN0MSI7
-                                                                                        clear_value: 's:5:"Test1";'
+                                                                                        bytesHash: 059d7955ee15906a5f9fe69c6c94d419db9f9e8489a99f8d5a5aba5bb11a6c2e
                                                                                         text: Test1
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:306:DateTime'
@@ -123,8 +124,7 @@ elements:
                                                                                         valid: true
                                                                                         format: Ascii
                                                                                         components: 11
-                                                                                        value: czoxOToiMDAwMDowMDowMCAwMDowMDowMCI7
-                                                                                        clear_value: 's:19:"0000:00:00 00:00:00";'
+                                                                                        bytesHash: 8082e900bcd25e2f020ec7473bdc84b09feba7c72eba59119286e9bb8efb2dfc
                                                                                         text: '0000:00:00 00:00:00'
                                                                     ifd:
                                                                         -
@@ -148,8 +148,7 @@ elements:
                                                                                                     valid: true
                                                                                                     format: Byte
                                                                                                     components: 4
-                                                                                                    value: YTo0OntpOjA7aToyO2k6MTtpOjM7aToyO2k6MDtpOjM7aTowO30=
-                                                                                                    clear_value: 'a:4:{i:0;i:2;i:1;i:3;i:2;i:0;i:3;i:0;}'
+                                                                                                    bytesHash: 3c7a246021bffd30e44bb63887f5ea8e6b87b5dae4db1110fabe67c1683200d0
                                                                                                     text: 2.3.0.0
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif'
@@ -172,8 +171,7 @@ elements:
                                                                                                     valid: false
                                                                                                     format: Undefined
                                                                                                     components: 4
-                                                                                                    value: czozOiIwLjAiOw==
-                                                                                                    clear_value: 's:3:"0.0";'
+                                                                                                    bytesHash: 9af15b336e6a9619928537df30b2e6a2376569fcf9d7e773eccede65606529a0
                                                                                                     text: 'Exif Version 0.0'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37520:SubSecTime'
@@ -189,8 +187,7 @@ elements:
                                                                                                     valid: true
                                                                                                     format: Ascii
                                                                                                     components: 2
-                                                                                                    value: czoxOiIwIjs=
-                                                                                                    clear_value: 's:1:"0";'
+                                                                                                    bytesHash: e4f60d0aa6d7f3d3b6a6494b1c861b99f649c6f9ec51abaf201b20f297327c95
                                                                                                     text: '0'
                                                                                     -
                                                                                         path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:36880:OffsetTime'
@@ -206,8 +203,7 @@ elements:
                                                                                                     valid: true
                                                                                                     format: Ascii
                                                                                                     components: 7
-                                                                                                    value: czo2OiIrMDA6MDAiOw==
-                                                                                                    clear_value: 's:6:"+00:00";'
+                                                                                                    bytesHash: 3c23203d1c5f9debe4a838f6b142a1dcae721fba060615dc95718b30adf2900c
                                                                                                     text: '+00:00'
                                                             -
                                                                 path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD1'
@@ -230,8 +226,7 @@ elements:
                                                                                         valid: true
                                                                                         format: Long
                                                                                         components: 1
-                                                                                        value: aToxNDU3Ow==
-                                                                                        clear_value: 'i:1457;'
+                                                                                        bytesHash: bf69b51e03c1980f841f568f662f8df90785ff260deede601b36b9c2fbf2b60f
                                                                                         text: 1457
                                                                         -
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD1/tag:513:ThumbnailOffset'
@@ -247,8 +242,7 @@ elements:
                                                                                         valid: true
                                                                                         format: Long
                                                                                         components: 1
-                                                                                        value: aToxODg7
-                                                                                        clear_value: 'i:188;'
+                                                                                        bytesHash: c954e62382e2b0114ad3e057972f9eecab85e6be781fe8f73ed3f7783601747e
                                                                                         text: 188
                                                                     thumbnail:
                                                                         -
@@ -263,8 +257,7 @@ elements:
                                                                                         valid: true
                                                                                         format: Undefined
                                                                                         components: 1457
-                                                                                        value: czoxNDU3OiL/2P/gABBKRklGAAEBAAABAAEAAP/bAEMACAYGBwYFCAcHBwkJCAoMFA0MCwsMGRITDxQdGh8eHRocHCAkLicgIiwjHBwoNyksMDE0NDQfJzk9ODI8LjM0Mv/bAEMBCQkJDAsMGA0NGDIhHCEyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMv/AABEIAHoAxAMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/APf6KKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiuI+IE2qfbNAs9Le833NxMHjtLoW7SBYWYfOQRgEZ/CsK6+Il9o3hHTJ45I9QvYraWS/WS3kZyIn2NzH8q/MGG88ZAOMGgD1SivMta8U6tqN5CLc2ltp0Ov2NmVErLcuTJGzHjgqQSMdxk+1bHxH1+bS9NtNPsb57O+vpTtnjiaQxIg3M21QTydq9P4qAO1orynWvEGp+IW8PS6M2r773SrqbyNOmSMpcI8SgybyAVViwI5PPSpLuXxVceMXs7WbUnvLaGwZ2gmRbOMtu84yKxydwU42g9O1AHqVFctYNd2/wAR9StJNQuri2k06K5SGVhsiZpZFwoAGBhR7+9dTQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQBnatoOk69DHFq2n297HE29FnjDBTjGRmoLnwn4eu4LeC40Wwlit42ihRoFIjRhggccA1sUUAZUvhnQ59RXUJdJs3vUKFZzCN4KEFeevBAx9KvGztjeremBDdLGYhLj5ghOSufTIB/Cp6KAKVvpGnWtyLm3soI5h5mHVACPMYM//fRUE+pFTx2lvFdTXUcKLPOFWWQD5nC52gnvjJ/OpqKAMePwpoEWsnWI9Hs11IuXN0Ih5m45BOfXk1sUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQB//2SI7
-                                                                                        clear_value: !!binary czoxNDU3OiL/2P/gABBKRklGAAEBAAABAAEAAP/bAEMACAYGBwYFCAcHBwkJCAoMFA0MCwsMGRITDxQdGh8eHRocHCAkLicgIiwjHBwoNyksMDE0NDQfJzk9ODI8LjM0Mv/bAEMBCQkJDAsMGA0NGDIhHCEyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMv/AABEIAHoAxAMBIgACEQEDEQH/xAAfAAABBQEBAQEBAQAAAAAAAAAAAQIDBAUGBwgJCgv/xAC1EAACAQMDAgQDBQUEBAAAAX0BAgMABBEFEiExQQYTUWEHInEUMoGRoQgjQrHBFVLR8CQzYnKCCQoWFxgZGiUmJygpKjQ1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4eLj5OXm5+jp6vHy8/T19vf4+fr/xAAfAQADAQEBAQEBAQEBAAAAAAAAAQIDBAUGBwgJCgv/xAC1EQACAQIEBAMEBwUEBAABAncAAQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fr/2gAMAwEAAhEDEQA/APf6KKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiuI+IE2qfbNAs9Le833NxMHjtLoW7SBYWYfOQRgEZ/CsK6+Il9o3hHTJ45I9QvYraWS/WS3kZyIn2NzH8q/MGG88ZAOMGgD1SivMta8U6tqN5CLc2ltp0Ov2NmVErLcuTJGzHjgqQSMdxk+1bHxH1+bS9NtNPsb57O+vpTtnjiaQxIg3M21QTydq9P4qAO1orynWvEGp+IW8PS6M2r773SrqbyNOmSMpcI8SgybyAVViwI5PPSpLuXxVceMXs7WbUnvLaGwZ2gmRbOMtu84yKxydwU42g9O1AHqVFctYNd2/wAR9StJNQuri2k06K5SGVhsiZpZFwoAGBhR7+9dTQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQBnatoOk69DHFq2n297HE29FnjDBTjGRmoLnwn4eu4LeC40Wwlit42ihRoFIjRhggccA1sUUAZUvhnQ59RXUJdJs3vUKFZzCN4KEFeevBAx9KvGztjeremBDdLGYhLj5ghOSufTIB/Cp6KAKVvpGnWtyLm3soI5h5mHVACPMYM//fRUE+pFTx2lvFdTXUcKLPOFWWQD5nC52gnvjJ/OpqKAMePwpoEWsnWI9Hs11IuXN0Ih5m45BOfXk1sUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQB//2SI7
+                                                                                        bytesHash: f61c1bfebdbdc57435c7a567225ba1fc9e907285192bb74fab92dc0a4a7dfe55
                                                                                         text: '1457 bytes of data [ FF D8 FF E0 00 10 ... 14 51 40 1F FF D9 ]'
                         -
                             path: '/image/jpeg/jpegSegment:254:COM'
@@ -280,8 +273,7 @@ elements:
                                         valid: true
                                         format: Ascii
                                         components: 18
-                                        value: czoxNzoiQ3JlYXRlZCB3aXRoIEdJTVAiOw==
-                                        clear_value: 's:17:"Created with GIMP";'
+                                        bytesHash: 13b9871a286d9d10af675161201c67198c4db756b96cedbfe944be8aa623416d
                                         text: 'Created with GIMP'
                         -
                             path: '/image/jpeg/jpegSegment:219:DQT'
@@ -297,6 +289,7 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 67
+                                        bytesHash: 6e194ed2dbf2f405608e7c5763cc2a7067f3d81477047517d92b558954bf1a21
                                         text: '67 bytes of data [ 00 43 00 03 02 02 ... 14 18 12 14 15 14 ]'
                         -
                             path: '/image/jpeg/jpegSegment:219:DQT'
@@ -312,6 +305,7 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 67
+                                        bytesHash: 86a19b9238513cc54853936865d923ed31006cb4735790f95b28051160c9007a
                                         text: '67 bytes of data [ 00 43 01 03 04 04 ... 14 14 14 14 14 14 ]'
                         -
                             path: '/image/jpeg/jpegSegment:194:SOF2'
@@ -327,6 +321,7 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 17
+                                        bytesHash: 690441676135b2f5e1d1604ad9184587cf25cfc2f392554f11ed792c49077abf
                                         text: '17 bytes of data [ 00 11 08 00 C8 01 ... 02 11 01 03 11 01 ]'
                         -
                             path: '/image/jpeg/jpegSegment:196:DHT'
@@ -342,6 +337,7 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 26
+                                        bytesHash: fb3fdb0a33a51bec21046302d1c8434754b31658fd29c5e4c0abf05dc7821a48
                                         text: '26 bytes of data [ 00 1A 00 01 00 02 ... 06 07 03 04 05 08 ]'
                         -
                             path: '/image/jpeg/jpegSegment:196:DHT'
@@ -357,6 +353,7 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 20
+                                        bytesHash: 32a485430dddb05aecd8041c02bdd162e2ed134f33af9e3d75aceb883db53616
                                         text: '20 bytes of data [ 00 14 01 01 00 00 ... 00 00 00 00 00 00 ]'
                         -
                             path: '/image/jpeg/jpegSegment:218:SOS'
@@ -372,6 +369,7 @@ elements:
                                         valid: true
                                         format: Undefined
                                         components: 2222
+                                        bytesHash: 9478282ea4e32c5295852365c46816aae5da865e825f8407a53b8a5c1f5e80b2
                                         text: '2222 bytes of data [ 00 0C 03 01 00 02 ... C0 54 B3 7F B2 3F ]'
                         -
                             path: '/image/jpeg/jpegSegment:217:EOI'
