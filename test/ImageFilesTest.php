@@ -47,7 +47,7 @@ class ImageFilesTest extends ExifEyeTestCaseBase
         $test = Yaml::parse($test_file_content);
 
         $image = Image::loadFromFile($imageDumpFile->getPath() . '/' . $test['fileName']);
-//dump(@exif_read_data($imageDumpFile->getPath() . '/' . $test['fileName']));
+dump(@exif_read_data($imageDumpFile->getPath() . '/' . $test['fileName']));
 
         $this->assertEquals($test['mimeType'], $image->getMimeType());
         $this->assertEquals($test['fileContentHash'], hash('sha256', $test_file_content));

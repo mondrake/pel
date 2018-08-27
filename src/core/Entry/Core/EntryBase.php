@@ -121,7 +121,6 @@ abstract class EntryBase extends ElementBase implements EntryInterface
      */
     public function toDumpArray()
     {
-if (is_array($this->toBytes())) dump($this->getContextPath());
         $dump = array_merge(parent::toDumpArray(), [
             'format' => Format::getName($this->getFormat()),
             'components' => $this->getComponents(),

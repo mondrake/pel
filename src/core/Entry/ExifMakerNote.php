@@ -53,6 +53,14 @@ class ExifMakerNote extends Undefined
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN)
+    {
+        return 'xx @todo';
+    }
+
+    /**
      * Converts a maker note tag to an IFD structure for dumping.
      *
      * @param DataWindow $d
