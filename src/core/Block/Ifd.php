@@ -145,6 +145,9 @@ class Ifd extends BlockBase
                 'callback' => $callback,
             ]);
         }
+dump('xxx');
+$x = $data_window->getLong($offset + 12 * $n);
+dump('yyy');
 
         return $data_window->getLong($offset + 12 * $n);
     }
