@@ -57,7 +57,7 @@ class WindowsString extends Byte
 
         $windows_string = mb_convert_encoding($data[0], 'UCS-2LE', 'auto');
         $this->components = strlen($windows_string) + 2;
-        $this->value = [$data[0], $windows_string];
+        $this->value = [rtrim($data[0], "\0"), $windows_string];
         return $this;
     }
 
