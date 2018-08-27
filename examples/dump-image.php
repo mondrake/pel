@@ -97,6 +97,7 @@ try {
 
 if (!isset($err)) {
     dump_element($image);
+    dump(@exif_read_data($file));
 } else {
     print("dump-image: Error while reading image: " . $err . "\n");
 }
