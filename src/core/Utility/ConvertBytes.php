@@ -241,7 +241,7 @@ class ConvertBytes
     public static function toLong($bytes, $offset, $endian)
     {
 global $xxxy;
-if ($xxxy) dump(ExifEye::dumpHex($bytes, $offset));
+if ($xxxy) dump([ExifEye::dumpHex($bytes, 20), $offset]);
         if ($endian == self::LITTLE_ENDIAN) {
             return (ord($bytes{$offset + 3}) * 16777216 + ord($bytes{$offset + 2}) * 65536 +
                  ord($bytes{$offset + 1}) * 256 + ord($bytes{$offset}));
