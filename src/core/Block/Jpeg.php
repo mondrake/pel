@@ -104,4 +104,18 @@ dump(ExifEye::dumpHex($data_window->getBytes($i, 12), 12));
     {
         return 'image/jpeg';
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN)
+    {
+        $bytes = '';
+        foreach ($this->getMultipleElements("*") as $sub) {
+dump('write ' . ExifEye::dumpHex($sub->toBytes(), 24));
+            $bytes .= $sub->toBytes();
+        }
+        return $bytes;
+    }
+
 }

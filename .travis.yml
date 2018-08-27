@@ -56,7 +56,7 @@ script:
       if [ "$TRAVIS_PHP_VERSION" == "7.1" ]; then
         ./vendor/bin/phpunit --coverage-clover build/logs/clover.xml ./test
       else
-        ./vendor/bin/phpunit ./test
+        ./vendor/bin/phpunit ./test/GH16Test.php
       fi
   #- php examples/dump-image.php -d -s test/image_files/broken_images/gh-10-a.jpg
   #- php examples/dump-image.php -d -s test/image_files/broken_images/gh-10-b.jpg
