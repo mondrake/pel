@@ -46,7 +46,7 @@ class Jpeg extends BlockBase
         // segment we will terminate.
         $i = $offset;
         while ($i < $data_window->getSize()) {
-dump(ExifEye::dumpHex($dataWindow->getBytes($i, 12), 12);
+dump(ExifEye::dumpHex($dataWindow->getBytes($i, 12), 12));
             // Get next JPEG marker.
             $i = $this->getJpegMarkerOffset($data_window, $i);
             $segment_id = $data_window->getByte($i);
