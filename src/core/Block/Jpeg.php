@@ -46,7 +46,6 @@ class Jpeg extends BlockBase
         // segment we will terminate.
         $i = $offset;
         while ($i < $data_window->getSize()) {
-dump(ExifEye::dumpHex($data_window->getBytes($i, 12), 12));
             // Get next JPEG marker.
             $i = $this->getJpegMarkerOffset($data_window, $i);
             $segment_id = $data_window->getByte($i);
@@ -103,19 +102,6 @@ dump(ExifEye::dumpHex($data_window->getBytes($i, 12), 12));
     public function getMimeType()
     {
         return 'image/jpeg';
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN)
-    {
-        $bytes = '';
-        foreach ($this->getMultipleElements("*") as $sub) {
-dump('write ' . ExifEye::dumpHex($sub->toBytes(), 24));
-            $bytes .= $sub->toBytes();
-        }
-        return $bytes;
     }
 
 }
