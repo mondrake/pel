@@ -10,6 +10,8 @@ use ExifEye\core\Entry\Core\Undefined;
  */
 class JpegSegmentApp1 extends JpegSegmentBase
 {
+    protected $xxisexif;
+
     /**
      * {@inheritdoc}
      */
@@ -22,9 +24,11 @@ class JpegSegmentApp1 extends JpegSegmentBase
         $this->components = $data_window->getShort($offset);
 
         if (Exif::isExifSegment($data_window, $offset + 2)) {
+            $this->xxisexif = true;
             $exif = new Exif($this);
             $ret = $exif->loadFromData($data_window->getClone($offset + 2));
         } else {
+            $this->xxisexif = false;
             // We store the data as normal JPEG content if it could not be
             // parsed as Exif data.
             $entry = new Undefined($this, [$data_window->getBytes($offset, $this->components)]);
@@ -34,6 +38,31 @@ class JpegSegmentApp1 extends JpegSegmentBase
         $this->debug(".....END Loading");
 
         return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN)
+    {
+        if ($this->xxisexif) {
+            $bytes = '';
+            // Add the delimiter.
+            $bytes .= chr(JpegSegment::JPEG_DELIMITER);
+            // Add the marker.
+            $marker = $this->getAttribute('id');
+            $bytes .= chr($marker);
+            // Get the payload.
+            if ($entry = $this->getElement("entry")) {
+                $data = $entry->toBytes();
+            }
+            // Add the data lenght.
+            $bytes .= ConvertBytes::fromShort(strlen($data), ConvertBytes::LITTLE_ENDIAN);
+            $bytes .= $data;
+            return $bytes;
+        }
+
+        return parent::toBytes();
     }
 
     /**

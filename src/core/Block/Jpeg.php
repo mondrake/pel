@@ -76,12 +76,13 @@ class Jpeg extends BlockBase
     }
 
     /**
-     * JPEG sections start with 0xFF. The first byte that is not
-     * 0xFF is a marker (hopefully).
+     * JPEG sections start with 0xFF. The first byte that is not 0xFF is a marker
+     * (hopefully).
      *
      * @param DataWindow $data_window
+     * @param int $offset
      *
-     * @return integer
+     * @return int
      */
     protected function getJpegMarkerOffset($data_window, $offset)
     {
