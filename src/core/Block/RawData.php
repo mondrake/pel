@@ -8,7 +8,7 @@ use ExifEye\core\Spec;
 use ExifEye\core\Utility\ConvertBytes;
 
 /**
- * Abstract class for JPEG data segments.
+ * Class for JPEG raw data.
  */
 class RawData extends BlockBase
 {

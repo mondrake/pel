@@ -22,6 +22,8 @@ use ExifEye\core\Utility\ConvertBytes;
  */
 class WindowsString extends Byte
 {
+      // xx @todo to be cleaned up as when back to byest is not identical
+
     /**
      * {@inheritdoc}
      */

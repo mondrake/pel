@@ -106,7 +106,14 @@ class ExifEye
         }
     }
 
-
+    /**
+     * Dumps a string of bytes in a human readable sequence of hex couples.
+     *
+     * @param string $input
+     * @param int @dump_length
+     *
+     * @return string
+     */
     public static function dumpHex($input, $dump_length = 4)
     {
         $input_length = strlen($input);
