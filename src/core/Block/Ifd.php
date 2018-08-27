@@ -146,7 +146,10 @@ class Ifd extends BlockBase
             ]);
         }
 dump('xxx');
+global $xxxy;
+$xxxy = true;
 $x = $data_window->getLong($offset + 12 * $n);
+$xxxy = false;
 dump('yyy');
 
         return $data_window->getLong($offset + 12 * $n);

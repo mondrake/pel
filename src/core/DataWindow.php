@@ -2,6 +2,7 @@
 
 namespace ExifEye\core;
 
+use ExifEye\core\ExifEye;
 use ExifEye\core\Utility\ConvertBytes;
 
 /**
@@ -405,6 +406,8 @@ class DataWindow
         $offset += $this->start;
 
         /* Return an unsigned long. */
+global $xxxy;
+if ($xxxy) dump(ExifEye::dumpHex($this->data, 10));
         return ConvertBytes::toLong($this->data, $offset, $this->order);
     }
 
