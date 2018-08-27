@@ -4,6 +4,7 @@ namespace ExifEye\core\Block;
 
 use ExifEye\core\DataWindow;
 use ExifEye\core\Entry\Core\Undefined;
+use ExifEye\core\ExifEye;
 use ExifEye\core\Spec;
 use ExifEye\core\Utility\ConvertBytes;
 
@@ -45,14 +46,15 @@ class Jpeg extends BlockBase
         // segment we will terminate.
         $i = $offset;
         while ($i < $data_window->getSize()) {
+dump(ExifEye::dumpHex($dataWindow->getBytes($i, 12), 12);
             // Get next JPEG marker.
             $i = $this->getJpegMarkerOffset($data_window, $i);
-            $segment_id = $data_window->getByte($i++);
+            $segment_id = $data_window->getByte($i);
 
             // Warn if an unidentified segment is detected.
             if (!in_array($segment_id, Spec::getTypeSupportedElementIds($this->getType()))) {
                 $this->warning('Invalid marker 0x{marker} found @ offset {offset}', [
-                    'offset' => $offset,
+                    'offset' => $i,
                     'marker' => strtoupper(dechex($segment_id)),
                 ]);
             }
@@ -60,7 +62,7 @@ class Jpeg extends BlockBase
             // Create and load the ExifEye JPEG segment object.
             $segment_class = Spec::getElementHandlingClass($this->getType(), $segment_id);
             $segment = new $segment_class($segment_id, $this);
-            $segment->loadFromData($data_window, $i);
+            $segment->loadFromData($data_window, ++$i);
 
             // In case of image scan segment, the load is now complete.
             if ($segment->getPayload() === 'scan') {
