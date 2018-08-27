@@ -25,16 +25,12 @@ class JpegSegmentSos extends JpegSegmentBase
         // determined by finding the EOI marker backwards from the end of data.
         // Some images have some trailing (garbage?) following the EOI marker,
         // which we store in a RawData object.
-#dump('offset:' . $offset);
         $size = $data_window->getSize();
         $length = $size;
-#dump('length1:' . $length);
         while ($data_window->getByte($length - 2) !== JpegSegment::JPEG_DELIMITER || $data_window->getByte($length - 1) != self::JPEG_EOI) {
             $length --;
         }
         $this->components = $length - $offset - 2;
-#dump('length2:' . $length);
-#dump('comp:' . $this->components);
 
         // Load data in an Undefined entry.
         $entry = new Undefined($this, [$data_window->getBytes($offset, $this->components)]);
@@ -51,7 +47,7 @@ class JpegSegmentSos extends JpegSegmentBase
             // There is no JPEG marker for trailing garbage, so we just load
             // the data in a RawData object.
             $trail = new RawData($this->getParentElement());
-            $trail->loadFromData($data_window, $end_offset, ['components' => $raw_components - 1]);
+            $trail->loadFromData($data_window, $end_offset, ['components' => $raw_components]);
         }
 
         return $this;
