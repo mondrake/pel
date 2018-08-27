@@ -147,7 +147,7 @@ class DataWindow
             );
         }
         $this->start += $start;
-dump('act size from ' . $this->size . ' to ' . $size);
+dump('act size from ' . $this->size . ' to ' . $this->size - $start);
         $this->size -= $start;
     }
 
