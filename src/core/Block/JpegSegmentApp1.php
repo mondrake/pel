@@ -48,8 +48,8 @@ class JpegSegmentApp1 extends JpegSegmentBase
             // Get the payload.
             $data = $exif->toBytes();
 
-            // Add the data lenght.
-            $bytes .= ConvertBytes::fromShort(strlen($data), ConvertBytes::BIG_ENDIAN);
+            // Add the data lenght, include the two bytes of the length itself.
+            $bytes .= ConvertBytes::fromShort(strlen($data) + 2, ConvertBytes::BIG_ENDIAN);
 
             // Add the data.
             $bytes .= $data;
