@@ -56,24 +56,24 @@ script:
       if [ "$TRAVIS_PHP_VERSION" == "7.1" ]; then
         ./vendor/bin/phpunit --coverage-clover build/logs/clover.xml ./test
       else
-        #./vendor/bin/phpunit ./test
+        ./vendor/bin/phpunit ./test
       fi
-  #- php examples/dump-image.php -d -s test/image_files/broken_images/gh-10-a.jpg
-  #- php examples/dump-image.php -d -s test/image_files/broken_images/gh-10-b.jpg
-  #- php examples/dump-image.php -d -s test/image_files/broken_images/gh-11.jpg
-  #- php examples/dump-image.php -d -s test/image_files/broken_images/misplaced-exif.jpg
-  #- php examples/dump-image.php -d test/image_files/no-exif.jpg
-  #- php examples/dump-image.php -d test/image_files/gh-21.jpg
-  #- php examples/dump-image.php -d test/image_files/gh-16.jpg
-  #- php examples/dump-image.php -d test/image_files/sample-1.tiff
-  #- php examples/dump-image.php -d test/image_files/camera_samples/apple-iphone6s.jpg
-  #- php examples/dump-image.php -d test/image_files/camera_samples/apple-iphone7.JPG
-  #- php examples/dump-image.php -d test/image_files/camera_samples/canon-eos-650d.jpg
-  #- php examples/dump-image.php -d test/image_files/camera_samples/nikon-d50.JPG
+  - php examples/dump-image.php -d -s test/image_files/broken_images/gh-10-a.jpg
+  - php examples/dump-image.php -d -s test/image_files/broken_images/gh-10-b.jpg
+  - php examples/dump-image.php -d -s test/image_files/broken_images/gh-11.jpg
+  - php examples/dump-image.php -d -s test/image_files/broken_images/misplaced-exif.jpg
+  - php examples/dump-image.php -d test/image_files/no-exif.jpg
+  - php examples/dump-image.php -d test/image_files/gh-21.jpg
+  - php examples/dump-image.php -d test/image_files/gh-16.jpg
+  - php examples/dump-image.php -d test/image_files/sample-1.tiff
+  - php examples/dump-image.php -d test/image_files/camera_samples/apple-iphone6s.jpg
+  - php examples/dump-image.php -d test/image_files/camera_samples/apple-iphone7.JPG
+  - php examples/dump-image.php -d test/image_files/camera_samples/canon-eos-650d.jpg
+  - php examples/dump-image.php -d test/image_files/camera_samples/nikon-d50.JPG
   - php examples/dump-image.php -d test/image_files/camera_samples/nikon-e5000.jpg
-  #- php examples/dump-image.php -d test/image_files/camera_samples/pentax-istDS.jpg
-  #- php examples/dump-image.php -d test/image_files/camera_samples/canon-ixus-ii.jpg
-  #- php examples/dump-image.php -d test/image_files/camera_samples/canon-powershot-s60.jpg
+  - php examples/dump-image.php -d test/image_files/camera_samples/pentax-istDS.jpg
+  - php examples/dump-image.php -d test/image_files/camera_samples/canon-ixus-ii.jpg
+  - php examples/dump-image.php -d test/image_files/camera_samples/canon-powershot-s60.jpg
 
 after_script:
   - if [ "$TRAVIS_PHP_VERSION" == "7.1" ]; then ./vendor/bin/php-coveralls -v --coverage_clover build/logs/clover.xml; fi

@@ -89,7 +89,7 @@ class DataWindow
 
         $this->order = $endianess;
         $this->size = strlen($this->data);
-dump('construct size ' . $this->size);
+//dump('construct size ' . $this->size);
     }
 
     /**
@@ -148,7 +148,7 @@ dump('construct size ' . $this->size);
             );
         }
         $this->start += $start;
-dump('act size from ' . $this->size . ' to ' . ($this->size - $start));
+//dump('act size from ' . $this->size . ' to ' . ($this->size - $start));
         $this->size -= $start;
     }
 
@@ -162,7 +162,7 @@ dump('act size from ' . $this->size . ' to ' . ($this->size - $start));
      */
     public function setWindowSize($size)
     {
-dump('req setWindowSize from ' . $this->size . ' to ' . $size);
+//dump('req setWindowSize from ' . $this->size . ' to ' . $size);
         if ($size < 0) {
             $size += $this->size;
         }
@@ -173,7 +173,7 @@ dump('req setWindowSize from ' . $this->size . ' to ' . $size);
                 $this->size
             );
         }
-dump('act setWindowSize from ' . $this->size . ' to ' . $size);
+//dump('act setWindowSize from ' . $this->size . ' to ' . $size);
         $this->size = $size;
     }
 
