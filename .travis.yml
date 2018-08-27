@@ -58,14 +58,13 @@ script:
       else
         ./vendor/bin/phpunit ./test
       fi
-  #- php examples/dump-image.php -d -s test/image_files/broken_images/gh-10-a.jpg
-  #- php examples/dump-image.php -d -s test/image_files/broken_images/gh-10-b.jpg
-  #- php examples/dump-image.php -d -s test/image_files/broken_images/gh-11.jpg
-  #- php examples/dump-image.php -d -s test/image_files/broken_images/misplaced-exif.jpg
-  #- php examples/dump-image.php -d test/image_files/no-exif.jpg
-  #- php examples/dump-image.php -d test/image_files/gh-21.jpg
+  - php examples/dump-image.php -d -s test/image_files/broken_images/gh-10-a.jpg
+  - php examples/dump-image.php -d -s test/image_files/broken_images/gh-10-b.jpg
+  - php examples/dump-image.php -d -s test/image_files/broken_images/gh-11.jpg
+  - php examples/dump-image.php -d -s test/image_files/broken_images/misplaced-exif.jpg
+  - php examples/dump-image.php -d test/image_files/no-exif.jpg
+  - php examples/dump-image.php -d test/image_files/gh-21.jpg
   - php examples/dump-image.php -d test/image_files/gh-16.jpg
-  - php examples/dump-image.php -d test/image_files/gh-16-tmp.jpg
   #- php examples/dump-image.php -d test/image_files/sample-1.tiff
   #- php examples/dump-image.php -d test/image_files/camera_samples/apple-iphone6s.jpg
   #- php examples/dump-image.php -d test/image_files/camera_samples/apple-iphone7.JPG
