@@ -148,5 +148,4 @@ class ExifEye
 
         return $ret;
     }
-
 }

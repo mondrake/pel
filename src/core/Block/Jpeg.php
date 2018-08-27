@@ -103,5 +103,4 @@ class Jpeg extends BlockBase
     {
         return 'image/jpeg';
     }
-
 }
