@@ -83,7 +83,7 @@ class Thumbnail extends BlockBase
         try {
             $dataxx = $data_window->getClone($offset, $length);
             $size = $dataxx->getSize();
-dump(['dataxx', ExifEye::dumpHex($dataxx, 30)]);
+dump(['dataxx', ExifEye::dumpHex($dataxx->getBytes(), 30)]);
 
             // Now move backwards until we find the EOI JPEG marker.
             while ($dataxx->getByte($size - 2) !== JpegSegment::JPEG_DELIMITER || $dataxx->getByte($size - 1) != Spec::getElementIdByName('jpeg', 'EOI')) {
