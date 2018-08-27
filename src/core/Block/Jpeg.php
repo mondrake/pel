@@ -51,7 +51,7 @@ class Jpeg extends BlockBase
 
             // Warn if an unidentified segment is detected.
             if (!in_array($segment_id, Spec::getTypeSupportedElementIds($this->getType()))) {
-                $this->warning('Invalid marker found at offset {offset}: 0x{marker}', [
+                $this->warning('Invalid marker 0x{marker} found @ offset {offset}', [
                     'offset' => $offset,
                     'marker' => strtoupper(dechex($segment_id)),
                 ]);
@@ -59,6 +59,15 @@ class Jpeg extends BlockBase
 
             // Create and load the ExifEye JPEG segment object.
             $segment_class = Spec::getElementHandlingClass($this->getType(), $segment_id);
+            if (!$segment_class) {
+                $this->error('No handling class found for marker 0x{marker} @ offset {offset}', [
+                    'offset' => $offset,
+                    'marker' => strtoupper(dechex($segment_id)),
+                ]);
+                $i += $segment->getComponents();
+                return $this;
+            }
+
             $segment = new $segment_class($segment_id, $this);
             $segment->loadFromData($data_window, $i);
 

@@ -89,7 +89,6 @@ class DataWindow
 
         $this->order = $endianess;
         $this->size = strlen($this->data);
-//dump('construct size ' . $this->size);
     }
 
     /**
@@ -148,7 +147,6 @@ class DataWindow
             );
         }
         $this->start += $start;
-//dump('act size from ' . $this->size . ' to ' . ($this->size - $start));
         $this->size -= $start;
     }
 
@@ -162,7 +160,6 @@ class DataWindow
      */
     public function setWindowSize($size)
     {
-//dump('req setWindowSize from ' . $this->size . ' to ' . $size);
         if ($size < 0) {
             $size += $this->size;
         }
@@ -173,7 +170,6 @@ class DataWindow
                 $this->size
             );
         }
-//dump('act setWindowSize from ' . $this->size . ' to ' . $size);
         $this->size = $size;
     }
 
@@ -220,9 +216,7 @@ class DataWindow
      */
     private function validateOffset($offset)
     {
-//        if ($offset < 0 || $offset >= $this->size) {
         if ($offset < 0 || $offset > $this->size) {
-//            throw new DataWindowException('Offset %d not within [%d, %d]', $offset, 0, $this->size - 1);
             throw new DataWindowException('Offset %d not within [%d, %d]', $offset, 0, $this->size);
         }
     }
