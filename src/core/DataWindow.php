@@ -406,7 +406,7 @@ class DataWindow
         $offset += $this->start;
 
         /* Return an unsigned long. */
-        return ConvertBytes::toLong($this->data, $offset, $this->order);
+        return ConvertBytes::toLong($this->data, (int) $offset, $this->order);
     }
 
     /**
