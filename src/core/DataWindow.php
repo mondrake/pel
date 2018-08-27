@@ -221,8 +221,9 @@ dump('act setWindowSize from ' . $this->size . ' to ' . $size);
     private function validateOffset($offset)
     {
 //        if ($offset < 0 || $offset >= $this->size) {
-        if ($offset < 0 || $offset >= ($this->size + 1)) {
-            throw new DataWindowException('Offset %d not within [%d, %d]', $offset, 0, $this->size - 1);
+        if ($offset < 0 || $offset > $this->size) {
+//            throw new DataWindowException('Offset %d not within [%d, %d]', $offset, 0, $this->size - 1);
+            throw new DataWindowException('Offset %d not within [%d, %d]', $offset, 0, $this->size);
         }
     }
 
