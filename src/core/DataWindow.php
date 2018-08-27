@@ -89,6 +89,7 @@ class DataWindow
 
         $this->order = $endianess;
         $this->size = strlen($this->data);
+dump('construct size ' . $this->size);
     }
 
     /**
@@ -147,7 +148,7 @@ class DataWindow
             );
         }
         $this->start += $start;
-dump('act size from ' . $this->size . ' to ' . $this->size - $start);
+dump('act size from ' . $this->size . ' to ' . ($this->size - $start));
         $this->size -= $start;
     }
 
