@@ -233,6 +233,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     {
         return [
             'path' => $this->getContextPath(),
+            'type' => $this->getType(),
             'class' => get_class($this),
             'valid' => $this->isValid(),
         ];
