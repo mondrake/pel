@@ -3,6 +3,7 @@
 namespace ExifEye\core;
 
 use ExifEye\core\ExifEye;
+use ExifEye\core\Utility\ConvertBytes;
 
 /**
  * A data window object.
