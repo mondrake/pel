@@ -37,7 +37,7 @@ class JpegSegmentCom extends JpegSegmentBase
         $bytes = $this->getMarkerBytes();
 
         // Get the payload.
-        $comment = $this->getElement("entry")
+        $comment = $this->getElement("entry");
         $data = $comment->toBytes();
 
         // Add the data lenght.
