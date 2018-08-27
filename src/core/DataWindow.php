@@ -406,8 +406,6 @@ class DataWindow
         $offset += $this->start;
 
         /* Return an unsigned long. */
-global $xxxy;
-if ($xxxy) dump(ExifEye::dumpHex($this->data, 10));
         return ConvertBytes::toLong($this->data, $offset, $this->order);
     }
 
