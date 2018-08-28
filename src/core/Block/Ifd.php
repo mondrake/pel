@@ -231,7 +231,7 @@ class Ifd extends BlockBase
             // There is only one component.
             $ifd_area .= ConvertBytes::fromLong(1, $byte_order);
 
-            $data = $sub->getBytes($end, $byte_order);
+            $data = $sub->toBytes($end, $byte_order);
             $s = strlen($data);
             $sub_bytes .= $data;
 
