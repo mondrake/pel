@@ -2,6 +2,9 @@
 
 namespace ExifEye\core\Block;
 
+use ExifEye\core\DataWindow;
+use ExifEye\core\Entry\Core\Undefined;
+
 /**
  * Class representing a generic JPEG data segment.
  *
