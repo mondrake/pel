@@ -76,15 +76,8 @@ abstract class JpegSegmentBase extends BlockBase
           'end' => $offset + $size - 1,
           'hstart' => dechex($offset),
           'hend' => dechex($offset + $size - 1),
-          'size' => dsize,
+          'size' => $size,
         ]);
-
-        $this->components = $size;
-
-        if ($size) {
-            $entry = new Undefined($this, [$data_window->getBytes($offset, $size)]);
-            $entry->debug("{text}", ['text' => $entry->toString()]);
-        }
 
         return $this;
     }

@@ -16,19 +16,9 @@ class JpegSegmentApp1 extends JpegSegmentBase
      */
     public function loadFromData(DataWindow $data_window, $offset = 0, $size = null, array $options = [])
     {
-        $this->debug('Parsing JPEG segment data in {start}-{end} (0x{hstart}-0x{hend}), {size} bytes ...', [
-          'start' => $offset,
-          'end' => $offset + $size - 1,
-          'hstart' => dechex($offset),
-          'hend' => dechex($offset + $size - 1),
-          'size' => dsize,
-        ]);
+        parent::loadFromData($data_window, $offset, $size, $options);
 
-        $this->debug("START... Loading");
-
-        // Read the length of the segment. The length includes the two bytes
-        // used to store the length.
-        $this->components = $data_window->getShort($offset);
+        $this->components = $size;
 
         if (Exif::isExifSegment($data_window, $offset + 2)) {
             $exif = new Exif($this);
