@@ -44,7 +44,8 @@ class Exif extends BlockBase
             'size' => $size,
         ]);
 
-        if ($tiff_order = Tiff::getTiffSegmentByteOrder($this, $data_window, $offset + strlen(self::EXIF_HEADER)) !== null) {
+        $tiff_order = Tiff::getTiffSegmentByteOrder($this, $data_window, $offset + strlen(self::EXIF_HEADER));
+        if ($tiff_order !== null) {
             $tiff = new Tiff($this);
             $tiff->loadFromData($data_window, $offset + strlen(self::EXIF_HEADER), $size - strlen(self::EXIF_HEADER), ['byte_order' => $tiff_order]);
         } else {

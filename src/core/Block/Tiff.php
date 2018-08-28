@@ -47,7 +47,7 @@ class Tiff extends BlockBase
         ]);
 
 $data_window = $data_window->getClone($offset);
-dump($options);
+//dump($options);
 $data_window->setByteOrder($options['byte_order']);
         // IFD0.
         $offset = $data_window->getLong(4);
