@@ -36,20 +36,26 @@ class Exif extends BlockBase
      */
     public function loadFromData(DataWindow $data_window, $offset = 0, $size = null, array $options = [])
     {
-        $end_offset = $data_window->getSize() - 1;
-
-        $this->debug('Parsing Exif data in {start}-{end} (0x{hstart}-0x{hend}), {size} bytes ...', [
-          'start' => $offset,
-          'end' => $end_offset,
-          'hstart' => dechex($offset),
-          'hend' => dechex($end_offset),
-          'size' => $data_window->getSize() - $offset,
+        $this->debug('Loading EXIF data in [{start}-{end}] [0x{hstart}-0x{hend}], {size} bytes ...', [
+            'start' => $offset,
+            'end' => $offset + $size - 1,
+            'hstart' => strtoupper(dechex($offset)),
+            'hend' => strtoupper(dechex($offset + $size - 1)),
+            'size' => $size,
         ]);
 
-        // The rest is TIFF data.
-        $tiff = new Tiff($this);
-        $tiff->loadFromData($data_window, $offset + strlen(self::EXIF_HEADER));
-        return true;
+        // xx
+        if (true) { //Exif::isExifSegment($data_window, $offset + 2)) {
+            $tiff = new Tiff($this);
+            $tiff->loadFromData($data_window, $offset + strlen(self::EXIF_HEADER), $size - strlen(self::EXIF_HEADER));
+        } else {
+            // We store the data as normal JPEG content if it could not be
+            // parsed as Exif data.
+            $entry = new Undefined($this, [$data_window->getBytes($offset, $this->components)]);
+            $entry->debug("Exif header not found. Loaded {text}", ['text' => $entry->toString()]);
+        }
+
+        return $this;
     }
 
     /**
