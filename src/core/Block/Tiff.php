@@ -165,7 +165,8 @@ $data_window->setByteOrder($options['byte_order']);
         }
 
         // Verify the TIFF header.
-        if (ConvertBytes::toShort($data_window, $offset + 2, $order) !== self::TIFF_HEADER) {
+        $magic_string = $data_window->getBytes($offset + 2, 2);
+        if (ConvertBytes::toShort($magic_string, $offset + 2, $order) !== self::TIFF_HEADER) {
             $caller->error('Missing TIFF magic value');
             return null;
         }
