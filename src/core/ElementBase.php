@@ -232,7 +232,6 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     public function toDumpArray()
     {
         return [
-            'type' => $this->getType(),
             'path' => $this->getContextPath(),
             'class' => get_class($this),
             'valid' => $this->isValid(),
