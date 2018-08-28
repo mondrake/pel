@@ -36,7 +36,7 @@ class Exif extends BlockBase
      */
     public function loadFromData(DataWindow $data_window, $offset = 0, $size = null, array $options = [])
     {
-        $end_offset = $data_window->getSize();
+        $end_offset = $data_window->getSize() - 1;
 
         $this->debug('Parsing Exif data in {start}-{end} (0x{hstart}-0x{hend}), {size} bytes ...', [
           'start' => $offset,
