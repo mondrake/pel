@@ -188,8 +188,7 @@ elements:
                             valid: true
                             format: Undefined
                             components: 3972
-#                            bytesHash: 08e42ac09a71992912a01c87d3837f6e6880332a2c01be494de75bc703fe57b4
-                            bytesHash: 08e42ac09a71992912a01c87d3837f6e6880332a2c01be494de75bc703fedddd
+                            bytesHash: 08e42ac09a71992912a01c87d3837f6e6880332a2c01be494de75bc703fe57b4
                             text: '3972 bytes of data [ 00 0C 03 01 00 02 ... 7A 2A 99 65 EA 6F ]'
                 -
                     type: jpegSegment

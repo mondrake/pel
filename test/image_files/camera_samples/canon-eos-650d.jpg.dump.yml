@@ -2463,7 +2463,8 @@ elements:
                                                                                     valid: true
                                                                                     format: SignedShort
                                                                                     components: 1
-                                                                                    bytesHash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
+                                                                                    bytesHash: 08e42ac09a71992912a01c87d3837f6e6880332a2c01be494de75bc703fedddd
+#                                                                                    bytesHash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                                     text: 0
                                                                         -
                                                                             type: tag
