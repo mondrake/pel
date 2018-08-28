@@ -61,7 +61,7 @@ abstract class BlockBase extends ElementBase
      */
     public function toDumpArray()
     {
-        $dump = array_merge(['type' => $this->getType()], parent::toDumpArray(), $this->getAttributes());
+        $dump = array_merge(parent::toDumpArray(), $this->getAttributes());
 
         // Dump sub-Blocks.
         foreach ($this->getMultipleElements("*") as $sub_element) {
