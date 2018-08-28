@@ -36,7 +36,7 @@ class Tiff extends BlockBase
     /**
      * {@inheritdoc}
      */
-    public function loadFromData(DataWindow $data_window, $offset = 0, array $options = [])
+    public function loadFromData(DataWindow $data_window, $offset = 0, $size = null, array $options = [])
     {
 $data_window = $data_window->getClone($offset);
         $this->debug('Parsing {size} bytes of TIFF data...', ['size' => $data_window->getSize()]);

@@ -44,7 +44,7 @@ class RawData extends BlockBase
     /**
      * {@inheritdoc}
      */
-    public function loadFromData(DataWindow $data_window, $offset = 0, array $options = [])
+    public function loadFromData(DataWindow $data_window, $offset = 0, $size = null, array $options = [])
     {
         $this->components = $options['components'];
         $entry = new Undefined($this, [$data_window->getBytes($offset, $this->components)]);

@@ -169,7 +169,7 @@ class Image extends BlockBase
     /**
      * {@inheritdoc}
      */
-    public function loadFromData(DataWindow $data_window, $offset = 0, array $options = [])
+    public function loadFromData(DataWindow $data_window, $offset = 0, $size = null, array $options = [])
     {
         $image_handler = new $this->imageClass($this);
         $image_handler->loadFromData($data_window);

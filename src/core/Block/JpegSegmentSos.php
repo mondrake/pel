@@ -19,7 +19,7 @@ class JpegSegmentSos extends JpegSegmentBase
     /**
      * {@inheritdoc}
      */
-    public function loadFromData(DataWindow $data_window, $offset = 0, array $options = [])
+    public function loadFromData(DataWindow $data_window, $offset = 0, $size = null, array $options = [])
     {
         // This segment is last before End Of Image, and its length needs to be
         // determined by finding the EOI marker backwards from the end of data.
@@ -47,7 +47,7 @@ class JpegSegmentSos extends JpegSegmentBase
             // There is no JPEG marker for trailing garbage, so we just load
             // the data in a RawData object.
             $trail = new RawData($this->getParentElement());
-            $trail->loadFromData($data_window, $end_offset, ['components' => $raw_components]);
+            $trail->loadFromData($data_window, $end_offset, null, ['components' => $raw_components]);
         }
 
         return $this;
