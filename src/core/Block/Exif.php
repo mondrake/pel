@@ -36,11 +36,19 @@ class Exif extends BlockBase
      */
     public function loadFromData(DataWindow $data_window, $offset = 0, array $options = [])
     {
-        $this->debug('Parsing {size} bytes of Exif data...', ['size' => $data_window->getSize() - $offset]);
+        $end_offset = $data_window->getSize() - $offset - 1;
+
+        $this->debug('Parsing Exif data in {start}-{end} (0x{hstart}-0x{hend}), {size} bytes ...', [
+          'start' => $offset,
+          'end' => $end_offset,
+          'hstart' => dechex($offset),
+          'hend' => dechex($end_offset),
+          'size' => $data_window->getSize() - $offset,
+        ]);
 
         // The rest is TIFF data.
         $tiff = new Tiff($this);
-        $tiff->loadFromData($data_window->getClone($offset + strlen(self::EXIF_HEADER)));
+        $tiff->loadFromData($data_window, $offset + strlen(self::EXIF_HEADER));
         return true;
     }
 
@@ -58,7 +66,7 @@ class Exif extends BlockBase
     public static function isExifSegment(DataWindow $data_window, $offset = 0)
     {
         // There must be at least 6 bytes for the Exif header.
-        if ($data_window->getSize() - $offset < 6) {
+        if ($data_window->getSize() - $offset < strlen(self::EXIF_HEADER)) {
             return false;
         }
 
