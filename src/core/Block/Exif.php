@@ -44,15 +44,14 @@ class Exif extends BlockBase
             'size' => $size,
         ]);
 
-        // xx
-        if (true) { //Exif::isExifSegment($data_window, $offset + 2)) {
+        if ($tiff_order = Tiff::getTiffSegmentByteOrder($this, $data_window, $offset + strlen(self::EXIF_HEADER)) !== null) {
             $tiff = new Tiff($this);
-            $tiff->loadFromData($data_window, $offset + strlen(self::EXIF_HEADER), $size - strlen(self::EXIF_HEADER));
+            $tiff->loadFromData($data_window, $offset + strlen(self::EXIF_HEADER), $size - strlen(self::EXIF_HEADER), ['byte_order' => $tiff_order]);
         } else {
             // We store the data as normal JPEG content if it could not be
-            // parsed as Exif data.
-            $entry = new Undefined($this, [$data_window->getBytes($offset, $this->components)]);
-            $entry->debug("Exif header not found. Loaded {text}", ['text' => $entry->toString()]);
+            // parsed as Tiff data.
+            $entry = new Undefined($this, [$data_window->getBytes($offset, $size)]);
+            $entry->debug("TIFF header not found. Loaded {text}", ['text' => $entry->toString()]);
         }
 
         return $this;
