@@ -232,6 +232,7 @@ class Ifd extends BlockBase
             $ifd_area .= ConvertBytes::fromLong(1, $byte_order);
 
             $data = $sub->toBytes($end, $byte_order);
+if (is_array($data)) dump(get_class($sub));
             $s = strlen($data);
             $sub_bytes .= $data;
 
