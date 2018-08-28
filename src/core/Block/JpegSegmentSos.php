@@ -21,13 +21,7 @@ class JpegSegmentSos extends JpegSegmentBase
      */
     public function loadFromData(DataWindow $data_window, $offset = 0, $size = null, array $options = [])
     {
-        $this->debug('Parsing JPEG segment data in {start}-{end} (0x{hstart}-0x{hend}), {size} bytes ...', [
-          'start' => $offset,
-          'end' => $offset + $size - 1,
-          'hstart' => dechex($offset),
-          'hend' => dechex($offset + $size - 1),
-          'size' => dsize,
-        ]);
+        parent::loadFromData($data_window, $offset, $size, $options);
 
         // This segment is last before End Of Image, and its length needs to be
         // determined by finding the EOI marker backwards from the end of data.

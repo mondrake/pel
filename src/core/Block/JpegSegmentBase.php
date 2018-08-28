@@ -70,11 +70,11 @@ abstract class JpegSegmentBase extends BlockBase
      */
     public function loadFromData(DataWindow $data_window, $offset = 0, $size = null, array $options = [])
     {
-        $this->debug('Parsing JPEG segment data in {start}-{end} (0x{hstart}-0x{hend}), {size} bytes ...', [
+        $this->debug('>>>>> Parsing JPEG segment data in {start}-{end} (0x{hstart}-0x{hend}), {size} bytes ...', [
           'start' => $offset,
-          'end' => $offset + $size - 1,
+          'end' => $offset + $size,
           'hstart' => dechex($offset),
-          'hend' => dechex($offset + $size - 1),
+          'hend' => dechex($offset + $size),
           'size' => $size,
         ]);
 
