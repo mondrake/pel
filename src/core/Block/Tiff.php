@@ -38,6 +38,13 @@ class Tiff extends BlockBase
      */
     public function loadFromData(DataWindow $data_window, $offset = 0, $size = null, array $options = [])
     {
+        $this->debug('Loading TIFF data in [{start}-{end}] [0x{hstart}-0x{hend}], {size} bytes ...', [
+            'start' => $offset,
+            'end' => $offset + $size - 1,
+            'hstart' => strtoupper(dechex($offset)),
+            'hend' => strtoupper(dechex($offset + $size - 1)),
+            'size' => $size,
+        ]);
 $data_window = $data_window->getClone($offset);
         $this->debug('Parsing {size} bytes of TIFF data...', ['size' => $data_window->getSize()]);
 
