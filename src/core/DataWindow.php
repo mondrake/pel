@@ -249,7 +249,7 @@ class DataWindow
             $size = $this->size - $start;
         }
 
-        return substr($this->data, $this->start + $start, $size);
+        return substr($this->dataString->getBytes(0, $this->dataString->getSize()), $this->start + $start, $size);
     }
 
     /**
@@ -277,7 +277,7 @@ class DataWindow
         $offset += $this->start;
 
         /* Return an unsigned byte. */
-        return ConvertBytes::toByte($this->data, $offset);
+        return ConvertBytes::toByte($this->dataString->getBytes(0, $this->dataString->getSize()), $offset);
     }
 
     /**
@@ -305,7 +305,7 @@ class DataWindow
         $offset += $this->start;
 
         /* Return a signed byte. */
-        return ConvertBytes::toSignedByte($this->data, $offset);
+        return ConvertBytes::toSignedByte($this->dataString->getBytes(0, $this->dataString->getSize()), $offset);
     }
 
     /**
@@ -334,7 +334,7 @@ class DataWindow
         $offset += $this->start;
 
         /* Return an unsigned short. */
-        return ConvertBytes::toShort($this->data, $offset, $this->order);
+        return ConvertBytes::toShort($this->dataString->getBytes(0, $this->dataString->getSize()), $offset, $this->order);
     }
 
     /**
@@ -363,7 +363,7 @@ class DataWindow
         $offset += $this->start;
 
         /* Return a signed short. */
-        return ConvertBytes::toSignedShort($this->data, $offset, $this->order);
+        return ConvertBytes::toSignedShort($this->dataString->getBytes(0, $this->dataString->getSize()), $offset, $this->order);
     }
 
     /**
@@ -392,7 +392,7 @@ class DataWindow
         $offset += $this->start;
 
         /* Return an unsigned long. */
-        return ConvertBytes::toLong($this->data, (int) $offset, $this->order);
+        return ConvertBytes::toLong($this->dataString->getBytes(0, $this->dataString->getSize()), (int) $offset, $this->order);
     }
 
     /**
@@ -421,7 +421,7 @@ class DataWindow
         $offset += $this->start;
 
         /* Return a signed long. */
-        return ConvertBytes::toSignedLong($this->data, $offset, $this->order);
+        return ConvertBytes::toSignedLong($this->dataString->getBytes(0, $this->dataString->getSize()), $offset, $this->order);
     }
 
     /**
@@ -503,7 +503,7 @@ class DataWindow
 
         /* Check each character, return as soon as the answer is known. */
         for ($i = 0; $i < $s; $i ++) {
-            if ($this->data{$offset + $i} != $str{$i}) {
+            if ($this->dataString->getBytes(0, $this->dataString->getSize()){$offset + $i} != $str{$i}) {
                 return false;
             }
         }
@@ -526,7 +526,7 @@ class DataWindow
             $this->size,
             $this->start,
             $this->start + $this->size,
-            strlen($this->data)
+            strlen($this->dataString->getBytes(0, $this->dataString->getSize()))
         );
     }
 }
