@@ -4,7 +4,7 @@ namespace ExifEye\core\Block;
 
 use ExifEye\core\Block\Tag;
 use ExifEye\core\DataWindow;
-use ExifEye\core\DataWindowException;
+use ExifEye\core\DataException;
 use ExifEye\core\Entry\Core\EntryInterface;
 use ExifEye\core\ExifEye;
 use ExifEye\core\Format;
@@ -121,7 +121,7 @@ class Ifd extends BlockBase
                             'components' => $tag_components,
                         ]);
                         $this->removeElement("tag[@name='" . $tag->getAttribute('name') . "']");
-                    } catch (DataWindowException $e) {
+                    } catch (DataException $e) {
                         $this->error($e->getMessage());
                     }
                 } else {

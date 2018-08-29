@@ -71,7 +71,7 @@ class DataWindow
      *            read from the data, and it can be changed later with {@link
      *            setByteOrder()}.
      */
-    public function __construct($data = '', $endianess = ConvertBytes::LITTLE_ENDIAN)
+    public function __construct(DataString $data, $endianess = ConvertBytes::LITTLE_ENDIAN)
     {
         if (is_string($data)) {
             $this->data = $data;
@@ -85,7 +85,7 @@ class DataWindow
             ImageJpeg($data, null);
             $this->data = ob_get_clean();
         } else {
-            throw new DataWindowException('Bad type for $data: %s', gettype($data));
+            throw new DataException('Bad type for $data: %s', gettype($data));
         }
 
         $this->order = $endianess;
@@ -140,7 +140,7 @@ class DataWindow
     public function setWindowStart($start)
     {
         if ($start < 0 || $start > $this->size) {
-            throw new DataWindowException(
+            throw new DataException(
                 'Window [%d, %d] does ' . 'not fit in window [0, %d]',
                 $start,
                 $this->size,
@@ -165,7 +165,7 @@ class DataWindow
             $size += $this->size;
         }
         if ($size < 0 || $size > $this->size) {
-            throw new DataWindowException(
+            throw new DataException(
                 'Window [0, %d] ' . 'does not fit in window [0, %d]',
                 $size,
                 $this->size
@@ -209,16 +209,16 @@ class DataWindow
      * @param integer $offset
      *            the offset to be validated. If the offset is negative
      *            or if it is greater than or equal to the current window size,
-     *            then a {@link DataWindowException} is thrown.
+     *            then a {@link DataException} is thrown.
      *
      * @return void if the offset is valid nothing is returned, if it is
-     *         invalid a new {@link DataWindowException} is thrown.
-     * @throws DataWindowException
+     *         invalid a new {@link DataException} is thrown.
+     * @throws DataException
      */
     private function validateOffset($offset)
     {
         if ($offset < 0 || $offset > $this->size) {
-            throw new DataWindowException('Offset %d not within [%d, %d]', $offset, 0, $this->size);
+            throw new DataException('Offset %d not within [%d, %d]', $offset, 0, $this->size);
         }
     }
 
@@ -233,7 +233,7 @@ class DataWindow
      *            the offset to the first byte returned. If a negative
      *            number is given, then the counting will be from the end of the
      *            window. Invalid offsets will result in a {@link
-     *            DataWindowException} being thrown.
+     *            DataException} being thrown.
      *
      * @param integer|NUL $size
      *            the size of the sub-window. If a negative number is
@@ -241,7 +241,7 @@ class DataWindow
      *
      * @return string a subset of the bytes in the window. This will
      *         always return no more than {@link getSize()} bytes.
-     * @throws DataWindowException
+     * @throws DataException
      */
     public function getBytes($start = null, $size = null)
     {
@@ -273,11 +273,11 @@ class DataWindow
      *            the offset into the data. An offset of zero will
      *            return the first byte in the current allowed window. The last
      *            valid offset is equal to {@link getSize()}-1. Invalid offsets
-     *            will result in a {@link DataWindowException} being
+     *            will result in a {@link DataException} being
      *            thrown.
      *
      * @return integer the unsigned byte found at offset.
-     * @throws DataWindowException
+     * @throws DataException
      */
     public function getByte($offset = 0)
     {
@@ -301,11 +301,11 @@ class DataWindow
      *            the offset into the data. An offset of zero will
      *            return the first byte in the current allowed window. The last
      *            valid offset is equal to {@link getSize()}-1. Invalid offsets
-     *            will result in a {@link DataWindowException} being
+     *            will result in a {@link DataException} being
      *            thrown.
      *
      * @return integer the signed byte found at offset.
-     * @throws DataWindowException
+     * @throws DataException
      */
     public function getSignedByte($offset = 0)
     {
@@ -329,11 +329,11 @@ class DataWindow
      *            the offset into the data. An offset of zero will
      *            return the first short available in the current allowed window.
      *            The last valid offset is equal to {@link getSize()}-2. Invalid
-     *            offsets will result in a {@link DataWindowException}
+     *            offsets will result in a {@link DataException}
      *            being thrown.
      *
      * @return integer the unsigned short found at offset.
-     * @throws DataWindowException
+     * @throws DataException
      */
     public function getShort($offset = 0)
     {
@@ -358,11 +358,11 @@ class DataWindow
      *            the offset into the data. An offset of zero will
      *            return the first short available in the current allowed window.
      *            The last valid offset is equal to {@link getSize()}-2. Invalid
-     *            offsets will result in a {@link DataWindowException}
+     *            offsets will result in a {@link DataException}
      *            being thrown.
      *
      * @return integer the signed short found at offset.
-     * @throws DataWindowException
+     * @throws DataException
      */
     public function getSignedShort($offset = 0)
     {
@@ -387,11 +387,11 @@ class DataWindow
      *            the offset into the data. An offset of zero will
      *            return the first long available in the current allowed window.
      *            The last valid offset is equal to {@link getSize()}-4. Invalid
-     *            offsets will result in a {@link DataWindowException}
+     *            offsets will result in a {@link DataException}
      *            being thrown.
      *
      * @return integer the unsigned long found at offset.
-     * @throws DataWindowException
+     * @throws DataException
      */
     public function getLong($offset = 0)
     {
@@ -416,11 +416,11 @@ class DataWindow
      *            the offset into the data. An offset of zero will
      *            return the first long available in the current allowed window.
      *            The last valid offset is equal to {@link getSize()}-4. Invalid
-     *            offsets will result in a {@link DataWindowException}
+     *            offsets will result in a {@link DataException}
      *            being thrown.
      *
      * @return integer the signed long found at offset.
-     * @throws DataWindowException
+     * @throws DataException
      */
     public function getSignedLong($offset = 0)
     {
@@ -446,12 +446,12 @@ class DataWindow
      *            return the first rational available in the current allowed
      *            window. The last valid offset is equal to {@link getSize()}-8.
      *            Invalid offsets will result in a {@link
-     *            DataWindowException} being thrown.
+     *            DataException} being thrown.
      *
      * @return array the unsigned rational found at offset. A rational
      *         number is represented as an array of two numbers: the enumerator
      *         and denominator. Both of these numbers will be unsigned longs.
-     * @throws DataWindowException
+     * @throws DataException
      */
     public function getRational($offset = 0)
     {
@@ -469,12 +469,12 @@ class DataWindow
      *            return the first rational available in the current allowed
      *            window. The last valid offset is equal to {@link getSize()}-8.
      *            Invalid offsets will result in a {@link
-     *            DataWindowException} being thrown.
+     *            DataException} being thrown.
      *
      * @return array the signed rational found at offset. A rational
      *         number is represented as an array of two numbers: the enumerator
      *         and denominator. Both of these numbers will be signed longs.
-     * @throws DataWindowException
+     * @throws DataException
      */
     public function getSignedRational($offset = 0)
     {
@@ -492,7 +492,7 @@ class DataWindow
      *            the comparison start with the very first byte available in the
      *            window. The last valid offset is equal to {@link getSize()}
      *            minus the length of the string. If the string is too long, then
-     *            a {@link DataWindowException} will be thrown.
+     *            a {@link DataException} will be thrown.
      *
      * @param string $str
      *            the string to compare with.
@@ -500,7 +500,7 @@ class DataWindow
      * @return boolean true if the string given matches the data in the
      *         window, at the specified offset, false otherwise. The comparison
      *         will stop as soon as a mismatch if found.
-     * @throws DataWindowException
+     * @throws DataException
      */
     public function strcmp($offset, $str)
     {

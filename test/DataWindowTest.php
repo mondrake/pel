@@ -2,15 +2,16 @@
 
 namespace ExifEye\Test\core;
 
+use ExifEye\core\DataString;
 use ExifEye\core\DataWindow;
-use ExifEye\core\DataWindowException;
+use ExifEye\core\DataException;
 use ExifEye\core\Utility\ConvertBytes;
 
 class DataWindowTest extends ExifEyeTestCaseBase
 {
     public function testReadBytes()
     {
-        $window = new DataWindow('abcdefgh');
+        $window = new DataWindow(new DataString('abcdefgh'));
 
         $this->assertEquals($window->getSize(), 8);
         $this->assertEquals($window->getBytes(), 'abcdefgh');
@@ -42,7 +43,7 @@ class DataWindowTest extends ExifEyeTestCaseBase
         $caught = false;
         try {
             $clone->getBytes(0, 6);
-        } catch (DataWindowException $e) {
+        } catch (DataException $e) {
             $caught = true;
         }
         $this->assertTrue($caught);
@@ -50,7 +51,7 @@ class DataWindowTest extends ExifEyeTestCaseBase
 
     public function testReadIntegers()
     {
-        $window = new DataWindow("\x01\x02\x03\x04", ConvertBytes::BIG_ENDIAN);
+        $window = new DataWindow(new DataString("\x01\x02\x03\x04"), ConvertBytes::BIG_ENDIAN);
 
         $this->assertEquals($window->getSize(), 4);
         $this->assertEquals($window->getBytes(), "\x01\x02\x03\x04");
@@ -84,7 +85,7 @@ class DataWindowTest extends ExifEyeTestCaseBase
 
     public function testReadBigIntegers()
     {
-        $window = new DataWindow("\x89\xAB\xCD\xEF", ConvertBytes::BIG_ENDIAN);
+        $window = new DataWindow(new DataString("\x89\xAB\xCD\xEF"), ConvertBytes::BIG_ENDIAN);
 
         $this->assertEquals($window->getSize(), 4);
         $this->assertEquals($window->getBytes(), "\x89\xAB\xCD\xEF");
