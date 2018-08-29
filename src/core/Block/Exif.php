@@ -44,10 +44,10 @@ class Exif extends BlockBase
             'size' => $size,
         ]);
 
-        $tiff_order = Tiff::getTiffSegmentByteOrder($this, $data_window, $offset + strlen(self::EXIF_HEADER));
+        $tiff_order = Tiff::getTiffSegmentByteOrder($data_window, $offset + strlen(self::EXIF_HEADER));
         if ($tiff_order !== null) {
             $tiff = new Tiff($this);
-            $tiff->loadFromData($data_window, $offset + strlen(self::EXIF_HEADER), $size - strlen(self::EXIF_HEADER), ['byte_order' => $tiff_order]);
+            $tiff->loadFromData($data_window, $offset + strlen(self::EXIF_HEADER), $size - strlen(self::EXIF_HEADER));
         } else {
             // We store the data as normal JPEG content if it could not be
             // parsed as Tiff data.
@@ -63,7 +63,7 @@ class Exif extends BlockBase
      */
     public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN)
     {
-        return self::EXIF_HEADER . $this->getElement('tiff')->toBytes();
+        return self::EXIF_HEADER . $this->getElement('*')->toBytes();
     }
 
     /**

@@ -133,12 +133,9 @@ class Image extends BlockBase
         }
 
         // TIFF image?
-        $byte_order = $data_window->getBytes(0, 2);
-        if ($byte_order === 'II' || $byte_order === 'MM') {
-            $data_window->setByteOrder($byte_order === 'II' ? ConvertBytes::LITTLE_ENDIAN : ConvertBytes::BIG_ENDIAN);
-            if ($data_window->getShort(2) === Tiff::TIFF_HEADER) {
-                return '\ExifEye\core\Block\Tiff';
-            }
+        $byte_order = Tiff::getTiffSegmentByteOrder($data_window);
+        if ($byte_order !== null) {
+            return '\ExifEye\core\Block\Tiff';
         }
 
         return false;
