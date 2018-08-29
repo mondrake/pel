@@ -5,7 +5,7 @@ namespace ExifEye\core;
 /**
  * A value object holding the data of an image, as bytes.
  */
-class DataString
+class DataString extends DataElement
 {
     /**
      * The data.
@@ -17,13 +17,6 @@ class DataString
     protected $data = '';
 
     /**
-     * The size of the current data.
-     *
-     * @var int
-     */
-    protected $size = 0;
-
-    /**
      * Construct a new DataString object with the data supplied.
      *
      * @param string $data
@@ -33,17 +26,6 @@ class DataString
     {
         $this->data = $data;
         $this->size = strlen($this->data);
-    }
-
-    /**
-     * Get the size of the data.
-     *
-     * @return integer
-     *            the quantity of bytes of the data.
-     */
-    public function getSize()
-    {
-        return $this->size;
     }
 
     /**
