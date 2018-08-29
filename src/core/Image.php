@@ -93,8 +93,8 @@ class Image extends BlockBase
     /**
      * Creates an Image object from data.
      *
-     * @param DataWindow $data_window
-     *            the data window that will provide the data.
+     * @param DataString $data_string
+     *            the data string object providing the data.
      * @param \Psr\Log\LoggerInterface $external_logger
      *            (Optional) a PSR-3 compliant logger callback.
      * @param string $fail_level
@@ -105,8 +105,9 @@ class Image extends BlockBase
      *            the Image object if successful, or false if the data cannot
      *            be parsed.
      */
-    public static function createFromData(DataWindow $data_window, LoggerInterface $external_logger = null, $fail_level = false)
+    public static function createFromData(DataString $data_string, LoggerInterface $external_logger = null, $fail_level = false)
     {
+        $data_window = new DataWindow($data_string, 0, $data_string->getSize(), $image);
         $handling_class = static::determineImageHandlingClass($data_window);
 
         if ($handling_class !== false) {

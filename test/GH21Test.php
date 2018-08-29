@@ -55,9 +55,8 @@ class GH21Test extends ExifEyeTestCaseBase
         ob_start();
         imagejpeg($scaled, null);
         $scaled_bytes = ob_get_clean();
-        $scaled_data = new DataString($scaled_bytes);
 
-        $out_image = Image::createFromData(new DataWindow($scaled_data, 0, $scaled_data->getSize()));
+        $out_image = Image::createFromData(new DataString($scaled_bytes));
         $out_jpeg = $out_image->getElement("jpeg");
 
         $exif = $input_jpeg->getElement("jpegSegment/exif");
