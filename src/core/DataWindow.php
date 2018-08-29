@@ -77,14 +77,16 @@ class DataWindow
         $this->start = $start;
         $this->size = $size;
         $this->order = $byte_order;
-        $caller->debug('Data window in [{start}-{end}] [0x{hstart}-0x{hend}], {size} bytes, order: {order} ...', [
-            'start' => $start,
-            'end' => $size - 1,
-            'hstart' => strtoupper(dechex($start)),
-            'hend' => strtoupper(dechex($size - 1)),
-            'size' => $size,
-            'order' => $byte_order,
-        ]);
+        if ($caller) {
+          $caller->debug('Data window in [{start}-{end}] [0x{hstart}-0x{hend}], {size} bytes, order: {order} ...', [
+              'start' => $start,
+              'end' => $size - 1,
+              'hstart' => strtoupper(dechex($start)),
+              'hend' => strtoupper(dechex($size - 1)),
+              'size' => $size,
+              'order' => $byte_order,
+          ]);
+        }
     }
 
     /**
