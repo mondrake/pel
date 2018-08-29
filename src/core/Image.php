@@ -75,7 +75,7 @@ class Image extends BlockBase
      */
     public static function createFromFile($path, LoggerInterface $external_logger = null, $fail_level = false)
     {
-        $magic_data_string = new DataString(file_get_contents($path, false, null, 0, 10))
+        $magic_data_string = new DataString(file_get_contents($path, false, null, 0, 10));
         $magic_file_info = new DataWindow($magic_data_string, 0, $magic_data->size());
         $handling_class = static::determineImageHandlingClass($magic_file_info);
 
