@@ -68,9 +68,9 @@ class DataWindow extends DataElement
         if ($caller) {
           $caller->debug('Data window in [{start}-{end}] [0x{hstart}-0x{hend}], {size} bytes, order: {order} ...', [
               'start' => $start,
-              'end' => $size - 1,
+              'end' => $start + $size - 1,
               'hstart' => strtoupper(dechex($start)),
-              'hend' => strtoupper(dechex($size - 1)),
+              'hend' => strtoupper(dechex($start + $size - 1)),
               'size' => $size,
               'order' => $byte_order,
           ]);
