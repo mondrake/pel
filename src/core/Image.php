@@ -79,10 +79,9 @@ class Image extends BlockBase
         $handling_class = static::determineImageHandlingClass($magic_data_string);
 
         if ($handling_class !== false) {
-            $image = new static($handling_class, $external_logger, $fail_level);
             $data_string = new DataString(file_get_contents($path));
-            $data_window = new DataWindow($data_string, 0, $data_string->getSize(), $image);
-            $image->loadFromData($data_window, 0, $data_window->getSize());
+            $image = new static($handling_class, $external_logger, $fail_level);
+            $image->loadFromDataWindow(new DataWindow($data_string, 0, $data_string->getSize(), $image));
             return $image;
         }
 
@@ -110,8 +109,7 @@ class Image extends BlockBase
 
         if ($handling_class !== false) {
             $image = new static($handling_class, $external_logger, $fail_level);
-            $data_window = new DataWindow($data_string, 0, $data_string->getSize(), $image);
-            $image->loadFromData($data_window, 0, $data_window->getSize());
+            $image->loadFromDataWindow(new DataWindow($data_string, 0, $data_string->getSize(), $image));
             return $image;
         }
 
@@ -174,6 +172,12 @@ class Image extends BlockBase
     {
         $image_handler = new $this->imageClass($this);
         $image_handler->loadFromData($data_window, $offset, $size, $options);
+        return $this;
+    }
+    public function loadFromDataWindow(DataWindow $data_window, array $options = [])
+    {
+        $image_handler = new $this->imageClass($this);
+        $image_handler->loadFromData($data_window, 0, $data_window->getSize(), $options);
         return $this;
     }
 
