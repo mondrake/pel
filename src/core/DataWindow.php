@@ -71,11 +71,20 @@ class DataWindow
      *            read from the data, and it can be changed later with {@link
      *            setByteOrder()}.
      */
-    public function __construct(DataString $data, $endianess = ConvertBytes::LITTLE_ENDIAN)
+    public function __construct(DataString $data, $start, $size, $caller = null, $byte_order = ConvertBytes::BIG_ENDIAN)
     {
         $this->dataString = $data;
-        $this->order = $endianess;
-        $this->size = $this->dataString->getSize();
+        $this->start = $start;
+        $this->size = $size;
+        $this->order = $byte_order;
+        $this->debug('Data window in [{start}-{end}] [0x{hstart}-0x{hend}], {size} bytes, order: {order} ...', [
+            'start' => $start,
+            'end' => $size - 1,
+            'hstart' => strtoupper(dechex($start)),
+            'hend' => strtoupper(dechex($size - 1)),
+            'size' => $size,
+            'order' => $byte_order,
+        ]);
     }
 
     /**

@@ -11,7 +11,8 @@ class DataWindowTest extends ExifEyeTestCaseBase
 {
     public function testReadBytes()
     {
-        $window = new DataWindow(new DataString('abcdefgh'));
+        $data = new DataString('abcdefgh');
+        $window = new DataWindow($data, 0, $data->getSize());
 
         $this->assertEquals($window->getSize(), 8);
         $this->assertEquals($window->getBytes(), 'abcdefgh');
@@ -51,7 +52,8 @@ class DataWindowTest extends ExifEyeTestCaseBase
 
     public function testReadIntegers()
     {
-        $window = new DataWindow(new DataString("\x01\x02\x03\x04"), ConvertBytes::BIG_ENDIAN);
+        $data = new DataString("\x01\x02\x03\x04");
+        $window = new DataWindow($data, 0, $data->getSize(), null, ConvertBytes::BIG_ENDIAN);
 
         $this->assertEquals($window->getSize(), 4);
         $this->assertEquals($window->getBytes(), "\x01\x02\x03\x04");
@@ -85,7 +87,8 @@ class DataWindowTest extends ExifEyeTestCaseBase
 
     public function testReadBigIntegers()
     {
-        $window = new DataWindow(new DataString("\x89\xAB\xCD\xEF"), ConvertBytes::BIG_ENDIAN);
+        $data = new DataString("\x89\xAB\xCD\xEF");
+        $window = new DataWindow($data, 0, $data->getSize(), null, ConvertBytes::BIG_ENDIAN);
 
         $this->assertEquals($window->getSize(), 4);
         $this->assertEquals($window->getBytes(), "\x89\xAB\xCD\xEF");
