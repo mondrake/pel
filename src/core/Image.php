@@ -109,7 +109,7 @@ class Image extends BlockBase
 
         if ($handling_class !== false) {
             $image = new static($handling_class, $external_logger, $fail_level);
-            $image->loadFromData($data_window, 0, $data_window->getSize);
+            $image->loadFromData($data_window, 0, $data_window->getSize());
             return $image;
         }
 
