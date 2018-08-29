@@ -80,7 +80,7 @@ class Image extends BlockBase
         $handling_class = static::determineImageHandlingClass($magic_file_info);
 
         if ($handling_class !== false) {
-            $data_string = new DataString(file_get_contents($path))
+            $data_string = new DataString(file_get_contents($path));
             $data_window = new DataWindow($data_string, 0, $data_string->getSize());
             $image = new static($handling_class, $external_logger, $fail_level);
             $image->loadFromData($data_window, 0, $data_window->getSize());

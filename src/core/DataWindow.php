@@ -15,9 +15,9 @@ class DataWindow
      *
      * The string can contain any kind of data, including binary data.
      *
-     * @var string
+     * @var DataString
      */
-    private $data = '';
+    private $dataString;
 
     /**
      * The byte order currently in use.
@@ -73,23 +73,9 @@ class DataWindow
      */
     public function __construct(DataString $data, $endianess = ConvertBytes::LITTLE_ENDIAN)
     {
-        if (is_string($data)) {
-            $this->data = $data;
-        } elseif (is_resource($data) && get_resource_type($data) == 'gd') {
-            /*
-             * The ImageJpeg() function insists on printing the bytes
-             * instead of returning them in a more civil way as a string, so
-             * we have to buffer the output...
-             */
-            ob_start();
-            ImageJpeg($data, null);
-            $this->data = ob_get_clean();
-        } else {
-            throw new DataException('Bad type for $data: %s', gettype($data));
-        }
-
+        $this->dataString = $data;
         $this->order = $endianess;
-        $this->size = strlen($this->data);
+        $this->size = $this->dataString->getSize();
     }
 
     /**
