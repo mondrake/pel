@@ -76,8 +76,7 @@ class Image extends BlockBase
     public static function createFromFile($path, LoggerInterface $external_logger = null, $fail_level = false)
     {
         $magic_data_string = new DataString(file_get_contents($path, false, null, 0, 10));
-        $magic_file_info = new DataWindow($magic_data_string, 0, $magic_data_string->getSize());
-        $handling_class = static::determineImageHandlingClass($magic_file_info);
+        $handling_class = static::determineImageHandlingClass($magic_data_string);
 
         if ($handling_class !== false) {
             $image = new static($handling_class, $external_logger, $fail_level);
@@ -107,11 +106,11 @@ class Image extends BlockBase
      */
     public static function createFromData(DataString $data_string, LoggerInterface $external_logger = null, $fail_level = false)
     {
-        $data_window = new DataWindow($data_string, 0, $data_string->getSize(), $image);
-        $handling_class = static::determineImageHandlingClass($data_window);
+        $handling_class = static::determineImageHandlingClass($data_string);
 
         if ($handling_class !== false) {
             $image = new static($handling_class, $external_logger, $fail_level);
+            $data_window = new DataWindow($data_string, 0, $data_string->getSize(), $image);
             $image->loadFromData($data_window, 0, $data_window->getSize());
             return $image;
         }
@@ -122,21 +121,22 @@ class Image extends BlockBase
     /**
      * Determines the PHP class to use for parsing the image data.
      *
-     * @param DataWindow $data_window
+     * @param DataString $data_string
      *            the data window that will provide the data.
      *
      * @returns string|false
      *            the PHP fully qualified class name if successful, or false if
      *            the data cannot be parsed.
      */
-    protected static function determineImageHandlingClass(DataWindow $data_window)
+    protected static function determineImageHandlingClass(DataString $data_string)
     {
         // JPEG image?
-        if ($data_window->getBytes(0, 3) === Jpeg::JPEG_HEADER) {
+        if ($data_string->getBytes(0, 3) === Jpeg::JPEG_HEADER) {
             return '\ExifEye\core\Block\Jpeg';
         }
 
         // TIFF image?
+        $data_window = new DataWindow($data_string, 0, 10);
         $byte_order = Tiff::getTiffSegmentByteOrder($data_window);
         if ($byte_order !== null) {
             return '\ExifEye\core\Block\Tiff';
