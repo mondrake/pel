@@ -36,7 +36,7 @@ class Jpeg extends BlockBase
      */
     public function loadFromData(DataWindow $data_window, $offset = 0, $size = null, array $options = [])
     {
-        $this->debug('Parsing {size} bytes of JPEG data...', ['size' => $data_window->getSize()]);
+        $this->debug('Parsing {size} bytes of JPEG data...', ['size' => $size]);
 
         // JPEG data is stored in big-endian format.
         $data_window->setByteOrder(ConvertBytes::BIG_ENDIAN);
@@ -45,7 +45,7 @@ class Jpeg extends BlockBase
         // segment is read, the offset will be moved forward, and after the last
         // segment we will terminate.
         $segment_offset = $offset;
-        while ($segment_offset < $data_window->getSize()) {
+        while ($segment_offset < $size) {
             // Get next JPEG marker.
             $segment_offset = $this->getJpegMarkerOffset($data_window, $segment_offset);
             $segment_id = $data_window->getByte($segment_offset);

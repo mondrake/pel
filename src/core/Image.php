@@ -73,7 +73,7 @@ class Image extends BlockBase
      *            the Image object if successful, or false if the file cannot
      *            be parsed.
      */
-    public static function loadFromFile($path, LoggerInterface $external_logger = null, $fail_level = false)
+    public static function createFromFile($path, LoggerInterface $external_logger = null, $fail_level = false)
     {
         $magic_file_info = new DataWindow(file_get_contents($path, false, null, 0, 10));
         $handling_class = static::determineImageHandlingClass($magic_file_info);
@@ -81,7 +81,7 @@ class Image extends BlockBase
         if ($handling_class !== false) {
             $image = new static($handling_class, $external_logger, $fail_level);
             $data_window = new DataWindow(file_get_contents($path));
-            $image->loadFromData($data_window, 0, $data_window->getSize);
+            $image->loadFromData($data_window, 0, $data_window->getSize());
             return $image;
         }
 
