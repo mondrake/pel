@@ -51,27 +51,27 @@ class Tiff extends BlockBase
         $byte_order = self::getTiffSegmentByteOrder($data_element, $offset);
 
         // xx Continue from here...
-
+        $data_window = new DataWindow($data_element, $offset, $size, $byte_order);
 //        $data_element = $data_element->getClone($offset);
 //        $data_element->setByteOrder($byte_order);
 
         // IFD0.
-        $offset = $data_element->getLong(4);
+        $offset = $data_window->getLong(4);
         $this->debug('First IFD at offset {offset}.', ['offset' => $offset]);
 
         if ($offset > 0) {
             // Parse IFD0, this will automatically parse any sub IFDs.
             $ifd0 = new Ifd($this, 'IFD0');
-            $next_offset = $ifd0->loadFromData($data_element, $offset);
+            $next_offset = $ifd0->loadFromData($data_window, $offset);
         }
 
         // Next IFD. xx @todo iterate on next_offset
         if ($next_offset > 0) {
             // Sanity check: we need 6 bytes.
-            if ($next_offset > $data_element->getSize() - 6) {
+            if ($next_offset > $data_window->getSize() - 6) {
                 $this->error('Bogus offset to next IFD: {offset} > {size}!', [
                     'offset' => $next_offset,
-                    'size' => $data_element->getSize() - 6,
+                    'size' => $data_window->getSize() - 6,
                 ]);
             } else {
 /*                if (Spec::getIfdType($this->getAttribute('id')) === 'IFD1') {
@@ -79,7 +79,7 @@ class Tiff extends BlockBase
                     $this->error('IFD1 links to another IFD!');
                 }*/
                 $ifd1 = new Ifd($this, 'IFD1');
-                $next_offset = $ifd1->loadFromData($data_element, $next_offset);
+                $next_offset = $ifd1->loadFromData($data_window, $next_offset);
             }
         }
     }
