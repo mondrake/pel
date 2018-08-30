@@ -8,16 +8,16 @@ use ExifEye\core\Utility\ConvertBytes;
 /**
  * A data window object.
  */
-class DataWindow
+class DataWindow extends DataElement
 {
     /**
      * The data held by this window.
      *
      * The string can contain any kind of data, including binary data.
      *
-     * @var DataString
+     * @var DataElement
      */
-    private $dataString;
+    private $dataElement;
 
     /**
      * The byte order currently in use.
@@ -44,18 +44,6 @@ class DataWindow
     private $start = 0;
 
     /**
-     * The size of the current window.
-     *
-     * All offsets used for access into the data will be limited by this
-     * variable. A valid offset must be strictly less than this
-     * variable.
-     *
-     * @var int
-     * @see setWindowSize
-     */
-    private $size = 0;
-
-    /**
      * Construct a new data window with the data supplied.
      *
      * @param mixed $data
@@ -71,35 +59,22 @@ class DataWindow
      *            read from the data, and it can be changed later with {@link
      *            setByteOrder()}.
      */
-    public function __construct(DataString $data, $start, $size, $caller = null, $byte_order = ConvertBytes::BIG_ENDIAN)
+    public function __construct(DataElement $data, $start, $size, $caller = null, $byte_order = ConvertBytes::BIG_ENDIAN)
     {
-        $this->dataString = $data;
+        $this->dataElement = $data;
         $this->start = $start;
         $this->size = $size;
         $this->order = $byte_order;
         if ($caller) {
           $caller->debug('Data window in [{start}-{end}] [0x{hstart}-0x{hend}], {size} bytes, order: {order} ...', [
               'start' => $start,
-              'end' => $size - 1,
+              'end' => $start + $size - 1,
               'hstart' => strtoupper(dechex($start)),
-              'hend' => strtoupper(dechex($size - 1)),
+              'hend' => strtoupper(dechex($start + $size - 1)),
               'size' => $size,
               'order' => $byte_order,
           ]);
         }
-    }
-
-    /**
-     * Get the size of the data window.
-     *
-     * @return integer the number of bytes covered by the window. The
-     *         allowed offsets go from 0 up to this number minus one.
-     *
-     * @see getBytes()
-     */
-    public function getSize()
-    {
-        return $this->size;
     }
 
     /**
@@ -260,7 +235,7 @@ class DataWindow
             $size = $this->size - $start;
         }
 
-        return substr($this->dataString->getBytes(0, $this->dataString->getSize()), $this->start + $start, $size);
+        return substr($this->dataElement->getBytes(0, $this->dataElement->getSize()), $this->start + $start, $size);
     }
 
     /**
@@ -288,7 +263,7 @@ class DataWindow
         $offset += $this->start;
 
         /* Return an unsigned byte. */
-        return ConvertBytes::toByte($this->dataString->getBytes(0, $this->dataString->getSize()), $offset);
+        return ConvertBytes::toByte($this->dataElement->getBytes(0, $this->dataElement->getSize()), $offset);
     }
 
     /**
@@ -316,7 +291,7 @@ class DataWindow
         $offset += $this->start;
 
         /* Return a signed byte. */
-        return ConvertBytes::toSignedByte($this->dataString->getBytes(0, $this->dataString->getSize()), $offset);
+        return ConvertBytes::toSignedByte($this->dataElement->getBytes(0, $this->dataElement->getSize()), $offset);
     }
 
     /**
@@ -345,7 +320,7 @@ class DataWindow
         $offset += $this->start;
 
         /* Return an unsigned short. */
-        return ConvertBytes::toShort($this->dataString->getBytes(0, $this->dataString->getSize()), $offset, $this->order);
+        return ConvertBytes::toShort($this->dataElement->getBytes(0, $this->dataElement->getSize()), $offset, $this->order);
     }
 
     /**
@@ -374,7 +349,7 @@ class DataWindow
         $offset += $this->start;
 
         /* Return a signed short. */
-        return ConvertBytes::toSignedShort($this->dataString->getBytes(0, $this->dataString->getSize()), $offset, $this->order);
+        return ConvertBytes::toSignedShort($this->dataElement->getBytes(0, $this->dataElement->getSize()), $offset, $this->order);
     }
 
     /**
@@ -403,7 +378,7 @@ class DataWindow
         $offset += $this->start;
 
         /* Return an unsigned long. */
-        return ConvertBytes::toLong($this->dataString->getBytes(0, $this->dataString->getSize()), (int) $offset, $this->order);
+        return ConvertBytes::toLong($this->dataElement->getBytes(0, $this->dataElement->getSize()), (int) $offset, $this->order);
     }
 
     /**
@@ -432,7 +407,7 @@ class DataWindow
         $offset += $this->start;
 
         /* Return a signed long. */
-        return ConvertBytes::toSignedLong($this->dataString->getBytes(0, $this->dataString->getSize()), $offset, $this->order);
+        return ConvertBytes::toSignedLong($this->dataElement->getBytes(0, $this->dataElement->getSize()), $offset, $this->order);
     }
 
     /**
@@ -514,7 +489,7 @@ class DataWindow
 
         /* Check each character, return as soon as the answer is known. */
         for ($i = 0; $i < $s; $i ++) {
-            if ($this->dataString->getBytes(0, $this->dataString->getSize()){$offset + $i} != $str{$i}) {
+            if ($this->dataElement->getBytes(0, $this->dataElement->getSize()){$offset + $i} != $str{$i}) {
                 return false;
             }
         }
@@ -537,7 +512,7 @@ class DataWindow
             $this->size,
             $this->start,
             $this->start + $this->size,
-            strlen($this->dataString->getBytes(0, $this->dataString->getSize()))
+            strlen($this->dataElement->getBytes(0, $this->dataElement->getSize()))
         );
     }
 }
