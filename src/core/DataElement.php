@@ -240,7 +240,7 @@ abstract class DataElement
         $offset += $this->start;
 
         /* Return an unsigned byte. */
-        return ConvertBytes::toByte($this->dataElement->getBytes(0, $this->dataElement->getSize()), $offset);
+        return ConvertBytes::toByte($this->dataElement->xxgetBytes(0, $this->dataElement->getSize()), $offset);
     }
 
     /**
@@ -268,7 +268,7 @@ abstract class DataElement
         $offset += $this->start;
 
         /* Return a signed byte. */
-        return ConvertBytes::toSignedByte($this->dataElement->getBytes(0, $this->dataElement->getSize()), $offset);
+        return ConvertBytes::toSignedByte($this->dataElement->xxgetBytes(0, $this->dataElement->getSize()), $offset);
     }
 
     /**
@@ -297,7 +297,7 @@ abstract class DataElement
         $offset += $this->start;
 
         /* Return an unsigned short. */
-        return ConvertBytes::toShort($this->dataElement->getBytes(0, $this->dataElement->getSize()), $offset, $this->order);
+        return ConvertBytes::toShort($this->dataElement->xxgetBytes(0, $this->dataElement->getSize()), $offset, $this->order);
     }
 
     /**
@@ -326,7 +326,7 @@ abstract class DataElement
         $offset += $this->start;
 
         /* Return a signed short. */
-        return ConvertBytes::toSignedShort($this->dataElement->getBytes(0, $this->dataElement->getSize()), $offset, $this->order);
+        return ConvertBytes::toSignedShort($this->dataElement->xxgetBytes(0, $this->dataElement->getSize()), $offset, $this->order);
     }
 
     /**
@@ -355,7 +355,7 @@ abstract class DataElement
         $offset += $this->start;
 
         /* Return an unsigned long. */
-        return ConvertBytes::toLong($this->dataElement->getBytes(0, $this->dataElement->getSize()), (int) $offset, $this->order);
+        return ConvertBytes::toLong($this->dataElement->xxgetBytes(0, $this->dataElement->getSize()), (int) $offset, $this->order);
     }
 
     /**
@@ -384,7 +384,7 @@ abstract class DataElement
         $offset += $this->start;
 
         /* Return a signed long. */
-        return ConvertBytes::toSignedLong($this->dataElement->getBytes(0, $this->dataElement->getSize()), $offset, $this->order);
+        return ConvertBytes::toSignedLong($this->dataElement->xxgetBytes(0, $this->dataElement->getSize()), $offset, $this->order);
     }
 
     /**
@@ -466,7 +466,7 @@ abstract class DataElement
 
         /* Check each character, return as soon as the answer is known. */
         for ($i = 0; $i < $s; $i ++) {
-            if ($this->dataElement->getBytes(0, $this->dataElement->getSize()){$offset + $i} != $str{$i}) {
+            if ($this->dataElement->xxgetBytes(0, $this->dataElement->getSize()){$offset + $i} != $str{$i}) {
                 return false;
             }
         }
@@ -489,7 +489,7 @@ abstract class DataElement
             $this->size,
             $this->start,
             $this->start + $this->size,
-            strlen($this->dataElement->getBytes(0, $this->dataElement->getSize()))
+            strlen($this->dataElement->xxgetBytes(0, $this->dataElement->getSize()))
         );
     }
 
