@@ -11,15 +11,6 @@ use ExifEye\core\Utility\ConvertBytes;
 class DataWindow extends DataElement
 {
     /**
-     * The data held by this window.
-     *
-     * The string can contain any kind of data, including binary data.
-     *
-     * @var DataElement
-     */
-    protected $dataElement;
-
-    /**
      * Construct a new data window with the data supplied.
      *
      * @param mixed $data

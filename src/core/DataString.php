@@ -67,4 +67,9 @@ class DataString extends DataElement
 
         return substr($this->data, $start, $size);
     }
+
+    public function getDataString()
+    {
+        return $this->data();
+    }
 }
