@@ -12,7 +12,7 @@ class EntryWindowsStringTest extends EntryTestBase
     {
         $test_str = 'Tést';
         $test_str_ucs2 = mb_convert_encoding($test_str, 'UCS-2LE', 'UTF-8');
-        $test_str_ucs2_zt = $test_str_ucs2 . "\x0\x0";
+        $test_str_ucs2_zt = $test_str_ucs2;
 
         $entry = new WindowsString($this->mockParentElement, [$test_str]);
         $this->assertEquals(10, $entry->getComponents());
