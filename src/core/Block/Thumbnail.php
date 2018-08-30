@@ -94,7 +94,7 @@ class Thumbnail extends BlockBase
                     'size' => $size,
                 ]);
             }
-            $thumbnail_data = $dataxx->getClone(0, $size)->getBytes();
+            $thumbnail_data = $dataxx->getClone(0, $size)->getBytes(0, $size);
 
             $thumbnail_block = new static($ifd);
             $thumbnail_entry = new Undefined($thumbnail_block, [$thumbnail_data]);
