@@ -58,9 +58,10 @@ class WindowsString extends Byte
     {
         parent::setValue($data);
 
-        $windows_string = mb_convert_encoding($data[0], 'UCS-2LE', 'auto');
-        $this->components = strlen($windows_string) + 2;
-        $this->value = [rtrim($data[0], "\0"), $windows_string];
+        $php_string = rtrim($data[0], "\0");
+        $windows_string = mb_convert_encoding($php_string, 'UCS-2LE', 'auto');
+        $this->components = strlen($windows_string);
+        $this->value = [$php_string, $windows_string];
         return $this;
     }
 
@@ -81,7 +82,7 @@ class WindowsString extends Byte
      */
     public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN)
     {
-        return $this->getValue()[1];
+        return $this->getValue()[1] . "\x0\x0";
     }
 
     /**
