@@ -37,8 +37,8 @@ class WindowsString extends Byte
     {
         // Cap bytes to get to remaining data window size.
         $size = $data_window->getSize();
-        if ($data_offset + $components > $size - 1) {
-            $bytes_to_get = $size - $data_offset - 1;
+        if ($data_offset + $components > $size) {
+            $bytes_to_get = $size - $data_offset;
             $parent_block->warning('WindowsString entry reading {actual} bytes instead of {expected} to avoid data window overflow', [
                 'actual' => $bytes_to_get,
                 'expected' => $components,
