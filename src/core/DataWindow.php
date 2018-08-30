@@ -17,7 +17,7 @@ class DataWindow extends DataElement
      *
      * @var DataElement
      */
-    private $dataElement;
+    protected $dataElement;
 
     /**
      * Construct a new data window with the data supplied.
@@ -35,9 +35,9 @@ class DataWindow extends DataElement
      *            read from the data, and it can be changed later with {@link
      *            setByteOrder()}.
      */
-    public function __construct(DataElement $data, $start, $size, $caller = null, $byte_order = ConvertBytes::BIG_ENDIAN)
+    public function __construct(DataElement $data_element, $start, $size, $caller = null, $byte_order = ConvertBytes::BIG_ENDIAN)
     {
-        $this->dataElement = $data;
+        $this->dataElement = $data_element;
         $this->start = $start;
         $this->size = $size;
         $this->order = $byte_order;

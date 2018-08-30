@@ -127,7 +127,7 @@ class Image extends BlockBase
     protected static function determineImageHandlingClass(DataElement $data_element)
     {
         // JPEG image?
-        if ($data_element->getBytes(0, 3) === Jpeg::JPEG_HEADER) {
+        if ($data_element->xxgetBytes(0, 3) === Jpeg::JPEG_HEADER) {
             return '\ExifEye\core\Block\Jpeg';
         }
 
