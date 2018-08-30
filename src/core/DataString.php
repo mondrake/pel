@@ -70,6 +70,6 @@ class DataString extends DataElement
 
     public function getDataString()
     {
-        return $this->data();
+        return $this->data;
     }
 }

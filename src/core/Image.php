@@ -79,7 +79,8 @@ class Image extends BlockBase
 
         if ($handling_class !== false) {
             $image = new static($handling_class, $external_logger, $fail_level);
-            $image->loadFromData(new DataString(file_get_contents($path)));
+            $data_element = new DataString(file_get_contents($path));
+            $image->loadFromData($data_element, 0, $data_element->getSize());
             return $image;
         }
 
@@ -107,7 +108,7 @@ class Image extends BlockBase
 
         if ($handling_class !== false) {
             $image = new static($handling_class, $external_logger, $fail_level);
-            $image->loadFromData($data_element);
+            $image->loadFromData($data_element, 0, $data_element->getSize());
             return $image;
         }
 
