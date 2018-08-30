@@ -201,7 +201,7 @@ abstract class DataElement
      *         always return no more than {@link getSize()} bytes.
      * @throws DataException
      */
-    public function getBytes($start, $size)
+    public function getBytes($start = null, $size = null)
     {
         if (is_int($start)) {
             if ($start < 0) {

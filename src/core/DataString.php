@@ -60,8 +60,11 @@ class DataString extends DataElement
      * @throws DataException
      *            when invalid offsets are requested
      */
-    public function getBytes($start, $size)
+    public function getBytes($start = null, $size = null)
     {
+        $start = $start === null ? 0 : $start;
+        $size = $size === null ? $this->size : $size;
+        
         $this->validateOffset($start);
         $this->validateOffset($start + $size - 1);
 
