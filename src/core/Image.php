@@ -104,7 +104,7 @@ class Image extends BlockBase
      */
     public static function createFromData(DataElement $data_element, LoggerInterface $external_logger = null, $fail_level = false)
     {
-        $handling_class = static::determineImageHandlingClass($data_string);
+        $handling_class = static::determineImageHandlingClass($data_element);
 
         if ($handling_class !== false) {
             $image = new static($handling_class, $external_logger, $fail_level);
