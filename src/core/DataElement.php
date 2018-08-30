@@ -212,7 +212,7 @@ abstract class DataElement
             $size = $this->size - $start;
         }
 
-        return substr($this->dataElement->getBytes(0, $this->dataElement->getSize()), $this->start + $start, $size);
+        return substr($this->dataElement->xxgetBytes(0, $this->dataElement->getSize()), $this->start + $start, $size);
     }
 
     /**
