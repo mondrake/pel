@@ -127,13 +127,12 @@ class Image extends BlockBase
     protected static function determineImageHandlingClass(DataElement $data_element)
     {
         // JPEG image?
-        if ($data_element->xxgetBytes(0, 3) === Jpeg::JPEG_HEADER) {
+        if ($data_element->getBytes(0, 3) === Jpeg::JPEG_HEADER) {
             return '\ExifEye\core\Block\Jpeg';
         }
 
         // TIFF image?
-        $data_window = new DataWindow($data_element, 0, 10);
-        $byte_order = Tiff::getTiffSegmentByteOrder($data_window);
+        $byte_order = Tiff::getTiffSegmentByteOrder($data_element);
         if ($byte_order !== null) {
             return '\ExifEye\core\Block\Tiff';
         }

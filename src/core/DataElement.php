@@ -11,6 +11,18 @@ use ExifEye\core\Utility\ConvertBytes;
 abstract class DataElement
 {
     /**
+     * The start of the current window.
+     *
+     * All offsets used for access into the data will count from this
+     * offset, effectively limiting access to a window starting at this
+     * byte.
+     *
+     * @var int
+     * @see setWindowStart
+     */
+    protected $start = 0;
+
+    /**
      * The size of the data.
      *
      * @var int
@@ -28,18 +40,6 @@ abstract class DataElement
      * @see setByteOrder, getByteOrder
      */
     protected $order;
-
-    /**
-     * The start of the current window.
-     *
-     * All offsets used for access into the data will count from this
-     * offset, effectively limiting access to a window starting at this
-     * byte.
-     *
-     * @var int
-     * @see setWindowStart
-     */
-    protected $start = 0;
 
     /**
      * Get the size of the data window.
