@@ -3,6 +3,7 @@
 namespace ExifEye\core\Block;
 
 use ExifEye\core\Block\Ifd;
+use ExifEye\core\DataElement;
 use ExifEye\core\DataWindow;
 use ExifEye\core\DataException;
 use ExifEye\core\Entry\Core\EntryInterface;
@@ -33,7 +34,7 @@ class Thumbnail extends BlockBase
     /**
      * {@inheritdoc}
      */
-    public function loadFromData(DataWindow $data_window, $offset = 0, $size = null, array $options = [])
+    public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
     {
     }
 
@@ -46,11 +47,11 @@ class Thumbnail extends BlockBase
 
     /**
      * xx
-     * @param DataWindow $data_window
+     * @param DataWindow $data_element
      *            the data from which the thumbnail will be
      *            extracted.
      */
-    public static function toBlock(DataWindow $data_window, Ifd $ifd)
+    public static function toBlock(DataWindow $data_element, Ifd $ifd)
     {
         if (!$ifd->getElement("tag[@name='ThumbnailOffset']") || !$ifd->getElement("tag[@name='ThumbnailLength']")) {
             return;
@@ -71,17 +72,17 @@ class Thumbnail extends BlockBase
 
         // Some images have a broken length, so we try to carefully check
         // the length before we store the thumbnail.
-        if ($offset + $length > $data_window->getSize()) {
+        if ($offset + $length > $data_element->getSize()) {
             $ifd->warning('Thumbnail length {length} bytes adjusted to {adjusted_length} bytes.', [
                 'length' => $length,
-                'adjusted_length' => $data_window->getSize() - $offset,
+                'adjusted_length' => $data_element->getSize() - $offset,
             ]);
-            $length = $data_window->getSize() - $offset;
+            $length = $data_element->getSize() - $offset;
         }
 
         // Now set the thumbnail normally.
         try {
-            $dataxx = $data_window->getClone($offset, $length);
+            $dataxx = $data_element->getClone($offset, $length);
             $size = $dataxx->getSize();
 
             // Now move backwards until we find the EOI JPEG marker.

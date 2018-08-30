@@ -2,6 +2,7 @@
 
 namespace ExifEye\core\Block;
 
+use ExifEye\core\DataElement;
 use ExifEye\core\DataWindow;
 use ExifEye\core\Entry\Core\Undefined;
 
@@ -15,14 +16,14 @@ class JpegSegment extends JpegSegmentBase
     /**
      * {@inheritdoc}
      */
-    public function loadFromData(DataWindow $data_window, $offset = 0, $size = null, array $options = [])
+    public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
     {
-        parent::loadFromData($data_window, $offset, $size, $options);
+        parent::loadFromData($data_element, $offset, $size, $options);
 
         $this->components = $size;
 
         if ($size) {
-            $entry = new Undefined($this, [$data_window->getBytes($offset, $size)]);
+            $entry = new Undefined($this, [$data_element->getBytes($offset, $size)]);
             $entry->debug("{text}", ['text' => $entry->toString()]);
         }
 

@@ -3,6 +3,7 @@
 namespace ExifEye\Test\core;
 
 use ExifEye\core\DataString;
+use ExifEye\core\DataElement;
 use ExifEye\core\DataWindow;
 use ExifEye\core\Block\Exif;
 use ExifEye\core\Block\Jpeg;

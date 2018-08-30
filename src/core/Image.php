@@ -75,13 +75,11 @@ class Image extends BlockBase
      */
     public static function createFromFile($path, LoggerInterface $external_logger = null, $fail_level = false)
     {
-        $magic_data_string = new DataString(file_get_contents($path, false, null, 0, 10));
-        $handling_class = static::determineImageHandlingClass($magic_data_string);
+        $handling_class = static::determineImageHandlingClass(new DataString(file_get_contents($path, false, null, 0, 10)));
 
         if ($handling_class !== false) {
-            $data_string = new DataString(file_get_contents($path));
             $image = new static($handling_class, $external_logger, $fail_level);
-            $image->loadFromDataWindow(new DataWindow($data_string, 0, $data_string->getSize(), $image));
+            $image->loadFromData(new DataString(file_get_contents($path)));
             return $image;
         }
 
@@ -91,7 +89,7 @@ class Image extends BlockBase
     /**
      * Creates an Image object from data.
      *
-     * @param DataString $data_string
+     * @param DataElement $data_element
      *            the data string object providing the data.
      * @param \Psr\Log\LoggerInterface $external_logger
      *            (Optional) a PSR-3 compliant logger callback.
@@ -103,13 +101,13 @@ class Image extends BlockBase
      *            the Image object if successful, or false if the data cannot
      *            be parsed.
      */
-    public static function createFromData(DataString $data_string, LoggerInterface $external_logger = null, $fail_level = false)
+    public static function createFromData(DataElement $data_element, LoggerInterface $external_logger = null, $fail_level = false)
     {
         $handling_class = static::determineImageHandlingClass($data_string);
 
         if ($handling_class !== false) {
             $image = new static($handling_class, $external_logger, $fail_level);
-            $image->loadFromDataWindow(new DataWindow($data_string, 0, $data_string->getSize(), $image));
+            $image->loadFromData($data_element);
             return $image;
         }
 
@@ -119,22 +117,22 @@ class Image extends BlockBase
     /**
      * Determines the PHP class to use for parsing the image data.
      *
-     * @param DataString $data_string
-     *            the data window that will provide the data.
+     * @param DataElement $data_element
+     *            the data element that will provide the data.
      *
      * @returns string|false
      *            the PHP fully qualified class name if successful, or false if
      *            the data cannot be parsed.
      */
-    protected static function determineImageHandlingClass(DataString $data_string)
+    protected static function determineImageHandlingClass(DataElement $data_element)
     {
         // JPEG image?
-        if ($data_string->getBytes(0, 3) === Jpeg::JPEG_HEADER) {
+        if ($data_element->getBytes(0, 3) === Jpeg::JPEG_HEADER) {
             return '\ExifEye\core\Block\Jpeg';
         }
 
         // TIFF image?
-        $data_window = new DataWindow($data_string, 0, 10);
+        $data_window = new DataWindow($data_element, 0, 10);
         $byte_order = Tiff::getTiffSegmentByteOrder($data_window);
         if ($byte_order !== null) {
             return '\ExifEye\core\Block\Tiff';
@@ -168,16 +166,10 @@ class Image extends BlockBase
     /**
      * {@inheritdoc}
      */
-    public function loadFromData(DataWindow $data_window, $offset = 0, $size = null, array $options = [])
+    public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
     {
         $image_handler = new $this->imageClass($this);
-        $image_handler->loadFromData($data_window, $offset, $size, $options);
-        return $this;
-    }
-    public function loadFromDataWindow(DataWindow $data_window, array $options = [])
-    {
-        $image_handler = new $this->imageClass($this);
-        $image_handler->loadFromData($data_window, 0, $data_window->getSize(), $options);
+        $image_handler->loadFromData($data_element, $offset, $size, $options);
         return $this;
     }
 

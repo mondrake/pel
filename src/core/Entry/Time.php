@@ -2,6 +2,7 @@
 
 namespace ExifEye\core\Entry;
 
+use ExifEye\core\DataElement;
 use ExifEye\core\DataWindow;
 use ExifEye\core\Entry\Core\Ascii;
 use ExifEye\core\ExifEye;

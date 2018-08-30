@@ -2,6 +2,7 @@
 
 namespace ExifEye\core\Block;
 
+use ExifEye\core\DataElement;
 use ExifEye\core\DataWindow;
 use ExifEye\core\ExifEye;
 use ExifEye\core\Utility\ConvertBytes;
@@ -34,7 +35,7 @@ class Exif extends BlockBase
     /**
      * {@inheritdoc}
      */
-    public function loadFromData(DataWindow $data_window, $offset = 0, $size = null, array $options = [])
+    public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
     {
         $this->debug('Loading EXIF data in [{start}-{end}] [0x{hstart}-0x{hend}], {size} bytes ...', [
             'start' => $offset,
@@ -44,14 +45,14 @@ class Exif extends BlockBase
             'size' => $size,
         ]);
 
-        $tiff_order = Tiff::getTiffSegmentByteOrder($data_window, $offset + strlen(self::EXIF_HEADER));
+        $tiff_order = Tiff::getTiffSegmentByteOrder($data_element, $offset + strlen(self::EXIF_HEADER));
         if ($tiff_order !== null) {
             $tiff = new Tiff($this);
-            $tiff->loadFromData($data_window, $offset + strlen(self::EXIF_HEADER), $size - strlen(self::EXIF_HEADER));
+            $tiff->loadFromData($data_element, $offset + strlen(self::EXIF_HEADER), $size - strlen(self::EXIF_HEADER));
         } else {
             // We store the data as normal JPEG content if it could not be
             // parsed as Tiff data.
-            $entry = new Undefined($this, [$data_window->getBytes($offset, $size)]);
+            $entry = new Undefined($this, [$data_element->getBytes($offset, $size)]);
             $entry->debug("TIFF header not found. Loaded {text}", ['text' => $entry->toString()]);
         }
 
@@ -69,15 +70,15 @@ class Exif extends BlockBase
     /**
      * Determines if the data is an EXIF segment.
      */
-    public static function isExifSegment(DataWindow $data_window, $offset = 0)
+    public static function isExifSegment(DataElement $data_element, $offset = 0)
     {
         // There must be at least 6 bytes for the Exif header.
-        if ($data_window->getSize() - $offset < strlen(self::EXIF_HEADER)) {
+        if ($data_element->getSize() - $offset < strlen(self::EXIF_HEADER)) {
             return false;
         }
 
         // Verify the Exif header.
-        if ($data_window->strcmp($offset, self::EXIF_HEADER)) {
+        if ($data_element->strcmp($offset, self::EXIF_HEADER)) {
             return true;
         }
 
