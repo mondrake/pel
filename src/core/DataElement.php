@@ -363,7 +363,7 @@ abstract class DataElement
         $offset += $this->start;
 
         /* Return an unsigned long. */
-        return ConvertBytes::toLong($this->getDataString(), (int) $offset, $this->order);
+        return ConvertBytes::toLong($this->getBytes($offset, 4), 0, $this->order);
     }
 
     /**

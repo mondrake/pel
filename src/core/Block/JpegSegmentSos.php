@@ -34,16 +34,8 @@ class JpegSegmentSos extends JpegSegmentBase
         $this->components = $length - $offset - 2;
         $end_offset = $offset + $this->components + 2;
 
-        $data_window = new DataWindow($data_element, $offset, $this->components, $data_element->getByteOrder(), $this);
-        $this->debug('Loading data in [{start}-{end}] [0x{hstart}-0x{hend}], {size} bytes ...', [
-            'start' => $offset,
-            'end' => $end_offset,
-            'hstart' => strtoupper(dechex($offset)),
-            'hend' => strtoupper(dechex($end_offset)),
-            'size' => $this->components,
-        ]);
-
         // Load data in an Undefined entry.
+        $data_window = new DataWindow($data_element, $offset, $this->components, $data_element->getByteOrder(), $this);
         $entry = new Undefined($this, [$data_window->getBytes()]);
         $entry->debug("Scan: {text}", ['text' => $entry->toString()]);
 
@@ -57,7 +49,8 @@ class JpegSegmentSos extends JpegSegmentBase
             // There is no JPEG marker for trailing garbage, so we just load
             // the data in a RawData object.
             $trail = new RawData($this->getParentElement());
-            $trail->loadFromData($data_element, $end_offset, $raw_size);
+            $trail_data_window = new DataWindow($data_element, $end_offset, $raw_size, $data_element->getByteOrder(), $trail);
+            $trail->loadFromData($trail_data_window, 0, $raw_size);
         }
 
         return $this;

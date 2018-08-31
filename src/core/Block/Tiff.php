@@ -50,19 +50,18 @@ class Tiff extends BlockBase
         // Determine the byte order of the TIFF data.
         $byte_order = self::getTiffSegmentByteOrder($data_element, $offset);
 
-        // xx Continue from here...
+        // Open a data window on the TIFF data.
         $data_window = new DataWindow($data_element, $offset, $size, $byte_order, $this);
-//        $data_element = $data_element->getClone($offset);
-//        $data_element->setByteOrder($byte_order);
 
         // IFD0.
-        $offset = $data_window->getLong(4);
+        $ifd_offset = $data_window->getLong(4);
+dump([$offset, $ifd_offset]);
         $this->debug('First IFD at offset {offset}.', ['offset' => $offset]);
 
         if ($offset > 0) {
             // Parse IFD0, this will automatically parse any sub IFDs.
             $ifd0 = new Ifd($this, 'IFD0');
-            $next_offset = $ifd0->loadFromData($data_window, $offset);
+            $next_offset = $ifd0->loadFromData($data_window, $ifd_offset - $offset);
         }
 
         // Next IFD. xx @todo iterate on next_offset
