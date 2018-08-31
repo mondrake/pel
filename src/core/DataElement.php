@@ -331,11 +331,11 @@ abstract class DataElement
         $this->validateOffset($offset + 3);
 
         /* Translate the offset into an offset into the data. */
-        $offset += $this->start;
+        $offset += $this->getStart();
 
         /* Return an unsigned long. */
-dump([$offset, ExifEye::dumpHex($this->getBytes(0, 12), 12)]);
-        return ConvertBytes::toLong($this->getBytes($offset, 4), 0, $this->order);
+dump([$offset, ExifEye::dumpHex($this->getDataString()->getBytes(0, 12), 12), ExifEye::dumpHex($this->getDataString()->getBytes($offset, 4), 4)]);
+        return ConvertBytes::toLong($this->getDataString()->getBytes($offset, 4), 0, $this->order);
     }
 
     /**
