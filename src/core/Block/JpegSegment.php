@@ -18,8 +18,6 @@ class JpegSegment extends JpegSegmentBase
      */
     public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
     {
-        parent::loadFromData($data_element, $offset, $size, $options);
-
         $this->components = $size;
 
         if ($size) {

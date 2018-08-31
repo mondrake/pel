@@ -86,7 +86,9 @@ class ImageFilesTest extends ExifEyeTestCaseBase
         // Recursively check sub-blocks.
         if (isset($expected['elements'])) {
             foreach ($expected['elements'] as $i => $expected_element) {
-                $this->assertElement($expected_element, $element->getMultipleElements('*')[$i]);
+                $test = $element->getMultipleElements('*');
+                $this->assertArrayHasKey($i, $test, $expected_element['path']);
+                $this->assertElement($expected_element, $test[$i]);
             }
         }
     }
