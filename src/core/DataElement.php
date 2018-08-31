@@ -276,7 +276,8 @@ abstract class DataElement
         $offset += $this->start;
 
         /* Return an unsigned short. */
-        return ConvertBytes::toShort($this->getDataString(), $offset, $this->order);
+dump([$offset, ExifEye::dumpHex(substr($this->getDataString(), 0, 12), 12), ExifEye::dumpHex(substr($this->getDataString(), $offset, 4), 4)]);
+        return ConvertBytes::toShort(substr($this->getDataString(), $offset, 2), 0, $this->order);
     }
 
     /**
@@ -477,6 +478,7 @@ abstract class DataElement
     {
         return isset($this->dataElement) ? $this->dataElement->getDataString() : null;
     }
+
     public function getStart()
     {
         return isset($this->dataElement) ? $this->dataElement->getStart() + $this->start : $this->start;

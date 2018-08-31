@@ -25,6 +25,7 @@ class DataString extends DataElement
     public function __construct($data)
     {
         $this->data = $data;
+        $this->start = 0;
         $this->size = strlen($this->data);
     }
 
@@ -75,6 +76,7 @@ class DataString extends DataElement
     {
         return $this->data;
     }
+
     public function getStart()
     {
         return $this->start;
