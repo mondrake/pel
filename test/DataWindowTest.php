@@ -10,6 +10,30 @@ use ExifEye\core\Utility\ConvertBytes;
 
 class DataWindowTest extends ExifEyeTestCaseBase
 {
+    public function testDataWindow()
+    {
+        $data = new DataString('01234567890ABCDEFGHIJ');
+        $this->assertSame(20, $data->getSize());
+        $this->assertSame('01234567890ABCDEFGHIJ', $data->getBytes());
+        $this->assertSame('0123456789', $data->getBytes(0, 10));
+        $this->assertSame('ABCDEFGHIJ', $data->getBytes(10, 10));
+        $this->assertSame('123456789A', $data->getBytes(1, 10));
+
+        $window_0 = new DataWindow($data, 0, $data->getSize());
+        $this->assertSame(20, $window_0->getSize());
+        $this->assertSame('01234567890ABCDEFGHIJ', $window_0->getBytes());
+        $this->assertSame('0123456789', $window_0->getBytes(0, 10));
+        $this->assertSame('ABCDEFGHIJ', $window_0->getBytes(10, 10));
+        $this->assertSame('123456789A', $window_0->getBytes(1, 10));
+
+        $window_1 = new DataWindow($data, 5, 10);
+        $this->assertSame(10, $window_1->getSize());
+        $this->assertSame('567890ABCD', $window_0->getBytes());
+        $this->assertSame('56789', $window_0->getBytes(0, 5));
+        $this->assertSame('0A', $window_0->getBytes(5, 2));
+        $this->assertSame('56', $window_0->getBytes(1, 2));
+    }
+
     public function testReadBytes()
     {
         $data = new DataString('abcdefgh');
