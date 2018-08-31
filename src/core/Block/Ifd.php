@@ -90,7 +90,7 @@ class Ifd extends BlockBase
             $tag_format = $data_window->getShort($i_offset + 2);
             $tag_components = $data_window->getLong($i_offset + 4);
             $tag_data_element = $data_window->getLong($i_offset + 8);
-dump([$tag_id, $tag_format, $tag_components, $tag_data_element ]);
+//dump([$tag_id, $tag_format, $tag_components, $tag_data_element ]);
             // If the data size is bigger than 4 bytes, then actual data is not in
             // the TAG's data element, but at the the offset stored in the data
             // element.
@@ -109,8 +109,8 @@ dump([$tag_id, $tag_format, $tag_components, $tag_data_element ]);
             $tag_entry_class = Spec::getEntryClass($this, $tag_id, $tag_format);
             $tag_entry_arguments = call_user_func($tag_entry_class . '::getInstanceArgumentsFromTagData', $this, $tag_format, $tag_components, $data_element, $tag_data_offset);
             $tag = new Tag($this, $tag_id, $tag_entry_class, $tag_entry_arguments, $tag_format, $tag_components);
-dump($tag_entry_class, $tag_entry_arguments, $tag);
-            
+//dump($tag_entry_class, $tag_entry_arguments, $tag);
+
             // Load a subIfd.
             if (Spec::isTagAnIfdPointer($this, $tag->getAttribute('id'))) {
                 // If the tag is an IFD pointer, loads the IFD.

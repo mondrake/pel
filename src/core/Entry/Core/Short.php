@@ -42,6 +42,7 @@ class Short extends NumberBase
      */
     public static function getInstanceArgumentsFromTagData(BlockBase $parent_block, $format, $components, DataWindow $data_window, $data_offset)
     {
+dump($format, $components, $data_window, $data_offset, $data_window->getBytes());
         $args = [];
         for ($i = 0; $i < $components; $i ++) {
             $args[] = $data_window->getShort($data_offset + ($i * 2));
