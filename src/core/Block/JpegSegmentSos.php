@@ -34,6 +34,7 @@ class JpegSegmentSos extends JpegSegmentBase
         $this->components = $length - $offset - 2;
         $end_offset = $offset + $this->components + 2;
 
+        $data_window = new DataWindow($data_element, $offset, $this->components, $data_element->getByteOrder(), $this);
         $this->debug('Loading data in [{start}-{end}] [0x{hstart}-0x{hend}], {size} bytes ...', [
             'start' => $offset,
             'end' => $end_offset,
@@ -43,7 +44,7 @@ class JpegSegmentSos extends JpegSegmentBase
         ]);
 
         // Load data in an Undefined entry.
-        $entry = new Undefined($this, [$data_element->getBytes($offset, $this->components)]);
+        $entry = new Undefined($this, [$data_window->getBytes()]);
         $entry->debug("Scan: {text}", ['text' => $entry->toString()]);
 
         // Append the EOI.
