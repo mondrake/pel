@@ -35,10 +35,10 @@ class DataWindowTest extends ExifEyeTestCaseBase
 
         $window_1_sub = new DataWindow($window_1, 5, 5);
         $this->assertSame(5, $window_1_sub->getSize());
-        $this->assertSame('9ABCD', $window_1_sub->getBytes());
-        $this->assertSame('ABC', $window_1_sub->getBytes(1, 3));
-        $this->assertSame('CD', $window_1_sub->getBytes(3, 2));
-        $this->assertSame('9A', $window_1_sub->getBytes(0, 2));
+        $this->assertSame('ABCDE', $window_1_sub->getBytes());
+        $this->assertSame('BCD', $window_1_sub->getBytes(1, 3));
+        $this->assertSame('DE', $window_1_sub->getBytes(3, 2));
+        $this->assertSame('AB', $window_1_sub->getBytes(0, 2));
     }
 
     public function testReadBytes()
