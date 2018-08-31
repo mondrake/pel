@@ -51,7 +51,7 @@ class Tiff extends BlockBase
         $byte_order = self::getTiffSegmentByteOrder($data_element, $offset);
 
         // xx Continue from here...
-        $data_window = new DataWindow($data_element, $offset, $size, $byte_order);
+        $data_window = new DataWindow($data_element, $offset, $size, $byte_order, $this);
 //        $data_element = $data_element->getClone($offset);
 //        $data_element->setByteOrder($byte_order);
 

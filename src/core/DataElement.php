@@ -220,7 +220,6 @@ abstract class DataElement
         } else {
             $size = $this->size - $start;
         }
-dump([$this->getDataString(), $this->getStart(), $this->start, $this->size, $start, $size]);
         return substr($this->getDataString(), $this->getStart() + $start, $size);
     }
 
