@@ -47,12 +47,13 @@ class Tiff extends BlockBase
 
         // IFD0.
         $ifd_offset = $data_window->getLong(4);
+dump([$offset, $ifd_offset, ExifEye::dumpHex(substr($dataElement->getDataString(), 0, 30), 30)]);
         $this->debug('First IFD at offset {offset}.', ['offset' => $offset]);
 
         if ($offset > 0) {
             // Parse IFD0, this will automatically parse any sub IFDs.
             $ifd0 = new Ifd($this, 'IFD0');
-            $next_offset = $ifd0->loadFromData($data_window, $ifd_offset - $offset);
+            $next_offset = $ifd0->loadFromData($data_window, $ifd_offset);
         }
 
         // Next IFD. xx @todo iterate on next_offset
