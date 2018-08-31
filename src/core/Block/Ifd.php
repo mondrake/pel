@@ -59,8 +59,7 @@ class Ifd extends BlockBase
      */
     public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
     {
-dump([$offset, $size, ExifEye::dumpHex($data_element->getBytes(0, 20), 20)]);
-        $data_window = new DataWindow($data_element, $offset, $size - $offset, $data_element->getByteOrder(), $this);
+        $data_window = new DataWindow($data_element, $offset, $size, $data_element->getByteOrder(), $this);
 
         $starting_offset = $offset;
 
