@@ -273,10 +273,10 @@ abstract class DataElement
         $this->validateOffset($offset + 1);
 
         /* Translate the offset into an offset into the data. */
-        $offset += $this->start;
+        $offset += $this->getStart();
 
         /* Return an unsigned short. */
-dump([$offset, ExifEye::dumpHex(substr($this->getDataString(), 0, 12), 12), ExifEye::dumpHex(substr($this->getDataString(), $offset, 4), 4)]);
+dump([$offset, ExifEye::dumpHex(substr($this->getDataString(), $offset, 40), 40)]);
         return ConvertBytes::toShort(substr($this->getDataString(), $offset, 2), 0, $this->order);
     }
 
