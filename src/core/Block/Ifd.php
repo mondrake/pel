@@ -102,7 +102,7 @@ dump([$tag_id, $tag_format, $tag_components, $tag_data_element ]);
                 }
                 $tag_data_offset += $this->tagsSkipOffset;
             } else {
-                $tag_data_offset = $i_offset + 8;
+                $tag_data_offset = 8;
             }
 
             // Build the TAG object.
