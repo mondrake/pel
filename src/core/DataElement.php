@@ -148,7 +148,7 @@ abstract class DataElement
      * @return DataWindow a new window that operates on the same data
      *         as this window, but (optionally) with a smaller window size.
      */
-    public function getClone($start = null, $size = null)
+/*    public function getClone($start = null, $size = null)
     {
         $c = clone $this;
 
@@ -159,7 +159,7 @@ abstract class DataElement
             $c->setWindowSize($size);
         }
         return $c;
-    }
+    }*/
 
     /**
      * Validate an offset against the current window.

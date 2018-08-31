@@ -82,6 +82,7 @@ class Jpeg extends BlockBase
             }
 
             // Load the ExifEye JPEG segment object.
+$xx = new DataWindow($data_element, $segment_offset, $segment_size, ConvertBytes::BIG_ENDIAN, $this);
             $segment->loadFromData($data_element, $segment_offset, $segment_size);
 
             // In case of image scan segment, the load is now complete.
