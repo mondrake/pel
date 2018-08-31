@@ -59,7 +59,7 @@ class DataWindowTest extends ExifEyeTestCaseBase
         $this->assertEquals($window->getBytes(- 7), 'bcdefgh');
         $this->assertEquals($window->getBytes(- 8), 'abcdefgh');
 
-        $clone = $window->getClone(2, 4);
+        $clone = new DataWindow($window, 2, 4);
         $this->assertEquals($clone->getSize(), 4);
         $this->assertEquals($clone->getBytes(), 'cdef');
 
