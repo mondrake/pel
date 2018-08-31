@@ -74,7 +74,7 @@ class Ifd extends BlockBase
         $offset += $this->headerSkipBytes;
 
         // Check if we have enough data.
-        if ($offset + 12 * $n > $data_window->getSize()) {
+        if (2 + 12 * $n > $data_window->getSize()) {
             $n = floor(($offset - $data_window->getSize()) / 12);
             $this->warning('Adjusted to: {tags}.', [
                 'tags' => $n,
@@ -83,7 +83,7 @@ class Ifd extends BlockBase
 
         // Load Tags.
         for ($i = 0; $i < $n; $i++) {
-            $i_offset = $offset + 12 * $i;
+            $i_offset = 2 + 12 * $i;
 
             // Gets the TAG's elements from the data window.
             $tag_id = $data_window->getShort($i_offset);
@@ -98,7 +98,7 @@ class Ifd extends BlockBase
             if ($tag_size > 4) {
                 $tag_data_offset = $tag_data_element;
                 if (!$this->tagsAbsoluteOffset) {
-                    $tag_data_offset += $offset;
+                    $tag_data_offset += 2;
                 }
                 $tag_data_offset += $this->tagsSkipOffset;
             } else {
