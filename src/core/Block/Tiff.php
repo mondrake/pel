@@ -47,7 +47,6 @@ class Tiff extends BlockBase
 
         // IFD0.
         $ifd_offset = $data_window->getLong(4);
-dump([$offset, $ifd_offset]);
         $this->debug('First IFD at offset {offset}.', ['offset' => $offset]);
 
         if ($offset > 0) {

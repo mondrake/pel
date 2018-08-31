@@ -38,13 +38,6 @@ class Exif extends BlockBase
     public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
     {
         $data_window = new DataWindow($data_element, $offset, $size, $data_element->getByteOrder(), $this);
-        $this->debug('Loading EXIF data in [{start}-{end}] [0x{hstart}-0x{hend}], {size} bytes ...', [
-            'start' => $offset,
-            'end' => $offset + $size - 1,
-            'hstart' => strtoupper(dechex($offset)),
-            'hend' => strtoupper(dechex($offset + $size - 1)),
-            'size' => $size,
-        ]);
 
         $tiff_order = Tiff::getTiffSegmentByteOrder($data_window, strlen(self::EXIF_HEADER));
         if ($tiff_order !== null) {

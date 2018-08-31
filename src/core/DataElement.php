@@ -133,35 +133,6 @@ abstract class DataElement
     }
 
     /**
-     * Make a new data window with the same data as the this window.
-     *
-     * @param integer|NULL $start
-     *            if an integer is supplied, then it will be the start
-     *            of the window in the clone. If left unspecified, then the clone
-     *            will inherit the start from this object.
-     *
-     * @param integer|NULL $size
-     *            if an integer is supplied, then it will be the size
-     *            of the window in the clone. If left unspecified, then the clone
-     *            will inherit the size from this object.
-     *
-     * @return DataWindow a new window that operates on the same data
-     *         as this window, but (optionally) with a smaller window size.
-     */
-/*    public function getClone($start = null, $size = null)
-    {
-        $c = clone $this;
-
-        if (is_int($start)) {
-            $c->setWindowStart($start);
-        }
-        if (is_int($size)) {
-            $c->setWindowSize($size);
-        }
-        return $c;
-    }*/
-
-    /**
      * Validate an offset against the current window.
      *
      * @param integer $offset
@@ -363,6 +334,7 @@ abstract class DataElement
         $offset += $this->start;
 
         /* Return an unsigned long. */
+dump([$offset, ExifEye::dumpHex($this->getBytes(0, 12), 12)]);
         return ConvertBytes::toLong($this->getBytes($offset, 4), 0, $this->order);
     }
 
