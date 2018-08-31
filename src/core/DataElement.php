@@ -334,8 +334,8 @@ abstract class DataElement
         $offset += $this->getStart();
 
         /* Return an unsigned long. */
-dump([$offset, ExifEye::dumpHex($this->getDataString()->getBytes(0, 12), 12), ExifEye::dumpHex($this->getDataString()->getBytes($offset, 4), 4)]);
-        return ConvertBytes::toLong($this->getDataString()->getBytes($offset, 4), 0, $this->order);
+dump([$offset, ExifEye::dumpHex(substr($this->getDataString(), 0, 12), 12), ExifEye::dumpHex(substr($this->getDataString(), $offset, 4), 4)]);
+        return ConvertBytes::toLong(substr($this->getDataString(), $offset, 4), 0, $this->order);
     }
 
     /**
