@@ -86,11 +86,12 @@ class Ifd extends BlockBase
             $i_offset = 2 + 12 * $i;
 
             // Gets the TAG's elements from the data window.
+dump(ExifEye::dumpHex($data_window->getBytes($i_offset, 12), 12));
             $tag_id = $data_window->getShort($i_offset);
             $tag_format = $data_window->getShort($i_offset + 2);
             $tag_components = $data_window->getLong($i_offset + 4);
             $tag_data_element = $data_window->getLong($i_offset + 8);
-
+dump([$tag_id, $tag_format, $tag_components, $tag_data_element ]);
             // If the data size is bigger than 4 bytes, then actual data is not in
             // the TAG's data element, but at the the offset stored in the data
             // element.
