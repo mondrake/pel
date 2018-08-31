@@ -75,4 +75,8 @@ class DataString extends DataElement
     {
         return $this->data;
     }
+    public function getStart()
+    {
+        return $this->start;
+    }
 }

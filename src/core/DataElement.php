@@ -220,8 +220,8 @@ abstract class DataElement
         } else {
             $size = $this->size - $start;
         }
-dump([$this->getDataString(), $this->start, $this->size, $start, $size]);
-        return substr($this->getDataString(), $this->start + $start, $size);
+dump([$this->getDataString(), $this->getStart(), $this->start, $this->size, $start, $size]);
+        return substr($this->getDataString(), $this->getStart() + $start, $size);
     }
 
     /**
@@ -505,5 +505,9 @@ dump([$this->getDataString(), $this->start, $this->size, $start, $size]);
     public function getDataString()
     {
         return isset($this->dataElement) ? $this->dataElement->getDataString() : null;
+    }
+    public function getStart()
+    {
+        return isset($this->dataElement) ? $this->dataElement->getStart() + $this->start : $this->start;
     }
 }

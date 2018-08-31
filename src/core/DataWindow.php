@@ -26,13 +26,13 @@ class DataWindow extends DataElement
      *            read from the data, and it can be changed later with {@link
      *            setByteOrder()}.
      */
-    public function __construct(DataElement $data_element, $start, $size, $byte_order = ConvertBytes::BIG_ENDIAN)
+    public function __construct(DataElement $data_element, $start, $size, $byte_order = ConvertBytes::BIG_ENDIAN, $caller = null)
     {
         $this->dataElement = $data_element;
         $this->start = $start;
         $this->size = $size;
         $this->order = $byte_order;
-        /*if ($caller) {
+        if ($caller) {
           $caller->debug('Data window in [{start}-{end}] [0x{hstart}-0x{hend}], {size} bytes, order: {order} ...', [
               'start' => $start,
               'end' => $start + $size - 1,
@@ -41,6 +41,6 @@ class DataWindow extends DataElement
               'size' => $size,
               'order' => $byte_order,
           ]);
-        }*/
+        }
     }
 }
