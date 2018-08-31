@@ -86,7 +86,6 @@ class Ifd extends BlockBase
             $i_offset = 2 + 12 * $i;
 
             // Gets the TAG's elements from the data window.
-dump(ExifEye::dumpHex($data_window->getBytes($i_offset, 12), 12));
             $tag_id = $data_window->getShort($i_offset);
             $tag_format = $data_window->getShort($i_offset + 2);
             $tag_components = $data_window->getLong($i_offset + 4);
@@ -110,7 +109,8 @@ dump([$tag_id, $tag_format, $tag_components, $tag_data_element ]);
             $tag_entry_class = Spec::getEntryClass($this, $tag_id, $tag_format);
             $tag_entry_arguments = call_user_func($tag_entry_class . '::getInstanceArgumentsFromTagData', $this, $tag_format, $tag_components, $data_element, $tag_data_offset);
             $tag = new Tag($this, $tag_id, $tag_entry_class, $tag_entry_arguments, $tag_format, $tag_components);
-
+dump($tag_entry_class, $tag_entry_arguments, $tag);
+            
             // Load a subIfd.
             if (Spec::isTagAnIfdPointer($this, $tag->getAttribute('id'))) {
                 // If the tag is an IFD pointer, loads the IFD.
