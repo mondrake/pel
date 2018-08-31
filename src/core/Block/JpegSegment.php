@@ -23,7 +23,8 @@ class JpegSegment extends JpegSegmentBase
         $this->components = $size;
 
         if ($size) {
-            $entry = new Undefined($this, [$data_element->getBytes($offset, $size)]);
+            $data_window = new DataWindow($data_element, $offset, $size, $data_element->getByteOrder(), $this);
+            $entry = new Undefined($this, [$data_window->getBytes()]);
             $entry->debug("{text}", ['text' => $entry->toString()]);
         }
 
