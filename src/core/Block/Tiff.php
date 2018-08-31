@@ -39,14 +39,6 @@ class Tiff extends BlockBase
      */
     public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
     {
-        $this->debug('Loading TIFF data in [{start}-{end}] [0x{hstart}-0x{hend}], {size} bytes ...', [
-            'start' => $offset,
-            'end' => $offset + $size - 1,
-            'hstart' => strtoupper(dechex($offset)),
-            'hend' => strtoupper(dechex($offset + $size - 1)),
-            'size' => $size,
-        ]);
-
         // Determine the byte order of the TIFF data.
         $byte_order = self::getTiffSegmentByteOrder($data_element, $offset);
 

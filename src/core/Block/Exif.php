@@ -37,6 +37,7 @@ class Exif extends BlockBase
      */
     public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
     {
+        $data_window = new DataWindow($data_element, $offset, $size, $data_element->getByteOrder(), $this);
         $this->debug('Loading EXIF data in [{start}-{end}] [0x{hstart}-0x{hend}], {size} bytes ...', [
             'start' => $offset,
             'end' => $offset + $size - 1,
@@ -45,14 +46,14 @@ class Exif extends BlockBase
             'size' => $size,
         ]);
 
-        $tiff_order = Tiff::getTiffSegmentByteOrder($data_element, $offset + strlen(self::EXIF_HEADER));
+        $tiff_order = Tiff::getTiffSegmentByteOrder($data_window, strlen(self::EXIF_HEADER));
         if ($tiff_order !== null) {
             $tiff = new Tiff($this);
-            $tiff->loadFromData($data_element, $offset + strlen(self::EXIF_HEADER), $size - strlen(self::EXIF_HEADER));
+            $tiff->loadFromData($data_window, strlen(self::EXIF_HEADER), $size - strlen(self::EXIF_HEADER));
         } else {
             // We store the data as normal JPEG content if it could not be
             // parsed as Tiff data.
-            $entry = new Undefined($this, [$data_element->getBytes($offset, $size)]);
+            $entry = new Undefined($this, [$data_window->getBytes()]);
             $entry->debug("TIFF header not found. Loaded {text}", ['text' => $entry->toString()]);
         }
 
