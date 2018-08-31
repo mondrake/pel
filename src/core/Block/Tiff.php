@@ -52,7 +52,7 @@ class Tiff extends BlockBase
         if ($offset > 0) {
             // Parse IFD0, this will automatically parse any sub IFDs.
             $ifd0 = new Ifd($this, 'IFD0');
-            $next_offset = $ifd0->loadFromData($data_window, $offset + 4, $size - 4);
+            $next_offset = $ifd0->loadFromData($data_window, $offset, $size);
         }
 
         // Next IFD. xx @todo iterate on next_offset
