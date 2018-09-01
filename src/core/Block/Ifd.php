@@ -102,12 +102,12 @@ class Ifd extends BlockBase
                 }
                 $tag_data_offset += $this->tagsSkipOffset;
             } else {
-                $tag_data_offset = 8;
+                $tag_data_offset = $i_offset + 8;
             }
 
             // Build the TAG object.
             $tag_entry_class = Spec::getEntryClass($this, $tag_id, $tag_format);
-            $tag_entry_arguments = call_user_func($tag_entry_class . '::getInstanceArgumentsFromTagData', $this, $tag_format, $tag_components, $data_element, $tag_data_offset);
+            $tag_entry_arguments = call_user_func($tag_entry_class . '::getInstanceArgumentsFromTagData', $this, $tag_format, $tag_components, $data_window, $tag_data_offset);
             $tag = new Tag($this, $tag_id, $tag_entry_class, $tag_entry_arguments, $tag_format, $tag_components);
 //dump($tag_entry_class, $tag_entry_arguments, $tag);
 
