@@ -882,6 +882,9 @@ log:
         -
             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif'
             message: 'Bogus offset to next IFD: 8, same as offset being loaded from.'
+        -
+            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif'
+            message: 'Bogus offset to next IFD: 8, same as offset being loaded from.'
     WARNING:
         -
             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/tag:282:XResolution'
