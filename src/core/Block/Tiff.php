@@ -69,7 +69,7 @@ class Tiff extends BlockBase
                     $this->error('IFD1 links to another IFD!');
                 }*/
                 $ifd1 = new Ifd($this, 'IFD1');
-                $next_offset = $ifd1->loadFromData($data_window, $next_offset, Size);
+                $next_offset = $ifd1->loadFromData($data_window, $next_offset, $size);
             }
         }
     }

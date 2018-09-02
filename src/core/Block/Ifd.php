@@ -151,7 +151,7 @@ class Ifd extends BlockBase
             ]);
         }
 
-dump($offset + 2 + 12 * $n, $data_element->getLong($offset + 2 + 12 * $n));
+//dump($offset + 2 + 12 * $n, $data_element->getLong($offset + 2 + 12 * $n));
         return $data_element->getLong($offset + 2 + 12 * $n);
     }
 
