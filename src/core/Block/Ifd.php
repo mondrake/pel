@@ -115,12 +115,12 @@ class Ifd extends BlockBase
             if (Spec::isTagAnIfdPointer($this, $tag->getAttribute('id'))) {
                 // If the tag is an IFD pointer, loads the IFD.
                 $ifd_name = Spec::getIfdNameFromTag($this, $tag->getAttribute('id'));
-                $o = $data_element->getLong($offset + 12 * $i + 8);
-                if ($starting_offset != $o) {
+                $o = $data_window->getLong($i_offset + 8);
+                if ($starting_offset != $o) { // xx ??
                     $ifd_class = Spec::getIfdClass($ifd_name);
                     $ifd = new $ifd_class($this, $ifd_name);
                     try {
-                        $ifd->loadFromData($data_element, $o, null, [
+                        $ifd->loadFromData($data_window, $o, null, [
                             'data_offset' => $tag_data_offset,
                             'components' => $tag_components,
                         ]);
@@ -144,7 +144,7 @@ class Ifd extends BlockBase
             $this->debug("START... {callback}", [
                 'callback' => $callback,
             ]);
-            call_user_func($callback, $data_element, $this);
+            call_user_func($callback, $data_window, $this);
             $this->debug(".....END {callback}", [
                 'callback' => $callback,
             ]);
