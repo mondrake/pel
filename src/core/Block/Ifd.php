@@ -91,13 +91,13 @@ class Ifd extends BlockBase
             $tag_format = $data_window->getShort($i_offset + 2);
             $tag_components = $data_window->getLong($i_offset + 4);
             $tag_data_element = $data_window->getLong($i_offset + 8);
-dump($tag_id, $tag_format, $tag_components, $tag_data_element);
+//dump($tag_id, $tag_format, $tag_components, $tag_data_element);
             // If the data size is bigger than 4 bytes, then actual data is not in
             // the TAG's data element, but at the the offset stored in the data
             // element.
             $tag_size = Format::getSize($tag_format) * $tag_components;
             if ($tag_size > 4) {
-                $tag_data_offset = $tag_data_element - 8;
+                $tag_data_offset = $tag_data_element;
             //    if (!$this->tagsAbsoluteOffset) {
             //        $tag_data_offset += 2;
             //    }
@@ -116,12 +116,12 @@ dump($tag_id, $tag_format, $tag_components, $tag_data_element);
             if (Spec::isTagAnIfdPointer($this, $tag->getAttribute('id'))) {
                 // If the tag is an IFD pointer, loads the IFD.
                 $ifd_name = Spec::getIfdNameFromTag($this, $tag->getAttribute('id'));
-                $o = $data_window->getLong($i_offset + 8);
+                $o = $data_window->getLong($i_offset);
                 if ($starting_offset != $o) { // xx ??
                     $ifd_class = Spec::getIfdClass($ifd_name);
                     $ifd = new $ifd_class($this, $ifd_name);
                     try {
-                        $ifd->loadFromData($data_window, $o - 8, $size - $o + 8, [
+                        $ifd->loadFromData($data_window, $o, $size, [
                             'data_offset' => $tag_data_offset,
                             'components' => $tag_components,
                         ]);
