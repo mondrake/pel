@@ -120,7 +120,7 @@ class Ifd extends BlockBase
                     $ifd_class = Spec::getIfdClass($ifd_name);
                     $ifd = new $ifd_class($this, $ifd_name);
                     try {
-                        $ifd->loadFromData($data_window, $o, $size - $o, [
+                        $ifd->loadFromData($data_window, $o - 8, $size - $o, [
                             'data_offset' => $tag_data_offset,
                             'components' => $tag_components,
                         ]);
