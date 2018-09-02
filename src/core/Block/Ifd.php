@@ -59,12 +59,13 @@ class Ifd extends BlockBase
      */
     public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
     {
-        $data_window = new DataWindow($data_element, $offset, $size, $data_element->getByteOrder(), $this);
+        //$data_window = new DataWindow($data_element, $offset, $size, $data_element->getByteOrder(), $this);
+        $data_window = $data_element;
 
         $starting_offset = $offset;
 
         // Get the number of tags.
-        $n = $data_window->getShort($this->headerSkipBytes);
+        $n = $data_window->getShort($this->headerSkipBytes + $offset + 4);
         $this->debug("START... Loading with {tags} TAGs at offset {offset} from {total} bytes", [
             'tags' => $n,
             'offset' => $offset,
