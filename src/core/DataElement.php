@@ -276,7 +276,6 @@ abstract class DataElement
         $offset += $this->getStart();
 
         /* Return an unsigned short. */
-//dump([$offset, ExifEye::dumpHex(substr($this->getDataString(), $offset, 40), 40)]);
         return ConvertBytes::toShort(substr($this->getDataString(), $offset, 2), 0, $this->order);
     }
 
@@ -303,10 +302,10 @@ abstract class DataElement
         $this->validateOffset($offset + 1);
 
         /* Translate the offset into an offset into the data. */
-        $offset += $this->start;
+        $offset += $this->getStart();
 
         /* Return a signed short. */
-        return ConvertBytes::toSignedShort($this->getDataString(), $offset, $this->order);
+        return ConvertBytes::toSignedShort(substr($this->getDataString(), $offset, 2), 0, $this->order);
     }
 
     /**
@@ -335,7 +334,6 @@ abstract class DataElement
         $offset += $this->getStart();
 
         /* Return an unsigned long. */
-//dump([$offset, ExifEye::dumpHex(substr($this->getDataString(), $offset, 40), 40)]);
         return ConvertBytes::toLong(substr($this->getDataString(), $offset, 4), 0, $this->order);
     }
 
@@ -362,10 +360,10 @@ abstract class DataElement
         $this->validateOffset($offset + 3);
 
         /* Translate the offset into an offset into the data. */
-        $offset += $this->start;
+        $offset += $this->getStart();
 
         /* Return a signed long. */
-        return ConvertBytes::toSignedLong($this->getDataString(), $offset, $this->order);
+        return ConvertBytes::toSignedLong(substr($this->getDataString(), $offset, 4), 0, $this->order);
     }
 
     /**
