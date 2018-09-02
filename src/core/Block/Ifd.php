@@ -96,7 +96,7 @@ class Ifd extends BlockBase
             // element.
             $tag_size = Format::getSize($tag_format) * $tag_components;
             if ($tag_size > 4) {
-                $tag_data_offset = $i_offset + $tag_data_element;
+                $tag_data_offset = $tag_data_element;
             //    if (!$this->tagsAbsoluteOffset) {
             //        $tag_data_offset += 2;
             //    }
