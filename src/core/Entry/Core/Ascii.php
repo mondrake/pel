@@ -29,6 +29,7 @@ class Ascii extends EntryBase
      */
     public static function getInstanceArgumentsFromTagData(BlockBase $parent_block, $format, $components, DataWindow $data_window, $data_offset)
     {
+dump($format, $components, ExifEye::dumpHex($data_window->getBytes(), 50), $data_offset);
         // Cap bytes to get to remaining data window size.
         $size = $data_window->getSize();
         if ($data_offset + $components > $size - 1) {
