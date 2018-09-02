@@ -916,6 +916,3 @@ log:
         -
             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/tag:37386:FocalLength'
             message: 'Found SignedRational data format, expected Rational'
-        -
-            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD1'
-            message: 'Adjusted to: -130.'
