@@ -20,7 +20,7 @@ class RunTime extends Ifd
         $this->debug("START... Loading");
 
         $plist = new CFPropertyList();
-dump($offset, $size, $options, ExifEye::dumpHex($data_element->getBytes($options['data_offset'], $options['components']), 104));
+dump($offset, $size, $options, ExifEye::dumpHex($data_element->getBytes($options['data_offset'], $options['components']), 104), $data_element->getStart());
         $plist->parse($data_element->getBytes($options['data_offset'], $options['components']));
         
         // Build a TAG object for each PList item.
