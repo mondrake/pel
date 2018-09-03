@@ -6,6 +6,7 @@ use ExifEye\core\Block\Ifd;
 use ExifEye\core\Block\Tag;
 use ExifEye\core\DataElement;
 use ExifEye\core\DataWindow;
+use ExifEye\core\ExifEye;
 use CFPropertyList\CFPropertyList;
 use ExifEye\core\Spec;
 
@@ -19,7 +20,7 @@ class RunTime extends Ifd
         $this->debug("START... Loading");
 
         $plist = new CFPropertyList();
-dump($offset, $size, $options);
+dump($offset, $size, $options, ExifEye::dumpHex($data_element->getBytes($options['data_offset'], $options['components']), 104));
         $plist->parse($data_element->getBytes($options['data_offset'], $options['components']));
         
         // Build a TAG object for each PList item.
