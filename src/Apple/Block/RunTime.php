@@ -19,6 +19,7 @@ class RunTime extends Ifd
         $this->debug("START... Loading");
 
         $plist = new CFPropertyList();
+dump($offset, $size, $options);
         $plist->parse($data_element->getBytes($options['data_offset'], $options['components']));
         
         // Build a TAG object for each PList item.

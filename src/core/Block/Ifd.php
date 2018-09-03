@@ -116,7 +116,7 @@ class Ifd extends BlockBase
                 // If the tag is an IFD pointer, loads the IFD.
                 $ifd_name = Spec::getIfdNameFromTag($this, $tag->getAttribute('id'));
                 $o = $data_window->getLong($i_offset + 8);
-dump($ifd_name, $o, $i_offset);
+//dump($ifd_name, $o, $i_offset);
                 if ($starting_offset != $o) {
                     $ifd_class = Spec::getIfdClass($ifd_name);
                     $ifd = new $ifd_class($this, $ifd_name);
