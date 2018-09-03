@@ -66,10 +66,11 @@ class Ifd extends BlockBase
 
         // Get the number of tags.
         $n = $data_window->getShort($this->headerSkipBytes + $offset);
-        $this->debug("START... Loading with {tags} TAGs at offset {offset} from {total} bytes", [
+        $this->debug("START... Loading with {tags} TAGs at w-offset {offset} from {total} bytes, r-offset {roffset}", [
             'tags' => $n,
             'offset' => $offset,
             'total' => $data_window->getSize(),
+            'roffset' => $data_window->getStart() + $offset,
         ]);
 
         $offset += $this->headerSkipBytes;
