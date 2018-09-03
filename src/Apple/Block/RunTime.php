@@ -21,7 +21,7 @@ class RunTime extends Ifd
 
         $plist = new CFPropertyList();
 //$dddo = $options['data_offset'] + 158 + (35 * 16) - 2;
-$dddo = $offset + ($options['data_offset'] - 18) - $data_element->getStart());
+$dddo = $offset + ($options['data_offset'] - 18) - $data_element->getStart();
 dump($offset, $size, $options, ExifEye::dumpHex($data_element->getBytes($dddo, $options['components']), 104), $data_element->getStart(), $dddo, dechex($dddo));
         $plist->parse($data_element->getBytes($dddo, $options['components']));
         
