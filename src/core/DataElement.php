@@ -27,7 +27,6 @@ abstract class DataElement
      * byte.
      *
      * @var int
-     * @see setWindowStart
      */
     protected $start = 0;
 
@@ -85,51 +84,6 @@ abstract class DataElement
     public function getByteOrder()
     {
         return $this->order;
-    }
-
-    /**
-     * Move the start of the window forward.
-     *
-     * @param integer $start
-     *            the new start of the window. All new offsets will be
-     *            calculated from this new start offset, and the size of the window
-     *            will shrink to keep the end of the window in place.
-     */
-    public function setWindowStart($start)
-    {
-        if ($start < 0 || $start > $this->size) {
-            throw new DataException(
-                'Window [%d, %d] does ' . 'not fit in window [0, %d]',
-                $start,
-                $this->size,
-                $this->size
-            );
-        }
-        $this->start += $start;
-        $this->size -= $start;
-    }
-
-    /**
-     * Adjust the size of the window.
-     * The size can only be made smaller.
-     *
-     * @param integer $size
-     *            the desired size of the window. If the argument is
-     *            negative, the window will be shrunk by the argument.
-     */
-    public function setWindowSize($size)
-    {
-        if ($size < 0) {
-            $size += $this->size;
-        }
-        if ($size < 0 || $size > $this->size) {
-            throw new DataException(
-                'Window [0, %d] ' . 'does not fit in window [0, %d]',
-                $size,
-                $this->size
-            );
-        }
-        $this->size = $size;
     }
 
     /**
@@ -216,10 +170,10 @@ abstract class DataElement
         $this->validateOffset($offset);
 
         /* Translate the offset into an offset into the data. */
-        $offset += $this->start;
+        $offset += $this->getStart();
 
         /* Return an unsigned byte. */
-        return ConvertBytes::toByte($this->getDataString(), $offset);
+        return ConvertBytes::toByte(substr($this->getDataString(), $offset, 1), 0);
     }
 
     /**
@@ -244,10 +198,10 @@ abstract class DataElement
         $this->validateOffset($offset);
 
         /* Translate the offset into an offset into the data. */
-        $offset += $this->start;
+        $offset += $this->getStart();
 
         /* Return a signed byte. */
-        return ConvertBytes::toSignedByte($this->getDataString(), $offset);
+        return ConvertBytes::toSignedByte(substr($this->getDataString(), $offset, 1), 0);
     }
 
     /**
