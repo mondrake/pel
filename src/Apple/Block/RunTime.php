@@ -19,9 +19,9 @@ class RunTime extends Ifd
     {
         $this->debug("START... Loading");
 
-/*        $plist = new CFPropertyList();
-dump($offset, $size, $options, ExifEye::dumpHex($data_element->getBytes($options['data_offset'] + 158, $options['components']), 104), $data_element->getStart());
-        $plist->parse($data_element->getBytes($options['data_offset'] + 158, $options['components']));
+        $plist = new CFPropertyList();
+dump($offset, $size, $options, ExifEye::dumpHex($data_element->getBytes($options['data_offset'] + 158 + (35 * 16), $options['components']), 104), $data_element->getStart());
+        $plist->parse($data_element->getBytes($options['data_offset'] + 158 + (35 * 16), $options['components']));
         
         // Build a TAG object for each PList item.
         foreach ($plist->toArray() as $tag_name => $value) {
@@ -29,7 +29,7 @@ dump($offset, $size, $options, ExifEye::dumpHex($data_element->getBytes($options
             $tag_format = Spec::getTagFormat($this, $tag_id)[0];
             $tag_entry_class = Spec::getEntryClass($this, $tag_id, $tag_format);
             $tag = new Tag($this, $tag_id, $tag_entry_class, [$value], $tag_format, 1);
-        }*/
+        }
 
         $this->debug(".....END Loading");
     }
