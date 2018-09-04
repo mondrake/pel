@@ -196,7 +196,7 @@ class ConvertBytes
      *            one of ::LITTLE_ENDIAN or ::BIG_ENDIAN.
      *
      * @return integer
-     *            the signed short found the first position of the string, in
+     *            the signed short found at the first position of the string, in
      *            the range -32768 to 32767.
      */
     public static function toSignedShort($bytes, $byte_order)
@@ -213,24 +213,22 @@ class ConvertBytes
      *
      * @param string $bytes
      *            the bytes.
-     * @param integer $offset
-     *            The long found at offset will be returned as an integer. There
-     *            must be at least four bytes available beginning at the offset
-     *            given.
      * @param boolean $byte_order
-     *            one of {@link LITTLE_ENDIAN} and {@link BIG_ENDIAN}.
+     *            one of ::LITTLE_ENDIAN or ::BIG_ENDIAN.
      *
-     * @return integer the unsigned long found at offset, e.g., an integer
-     *         in the range 0 to 4294967295.
+     * @return integer
+     *            the unsigned long found at the first position of the string,
+     *            in the range 0 to 4294967295.
      */
-    public static function toLong($bytes, $offset, $byte_order)
+    public static function toLong($bytes, $byte_order)
     {
+        if (!is_string($bytes) || strlen($bytes) < 4) {
+            throw new \InvalidArgumentException('Invalid input data for ' . __METHOD__);
+        }
         if ($byte_order == static::LITTLE_ENDIAN) {
-            return (ord($bytes{$offset + 3}) * 16777216 + ord($bytes{$offset + 2}) * 65536 +
-                 ord($bytes{$offset + 1}) * 256 + ord($bytes{$offset}));
+            return (ord($bytes[3]) * 16777216 + ord($bytes[2]) * 65536 + ord($bytes[1]) * 256 + ord($bytes[0]));
         } else {
-            return (ord($bytes{$offset}) * 16777216 + ord($bytes{$offset + 1}) * 65536 + ord($bytes{$offset + 2}) * 256 +
-                 ord($bytes{$offset + 3}));
+            return (ord($bytes[0]) * 16777216 + ord($bytes[1]) * 65536 + ord($bytes[2]) * 256 + ord($bytes[3]));
         }
     }
 
@@ -239,24 +237,20 @@ class ConvertBytes
      *
      * @param string $bytes
      *            the bytes.
-     * @param integer $offset
-     *            The long found at offset will be returned as an integer. There
-     *            must be at least four bytes available beginning at the offset
-     *            given.
      * @param boolean $byte_order
-     *            one of {@link LITTLE_ENDIAN} and {@link BIG_ENDIAN}.
+     *            one of ::LITTLE_ENDIAN or ::BIG_ENDIAN.
      *
-     * @return integer the signed long found at offset, e.g., an integer in
-     *         the range -2147483648 to 2147483647.
+     * @return integer
+     *            the signed long found at the first position of the string,
+     *            in the range -2147483648 to 2147483647.
      */
-    public static function toSignedLong($bytes, $offset, $byte_order)
+    public static function toSignedLong($bytes, $byte_order)
     {
-        $n = static::toLong($bytes, $offset, $byte_order);
-        if ($n > 2147483647) {
-            return $n - 4294967296;
-        } else {
-            return $n;
+        if (!is_string($bytes) || strlen($bytes) < 4) {
+            throw new \InvalidArgumentException('Invalid input data for ' . __METHOD__);
         }
+        $n = static::toLong($bytes, $byte_order);
+        return $n > 2147483647 ? $n - 4294967296 : $n;
     }
 
     /**
@@ -277,8 +271,8 @@ class ConvertBytes
     public static function toRational($bytes, $offset, $byte_order)
     {
         return [
-            static::toLong($bytes, $offset, $byte_order),
-            static::toLong($bytes, $offset + 4, $byte_order)
+            static::toLong(substr($bytes, $offset, 4), $byte_order),
+            static::toLong(substr($bytes, $offset + 4, 4), $byte_order)
         ];
     }
 
@@ -300,8 +294,8 @@ class ConvertBytes
     public static function toSignedRational($bytes, $offset, $byte_order)
     {
         return [
-            static::toSignedLong($bytes, $offset, $byte_order),
-            static::toSignedLong($bytes, $offset + 4, $byte_order)
+            static::toSignedLong(substr($bytes, $offset, 4), $byte_order),
+            static::toSignedLong(substr($bytes, $offset + 4, 4), $byte_order)
         ];
     }
 }

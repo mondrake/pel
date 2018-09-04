@@ -240,7 +240,7 @@ abstract class DataElement
      */
     public function getLong($offset = 0)
     {
-        return ConvertBytes::toLong($this->getBytes($offset, 4), 0, $this->order);
+        return ConvertBytes::toLong($this->getBytes($offset, 4), $this->order);
     }
 
     /**
@@ -259,7 +259,7 @@ abstract class DataElement
      */
     public function getSignedLong($offset = 0)
     {
-        return ConvertBytes::toSignedLong($this->getBytes($offset, 4), 0, $this->order);
+        return ConvertBytes::toSignedLong($this->getBytes($offset, 4), $this->order);
     }
 
     /**
