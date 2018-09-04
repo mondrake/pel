@@ -1,6 +1,6 @@
 <?php
 
-namespace ExifEye\core;
+namespace ExifEye\core\Data;
 
 use ExifEye\core\ExifEye;
 use ExifEye\core\Utility\ConvertBytes;
@@ -173,7 +173,7 @@ abstract class DataElement
         $offset += $this->getStart();
 
         /* Return an unsigned byte. */
-        return ConvertBytes::toByte(substr($this->getDataString(), $offset, 1), 0);
+        return ConvertBytes::toByte(substr($this->getDataString(), $offset, 1));
     }
 
     /**

@@ -1,6 +1,7 @@
 <?php
 
-namespace ExifEye\core;
+namespace ExifEye\core\Data;
+
 
 /**
  * An exception thrown when a data management operation fails.

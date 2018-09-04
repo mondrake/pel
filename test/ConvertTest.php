@@ -171,22 +171,22 @@ class ConvertTest extends ExifEyeTestCaseBase
 
     public function testByte()
     {
-        $this->assertEquals(ConvertBytes::toByte($this->bytes, 0), 0x00);
-        $this->assertEquals(ConvertBytes::toByte($this->bytes, 1), 0x00);
-        $this->assertEquals(ConvertBytes::toByte($this->bytes, 2), 0x00);
-        $this->assertEquals(ConvertBytes::toByte($this->bytes, 3), 0x00);
-        $this->assertEquals(ConvertBytes::toByte($this->bytes, 4), 0x01);
-        $this->assertEquals(ConvertBytes::toByte($this->bytes, 5), 0x23);
-        $this->assertEquals(ConvertBytes::toByte($this->bytes, 6), 0x45);
-        $this->assertEquals(ConvertBytes::toByte($this->bytes, 7), 0x67);
-        $this->assertEquals(ConvertBytes::toByte($this->bytes, 8), 0x89);
-        $this->assertEquals(ConvertBytes::toByte($this->bytes, 9), 0xAB);
-        $this->assertEquals(ConvertBytes::toByte($this->bytes, 10), 0xCD);
-        $this->assertEquals(ConvertBytes::toByte($this->bytes, 11), 0xEF);
-        $this->assertEquals(ConvertBytes::toByte($this->bytes, 12), 0xFF);
-        $this->assertEquals(ConvertBytes::toByte($this->bytes, 13), 0xFF);
-        $this->assertEquals(ConvertBytes::toByte($this->bytes, 14), 0xFF);
-        $this->assertEquals(ConvertBytes::toByte($this->bytes, 15), 0xFF);
+        $this->assertSame(   0, ConvertBytes::toByte("\x00\x00\x00\x00\x01\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF"));
+        $this->assertSame(   0, ConvertBytes::toByte("\x00\x00\x00\x01\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF"));
+        $this->assertSame(   0, ConvertBytes::toByte("\x00\x00\x01\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF"));
+        $this->assertSame(   0, ConvertBytes::toByte("\x00\x01\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF"));
+        $this->assertSame(   1, ConvertBytes::toByte("\x01\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF"));
+        $this->assertSame(  35, ConvertBytes::toByte("\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF"));
+        $this->assertSame(  69, ConvertBytes::toByte("\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF"));
+        $this->assertSame( 103, ConvertBytes::toByte("\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF"));
+        $this->assertSame( 137, ConvertBytes::toByte("\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF"));
+        $this->assertSame( 171, ConvertBytes::toByte("\xAB\xCD\xEF\xFF\xFF\xFF\xFF"));
+        $this->assertSame( 205, ConvertBytes::toByte("\xCD\xEF\xFF\xFF\xFF\xFF"));
+        $this->assertSame( 239, ConvertBytes::toByte("\xEF\xFF\xFF\xFF\xFF"));
+        $this->assertSame( 255, ConvertBytes::toByte("\xFF\xFF\xFF\xFF"));
+        $this->assertSame( 255, ConvertBytes::toByte("\xFF\xFF\xFF"));
+        $this->assertSame( 255, ConvertBytes::toByte("\xFF\xFF"));
+        $this->assertSame( 255, ConvertBytes::toByte("\xFF"));
     }
 
     public function testSignedByte()
