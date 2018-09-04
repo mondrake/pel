@@ -258,21 +258,21 @@ class ConvertBytes
      *
      * @param string $bytes
      *            the bytes.
-     * @param integer $offset
-     *            The rational found at offset will be returned as an array.
-     *            There must be at least eight bytes available beginning at the
-     *            offset given.
      * @param boolean $byte_order
-     *            one of {@link LITTLE_ENDIAN} and {@link BIG_ENDIAN}.
+     *            one of ::LITTLE_ENDIAN or ::BIG_ENDIAN.
      *
-     * @return array the unsigned rational found at offset, e.g., an
-     *         array with two integers in the range 0 to 4294967295.
+     * @return array
+     *            the unsigned rational found at offset, an array with two
+     *            integers in the range 0 to 4294967295.
      */
-    public static function toRational($bytes, $offset, $byte_order)
+    public static function toRational($bytes, $byte_order)
     {
+        if (!is_string($bytes) || strlen($bytes) < 8) {
+            throw new \InvalidArgumentException('Invalid input data for ' . __METHOD__);
+        }
         return [
-            static::toLong(substr($bytes, $offset, 4), $byte_order),
-            static::toLong(substr($bytes, $offset + 4, 4), $byte_order)
+            static::toLong($bytes, $byte_order),
+            static::toLong(substr($bytes, 4), $byte_order),
         ];
     }
 
@@ -281,21 +281,21 @@ class ConvertBytes
      *
      * @param string $bytes
      *            the bytes.
-     * @param integer $offset
-     *            The rational found at offset will be returned as an array.
-     *            There must be at least eight bytes available beginning at the
-     *            offset given.
      * @param boolean $byte_order
-     *            one of {@link LITTLE_ENDIAN} and {@link BIG_ENDIAN}.
+     *            one of ::LITTLE_ENDIAN or ::BIG_ENDIAN.
      *
-     * @return array the signed rational found at offset, e.g., an array
-     *         with two integers in the range -2147483648 to 2147483647.
+     * @return array
+     *            the signed rational found at offset, an array with two
+     *            integers in the range -2147483648 to 2147483647.
      */
-    public static function toSignedRational($bytes, $offset, $byte_order)
+    public static function toSignedRational($bytes, $byte_order)
     {
+        if (!is_string($bytes) || strlen($bytes) < 8) {
+            throw new \InvalidArgumentException('Invalid input data for ' . __METHOD__);
+        }
         return [
-            static::toSignedLong(substr($bytes, $offset, 4), $byte_order),
-            static::toSignedLong(substr($bytes, $offset + 4, 4), $byte_order)
+            static::toSignedLong($bytes, $byte_order),
+            static::toSignedLong(substr($bytes, 4), $byte_order),
         ];
     }
 }

@@ -265,47 +265,44 @@ abstract class DataElement
     /**
      * Return an unsigned rational read from the data.
      *
-     * @param integer $offset
-     *            the offset into the data. An offset of zero will
-     *            return the first rational available in the current allowed
-     *            window. The last valid offset is equal to {@link getSize()}-8.
-     *            Invalid offsets will result in a {@link
-     *            DataException} being thrown.
      *
-     * @return array the unsigned rational found at offset. A rational
-     *         number is represented as an array of two numbers: the enumerator
-     *         and denominator. Both of these numbers will be unsigned longs.
+     * @param integer $offset
+     *            the offset into the data. An offset of zero will return the
+     *            first byte in the current allowed window. The last valid
+     *            offset is equal to ::getSize()-8.
+     *
+     * @return integer
+     *            the unsigned rational found at offset. A rational number is
+     *            represented as an array of two numbers: the enumerator and
+     *            denominator. Both of these numbers will be unsigned longs.
+     *
      * @throws DataException
+     *            in case of invalid offset.
      */
     public function getRational($offset = 0)
     {
-        return [
-            $this->getLong($offset),
-            $this->getLong($offset + 4)
-        ];
+        return ConvertBytes::toRational($this->getBytes($offset, 8), $this->order);
     }
 
     /**
      * Return a signed rational read from the data.
      *
      * @param integer $offset
-     *            the offset into the data. An offset of zero will
-     *            return the first rational available in the current allowed
-     *            window. The last valid offset is equal to {@link getSize()}-8.
-     *            Invalid offsets will result in a {@link
-     *            DataException} being thrown.
+     *            the offset into the data. An offset of zero will return the
+     *            first byte in the current allowed window. The last valid
+     *            offset is equal to ::getSize()-8.
      *
-     * @return array the signed rational found at offset. A rational
-     *         number is represented as an array of two numbers: the enumerator
-     *         and denominator. Both of these numbers will be signed longs.
+     * @return integer
+     *            the signed rational found at offset. A rational number is
+     *            represented as an array of two numbers: the enumerator and
+     *            denominator. Both of these numbers will be signed longs.
+     *
      * @throws DataException
+     *            in case of invalid offset.
      */
     public function getSignedRational($offset = 0)
     {
-        return [
-            $this->getSignedLong($offset),
-            $this->getSignedLong($offset + 4)
-        ];
+        return ConvertBytes::toSignedRational($this->getBytes($offset, 8), $this->order);
     }
 
     /**
