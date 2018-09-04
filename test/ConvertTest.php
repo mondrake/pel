@@ -102,11 +102,7 @@ class ConvertTest extends ExifEyeTestCaseBase
         $this->assertSame( 65535, ConvertBytes::toShort("\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
         $this->assertSame( 65535, ConvertBytes::toShort("\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
         $this->assertSame( 65535, ConvertBytes::toShort("\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
-        if (method_exists($this, 'expectException')) {
-            $this->expectException('InvalidArgumentException');
-        } else {
-            $this->setExpectedException('InvalidArgumentException');
-        }
+        $this->fcExpectException('InvalidArgumentException');
         ConvertBytes::toShort("\xFF", ConvertBytes::LITTLE_ENDIAN);
     }
 
@@ -127,13 +123,8 @@ class ConvertTest extends ExifEyeTestCaseBase
         $this->assertSame( 65535, ConvertBytes::toShort("\xFF\xFF\xFF\xFF", ConvertBytes::BIG_ENDIAN));
         $this->assertSame( 65535, ConvertBytes::toShort("\xFF\xFF\xFF", ConvertBytes::BIG_ENDIAN));
         $this->assertSame( 65535, ConvertBytes::toShort("\xFF\xFF", ConvertBytes::BIG_ENDIAN));
-        if (method_exists($this, 'expectException')) {
-            $this->expectException('InvalidArgumentException');
-        } else {
-            $this->setExpectedException('InvalidArgumentException');
-        }
+        $this->fcExpectException('InvalidArgumentException');
         ConvertBytes::toShort("\xFF", ConvertBytes::BIG_ENDIAN);
-        $o = ConvertBytes::BIG_ENDIAN;
     }
 
     public function testSignedShortLittle()
@@ -153,11 +144,7 @@ class ConvertTest extends ExifEyeTestCaseBase
         $this->assertSame(    -1, ConvertBytes::toSignedShort("\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
         $this->assertSame(    -1, ConvertBytes::toSignedShort("\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
         $this->assertSame(    -1, ConvertBytes::toSignedShort("\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
-        if (method_exists($this, 'expectException')) {
-            $this->expectException('InvalidArgumentException');
-        } else {
-            $this->setExpectedException('InvalidArgumentException');
-        }
+        $this->fcExpectException('InvalidArgumentException');
         ConvertBytes::toSignedShort("\xFF", ConvertBytes::LITTLE_ENDIAN);
     }
 
@@ -178,11 +165,7 @@ class ConvertTest extends ExifEyeTestCaseBase
         $this->assertSame(    -1, ConvertBytes::toSignedShort("\xFF\xFF\xFF\xFF", ConvertBytes::BIG_ENDIAN));
         $this->assertSame(    -1, ConvertBytes::toSignedShort("\xFF\xFF\xFF", ConvertBytes::BIG_ENDIAN));
         $this->assertSame(    -1, ConvertBytes::toSignedShort("\xFF\xFF", ConvertBytes::BIG_ENDIAN));
-        if (method_exists($this, 'expectException')) {
-            $this->expectException('InvalidArgumentException');
-        } else {
-            $this->setExpectedException('InvalidArgumentException');
-        }
+        $this->fcExpectException('InvalidArgumentException');
         ConvertBytes::toSignedShort("\xFF", ConvertBytes::BIG_ENDIAN);
     }
 
@@ -204,11 +187,7 @@ class ConvertTest extends ExifEyeTestCaseBase
         $this->assertSame( 255, ConvertBytes::toByte("\xFF\xFF\xFF"));
         $this->assertSame( 255, ConvertBytes::toByte("\xFF\xFF"));
         $this->assertSame( 255, ConvertBytes::toByte("\xFF"));
-        if (method_exists($this, 'expectException')) {
-            $this->expectException('InvalidArgumentException');
-        } else {
-            $this->setExpectedException('InvalidArgumentException');
-        }
+        $this->fcExpectException('InvalidArgumentException');
         ConvertBytes::toByte("");
     }
 
@@ -230,11 +209,7 @@ class ConvertTest extends ExifEyeTestCaseBase
         $this->assertSame(  -1, ConvertBytes::toSignedByte("\xFF\xFF\xFF"));
         $this->assertSame(  -1, ConvertBytes::toSignedByte("\xFF\xFF"));
         $this->assertSame(  -1, ConvertBytes::toSignedByte("\xFF"));
-        if (method_exists($this, 'expectException')) {
-            $this->expectException('InvalidArgumentException');
-        } else {
-            $this->setExpectedException('InvalidArgumentException');
-        }
+        $this->fcExpectException('InvalidArgumentException');
         ConvertBytes::toSignedByte("");
     }
 }

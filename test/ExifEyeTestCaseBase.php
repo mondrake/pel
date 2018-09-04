@@ -11,4 +11,16 @@ class ExifEyeTestCaseBase extends TestCase
     {
         parent::setUp();
     }
+
+    public function fcExpectException($exception, $message = null)
+    {
+        if (method_exists($this, 'expectException')) {
+            $this->expectException($exception);
+            if ($message !== null) {
+              $this->expectExceptionMessage($message);
+            }
+        } else {
+            $this->setExpectedException($exception, $message);
+        }
+    }
 }

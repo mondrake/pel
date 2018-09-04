@@ -45,13 +45,8 @@ class SpecCompilerTest extends TestCase
      */
     public function testInvalidYaml()
     {
-        //@todo drop the else part once PHP < 5.6 (hence PHPUnit 4.8.36) support is removed.
         //@todo change below to ParseException::class once PHP 5.4 support is removed.
-        if (method_exists($this, 'expectException')) {
-            $this->expectException('Symfony\Component\Yaml\Exception\ParseException');
-        } else {
-            $this->setExpectedException('Symfony\Component\Yaml\Exception\ParseException');
-        }
+        $this->fcExpectException('Symfony\Component\Yaml\Exception\ParseException');
         $compiler = new SpecCompiler();
         $compiler->compile(__DIR__ . '/fixtures/spec/invalid_yaml', $this->testResourceDirectory);
     }
@@ -61,14 +56,8 @@ class SpecCompilerTest extends TestCase
      */
     public function testInvalidIfdKeys()
     {
-        //@todo drop the else part once PHP < 5.6 (hence PHPUnit 4.8.36) support is removed.
         //@todo change below to SpecCompilerException::class once PHP 5.4 support is removed.
-        if (method_exists($this, 'expectException')) {
-            $this->expectException('ExifEye\core\Utility\SpecCompilerException');
-            $this->expectExceptionMessage('ifd_ifd0.yaml: invalid IFD key(s) found - bork');
-        } else {
-            $this->setExpectedException('ExifEye\core\Utility\SpecCompilerException', 'ifd_ifd0.yaml: invalid IFD key(s) found - bork');
-        }
+        $this->fcExpectException('ExifEye\core\Utility\SpecCompilerException', 'ifd_ifd0.yaml: invalid IFD key(s) found - bork');
         $compiler = new SpecCompiler();
         $compiler->compile(__DIR__ . '/fixtures/spec/invalid_ifd_keys', $this->testResourceDirectory);
     }
@@ -78,14 +67,8 @@ class SpecCompilerTest extends TestCase
      */
     public function testInvalidTagKeys()
     {
-        //@todo drop the else part once PHP < 5.6 (hence PHPUnit 4.8.36) support is removed.
         //@todo change below to SpecCompilerException::class once PHP 5.4 support is removed.
-        if (method_exists($this, 'expectException')) {
-            $this->expectException('ExifEye\core\Utility\SpecCompilerException');
-            $this->expectExceptionMessage("ifd_ifd0.yaml: invalid key(s) found for TAG 'ImageWidth' - bork");
-        } else {
-            $this->setExpectedException('ExifEye\core\Utility\SpecCompilerException', "ifd_ifd0.yaml: invalid key(s) found for TAG 'ImageWidth' - bork");
-        }
+        $this->fcExpectException('ExifEye\core\Utility\SpecCompilerException', "ifd_ifd0.yaml: invalid key(s) found for TAG 'ImageWidth' - bork");
         $compiler = new SpecCompiler();
         $compiler->compile(__DIR__ . '/fixtures/spec/invalid_tag_keys', $this->testResourceDirectory);
     }
@@ -95,14 +78,8 @@ class SpecCompilerTest extends TestCase
      */
     public function testInvalidSubIfd()
     {
-        //@todo drop the else part once PHP < 5.6 (hence PHPUnit 4.8.36) support is removed.
         //@todo change below to SpecCompilerException::class once PHP 5.4 support is removed.
-        if (method_exists($this, 'expectException')) {
-            $this->expectException('ExifEye\core\Utility\SpecCompilerException');
-            $this->expectExceptionMessage("Invalid sub IFD(s) found for TAG 'ExifIFDPointer': *** EXPECTED FAILURE ***");
-        } else {
-            $this->setExpectedException('ExifEye\core\Utility\SpecCompilerException', "Invalid sub IFD(s) found for TAG 'ExifIFDPointer': *** EXPECTED FAILURE ***");
-        }
+        $this->fcExpectException('ExifEye\core\Utility\SpecCompilerException', "Invalid sub IFD(s) found for TAG 'ExifIFDPointer': *** EXPECTED FAILURE ***");
         $compiler = new SpecCompiler();
         $compiler->compile(__DIR__ . '/fixtures/spec/invalid_subifd', $this->testResourceDirectory);
     }
