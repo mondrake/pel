@@ -25,7 +25,7 @@ class GH21Test extends ExifEyeTestCaseBase
 
     public function tearDown()
     {
-//        unlink($this->file);
+        unlink($this->file);
     }
 
     public function testThisDoesNotWorkAsExpected()
