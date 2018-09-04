@@ -124,7 +124,7 @@ if ($this->getAttribute('name') === 'AppleMakerNotes') dump($tag_id, $tag_format
                     $ifd = new $ifd_class($this, $ifd_name);
                     try {
                         $ifd->loadFromData($data_window, $o, $size, [
-                            'data_offset' => $tag_data_offset,
+                            'data_offset' => $tag_data_offset - $data_window->getStart() + 2,
                             'components' => $tag_components,
                         ]);
                         $this->removeElement("tag[@name='" . $tag->getAttribute('name') . "']");
