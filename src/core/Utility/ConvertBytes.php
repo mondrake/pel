@@ -139,7 +139,7 @@ class ConvertBytes
     public static function toByte($bytes)
     {
         if (!is_string($bytes) || strlen($bytes) < 1) {
-            throw new \InvalidArgumentException('Invalid input data for ' . __METHOD__)
+            throw new \InvalidArgumentException('Invalid input data for ' . __METHOD__);
         }
         return ord($bytes[0]);
     }
@@ -157,7 +157,7 @@ class ConvertBytes
     public static function toSignedByte($bytes)
     {
         if (!is_string($bytes) || strlen($bytes) < 1) {
-            throw new \InvalidArgumentException('Invalid input data for ' . __METHOD__)
+            throw new \InvalidArgumentException('Invalid input data for ' . __METHOD__);
         }
         $n = static::toByte($bytes);
         return $n > 127 ? $n - 256 : $n;
@@ -178,7 +178,7 @@ class ConvertBytes
     public static function toShort($bytes, $byte_order)
     {
         if (!is_string($bytes) || strlen($bytes) < 2) {
-            throw new \InvalidArgumentException('Invalid input data for ' . __METHOD__)
+            throw new \InvalidArgumentException('Invalid input data for ' . __METHOD__);
         }
         if ($byte_order == static::LITTLE_ENDIAN) {
             return (ord($bytes[1]) * 256 + ord($bytes[0]));
@@ -202,7 +202,7 @@ class ConvertBytes
     public static function toSignedShort($bytes, $byte_order)
     {
         if (!is_string($bytes) || strlen($bytes) < 2) {
-            throw new \InvalidArgumentException('Invalid input data for ' . __METHOD__)
+            throw new \InvalidArgumentException('Invalid input data for ' . __METHOD__);
         }
         $n = static::toShort($bytes, $byte_order);
         return $n > 32767 ? $n - 65536 : $n;
