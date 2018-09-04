@@ -230,7 +230,7 @@ abstract class DataElement
         $offset += $this->getStart();
 
         /* Return an unsigned short. */
-        return ConvertBytes::toShort(substr($this->getDataString(), $offset, 2), 0, $this->order);
+        return ConvertBytes::toShort(substr($this->getDataString(), $offset, 2), $this->order);
     }
 
     /**

@@ -3,19 +3,11 @@
 namespace ExifEye\core\Utility;
 
 /**
- * Conversion functions to and from bytes and integers.
+ * Conversion functions to and from bytes and numerals.
  *
- * The functions found in this class are used to convert bytes into integers of
- * several sizes ({@link toShort}, {@link toLong}, and
- * {@link toRational}) and convert integers of several sizes into bytes
- * ({@link fromShort} and {@link fromLong}).
- *
- * All the methods are static and they all rely on an argument that specifies
- * the byte order to be used, this must be one of the class constants
- * {@link LITTLE_ENDIAN} or {@link BIG_ENDIAN}. These constants will be referred
- * to as the pseudo type PelByteOrder throughout the documentation.
- *
- * @author Martin Geisler <mgeisler@users.sourceforge.net>
+ * All the methods are static and rely on an argument that specifies the byte
+ * order to be used. This must be one of the class constants: LITTLE_ENDIAN
+ * or BIG_ENDIAN.
  */
 class ConvertBytes
 {
@@ -146,6 +138,9 @@ class ConvertBytes
      */
     public static function toByte($bytes)
     {
+        if (!is_string($bytes) || strlen($bytes) < 1) {
+            throw new \InvalidArgumentException('Invalid input data for ' . __METHOD__)
+        }
         return ord($bytes[0]);
     }
 
@@ -161,6 +156,9 @@ class ConvertBytes
      */
     public static function toSignedByte($bytes)
     {
+        if (!is_string($bytes) || strlen($bytes) < 1) {
+            throw new \InvalidArgumentException('Invalid input data for ' . __METHOD__)
+        }
         $n = static::toByte($bytes);
         return $n > 127 ? $n - 256 : $n;
     }
@@ -170,22 +168,22 @@ class ConvertBytes
      *
      * @param string $bytes
      *            the bytes.
-     * @param integer $offset
-     *            the offset. The short found at the offset will be returned as
-     *            an integer. There must be at least two bytes available
-     *            beginning at the offset given.
      * @param boolean $byte_order
-     *            one of {@link LITTLE_ENDIAN} and {@link BIG_ENDIAN}.
+     *            one of ::LITTLE_ENDIAN or ::BIG_ENDIAN.
      *
-     * @return integer the unsigned short found at offset, e.g., an integer
-     *         in the range 0 to 65535.
+     * @return integer
+     *            the unsigned short found at the first position of the string,
+     *            in the range 0 to 65535.
      */
-    public static function toShort($bytes, $offset, $byte_order)
+    public static function toShort($bytes, $byte_order)
     {
+        if (!is_string($bytes) || strlen($bytes) < 2) {
+            throw new \InvalidArgumentException('Invalid input data for ' . __METHOD__)
+        }
         if ($byte_order == static::LITTLE_ENDIAN) {
-            return (ord($bytes{$offset + 1}) * 256 + ord($bytes{$offset}));
+            return (ord($bytes[1]) * 256 + ord($bytes[0]));
         } else {
-            return (ord($bytes{$offset}) * 256 + ord($bytes{$offset + 1}));
+            return (ord($bytes[0]) * 256 + ord($bytes[1]));
         }
     }
 
@@ -194,24 +192,20 @@ class ConvertBytes
      *
      * @param string $bytes
      *            the bytes.
-     * @param integer $offset
-     *            The short found at offset will be returned as an integer.
-     *            There must be at least two bytes available beginning at the
-     *            offset given.
      * @param boolean $byte_order
-     *            one of {@link LITTLE_ENDIAN} and {@link BIG_ENDIAN}.
+     *            one of ::LITTLE_ENDIAN or ::BIG_ENDIAN.
      *
-     * @return integer the signed byte found at offset, e.g., an integer in
-     *         the range -32768 to 32767.
+     * @return integer
+     *            the signed short found the first position of the string, in
+     *            the range -32768 to 32767.
      */
-    public static function toSignedShort($bytes, $offset, $byte_order)
+    public static function toSignedShort($bytes, $byte_order)
     {
-        $n = static::toShort($bytes, $offset, $byte_order);
-        if ($n > 32767) {
-            return $n - 65536;
-        } else {
-            return $n;
+        if (!is_string($bytes) || strlen($bytes) < 2) {
+            throw new \InvalidArgumentException('Invalid input data for ' . __METHOD__)
         }
+        $n = static::toShort($bytes, $byte_order);
+        return $n > 32767 ? $n - 65536 : $n;
     }
 
     /**

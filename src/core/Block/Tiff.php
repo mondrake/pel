@@ -154,7 +154,7 @@ class Tiff extends BlockBase
 
         // Verify the TIFF header.
         $magic_string = $data_element->getBytes($offset + 2, 2);
-        if (ConvertBytes::toShort($magic_string, 0, $order) !== self::TIFF_HEADER) {
+        if (ConvertBytes::toShort($magic_string, $order) !== self::TIFF_HEADER) {
             return null;
         }
 
