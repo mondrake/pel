@@ -12,7 +12,7 @@ class ExifEyeTestCaseBase extends TestCase
         if (method_exists($this, 'expectException')) {
             $this->expectException($exception);
             if ($message !== null) {
-              $this->expectExceptionMessage($message);
+                $this->expectExceptionMessage($message);
             }
         } else {
             $this->setExpectedException($exception, $message);
