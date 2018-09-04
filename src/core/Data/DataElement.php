@@ -190,116 +190,76 @@ abstract class DataElement
      * Return an unsigned short read from the data.
      *
      * @param integer $offset
-     *            the offset into the data. An offset of zero will
-     *            return the first short available in the current allowed window.
-     *            The last valid offset is equal to {@link getSize()}-2. Invalid
-     *            offsets will result in a {@link DataException}
-     *            being thrown.
+     *            the offset into the data. An offset of zero will return the
+     *            first byte in the current allowed window. The last valid
+     *            offset is equal to ::getSize()-2.
      *
-     * @return integer the unsigned short found at offset.
+     * @return integer
+     *            the unsigned short found at offset.
+     *
      * @throws DataException
+     *            in case of invalid offset.
      */
     public function getShort($offset = 0)
     {
-        /*
-         * Validate the offset+1 to see if we can safely get two bytes ---
-         * this throws an exception if offset is out of range.
-         */
-        $this->validateOffset($offset);
-        $this->validateOffset($offset + 1);
-
-        /* Translate the offset into an offset into the data. */
-        $offset += $this->getStart();
-
-        /* Return an unsigned short. */
-        return ConvertBytes::toShort(substr($this->getDataString(), $offset, 2), $this->order);
+        return ConvertBytes::toShort($this->getBytes($offset, 2), $this->order);
     }
 
     /**
      * Return a signed short read from the data.
      *
      * @param integer $offset
-     *            the offset into the data. An offset of zero will
-     *            return the first short available in the current allowed window.
-     *            The last valid offset is equal to {@link getSize()}-2. Invalid
-     *            offsets will result in a {@link DataException}
-     *            being thrown.
+     *            the offset into the data. An offset of zero will return the
+     *            first byte in the current allowed window. The last valid
+     *            offset is equal to ::getSize()-2.
      *
-     * @return integer the signed short found at offset.
+     * @return integer
+     *            the signed short found at offset.
+     *
      * @throws DataException
+     *            in case of invalid offset.
      */
     public function getSignedShort($offset = 0)
     {
-        /*
-         * Validate the offset+1 to see if we can safely get two bytes ---
-         * this throws an exception if offset is out of range.
-         */
-        $this->validateOffset($offset);
-        $this->validateOffset($offset + 1);
-
-        /* Translate the offset into an offset into the data. */
-        $offset += $this->getStart();
-
-        /* Return a signed short. */
-        return ConvertBytes::toSignedShort(substr($this->getDataString(), $offset, 2), $this->order);
+        return ConvertBytes::toSignedShort($this->getBytes($offset, 2), $this->order);
     }
 
     /**
      * Return an unsigned long read from the data.
      *
      * @param integer $offset
-     *            the offset into the data. An offset of zero will
-     *            return the first long available in the current allowed window.
-     *            The last valid offset is equal to {@link getSize()}-4. Invalid
-     *            offsets will result in a {@link DataException}
-     *            being thrown.
+     *            the offset into the data. An offset of zero will return the
+     *            first byte in the current allowed window. The last valid
+     *            offset is equal to ::getSize()-4.
      *
-     * @return integer the unsigned long found at offset.
+     * @return integer
+     *            the unsigned long found at offset.
+     *
      * @throws DataException
+     *            in case of invalid offset.
      */
     public function getLong($offset = 0)
     {
-        /*
-         * Validate the offset+3 to see if we can safely get four bytes
-         * --- this throws an exception if offset is out of range.
-         */
-        $this->validateOffset($offset);
-        $this->validateOffset($offset + 3);
-
-        /* Translate the offset into an offset into the data. */
-        $offset += $this->getStart();
-
-        /* Return an unsigned long. */
-        return ConvertBytes::toLong(substr($this->getDataString(), $offset, 4), 0, $this->order);
+        return ConvertBytes::toLong($this->getBytes($offset, 4), 0, $this->order);
     }
 
     /**
      * Return a signed long read from the data.
      *
      * @param integer $offset
-     *            the offset into the data. An offset of zero will
-     *            return the first long available in the current allowed window.
-     *            The last valid offset is equal to {@link getSize()}-4. Invalid
-     *            offsets will result in a {@link DataException}
-     *            being thrown.
+     *            the offset into the data. An offset of zero will return the
+     *            first byte in the current allowed window. The last valid
+     *            offset is equal to ::getSize()-4.
      *
-     * @return integer the signed long found at offset.
+     * @return integer
+     *            the signed long found at offset.
+     *
      * @throws DataException
+     *            in case of invalid offset.
      */
     public function getSignedLong($offset = 0)
     {
-        /*
-         * Validate the offset+3 to see if we can safely get four bytes
-         * --- this throws an exception if offset is out of range.
-         */
-        $this->validateOffset($offset);
-        $this->validateOffset($offset + 3);
-
-        /* Translate the offset into an offset into the data. */
-        $offset += $this->getStart();
-
-        /* Return a signed long. */
-        return ConvertBytes::toSignedLong(substr($this->getDataString(), $offset, 4), 0, $this->order);
+        return ConvertBytes::toSignedLong($this->getBytes($offset, 4), 0, $this->order);
     }
 
     /**
