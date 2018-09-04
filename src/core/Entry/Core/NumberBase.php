@@ -2,7 +2,6 @@
 
 namespace ExifEye\core\Entry\Core;
 
-use ExifEye\core\DataElement;
 use ExifEye\core\DataWindow;
 use ExifEye\core\ExifEye;
 use ExifEye\core\Format;

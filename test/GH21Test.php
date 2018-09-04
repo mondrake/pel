@@ -3,13 +3,10 @@
 namespace ExifEye\Test\core;
 
 use ExifEye\core\DataString;
-use ExifEye\core\DataElement;
-use ExifEye\core\DataWindow;
 use ExifEye\core\Block\Exif;
 use ExifEye\core\Block\Jpeg;
 use ExifEye\core\Block\JpegSegmentApp1;
 use ExifEye\core\Image;
-use ExifEye\core\ExifEye;
 
 class GH21Test extends ExifEyeTestCaseBase
 {
@@ -71,7 +68,6 @@ class GH21Test extends ExifEyeTestCaseBase
 
         // Add the EXIF block to the APP1 segment.
         $exif_block = new Exif($out_app1_segment);
-//dump(ExifEye::dumpHex($exif->toBytes(), 100));
         $data_string = new DataString($exif->toBytes());
         $exif_block->loadFromData($data_string, 0, $data_string->getSize());
 
