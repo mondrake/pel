@@ -78,7 +78,6 @@ elements:
                                                             class: ExifEye\core\Entry\WindowsString
                                                             valid: true
                                                             format: Byte
-                                                            # note the following varied
                                                             components: 32
                                                             bytesHash: 2a6160460df9e6fa2035e50e75971dc59bd28d707f07537a7abcc778977153b8
                                                             text: 'Ïðåâåä, ìåäâåä!'
