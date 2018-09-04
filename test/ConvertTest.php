@@ -90,16 +90,16 @@ class ConvertTest extends ExifEyeTestCaseBase
         $this->assertSame(     0, ConvertBytes::toShort("\x00\x00\x00\x00\x01\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
         $this->assertSame(     0, ConvertBytes::toShort("\x00\x00\x00\x01\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
         $this->assertSame(     0, ConvertBytes::toShort("\x00\x00\x01\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
-        $this->assertSame(     0, ConvertBytes::toShort("\x00\x01\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
-        $this->assertSame(   256, ConvertBytes::toShort("\x01\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
-        $this->assertSame(  8961, ConvertBytes::toShort("\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
-        $this->assertSame( 17699, ConvertBytes::toShort("\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
-        $this->assertSame( 26437, ConvertBytes::toShort("\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
-        $this->assertSame( 35175, ConvertBytes::toShort("\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
-        $this->assertSame( 43913, ConvertBytes::toShort("\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
-        $this->assertSame( 52651, ConvertBytes::toShort("\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
-        $this->assertSame( 61389, ConvertBytes::toShort("\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
-        $this->assertSame( 65519, ConvertBytes::toShort("\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
+        $this->assertSame(   256, ConvertBytes::toShort("\x00\x01\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
+        $this->assertSame(  8961, ConvertBytes::toShort("\x01\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
+        $this->assertSame( 17699, ConvertBytes::toShort("\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
+        $this->assertSame( 26437, ConvertBytes::toShort("\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
+        $this->assertSame( 35175, ConvertBytes::toShort("\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
+        $this->assertSame( 43913, ConvertBytes::toShort("\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
+        $this->assertSame( 52651, ConvertBytes::toShort("\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
+        $this->assertSame( 61389, ConvertBytes::toShort("\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
+        $this->assertSame( 65519, ConvertBytes::toShort("\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
+        $this->assertSame( 65535, ConvertBytes::toShort("\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
         $this->assertSame( 65535, ConvertBytes::toShort("\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
         $this->assertSame( 65535, ConvertBytes::toShort("\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
         if (method_exists($this, 'expectException')) {
@@ -138,44 +138,52 @@ class ConvertTest extends ExifEyeTestCaseBase
 
     public function testSignedShortLittle()
     {
-        $o = ConvertBytes::LITTLE_ENDIAN;
-
-        $this->assertEquals(ConvertBytes::toSignedShort($this->bytes, 0, $o), 0);
-        $this->assertEquals(ConvertBytes::toSignedShort($this->bytes, 1, $o), 0);
-        $this->assertEquals(ConvertBytes::toSignedShort($this->bytes, 2, $o), 0);
-        $this->assertEquals(ConvertBytes::toSignedShort($this->bytes, 3, $o), 256);
-        $this->assertEquals(ConvertBytes::toSignedShort($this->bytes, 4, $o), 8961);
-        $this->assertEquals(ConvertBytes::toSignedShort($this->bytes, 5, $o), 17699);
-        $this->assertEquals(ConvertBytes::toSignedShort($this->bytes, 6, $o), 26437);
-        $this->assertEquals(ConvertBytes::toSignedShort($this->bytes, 7, $o), -30361);
-        $this->assertEquals(ConvertBytes::toSignedShort($this->bytes, 8, $o), -21623);
-        $this->assertEquals(ConvertBytes::toSignedShort($this->bytes, 9, $o), -12885);
-        $this->assertEquals(ConvertBytes::toSignedShort($this->bytes, 10, $o), -4147);
-        $this->assertEquals(ConvertBytes::toSignedShort($this->bytes, 11, $o), -17);
-        $this->assertEquals(ConvertBytes::toSignedShort($this->bytes, 12, $o), -1);
-        $this->assertEquals(ConvertBytes::toSignedShort($this->bytes, 13, $o), -1);
-        $this->assertEquals(ConvertBytes::toSignedShort($this->bytes, 14, $o), -1);
+        $this->assertSame(     0, ConvertBytes::toSignedShort("\x00\x00\x00\x00\x01\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
+        $this->assertSame(     0, ConvertBytes::toSignedShort("\x00\x00\x00\x01\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
+        $this->assertSame(     0, ConvertBytes::toSignedShort("\x00\x00\x01\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
+        $this->assertSame(   256, ConvertBytes::toSignedShort("\x00\x01\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
+        $this->assertSame(  8961, ConvertBytes::toSignedShort("\x01\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
+        $this->assertSame( 17699, ConvertBytes::toSignedShort("\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
+        $this->assertSame( 26437, ConvertBytes::toSignedShort("\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
+        $this->assertSame(-30361, ConvertBytes::toSignedShort("\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
+        $this->assertSame(-21623, ConvertBytes::toSignedShort("\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
+        $this->assertSame(-12885, ConvertBytes::toSignedShort("\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
+        $this->assertSame( -4147, ConvertBytes::toSignedShort("\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
+        $this->assertSame(   -17, ConvertBytes::toSignedShort("\xEF\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
+        $this->assertSame(    -1, ConvertBytes::toSignedShort("\xFF\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
+        $this->assertSame(    -1, ConvertBytes::toSignedShort("\xFF\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
+        $this->assertSame(    -1, ConvertBytes::toSignedShort("\xFF\xFF", ConvertBytes::LITTLE_ENDIAN));
+        if (method_exists($this, 'expectException')) {
+            $this->expectException('InvalidArgumentException');
+        } else {
+            $this->setExpectedException('InvalidArgumentException');
+        }
+        ConvertBytes::toSignedShort("\xFF", ConvertBytes::LITTLE_ENDIAN);
     }
 
     public function testSignedShortBig()
     {
-        $o = ConvertBytes::BIG_ENDIAN;
-
-        $this->assertEquals(ConvertBytes::toSignedShort($this->bytes, 0, $o), 0);
-        $this->assertEquals(ConvertBytes::toSignedShort($this->bytes, 1, $o), 0);
-        $this->assertEquals(ConvertBytes::toSignedShort($this->bytes, 2, $o), 0);
-        $this->assertEquals(ConvertBytes::toSignedShort($this->bytes, 3, $o), 1);
-        $this->assertEquals(ConvertBytes::toSignedShort($this->bytes, 4, $o), 291);
-        $this->assertEquals(ConvertBytes::toSignedShort($this->bytes, 5, $o), 9029);
-        $this->assertEquals(ConvertBytes::toSignedShort($this->bytes, 6, $o), 17767);
-        $this->assertEquals(ConvertBytes::toSignedShort($this->bytes, 7, $o), 26505);
-        $this->assertEquals(ConvertBytes::toSignedShort($this->bytes, 8, $o), -30293);
-        $this->assertEquals(ConvertBytes::toSignedShort($this->bytes, 9, $o), -21555);
-        $this->assertEquals(ConvertBytes::toSignedShort($this->bytes, 10, $o), -12817);
-        $this->assertEquals(ConvertBytes::toSignedShort($this->bytes, 11, $o), -4097);
-        $this->assertEquals(ConvertBytes::toSignedShort($this->bytes, 12, $o), -1);
-        $this->assertEquals(ConvertBytes::toSignedShort($this->bytes, 13, $o), -1);
-        $this->assertEquals(ConvertBytes::toSignedShort($this->bytes, 14, $o), -1);
+        $this->assertSame(     0, ConvertBytes::toSignedShort("\x00\x00\x00\x00\x01\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::BIG_ENDIAN));
+        $this->assertSame(     0, ConvertBytes::toSignedShort("\x00\x00\x00\x01\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::BIG_ENDIAN));
+        $this->assertSame(     0, ConvertBytes::toSignedShort("\x00\x00\x01\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::BIG_ENDIAN));
+        $this->assertSame(     1, ConvertBytes::toSignedShort("\x00\x01\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::BIG_ENDIAN));
+        $this->assertSame(   291, ConvertBytes::toSignedShort("\x01\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::BIG_ENDIAN));
+        $this->assertSame(  9029, ConvertBytes::toSignedShort("\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::BIG_ENDIAN));
+        $this->assertSame( 17767, ConvertBytes::toSignedShort("\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::BIG_ENDIAN));
+        $this->assertSame( 26505, ConvertBytes::toSignedShort("\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::BIG_ENDIAN));
+        $this->assertSame(-30293, ConvertBytes::toSignedShort("\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::BIG_ENDIAN));
+        $this->assertSame(-21555, ConvertBytes::toSignedShort("\xAB\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::BIG_ENDIAN));
+        $this->assertSame(-12817, ConvertBytes::toSignedShort("\xCD\xEF\xFF\xFF\xFF\xFF", ConvertBytes::BIG_ENDIAN));
+        $this->assertSame( -4097, ConvertBytes::toSignedShort("\xEF\xFF\xFF\xFF\xFF", ConvertBytes::BIG_ENDIAN));
+        $this->assertSame(    -1, ConvertBytes::toSignedShort("\xFF\xFF\xFF\xFF", ConvertBytes::BIG_ENDIAN));
+        $this->assertSame(    -1, ConvertBytes::toSignedShort("\xFF\xFF\xFF", ConvertBytes::BIG_ENDIAN));
+        $this->assertSame(    -1, ConvertBytes::toSignedShort("\xFF\xFF", ConvertBytes::BIG_ENDIAN));
+        if (method_exists($this, 'expectException')) {
+            $this->expectException('InvalidArgumentException');
+        } else {
+            $this->setExpectedException('InvalidArgumentException');
+        }
+        ConvertBytes::toSignedShort("\xFF", ConvertBytes::BIG_ENDIAN);
     }
 
     public function testByte()
