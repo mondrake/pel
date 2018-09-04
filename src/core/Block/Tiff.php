@@ -49,7 +49,7 @@ class Tiff extends BlockBase
         $ifd_offset = $data_window->getLong(4);
         $this->debug('First IFD at offset {offset}.', ['offset' => $ifd_offset]);
 
-        if ($offset > 0) {
+        if ($ifd_offset > 0) {
             // Parse IFD0, this will automatically parse any sub IFDs.
             $ifd0 = new Ifd($this, 'IFD0');
             $next_offset = $ifd0->loadFromData($data_window, $ifd_offset, $size);
