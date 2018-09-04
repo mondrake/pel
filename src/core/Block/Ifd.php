@@ -59,25 +59,22 @@ class Ifd extends BlockBase
      */
     public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
     {
-        //$data_window = new DataWindow($data_element, $offset, $size, $data_element->getByteOrder(), $this);
-        $data_window = $data_element;
-
         $starting_offset = $offset;
 
         // Get the number of tags.
-        $n = $data_window->getShort($this->headerSkipBytes + $offset);
+        $n = $data_element->getShort($this->headerSkipBytes + $offset);
         $this->debug("START... Loading with {tags} TAGs at w-offset {offset} from {total} bytes, r-offset {roffset}", [
             'tags' => $n,
             'offset' => $offset,
-            'total' => $data_window->getSize(),
-            'roffset' => $data_window->getStart() + $offset,
+            'total' => $data_element->getSize(),
+            'roffset' => $data_element->getStart() + $offset,
         ]);
 
         $offset += $this->headerSkipBytes;
 
         // Check if we have enough data.
-        if (2 + 12 * $n > $data_window->getSize()) {
-            $n = floor(($offset - $data_window->getSize()) / 12);
+        if (2 + 12 * $n > $data_element->getSize()) {
+            $n = floor(($offset - $data_element->getSize()) / 12);
             $this->warning('Adjusted to: {tags}.', [
                 'tags' => $n,
             ]);
@@ -88,11 +85,11 @@ class Ifd extends BlockBase
             $i_offset = $offset + 2 + 12 * $i;
 
             // Gets the TAG's elements from the data window.
-            $tag_id = $data_window->getShort($i_offset);
-            $tag_format = $data_window->getShort($i_offset + 2);
-            $tag_components = $data_window->getLong($i_offset + 4);
-            $tag_data_element = $data_window->getLong($i_offset + 8);
-//dump($tag_id, $tag_format, $tag_components, $tag_data_element);
+            $tag_id = $data_element->getShort($i_offset);
+            $tag_format = $data_element->getShort($i_offset + 2);
+            $tag_components = $data_element->getLong($i_offset + 4);
+            $tag_data_element = $data_element->getLong($i_offset + 8);
+
             // If the data size is bigger than 4 bytes, then actual data is not in
             // the TAG's data element, but at the the offset stored in the data
             // element.
@@ -109,19 +106,19 @@ class Ifd extends BlockBase
 
             // Build the TAG object.
             $tag_entry_class = Spec::getEntryClass($this, $tag_id, $tag_format);
-            $tag_entry_arguments = call_user_func($tag_entry_class . '::getInstanceArgumentsFromTagData', $this, $tag_format, $tag_components, $data_window, $tag_data_offset);
+            $tag_entry_arguments = call_user_func($tag_entry_class . '::getInstanceArgumentsFromTagData', $this, $tag_format, $tag_components, $data_element, $tag_data_offset);
             $tag = new Tag($this, $tag_id, $tag_entry_class, $tag_entry_arguments, $tag_format, $tag_components);
 
             // Load a subIfd.
             if (Spec::isTagAnIfdPointer($this, $tag->getAttribute('id'))) {
                 // If the tag is an IFD pointer, loads the IFD.
                 $ifd_name = Spec::getIfdNameFromTag($this, $tag->getAttribute('id'));
-                $o = $data_window->getLong($i_offset + 8);
+                $o = $data_element->getLong($i_offset + 8);
                 if ($starting_offset != $o) {
                     $ifd_class = Spec::getIfdClass($ifd_name);
                     $ifd = new $ifd_class($this, $ifd_name);
                     try {
-                        $ifd->loadFromData($data_window, $o, $size, [
+                        $ifd->loadFromData($data_element, $o, $size, [
                             'data_offset' => $tag_data_offset,
                             'components' => $tag_components,
                         ]);
@@ -145,7 +142,7 @@ class Ifd extends BlockBase
             $this->debug("START... {callback}", [
                 'callback' => $callback,
             ]);
-            call_user_func($callback, $data_window, $this);
+            call_user_func($callback, $data_element, $this);
             $this->debug(".....END {callback}", [
                 'callback' => $callback,
             ]);

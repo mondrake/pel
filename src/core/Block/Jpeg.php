@@ -3,7 +3,6 @@
 namespace ExifEye\core\Block;
 
 use ExifEye\core\DataElement;
-use ExifEye\core\DataWindow;
 use ExifEye\core\Entry\Core\Undefined;
 use ExifEye\core\ExifEye;
 use ExifEye\core\Spec;
