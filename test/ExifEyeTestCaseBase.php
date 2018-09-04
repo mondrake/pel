@@ -7,11 +7,6 @@ use PHPUnit\Framework\TestCase;
 
 class ExifEyeTestCaseBase extends TestCase
 {
-    public function setUp()
-    {
-        parent::setUp();
-    }
-
     public function fcExpectException($exception, $message = null)
     {
         if (method_exists($this, 'expectException')) {

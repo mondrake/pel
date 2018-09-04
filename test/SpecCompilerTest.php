@@ -5,13 +5,12 @@ namespace ExifEye\Test\core;
 use ExifEye\core\Block\Ifd;
 use ExifEye\core\Utility\SpecCompiler;
 use ExifEye\core\Spec;
-use PHPUnit\Framework\TestCase;
 use Symfony\Component\Filesystem\Filesystem;
 
 /**
  * Test compilation of a set of PEL specification YAML files.
  */
-class SpecCompilerTest extends TestCase
+class SpecCompilerTest extends ExifEyeTestCaseBase
 {
     /** @var Filesystem */
     private $fs;
