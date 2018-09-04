@@ -100,7 +100,7 @@ if ($this->getAttribute('name') === 'AppleMakerNotes') dump($tag_id, $tag_format
             if ($tag_size > 4) {
                 $tag_data_offset = $tag_data_element;
                 if (!$this->tagsAbsoluteOffset) {
-                    $tag_data_offset += $offset;
+                    $tag_data_offset += $offset + 2;
                 }
                 $tag_data_offset += $this->tagsSkipOffset;
             } else {
