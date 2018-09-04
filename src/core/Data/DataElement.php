@@ -152,56 +152,38 @@ abstract class DataElement
      * Return an unsigned byte from the data.
      *
      * @param integer $offset
-     *            the offset into the data. An offset of zero will
-     *            return the first byte in the current allowed window. The last
-     *            valid offset is equal to {@link getSize()}-1. Invalid offsets
-     *            will result in a {@link DataException} being
-     *            thrown.
+     *            the offset into the data. An offset of zero will return the
+     *            first byte in the current allowed window. The last valid
+     *            offset is equal to ::getSize()-1.
      *
-     * @return integer the unsigned byte found at offset.
+     * @return integer
+     *            the unsigned byte found at offset.
+     *
      * @throws DataException
+     *            in case of invalid offset.
      */
     public function getByte($offset = 0)
     {
-        /*
-         * Validate the offset --- this throws an exception if offset is
-         * out of range.
-         */
-        $this->validateOffset($offset);
-
-        /* Translate the offset into an offset into the data. */
-        $offset += $this->getStart();
-
-        /* Return an unsigned byte. */
-        return ConvertBytes::toByte(substr($this->getDataString(), $offset, 1));
+        return ConvertBytes::toByte($this->getBytes($offset, 1));
     }
 
     /**
      * Return a signed byte from the data.
      *
      * @param integer $offset
-     *            the offset into the data. An offset of zero will
-     *            return the first byte in the current allowed window. The last
-     *            valid offset is equal to {@link getSize()}-1. Invalid offsets
-     *            will result in a {@link DataException} being
-     *            thrown.
+     *            the offset into the data. An offset of zero will return the
+     *            first byte in the current allowed window. The last valid
+     *            offset is equal to ::getSize()-1.
      *
-     * @return integer the signed byte found at offset.
+     * @return integer
+     *            the signed byte found at offset.
+     *
      * @throws DataException
+     *            in case of invalid offset.
      */
     public function getSignedByte($offset = 0)
     {
-        /*
-         * Validate the offset --- this throws an exception if offset is
-         * out of range.
-         */
-        $this->validateOffset($offset);
-
-        /* Translate the offset into an offset into the data. */
-        $offset += $this->getStart();
-
-        /* Return a signed byte. */
-        return ConvertBytes::toSignedByte(substr($this->getDataString(), $offset, 1));
+        return ConvertBytes::toSignedByte($this->getBytes($offset, 1));
     }
 
     /**
