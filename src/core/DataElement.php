@@ -367,48 +367,6 @@ abstract class DataElement
     }
 
     /**
-     * String comparison on substrings.
-     *
-     * @param integer $offset
-     *            the offset into the data. An offset of zero will make
-     *            the comparison start with the very first byte available in the
-     *            window. The last valid offset is equal to {@link getSize()}
-     *            minus the length of the string. If the string is too long, then
-     *            a {@link DataException} will be thrown.
-     *
-     * @param string $str
-     *            the string to compare with.
-     *
-     * @return boolean true if the string given matches the data in the
-     *         window, at the specified offset, false otherwise. The comparison
-     *         will stop as soon as a mismatch if found.
-     * @throws DataException
-     */
-    public function strcmp($offset, $str)
-    {
-        /*
-         * Validate the offset of the final character we might have to
-         * check.
-         */
-        $s = strlen($str);
-        $this->validateOffset($offset);
-        $this->validateOffset($offset + $s - 1);
-
-        /* Translate the offset into an offset into the data. */
-        $offset += $this->start;
-
-        /* Check each character, return as soon as the answer is known. */
-        for ($i = 0; $i < $s; $i ++) {
-            if ($this->getDataString(){$offset + $i} != $str{$i}) {
-                return false;
-            }
-        }
-
-        /* All characters matches each other, return true. */
-        return true;
-    }
-
-    /**
      * Return a string representation of the data window.
      *
      * @return string a description of the window with information about
