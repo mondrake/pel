@@ -259,7 +259,7 @@ abstract class DataElement
         $offset += $this->getStart();
 
         /* Return a signed short. */
-        return ConvertBytes::toSignedShort(substr($this->getDataString(), $offset, 2), 0, $this->order);
+        return ConvertBytes::toSignedShort(substr($this->getDataString(), $offset, 2), $this->order);
     }
 
     /**
