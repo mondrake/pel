@@ -201,7 +201,7 @@ abstract class DataElement
         $offset += $this->getStart();
 
         /* Return a signed byte. */
-        return ConvertBytes::toSignedByte(substr($this->getDataString(), $offset, 1), 0);
+        return ConvertBytes::toSignedByte(substr($this->getDataString(), $offset, 1));
     }
 
     /**

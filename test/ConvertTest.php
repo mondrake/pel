@@ -191,21 +191,21 @@ class ConvertTest extends ExifEyeTestCaseBase
 
     public function testSignedByte()
     {
-        $this->assertEquals(ConvertBytes::toSignedByte($this->bytes, 0), 0);
-        $this->assertEquals(ConvertBytes::toSignedByte($this->bytes, 1), 0);
-        $this->assertEquals(ConvertBytes::toSignedByte($this->bytes, 2), 0);
-        $this->assertEquals(ConvertBytes::toSignedByte($this->bytes, 3), 0);
-        $this->assertEquals(ConvertBytes::toSignedByte($this->bytes, 4), 1);
-        $this->assertEquals(ConvertBytes::toSignedByte($this->bytes, 5), 35);
-        $this->assertEquals(ConvertBytes::toSignedByte($this->bytes, 6), 69);
-        $this->assertEquals(ConvertBytes::toSignedByte($this->bytes, 7), 103);
-        $this->assertEquals(ConvertBytes::toSignedByte($this->bytes, 8), -119);
-        $this->assertEquals(ConvertBytes::toSignedByte($this->bytes, 9), -85);
-        $this->assertEquals(ConvertBytes::toSignedByte($this->bytes, 10), -51);
-        $this->assertEquals(ConvertBytes::toSignedByte($this->bytes, 11), -17);
-        $this->assertEquals(ConvertBytes::toSignedByte($this->bytes, 12), -1);
-        $this->assertEquals(ConvertBytes::toSignedByte($this->bytes, 13), -1);
-        $this->assertEquals(ConvertBytes::toSignedByte($this->bytes, 14), -1);
-        $this->assertEquals(ConvertBytes::toSignedByte($this->bytes, 15), -1);
+        $this->assertSame(   0, ConvertBytes::toSignedByte("\x00\x00\x00\x00\x01\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF"));
+        $this->assertSame(   0, ConvertBytes::toSignedByte("\x00\x00\x00\x01\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF"));
+        $this->assertSame(   0, ConvertBytes::toSignedByte("\x00\x00\x01\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF"));
+        $this->assertSame(   0, ConvertBytes::toSignedByte("\x00\x01\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF"));
+        $this->assertSame(   1, ConvertBytes::toSignedByte("\x01\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF"));
+        $this->assertSame(  35, ConvertBytes::toSignedByte("\x23\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF"));
+        $this->assertSame(  69, ConvertBytes::toSignedByte("\x45\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF"));
+        $this->assertSame( 103, ConvertBytes::toSignedByte("\x67\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF"));
+        $this->assertSame(-119, ConvertBytes::toSignedByte("\x89\xAB\xCD\xEF\xFF\xFF\xFF\xFF"));
+        $this->assertSame( -85, ConvertBytes::toSignedByte("\xAB\xCD\xEF\xFF\xFF\xFF\xFF"));
+        $this->assertSame( -51, ConvertBytes::toSignedByte("\xCD\xEF\xFF\xFF\xFF\xFF"));
+        $this->assertSame( -17, ConvertBytes::toSignedByte("\xEF\xFF\xFF\xFF\xFF"));
+        $this->assertSame(  -1, ConvertBytes::toSignedByte("\xFF\xFF\xFF\xFF"));
+        $this->assertSame(  -1, ConvertBytes::toSignedByte("\xFF\xFF\xFF"));
+        $this->assertSame(  -1, ConvertBytes::toSignedByte("\xFF\xFF"));
+        $this->assertSame(  -1, ConvertBytes::toSignedByte("\xFF"));
     }
 }

@@ -50,7 +50,7 @@ class ConvertBytes
      */
     public static function fromShort($value, $byte_order)
     {
-        if ($byte_order == self::LITTLE_ENDIAN) {
+        if ($byte_order == static::LITTLE_ENDIAN) {
             return chr($value) . chr($value >> 8);
         } else {
             return chr($value >> 8) . chr($value);
@@ -72,7 +72,7 @@ class ConvertBytes
     {
         // We can just use fromShort, since signed shorts fits well
         // within the 32 bit signed integers used in PHP.
-        return self::fromShort($value, $byte_order);
+        return static::fromShort($value, $byte_order);
     }
 
     /**
@@ -102,7 +102,7 @@ class ConvertBytes
         // integer known to PHP. But luckily base_convert handles such big
         // numbers.
         $hex = str_pad(base_convert($value, 10, 16), 8, '0', STR_PAD_LEFT);
-        if ($byte_order == self::LITTLE_ENDIAN) {
+        if ($byte_order == static::LITTLE_ENDIAN) {
             return (chr(hexdec($hex{6} . $hex{7})) . chr(hexdec($hex{4} . $hex{5})) . chr(hexdec($hex{2} . $hex{3})) .
                  chr(hexdec($hex{0} . $hex{1})));
         } else {
@@ -128,7 +128,7 @@ class ConvertBytes
         // We can convert the number into bytes in the normal way using shifts
         // and modulo calculations here (in contrast with fromLong) because
         // PHP automatically handles 32 bit signed integers for us.
-        if ($byte_order == self::LITTLE_ENDIAN) {
+        if ($byte_order == static::LITTLE_ENDIAN) {
             return (chr($value) . chr($value >> 8) . chr($value >> 16) . chr($value >> 24));
         } else {
             return (chr($value >> 24) . chr($value >> 16) . chr($value >> 8) . chr($value));
@@ -150,25 +150,19 @@ class ConvertBytes
     }
 
     /**
-     * Extract a signed byte from bytes.
+     * Extract a signed byte from a string bytes.
      *
      * @param string $bytes
      *            the bytes.
-     * @param integer $offset
-     *            The byte found at the offset will be returned as an integer.
-     *            There must be at least one byte available at offset.
      *
-     * @return integer the signed byte found at offset, e.g., an integer in
-     *         the range -128 to 127.
+     * @return integer
+     *            the signed byte found at the first position of the string, in
+     *            the range -128 to 127.
      */
-    public static function toSignedByte($bytes, $offset)
+    public static function toSignedByte($bytes)
     {
-        $n = self::toByte($bytes, $offset);
-        if ($n > 127) {
-            return $n - 256;
-        } else {
-            return $n;
-        }
+        $n = static::toByte($bytes);
+        return $n > 127 ? $n - 256 : $n;
     }
 
     /**
@@ -188,7 +182,7 @@ class ConvertBytes
      */
     public static function toShort($bytes, $offset, $byte_order)
     {
-        if ($byte_order == self::LITTLE_ENDIAN) {
+        if ($byte_order == static::LITTLE_ENDIAN) {
             return (ord($bytes{$offset + 1}) * 256 + ord($bytes{$offset}));
         } else {
             return (ord($bytes{$offset}) * 256 + ord($bytes{$offset + 1}));
@@ -212,7 +206,7 @@ class ConvertBytes
      */
     public static function toSignedShort($bytes, $offset, $byte_order)
     {
-        $n = self::toShort($bytes, $offset, $byte_order);
+        $n = static::toShort($bytes, $offset, $byte_order);
         if ($n > 32767) {
             return $n - 65536;
         } else {
@@ -237,7 +231,7 @@ class ConvertBytes
      */
     public static function toLong($bytes, $offset, $byte_order)
     {
-        if ($byte_order == self::LITTLE_ENDIAN) {
+        if ($byte_order == static::LITTLE_ENDIAN) {
             return (ord($bytes{$offset + 3}) * 16777216 + ord($bytes{$offset + 2}) * 65536 +
                  ord($bytes{$offset + 1}) * 256 + ord($bytes{$offset}));
         } else {
@@ -263,7 +257,7 @@ class ConvertBytes
      */
     public static function toSignedLong($bytes, $offset, $byte_order)
     {
-        $n = self::toLong($bytes, $offset, $byte_order);
+        $n = static::toLong($bytes, $offset, $byte_order);
         if ($n > 2147483647) {
             return $n - 4294967296;
         } else {
@@ -289,8 +283,8 @@ class ConvertBytes
     public static function toRational($bytes, $offset, $byte_order)
     {
         return [
-            self::toLong($bytes, $offset, $byte_order),
-            self::toLong($bytes, $offset + 4, $byte_order)
+            static::toLong($bytes, $offset, $byte_order),
+            static::toLong($bytes, $offset + 4, $byte_order)
         ];
     }
 
@@ -312,8 +306,8 @@ class ConvertBytes
     public static function toSignedRational($bytes, $offset, $byte_order)
     {
         return [
-            self::toSignedLong($bytes, $offset, $byte_order),
-            self::toSignedLong($bytes, $offset + 4, $byte_order)
+            static::toSignedLong($bytes, $offset, $byte_order),
+            static::toSignedLong($bytes, $offset + 4, $byte_order)
         ];
     }
 }
