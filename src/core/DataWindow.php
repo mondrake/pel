@@ -33,14 +33,14 @@ class DataWindow extends DataElement
         $this->size = $size;
         $this->order = $byte_order;
         if ($caller) {
-          $caller->debug('Data Window @ [{start}-{end}] [0x{hstart}-0x{hend}], {size} bytes, order: {order} ...', [
-              'start' => $this->getStart(),
-              'end' => $this->getStart() + $size - 1,
-              'hstart' => strtoupper(dechex($this->getStart())),
-              'hend' => strtoupper(dechex($this->getStart() + $size - 1)),
-              'size' => $size,
-              'order' => $byte_order,
-          ]);
+            $caller->debug('Data Window @ [{start}-{end}] [0x{hstart}-0x{hend}], {size} bytes, order: {order} ...', [
+                'start' => $this->getStart(),
+                'end' => $this->getStart() + $size - 1,
+                'hstart' => strtoupper(dechex($this->getStart())),
+                'hend' => strtoupper(dechex($this->getStart() + $size - 1)),
+                'size' => $size,
+                'order' => $byte_order,
+            ]);
         }
     }
 }
