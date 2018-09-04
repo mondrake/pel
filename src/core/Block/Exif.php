@@ -48,7 +48,7 @@ class Exif extends BlockBase
             // We store the data as normal JPEG content if it could not be
             // parsed as Tiff data.
             $entry = new Undefined($this, [$data_window->getBytes()]);
-            $entry->debug("TIFF header not found. Loaded {text}", ['text' => $entry->toString()]);
+            $this->debug("TIFF header not found. Loaded {text}", ['text' => $entry->toString()]);
         }
 
         return $this;
