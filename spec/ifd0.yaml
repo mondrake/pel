@@ -357,12 +357,12 @@ elements:
         title: IPTC-NAA
         format: Long
     0x8769:
-        type: ifd
+        type: ifdExif
         class: ExifEye\core\Block\Ifd
         name: Exif
         title: 'Exif IFD Pointer'
     0x8825:
-        type: ifd
+        type: ifdGps
         class: ExifEye\core\Block\Ifd
         name: GPS
         title: 'GPS Info IFD Pointer'
