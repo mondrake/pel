@@ -1,4 +1,5 @@
 type: tiff
+name: Tiff
 title: TIFF
 class: ExifEye\core\Block\Tiff
 elements:
