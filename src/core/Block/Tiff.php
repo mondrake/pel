@@ -63,8 +63,8 @@ dump('at ' . $ifd_offset);
             ]);
             $ifd->loadFromData($data_window, $ifd_offset, $size);
 
-dump('xxx ' . $ifd_offset + $ifd_tags_count * 12 + 6);
-            $ifd_offset = $data_window->getLong($ifd_offset + $ifd_tags_count * 12 + 6);
+//dump($ifd_offset, $ifd_tags_count);
+            $ifd_offset = $data_window->getLong($ifd_offset + $ifd_tags_count * 12 + 2);
             
             if ($ifd_offset === 0) {
                 break;
