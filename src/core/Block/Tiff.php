@@ -51,6 +51,13 @@ class Tiff extends BlockBase
 
         // Loops through IFDs. In fact we should only have IFD0 and IFD1.
         for ($i = 0; $i <= 2; $i++) {
+            // IFD1 shouldn't link further.
+            if ($ifd_offset === 2) {
+                $this->error('IFD1 links to another IFD.');
+                break;
+            }
+
+            // Create and load the IFDs.
             $ifd_name = Spec::getElementName($this->getType(), $i);
             $ifd_class = Spec::getElementHandlingClass($this->getType(), $i);
             $ifd_tags_count = $data_window->getShort($ifd_offset);
@@ -62,39 +69,24 @@ class Tiff extends BlockBase
             ]);
             $ifd->loadFromData($data_window, $ifd_offset, $size);
 
+            // Offset to next IFD.
             $ifd_offset = $data_window->getLong($ifd_offset + $ifd_tags_count * 12 + 2);
-            
+
             if ($ifd_offset === 0) {
+                // If next IFD offset is 0 we are finished.
+                break;
+            } elseif ($ifd_offset > $data_window->getSize()) {
+                // If next IFD offset is bigger than data window size we are
+                // broken.
+                $this->error('Bogus offset to next IFD: {ifd_offset} > {size}.', [
+                    'ifd_offset' => $ifd_offset,
+                    'size' => $data_window->getSize(),
+                ]);
                 break;
             }
         }
-        // IFD0.
-/*        $ifd_offset = $data_window->getLong(4);
-        $this->debug('First IFD at offset {offset}.', ['offset' => $ifd_offset]);
 
-        if ($ifd_offset > 0) {
-            // Parse IFD0, this will automatically parse any sub IFDs.
-            $ifd0 = new Ifd($this, 'IFD0');
-            $next_offset = $ifd0->loadFromData($data_window, $ifd_offset, $size);
-        }
-
-        // Next IFD. xx @todo iterate on next_offset
-        if ($next_offset > 0) {
-            // Sanity check: we need 6 bytes.
-            if ($next_offset > $data_window->getSize() - 6) {
-                $this->error('Bogus offset to next IFD: {offset} > {size}!', [
-                    'offset' => $next_offset,
-                    'size' => $data_window->getSize() - 6,
-                ]);
-            } else {
-/*                if (Spec::getIfdType($this->getAttribute('id')) === 'IFD1') {
-                    // IFD1 shouldn't link further...
-                    $this->error('IFD1 links to another IFD!');
-                }*/
-/*                $ifd1 = new Ifd($this, 'IFD1');
-                $next_offset = $ifd1->loadFromData($data_window, $next_offset, $size);
-            }
-        }*/
+        return $this;
     }
 
     /**
