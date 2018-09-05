@@ -51,7 +51,6 @@ class Tiff extends BlockBase
 
         // Loops through IFDs. In fact we should only have IFD0 and IFD1.
         for ($i = 0; $i <= 2; $i++) {
-dump('at ' . $ifd_offset);            
             $ifd_name = Spec::getElementName($this->getType(), $i);
             $ifd_class = Spec::getElementHandlingClass($this->getType(), $i);
             $ifd_tags_count = $data_window->getShort($ifd_offset);
@@ -63,7 +62,6 @@ dump('at ' . $ifd_offset);
             ]);
             $ifd->loadFromData($data_window, $ifd_offset, $size);
 
-//dump($ifd_offset, $ifd_tags_count);
             $ifd_offset = $data_window->getLong($ifd_offset + $ifd_tags_count * 12 + 2);
             
             if ($ifd_offset === 0) {
