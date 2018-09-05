@@ -63,6 +63,7 @@ class Tiff extends BlockBase
                 $ifd_name = Spec::getElementName($this->getType(), $i);
                 $ifd_class = Spec::getElementHandlingClass($this->getType(), $i);
                 $ifd_tags_count = $data_window->getShort($ifd_offset);
+dump($this->getType(), $i, $ifd_name, $ifd_class, $ifd_tag_count);
                 $ifd = new $ifd_class($this, $ifd_name);
                 $this->debug('{ifd_name} at offset {ifd_offset} with {ifd_tags_count} tags.', [
                     'ifd_name' => $ifd_name,
