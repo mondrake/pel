@@ -63,7 +63,7 @@ class Thumbnail extends BlockBase
         // Load the thumbnail only if both the offset and the length are
         // available and positive.
         if ($offset <= 0 || $length <= 0) {
-            $ifd->error('Invalid offset {offset} or length {length} for JPEG thumbnail.', [
+            $ifd->error('Invalid offset ({offset}) or length ({length}) for JPEG thumbnail.', [
                 'offset' => $offset,
                 'length' => $length,
             ]);
@@ -71,7 +71,7 @@ class Thumbnail extends BlockBase
         }
 
         if ($offset > $data_element->getSize()) {
-            $ifd->error('Offset {offset} overflow {size} for JPEG thumbnail.', [
+            $ifd->error('Offset {offset} overflows total size ({size}) for JPEG thumbnail.', [
                 'offset' => $offset,
                 'size' => $data_element->getSize(),
             ]);
@@ -81,7 +81,7 @@ class Thumbnail extends BlockBase
         // Some images have a broken length, so we try to carefully check
         // the length before we store the thumbnail.
         if ($offset + $length > $data_element->getSize()) {
-            $ifd->warning('Thumbnail length {length} bytes adjusted to {adjusted_length} bytes.', [
+            $ifd->warning('Thumbnail length ({length} bytes) adjusted to {adjusted_length} bytes.', [
                 'length' => $length,
                 'adjusted_length' => $data_element->getSize() - $offset,
             ]);
