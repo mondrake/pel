@@ -73,8 +73,7 @@ class Tiff extends BlockBase
 
                 // Offset to next IFD.
                 $ifd_offset = $data_window->getLong($ifd_offset + $ifd_tags_count * 12 + 2);
-            }
-            catch (DataException $e) {
+            } catch (DataException $e) {
                 $this->error('Error processing {ifd_name}: {msg}.', [
                     'ifd_name' => $ifd_name,
                     'msg' => $e->getMessage(),
