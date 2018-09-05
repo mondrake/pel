@@ -62,7 +62,8 @@ class Tiff extends BlockBase
             ]);
             $ifd->loadFromData($data_window, $ifd_offset, $size);
 
-            $ifd_offset = $data_window->getLong(4 + $ifd_tags_count * 12);
+dump(ExifEye::dumpHex());
+            $ifd_offset = $data_window->getLong(4 + $ifd_tags_count * 12 + 6);
             
             if ($ifd_offset === 0) {
                 break;
