@@ -45,8 +45,25 @@ class Tiff extends BlockBase
         // Open a data window on the TIFF data.
         $data_window = new DataWindow($data_element, $offset, $size, $byte_order, $this);
 
+        // Starting IFD will be at offset 4 (2 bytes for byte order + 2 for
+        // header)
+        $current_tiff_offset = 4;
+
+        // Loops through IFDs. In fact we should only have IFD0 and IFD1.
+        for ($i = 0; $i <= 2; $i++) {
+            $ifd_offset = $data_window->getLong($current_tiff_offset);
+            $ifd_name = Spec::getElementName($this->getType(), $i);
+            $ifd_class = Spec::getElementHandlingClass($this->getType(), $i);
+            $ifd = new $ifd_class($this, $ifd_name);
+            $this->debug('{ifd_name} at offset {ifd_offset}.', ['ifd_name' => $ifd_name, 'ifd_offset' => $ifd_offset]);
+            $current_tiff_offset = $ifd->loadFromData($data_window, $ifd_offset, $size);
+
+            if ($current_tiff_offset === 0) {
+                break;
+            }
+        }
         // IFD0.
-        $ifd_offset = $data_window->getLong(4);
+/*        $ifd_offset = $data_window->getLong(4);
         $this->debug('First IFD at offset {offset}.', ['offset' => $ifd_offset]);
 
         if ($ifd_offset > 0) {
@@ -68,10 +85,10 @@ class Tiff extends BlockBase
                     // IFD1 shouldn't link further...
                     $this->error('IFD1 links to another IFD!');
                 }*/
-                $ifd1 = new Ifd($this, 'IFD1');
+/*                $ifd1 = new Ifd($this, 'IFD1');
                 $next_offset = $ifd1->loadFromData($data_window, $next_offset, $size);
             }
-        }
+        }*/
     }
 
     /**
