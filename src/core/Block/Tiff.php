@@ -47,11 +47,10 @@ class Tiff extends BlockBase
 
         // Starting IFD will be at offset 4 (2 bytes for byte order + 2 for
         // header)
-        $current_tiff_offset = 4;
+        $ifd_offset = $data_window->getLong(4);
 
         // Loops through IFDs. In fact we should only have IFD0 and IFD1.
         for ($i = 0; $i <= 2; $i++) {
-            $ifd_offset = $data_window->getLong($current_tiff_offset);
             $ifd_name = Spec::getElementName($this->getType(), $i);
             $ifd_class = Spec::getElementHandlingClass($this->getType(), $i);
             $ifd_tags_count = $data_window->getShort($ifd_offset);
@@ -61,9 +60,11 @@ class Tiff extends BlockBase
                 'ifd_offset' => $ifd_offset,
                 'ifd_tags_count' => $ifd_tags_count,
             ]);
-            $current_tiff_offset = $ifd->loadFromData($data_window, $ifd_offset, $size);
+            $ifd->loadFromData($data_window, $ifd_offset, $size);
 
-            if ($current_tiff_offset === 0) {
+            $ifd_offset = $data_window->getLong(4 + $ifd_tags_count * 12);
+            
+            if ($ifd_offset === 0) {
                 break;
             }
         }
