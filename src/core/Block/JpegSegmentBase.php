@@ -34,9 +34,9 @@ abstract class JpegSegmentBase extends BlockBase
     /**
      * Construct a new JPEG segment object.
      */
-    public function __construct($id, Jpeg $jpeg, JpegSegmentBase $reference = null)
+    public function __construct($type, $id, Jpeg $jpeg, JpegSegmentBase $reference = null)
     {
-        parent::__construct($jpeg, $reference);
+        parent::__construct($type, $jpeg, $reference);
         $this->setAttribute('id', $id);
         $name = Spec::getElementName($jpeg->getType(), $id);
         $this->setAttribute('name', $name);

@@ -72,7 +72,7 @@ class Spec
     }
 
     /**
-     * Returns the handling class of a type.
+     * Returns the property value of a type.
      *
      * @param string $type
      *            the type.
@@ -80,9 +80,9 @@ class Spec
      * @return string|null
      *            the element handling class.
      */
-    public static function getTypeHandlingClass($type)
+    public static function getTypeProperty($type, $property)
     {
-        return isset(self::getMap()['types'][$type]) ? self::getMap()['types'][$type] : null;
+        return isset(self::getMap()['types'][$type][$property]) ? self::getMap()['types'][$type][$property] : null;
     }
 
     /**
