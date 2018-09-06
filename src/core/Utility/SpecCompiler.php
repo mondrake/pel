@@ -135,7 +135,7 @@ DATA;
 
         // 'types' entry.
         $tmp = $input;
-        unset($tmp['type'], $tmp['elements'])
+        unset($tmp['type'], $tmp['elements']);
         $this->map['types'][$input['type']] = $tmp;
 
         // 'elements' entry.
