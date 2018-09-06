@@ -134,7 +134,9 @@ DATA;
         }
 
         // 'types' entry.
-        $this->map['types'][$input['type']] = $input['class'];
+        $tmp = $input;
+        unset($tmp['type'], $tmp['elements'])
+        $this->map['types'][$input['type']] = $tmp;
 
         // 'elements' entry.
         foreach ($input['elements'] as $id => $element) {
