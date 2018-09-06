@@ -120,6 +120,7 @@ class Spec
         }
         $element_type = self::getElementType($type, $element_id);
         if ($element_type !== null) {
+if ($element_type === 'ExifEye\core\Block\Ifd') throw new \Exception('bingo');
             return isset(self::getMap()['types'][$element_type]) ? self::getMap()['types'][$element_type] : null;
         }
         return null;
