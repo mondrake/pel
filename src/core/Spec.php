@@ -141,12 +141,7 @@ class Spec
         if (isset(self::getMap()['elements'][$type][$element_id]['type'])) {
             return self::getMap()['elements'][$type][$element_id]['type'];
         }
-/*        $element_type = self::getElementType($type, $element_id);
-        if ($element_type !== null) {
-            return isset(self::getMap()['types'][$element_type][$property]) ? self::getMap()['types'][$element_type][$property] : null;
-        }*/
         return null;
-//        return self::getElementPropertyValue($type, $element_id, 'type');
     }
 
     /**
