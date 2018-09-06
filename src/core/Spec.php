@@ -120,7 +120,6 @@ class Spec
         }
         $element_type = self::getElementType($type, $element_id);
         if ($element_type !== null) {
-if ($element_type === 'ExifEye\core\Block\Ifd') throw new \Exception('bingo');
             return isset(self::getMap()['types'][$element_type][$property]) ? self::getMap()['types'][$element_type][$property] : null;
         }
         return null;
@@ -139,7 +138,15 @@ if ($element_type === 'ExifEye\core\Block\Ifd') throw new \Exception('bingo');
      */
     public static function getElementType($type, $element_id)
     {
-        return self::getElementPropertyValue($type, $element_id, 'type');
+        if (isset(self::getMap()['elements'][$type][$element_id]['type'])) {
+            return self::getMap()['elements'][$type][$element_id]['type'];
+        }
+/*        $element_type = self::getElementType($type, $element_id);
+        if ($element_type !== null) {
+            return isset(self::getMap()['types'][$element_type][$property]) ? self::getMap()['types'][$element_type][$property] : null;
+        }*/
+        return null;
+//        return self::getElementPropertyValue($type, $element_id, 'type');
     }
 
     /**
@@ -231,7 +238,6 @@ if ($element_type === 'ExifEye\core\Block\Ifd') throw new \Exception('bingo');
     public static function getIfdSupportedTagIds(BlockBase $block)
     {
         $xx_block_id = self::getIfdIdByType($block->getAttribute('name'));
-if (!$xx_block_id) dump($block->getAttributes());
         return array_keys(self::getMap()['tags'][$xx_block_id]);
     }
 
@@ -246,8 +252,7 @@ if (!$xx_block_id) dump($block->getAttributes());
      */
     public static function getIfdIdByType($ifd_type)
     {
-        $ret = isset(self::getMap()['ifdsByType'][$ifd_type]) ? self::getMap()['ifdsByType'][$ifd_type] : null;
-        return $ret;
+        return isset(self::getMap()['ifdsByType'][$ifd_type]) ? self::getMap()['ifdsByType'][$ifd_type] : null;
     }
 
     /**
