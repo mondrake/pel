@@ -139,7 +139,7 @@ DATA;
         // 'elements' entry.
         foreach ($input['elements'] as $id => $element) {
             $this->map['elements'][$input['type']][$id] = $element;
-            if (isset($element['name'])) {
+            if (isset($element['name'])) { // xx
                 $this->map['elementsByName'][$input['type']][$element['name']] = $id;
             }
         }

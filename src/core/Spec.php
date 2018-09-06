@@ -230,7 +230,7 @@ class Spec
     public static function getIfdSupportedTagIds(BlockBase $block)
     {
         $xx_block_id = self::getIfdIdByType($block->getType());
-
+dump($block);
         return array_keys(self::getMap()['tags'][$xx_block_id]);
     }
 
