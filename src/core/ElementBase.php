@@ -28,6 +28,13 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     protected $DOMNode;
 
     /**
+     * The name of the DOM node associated to this element.
+     *
+     * @var string
+     */
+    protected $DOMNodeName;
+
+    /**
      * The Xpath object associated to the root element.
      *
      * @var \DOMXPath|null
@@ -73,7 +80,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
             $parent_node = $parent->DOMNode;
         }
 
-        $this->DOMNode = $doc->createElement($this->getType());
+        $this->DOMNode = $doc->createElement($this->DOMNodeName);
 
         if ($reference) {
             $parent_node->insertBefore($this->DOMNode, $reference->DOMNode);
@@ -232,7 +239,7 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     public function toDumpArray()
     {
         return [
-            'type' => $this->getType(),
+            'type' => $this->DOMNodeName,
             'path' => $this->getContextPath(),
             'class' => get_class($this),
             'valid' => $this->isValid(),

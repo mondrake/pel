@@ -26,6 +26,7 @@ abstract class EntryBase extends ElementBase implements EntryInterface
     /**
      * {@inheritdoc}
      */
+    protected $DOMNodeName = 'entry';
     protected $type = 'entry';
 
     /**

@@ -20,6 +20,7 @@ class Thumbnail extends BlockBase
     /**
      * {@inheritdoc}
      */
+    protected $DOMNodeName = 'thumbnail';
     protected $type = 'thumbnail';
 
     /**

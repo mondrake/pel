@@ -19,6 +19,7 @@ class Tag extends BlockBase
     /**
      * {@inheritdoc}
      */
+    protected $DOMNodeName = 'tag';
     protected $type = 'tag';
 
     /**

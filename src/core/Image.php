@@ -21,6 +21,11 @@ class Image extends BlockBase
     /**
      * {@inheritdoc}
      */
+    protected $DOMNodeName = 'image';
+
+    /**
+     * {@inheritdoc}
+     */
     protected $type = 'image';
 
     /**

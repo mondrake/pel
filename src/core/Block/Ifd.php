@@ -20,6 +20,7 @@ class Ifd extends BlockBase
     /**
      * {@inheritdoc}
      */
+    protected $DOMNodeName = 'ifd';
     protected $type = 'ifd';
 
     /**

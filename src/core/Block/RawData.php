@@ -16,6 +16,7 @@ class RawData extends BlockBase
     /**
      * {@inheritdoc}
      */
+    protected $DOMNodeName = 'rawData';
     protected $type = 'rawData';
 
     /**

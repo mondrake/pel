@@ -21,6 +21,7 @@ class Jpeg extends BlockBase
     /**
      * {@inheritdoc}
      */
+    protected $DOMNodeName = 'jpeg';
     protected $type = 'jpeg';
 
     /**

@@ -23,6 +23,7 @@ class Exif extends BlockBase
     /**
      * {@inheritdoc}
      */
+    protected $DOMNodeName = 'exif';
     protected $type = 'exif';
 
     /**
