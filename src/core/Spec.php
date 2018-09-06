@@ -115,7 +115,14 @@ class Spec
      */
     public static function getElementPropertyValue($type, $element_id, $property)
     {
-        return isset(self::getMap()['elements'][$type][$element_id][$property]) ? self::getMap()['elements'][$type][$element_id][$property] : null;
+        if (isset(self::getMap()['elements'][$type][$element_id][$property])) {
+            return self::getMap()['elements'][$type][$element_id][$property];
+        }
+        $element_type = self::getElementType($type, $element_id);
+        if ($element_type !== null) {
+            return isset(self::getMap()['types'][$element_type]) ? self::getMap()['types'][$element_type] : null;
+        }
+        return null;
     }
 
     /**
@@ -195,15 +202,7 @@ class Spec
      */
     public static function getElementHandlingClass($type, $element_id)
     {
-        $class = self::getElementPropertyValue($type, $element_id, 'class');
-        if ($class !== null) {
-            return $class;
-        }
-        $element_type = self::getElementType($type, $element_id);
-        if ($element_type !== null) {
-            return self::getTypeHandlingClass($element_type);
-        }
-        return null;
+        return self::getElementPropertyValue($type, $element_id, 'class');
     }
 
     /**
@@ -230,7 +229,7 @@ class Spec
      */
     public static function getIfdSupportedTagIds(BlockBase $block)
     {
-        $xx_block_id = self::getIfdIdByType($block->getAttribute('name'));
+        $xx_block_id = self::getIfdIdByType($block->getType());
 
         return array_keys(self::getMap()['tags'][$xx_block_id]);
     }
@@ -296,7 +295,7 @@ class Spec
      */
     public static function isTagAnIfdPointer(BlockBase $parent_block, $tag_id)
     {
-        $xx_parent_block_id = self::getIfdIdByType($parent_block->getAttribute('name'));
+        $xx_parent_block_id = self::getIfdIdByType($parent_block->getType());
 
         return isset(self::getMap()['tags'][$xx_parent_block_id][$tag_id]['ifd']);
     }
@@ -314,7 +313,7 @@ class Spec
      */
     public static function getIfdNameFromTag(BlockBase $parent_block, $tag_id)
     {
-        $xx_parent_block_id = self::getIfdIdByType($parent_block->getAttribute('name'));
+        $xx_parent_block_id = self::getIfdIdByType($parent_block->getType());
 
         $ifd_id = isset(self::getMap()['tags'][$xx_parent_block_id][$tag_id]['ifd']) ? self::getMap()['tags'][$xx_parent_block_id][$tag_id]['ifd'] : null;
 
@@ -335,7 +334,7 @@ class Spec
      */
     public static function getIfdPostLoadCallbacks(BlockBase $block)
     {
-        $xx_block_id = self::getIfdIdByType($block->getAttribute('name'));
+        $xx_block_id = self::getIfdIdByType($block->getType());
 
         return self::getMap()['ifdPostLoadCallbacks'][$xx_block_id];
     }
@@ -353,7 +352,7 @@ class Spec
      */
     public static function getTagName(BlockBase $parent_block, $tag_id)
     {
-        $xx_parent_block_id = self::getIfdIdByType($parent_block->getAttribute('name'));
+        $xx_parent_block_id = self::getIfdIdByType($parent_block->getType());
 
         return isset(self::getMap()['tags'][$xx_parent_block_id][$tag_id]['name']) ? self::getMap()['tags'][$xx_parent_block_id][$tag_id]['name'] : null;
     }
@@ -371,7 +370,7 @@ class Spec
      */
     public static function getTagIdByName(BlockBase $parent_block, $tag_name)
     {
-        $xx_parent_block_id = self::getIfdIdByType($parent_block->getAttribute('name'));
+        $xx_parent_block_id = self::getIfdIdByType($parent_block->getType());
 
         return isset(self::getMap()['tagsByName'][$xx_parent_block_id][$tag_name]) ? self::getMap()['tagsByName'][$xx_parent_block_id][$tag_name] : null;
     }
@@ -389,7 +388,7 @@ class Spec
      */
     public static function getTagFormat(BlockBase $parent_block, $tag_id)
     {
-        $xx_parent_block_id = self::getIfdIdByType($parent_block->getAttribute('name'));
+        $xx_parent_block_id = self::getIfdIdByType($parent_block->getType());
 
         $format = isset(self::getMap()['tags'][$xx_parent_block_id][$tag_id]['format']) ? self::getMap()['tags'][$xx_parent_block_id][$tag_id]['format'] : [];
         return empty($format) ? null : $format;
@@ -408,7 +407,7 @@ class Spec
      */
     public static function getTagComponents(BlockBase $parent_block, $tag_id)
     {
-        $xx_parent_block_id = self::getIfdIdByType($parent_block->getAttribute('name'));
+        $xx_parent_block_id = self::getIfdIdByType($parent_block->getType());
 
         return isset(self::getMap()['tags'][$xx_parent_block_id][$tag_id]['components']) ? self::getMap()['tags'][$xx_parent_block_id][$tag_id]['components'] : null;
     }
@@ -425,7 +424,7 @@ class Spec
      */
     public static function getTagSkip(BlockBase $parent_block, $tag_id)
     {
-        $xx_parent_block_id = self::getIfdIdByType($parent_block->getAttribute('name'));
+        $xx_parent_block_id = self::getIfdIdByType($parent_block->getType());
 
         return isset(self::getMap()['tags'][$xx_parent_block_id][$tag_id]['skip']) ? self::getMap()['tags'][$xx_parent_block_id][$tag_id]['skip'] : false;
     }
@@ -443,7 +442,7 @@ class Spec
      */
     public static function getEntryClass(BlockBase $parent_block, $tag_id, $format = null)
     {
-        $xx_parent_block_id = self::getIfdIdByType($parent_block->getAttribute('name'));
+        $xx_parent_block_id = self::getIfdIdByType($parent_block->getType());
 
         // Return the specific tag class, if defined.
         if (isset(self::getMap()['tags'][$xx_parent_block_id][$tag_id]['class'])) {
@@ -458,7 +457,7 @@ class Spec
                     'No format can be derived for tag: 0x%04X (%s) in ifd: \'%s\'',
                     $tag_id,
                     self::getTagName($parent_block, $tag_id),
-                    $parent_block->getAttribute('name')
+                    $parent_block->getType()
                 );
             }
             $format = $formats[0];
@@ -483,7 +482,7 @@ class Spec
      */
     public static function getTagTitle(BlockBase $parent_block, $tag_id)
     {
-        $xx_parent_block_id = self::getIfdIdByType($parent_block->getAttribute('name'));
+        $xx_parent_block_id = self::getIfdIdByType($parent_block->getType());
 
         return isset(self::getMap()['tags'][$xx_parent_block_id][$tag_id]['title']) ? self::getMap()['tags'][$xx_parent_block_id][$tag_id]['title'] : null;
     }
@@ -504,7 +503,7 @@ class Spec
     public static function getTagText(BlockBase $tag, EntryInterface $entry, $options = []) // xx move to generic element
     {
         // Return a text from a mapping list if defined.
-        $ifd_name = $tag->getParentElement()->getAttribute('name');
+        $ifd_name = $tag->getParentElement()->getType();
         $ifd_id = self::getIfdIdByType($ifd_name);
         $tag_id = $tag->getAttribute('id');
         if (isset(self::getMap()['tags'][$ifd_id][$tag_id]['text']['mapping'])) {
