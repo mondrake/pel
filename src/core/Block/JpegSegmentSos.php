@@ -40,7 +40,7 @@ class JpegSegmentSos extends JpegSegmentBase
         $entry->debug("Scan: {text}", ['text' => $entry->toString()]);
 
         // Append the EOI.
-        new JpegSegment(self::JPEG_EOI, $this->getParentElement());
+        new JpegSegment('jpegSegment', self::JPEG_EOI, $this->getParentElement());
 
         // Now check to see if there are any trailing data.
         if ($end_offset < $size) {
