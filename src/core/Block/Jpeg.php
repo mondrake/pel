@@ -22,14 +22,13 @@ class Jpeg extends BlockBase
      * {@inheritdoc}
      */
     protected $DOMNodeName = 'jpeg';
-    protected $type = 'jpeg';
 
     /**
      * Constructs a Block for holding a JPEG image.
      */
     public function __construct(BlockBase $parent = null)
     {
-        parent::__construct($parent);
+        parent::__construct('jpeg', $parent);
     }
 
     /**

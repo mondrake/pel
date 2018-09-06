@@ -58,14 +58,18 @@ abstract class ElementBase implements ElementInterface, LoggerInterface
     /**
      * Constructs an Element object.
      *
+     * @param string $type
+     *            The type of this element.
      * @param \ExifEye\core\ElementInterface|null $parent
      *            (Optional) the parent element of this element.
      * @param \ExifEye\core\ElementInterface|null $reference
      *            (Optional) if specified, the new element will be inserted
      *            before the reference element.
      */
-    public function __construct(ElementInterface $parent = null, ElementInterface $reference = null)
+    public function __construct($type, ElementInterface $parent = null, ElementInterface $reference = null)
     {
+        $this->type = $type;
+        
         // If $parent is null, this Element is the root of the DOM document that
         // stores the image structure.
         if (!$parent || !is_object($parent->DOMNode)) {

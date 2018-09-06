@@ -45,11 +45,11 @@ class Ifd extends BlockBase
     protected $tagsSkipOffset = 0;
 
     /**
-     * Construct a new Image File Directory (IFD).
+     * Construct a Block for an Image File Directory (IFD).
      */
-    public function __construct(BlockBase $parent_block, $name)
+    public function __construct($type, $name, BlockBase $parent_block)
     {
-        parent::__construct($parent_block);
+        parent::__construct($type, $parent_block);
 
         $this->setAttribute('name', $name);
         $this->hasSpecification = Spec::getIfdIdByType($name) ? true : false;
@@ -117,7 +117,7 @@ class Ifd extends BlockBase
                 $o = $data_element->getLong($i_offset + 8);
                 if ($starting_offset != $o) {
                     $ifd_class = Spec::getIfdClass($ifd_name);
-                    $ifd = new $ifd_class($this, $ifd_name);
+                    $ifd = new $ifd_class($ifd_type, $ifd_name, $this);
                     try {
                         $ifd->loadFromData($data_element, $o, $size, [
                             'data_offset' => $tag_data_offset,

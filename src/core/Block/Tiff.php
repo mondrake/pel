@@ -26,14 +26,13 @@ class Tiff extends BlockBase
      * {@inheritdoc}
      */
     protected $DOMNodeName = 'tiff';
-    protected $type = 'tiff';
 
     /**
      * Constructs a Block for holding a TIFF image.
      */
     public function __construct(BlockBase $parent = null)
     {
-        parent::__construct($parent);
+        parent::__construct('tiff', $parent);
     }
 
     /**
@@ -61,10 +60,11 @@ class Tiff extends BlockBase
 
             try {
                 // Create and load the IFDs.
+                $ifd_type = Spec::getElementType($this->getType(), $i);
                 $ifd_name = Spec::getElementName($this->getType(), $i);
                 $ifd_class = Spec::getElementHandlingClass($this->getType(), $i);
                 $ifd_tags_count = $data_window->getShort($ifd_offset);
-                $ifd = new $ifd_class($this, $ifd_name);
+                $ifd = new $ifd_class($ifd_type, $ifd_name, $this);
                 $this->debug('{ifd_name} at offset {ifd_offset} with {ifd_tags_count} tags.', [
                     'ifd_name' => $ifd_name,
                     'ifd_offset' => $ifd_offset,
