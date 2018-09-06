@@ -21,7 +21,6 @@ class Ifd extends BlockBase
      * {@inheritdoc}
      */
     protected $DOMNodeName = 'ifd';
-    protected $type = 'ifd';
 
     /**
      * The IFD header bytes to skip.
@@ -113,6 +112,7 @@ class Ifd extends BlockBase
             // Load a subIfd.
             if (Spec::isTagAnIfdPointer($this, $tag->getAttribute('id'))) {
                 // If the tag is an IFD pointer, loads the IFD.
+                $ifd_type = Spec::getElementType($this->getType(), $tag->getAttribute('id'));
                 $ifd_name = Spec::getIfdNameFromTag($this, $tag->getAttribute('id'));
                 $o = $data_element->getLong($i_offset + 8);
                 if ($starting_offset != $o) {
