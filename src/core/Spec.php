@@ -231,6 +231,7 @@ class Spec
     {
         $xx_block_id = self::getIfdIdByType($block->getType());
 dump('x ' . $xx_block_id);
+        if (!$xx_block_id) throw new \Exception('bbinggo');
         return array_keys(self::getMap()['tags'][$xx_block_id]);
     }
 
@@ -245,7 +246,6 @@ dump('x ' . $xx_block_id);
      */
     public static function getIfdIdByType($ifd_type)
     {
-dump('y ' . $ifd_type);
         return isset(self::getMap()['ifdsByType'][$ifd_type]) ? self::getMap()['ifdsByType'][$ifd_type] : null;
     }
 
