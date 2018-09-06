@@ -230,7 +230,7 @@ class Spec
     public static function getIfdSupportedTagIds(BlockBase $block)
     {
         $xx_block_id = self::getIfdIdByType($block->getType());
-dump('x ' . $xx_block_id);
+if (!$ret) throw new \Exception(var_export($block, true));
         return array_keys(self::getMap()['tags'][$xx_block_id]);
     }
 
@@ -246,7 +246,6 @@ dump('x ' . $xx_block_id);
     public static function getIfdIdByType($ifd_type)
     {
         $ret = isset(self::getMap()['ifdsByType'][$ifd_type]) ? self::getMap()['ifdsByType'][$ifd_type] : null;
-if (!$ret) throw new \Exception(var_export([$ifd_type, self::getMap()['ifdsByType']]));
         return $ret;
     }
 
