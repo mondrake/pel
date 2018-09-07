@@ -23,8 +23,8 @@ class PelSpecTest extends ExifEyeTestCaseBase
         $tiff_mock = $this->getMockBuilder('ExifEye\core\Block\Tiff')
             ->disableOriginalConstructor()
             ->getMock();
-        $ifd_0 = new Ifd($tiff_mock, 'IFD0');
-        $ifd_exif = new Ifd($tiff_mock, 'Exif');
+        $ifd_0 = new Ifd('ifd', 'IFD0', $tiff_mock);
+        $ifd_exif = new Ifd('exif', 'Exif', $tiff_mock);
         $ifd_canon_camera_settings = new IfdIndexShort($tiff_mock, 'CanonCameraSettings');
 
         // Test retrieving IFD id by type.
@@ -81,7 +81,7 @@ class PelSpecTest extends ExifEyeTestCaseBase
         $tiff_mock = $this->getMockBuilder('ExifEye\core\Block\Tiff')
             ->disableOriginalConstructor()
             ->getMock();
-        $ifd_exif = new Ifd($tiff_mock, 'Exif');
+        $ifd_exif = new Ifd('ifd', 'Exif', $tiff_mock);
         $ifd_canon_picture_information = new IfdIndexShort($tiff_mock, 'CanonPictureInformation');
 
         $this->assertEquals('ExifEye\core\Entry\ExifUserComment', Spec::getEntryClass($ifd_exif, 0x9286));
