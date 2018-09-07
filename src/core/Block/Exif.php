@@ -24,15 +24,6 @@ class Exif extends BlockBase
      * {@inheritdoc}
      */
     protected $DOMNodeName = 'exif';
-    protected $type = 'exif';
-
-    /**
-     * Construct a new Exif object.
-     */
-    public function __construct(JpegSegmentApp1 $parent_block)
-    {
-        parent::__construct($parent_block);
-    }
 
     /**
      * {@inheritdoc}

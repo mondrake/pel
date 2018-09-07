@@ -48,7 +48,7 @@ class ReadWriteTest extends ExifEyeTestCaseBase
         // Insert the APP1 segment before the COM one.
         $app1_segment = new JpegSegmentApp1(0xE1, $jpeg, $com_segment);
 
-        $exif = new Exif($app1_segment);
+        $exif = new Exif('exif', $app1_segment);
         $this->assertNotNull($jpeg->getElement("jpegSegment/exif"));
         $this->assertNull($exif->getElement("tiff"));
 
