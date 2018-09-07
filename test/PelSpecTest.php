@@ -25,7 +25,7 @@ class PelSpecTest extends ExifEyeTestCaseBase
             ->getMock();
         $ifd_0 = new Ifd('ifd', 'IFD0', $tiff_mock);
         $ifd_exif = new Ifd('exif', 'Exif', $tiff_mock);
-        $ifd_canon_camera_settings = new IfdIndexShort($tiff_mock, 'CanonCameraSettings');
+        $ifd_canon_camera_settings = new IfdIndexShort('ifdIndexShort', 'CanonCameraSettings', $tiff_mock);
 
         // Test retrieving IFD id by type.
         $this->assertEquals(Spec::getIfdIdByType('IFD0'), Spec::getIfdIdByType('0'));

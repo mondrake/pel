@@ -14,11 +14,6 @@ use ExifEye\core\Spec;
 class IfdIndexShort extends Ifd
 {
     /**
-     * {@inheritdoc}
-     */
-    protected $type = 'ifdIndexShort';
-
-    /**
      * Load data into a Image File Directory (IFD).
      *
      * @param DataWindow $data_element
