@@ -35,6 +35,7 @@ class DataWindow extends DataElement
     }
 
     public function debug($caller)
+    {
         $caller->debug('Data Window @ [{start}-{end}] [0x{hstart}-0x{hend}], {size} bytes, order: {order} ...', [
             'start' => $this->getStart(),
             'end' => $this->getStart() + $size - 1,
