@@ -82,7 +82,8 @@ class Thumbnail extends BlockBase
         // Now set the thumbnail normally.
         try {
             //$dataxx = $data_element->getClone($offset, $length);
-            $dataxx = new DataWindow($data_element, $offset, $length, $data_element->getByteOrder(), $ifd);
+            $dataxx = new DataWindow($data_element, $offset, $length, $data_element->getByteOrder());
+            $data_window->debug($ifd);
             $size = $dataxx->getSize();
 
             // Now move backwards until we find the EOI JPEG marker.

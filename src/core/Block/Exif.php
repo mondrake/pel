@@ -30,7 +30,8 @@ class Exif extends BlockBase
      */
     public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
     {
-        $data_window = new DataWindow($data_element, $offset, $size, $data_element->getByteOrder(), $this);
+        $data_window = new DataWindow($data_element, $offset, $size, $data_element->getByteOrder());
+        $data_window->debug($this);
 
         $tiff_order = Tiff::getTiffSegmentByteOrder($data_window, strlen(self::EXIF_HEADER));
         if ($tiff_order !== null) {

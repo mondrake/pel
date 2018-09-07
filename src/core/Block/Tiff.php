@@ -44,7 +44,8 @@ class Tiff extends BlockBase
         $byte_order = self::getTiffSegmentByteOrder($data_element, $offset);
 
         // Open a data window on the TIFF data.
-        $data_window = new DataWindow($data_element, $offset, $size, $byte_order, $this);
+        $data_window = new DataWindow($data_element, $offset, $size, $byte_order);
+        $data_window->debug($this);
 
         // Starting IFD will be at offset 4 (2 bytes for byte order + 2 for
         // header)
