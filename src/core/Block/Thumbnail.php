@@ -97,7 +97,7 @@ class Thumbnail extends BlockBase
             //$thumbnail_data = $dataxx->getClone(0, $size)->getBytes(0, $size);
             $thumbnail_data = $dataxx->getBytes(0, $size);
 
-            $thumbnail_block = new static($ifd);
+            $thumbnail_block = new static('thumbnail', $ifd);
             $thumbnail_entry = new Undefined($thumbnail_block, [$thumbnail_data]);
             $thumbnail_block->debug('JPEG thumbnail found at offset {offset} of length {length}', [
                 'offset' => $offset,
