@@ -82,7 +82,7 @@ class PelSpecTest extends ExifEyeTestCaseBase
             ->disableOriginalConstructor()
             ->getMock();
         $ifd_exif = new Ifd('ifd', 'Exif', $tiff_mock);
-        $ifd_canon_picture_information = new IfdIndexShort($tiff_mock, 'CanonPictureInformation');
+        $ifd_canon_picture_information = new IfdIndexShort('ifdIndexShort', 'CanonPictureInformation', $tiff_mock);
 
         $this->assertEquals('ExifEye\core\Entry\ExifUserComment', Spec::getEntryClass($ifd_exif, 0x9286));
         $this->assertEquals('ExifEye\core\Entry\Time', Spec::getEntryClass($ifd_exif, 0x9003));
