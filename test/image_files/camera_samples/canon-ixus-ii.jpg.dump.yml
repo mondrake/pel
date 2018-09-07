@@ -783,7 +783,7 @@ elements:
                                                             name: CanonMakerNotes
                                                             elements:
                                                                 -
-                                                                    type: ifdIndexShort
+                                                                    type: ifd
                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifd:CanonCameraSettings'
                                                                     class: ExifEye\core\Block\IfdIndexShort
                                                                     valid: true
@@ -1596,7 +1596,7 @@ elements:
                                                                             bytesHash: fef02424157f106b48d04276276c15ebba9c516e6024d4f82ea2f648af3e09c8
                                                                             text: '1024, 0, 0, 0'
                                                                 -
-                                                                    type: ifdIndexShort
+                                                                    type: ifd
                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifd:CanonShotInformation'
                                                                     class: ExifEye\core\Block\IfdIndexShort
                                                                     valid: true

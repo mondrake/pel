@@ -783,7 +783,7 @@ elements:
                                                             name: CanonMakerNotes
                                                             elements:
                                                                 -
-                                                                    type: ifdIndexShort
+                                                                    type: ifd
                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifd:CanonCameraSettings'
                                                                     class: ExifEye\core\Block\IfdIndexShort
                                                                     valid: true
@@ -1644,7 +1644,7 @@ elements:
                                                                             bytesHash: af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc
                                                                             text: '0, 0, 0, 0'
                                                                 -
-                                                                    type: ifdIndexShort
+                                                                    type: ifd
                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifd:CanonShotInformation'
                                                                     class: ExifEye\core\Block\IfdIndexShort
                                                                     valid: true
@@ -2374,7 +2374,7 @@ elements:
                                                                             bytesHash: b20c9e799b1be6095e3a72ed8b7cd971be71ee0a58a6b1aca391f97b5a9df6f3
                                                                             text: '16, 0, 20, 0'
                                                                 -
-                                                                    type: ifdIndexShort
+                                                                    type: ifd
                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif/ifd:CanonMakerNotes/ifd:CanonFileInformation'
                                                                     class: ExifEye\core\Block\IfdIndexShort
                                                                     valid: true
