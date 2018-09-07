@@ -36,13 +36,13 @@ class DataWindow extends DataElement
 
     public function debug($caller)
     {
-        $caller->debug('Data Window @ [{start}-{end}] [0x{hstart}-0x{hend}], {size} bytes, order: {order} ...', [
+        $caller->debug('Data Window @ [{start}-{end}] [{hstart}-{hend}], {size} bytes, order: {order} ...', [
             'start' => $this->getStart(),
-            'end' => $this->getStart() + $size - 1,
-            'hstart' => strtoupper(dechex($this->getStart())),
-            'hend' => strtoupper(dechex($this->getStart() + $size - 1)),
+            'end' => $this->getStart() + $this->getSize() - 1,
+            'hstart' => '0x' . strtoupper(dechex($this->getStart())),
+            'hend' => '0x' . strtoupper(dechex($this->getStart() + $this->getSize() - 1)),
             'size' => $this->getSize(),
-            'order' => $this->getByteOrder(),
+            'order' => $this->getByteOrder() ? 'M' : 'I',
         ]);
     }
 }
