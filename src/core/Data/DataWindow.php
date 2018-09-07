@@ -41,8 +41,8 @@ class DataWindow extends DataElement
             'end' => $this->getStart() + $size - 1,
             'hstart' => strtoupper(dechex($this->getStart())),
             'hend' => strtoupper(dechex($this->getStart() + $size - 1)),
-            'size' => $size,
-            'order' => $byte_order,
+            'size' => $this->getSize(),
+            'order' => $this->getByteOrder(),
         ]);
     }
 }
