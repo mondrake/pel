@@ -8,34 +8,24 @@ return array (
   'ifds' =>
   array (
     0 => 'CanonPictureInformation',
-    1 => 'Interoperability',
-    2 => 'AppleMakerNotes',
-    3 => 'AppleRunTime',
-    4 => 'GPS',
-    5 => 'Exif',
-    6 => 'CanonMakerNotes',
-    7 => 'CanonCameraSettings',
-    8 => 'CanonFileInformation',
-    9 => 'CanonShotInformation',
-    10 => 'CanonPanoramaInformation',
-    11 => 'IFD0',
-    12 => 'IFD1',
+    1 => 'AppleMakerNotes',
+    2 => 'AppleRunTime',
+    3 => 'CanonMakerNotes',
+    4 => 'CanonCameraSettings',
+    5 => 'CanonFileInformation',
+    6 => 'CanonShotInformation',
+    7 => 'CanonPanoramaInformation',
   ),
   'ifdClasses' =>
   array (
     0 => '???',
-    1 => 'ExifEye\\core\\Block\\Ifd',
-    2 => 'ExifEye\\Apple\\Block\\MakerNote',
-    3 => 'ExifEye\\Apple\\Block\\RunTime',
-    4 => 'ExifEye\\core\\Block\\Ifd',
-    5 => 'ExifEye\\core\\Block\\Ifd',
-    6 => 'ExifEye\\core\\Block\\Ifd',
+    1 => 'ExifEye\\Apple\\Block\\MakerNote',
+    2 => 'ExifEye\\Apple\\Block\\RunTime',
+    3 => 'ExifEye\\core\\Block\\Ifd',
+    4 => 'ExifEye\\core\\Block\\IfdIndexShort',
+    5 => 'ExifEye\\core\\Block\\IfdIndexShort',
+    6 => 'ExifEye\\core\\Block\\IfdIndexShort',
     7 => 'ExifEye\\core\\Block\\IfdIndexShort',
-    8 => 'ExifEye\\core\\Block\\IfdIndexShort',
-    9 => 'ExifEye\\core\\Block\\IfdIndexShort',
-    10 => 'ExifEye\\core\\Block\\IfdIndexShort',
-    11 => 'ExifEye\\core\\Block\\Ifd',
-    12 => 'ExifEye\\core\\Block\\Ifd',
   ),
   'ifdPostLoadCallbacks' =>
   array (
@@ -63,45 +53,17 @@ return array (
     7 =>
     array (
     ),
-    8 =>
-    array (
-    ),
-    9 =>
-    array (
-    ),
-    10 =>
-    array (
-    ),
-    11 =>
-    array (
-      0 => 'ExifEye\\core\\Block\\Thumbnail::toBlock',
-      1 => 'ExifEye\\core\\Entry\\ExifMakerNote::tagToIfd',
-    ),
-    12 =>
-    array (
-      0 => 'ExifEye\\core\\Block\\Thumbnail::toBlock',
-    ),
   ),
   'ifdsByType' =>
   array (
     'CanonPictureInformation' => 0,
-    'Interoperability' => 1,
-    'Interop' => 1,
-    'AppleMakerNotes' => 2,
-    'AppleRunTime' => 3,
-    'GPS' => 4,
-    'Exif' => 5,
-    'CanonMakerNotes' => 6,
-    'CanonCameraSettings' => 7,
-    'CanonFileInformation' => 8,
-    'CanonShotInformation' => 9,
-    'CanonPanoramaInformation' => 10,
-    'IFD0' => 11,
-    0 => 11,
-    'Main' => 11,
-    'IFD1' => 12,
-    1 => 12,
-    'Thumbnail' => 12,
+    'AppleMakerNotes' => 1,
+    'AppleRunTime' => 2,
+    'CanonMakerNotes' => 3,
+    'CanonCameraSettings' => 4,
+    'CanonFileInformation' => 5,
+    'CanonShotInformation' => 6,
+    'CanonPanoramaInformation' => 7,
   ),
   'tags' =>
   array (
@@ -140,64 +102,11 @@ return array (
     ),
     1 =>
     array (
-      1 =>
-      array (
-        'name' => 'InteroperabilityIndex',
-        'title' => 'Interoperability Index',
-        'components' => 4,
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      2 =>
-      array (
-        'name' => 'InteroperabilityVersion',
-        'title' => 'Interoperability Version',
-        'components' => 4,
-        'format' =>
-        array (
-          0 => 7,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\InteroperabilityVersion',
-      ),
-      4096 =>
-      array (
-        'name' => 'RelatedImageFileFormat',
-        'title' => 'Related Image File Format',
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      4097 =>
-      array (
-        'name' => 'RelatedImageWidth',
-        'title' => 'Related Image Width',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-      ),
-      4098 =>
-      array (
-        'name' => 'RelatedImageLength',
-        'title' => 'Related Image Length',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-      ),
-    ),
-    2 =>
-    array (
       3 =>
       array (
         'name' => 'RunTime',
         'title' => 'Apple Run Time',
-        'ifd' => 3,
+        'ifd' => 2,
       ),
       8 =>
       array (
@@ -253,7 +162,7 @@ return array (
         ),
       ),
     ),
-    3 =>
+    2 =>
     array (
       1 =>
       array (
@@ -292,1229 +201,13 @@ return array (
         ),
       ),
     ),
-    4 =>
-    array (
-      0 =>
-      array (
-        'name' => 'GPSVersionID',
-        'title' => 'GPS Version',
-        'components' => 4,
-        'format' =>
-        array (
-          0 => 1,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\GPSVersionId',
-      ),
-      1 =>
-      array (
-        'name' => 'GPSLatitudeRef',
-        'title' => 'LatitudeRef',
-        'components' => 2,
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      2 =>
-      array (
-        'name' => 'GPSLatitude',
-        'title' => 'Latitude',
-        'components' => 3,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\GPSDegrees',
-      ),
-      3 =>
-      array (
-        'name' => 'GPSLongitudeRef',
-        'title' => 'LongitudeRef',
-        'components' => 2,
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      4 =>
-      array (
-        'name' => 'GPSLongitude',
-        'title' => 'Longitude',
-        'components' => 3,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\GPSDegrees',
-      ),
-      5 =>
-      array (
-        'name' => 'GPSAltitudeRef',
-        'title' => 'AltitudeRef',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 1,
-        ),
-      ),
-      6 =>
-      array (
-        'name' => 'GPSAltitude',
-        'title' => 'Altitude',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-      7 =>
-      array (
-        'name' => 'GPSTimeStamp',
-        'title' => 'TimeStamp',
-        'components' => 3,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-      8 =>
-      array (
-        'name' => 'GPSSatellites',
-        'title' => 'Satellites',
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      9 =>
-      array (
-        'name' => 'GPSStatus',
-        'title' => 'Status',
-        'components' => 2,
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      10 =>
-      array (
-        'name' => 'GPSMeasureMode',
-        'title' => 'Measure Mode',
-        'components' => 2,
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      11 =>
-      array (
-        'name' => 'GPSDOP',
-        'title' => 'DOP',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-      12 =>
-      array (
-        'name' => 'GPSSpeedRef',
-        'title' => 'SpeedRef',
-        'components' => 2,
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      13 =>
-      array (
-        'name' => 'GPSSpeed',
-        'title' => 'Speed',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-      14 =>
-      array (
-        'name' => 'GPSTrackRef',
-        'title' => 'TrackRef',
-        'components' => 2,
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      15 =>
-      array (
-        'name' => 'GPSTrack',
-        'title' => 'Track',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-      16 =>
-      array (
-        'name' => 'GPSImgDirectionRef',
-        'title' => 'ImgDirectionRef',
-        'components' => 2,
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      17 =>
-      array (
-        'name' => 'GPSImgDirection',
-        'title' => 'Image Direction',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-      18 =>
-      array (
-        'name' => 'GPSMapDatum',
-        'title' => 'Map Datum',
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      19 =>
-      array (
-        'name' => 'GPSDestLatitudeRef',
-        'title' => 'DestLatitudeRef',
-        'components' => 2,
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      20 =>
-      array (
-        'name' => 'GPSDestLatitude',
-        'title' => 'DestLatitude',
-        'components' => 3,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-      21 =>
-      array (
-        'name' => 'GPSDestLongitudeRef',
-        'title' => 'DestLongitudeRef',
-        'components' => 2,
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      22 =>
-      array (
-        'name' => 'GPSDestLongitude',
-        'title' => 'DestLongitude',
-        'components' => 3,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-      23 =>
-      array (
-        'name' => 'GPSDestBearingRef',
-        'title' => 'DestBearingRef',
-        'components' => 2,
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      24 =>
-      array (
-        'name' => 'GPSDestBearing',
-        'title' => 'DestBearing',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-      25 =>
-      array (
-        'name' => 'GPSDestDistanceRef',
-        'title' => 'DestDistanceRef',
-        'components' => 2,
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      26 =>
-      array (
-        'name' => 'GPSDestDistance',
-        'title' => 'DestDistance',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-      27 =>
-      array (
-        'name' => 'GPSProcessingMethod',
-        'title' => 'Processing Method',
-        'format' =>
-        array (
-          0 => 7,
-        ),
-      ),
-      28 =>
-      array (
-        'name' => 'GPSAreaInformation',
-        'title' => 'Area Information',
-        'format' =>
-        array (
-          0 => 7,
-        ),
-      ),
-      29 =>
-      array (
-        'name' => 'GPSDateStamp',
-        'title' => 'Date Stamp',
-        'components' => 11,
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      30 =>
-      array (
-        'name' => 'GPSDifferential',
-        'title' => 'Differential',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-      ),
-      31 =>
-      array (
-        'name' => 'GPSHPositioningError',
-        'title' => 'Horizontal Positioning Error',
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-    ),
-    5 =>
-    array (
-      41730 =>
-      array (
-        'name' => 'CFAPattern',
-        'title' => 'CFA Pattern',
-        'format' =>
-        array (
-          0 => 7,
-        ),
-      ),
-      33434 =>
-      array (
-        'name' => 'ExposureTime',
-        'title' => 'Exposure Time',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\ExifExposureTime',
-      ),
-      33437 =>
-      array (
-        'name' => 'FNumber',
-        'title' => 'FNumber',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\ExifFNumber',
-      ),
-      34850 =>
-      array (
-        'name' => 'ExposureProgram',
-        'title' => 'Exposure Program',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            0 => 'Not defined',
-            1 => 'Manual',
-            2 => 'Normal program',
-            3 => 'Aperture priority',
-            4 => 'Shutter priority',
-            5 => 'Creative program (biased toward depth of field)',
-            6 => 'Action program (biased toward fast shutter speed)',
-            7 => 'Portrait mode (for closeup photos with the background out of focus',
-            8 => 'Landscape mode (for landscape photos with the background in focus',
-          ),
-        ),
-      ),
-      34852 =>
-      array (
-        'name' => 'SpectralSensitivity',
-        'title' => 'Spectral Sensitivity',
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      34855 =>
-      array (
-        'name' => 'ISOSpeedRatings',
-        'title' => 'ISO Speed Ratings',
-        'format' =>
-        array (
-          0 => 3,
-        ),
-      ),
-      34856 =>
-      array (
-        'name' => 'OECF',
-        'title' => 'OECF',
-        'format' =>
-        array (
-          0 => 7,
-        ),
-      ),
-      34864 =>
-      array (
-        'name' => 'SensitivityType',
-        'title' => 'Sensitivity Type',
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            0 => 'Unknown',
-            1 => 'Standard Output Sensitivity',
-            2 => 'Recommended Exposure Index',
-            3 => 'ISO Speed',
-            4 => 'Standard Output Sensitivity and Recommended Exposure Index',
-            5 => 'Standard Output Sensitivity and ISO Speed',
-            6 => 'Recommended Exposure Index and ISO Speed',
-            7 => 'Standard Output Sensitivity, Recommended Exposure Index and ISO Speed',
-          ),
-        ),
-      ),
-      34866 =>
-      array (
-        'name' => 'RecommendedExposureIndex',
-        'title' => 'Recommended Exposure Index',
-        'format' =>
-        array (
-          0 => 3,
-        ),
-      ),
-      36864 =>
-      array (
-        'name' => 'ExifVersion',
-        'title' => 'Exif Version',
-        'components' => 4,
-        'format' =>
-        array (
-          0 => 7,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\ExifVersion',
-      ),
-      36867 =>
-      array (
-        'name' => 'DateTimeOriginal',
-        'title' => 'Date and Time (original)',
-        'components' => 20,
-        'format' =>
-        array (
-          0 => 2,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\Time',
-      ),
-      36868 =>
-      array (
-        'name' => 'DateTimeDigitized',
-        'title' => 'Date and Time (digitized)',
-        'components' => 20,
-        'format' =>
-        array (
-          0 => 2,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\Time',
-      ),
-      36880 =>
-      array (
-        'name' => 'OffsetTime',
-        'title' => 'Timezone',
-        'components' => 7,
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      36881 =>
-      array (
-        'name' => 'OffsetTimeOriginal',
-        'title' => 'Timezone (original)',
-        'components' => 7,
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      36882 =>
-      array (
-        'name' => 'OffsetTimeDigitized',
-        'title' => 'Timezone (digitized)',
-        'components' => 7,
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      37121 =>
-      array (
-        'name' => 'ComponentsConfiguration',
-        'title' => 'Components Configuration',
-        'components' => 4,
-        'format' =>
-        array (
-          0 => 7,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\ExifComponentsConfiguration',
-      ),
-      37122 =>
-      array (
-        'name' => 'CompressedBitsPerPixel',
-        'title' => 'Compressed Bits per Pixel',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-      37377 =>
-      array (
-        'name' => 'ShutterSpeedValue',
-        'title' => 'Shutter Speed Value',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 10,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\ExifShutterSpeedValue',
-      ),
-      37378 =>
-      array (
-        'name' => 'ApertureValue',
-        'title' => 'Aperture Value',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\ExifApertureValue',
-      ),
-      37379 =>
-      array (
-        'name' => 'BrightnessValue',
-        'title' => 'Brightness Value',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 10,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\ExifBrightnessValue',
-      ),
-      37380 =>
-      array (
-        'name' => 'ExposureBiasValue',
-        'title' => 'Exposure Bias',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 10,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\ExifExposureBiasValue',
-      ),
-      37381 =>
-      array (
-        'name' => 'MaxApertureValue',
-        'title' => 'Max Aperture Value',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-      37382 =>
-      array (
-        'name' => 'SubjectDistance',
-        'title' => 'Subject Distance',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 10,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\ExifSubjectDistance',
-      ),
-      37383 =>
-      array (
-        'name' => 'MeteringMode',
-        'title' => 'Metering Mode',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            0 => 'Unknown',
-            1 => 'Average',
-            2 => 'Center-Weighted Average',
-            3 => 'Spot',
-            4 => 'Multi Spot',
-            5 => 'Pattern',
-            6 => 'Partial',
-            255 => 'Other',
-          ),
-        ),
-      ),
-      37384 =>
-      array (
-        'name' => 'LightSource',
-        'title' => 'Light Source',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            0 => 'Unknown',
-            1 => 'Daylight',
-            2 => 'Fluorescent',
-            3 => 'Tungsten (incandescent light)',
-            4 => 'Flash',
-            9 => 'Fine weather',
-            10 => 'Cloudy weather',
-            11 => 'Shade',
-            12 => 'Daylight fluorescent',
-            13 => 'Day white fluorescent',
-            14 => 'Cool white fluorescent',
-            15 => 'White fluorescent',
-            17 => 'Standard light A',
-            18 => 'Standard light B',
-            19 => 'Standard light C',
-            20 => 'D55',
-            21 => 'D65',
-            22 => 'D75',
-            24 => 'ISO studio tungsten',
-            255 => 'Other',
-          ),
-        ),
-      ),
-      37385 =>
-      array (
-        'name' => 'Flash',
-        'title' => 'Flash',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            0 => 'Flash did not fire.',
-            1 => 'Flash fired.',
-            5 => 'Strobe return light not detected.',
-            7 => 'Strobe return light detected.',
-            9 => 'Flash fired, compulsory flash mode.',
-            13 => 'Flash fired, compulsory flash mode, return light not detected.',
-            15 => 'Flash fired, compulsory flash mode, return light detected.',
-            16 => 'Flash did not fire, compulsory flash mode.',
-            24 => 'Flash did not fire, auto mode.',
-            25 => 'Flash fired, auto mode.',
-            29 => 'Flash fired, auto mode, return light not detected.',
-            31 => 'Flash fired, auto mode, return light detected.',
-            32 => 'No flash function.',
-            65 => 'Flash fired, red-eye reduction mode.',
-            69 => 'Flash fired, red-eye reduction mode, return light not detected.',
-            71 => 'Flash fired, red-eye reduction mode, return light detected.',
-            73 => 'Flash fired, compulsory flash mode, red-eye reduction mode.',
-            77 => 'Flash fired, compulsory flash mode, red-eye reduction mode, return light not detected.',
-            79 => 'Flash fired, compulsory flash mode, red-eye reduction mode, return light detected.',
-            88 => 'Flash did not fire, auto mode, red-eye reduction mode.',
-            89 => 'Flash fired, auto mode, red-eye reduction mode.',
-            93 => 'Flash fired, auto mode, return light not detected, red-eye reduction mode.',
-            95 => 'Flash fired, auto mode, return light detected, red-eye reduction mode.',
-          ),
-        ),
-      ),
-      37386 =>
-      array (
-        'name' => 'FocalLength',
-        'title' => 'Focal Length',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\ExifFocalLength',
-      ),
-      37396 =>
-      array (
-        'name' => 'SubjectArea',
-        'title' => 'Subject Area',
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\ExifSubjectArea',
-      ),
-      37500 =>
-      array (
-        'name' => 'MakerNote',
-        'title' => 'Maker Note',
-        'format' =>
-        array (
-          0 => 7,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\ExifMakerNote',
-      ),
-      37510 =>
-      array (
-        'name' => 'UserComment',
-        'title' => 'User Comment',
-        'format' =>
-        array (
-          0 => 7,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\ExifUserComment',
-      ),
-      37520 =>
-      array (
-        'name' => 'SubSecTime',
-        'title' => 'SubSec Time',
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      37521 =>
-      array (
-        'name' => 'SubSecTimeOriginal',
-        'title' => 'SubSec Time Original',
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      37522 =>
-      array (
-        'name' => 'SubSecTimeDigitized',
-        'title' => 'SubSec Time Digitized',
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      40960 =>
-      array (
-        'name' => 'FlashPixVersion',
-        'title' => 'FlashPix Version',
-        'components' => 4,
-        'format' =>
-        array (
-          0 => 7,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\ExifFlashPixVersion',
-      ),
-      40961 =>
-      array (
-        'name' => 'ColorSpace',
-        'title' => 'Color Space',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            1 => 'sRGB',
-            2 => 'Adobe RGB',
-            65535 => 'Uncalibrated',
-          ),
-        ),
-      ),
-      40962 =>
-      array (
-        'name' => 'PixelXDimension',
-        'title' => 'Pixel x-Dimension',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-          1 => 4,
-        ),
-      ),
-      40963 =>
-      array (
-        'name' => 'PixelYDimension',
-        'title' => 'Pixel y-Dimension',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-          1 => 4,
-        ),
-      ),
-      40964 =>
-      array (
-        'name' => 'RelatedSoundFile',
-        'title' => 'Related Sound File',
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      40965 =>
-      array (
-        'name' => 'InteroperabilityIFDPointer',
-        'title' => 'Interoperability IFD Pointer',
-        'ifd' => 1,
-      ),
-      41483 =>
-      array (
-        'name' => 'FlashEnergy',
-        'title' => 'Flash Energy',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-      41484 =>
-      array (
-        'name' => 'SpatialFrequencyResponse',
-        'title' => 'Spatial Frequency Response',
-        'format' =>
-        array (
-          0 => 7,
-        ),
-      ),
-      41486 =>
-      array (
-        'name' => 'FocalPlaneXResolution',
-        'title' => 'Focal Plane x-Resolution',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-      41487 =>
-      array (
-        'name' => 'FocalPlaneYResolution',
-        'title' => 'Focal Plane y-Resolution',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-      41488 =>
-      array (
-        'name' => 'FocalPlaneResolutionUnit',
-        'title' => 'Focal Plane Resolution Unit',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            2 => 'Inch',
-            3 => 'Centimeter',
-          ),
-        ),
-      ),
-      41492 =>
-      array (
-        'name' => 'SubjectLocation',
-        'title' => 'Subject Location',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-      ),
-      41493 =>
-      array (
-        'name' => 'ExposureIndex',
-        'title' => 'Exposure index',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-      41495 =>
-      array (
-        'name' => 'SensingMethod',
-        'title' => 'Sensing Method',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            1 => 'Not defined',
-            2 => 'One-chip color area sensor',
-            3 => 'Two-chip color area sensor',
-            4 => 'Three-chip color area sensor',
-            5 => 'Color sequential area sensor',
-            7 => 'Trilinear sensor',
-            8 => 'Color sequential linear sensor',
-          ),
-        ),
-      ),
-      41728 =>
-      array (
-        'name' => 'FileSource',
-        'title' => 'File Source',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 7,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\ExifFileSource',
-      ),
-      41729 =>
-      array (
-        'name' => 'SceneType',
-        'title' => 'Scene Type',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 7,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\ExifSceneType',
-      ),
-      41985 =>
-      array (
-        'name' => 'CustomRendered',
-        'title' => 'Custom Rendered',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            0 => 'Normal process',
-            1 => 'Custom process',
-          ),
-        ),
-      ),
-      41986 =>
-      array (
-        'name' => 'ExposureMode',
-        'title' => 'Exposure Mode',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            0 => 'Auto exposure',
-            1 => 'Manual exposure',
-            2 => 'Auto bracket',
-          ),
-        ),
-      ),
-      41987 =>
-      array (
-        'name' => 'WhiteBalance',
-        'title' => 'White Balance',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            0 => 'Auto white balance',
-            1 => 'Manual white balance',
-          ),
-        ),
-      ),
-      41988 =>
-      array (
-        'name' => 'DigitalZoomRatio',
-        'title' => 'Digital Zoom Ratio',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-      41989 =>
-      array (
-        'name' => 'FocalLengthIn35mmFilm',
-        'title' => 'Focal Length In 35mm Film',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-      ),
-      41990 =>
-      array (
-        'name' => 'SceneCaptureType',
-        'title' => 'Scene Capture Type',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            0 => 'Standard',
-            1 => 'Landscape',
-            2 => 'Portrait',
-            3 => 'Night scene',
-          ),
-        ),
-      ),
-      41991 =>
-      array (
-        'name' => 'GainControl',
-        'title' => 'Gain Control',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            0 => 'Normal',
-            1 => 'Low gain up',
-            2 => 'High gain up',
-            3 => 'Low gain down',
-            4 => 'High gain down',
-          ),
-        ),
-      ),
-      41992 =>
-      array (
-        'name' => 'Contrast',
-        'title' => 'Contrast',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            0 => 'Normal',
-            1 => 'Soft',
-            2 => 'Hard',
-          ),
-        ),
-      ),
-      41993 =>
-      array (
-        'name' => 'Saturation',
-        'title' => 'Saturation',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            0 => 'Normal',
-            1 => 'Low saturation',
-            2 => 'High saturation',
-          ),
-        ),
-      ),
-      41994 =>
-      array (
-        'name' => 'Sharpness',
-        'title' => 'Sharpness',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            0 => 'Normal',
-            1 => 'Soft',
-            2 => 'Hard',
-          ),
-        ),
-      ),
-      41995 =>
-      array (
-        'name' => 'DeviceSettingDescription',
-        'title' => 'Device Setting Description',
-      ),
-      41996 =>
-      array (
-        'name' => 'SubjectDistanceRange',
-        'title' => 'Subject Distance Range',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            0 => 'Unknown',
-            1 => 'Macro',
-            2 => 'Close view',
-            3 => 'Distant view',
-          ),
-        ),
-      ),
-      42016 =>
-      array (
-        'name' => 'ImageUniqueID',
-        'title' => 'Image Unique ID',
-        'components' => 32,
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      42032 =>
-      array (
-        'name' => 'OwnerName',
-        'title' => 'Owner Name',
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      42033 =>
-      array (
-        'name' => 'SerialNumber',
-        'title' => 'Serial Number',
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      42034 =>
-      array (
-        'name' => 'LensInfo',
-        'title' => 'Lens Information',
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-      42035 =>
-      array (
-        'name' => 'LensMake',
-        'title' => 'Lens Make',
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      42036 =>
-      array (
-        'name' => 'LensModel',
-        'title' => 'Lens Model',
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      42037 =>
-      array (
-        'name' => 'LensSerialNumber',
-        'title' => 'Lens Serial Number',
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      42240 =>
-      array (
-        'name' => 'Gamma',
-        'title' => 'Gamma',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-    ),
-    6 =>
+    3 =>
     array (
       1 =>
       array (
         'name' => 'CameraSettings',
         'title' => 'Camera Settings',
-        'ifd' => 7,
+        'ifd' => 4,
       ),
       2 =>
       array (
@@ -1529,13 +222,13 @@ return array (
       array (
         'name' => 'ShotInfo',
         'title' => 'Shot Info',
-        'ifd' => 9,
+        'ifd' => 6,
       ),
       5 =>
       array (
         'name' => 'Panorama',
         'title' => 'Panorama',
-        'ifd' => 10,
+        'ifd' => 7,
       ),
       6 =>
       array (
@@ -1998,7 +691,7 @@ return array (
       array (
         'name' => 'FileInfo',
         'title' => 'File Info',
-        'ifd' => 8,
+        'ifd' => 5,
       ),
       149 =>
       array (
@@ -2105,7 +798,7 @@ return array (
         ),
       ),
     ),
-    7 =>
+    4 =>
     array (
       1 =>
       array (
@@ -3152,7 +1845,7 @@ return array (
         ),
       ),
     ),
-    8 =>
+    5 =>
     array (
       1 =>
       array (
@@ -3425,7 +2118,7 @@ return array (
         ),
       ),
     ),
-    9 =>
+    6 =>
     array (
       1 =>
       array (
@@ -3784,7 +2477,7 @@ return array (
         ),
       ),
     ),
-    10 =>
+    7 =>
     array (
       2 =>
       array (
@@ -3816,1252 +2509,6 @@ return array (
         ),
       ),
     ),
-    11 =>
-    array (
-      256 =>
-      array (
-        'name' => 'ImageWidth',
-        'title' => 'Image Width',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-          1 => 4,
-        ),
-      ),
-      257 =>
-      array (
-        'name' => 'ImageLength',
-        'title' => 'Image Length',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-          1 => 4,
-        ),
-      ),
-      258 =>
-      array (
-        'name' => 'BitsPerSample',
-        'title' => 'Bits per Sample',
-        'format' =>
-        array (
-          0 => 3,
-        ),
-      ),
-      259 =>
-      array (
-        'name' => 'Compression',
-        'title' => 'Compression',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            1 => 'Uncompressed',
-            2 => 'CCITT 1D',
-            3 => 'T4/Group 3 Fax',
-            4 => 'T6/Group 4 Fax',
-            5 => 'LZW',
-            6 => 'JPEG (old-style)',
-            7 => 'JPEG',
-            8 => 'Adobe Deflate',
-            9 => 'JBIG B&W',
-            10 => 'JBIG Color',
-            99 => 'JPEG',
-            262 => 'Kodak 262',
-            32766 => 'Next',
-            32767 => 'Sony ARW Compressed',
-            32769 => 'Packed RAW',
-            32770 => 'Samsung SRW Compressed',
-            32771 => 'CCIRLEW',
-            32772 => 'Samsung SRW Compressed 2',
-            32773 => 'PackBits',
-            32809 => 'Thunderscan',
-            32867 => 'Kodak KDC Compressed',
-            32895 => 'IT8CTPAD',
-            32896 => 'IT8LW',
-            32897 => 'IT8MP',
-            32898 => 'IT8BL',
-            32908 => 'PixarFilm',
-            32909 => 'PixarLog',
-            32946 => 'Deflate',
-            32947 => 'DCS',
-            34661 => 'JBIG',
-            34676 => 'SGILog',
-            34677 => 'SGILog24',
-            34712 => 'JPEG 2000',
-            34713 => 'Nikon NEF Compressed',
-            34715 => 'JBIG2 TIFF FX',
-            34718 => 'Microsoft Document Imaging (MDI) Binary Level Codec',
-            34719 => 'Microsoft Document Imaging (MDI) Progressive Transform Codec',
-            34720 => 'Microsoft Document Imaging (MDI) Vector',
-            34892 => 'Lossy JPEG',
-            65000 => 'Kodak DCR Compressed',
-            65535 => 'Pentax PEF Compressed',
-          ),
-        ),
-      ),
-      262 =>
-      array (
-        'name' => 'PhotometricInterpretation',
-        'title' => 'Photometric Interpretation',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            0 => 'WhiteIsZero',
-            1 => 'BlackIsZero',
-            2 => 'RGB',
-            3 => 'RGB Palette',
-            4 => 'Transparency Mask',
-            5 => 'CMYK',
-            6 => 'YCbCr',
-            8 => 'CIELab',
-            9 => 'ICCLab',
-            10 => 'ITULab',
-            32803 => 'Color Filter Array',
-            32844 => 'Pixar LogL',
-            32845 => 'Pixar LogLuv',
-            34892 => 'Linear Raw',
-          ),
-        ),
-      ),
-      266 =>
-      array (
-        'name' => 'FillOrder',
-        'title' => 'Fill Order',
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            1 => 'Normal',
-            2 => 'Reversed',
-          ),
-        ),
-      ),
-      269 =>
-      array (
-        'name' => 'DocumentName',
-        'title' => 'Document Name',
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      270 =>
-      array (
-        'name' => 'ImageDescription',
-        'title' => 'Image Description',
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      271 =>
-      array (
-        'name' => 'Make',
-        'title' => 'Manufacturer',
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      272 =>
-      array (
-        'name' => 'Model',
-        'title' => 'Model',
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      273 =>
-      array (
-        'name' => 'StripOffsets',
-        'title' => 'Strip Offsets',
-        'format' =>
-        array (
-          0 => 3,
-          1 => 4,
-        ),
-      ),
-      274 =>
-      array (
-        'name' => 'Orientation',
-        'title' => 'Orientation',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            1 => 'top - left',
-            2 => 'top - right',
-            3 => 'bottom - right',
-            4 => 'bottom - left',
-            5 => 'left - top',
-            6 => 'right - top',
-            7 => 'right - bottom',
-            8 => 'left - bottom',
-          ),
-        ),
-      ),
-      277 =>
-      array (
-        'name' => 'SamplesPerPixel',
-        'title' => 'Samples per Pixel',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-      ),
-      278 =>
-      array (
-        'name' => 'RowsPerStrip',
-        'title' => 'Rows per Strip',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-          1 => 4,
-        ),
-      ),
-      279 =>
-      array (
-        'name' => 'StripByteCounts',
-        'title' => 'Strip Byte Count',
-        'format' =>
-        array (
-          0 => 3,
-          1 => 4,
-        ),
-      ),
-      282 =>
-      array (
-        'name' => 'XResolution',
-        'title' => 'x-Resolution',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-      283 =>
-      array (
-        'name' => 'YResolution',
-        'title' => 'y-Resolution',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-      284 =>
-      array (
-        'name' => 'PlanarConfiguration',
-        'title' => 'Planar Configuration',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            1 => 'chunky format',
-            2 => 'planar format',
-          ),
-        ),
-      ),
-      296 =>
-      array (
-        'name' => 'ResolutionUnit',
-        'title' => 'Resolution Unit',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            2 => 'Inch',
-            3 => 'Centimeter',
-          ),
-        ),
-      ),
-      301 =>
-      array (
-        'name' => 'TransferFunction',
-        'title' => 'Transfer Function',
-        'components' => 3,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-      ),
-      305 =>
-      array (
-        'name' => 'Software',
-        'title' => 'Software',
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      306 =>
-      array (
-        'name' => 'DateTime',
-        'title' => 'Date and Time',
-        'components' => 20,
-        'format' =>
-        array (
-          0 => 2,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\Time',
-      ),
-      315 =>
-      array (
-        'name' => 'Artist',
-        'title' => 'Artist',
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      317 =>
-      array (
-        'name' => 'Predictor',
-        'title' => 'Predictor',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            1 => 'None',
-            2 => 'Horizontal differencing',
-          ),
-        ),
-      ),
-      318 =>
-      array (
-        'name' => 'WhitePoint',
-        'title' => 'White Point',
-        'components' => 2,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-      319 =>
-      array (
-        'name' => 'PrimaryChromaticities',
-        'title' => 'Primary Chromaticities',
-        'components' => 6,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-      338 =>
-      array (
-        'name' => 'ExtraSamples',
-        'title' => 'Extra Samples',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            0 => 'Unspecified',
-            1 => 'Associated Alpha',
-            2 => 'Unassociated Alpha',
-          ),
-        ),
-      ),
-      339 =>
-      array (
-        'name' => 'SampleFormat',
-        'title' => 'Sample Format',
-        'components' => 4,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-      ),
-      342 =>
-      array (
-        'name' => 'TransferRange',
-        'title' => 'Transfer Range',
-        'format' =>
-        array (
-          0 => 3,
-        ),
-      ),
-      512 =>
-      array (
-        'name' => 'JPEGProc',
-        'title' => 'JPEG Proc',
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            1 => 'Baseline',
-            14 => 'Lossless',
-          ),
-        ),
-      ),
-      513 =>
-      array (
-        'name' => 'ThumbnailOffset',
-        'title' => 'Thumbnail Offset',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 4,
-        ),
-      ),
-      514 =>
-      array (
-        'name' => 'ThumbnailLength',
-        'title' => 'Thumbnail Length',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 4,
-        ),
-      ),
-      529 =>
-      array (
-        'name' => 'YCbCrCoefficients',
-        'title' => 'YCbCr Coefficients',
-        'components' => 3,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-      530 =>
-      array (
-        'name' => 'YCbCrSubSampling',
-        'title' => 'YCbCr Sub-Sampling',
-        'components' => 2,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\IfdYCbCrSubSampling',
-      ),
-      531 =>
-      array (
-        'name' => 'YCbCrPositioning',
-        'title' => 'YCbCr Positioning',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            1 => 'centered',
-            2 => 'co-sited',
-          ),
-        ),
-      ),
-      532 =>
-      array (
-        'name' => 'ReferenceBlackWhite',
-        'title' => 'Reference Black/White',
-        'components' => 6,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-      700 =>
-      array (
-        'name' => 'ApplicationNotes',
-        'title' => 'Application Notes',
-        'format' =>
-        array (
-          0 => 1,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\IfdApplicationNotes',
-      ),
-      18246 =>
-      array (
-        'name' => 'Rating',
-        'title' => 'Star Rating',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-      ),
-      18249 =>
-      array (
-        'name' => 'RatingPercent',
-        'title' => 'Percent Rating',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-      ),
-      33423 =>
-      array (
-        'name' => 'BatteryLevel',
-        'title' => 'Battery Level',
-        'format' =>
-        array (
-          0 => 3,
-        ),
-      ),
-      33432 =>
-      array (
-        'name' => 'Copyright',
-        'title' => 'Copyright',
-        'format' =>
-        array (
-          0 => 2,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\IfdCopyright',
-      ),
-      33723 =>
-      array (
-        'name' => 'IPTC-NAA',
-        'title' => 'IPTC-NAA',
-        'format' =>
-        array (
-          0 => 4,
-        ),
-      ),
-      34665 =>
-      array (
-        'name' => 'ExifIFDPointer',
-        'title' => 'Exif IFD Pointer',
-        'ifd' => 5,
-      ),
-      34853 =>
-      array (
-        'name' => 'GPSInfoIFDPointer',
-        'title' => 'GPS Info IFD Pointer',
-        'ifd' => 4,
-      ),
-      40091 =>
-      array (
-        'name' => 'WindowsXPTitle',
-        'title' => 'Windows XP Title',
-        'format' =>
-        array (
-          0 => 1,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\WindowsString',
-      ),
-      40092 =>
-      array (
-        'name' => 'WindowsXPComment',
-        'title' => 'Windows XP Comment',
-        'format' =>
-        array (
-          0 => 1,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\WindowsString',
-      ),
-      40093 =>
-      array (
-        'name' => 'WindowsXPAuthor',
-        'title' => 'Windows XP Author',
-        'format' =>
-        array (
-          0 => 1,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\WindowsString',
-      ),
-      40094 =>
-      array (
-        'name' => 'WindowsXPKeywords',
-        'title' => 'Windows XP Keywords',
-        'format' =>
-        array (
-          0 => 1,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\WindowsString',
-      ),
-      40095 =>
-      array (
-        'name' => 'WindowsXPSubject',
-        'title' => 'Windows XP Subject',
-        'format' =>
-        array (
-          0 => 1,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\WindowsString',
-      ),
-      50341 =>
-      array (
-        'name' => 'PrintIM',
-        'title' => 'Print IM',
-        'format' =>
-        array (
-          0 => 7,
-        ),
-      ),
-    ),
-    12 =>
-    array (
-      256 =>
-      array (
-        'name' => 'ImageWidth',
-        'title' => 'Image Width',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-          1 => 4,
-        ),
-      ),
-      257 =>
-      array (
-        'name' => 'ImageLength',
-        'title' => 'Image Length',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-          1 => 4,
-        ),
-      ),
-      258 =>
-      array (
-        'name' => 'BitsPerSample',
-        'title' => 'Bits per Sample',
-        'format' =>
-        array (
-          0 => 3,
-        ),
-      ),
-      259 =>
-      array (
-        'name' => 'Compression',
-        'title' => 'Compression',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            1 => 'Uncompressed',
-            2 => 'CCITT 1D',
-            3 => 'T4/Group 3 Fax',
-            4 => 'T6/Group 4 Fax',
-            5 => 'LZW',
-            6 => 'JPEG (old-style)',
-            7 => 'JPEG',
-            8 => 'Adobe Deflate',
-            9 => 'JBIG B&W',
-            10 => 'JBIG Color',
-            99 => 'JPEG',
-            262 => 'Kodak 262',
-            32766 => 'Next',
-            32767 => 'Sony ARW Compressed',
-            32769 => 'Packed RAW',
-            32770 => 'Samsung SRW Compressed',
-            32771 => 'CCIRLEW',
-            32772 => 'Samsung SRW Compressed 2',
-            32773 => 'PackBits',
-            32809 => 'Thunderscan',
-            32867 => 'Kodak KDC Compressed',
-            32895 => 'IT8CTPAD',
-            32896 => 'IT8LW',
-            32897 => 'IT8MP',
-            32898 => 'IT8BL',
-            32908 => 'PixarFilm',
-            32909 => 'PixarLog',
-            32946 => 'Deflate',
-            32947 => 'DCS',
-            34661 => 'JBIG',
-            34676 => 'SGILog',
-            34677 => 'SGILog24',
-            34712 => 'JPEG 2000',
-            34713 => 'Nikon NEF Compressed',
-            34715 => 'JBIG2 TIFF FX',
-            34718 => 'Microsoft Document Imaging (MDI) Binary Level Codec',
-            34719 => 'Microsoft Document Imaging (MDI) Progressive Transform Codec',
-            34720 => 'Microsoft Document Imaging (MDI) Vector',
-            34892 => 'Lossy JPEG',
-            65000 => 'Kodak DCR Compressed',
-            65535 => 'Pentax PEF Compressed',
-          ),
-        ),
-      ),
-      262 =>
-      array (
-        'name' => 'PhotometricInterpretation',
-        'title' => 'Photometric Interpretation',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            0 => 'WhiteIsZero',
-            1 => 'BlackIsZero',
-            2 => 'RGB',
-            3 => 'RGB Palette',
-            4 => 'Transparency Mask',
-            5 => 'CMYK',
-            6 => 'YCbCr',
-            8 => 'CIELab',
-            9 => 'ICCLab',
-            10 => 'ITULab',
-            32803 => 'Color Filter Array',
-            32844 => 'Pixar LogL',
-            32845 => 'Pixar LogLuv',
-            34892 => 'Linear Raw',
-          ),
-        ),
-      ),
-      266 =>
-      array (
-        'name' => 'FillOrder',
-        'title' => 'Fill Order',
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            1 => 'Normal',
-            2 => 'Reversed',
-          ),
-        ),
-      ),
-      269 =>
-      array (
-        'name' => 'DocumentName',
-        'title' => 'Document Name',
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      270 =>
-      array (
-        'name' => 'ImageDescription',
-        'title' => 'Image Description',
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      271 =>
-      array (
-        'name' => 'Make',
-        'title' => 'Manufacturer',
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      272 =>
-      array (
-        'name' => 'Model',
-        'title' => 'Model',
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      273 =>
-      array (
-        'name' => 'StripOffsets',
-        'title' => 'Strip Offsets',
-        'format' =>
-        array (
-          0 => 3,
-          1 => 4,
-        ),
-      ),
-      274 =>
-      array (
-        'name' => 'Orientation',
-        'title' => 'Orientation',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            1 => 'top - left',
-            2 => 'top - right',
-            3 => 'bottom - right',
-            4 => 'bottom - left',
-            5 => 'left - top',
-            6 => 'right - top',
-            7 => 'right - bottom',
-            8 => 'left - bottom',
-          ),
-        ),
-      ),
-      277 =>
-      array (
-        'name' => 'SamplesPerPixel',
-        'title' => 'Samples per Pixel',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-      ),
-      278 =>
-      array (
-        'name' => 'RowsPerStrip',
-        'title' => 'Rows per Strip',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-          1 => 4,
-        ),
-      ),
-      279 =>
-      array (
-        'name' => 'StripByteCounts',
-        'title' => 'Strip Byte Count',
-        'format' =>
-        array (
-          0 => 3,
-          1 => 4,
-        ),
-      ),
-      282 =>
-      array (
-        'name' => 'XResolution',
-        'title' => 'x-Resolution',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-      283 =>
-      array (
-        'name' => 'YResolution',
-        'title' => 'y-Resolution',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-      284 =>
-      array (
-        'name' => 'PlanarConfiguration',
-        'title' => 'Planar Configuration',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            1 => 'chunky format',
-            2 => 'planar format',
-          ),
-        ),
-      ),
-      296 =>
-      array (
-        'name' => 'ResolutionUnit',
-        'title' => 'Resolution Unit',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            2 => 'Inch',
-            3 => 'Centimeter',
-          ),
-        ),
-      ),
-      301 =>
-      array (
-        'name' => 'TransferFunction',
-        'title' => 'Transfer Function',
-        'components' => 3,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-      ),
-      305 =>
-      array (
-        'name' => 'Software',
-        'title' => 'Software',
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      306 =>
-      array (
-        'name' => 'DateTime',
-        'title' => 'Date and Time',
-        'components' => 20,
-        'format' =>
-        array (
-          0 => 2,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\Time',
-      ),
-      315 =>
-      array (
-        'name' => 'Artist',
-        'title' => 'Artist',
-        'format' =>
-        array (
-          0 => 2,
-        ),
-      ),
-      317 =>
-      array (
-        'name' => 'Predictor',
-        'title' => 'Predictor',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            1 => 'None',
-            2 => 'Horizontal differencing',
-          ),
-        ),
-      ),
-      318 =>
-      array (
-        'name' => 'WhitePoint',
-        'title' => 'White Point',
-        'components' => 2,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-      319 =>
-      array (
-        'name' => 'PrimaryChromaticities',
-        'title' => 'Primary Chromaticities',
-        'components' => 6,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-      338 =>
-      array (
-        'name' => 'ExtraSamples',
-        'title' => 'Extra Samples',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            0 => 'Unspecified',
-            1 => 'Associated Alpha',
-            2 => 'Unassociated Alpha',
-          ),
-        ),
-      ),
-      339 =>
-      array (
-        'name' => 'SampleFormat',
-        'title' => 'Sample Format',
-        'components' => 4,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-      ),
-      342 =>
-      array (
-        'name' => 'TransferRange',
-        'title' => 'Transfer Range',
-        'format' =>
-        array (
-          0 => 3,
-        ),
-      ),
-      512 =>
-      array (
-        'name' => 'JPEGProc',
-        'title' => 'JPEG Proc',
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            1 => 'Baseline',
-            14 => 'Lossless',
-          ),
-        ),
-      ),
-      513 =>
-      array (
-        'name' => 'ThumbnailOffset',
-        'title' => 'Thumbnail Offset',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 4,
-        ),
-      ),
-      514 =>
-      array (
-        'name' => 'ThumbnailLength',
-        'title' => 'Thumbnail Length',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 4,
-        ),
-      ),
-      529 =>
-      array (
-        'name' => 'YCbCrCoefficients',
-        'title' => 'YCbCr Coefficients',
-        'components' => 3,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-      530 =>
-      array (
-        'name' => 'YCbCrSubSampling',
-        'title' => 'YCbCr Sub-Sampling',
-        'components' => 2,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\IfdYCbCrSubSampling',
-      ),
-      531 =>
-      array (
-        'name' => 'YCbCrPositioning',
-        'title' => 'YCbCr Positioning',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-        'text' =>
-        array (
-          'mapping' =>
-          array (
-            1 => 'centered',
-            2 => 'co-sited',
-          ),
-        ),
-      ),
-      532 =>
-      array (
-        'name' => 'ReferenceBlackWhite',
-        'title' => 'Reference Black/White',
-        'components' => 6,
-        'format' =>
-        array (
-          0 => 5,
-        ),
-      ),
-      700 =>
-      array (
-        'name' => 'ApplicationNotes',
-        'title' => 'Application Notes',
-        'format' =>
-        array (
-          0 => 1,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\IfdApplicationNotes',
-      ),
-      18246 =>
-      array (
-        'name' => 'Rating',
-        'title' => 'Star Rating',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-      ),
-      18249 =>
-      array (
-        'name' => 'RatingPercent',
-        'title' => 'Percent Rating',
-        'components' => 1,
-        'format' =>
-        array (
-          0 => 3,
-        ),
-      ),
-      33423 =>
-      array (
-        'name' => 'BatteryLevel',
-        'title' => 'Battery Level',
-        'format' =>
-        array (
-          0 => 3,
-        ),
-      ),
-      33432 =>
-      array (
-        'name' => 'Copyright',
-        'title' => 'Copyright',
-        'format' =>
-        array (
-          0 => 2,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\IfdCopyright',
-      ),
-      33723 =>
-      array (
-        'name' => 'IPTC-NAA',
-        'title' => 'IPTC-NAA',
-        'format' =>
-        array (
-          0 => 4,
-        ),
-      ),
-      34665 =>
-      array (
-        'name' => 'ExifIFDPointer',
-        'title' => 'Exif IFD Pointer',
-        'ifd' => 5,
-      ),
-      34853 =>
-      array (
-        'name' => 'GPSInfoIFDPointer',
-        'title' => 'GPS Info IFD Pointer',
-        'ifd' => 4,
-      ),
-      40091 =>
-      array (
-        'name' => 'WindowsXPTitle',
-        'title' => 'Windows XP Title',
-        'class' => 'ExifEye\\core\\Entry\\WindowsString',
-      ),
-      40092 =>
-      array (
-        'name' => 'WindowsXPComment',
-        'title' => 'Windows XP Comment',
-        'format' =>
-        array (
-          0 => 1,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\WindowsString',
-      ),
-      40093 =>
-      array (
-        'name' => 'WindowsXPAuthor',
-        'title' => 'Windows XP Author',
-        'format' =>
-        array (
-          0 => 1,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\WindowsString',
-      ),
-      40094 =>
-      array (
-        'name' => 'WindowsXPKeywords',
-        'title' => 'Windows XP Keywords',
-        'format' =>
-        array (
-          0 => 1,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\WindowsString',
-      ),
-      40095 =>
-      array (
-        'name' => 'WindowsXPSubject',
-        'title' => 'Windows XP Subject',
-        'format' =>
-        array (
-          0 => 1,
-        ),
-        'class' => 'ExifEye\\core\\Entry\\WindowsString',
-      ),
-      50341 =>
-      array (
-        'name' => 'PrintIM',
-        'title' => 'Print IM',
-        'format' =>
-        array (
-          0 => 7,
-        ),
-      ),
-    ),
   ),
   'tagsByName' =>
   array (
@@ -5076,14 +2523,6 @@ return array (
     ),
     1 =>
     array (
-      'InteroperabilityIndex' => 1,
-      'InteroperabilityVersion' => 2,
-      'RelatedImageFileFormat' => 4096,
-      'RelatedImageWidth' => 4097,
-      'RelatedImageLength' => 4098,
-    ),
-    2 =>
-    array (
       'RunTime' => 3,
       'AccelerationVector' => 8,
       'HDRImageType' => 10,
@@ -5091,121 +2530,14 @@ return array (
       'ContentIdentifier' => 17,
       'ImageUniqueID' => 21,
     ),
-    3 =>
+    2 =>
     array (
       'flags' => 1,
       'value' => 2,
       'timescale' => 3,
       'epoch' => 4,
     ),
-    4 =>
-    array (
-      'GPSVersionID' => 0,
-      'GPSLatitudeRef' => 1,
-      'GPSLatitude' => 2,
-      'GPSLongitudeRef' => 3,
-      'GPSLongitude' => 4,
-      'GPSAltitudeRef' => 5,
-      'GPSAltitude' => 6,
-      'GPSTimeStamp' => 7,
-      'GPSSatellites' => 8,
-      'GPSStatus' => 9,
-      'GPSMeasureMode' => 10,
-      'GPSDOP' => 11,
-      'GPSSpeedRef' => 12,
-      'GPSSpeed' => 13,
-      'GPSTrackRef' => 14,
-      'GPSTrack' => 15,
-      'GPSImgDirectionRef' => 16,
-      'GPSImgDirection' => 17,
-      'GPSMapDatum' => 18,
-      'GPSDestLatitudeRef' => 19,
-      'GPSDestLatitude' => 20,
-      'GPSDestLongitudeRef' => 21,
-      'GPSDestLongitude' => 22,
-      'GPSDestBearingRef' => 23,
-      'GPSDestBearing' => 24,
-      'GPSDestDistanceRef' => 25,
-      'GPSDestDistance' => 26,
-      'GPSProcessingMethod' => 27,
-      'GPSAreaInformation' => 28,
-      'GPSDateStamp' => 29,
-      'GPSDifferential' => 30,
-      'GPSHPositioningError' => 31,
-    ),
-    5 =>
-    array (
-      'CFAPattern' => 41730,
-      'ExposureTime' => 33434,
-      'FNumber' => 33437,
-      'ExposureProgram' => 34850,
-      'SpectralSensitivity' => 34852,
-      'ISOSpeedRatings' => 34855,
-      'OECF' => 34856,
-      'SensitivityType' => 34864,
-      'RecommendedExposureIndex' => 34866,
-      'ExifVersion' => 36864,
-      'DateTimeOriginal' => 36867,
-      'DateTimeDigitized' => 36868,
-      'OffsetTime' => 36880,
-      'OffsetTimeOriginal' => 36881,
-      'OffsetTimeDigitized' => 36882,
-      'ComponentsConfiguration' => 37121,
-      'CompressedBitsPerPixel' => 37122,
-      'ShutterSpeedValue' => 37377,
-      'ApertureValue' => 37378,
-      'BrightnessValue' => 37379,
-      'ExposureBiasValue' => 37380,
-      'MaxApertureValue' => 37381,
-      'SubjectDistance' => 37382,
-      'MeteringMode' => 37383,
-      'LightSource' => 37384,
-      'Flash' => 37385,
-      'FocalLength' => 37386,
-      'SubjectArea' => 37396,
-      'MakerNote' => 37500,
-      'UserComment' => 37510,
-      'SubSecTime' => 37520,
-      'SubSecTimeOriginal' => 37521,
-      'SubSecTimeDigitized' => 37522,
-      'FlashPixVersion' => 40960,
-      'ColorSpace' => 40961,
-      'PixelXDimension' => 40962,
-      'PixelYDimension' => 40963,
-      'RelatedSoundFile' => 40964,
-      'InteroperabilityIFDPointer' => 40965,
-      'FlashEnergy' => 41483,
-      'SpatialFrequencyResponse' => 41484,
-      'FocalPlaneXResolution' => 41486,
-      'FocalPlaneYResolution' => 41487,
-      'FocalPlaneResolutionUnit' => 41488,
-      'SubjectLocation' => 41492,
-      'ExposureIndex' => 41493,
-      'SensingMethod' => 41495,
-      'FileSource' => 41728,
-      'SceneType' => 41729,
-      'CustomRendered' => 41985,
-      'ExposureMode' => 41986,
-      'WhiteBalance' => 41987,
-      'DigitalZoomRatio' => 41988,
-      'FocalLengthIn35mmFilm' => 41989,
-      'SceneCaptureType' => 41990,
-      'GainControl' => 41991,
-      'Contrast' => 41992,
-      'Saturation' => 41993,
-      'Sharpness' => 41994,
-      'DeviceSettingDescription' => 41995,
-      'SubjectDistanceRange' => 41996,
-      'ImageUniqueID' => 42016,
-      'OwnerName' => 42032,
-      'SerialNumber' => 42033,
-      'LensInfo' => 42034,
-      'LensMake' => 42035,
-      'LensModel' => 42036,
-      'LensSerialNumber' => 42037,
-      'Gamma' => 42240,
-    ),
-    6 =>
+    3 =>
     array (
       'CameraSettings' => 1,
       'FocalLength' => 2,
@@ -5238,7 +2570,7 @@ return array (
       'SensorInfo' => 224,
       'ColorData' => 16385,
     ),
-    7 =>
+    4 =>
     array (
       'MacroMode' => 1,
       'SelfTimer' => 2,
@@ -5278,7 +2610,7 @@ return array (
       'ColorTone' => 42,
       'SRAWQuality' => 46,
     ),
-    8 =>
+    5 =>
     array (
       'FileNumber' => 1,
       2 => 2,
@@ -5299,7 +2631,7 @@ return array (
       'FocusDistanceLower' => 21,
       'FlashExposureLock' => 25,
     ),
-    9 =>
+    6 =>
     array (
       'AutoISO' => 1,
       'BaseISO' => 2,
@@ -5330,125 +2662,25 @@ return array (
       'SelfTimer2' => 29,
       'FlashOutput' => 33,
     ),
-    10 =>
+    7 =>
     array (
       'PanoramaFrame' => 2,
       'PanoramaDirection' => 5,
     ),
-    11 =>
-    array (
-      'ImageWidth' => 256,
-      'ImageLength' => 257,
-      'BitsPerSample' => 258,
-      'Compression' => 259,
-      'PhotometricInterpretation' => 262,
-      'FillOrder' => 266,
-      'DocumentName' => 269,
-      'ImageDescription' => 270,
-      'Make' => 271,
-      'Model' => 272,
-      'StripOffsets' => 273,
-      'Orientation' => 274,
-      'SamplesPerPixel' => 277,
-      'RowsPerStrip' => 278,
-      'StripByteCounts' => 279,
-      'XResolution' => 282,
-      'YResolution' => 283,
-      'PlanarConfiguration' => 284,
-      'ResolutionUnit' => 296,
-      'TransferFunction' => 301,
-      'Software' => 305,
-      'DateTime' => 306,
-      'Artist' => 315,
-      'Predictor' => 317,
-      'WhitePoint' => 318,
-      'PrimaryChromaticities' => 319,
-      'ExtraSamples' => 338,
-      'SampleFormat' => 339,
-      'TransferRange' => 342,
-      'JPEGProc' => 512,
-      'ThumbnailOffset' => 513,
-      'ThumbnailLength' => 514,
-      'YCbCrCoefficients' => 529,
-      'YCbCrSubSampling' => 530,
-      'YCbCrPositioning' => 531,
-      'ReferenceBlackWhite' => 532,
-      'ApplicationNotes' => 700,
-      'Rating' => 18246,
-      'RatingPercent' => 18249,
-      'BatteryLevel' => 33423,
-      'Copyright' => 33432,
-      'IPTC-NAA' => 33723,
-      'ExifIFDPointer' => 34665,
-      'GPSInfoIFDPointer' => 34853,
-      'WindowsXPTitle' => 40091,
-      'WindowsXPComment' => 40092,
-      'WindowsXPAuthor' => 40093,
-      'WindowsXPKeywords' => 40094,
-      'WindowsXPSubject' => 40095,
-      'PrintIM' => 50341,
-    ),
-    12 =>
-    array (
-      'ImageWidth' => 256,
-      'ImageLength' => 257,
-      'BitsPerSample' => 258,
-      'Compression' => 259,
-      'PhotometricInterpretation' => 262,
-      'FillOrder' => 266,
-      'DocumentName' => 269,
-      'ImageDescription' => 270,
-      'Make' => 271,
-      'Model' => 272,
-      'StripOffsets' => 273,
-      'Orientation' => 274,
-      'SamplesPerPixel' => 277,
-      'RowsPerStrip' => 278,
-      'StripByteCounts' => 279,
-      'XResolution' => 282,
-      'YResolution' => 283,
-      'PlanarConfiguration' => 284,
-      'ResolutionUnit' => 296,
-      'TransferFunction' => 301,
-      'Software' => 305,
-      'DateTime' => 306,
-      'Artist' => 315,
-      'Predictor' => 317,
-      'WhitePoint' => 318,
-      'PrimaryChromaticities' => 319,
-      'ExtraSamples' => 338,
-      'SampleFormat' => 339,
-      'TransferRange' => 342,
-      'JPEGProc' => 512,
-      'ThumbnailOffset' => 513,
-      'ThumbnailLength' => 514,
-      'YCbCrCoefficients' => 529,
-      'YCbCrSubSampling' => 530,
-      'YCbCrPositioning' => 531,
-      'ReferenceBlackWhite' => 532,
-      'ApplicationNotes' => 700,
-      'Rating' => 18246,
-      'RatingPercent' => 18249,
-      'BatteryLevel' => 33423,
-      'Copyright' => 33432,
-      'IPTC-NAA' => 33723,
-      'ExifIFDPointer' => 34665,
-      'GPSInfoIFDPointer' => 34853,
-      'WindowsXPTitle' => 40091,
-      'WindowsXPComment' => 40092,
-      'WindowsXPAuthor' => 40093,
-      'WindowsXPKeywords' => 40094,
-      'WindowsXPSubject' => 40095,
-      'PrintIM' => 50341,
-    ),
   ),
   'makerNotes' =>
   array (
-    'Apple' => 2,
-    'Canon' => 6,
+    'Apple' => 1,
+    'Canon' => 3,
   ),
   'types' =>
   array (
+    'jpegSegment' =>
+    array (
+      'name' => 'JpegSegment',
+      'title' => 'Generic JPEG data segment',
+      'class' => 'ExifEye\\core\\Block\\JpegSegment',
+    ),
     'ifd1' =>
     array (
       'name' => 'IFD1',
@@ -5464,11 +2696,27 @@ return array (
         0 => 'ExifEye\\core\\Block\\Thumbnail::toBlock',
       ),
     ),
-    'jpegSegment' =>
+    'ifdGps' =>
     array (
-      'name' => 'JpegSegment',
-      'title' => 'Generic JPEG data segment',
-      'class' => 'ExifEye\\core\\Block\\JpegSegment',
+      'name' => 'GPS',
+      'title' => 'IFD GPS',
+      'class' => 'ExifEye\\core\\Block\\Ifd',
+    ),
+    'ifdExif' =>
+    array (
+      'name' => 'Exif',
+      'title' => 'IFD Exif',
+      'class' => 'ExifEye\\core\\Block\\Ifd',
+    ),
+    'ifdInteroperability' =>
+    array (
+      'name' => 'Interoperability',
+      'title' => 'IFD Interoperability',
+      'class' => 'ExifEye\\core\\Block\\Ifd',
+      'alias' =>
+      array (
+        0 => 'Interop',
+      ),
     ),
     'ifd0' =>
     array (
@@ -6051,6 +3299,1074 @@ return array (
         'name' => 'PrintIM',
         'title' => 'Print IM',
         'format' => 'Undefined',
+      ),
+    ),
+    'ifdGps' =>
+    array (
+      0 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSVersionID',
+        'title' => 'GPS Version',
+        'components' => 4,
+        'format' => 'Byte',
+        'class' => 'ExifEye\\core\\Entry\\GPSVersionId',
+      ),
+      1 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSLatitudeRef',
+        'title' => 'LatitudeRef',
+        'components' => 2,
+        'format' => 'Ascii',
+      ),
+      2 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSLatitude',
+        'title' => 'Latitude',
+        'components' => 3,
+        'format' => 'Rational',
+        'class' => 'ExifEye\\core\\Entry\\GPSDegrees',
+      ),
+      3 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSLongitudeRef',
+        'title' => 'LongitudeRef',
+        'components' => 2,
+        'format' => 'Ascii',
+      ),
+      4 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSLongitude',
+        'title' => 'Longitude',
+        'components' => 3,
+        'format' => 'Rational',
+        'class' => 'ExifEye\\core\\Entry\\GPSDegrees',
+      ),
+      5 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSAltitudeRef',
+        'title' => 'AltitudeRef',
+        'components' => 1,
+        'format' => 'Byte',
+      ),
+      6 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSAltitude',
+        'title' => 'Altitude',
+        'components' => 1,
+        'format' => 'Rational',
+      ),
+      7 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSTimeStamp',
+        'title' => 'TimeStamp',
+        'components' => 3,
+        'format' => 'Rational',
+      ),
+      8 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSSatellites',
+        'title' => 'Satellites',
+        'format' => 'Ascii',
+      ),
+      9 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSStatus',
+        'title' => 'Status',
+        'components' => 2,
+        'format' => 'Ascii',
+      ),
+      10 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSMeasureMode',
+        'title' => 'Measure Mode',
+        'components' => 2,
+        'format' => 'Ascii',
+      ),
+      11 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSDOP',
+        'title' => 'DOP',
+        'components' => 1,
+        'format' => 'Rational',
+      ),
+      12 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSSpeedRef',
+        'title' => 'SpeedRef',
+        'components' => 2,
+        'format' => 'Ascii',
+      ),
+      13 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSSpeed',
+        'title' => 'Speed',
+        'components' => 1,
+        'format' => 'Rational',
+      ),
+      14 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSTrackRef',
+        'title' => 'TrackRef',
+        'components' => 2,
+        'format' => 'Ascii',
+      ),
+      15 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSTrack',
+        'title' => 'Track',
+        'components' => 1,
+        'format' => 'Rational',
+      ),
+      16 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSImgDirectionRef',
+        'title' => 'ImgDirectionRef',
+        'components' => 2,
+        'format' => 'Ascii',
+      ),
+      17 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSImgDirection',
+        'title' => 'Image Direction',
+        'components' => 1,
+        'format' => 'Rational',
+      ),
+      18 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSMapDatum',
+        'title' => 'Map Datum',
+        'format' => 'Ascii',
+      ),
+      19 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSDestLatitudeRef',
+        'title' => 'DestLatitudeRef',
+        'components' => 2,
+        'format' => 'Ascii',
+      ),
+      20 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSDestLatitude',
+        'title' => 'DestLatitude',
+        'components' => 3,
+        'format' => 'Rational',
+      ),
+      21 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSDestLongitudeRef',
+        'title' => 'DestLongitudeRef',
+        'components' => 2,
+        'format' => 'Ascii',
+      ),
+      22 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSDestLongitude',
+        'title' => 'DestLongitude',
+        'components' => 3,
+        'format' => 'Rational',
+      ),
+      23 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSDestBearingRef',
+        'title' => 'DestBearingRef',
+        'components' => 2,
+        'format' => 'Ascii',
+      ),
+      24 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSDestBearing',
+        'title' => 'DestBearing',
+        'components' => 1,
+        'format' => 'Rational',
+      ),
+      25 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSDestDistanceRef',
+        'title' => 'DestDistanceRef',
+        'components' => 2,
+        'format' => 'Ascii',
+      ),
+      26 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSDestDistance',
+        'title' => 'DestDistance',
+        'components' => 1,
+        'format' => 'Rational',
+      ),
+      27 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSProcessingMethod',
+        'title' => 'Processing Method',
+        'format' => 'Undefined',
+      ),
+      28 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSAreaInformation',
+        'title' => 'Area Information',
+        'format' => 'Undefined',
+      ),
+      29 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSDateStamp',
+        'title' => 'Date Stamp',
+        'components' => 11,
+        'format' => 'Ascii',
+      ),
+      30 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSDifferential',
+        'title' => 'Differential',
+        'components' => 1,
+        'format' => 'Short',
+      ),
+      31 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GPSHPositioningError',
+        'title' => 'Horizontal Positioning Error',
+        'format' => 'Rational',
+      ),
+    ),
+    'ifdExif' =>
+    array (
+      41730 =>
+      array (
+        'type' => 'tag',
+        'name' => 'CFAPattern',
+        'title' => 'CFA Pattern',
+        'format' => 'Undefined',
+      ),
+      33434 =>
+      array (
+        'type' => 'tag',
+        'name' => 'ExposureTime',
+        'title' => 'Exposure Time',
+        'components' => 1,
+        'format' => 'Rational',
+        'class' => 'ExifEye\\core\\Entry\\ExifExposureTime',
+      ),
+      33437 =>
+      array (
+        'type' => 'tag',
+        'name' => 'FNumber',
+        'title' => 'FNumber',
+        'components' => 1,
+        'format' => 'Rational',
+        'class' => 'ExifEye\\core\\Entry\\ExifFNumber',
+      ),
+      34850 =>
+      array (
+        'type' => 'tag',
+        'name' => 'ExposureProgram',
+        'title' => 'Exposure Program',
+        'components' => 1,
+        'format' => 'Short',
+        'text' =>
+        array (
+          'mapping' =>
+          array (
+            0 => 'Not defined',
+            1 => 'Manual',
+            2 => 'Normal program',
+            3 => 'Aperture priority',
+            4 => 'Shutter priority',
+            5 => 'Creative program (biased toward depth of field)',
+            6 => 'Action program (biased toward fast shutter speed)',
+            7 => 'Portrait mode (for closeup photos with the background out of focus',
+            8 => 'Landscape mode (for landscape photos with the background in focus',
+          ),
+        ),
+      ),
+      34852 =>
+      array (
+        'type' => 'tag',
+        'name' => 'SpectralSensitivity',
+        'title' => 'Spectral Sensitivity',
+        'format' => 'Ascii',
+      ),
+      34855 =>
+      array (
+        'type' => 'tag',
+        'name' => 'ISOSpeedRatings',
+        'title' => 'ISO Speed Ratings',
+        'format' => 'Short',
+      ),
+      34856 =>
+      array (
+        'type' => 'tag',
+        'name' => 'OECF',
+        'title' => 'OECF',
+        'format' => 'Undefined',
+      ),
+      34864 =>
+      array (
+        'type' => 'tag',
+        'name' => 'SensitivityType',
+        'title' => 'Sensitivity Type',
+        'format' => 'Short',
+        'text' =>
+        array (
+          'mapping' =>
+          array (
+            0 => 'Unknown',
+            1 => 'Standard Output Sensitivity',
+            2 => 'Recommended Exposure Index',
+            3 => 'ISO Speed',
+            4 => 'Standard Output Sensitivity and Recommended Exposure Index',
+            5 => 'Standard Output Sensitivity and ISO Speed',
+            6 => 'Recommended Exposure Index and ISO Speed',
+            7 => 'Standard Output Sensitivity, Recommended Exposure Index and ISO Speed',
+          ),
+        ),
+      ),
+      34866 =>
+      array (
+        'type' => 'tag',
+        'name' => 'RecommendedExposureIndex',
+        'title' => 'Recommended Exposure Index',
+        'format' => 'Short',
+      ),
+      36864 =>
+      array (
+        'type' => 'tag',
+        'name' => 'ExifVersion',
+        'title' => 'Exif Version',
+        'components' => 4,
+        'format' => 'Undefined',
+        'class' => 'ExifEye\\core\\Entry\\ExifVersion',
+      ),
+      36867 =>
+      array (
+        'type' => 'tag',
+        'name' => 'DateTimeOriginal',
+        'title' => 'Date and Time (original)',
+        'components' => 20,
+        'format' => 'Ascii',
+        'class' => 'ExifEye\\core\\Entry\\Time',
+      ),
+      36868 =>
+      array (
+        'type' => 'tag',
+        'name' => 'DateTimeDigitized',
+        'title' => 'Date and Time (digitized)',
+        'components' => 20,
+        'format' => 'Ascii',
+        'class' => 'ExifEye\\core\\Entry\\Time',
+      ),
+      36880 =>
+      array (
+        'type' => 'tag',
+        'name' => 'OffsetTime',
+        'title' => 'Timezone',
+        'components' => 7,
+        'format' => 'Ascii',
+      ),
+      36881 =>
+      array (
+        'type' => 'tag',
+        'name' => 'OffsetTimeOriginal',
+        'title' => 'Timezone (original)',
+        'components' => 7,
+        'format' => 'Ascii',
+      ),
+      36882 =>
+      array (
+        'type' => 'tag',
+        'name' => 'OffsetTimeDigitized',
+        'title' => 'Timezone (digitized)',
+        'components' => 7,
+        'format' => 'Ascii',
+      ),
+      37121 =>
+      array (
+        'type' => 'tag',
+        'name' => 'ComponentsConfiguration',
+        'title' => 'Components Configuration',
+        'components' => 4,
+        'format' => 'Undefined',
+        'class' => 'ExifEye\\core\\Entry\\ExifComponentsConfiguration',
+      ),
+      37122 =>
+      array (
+        'type' => 'tag',
+        'name' => 'CompressedBitsPerPixel',
+        'title' => 'Compressed Bits per Pixel',
+        'components' => 1,
+        'format' => 'Rational',
+      ),
+      37377 =>
+      array (
+        'type' => 'tag',
+        'name' => 'ShutterSpeedValue',
+        'title' => 'Shutter Speed Value',
+        'components' => 1,
+        'format' => 'SignedRational',
+        'class' => 'ExifEye\\core\\Entry\\ExifShutterSpeedValue',
+      ),
+      37378 =>
+      array (
+        'type' => 'tag',
+        'name' => 'ApertureValue',
+        'title' => 'Aperture Value',
+        'components' => 1,
+        'format' => 'Rational',
+        'class' => 'ExifEye\\core\\Entry\\ExifApertureValue',
+      ),
+      37379 =>
+      array (
+        'type' => 'tag',
+        'name' => 'BrightnessValue',
+        'title' => 'Brightness Value',
+        'components' => 1,
+        'format' => 'SignedRational',
+        'class' => 'ExifEye\\core\\Entry\\ExifBrightnessValue',
+      ),
+      37380 =>
+      array (
+        'type' => 'tag',
+        'name' => 'ExposureBiasValue',
+        'title' => 'Exposure Bias',
+        'components' => 1,
+        'format' => 'SignedRational',
+        'class' => 'ExifEye\\core\\Entry\\ExifExposureBiasValue',
+      ),
+      37381 =>
+      array (
+        'type' => 'tag',
+        'name' => 'MaxApertureValue',
+        'title' => 'Max Aperture Value',
+        'components' => 1,
+        'format' => 'Rational',
+      ),
+      37382 =>
+      array (
+        'type' => 'tag',
+        'name' => 'SubjectDistance',
+        'title' => 'Subject Distance',
+        'components' => 1,
+        'format' => 'SignedRational',
+        'class' => 'ExifEye\\core\\Entry\\ExifSubjectDistance',
+      ),
+      37383 =>
+      array (
+        'type' => 'tag',
+        'name' => 'MeteringMode',
+        'title' => 'Metering Mode',
+        'components' => 1,
+        'format' => 'Short',
+        'text' =>
+        array (
+          'mapping' =>
+          array (
+            0 => 'Unknown',
+            1 => 'Average',
+            2 => 'Center-Weighted Average',
+            3 => 'Spot',
+            4 => 'Multi Spot',
+            5 => 'Pattern',
+            6 => 'Partial',
+            255 => 'Other',
+          ),
+        ),
+      ),
+      37384 =>
+      array (
+        'type' => 'tag',
+        'name' => 'LightSource',
+        'title' => 'Light Source',
+        'components' => 1,
+        'format' => 'Short',
+        'text' =>
+        array (
+          'mapping' =>
+          array (
+            0 => 'Unknown',
+            1 => 'Daylight',
+            2 => 'Fluorescent',
+            3 => 'Tungsten (incandescent light)',
+            4 => 'Flash',
+            9 => 'Fine weather',
+            10 => 'Cloudy weather',
+            11 => 'Shade',
+            12 => 'Daylight fluorescent',
+            13 => 'Day white fluorescent',
+            14 => 'Cool white fluorescent',
+            15 => 'White fluorescent',
+            17 => 'Standard light A',
+            18 => 'Standard light B',
+            19 => 'Standard light C',
+            20 => 'D55',
+            21 => 'D65',
+            22 => 'D75',
+            24 => 'ISO studio tungsten',
+            255 => 'Other',
+          ),
+        ),
+      ),
+      37385 =>
+      array (
+        'type' => 'tag',
+        'name' => 'Flash',
+        'title' => 'Flash',
+        'components' => 1,
+        'format' => 'Short',
+        'text' =>
+        array (
+          'mapping' =>
+          array (
+            0 => 'Flash did not fire.',
+            1 => 'Flash fired.',
+            5 => 'Strobe return light not detected.',
+            7 => 'Strobe return light detected.',
+            9 => 'Flash fired, compulsory flash mode.',
+            13 => 'Flash fired, compulsory flash mode, return light not detected.',
+            15 => 'Flash fired, compulsory flash mode, return light detected.',
+            16 => 'Flash did not fire, compulsory flash mode.',
+            24 => 'Flash did not fire, auto mode.',
+            25 => 'Flash fired, auto mode.',
+            29 => 'Flash fired, auto mode, return light not detected.',
+            31 => 'Flash fired, auto mode, return light detected.',
+            32 => 'No flash function.',
+            65 => 'Flash fired, red-eye reduction mode.',
+            69 => 'Flash fired, red-eye reduction mode, return light not detected.',
+            71 => 'Flash fired, red-eye reduction mode, return light detected.',
+            73 => 'Flash fired, compulsory flash mode, red-eye reduction mode.',
+            77 => 'Flash fired, compulsory flash mode, red-eye reduction mode, return light not detected.',
+            79 => 'Flash fired, compulsory flash mode, red-eye reduction mode, return light detected.',
+            88 => 'Flash did not fire, auto mode, red-eye reduction mode.',
+            89 => 'Flash fired, auto mode, red-eye reduction mode.',
+            93 => 'Flash fired, auto mode, return light not detected, red-eye reduction mode.',
+            95 => 'Flash fired, auto mode, return light detected, red-eye reduction mode.',
+          ),
+        ),
+      ),
+      37386 =>
+      array (
+        'type' => 'tag',
+        'name' => 'FocalLength',
+        'title' => 'Focal Length',
+        'components' => 1,
+        'format' => 'Rational',
+        'class' => 'ExifEye\\core\\Entry\\ExifFocalLength',
+      ),
+      37396 =>
+      array (
+        'type' => 'tag',
+        'name' => 'SubjectArea',
+        'title' => 'Subject Area',
+        'format' => 'Short',
+        'class' => 'ExifEye\\core\\Entry\\ExifSubjectArea',
+      ),
+      37500 =>
+      array (
+        'type' => 'tag',
+        'name' => 'MakerNote',
+        'title' => 'Maker Note',
+        'format' => 'Undefined',
+        'class' => 'ExifEye\\core\\Entry\\ExifMakerNote',
+      ),
+      37510 =>
+      array (
+        'type' => 'tag',
+        'name' => 'UserComment',
+        'title' => 'User Comment',
+        'format' => 'Undefined',
+        'class' => 'ExifEye\\core\\Entry\\ExifUserComment',
+      ),
+      37520 =>
+      array (
+        'type' => 'tag',
+        'name' => 'SubSecTime',
+        'title' => 'SubSec Time',
+        'format' => 'Ascii',
+      ),
+      37521 =>
+      array (
+        'type' => 'tag',
+        'name' => 'SubSecTimeOriginal',
+        'title' => 'SubSec Time Original',
+        'format' => 'Ascii',
+      ),
+      37522 =>
+      array (
+        'type' => 'tag',
+        'name' => 'SubSecTimeDigitized',
+        'title' => 'SubSec Time Digitized',
+        'format' => 'Ascii',
+      ),
+      40960 =>
+      array (
+        'type' => 'tag',
+        'name' => 'FlashPixVersion',
+        'title' => 'FlashPix Version',
+        'components' => 4,
+        'format' => 'Undefined',
+        'class' => 'ExifEye\\core\\Entry\\ExifFlashPixVersion',
+      ),
+      40961 =>
+      array (
+        'type' => 'tag',
+        'name' => 'ColorSpace',
+        'title' => 'Color Space',
+        'components' => 1,
+        'format' => 'Short',
+        'text' =>
+        array (
+          'mapping' =>
+          array (
+            1 => 'sRGB',
+            2 => 'Adobe RGB',
+            65535 => 'Uncalibrated',
+          ),
+        ),
+      ),
+      40962 =>
+      array (
+        'type' => 'tag',
+        'name' => 'PixelXDimension',
+        'title' => 'Pixel x-Dimension',
+        'components' => 1,
+        'format' =>
+        array (
+          0 => 'Short',
+          1 => 'Long',
+        ),
+      ),
+      40963 =>
+      array (
+        'type' => 'tag',
+        'name' => 'PixelYDimension',
+        'title' => 'Pixel y-Dimension',
+        'components' => 1,
+        'format' =>
+        array (
+          0 => 'Short',
+          1 => 'Long',
+        ),
+      ),
+      40964 =>
+      array (
+        'type' => 'tag',
+        'name' => 'RelatedSoundFile',
+        'title' => 'Related Sound File',
+        'format' => 'Ascii',
+      ),
+      40965 =>
+      array (
+        'type' => 'ifdInteroperability',
+        'name' => 'InteroperabilityIFDPointer',
+        'title' => 'Interoperability IFD Pointer',
+      ),
+      41483 =>
+      array (
+        'type' => 'tag',
+        'name' => 'FlashEnergy',
+        'title' => 'Flash Energy',
+        'components' => 1,
+        'format' => 'Rational',
+      ),
+      41484 =>
+      array (
+        'type' => 'tag',
+        'name' => 'SpatialFrequencyResponse',
+        'title' => 'Spatial Frequency Response',
+        'format' => 'Undefined',
+      ),
+      41486 =>
+      array (
+        'type' => 'tag',
+        'name' => 'FocalPlaneXResolution',
+        'title' => 'Focal Plane x-Resolution',
+        'components' => 1,
+        'format' => 'Rational',
+      ),
+      41487 =>
+      array (
+        'type' => 'tag',
+        'name' => 'FocalPlaneYResolution',
+        'title' => 'Focal Plane y-Resolution',
+        'components' => 1,
+        'format' => 'Rational',
+      ),
+      41488 =>
+      array (
+        'type' => 'tag',
+        'name' => 'FocalPlaneResolutionUnit',
+        'title' => 'Focal Plane Resolution Unit',
+        'components' => 1,
+        'format' => 'Short',
+        'text' =>
+        array (
+          'mapping' =>
+          array (
+            2 => 'Inch',
+            3 => 'Centimeter',
+          ),
+        ),
+      ),
+      41492 =>
+      array (
+        'type' => 'tag',
+        'name' => 'SubjectLocation',
+        'title' => 'Subject Location',
+        'components' => 1,
+        'format' => 'Short',
+      ),
+      41493 =>
+      array (
+        'type' => 'tag',
+        'name' => 'ExposureIndex',
+        'title' => 'Exposure index',
+        'components' => 1,
+        'format' => 'Rational',
+      ),
+      41495 =>
+      array (
+        'type' => 'tag',
+        'name' => 'SensingMethod',
+        'title' => 'Sensing Method',
+        'components' => 1,
+        'format' => 'Short',
+        'text' =>
+        array (
+          'mapping' =>
+          array (
+            1 => 'Not defined',
+            2 => 'One-chip color area sensor',
+            3 => 'Two-chip color area sensor',
+            4 => 'Three-chip color area sensor',
+            5 => 'Color sequential area sensor',
+            7 => 'Trilinear sensor',
+            8 => 'Color sequential linear sensor',
+          ),
+        ),
+      ),
+      41728 =>
+      array (
+        'type' => 'tag',
+        'name' => 'FileSource',
+        'title' => 'File Source',
+        'components' => 1,
+        'format' => 'Undefined',
+        'class' => 'ExifEye\\core\\Entry\\ExifFileSource',
+      ),
+      41729 =>
+      array (
+        'type' => 'tag',
+        'name' => 'SceneType',
+        'title' => 'Scene Type',
+        'components' => 1,
+        'format' => 'Undefined',
+        'class' => 'ExifEye\\core\\Entry\\ExifSceneType',
+      ),
+      41985 =>
+      array (
+        'type' => 'tag',
+        'name' => 'CustomRendered',
+        'title' => 'Custom Rendered',
+        'components' => 1,
+        'format' => 'Short',
+        'text' =>
+        array (
+          'mapping' =>
+          array (
+            0 => 'Normal process',
+            1 => 'Custom process',
+          ),
+        ),
+      ),
+      41986 =>
+      array (
+        'type' => 'tag',
+        'name' => 'ExposureMode',
+        'title' => 'Exposure Mode',
+        'components' => 1,
+        'format' => 'Short',
+        'text' =>
+        array (
+          'mapping' =>
+          array (
+            0 => 'Auto exposure',
+            1 => 'Manual exposure',
+            2 => 'Auto bracket',
+          ),
+        ),
+      ),
+      41987 =>
+      array (
+        'type' => 'tag',
+        'name' => 'WhiteBalance',
+        'title' => 'White Balance',
+        'components' => 1,
+        'format' => 'Short',
+        'text' =>
+        array (
+          'mapping' =>
+          array (
+            0 => 'Auto white balance',
+            1 => 'Manual white balance',
+          ),
+        ),
+      ),
+      41988 =>
+      array (
+        'type' => 'tag',
+        'name' => 'DigitalZoomRatio',
+        'title' => 'Digital Zoom Ratio',
+        'components' => 1,
+        'format' => 'Rational',
+      ),
+      41989 =>
+      array (
+        'type' => 'tag',
+        'name' => 'FocalLengthIn35mmFilm',
+        'title' => 'Focal Length In 35mm Film',
+        'components' => 1,
+        'format' => 'Short',
+      ),
+      41990 =>
+      array (
+        'type' => 'tag',
+        'name' => 'SceneCaptureType',
+        'title' => 'Scene Capture Type',
+        'components' => 1,
+        'format' => 'Short',
+        'text' =>
+        array (
+          'mapping' =>
+          array (
+            0 => 'Standard',
+            1 => 'Landscape',
+            2 => 'Portrait',
+            3 => 'Night scene',
+          ),
+        ),
+      ),
+      41991 =>
+      array (
+        'type' => 'tag',
+        'name' => 'GainControl',
+        'title' => 'Gain Control',
+        'components' => 1,
+        'format' => 'Short',
+        'text' =>
+        array (
+          'mapping' =>
+          array (
+            0 => 'Normal',
+            1 => 'Low gain up',
+            2 => 'High gain up',
+            3 => 'Low gain down',
+            4 => 'High gain down',
+          ),
+        ),
+      ),
+      41992 =>
+      array (
+        'type' => 'tag',
+        'name' => 'Contrast',
+        'title' => 'Contrast',
+        'components' => 1,
+        'format' => 'Short',
+        'text' =>
+        array (
+          'mapping' =>
+          array (
+            0 => 'Normal',
+            1 => 'Soft',
+            2 => 'Hard',
+          ),
+        ),
+      ),
+      41993 =>
+      array (
+        'type' => 'tag',
+        'name' => 'Saturation',
+        'title' => 'Saturation',
+        'components' => 1,
+        'format' => 'Short',
+        'text' =>
+        array (
+          'mapping' =>
+          array (
+            0 => 'Normal',
+            1 => 'Low saturation',
+            2 => 'High saturation',
+          ),
+        ),
+      ),
+      41994 =>
+      array (
+        'type' => 'tag',
+        'name' => 'Sharpness',
+        'title' => 'Sharpness',
+        'components' => 1,
+        'format' => 'Short',
+        'text' =>
+        array (
+          'mapping' =>
+          array (
+            0 => 'Normal',
+            1 => 'Soft',
+            2 => 'Hard',
+          ),
+        ),
+      ),
+      41995 =>
+      array (
+        'type' => 'tag',
+        'name' => 'DeviceSettingDescription',
+        'title' => 'Device Setting Description',
+      ),
+      41996 =>
+      array (
+        'type' => 'tag',
+        'name' => 'SubjectDistanceRange',
+        'title' => 'Subject Distance Range',
+        'components' => 1,
+        'format' => 'Short',
+        'text' =>
+        array (
+          'mapping' =>
+          array (
+            0 => 'Unknown',
+            1 => 'Macro',
+            2 => 'Close view',
+            3 => 'Distant view',
+          ),
+        ),
+      ),
+      42016 =>
+      array (
+        'type' => 'tag',
+        'name' => 'ImageUniqueID',
+        'title' => 'Image Unique ID',
+        'components' => 32,
+        'format' => 'Ascii',
+      ),
+      42032 =>
+      array (
+        'type' => 'tag',
+        'name' => 'OwnerName',
+        'title' => 'Owner Name',
+        'format' => 'Ascii',
+      ),
+      42033 =>
+      array (
+        'type' => 'tag',
+        'name' => 'SerialNumber',
+        'title' => 'Serial Number',
+        'format' => 'Ascii',
+      ),
+      42034 =>
+      array (
+        'type' => 'tag',
+        'name' => 'LensInfo',
+        'title' => 'Lens Information',
+        'format' => 'Rational',
+      ),
+      42035 =>
+      array (
+        'type' => 'tag',
+        'name' => 'LensMake',
+        'title' => 'Lens Make',
+        'format' => 'Ascii',
+      ),
+      42036 =>
+      array (
+        'type' => 'tag',
+        'name' => 'LensModel',
+        'title' => 'Lens Model',
+        'format' => 'Ascii',
+      ),
+      42037 =>
+      array (
+        'type' => 'tag',
+        'name' => 'LensSerialNumber',
+        'title' => 'Lens Serial Number',
+        'format' => 'Ascii',
+      ),
+      42240 =>
+      array (
+        'type' => 'tag',
+        'name' => 'Gamma',
+        'title' => 'Gamma',
+        'components' => 1,
+        'format' => 'Rational',
+      ),
+    ),
+    'ifdInteroperability' =>
+    array (
+      1 =>
+      array (
+        'type' => 'tag',
+        'name' => 'InteroperabilityIndex',
+        'title' => 'Interoperability Index',
+        'components' => 4,
+        'format' => 'Ascii',
+      ),
+      2 =>
+      array (
+        'type' => 'tag',
+        'name' => 'InteroperabilityVersion',
+        'title' => 'Interoperability Version',
+        'components' => 4,
+        'format' => 'Undefined',
+        'class' => 'ExifEye\\core\\Entry\\InteroperabilityVersion',
+      ),
+      4096 =>
+      array (
+        'type' => 'tag',
+        'name' => 'RelatedImageFileFormat',
+        'title' => 'Related Image File Format',
+        'format' => 'Ascii',
+      ),
+      4097 =>
+      array (
+        'type' => 'tag',
+        'name' => 'RelatedImageWidth',
+        'title' => 'Related Image Width',
+        'components' => 1,
+        'format' => 'Short',
+      ),
+      4098 =>
+      array (
+        'type' => 'tag',
+        'name' => 'RelatedImageLength',
+        'title' => 'Related Image Length',
+        'components' => 1,
+        'format' => 'Short',
       ),
     ),
     'ifd0' =>
@@ -7120,6 +5436,121 @@ return array (
       'WindowsXPKeywords' => 40094,
       'WindowsXPSubject' => 40095,
       'PrintIM' => 50341,
+    ),
+    'ifdGps' =>
+    array (
+      'GPSVersionID' => 0,
+      'GPSLatitudeRef' => 1,
+      'GPSLatitude' => 2,
+      'GPSLongitudeRef' => 3,
+      'GPSLongitude' => 4,
+      'GPSAltitudeRef' => 5,
+      'GPSAltitude' => 6,
+      'GPSTimeStamp' => 7,
+      'GPSSatellites' => 8,
+      'GPSStatus' => 9,
+      'GPSMeasureMode' => 10,
+      'GPSDOP' => 11,
+      'GPSSpeedRef' => 12,
+      'GPSSpeed' => 13,
+      'GPSTrackRef' => 14,
+      'GPSTrack' => 15,
+      'GPSImgDirectionRef' => 16,
+      'GPSImgDirection' => 17,
+      'GPSMapDatum' => 18,
+      'GPSDestLatitudeRef' => 19,
+      'GPSDestLatitude' => 20,
+      'GPSDestLongitudeRef' => 21,
+      'GPSDestLongitude' => 22,
+      'GPSDestBearingRef' => 23,
+      'GPSDestBearing' => 24,
+      'GPSDestDistanceRef' => 25,
+      'GPSDestDistance' => 26,
+      'GPSProcessingMethod' => 27,
+      'GPSAreaInformation' => 28,
+      'GPSDateStamp' => 29,
+      'GPSDifferential' => 30,
+      'GPSHPositioningError' => 31,
+    ),
+    'ifdExif' =>
+    array (
+      'CFAPattern' => 41730,
+      'ExposureTime' => 33434,
+      'FNumber' => 33437,
+      'ExposureProgram' => 34850,
+      'SpectralSensitivity' => 34852,
+      'ISOSpeedRatings' => 34855,
+      'OECF' => 34856,
+      'SensitivityType' => 34864,
+      'RecommendedExposureIndex' => 34866,
+      'ExifVersion' => 36864,
+      'DateTimeOriginal' => 36867,
+      'DateTimeDigitized' => 36868,
+      'OffsetTime' => 36880,
+      'OffsetTimeOriginal' => 36881,
+      'OffsetTimeDigitized' => 36882,
+      'ComponentsConfiguration' => 37121,
+      'CompressedBitsPerPixel' => 37122,
+      'ShutterSpeedValue' => 37377,
+      'ApertureValue' => 37378,
+      'BrightnessValue' => 37379,
+      'ExposureBiasValue' => 37380,
+      'MaxApertureValue' => 37381,
+      'SubjectDistance' => 37382,
+      'MeteringMode' => 37383,
+      'LightSource' => 37384,
+      'Flash' => 37385,
+      'FocalLength' => 37386,
+      'SubjectArea' => 37396,
+      'MakerNote' => 37500,
+      'UserComment' => 37510,
+      'SubSecTime' => 37520,
+      'SubSecTimeOriginal' => 37521,
+      'SubSecTimeDigitized' => 37522,
+      'FlashPixVersion' => 40960,
+      'ColorSpace' => 40961,
+      'PixelXDimension' => 40962,
+      'PixelYDimension' => 40963,
+      'RelatedSoundFile' => 40964,
+      'InteroperabilityIFDPointer' => 40965,
+      'FlashEnergy' => 41483,
+      'SpatialFrequencyResponse' => 41484,
+      'FocalPlaneXResolution' => 41486,
+      'FocalPlaneYResolution' => 41487,
+      'FocalPlaneResolutionUnit' => 41488,
+      'SubjectLocation' => 41492,
+      'ExposureIndex' => 41493,
+      'SensingMethod' => 41495,
+      'FileSource' => 41728,
+      'SceneType' => 41729,
+      'CustomRendered' => 41985,
+      'ExposureMode' => 41986,
+      'WhiteBalance' => 41987,
+      'DigitalZoomRatio' => 41988,
+      'FocalLengthIn35mmFilm' => 41989,
+      'SceneCaptureType' => 41990,
+      'GainControl' => 41991,
+      'Contrast' => 41992,
+      'Saturation' => 41993,
+      'Sharpness' => 41994,
+      'DeviceSettingDescription' => 41995,
+      'SubjectDistanceRange' => 41996,
+      'ImageUniqueID' => 42016,
+      'OwnerName' => 42032,
+      'SerialNumber' => 42033,
+      'LensInfo' => 42034,
+      'LensMake' => 42035,
+      'LensModel' => 42036,
+      'LensSerialNumber' => 42037,
+      'Gamma' => 42240,
+    ),
+    'ifdInteroperability' =>
+    array (
+      'InteroperabilityIndex' => 1,
+      'InteroperabilityVersion' => 2,
+      'RelatedImageFileFormat' => 4096,
+      'RelatedImageWidth' => 4097,
+      'RelatedImageLength' => 4098,
     ),
     'ifd0' =>
     array (
