@@ -19,7 +19,6 @@ abstract class JpegSegmentBase extends BlockBase
      * {@inheritdoc}
      */
     protected $DOMNodeName = 'jpegSegment';
-    protected $type = 'jpegSegment';
 
     /**
      * The segment payload type.

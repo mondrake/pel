@@ -21,16 +21,6 @@ class Thumbnail extends BlockBase
      * {@inheritdoc}
      */
     protected $DOMNodeName = 'thumbnail';
-    protected $type = 'thumbnail';
-
-    /**
-     * Constructs a Thumbnail block object.
-     */
-    public function __construct(Ifd $ifd)
-    {
-        parent::__construct($ifd);
-        $this->hasSpecification = false;
-    }
 
     /**
      * {@inheritdoc}

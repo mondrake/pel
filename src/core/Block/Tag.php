@@ -20,14 +20,13 @@ class Tag extends BlockBase
      * {@inheritdoc}
      */
     protected $DOMNodeName = 'tag';
-    protected $type = 'tag';
 
     /**
      * Constructs a Tag block object.
      */
-    public function __construct(BlockBase $parent_block, $id, $entry_class, $entry_data, $format = null, $components = null)
+    public function __construct($type, BlockBase $parent_block, $id, $entry_class, $entry_data, $format = null, $components = null)
     {
-        parent::__construct($parent_block);
+        parent::__construct($type, $parent_block);
 
         $this->setAttribute('id', $id);
         $tag_name = Spec::getTagName($parent_block, $id);

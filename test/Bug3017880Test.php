@@ -47,7 +47,7 @@ class Bug3017880Test extends ExifEyeTestCaseBase
             $software_tag = $ifd0->getElement("tag[@name='Software']");
 
             if ($software_tag === null) {
-                new Tag($ifd0, 0x0131, 'ExifEye\core\Entry\Core\Ascii', [$software_name]);
+                new Tag('tag', $ifd0, 0x0131, 'ExifEye\core\Entry\Core\Ascii', [$software_name]);
                 $resave_file = 1;
             } else {
                 $software_tag->getElement("entry")->setValue([$software_name]);
