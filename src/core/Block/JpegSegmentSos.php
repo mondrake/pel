@@ -49,7 +49,7 @@ class JpegSegmentSos extends JpegSegmentBase
             $this->warning('Found trailing content after EOI: {size} bytes', ['size' => $raw_size]);
             // There is no JPEG marker for trailing garbage, so we just load
             // the data in a RawData object.
-            $trail = new RawData($this->getParentElement());
+            $trail = new RawData('rawData', $this->getParentElement());
             $trail_data_window = new DataWindow($data_element, $end_offset, $raw_size, $data_element->getByteOrder());
             $trail_data_window->debug($trail);
             $trail->loadFromData($trail_data_window, 0, $raw_size);
