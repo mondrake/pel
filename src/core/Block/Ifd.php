@@ -109,14 +109,14 @@ class Ifd extends BlockBase
             $tag_entry_class = Spec::getElementHandlingClass($this->getType(), $tag_id, $tag_format);
 
 //dump('class: ' . $tag_entry_class);
-            if (strpos(Spec::getElementType($this, $tag->getAttribute('id')), 'ifd') !== 0) {
+            if (Spec::getElementType($this, $tag->getAttribute('id') === 'tag') {
                 $tag_entry_arguments = call_user_func($tag_entry_class . '::getInstanceArgumentsFromTagData', $this, $tag_format, $tag_components, $data_element, $tag_data_offset);
     //dump($tag_entry_arguments);
                 $tag = new Tag('tag', $this, $tag_id, $tag_entry_class, $tag_entry_arguments, $tag_format, $tag_components);
             }
 
             // Load a subIfd.
-            if (strpos(Spec::getElementType($this, $tag->getAttribute('id')), 'ifd') === 0) {
+            if (Spec::getElementType($this, $tag->getAttribute('id') !== 'tag') {
                 // If the tag is an IFD pointer, loads the IFD.
                 $ifd_type = Spec::getElementType($this->getType(), $tag->getAttribute('id'));
                 $ifd_name = Spec::getElementName($this->getType(), $tag->getAttribute('id'));
