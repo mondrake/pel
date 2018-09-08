@@ -43,7 +43,7 @@ class IfdIndexShort extends Ifd
         $offset += 2;
         for ($i = 0; $i < $components; $i++) {
             // Check if this tag ($i + 1) should be skipped.
-            if (Spec::getTagSkip($this, $i + 1)) {
+            if (Spec::getElementPropertyValue($this->getType(), $i + 1, 'skip')) {
                 continue;
             };
             $item_format = Spec::getElementPropertyValue($this->getType(), $i + 1, 'format')[0];
