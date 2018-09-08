@@ -27,7 +27,7 @@ class RunTime extends Ifd
             $tag_id = Spec::getElementIdByName($this->getType(), $tag_name);
             $item_format = Spec::getElementPropertyValue($this->getType(), $tag_id, 'format')[0];
             $tag_entry_class = Spec::getElementHandlingClass($this->getType(), $tag_id, $item_format);
-            $tag = new Tag('tag', $this, $tag_id, $tag_entry_class, [$value], $tag_format, 1);
+            $tag = new Tag('tag', $this, $tag_id, $tag_entry_class, [$value], $item_format, 1);
         }
 
         $this->debug(".....END Loading");
