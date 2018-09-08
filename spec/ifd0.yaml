@@ -194,8 +194,8 @@ elements:
         format: Short
         text:
             mapping:
-                2: 'Inches'
-                3: 'Centimeters'
+                2: 'Inch'
+                3: 'Centimeter'
     0x012D:
         type: tag
         name: TransferFunction
