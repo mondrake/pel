@@ -88,7 +88,7 @@ class SpecCompiler
 
         // Re-process the IFDs and TAGs for any task needing the entire
         // specification set to be available.
-        foreach ($this->map['ifds'] as $ifd_id => $ifd_type) {
+/*        foreach ($this->map['ifds'] as $ifd_id => $ifd_type) {
             foreach ($this->map['tags'][$ifd_id] as $tag_id => &$tag) {
                 // For sub-ifds, check the corresponding IFD exists and map it
                 // to the IFD id instead of the literal.
@@ -100,7 +100,7 @@ class SpecCompiler
                     }
                 }
             }
-        }
+        }*/
 
         // Dump the data to the spec.php file.
         $data = <<<DATA
