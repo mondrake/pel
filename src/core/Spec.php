@@ -112,6 +112,20 @@ class Spec
     }
 
     /**
+     * Returns the type's PHP handling class.
+     *
+     * @param string $type
+     *            the type.
+     *
+     * @return string
+     *            a fully qualified class name.
+     */
+    public static function getTypeHandlingClass($type)
+    {
+        return self::getTypeProperty($type, 'class');
+    }
+
+    /**
      * Returns the property value of an element.
      *
      * @param string $type
