@@ -319,8 +319,8 @@ elements:
         format: Ascii
     0xA005:
         type: ifdInteroperability
-        name: InteroperabilityIFDPointer
-        title: 'Interoperability IFD Pointer'
+        name: Interoperability
+        title: 'Interoperability IFD'
     0xA20B:
         type: tag
         name: FlashEnergy
