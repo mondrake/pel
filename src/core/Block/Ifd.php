@@ -113,13 +113,13 @@ dump($tag_entry_arguments);
             $tag = new Tag('tag', $this, $tag_id, $tag_entry_class, $tag_entry_arguments, $tag_format, $tag_components);
 
             // Load a subIfd.
-            if (Spec::isTagAnIfdPointer($this, $tag->getAttribute('id'))) {
+            if (strpos(Spec::getElementType($this, $tag->getAttribute('id')), 'ifd') === 0) {
                 // If the tag is an IFD pointer, loads the IFD.
                 $ifd_type = Spec::getElementType($this->getType(), $tag->getAttribute('id'));
-                $ifd_name = Spec::getIfdNameFromTag($this, $tag->getAttribute('id'));
+                $ifd_name = Spec::getElementName($this->getType(), $tag->getAttribute('id'));
                 $o = $data_element->getLong($i_offset + 8);
                 if ($starting_offset != $o) {
-                    $ifd_class = Spec::getIfdClass($ifd_name);
+                    $ifd_class = Spec::getElementHandlingClass($ifd_type, $ifd_name);
                     $ifd = new $ifd_class($ifd_type, $ifd_name, $this);
                     try {
                         $ifd->loadFromData($data_element, $o, $size, [
