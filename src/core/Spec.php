@@ -273,7 +273,7 @@ class Spec
      */
     public static function getElementText($type, $id, $value, $options = [])
     {
-dump($type, $id, $value, $options);
+if ($value === 6) dump($type, $id, $value, $options);
         if (isset(self::getMap()['elements'][$type][$id]['text']['mapping']) && is_scalar($value)) {
             $map = self::getMap()['elements'][$type][$id]['text']['mapping'];
             // If the code to be mapped is a non-int, change to string.
