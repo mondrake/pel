@@ -293,10 +293,6 @@ class Spec
      */
     public static function getMakerNoteIfdType($make, $model)
     {
-        $ifd_id = isset(self::getMap()['makerNotes'][$make]) ? self::getMap()['makerNotes'][$make] : null;
-        if ($ifd_id !== null) {
-            return self::getMap()['types'][$ifd_id];
-        }
-        return null;
+        return isset(self::getMap()['makerNotes'][$make]) ? self::getMap()['makerNotes'][$make] : null;
     }
 }
