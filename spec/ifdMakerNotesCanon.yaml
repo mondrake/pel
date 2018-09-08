@@ -7,7 +7,7 @@ makerNotes:
 elements:
     0x0001:
         type: ifdMakerNotesCanonCameraSettings
-        name: CameraSettings
+        name: CanonCameraSettings
         title: 'Camera Settings'
     0x0002:
         type: tag
@@ -16,11 +16,11 @@ elements:
         format: Short
     0x0004:
         type: ifdMakerNotesCanonShotInformation
-        name: ShotInfo
+        name: CanonShotInfo
         title: 'Shot Info'
     0x0005:
         type: ifdMakerNotesCanonPanoramaInformation
-        name: Panorama
+        name: CanonPanorama
         title: Panorama
     0x0006:
         type: tag
@@ -425,7 +425,7 @@ elements:
         format: SignedLong
     0x0093:
         type: ifdMakerNotesCanonFileInformation
-        name: FileInfo
+        name: CanonFileInfo
         title: 'File Info'
     0x0095:
         type: tag

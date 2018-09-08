@@ -7,7 +7,7 @@ makerNotes:
 elements:
     0x0003:
         type: ifdMakerNotesAppleRuntime
-        name: RunTime
+        name: AppleRunTime
         title: 'Apple Run Time'
     0x0008:
         type: tag
