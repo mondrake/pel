@@ -46,7 +46,7 @@ class IfdIndexShort extends Ifd
             if (Spec::getTagSkip($this, $i + 1)) {
                 continue;
             };
-            $item_format = Spec::getTagFormat($this, $i + 1)[0];
+            $item_format = Spec::getElementPropertyValue($this->getType(), $i + 1, 'format')[0];
             switch ($item_format) {
                 case Format::BYTE:
                     $item_value = $data_element->getByte($offset + $i * 2);

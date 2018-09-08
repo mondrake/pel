@@ -49,7 +49,7 @@ class Tag extends BlockBase
         }
 
         // Warn if format is not as expected.
-        $expected_format = Spec::getTagFormat($parent_block, $id);
+        $expected_format = Spec::getElementPropertyValue($parent_block->getType(), $id, 'format');
         if ($expected_format !== null && $format !== null && !in_array($format, $expected_format)) {
             $expected_format_names = [];
             foreach ($expected_format as $expected_format_id) {
