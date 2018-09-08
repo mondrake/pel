@@ -283,13 +283,10 @@ class Spec
     }
 
     /**
-     * Returns a Pel IFD to use for loading maker notes.
-     *
-     * @param string $ifd_id
-     *            the IFD id.
+     * xx
      *
      * @return int|null
-     *            an IFD id.
+     *            an IFD element id.
      */
     public static function getMakerNoteIfdType($make, $model)
     {
