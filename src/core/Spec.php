@@ -214,7 +214,7 @@ class Spec
      * @return string|null
      *            the element handling class.
      */
-    public static function getElementHandlingClass($type, $element_id)
+    public static function getElementHandlingClass($type, $element_id, $format = null)
     {
         return self::getElementPropertyValue($type, $element_id, 'class');
     }
