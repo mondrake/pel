@@ -149,7 +149,6 @@ class Spec
      */
     public static function getElementType($type, $element_id)
     {
-dump($type, $element_id);
         if (isset(self::getMap()['elements'][$type][$element_id]['type'])) {
             return self::getMap()['elements'][$type][$element_id]['type'];
         }
