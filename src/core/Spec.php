@@ -225,6 +225,7 @@ class Spec
         // If format is not passed in, try getting it from the spec.
         if ($format === null) {
             $formats = self::getElementPropertyValue($type, $element_id, 'format');
+dump($type, $element_id, $formats);
             if (empty($formats)) {
                 throw new ExifEyeException(
                     'No format can be derived for tag: 0x%04X (%s) in ifd: \'%s\'',

@@ -105,13 +105,10 @@ class Ifd extends BlockBase
             }
 
             // Build the TAG object.
-//dump($this->getType(), $tag_id, $tag_format);
             $tag_entry_class = Spec::getElementHandlingClass($this->getType(), $tag_id, $tag_format);
 
-//dump('class: ' . $tag_entry_class);
             if (Spec::getElementType($this->getType(), $tag_id) === 'tag') {
                 $tag_entry_arguments = call_user_func($tag_entry_class . '::getInstanceArgumentsFromTagData', $this, $tag_format, $tag_components, $data_element, $tag_data_offset);
-    //dump($tag_entry_arguments);
                 $tag = new Tag('tag', $this, $tag_id, $tag_entry_class, $tag_entry_arguments, $tag_format, $tag_components);
             }
 
@@ -145,17 +142,20 @@ class Ifd extends BlockBase
         $this->debug(".....END Loading");
 
         // Invoke post-load callbacks.
-        foreach (Spec::getIfdPostLoadCallbacks($this) as $callback) {
-            $this->debug("START... {callback}", [
-                'callback' => $callback,
-            ]);
-            call_user_func($callback, $data_element, $this);
-            $this->debug(".....END {callback}", [
-                'callback' => $callback,
-            ]);
+        $post_load_callbacks = Spec::getTypeProperty($this->getType(), 'postLoad');
+        if (!empty($post_load_callbacks)) {
+          foreach ($post_load_callbacks as $callback) {
+              $this->debug("START... {callback}", [
+                  'callback' => $callback,
+              ]);
+              call_user_func($callback, $data_element, $this);
+              $this->debug(".....END {callback}", [
+                  'callback' => $callback,
+              ]);
+          }
         }
 
-        return $data_element->getLong($offset + 2 + 12 * $n);
+        return $this;
     }
 
     /**
