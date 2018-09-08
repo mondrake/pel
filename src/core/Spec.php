@@ -72,6 +72,17 @@ class Spec
     }
 
     /**
+     * Returns the types in the specification.
+     *
+     * @return array
+     *            an simple array, with the specification types.
+     */
+    public static function getTypes()
+    {
+        return array_keys(self::getMap()['types']);
+    }
+
+    /**
      * Returns the property value of a type.
      *
      * @param string $type
@@ -209,6 +220,34 @@ class Spec
     }
 
     /**
+     * Returns the text of an element.
+     *
+     * @param \ExifEye\core\Block\Tag $tag
+     *            the TAG.
+     * @param EntryInterface $entry
+     *            the TAG entry.
+     * @param array $options
+     *            (Optional) an array of options to format the value.
+     *
+     * @return string|null
+     *            the TAG text, or NULL if not applicable.
+     */
+    public static function getElementText($type, EntryInterface $entry, $options = [])
+    {
+        $tag_id = $entry->getParent()->getAttribute('id');
+        if (isset(self::getMap()['elements'][$type][$tag_id]['text']['mapping'])) {
+            $value = $entry->getValue();
+            if (is_scalar($value)) {
+                $map = self::getMap()['elements'][$type][$tag_id]['text']['mapping'];
+                // If the code to be mapped is a non-int, change to string.
+                $id = is_int($value) ? $value : (string) $value;
+                return isset($map[$id]) ? ExifEye::tra($map[$id]) : null;
+            }
+        }
+        return null;
+    }
+
+    /**
      * Returns the IFD types in the specification.
      *
      * @return array
@@ -218,22 +257,6 @@ class Spec
     public static function xxgetIfdTypes()
     {
         return self::getMap()['ifds'];
-    }
-
-    /**
-     * Returns the TAG ids supported in an IFD.
-     *
-     * @param int $ifd_id
-     *            the IFD id.
-     *
-     * @return array
-     *            an simple array, with values the TAG identifiers supported by
-     *            the IFD.
-     */
-    public static function xxgetIfdSupportedTagIds(BlockBase $block)
-    {
-        $xx_block_id = self::getIfdIdByType($block->getAttribute('name'));
-        return array_keys(self::getMap()['tags'][$xx_block_id]);
     }
 
     /**
