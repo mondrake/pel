@@ -111,7 +111,7 @@ abstract class EntryBase extends ElementBase implements EntryInterface
     public function toString(array $options = [])
     {
         if ($parent = $this->getParentElement()) {
-            return Spec::getTagText($parent->getType(), $this, $options); // xx
+            return Spec::getElementText($parent->getType(), $parent->getAttribute('id'), $this, $options);
         }
         return null;
     }

@@ -222,23 +222,22 @@ class Spec
     /**
      * Returns the text of an element.
      *
-     * @param \ExifEye\core\Block\Tag $tag
-     *            the TAG.
+     * @param string $type
+     *            the element type.
      * @param EntryInterface $entry
-     *            the TAG entry.
+     *            the entry object with the value.
      * @param array $options
      *            (Optional) an array of options to format the value.
      *
      * @return string|null
-     *            the TAG text, or NULL if not applicable.
+     *            the element text, or NULL if not applicable.
      */
-    public static function getElementText($type, EntryInterface $entry, $options = [])
+    public static function getElementText($type, $id, EntryInterface $entry, $options = [])
     {
-        $tag_id = $entry->getParent()->getAttribute('id');
-        if (isset(self::getMap()['elements'][$type][$tag_id]['text']['mapping'])) {
+        if (isset(self::getMap()['elements'][$type][$id]['text']['mapping'])) {
             $value = $entry->getValue();
             if (is_scalar($value)) {
-                $map = self::getMap()['elements'][$type][$tag_id]['text']['mapping'];
+                $map = self::getMap()['elements'][$type][$id]['text']['mapping'];
                 // If the code to be mapped is a non-int, change to string.
                 $id = is_int($value) ? $value : (string) $value;
                 return isset($map[$id]) ? ExifEye::tra($map[$id]) : null;
