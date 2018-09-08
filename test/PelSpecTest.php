@@ -96,13 +96,13 @@ class PelSpecTest extends ExifEyeTestCaseBase
      *
      * @dataProvider getTagTextProvider
      */
-    public function testGetTagText($expected_text, $expected_class, $ifd_name, $tag, array $args, $brief = false)
+    public function testGetTagText($expected_text, $expected_class, $ifd_type, $ifd_name, $tag, array $args, $brief = false)
     {
         $tiff_mock = $this->getMockBuilder('ExifEye\core\Block\Tiff')
             ->disableOriginalConstructor()
             ->getMock();
 
-        $ifd = new Ifd('ifd', $ifd_name, $tiff_mock);
+        $ifd = new Ifd($ifd_type, $ifd_name, $tiff_mock);
 
         $tag_id = Spec::getElementIdByName($ifd->getType(), $tag);
         $entry_class_name = Spec::getElementHandlingClass($ifd->getType(), $tag_id);
