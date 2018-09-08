@@ -215,7 +215,7 @@ class Spec
      *            an associative array, with keys the IFD identifiers, and
      *            values the IFD types.
      */
-    public static function getIfdTypes()
+    public static function xxgetIfdTypes()
     {
         return self::getMap()['ifds'];
     }
@@ -230,7 +230,7 @@ class Spec
      *            an simple array, with values the TAG identifiers supported by
      *            the IFD.
      */
-    public static function getIfdSupportedTagIds(BlockBase $block)
+    public static function xxgetIfdSupportedTagIds(BlockBase $block)
     {
         $xx_block_id = self::getIfdIdByType($block->getAttribute('name'));
         return array_keys(self::getMap()['tags'][$xx_block_id]);
@@ -245,7 +245,7 @@ class Spec
      * @return int|null
      *            the IFD id.
      */
-    public static function getIfdIdByType($ifd_type)
+    public static function xxgetIfdIdByType($ifd_type)
     {
         return isset(self::getMap()['ifdsByType'][$ifd_type]) ? self::getMap()['ifdsByType'][$ifd_type] : null;
     }
@@ -259,7 +259,7 @@ class Spec
      * @return string|null
      *            the IFD class.
      */
-    public static function getIfdClass($block_name)
+    public static function xxgetIfdClass($block_name)
     {
         $xx_block_id = self::getIfdIdByType($block_name);
 
@@ -275,7 +275,7 @@ class Spec
      * @return int|null
      *            an IFD id.
      */
-    public static function getMakerNoteIfdName($make, $model)
+    public static function xxgetMakerNoteIfdName($make, $model)
     {
         $ifd_id = isset(self::getMap()['makerNotes'][$make]) ? self::getMap()['makerNotes'][$make] : null;
         if ($ifd_id !== null) {
@@ -295,7 +295,7 @@ class Spec
      * @return bool
      *            TRUE or FALSE.
      */
-    public static function isTagAnIfdPointer(BlockBase $parent_block, $tag_id)
+    public static function xxisTagAnIfdPointer(BlockBase $parent_block, $tag_id)
     {
         $xx_parent_block_id = self::getIfdIdByType($parent_block->getAttribute('name'));
 
@@ -313,7 +313,7 @@ class Spec
      * @return int|null
      *            the IFD id, or null if the TAG is not an IFD pointer.
      */
-    public static function getIfdNameFromTag(BlockBase $parent_block, $tag_id)
+    public static function xxgetIfdNameFromTag(BlockBase $parent_block, $tag_id)
     {
         $xx_parent_block_id = self::getIfdIdByType($parent_block->getAttribute('name'));
 
@@ -334,7 +334,7 @@ class Spec
      * @return array
      *            the post-load callbacks.
      */
-    public static function getIfdPostLoadCallbacks(BlockBase $block)
+    public static function xxgetIfdPostLoadCallbacks(BlockBase $block)
     {
         $xx_block_id = self::getIfdIdByType($block->getAttribute('name'));
 
@@ -352,7 +352,7 @@ class Spec
      * @return string|null
      *            the TAG name.
      */
-    public static function getTagName(BlockBase $parent_block, $tag_id)
+    public static function xxgetTagName(BlockBase $parent_block, $tag_id)
     {
         $xx_parent_block_id = self::getIfdIdByType($parent_block->getAttribute('name'));
 
@@ -370,7 +370,7 @@ class Spec
      * @return int|null
      *            the TAG id.
      */
-    public static function getTagIdByName(BlockBase $parent_block, $tag_name)
+    public static function xxgetTagIdByName(BlockBase $parent_block, $tag_name)
     {
         $xx_parent_block_id = self::getIfdIdByType($parent_block->getAttribute('name'));
 
@@ -388,7 +388,7 @@ class Spec
      * @return array
      *            the array of formats supported by the TAG.
      */
-    public static function getTagFormat(BlockBase $parent_block, $tag_id)
+    public static function xxgetTagFormat(BlockBase $parent_block, $tag_id)
     {
         $xx_parent_block_id = self::getIfdIdByType($parent_block->getAttribute('name'));
 
@@ -407,7 +407,7 @@ class Spec
      * @return int|null
      *            the TAG count of data components.
      */
-    public static function getTagComponents(BlockBase $parent_block, $tag_id)
+    public static function xxgetTagComponents(BlockBase $parent_block, $tag_id)
     {
         $xx_parent_block_id = self::getIfdIdByType($parent_block->getAttribute('name'));
 
@@ -424,7 +424,7 @@ class Spec
      *
      * @return bool
      */
-    public static function getTagSkip(BlockBase $parent_block, $tag_id)
+    public static function xxgetTagSkip(BlockBase $parent_block, $tag_id)
     {
         $xx_parent_block_id = self::getIfdIdByType($parent_block->getAttribute('name'));
 
@@ -442,7 +442,7 @@ class Spec
      * @return string
      *            the TAG class.
      */
-    public static function getEntryClass(BlockBase $parent_block, $tag_id, $format = null)
+    public static function xxgetEntryClass(BlockBase $parent_block, $tag_id, $format = null)
     {
         $xx_parent_block_id = self::getIfdIdByType($parent_block->getAttribute('name'));
 
@@ -482,7 +482,7 @@ class Spec
      * @return string|null
      *            the TAG title.
      */
-    public static function getTagTitle(BlockBase $parent_block, $tag_id)
+    public static function xxgetTagTitle(BlockBase $parent_block, $tag_id)
     {
         $xx_parent_block_id = self::getIfdIdByType($parent_block->getAttribute('name'));
 
@@ -502,7 +502,7 @@ class Spec
      * @return string|null
      *            the TAG text, or NULL if not applicable.
      */
-    public static function getTagText(BlockBase $tag, EntryInterface $entry, $options = []) // xx move to generic element
+    public static function xxgetTagText(BlockBase $tag, EntryInterface $entry, $options = []) // xx move to generic element
     {
         // Return a text from a mapping list if defined.
         $ifd_name = $tag->getParentElement()->getAttribute('name');
