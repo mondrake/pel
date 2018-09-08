@@ -216,7 +216,30 @@ class Spec
      */
     public static function getElementHandlingClass($type, $element_id, $format = null)
     {
-        return self::getElementPropertyValue($type, $element_id, 'class');
+        // Return the element class, if defined.
+        $class = self::getElementPropertyValue($type, $element_id, 'class');
+        if ($class !== null) {
+            return $class;
+        }
+
+        // If format is not passed in, try getting it from the spec.
+        if ($format === null) {
+            $formats = self::getElementPropertyValue($type, $element_id, 'format');
+            if (empty($formats)) {
+                throw new ExifEyeException(
+                    'No format can be derived for tag: 0x%04X (%s) in ifd: \'%s\'',
+                    $element_id,
+                    self::getElementName($type, $element_id),
+                    $type
+                );
+            }
+            $format = $formats[0];
+        }
+
+        if (!isset(self::$defaultTagClasses[$format])) {
+            throw new ExifEyeException('Unsupported format: %s', Format::getName($format));
+        }
+        return self::$defaultTagClasses[$format];
     }
 
     /**
