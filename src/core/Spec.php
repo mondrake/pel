@@ -333,7 +333,7 @@ class Spec
      * @return int|null
      *            an IFD id.
      */
-    public static function xxgetMakerNoteIfdName($make, $model)
+    public static function getMakerNoteIfdType($make, $model)
     {
         $ifd_id = isset(self::getMap()['makerNotes'][$make]) ? self::getMap()['makerNotes'][$make] : null;
         if ($ifd_id !== null) {
