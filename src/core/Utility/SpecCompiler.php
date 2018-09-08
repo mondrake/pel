@@ -140,7 +140,27 @@ DATA;
 
         // 'elements' entry.
         foreach ($input['elements'] as $id => $element) {
+            // Convert format string to its ID.
+            if (isset($element['format'])) {
+                $temp = [];
+                if (is_scalar($element['format'])) {
+                    $temp[] = $element['format'];
+                } else {
+                    $temp = $element['format'];
+                }
+                $formats = [];
+                foreach ($temp as $name) {
+                    if (($formats[] = Format::getIdFromName($name)) === null) {
+                        throw new SpecCompilerException($file->getFileName() . ": invalid '" . $name . "' format found for element '" . $element['name'] . "'");
+                    }
+                }
+                $element['format'] = $formats;
+            }
+
+            // Add element to map by type/id.
             $this->map['elements'][$input['type']][$id] = $element;
+
+            // Add element to map by type/name.
             if (isset($element['name'])) { // xx
                 $this->map['elementsByName'][$input['type']][$element['name']] = $id;
             }

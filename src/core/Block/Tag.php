@@ -62,7 +62,7 @@ class Tag extends BlockBase
         }
 
         // Warn if components are not as expected.
-        $expected_components = Spec::getTagComponents($parent_block, $id);
+        $expected_components = Spec::getElementPropertyValue($parent_block->getType(), $id, 'components');
         if ($expected_components !== null && $components !== null && $components !== $expected_components) {
             $this->warning("Found {components} data components, expected {expected_components}", [
                 'components' => $components,
