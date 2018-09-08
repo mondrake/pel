@@ -16,7 +16,7 @@ elements:
         format: Short
     0x0004:
         type: ifdMakerNotesCanonShotInformation
-        name: CanonShotInfo
+        name: CanonShotInformation
         title: 'Shot Info'
     0x0005:
         type: ifdMakerNotesCanonPanoramaInformation
@@ -425,7 +425,7 @@ elements:
         format: SignedLong
     0x0093:
         type: ifdMakerNotesCanonFileInformation
-        name: CanonFileInfo
+        name: CanonFileInformation
         title: 'File Info'
     0x0095:
         type: tag
