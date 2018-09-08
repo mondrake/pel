@@ -164,6 +164,13 @@ DATA;
             if (isset($element['name'])) { // xx
                 $this->map['elementsByName'][$input['type']][$element['name']] = $id;
             }
+
+            // 'makerNotes' entry.
+            if (!empty($element['makerNotes'])) {
+                foreach ($element['makerNotes'] as $maker) {
+                    $this->map['makerNotes'][$maker] = $element['type'];
+                }
+            }
         }
     }
 
