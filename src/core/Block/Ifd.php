@@ -120,6 +120,7 @@ class Ifd extends BlockBase
                 $o = $data_element->getLong($i_offset + 8);
                 if ($starting_offset != $o) {
                     $ifd_class = Spec::getTypeHandlingClass($ifd_type);
+if(!$ifd_class) dump($this->getType(), $tag_id, $ifd_type, $ifd_name);
                     $ifd = new $ifd_class($ifd_type, $ifd_name, $this);
                     try {
                         $ifd->loadFromData($data_element, $o, $size, [

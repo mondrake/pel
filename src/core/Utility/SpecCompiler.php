@@ -138,6 +138,13 @@ DATA;
         unset($tmp['type'], $tmp['elements']);
         $this->map['types'][$input['type']] = $tmp;
 
+        // 'makerNotes' entry.
+        if (!empty($input['makerNotes'])) {
+            foreach ($input['makerNotes'] as $maker) {
+                $this->map['makerNotes'][$maker] = $input['type'];
+            }
+        }
+
         // 'elements' entry.
         foreach ($input['elements'] as $id => $element) {
             // Convert format string to its ID.
@@ -163,13 +170,6 @@ DATA;
             // Add element to map by type/name.
             if (isset($element['name'])) { // xx
                 $this->map['elementsByName'][$input['type']][$element['name']] = $id;
-            }
-
-            // 'makerNotes' entry.
-            if (!empty($element['makerNotes'])) {
-                foreach ($element['makerNotes'] as $maker) {
-                    $this->map['makerNotes'][$maker] = $element['type'];
-                }
             }
         }
     }
