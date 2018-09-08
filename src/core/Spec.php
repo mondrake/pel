@@ -224,24 +224,23 @@ class Spec
      *
      * @param string $type
      *            the element type.
-     * @param EntryInterface $entry
-     *            the entry object with the value.
+     * @param string $id
+     *            the element id.
+     * @param mixed $value
+     *            the element value.
      * @param array $options
      *            (Optional) an array of options to format the value.
      *
      * @return string|null
      *            the element text, or NULL if not applicable.
      */
-    public static function getElementText($type, $id, EntryInterface $entry, $options = [])
+    public static function getElementText($type, $id, $value, $options = [])
     {
-        if (isset(self::getMap()['elements'][$type][$id]['text']['mapping'])) {
-            $value = $entry->getValue();
-            if (is_scalar($value)) {
-                $map = self::getMap()['elements'][$type][$id]['text']['mapping'];
-                // If the code to be mapped is a non-int, change to string.
-                $id = is_int($value) ? $value : (string) $value;
-                return isset($map[$id]) ? ExifEye::tra($map[$id]) : null;
-            }
+        if (isset(self::getMap()['elements'][$type][$id]['text']['mapping']) && is_scalar($value)) {
+            $map = self::getMap()['elements'][$type][$id]['text']['mapping'];
+            // If the code to be mapped is a non-int, change to string.
+            $id = is_int($value) ? $value : (string) $value;
+            return isset($map[$id]) ? ExifEye::tra($map[$id]) : null;
         }
         return null;
     }
@@ -509,37 +508,5 @@ class Spec
         $xx_parent_block_id = self::getIfdIdByType($parent_block->getAttribute('name'));
 
         return isset(self::getMap()['tags'][$xx_parent_block_id][$tag_id]['title']) ? self::getMap()['tags'][$xx_parent_block_id][$tag_id]['title'] : null;
-    }
-
-    /**
-     * Returns the TAG text.
-     *
-     * @param \ExifEye\core\Block\Tag $tag
-     *            the TAG.
-     * @param EntryInterface $entry
-     *            the TAG entry.
-     * @param array $options
-     *            (Optional) an array of options to format the value.
-     *
-     * @return string|null
-     *            the TAG text, or NULL if not applicable.
-     */
-    public static function xxgetTagText(BlockBase $tag, EntryInterface $entry, $options = []) // xx move to generic element
-    {
-        // Return a text from a mapping list if defined.
-        $ifd_name = $tag->getParentElement()->getAttribute('name');
-        $ifd_id = self::getIfdIdByType($ifd_name);
-        $tag_id = $tag->getAttribute('id');
-        if (isset(self::getMap()['tags'][$ifd_id][$tag_id]['text']['mapping'])) {
-            $value = $entry->getValue();
-            if (is_scalar($value)) {
-                $map = self::getMap()['tags'][$ifd_id][$tag_id]['text']['mapping'];
-                // If the code to be mapped is a non-int, change to string.
-                $id = is_int($value) ? $value : (string) $value;
-                return isset($map[$id]) ? ExifEye::tra($map[$id]) : null;
-            }
-        }
-
-        return null;
     }
 }
