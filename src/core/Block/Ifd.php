@@ -116,7 +116,7 @@ class Ifd extends BlockBase
             }
 
             // Load a subIfd.
-            if (Spec::getElementType($this, $tag->getAttribute('id') !== 'tag') {
+            if (Spec::getElementType($this, $tag->getAttribute('id')) !== 'tag') {
                 // If the tag is an IFD pointer, loads the IFD.
                 $ifd_type = Spec::getElementType($this->getType(), $tag->getAttribute('id'));
                 $ifd_name = Spec::getElementName($this->getType(), $tag->getAttribute('id'));
