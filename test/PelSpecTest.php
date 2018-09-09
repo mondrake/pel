@@ -41,7 +41,7 @@ class PelSpecTest extends ExifEyeTestCaseBase
             'ExifEye\core\Block\Thumbnail::toBlock',
             'ExifEye\core\Entry\ExifMakerNote::tagToIfd',
         ], Spec::getTypePropertyValue($ifd_0->getType(), 'postLoad'));
-        $this->assertEquals([], Spec::getTypePropertyValue($ifd_canon_camera_settings->getType(), 'postLoad'));
+        $this->assertNull(Spec::getTypePropertyValue($ifd_canon_camera_settings->getType(), 'postLoad'));
 
         // Test retrieving maker note IFD.
         $this->assertEquals('ifdMakerNotesCanon', Spec::getMakerNoteIfdType('Canon', 'any'));
@@ -76,13 +76,13 @@ class PelSpecTest extends ExifEyeTestCaseBase
     /**
      * Tests the Spec::getEntryClass method.
      */
-    public function testgetEntryClass()
+    public function testGetEntryClass()
     {
         $tiff_mock = $this->getMockBuilder('ExifEye\core\Block\Tiff')
             ->disableOriginalConstructor()
             ->getMock();
         $ifd_exif = new Ifd('ifdExif', 'Exif', $tiff_mock);
-        $ifd_canon_picture_information = new IfdIndexShort('ifdIndexShort', 'CanonPictureInformation', $tiff_mock);
+        $ifd_canon_picture_information = new IfdIndexShort('ifdMakerNotesCanonPictureInformation', 'CanonPictureInformation', $tiff_mock);
 
         $this->assertEquals('ExifEye\core\Entry\ExifUserComment', Spec::getElementHandlingClass($ifd_exif->getType(), 0x9286));
         $this->assertEquals('ExifEye\core\Entry\Time', Spec::getElementHandlingClass($ifd_exif->getType(), 0x9003));

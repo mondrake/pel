@@ -126,7 +126,7 @@ DATA;
         // Check validity of element keys.
         $diff = array_diff($this->elementKeys, array_intersect(array_keys($input), $this->elementKeys));
         if (!empty($diff)) {
-            throw new SpecCompilerException($file->getFileName() . ": missing element key(s) - " . implode(", ", $diff));
+            throw new SpecCompilerException($file->getFileName() . ": missing type key(s) - " . implode(", ", $diff));
         }
 
         // 'types' entry.
