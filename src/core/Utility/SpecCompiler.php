@@ -79,11 +79,7 @@ class SpecCompiler
         // Process the files. Each file corresponds to an IFD specification.
         foreach ($files as $file) {
             $ifd = Yaml::parse($file->getContents());
-            if (strpos($file->getBasename(), 'ifd_') === 0) {
-                $this->mapIfd($ifd, $file);
-            } else {
-                $this->mapElementType($ifd, $file);
-            }
+            $this->mapType($ifd, $file);
         }
 
         // Re-process the IFDs and TAGs for any task needing the entire
@@ -118,14 +114,14 @@ DATA;
     }
 
     /**
-     * Processes an element type into the compiled map.
+     * Processes a 'type' into the compiled map.
      *
      * @param array $input
      *            the array from the specification file.
      * @param SplFileInfo $file
      *            the YAML specification file being processed.
      */
-    protected function mapElementType(array $input, SplFileInfo $file)
+    protected function mapType(array $input, SplFileInfo $file)
     {
         // Check validity of element keys.
         $diff = array_diff($this->elementKeys, array_intersect(array_keys($input), $this->elementKeys));
@@ -137,6 +133,14 @@ DATA;
         $tmp = $input;
         unset($tmp['type'], $tmp['elements']);
         $this->map['types'][$input['type']] = $tmp;
+
+        // 'typesByName' entry.
+        $this->map['typesByName'][$input['name']] = $input['type'];
+        if (!empty($input['alias'])) {
+            foreach ($input['alias'] as $alias) {
+                $this->map['typesByName'][$alias] = $input['type'];
+            }
+        }
 
         // 'makerNotes' entry.
         if (!empty($input['makerNotes'])) {

@@ -83,6 +83,20 @@ class Spec
     }
 
     /**
+     * Returns the id of a type given its name.
+     *
+     * @param string $type_name
+     *            the type.
+     *
+     * @return int|string|null
+     *            the type id.
+     */
+    public static function getTypeIdByName($type_name)
+    {
+        return isset(self::getMap()['typesByName'][$type_name]) ? self::getMap()['typesByName'][$type_name] : null;
+    }
+
+    /**
      * Returns the property value of a type.
      *
      * @param string $type
