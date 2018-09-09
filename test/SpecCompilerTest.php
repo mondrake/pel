@@ -53,35 +53,35 @@ class SpecCompilerTest extends ExifEyeTestCaseBase
     /**
      * Tests that compiling a YAML file with invalid IFD keys raises exception.
      */
-    public function testInvalidIfdKeys()
+/*    public function testInvalidIfdKeys()
     {
         //@todo change below to SpecCompilerException::class once PHP 5.4 support is removed.
         $this->fcExpectException('ExifEye\core\Utility\SpecCompilerException', 'ifd_ifd0.yaml: invalid IFD key(s) found - bork');
         $compiler = new SpecCompiler();
         $compiler->compile(__DIR__ . '/fixtures/spec/invalid_ifd_keys', $this->testResourceDirectory);
-    }
+    }*/
 
     /**
      * Tests that compiling a YAML file with invalid TAG keys raises exception.
      */
-    public function testInvalidTagKeys()
+/*    public function testInvalidTagKeys()
     {
         //@todo change below to SpecCompilerException::class once PHP 5.4 support is removed.
         $this->fcExpectException('ExifEye\core\Utility\SpecCompilerException', "ifd_ifd0.yaml: invalid key(s) found for TAG 'ImageWidth' - bork");
         $compiler = new SpecCompiler();
         $compiler->compile(__DIR__ . '/fixtures/spec/invalid_tag_keys', $this->testResourceDirectory);
-    }
+    }*/
 
     /**
      * Tests that compiling a YAML file with invalid sub IFD raises exception.
      */
-    public function testInvalidSubIfd()
+/*    public function testInvalidSubIfd()
     {
         //@todo change below to SpecCompilerException::class once PHP 5.4 support is removed.
         $this->fcExpectException('ExifEye\core\Utility\SpecCompilerException', "Invalid sub IFD(s) found for TAG 'ExifIFDPointer': *** EXPECTED FAILURE ***");
         $compiler = new SpecCompiler();
         $compiler->compile(__DIR__ . '/fixtures/spec/invalid_subifd', $this->testResourceDirectory);
-    }
+    }*/
 
     /**
      * Tests compiling a valid specifications stub set.
