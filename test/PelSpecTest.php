@@ -60,15 +60,13 @@ class PelSpecTest extends ExifEyeTestCaseBase
         // Check methods identifying an IFD pointer TAG.
         $this->assertSame('ifdExif', Spec::getElementType($ifd_0->getType(), 0x8769));
         $this->assertSame('Exif', Spec::getElementName($ifd_0->getType(), 0x8769));
-        $this->assertNotSame('ifdInteroperability', Spec::getElementType($ifd_exif->getType(), 0x829A));
-        $this->assertNull(Spec::getElementName($ifd_exif->getType(), 0x829A));
 
         // Check getTagFormat.
         $this->assertEquals([Format::UNDEFINED], Spec::getElementPropertyValue($ifd_exif->getType(), 0x9286, 'format'));
         $this->assertEquals([Format::SHORT, Format::LONG], Spec::getElementPropertyValue($ifd_exif->getType(), 0xA002, 'format'));
 
         // Check getTagTitle.
-        $this->assertEquals('Exif IFD Pointer', Spec::getElementTitle($ifd_0->getType(), 0x8769));
+        $this->assertEquals('Exif IFD', Spec::getElementTitle($ifd_0->getType(), 0x8769));
         $this->assertEquals('Exposure Time', Spec::getElementTitle($ifd_exif->getType(), 0x829A));
         $this->assertEquals('Compression', Spec::getElementTitle($ifd_0->getType(), 0x0103));
     }
