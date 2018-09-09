@@ -48,12 +48,12 @@ class PelSpecTest extends ExifEyeTestCaseBase
         $this->assertNull(Spec::getMakerNoteIfdType('Minolta', 'any'));
 
         // Test retrieving TAG name.
-        $this->assertEquals('ExifIFDPointer', Spec::getElementName($ifd_0->getType(), 0x8769));
+        $this->assertEquals('Exif', Spec::getElementName($ifd_0->getType(), 0x8769));
         $this->assertEquals('ExposureTime', Spec::getElementName($ifd_exif->getType(), 0x829A));
         $this->assertEquals('Compression', Spec::getElementName($ifd_0->getType(), 0x0103));
 
         // Test retrieving TAG id by name.
-        $this->assertEquals(0x8769, Spec::getElementIdByName($ifd_0->getType(), 'ExifIFDPointer'));
+        $this->assertEquals(0x8769, Spec::getElementIdByName($ifd_0->getType(), 'Exif'));
         $this->assertEquals(0x829A, Spec::getElementIdByName($ifd_exif->getType(), 'ExposureTime'));
         $this->assertEquals(0x0103, Spec::getElementIdByName($ifd_0->getType(), 'Compression'));
 
@@ -87,7 +87,7 @@ class PelSpecTest extends ExifEyeTestCaseBase
         $this->assertEquals('ExifEye\core\Entry\ExifUserComment', Spec::getElementHandlingClass($ifd_exif->getType(), 0x9286));
         $this->assertEquals('ExifEye\core\Entry\Time', Spec::getElementHandlingClass($ifd_exif->getType(), 0x9003));
         //@todo change below to ExifEyeException::class once PHP 5.4 support is removed.
-        $this->fcExpectException('ExifEye\core\ExifEyeException', "No format can be derived for tag: 0x0003 (ImageHeight) in ifd: 'CanonPictureInformation'");
+        $this->fcExpectException('ExifEye\core\ExifEyeException', "No format can be derived for tag: 0x0003 (ImageHeight) in ifd: 'ifdMakerNotesCanonPictureInformation'");
         $this->assertNull(Spec::getElementHandlingClass($ifd_canon_picture_information->getType(), 0x0003));
     }
 
