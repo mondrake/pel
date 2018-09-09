@@ -110,6 +110,7 @@ abstract class EntryBase extends ElementBase implements EntryInterface
      */
     public function toString(array $options = [])
     {
+        // xx this is assuming an entry is within a tag within an ifd...
         if ($parent = $this->getParentElement()) {
             return Spec::getElementText($parent->getParentElement()->getType(), $parent->getAttribute('id'), $this->getValue(), $options);
         }

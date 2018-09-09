@@ -124,7 +124,6 @@ class Ifd extends BlockBase
                             'data_offset' => $tag_data_offset,
                             'components' => $tag_components,
                         ]);
-                        //$this->removeElement("tag[@name='" . $tag->getAttribute('name') . "']");
                     } catch (DataException $e) {
                         $this->error($e->getMessage());
                     }

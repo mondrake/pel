@@ -40,8 +40,8 @@ class PelSpecTest extends ExifEyeTestCaseBase
         $this->assertEquals([
             'ExifEye\core\Block\Thumbnail::toBlock',
             'ExifEye\core\Entry\ExifMakerNote::tagToIfd',
-        ], Spec::getTypePropertyValue($ifd_0->getType, 'postLoad'));
-        $this->assertEquals([], Spec::getTypePropertyValue($ifd_canon_camera_settings->getType, 'postLoad'));
+        ], Spec::getTypePropertyValue($ifd_0->getType(), 'postLoad'));
+        $this->assertEquals([], Spec::getTypePropertyValue($ifd_canon_camera_settings->getType(), 'postLoad'));
 
         // Test retrieving maker note IFD.
         $this->assertEquals('ifdMakerNotesCanon', Spec::getMakerNoteIfdType('Canon', 'any'));
@@ -88,7 +88,7 @@ class PelSpecTest extends ExifEyeTestCaseBase
         $this->assertEquals('ExifEye\core\Entry\Time', Spec::getElementHandlingClass($ifd_exif->getType(), 0x9003));
         //@todo change below to ExifEyeException::class once PHP 5.4 support is removed.
         $this->fcExpectException('ExifEye\core\ExifEyeException', "No format can be derived for tag: 0x0003 (ImageHeight) in ifd: 'CanonPictureInformation'");
-        $this->assertNull(Spec::getEntryClass($ifd_canon_picture_information, 0x0003));
+        $this->assertNull(Spec::getElementHandlingClass($ifd_canon_picture_information->getType(), 0x0003));
     }
 
     /**
