@@ -60,10 +60,19 @@ class ImageFilesTest extends ExifEyeTestCaseBase
                 $this->assertEquals(count($test['log'][$level]), count($image->dumpLog($level)));
             }
         }
+    }
+
+    /**
+     * @dataProvider imageFileProvider
+     */
+    public function testInjectToGd($imageDumpFile)
+    {
+        $test = Yaml::parse($imageDumpFile->getContents());
+        $image = Image::createFromFile($imageDumpFile->getPath() . '/' . $test['fileName']);
 
         // Test loading the image to GD; it fails hard in case of errors.
-/*        $gd_resource = imagecreatefromstring($image->toBytes());
-        imagedestroy($gd_resource);*/
+        $gd_resource = imagecreatefromstring($image->toBytes());
+        imagedestroy($gd_resource);
     }
 
     protected function assertElement($expected, $element)
