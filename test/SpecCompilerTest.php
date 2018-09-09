@@ -100,7 +100,7 @@ class SpecCompilerTest extends ExifEyeTestCaseBase
         $ifd_exif = new Ifd('ifdExif', 'Exif', $ifd_0);
 
         $this->assertEquals(0x0100, Spec::getElementIdByName($ifd_0->getType(), 'ImageWidth'));
-        $this->assertEquals(0x8769, Spec::getElementIdByName($ifd_0->getType(), 'ExifIFD'));
+        $this->assertEquals(0x8769, Spec::getElementIdByName($ifd_0->getType(), 'ExifIfd'));
         $this->assertEquals(0x829A, Spec::getElementIdByName($ifd_exif->getType(), 'ExposureTime'));
 
         // Compression is missing from the stub specs.
