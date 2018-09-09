@@ -96,14 +96,14 @@ class SpecCompilerTest extends ExifEyeTestCaseBase
         $tiff_mock = $this->getMockBuilder('ExifEye\core\Block\Tiff')
             ->disableOriginalConstructor()
             ->getMock();
-        $ifd_0 = new Ifd('ifd', 'IFD0', $tiff_mock);
-        $ifd_exif = new Ifd('ifd', 'Exif', $ifd_0);
+        $ifd_0 = new Ifd('ifd0', 'IFD0', $tiff_mock);
+        $ifd_exif = new Ifd('ifdExif', 'Exif', $ifd_0);
 
-        $this->assertEquals(0x0100, Spec::getTagIdByName($ifd_0, 'ImageWidth'));
-        $this->assertEquals(0x8769, Spec::getTagIdByName($ifd_0, 'ExifIFDPointer'));
-        $this->assertEquals(0x829A, Spec::getTagIdByName($ifd_exif, 'ExposureTime'));
+        $this->assertEquals(0x0100, Spec::getElementIdByName($ifd_0->getType(), 'ImageWidth'));
+        $this->assertEquals(0x8769, Spec::getElementIdByName($ifd_0->getType(), 'ExifIFD'));
+        $this->assertEquals(0x829A, Spec::getElementIdByName($ifd_exif->getType(), 'ExposureTime'));
 
         // Compression is missing from the stub specs.
-        $this->assertNull(Spec::getTagIdByName($ifd_0, 'Compression'));
+        $this->assertNull(Spec::getElementIdByName($ifd_0->getType(), 'Compression'));
     }
 }

@@ -24,7 +24,7 @@ class PelSpecTest extends ExifEyeTestCaseBase
             ->disableOriginalConstructor()
             ->getMock();
         $ifd_0 = new Ifd('ifd0', 'IFD0', $tiff_mock);
-        $ifd_exif = new Ifd('exif', 'Exif', $tiff_mock);
+        $ifd_exif = new Ifd('ifdExif', 'Exif', $tiff_mock);
         $ifd_canon_camera_settings = new IfdIndexShort('ifdIndexShort', 'CanonCameraSettings', $tiff_mock);
 
         // Test retrieving IFD id by name.

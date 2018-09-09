@@ -20,3 +20,4 @@ elements:
         format: [Short, Long]
     0x8769:
         type: ifdExif
+        name: ExifIfd
