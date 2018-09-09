@@ -141,6 +141,30 @@ return array (
       'class' => 'ExifEye\\core\\Block\\IfdIndexShort',
     ),
   ),
+  'typesByName' =>
+  array (
+    'CanonPanoramaInformation' => 'ifdMakerNotesCanonPanoramaInformation',
+    'JpegSegment' => 'jpegSegment',
+    'IFD1' => 'ifd1',
+    1 => 'ifd1',
+    'Thumbnail' => 'ifd1',
+    'GPS' => 'ifdGps',
+    'CanonMakerNotes' => 'ifdMakerNotesCanon',
+    'Exif' => 'exif',
+    'AppleMakerNotes' => 'ifdMakerNotesApple',
+    'AppleMakerNotesRuntime' => 'ifdMakerNotesAppleRuntime',
+    'CanonCameraSettings' => 'ifdMakerNotesCanonCameraSettings',
+    'CanonPictureInformation' => 'ifdMakerNotesCanonPictureInformation',
+    'Interoperability' => 'ifdInteroperability',
+    'Interop' => 'ifdInteroperability',
+    'IFD0' => 'ifd0',
+    0 => 'ifd0',
+    'Main' => 'ifd0',
+    'CanonFileInformation' => 'ifdMakerNotesCanonFileInformation',
+    'Tiff' => 'tiff',
+    'Jpeg' => 'jpeg',
+    'CanonShotInformation' => 'ifdMakerNotesCanonShotInformation',
+  ),
   'elements' =>
   array (
     'ifdMakerNotesCanonPanoramaInformation' =>
@@ -777,14 +801,14 @@ return array (
         'type' => 'ifdExif',
         'class' => 'ExifEye\\core\\Block\\Ifd',
         'name' => 'Exif',
-        'title' => 'Exif IFD Pointer',
+        'title' => 'Exif IFD',
       ),
       34853 =>
       array (
         'type' => 'ifdGps',
         'class' => 'ExifEye\\core\\Block\\Ifd',
         'name' => 'GPS',
-        'title' => 'GPS Info IFD Pointer',
+        'title' => 'GPS Info IFD',
       ),
       40091 =>
       array (
@@ -1210,7 +1234,7 @@ return array (
       1 =>
       array (
         'type' => 'ifdMakerNotesCanonCameraSettings',
-        'name' => 'CameraSettings',
+        'name' => 'CanonCameraSettings',
         'title' => 'Camera Settings',
       ),
       2 =>
@@ -1226,13 +1250,13 @@ return array (
       4 =>
       array (
         'type' => 'ifdMakerNotesCanonShotInformation',
-        'name' => 'ShotInfo',
+        'name' => 'CanonShotInformation',
         'title' => 'Shot Info',
       ),
       5 =>
       array (
         'type' => 'ifdMakerNotesCanonPanoramaInformation',
-        'name' => 'Panorama',
+        'name' => 'CanonPanorama',
         'title' => 'Panorama',
       ),
       6 =>
@@ -1710,7 +1734,7 @@ return array (
       147 =>
       array (
         'type' => 'ifdMakerNotesCanonFileInformation',
-        'name' => 'FileInfo',
+        'name' => 'CanonFileInformation',
         'title' => 'File Info',
       ),
       149 =>
@@ -2364,8 +2388,8 @@ return array (
       40965 =>
       array (
         'type' => 'ifdInteroperability',
-        'name' => 'InteroperabilityIFDPointer',
-        'title' => 'Interoperability IFD Pointer',
+        'name' => 'Interoperability',
+        'title' => 'Interoperability IFD',
       ),
       41483 =>
       array (
@@ -2797,7 +2821,7 @@ return array (
       3 =>
       array (
         'type' => 'ifdMakerNotesAppleRuntime',
-        'name' => 'RunTime',
+        'name' => 'AppleRunTime',
         'title' => 'Apple Run Time',
       ),
       8 =>
@@ -4683,14 +4707,14 @@ return array (
         'type' => 'ifdExif',
         'class' => 'ExifEye\\core\\Block\\Ifd',
         'name' => 'Exif',
-        'title' => 'Exif IFD Pointer',
+        'title' => 'Exif IFD',
       ),
       34853 =>
       array (
         'type' => 'ifdGps',
         'class' => 'ExifEye\\core\\Block\\Ifd',
         'name' => 'GPS',
-        'title' => 'GPS Info IFD Pointer',
+        'title' => 'GPS Info IFD',
       ),
       40091 =>
       array (
@@ -6002,10 +6026,10 @@ return array (
     ),
     'ifdMakerNotesCanon' =>
     array (
-      'CameraSettings' => 1,
+      'CanonCameraSettings' => 1,
       'FocalLength' => 2,
-      'ShotInfo' => 4,
-      'Panorama' => 5,
+      'CanonShotInformation' => 4,
+      'CanonPanorama' => 5,
       'ImageType' => 6,
       'FirmwareVersion' => 7,
       'FileNumber' => 8,
@@ -6021,7 +6045,7 @@ return array (
       'FirmwareRevision' => 30,
       'AFinfo' => 38,
       'OriginalDecision Data Offset' => 131,
-      'FileInfo' => 147,
+      'CanonFileInformation' => 147,
       'LensModel' => 149,
       'InternalSerialNumber' => 150,
       'DustRemovalData' => 151,
@@ -6073,7 +6097,7 @@ return array (
       'PixelXDimension' => 40962,
       'PixelYDimension' => 40963,
       'RelatedSoundFile' => 40964,
-      'InteroperabilityIFDPointer' => 40965,
+      'Interoperability' => 40965,
       'FlashEnergy' => 41483,
       'SpatialFrequencyResponse' => 41484,
       'FocalPlaneXResolution' => 41486,
@@ -6107,7 +6131,7 @@ return array (
     ),
     'ifdMakerNotesApple' =>
     array (
-      'RunTime' => 3,
+      'AppleRunTime' => 3,
       'AccelerationVector' => 8,
       'HDRImageType' => 10,
       'BurstUUID' => 11,
@@ -6354,5 +6378,10 @@ return array (
       'SelfTimer2' => 29,
       'FlashOutput' => 33,
     ),
+  ),
+  'makerNotes' =>
+  array (
+    'Canon' => 'ifdMakerNotesCanon',
+    'Apple' => 'ifdMakerNotesApple',
   ),
 );
