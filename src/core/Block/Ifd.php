@@ -140,7 +140,7 @@ class Ifd extends BlockBase
         $this->debug(".....END Loading");
 
         // Invoke post-load callbacks.
-        $post_load_callbacks = Spec::getTypeProperty($this->getType(), 'postLoad');
+        $post_load_callbacks = Spec::getTypePropertyValue($this->getType(), 'postLoad');
         if (!empty($post_load_callbacks)) {
           foreach ($post_load_callbacks as $callback) {
               $this->debug("START... {callback}", [

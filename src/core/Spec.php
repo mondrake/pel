@@ -105,7 +105,7 @@ class Spec
      * @return string|null
      *            the element handling class.
      */
-    public static function getTypeProperty($type, $property)
+    public static function getTypePropertyValue($type, $property)
     {
         return isset(self::getMap()['types'][$type][$property]) ? self::getMap()['types'][$type][$property] : null;
     }
@@ -136,7 +136,7 @@ class Spec
      */
     public static function getTypeHandlingClass($type)
     {
-        return self::getTypeProperty($type, 'class');
+        return self::getTypePropertyValue($type, 'class');
     }
 
     /**
