@@ -72,7 +72,7 @@ class Tiff extends BlockBase
         // image scan (TIFF) in between. Store that in a RawData block.
         if ($ifd_offset > 8) {
             $scan = new RawData('rawData', $this);
-            $scan_data_window = new DataWindow($data_element, 8, $ifd_offset - 8);
+            $scan_data_window = new DataWindow($data_window, 8, $ifd_offset - 8);
             $scan_data_window->debug($scan);
             $scan->loadFromData($scan_data_window, 0, $scan_data_window->getSize());
         }
