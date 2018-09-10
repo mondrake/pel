@@ -158,14 +158,36 @@ class Tiff extends BlockBase
         if ($ifd0) {
             // Number of sub-elements.
             $n = count($ifd0->getMultipleElements('*'));
-            $bytes .= ConvertBytes::fromShort($n, $byte_order);
+            $bytes .= ConvertBytes::fromShort($n, $this->byteOrder);
+
+            // Data area.
+            $data_area_offset = strlen($bytes) + $n * 12 + 4;
+            $data_area_bytes = '';
 
             foreach ($ifd0->getMultipleElements('*') as $tag => $sub_block) {
-                $bytes .= ConvertBytes::fromShort($sub_block->getAttribute('id'), $byte_order);
-                $bytes .= ConvertBytes::fromShort($sub_block->getElement("entry")->getFormat(), $byte_order);
-                $bytes .= ConvertBytes::fromLong($sub_block->getElement("entry")->getComponents(), $byte_order);
-                $bytes .= ConvertBytes::fromLong(0, $byte_order);
+                $bytes .= ConvertBytes::fromShort($sub_block->getAttribute('id'), $this->byteOrder);
+                $bytes .= ConvertBytes::fromShort($sub_block->getElement("entry")->getFormat(), $this->byteOrder);
+                $bytes .= ConvertBytes::fromLong($sub_block->getElement("entry")->getComponents(), $this->byteOrder);
+
+                $data = $sub_block->getElement("entry")->toBytes($this->byteOrder);
+                $s = strlen($data);
+                if ($s > 4) {
+                    $bytes .= ConvertBytes::fromLong($data_area_offset, $byte_order);
+                    $data_area_bytes .= $data;
+                    $data_area_offset += $s;
+                } else {
+                    // Copy data directly, pad with NULL bytes as necessary to
+                    // fill out the four bytes available.
+                    $bytes .= $data . str_repeat(chr(0), 4 - $s);
+                }
             }
+
+            // Append zero link to next IFD.
+            $bytes .= ConvertBytes::fromLong(0, $this->byteOrder);
+
+            // Append data area.
+            $bytes .= $data_area_bytes;
+
 return $bytes;
 
             // The argument specifies the offset of this IFD. The IFD will
