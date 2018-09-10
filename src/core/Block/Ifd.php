@@ -166,7 +166,7 @@ $this->xxTempData = $data_element->getBytes($offset, $size);
      */
     public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN, $offset = 0)
     {
-return $this->xxTempData;
+//return $this->xxTempData;
         $ifd_area = '';
         $data_area = '';
 
@@ -207,7 +207,7 @@ return $this->xxTempData;
         }
 
         // Process the Thumbnail. @todo avoid double writing of tags
-        if ($this->getElement("thumbnail")) {
+/*        if ($this->getElement("thumbnail")) {
             // TODO: make EntryInterface a class that can be constructed with
             // arguments corresponding to the next four lines.
             $ifd_area .= ConvertBytes::fromShort(Spec::getTagIdByName($this, 'ThumbnailLength'), $byte_order);
@@ -222,10 +222,10 @@ return $this->xxTempData;
 
             $data_area .= $this->getElement("thumbnail/entry")->toBytes();
             $end += $this->getElement("thumbnail/entry")->getComponents();
-        }
+        }*/
 
         // Process sub IFDs.
-        $sub_bytes = '';
+/*        $sub_bytes = '';
         foreach ($this->getMultipleElements('ifd') as $sub) {
             if ($sub->getType() === 'Exif') {
                 $tag = Spec::getTagIdByName($this, 'ExifIFDPointer');
@@ -251,8 +251,9 @@ return $this->xxTempData;
 
             $ifd_area .= ConvertBytes::fromLong($end, $byte_order);
             $end += $s;
-        }
+        }*/
 
-        return ['ifd_area' => $ifd_area, 'data_area' => $data_area];
+//        return ['ifd_area' => $ifd_area, 'data_area' => $data_area];
+        return $ifd_area . $data_area;
     }
 }
