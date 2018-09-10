@@ -164,7 +164,7 @@ class Tiff extends BlockBase
             $data_area_offset = strlen($bytes) + $n * 12 + 4;
             $data_area_bytes = '';
 
-            foreach ($ifd0->getMultipleElements('*') as $tag => $sub_block) {
+            foreach ($ifd0->getMultipleElements('tag') as $tag => $sub_block) {
                 $bytes .= ConvertBytes::fromShort($sub_block->getAttribute('id'), $this->byteOrder);
                 $bytes .= ConvertBytes::fromShort($sub_block->getElement("entry")->getFormat(), $this->byteOrder);
                 $bytes .= ConvertBytes::fromLong($sub_block->getElement("entry")->getComponents(), $this->byteOrder);
