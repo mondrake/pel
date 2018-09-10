@@ -108,6 +108,8 @@ class Tiff extends BlockBase
 
         $ifd0 = $this->getElement("ifd[@name='IFD0']");
         if ($ifd0) {
+$bytes .= $ifd0->toBytes();
+return $bytes;
             // IFD0 offset. We will always start IFD0 at an offset of 8
             // bytes (2 bytes for byte order, another 2 bytes for the TIFF
             // header, and 4 bytes for the IFD0 offset make 8 bytes together).
