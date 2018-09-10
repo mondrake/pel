@@ -49,7 +49,6 @@ class ImageFilesTest extends ExifEyeTestCaseBase
         $image = Image::createFromFile($imageDumpFile->getPath() . '/' . $test['fileName']);
 
         $this->assertEquals($test['mimeType'], $image->getMimeType());
-//$this->assertEquals($test['fileContentHash'], hash('sha256', $test_file_content));
 
         if (isset($test['elements'])) {
             $this->assertElement($test['elements'], $image);
@@ -78,6 +77,8 @@ class ImageFilesTest extends ExifEyeTestCaseBase
         $this->assertEquals($test['gdInfo'][1], imagesy($gd_resource));
 //        $this->assertNull($test['fileName'] . " x " . imagesx($gd_resource) . " y " . imagesy($gd_resource));
         imagedestroy($gd_resource);
+
+        $image->saveToFile($imageDumpFile->getPath() . '/post-' . $test['fileName']);
     }
 
     protected function assertElement($expected, $element)
