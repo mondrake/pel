@@ -62,7 +62,7 @@ class ImageFilesTest extends ExifEyeTestCaseBase
     /**
      * @dataProvider imageFileProvider
      */
-    public function testThroughGd($imageDumpFile)
+    public function testRewriteThroughGd($imageDumpFile)
     {
         $test = Yaml::parse($imageDumpFile->getContents());
         $original_image = Image::createFromFile($imageDumpFile->getPath() . '/' . $test['fileName']);
@@ -112,7 +112,6 @@ class ImageFilesTest extends ExifEyeTestCaseBase
                 $this->assertEquals(count($test['log'][$level]), count($image->dumpLog($level)));
             }
         }
-$this->assertNull($test['fileName'] . ' --> OK');
     }
 
     protected function assertElement($expected, $element)
