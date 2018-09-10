@@ -123,6 +123,7 @@ class Tiff extends BlockBase
      */
     public function toBytes($order = ConvertBytes::LITTLE_ENDIAN)
     {
+        // TIFF byte order.
         if ($this->byteOrder == ConvertBytes::LITTLE_ENDIAN) {
             $bytes = 'II';
         } else {
@@ -132,14 +133,31 @@ class Tiff extends BlockBase
         // TIFF magic number --- fixed value.
         $bytes .= ConvertBytes::fromShort(self::TIFF_HEADER, $this->byteOrder);
 
+        // Check if we have a image scan before first IFD.
+        $scan = $this->getElement("rawData");
         $ifd0 = $this->getElement("ifd[@name='IFD0']");
+
+        // IFD0 offset. We will always start IFD0 at an offset of 8
+        // bytes (2 bytes for byte order, another 2 bytes for the TIFF
+        // header, and 4 bytes for the IFD0 offset make 8 bytes together).
+        if (!$ifd0) {
+            $bytes .= ConvertBytes::fromLong(0, $this->byteOrder);
+        } else {
+            if ($scan) {
+                $bytes .= ConvertBytes::fromLong(8 + strlen($scan->toBytes()), $this->byteOrder);
+            } else {
+                $bytes .= ConvertBytes::fromLong(8, $this->byteOrder);
+            }
+        }
+
+        // Add image scan if needed.
+        if ($scan) {
+            $bytes .= $scan->toBytes();
+        }
+
         if ($ifd0) {
 $bytes .= $ifd0->toBytes();
 return $bytes;
-            // IFD0 offset. We will always start IFD0 at an offset of 8
-            // bytes (2 bytes for byte order, another 2 bytes for the TIFF
-            // header, and 4 bytes for the IFD0 offset make 8 bytes together).
-            $bytes .= ConvertBytes::fromLong(8, $this->byteOrder);
 
             // The argument specifies the offset of this IFD. The IFD will
             // use this to calculate offsets from the entries to their data,
