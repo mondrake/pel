@@ -62,13 +62,28 @@ class ImageFilesTest extends ExifEyeTestCaseBase
     /**
      * @dataProvider imageFileProvider
      */
-    public function testInjectToGd($imageDumpFile)
+    public function testThroughGd($imageDumpFile)
     {
         $test = Yaml::parse($imageDumpFile->getContents());
-        $image = Image::createFromFile($imageDumpFile->getPath() . '/' . $test['fileName']);
+        $original_image = Image::createFromFile($imageDumpFile->getPath() . '/' . $test['fileName']);
+        $original_image->saveToFile($imageDumpFile->getPath() . '/' . $test['fileName'] . '-rewrite-gd.img');
+
+        // Test via getimagesize.
+        $gd_info = getimagesize($imageDumpFile->getPath() . '/' . $test['fileName'] . '-rewrite-gd.img');
+        $this->assertEquals($test['gdInfo'], $gd_info);
+
+        if ($test['mimeType'] === 'image/tiff') {
+            $this->markTestIncomplete($test['fileName'] . ' of MIME type ' . $test['mimeType'] . ' can not be tested via GD.');
+        }
 
         // Test loading the image to GD; it fails hard in case of errors.
-        $gd_resource = imagecreatefromstring($image->toBytes());
+        $gd_resource = imagecreatefromstring($original_image->toBytes());
+        $this->assertNotFalse($gd_resource);
+        $this->assertEquals($test['gdInfo'][0], imagesx($gd_resource));
+        $this->assertEquals($test['gdInfo'][1], imagesy($gd_resource));
+        imagedestroy($gd_resource);
+
+        $gd_resource = imagecreatefromjpeg($imageDumpFile->getPath() . '/' . $test['fileName'] . '-rewrite-gd.img');
         $this->assertNotFalse($gd_resource);
         $this->assertEquals($test['gdInfo'][0], imagesx($gd_resource));
         $this->assertEquals($test['gdInfo'][1], imagesy($gd_resource));
