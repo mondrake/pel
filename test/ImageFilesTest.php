@@ -43,9 +43,7 @@ class ImageFilesTest extends ExifEyeTestCaseBase
     public function testParse($imageDumpFile)
     {
         $test_file_content = $imageDumpFile->getContents();
-
         $test = Yaml::parse($test_file_content);
-
         $image = Image::createFromFile($imageDumpFile->getPath() . '/' . $test['fileName']);
 
         $this->assertEquals($test['mimeType'], $image->getMimeType());
@@ -75,8 +73,30 @@ class ImageFilesTest extends ExifEyeTestCaseBase
         $this->assertEquals($test['gdInfo'][0], imagesx($gd_resource));
         $this->assertEquals($test['gdInfo'][1], imagesy($gd_resource));
         imagedestroy($gd_resource);
+    }
 
-//        $image->saveToFile($imageDumpFile->getPath() . '/post-' . $test['fileName']);
+    /**
+     * @dataProvider imageFileProvider
+     */
+    public function testRewrite($imageDumpFile)
+    {
+        $test_file_content = $imageDumpFile->getContents();
+        $test = Yaml::parse($test_file_content);
+        $original_image = Image::createFromFile($imageDumpFile->getPath() . '/' . $test['fileName']);
+        $original_image->saveToFile($imageDumpFile->getPath() . '/' . $test['fileName'] . '-rewrite.img');
+        $image = Image::createFromFile($imageDumpFile->getPath() . '/' . $test['fileName'] . '-rewrite.img');
+
+        $this->assertEquals($test['mimeType'], $image->getMimeType());
+
+        if (isset($test['elements'])) {
+            $this->assertElement($test['elements'], $image);
+        }
+
+        foreach (['ERROR', 'WARNING', 'NOTICE'] as $level) {
+            if (isset($test['log'][$level])) {
+                $this->assertEquals(count($test['log'][$level]), count($image->dumpLog($level)));
+            }
+        }
     }
 
     protected function assertElement($expected, $element)

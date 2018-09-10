@@ -172,7 +172,7 @@ class Tiff extends BlockBase
                 $data = $sub_block->getElement("entry")->toBytes($this->byteOrder);
                 $s = strlen($data);
                 if ($s > 4) {
-                    $bytes .= ConvertBytes::fromLong($data_area_offset, $byte_order);
+                    $bytes .= ConvertBytes::fromLong($data_area_offset, $this->byteOrder);
                     $data_area_bytes .= $data;
                     $data_area_offset += $s;
                 } else {
