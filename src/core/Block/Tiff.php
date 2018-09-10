@@ -70,12 +70,12 @@ class Tiff extends BlockBase
 
         // If the offset to first IFD is higher than 8, then there may be an
         // image scan (TIFF) in between. Store that in a RawData block.
-        if ($ifd_offset > 8) {
+/*        if ($ifd_offset > 8) {
             $scan = new RawData('rawData', $this);
             $scan_data_window = new DataWindow($data_window, 8, $ifd_offset - 8);
             $scan_data_window->debug($scan);
             $scan->loadFromData($scan_data_window, 0, $scan_data_window->getSize());
-        }
+        }*/
 
         // Loops through IFDs. In fact we should only have IFD0 and IFD1.
         for ($i = 0; $i <= 2; $i++) {
