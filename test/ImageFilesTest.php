@@ -71,10 +71,12 @@ class ImageFilesTest extends ExifEyeTestCaseBase
         $image = Image::createFromFile($imageDumpFile->getPath() . '/' . $test['fileName']);
 
         // Test loading the image to GD; it fails hard in case of errors.
-dump($test['gdInfo']);
+//dump($test['gdInfo']);
         $gd_resource = imagecreatefromstring($image->toBytes());
         $this->assertNotFalse($gd_resource);
-        $this->assertNull($test['fileName'] . " x " . imagesx($gd_resource) . " y " . imagesy($gd_resource));
+        $this->assertEquals($test['gdInfo'][0], imagesx($gd_resource));
+        $this->assertEquals($test['gdInfo'][1], imagesy($gd_resource));
+//        $this->assertNull($test['fileName'] . " x " . imagesx($gd_resource) . " y " . imagesy($gd_resource));
         imagedestroy($gd_resource);
     }
 
