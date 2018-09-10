@@ -1,6 +1,14 @@
 fileName: misplaced-exif.jpg
 mimeType: image/jpeg
 fileContentHash: b14a62158bfab96530f8c257cb619371a39ca5d28c9e23a65e95e7b4ac4ba3b2
+gdInfo:
+    0: 320
+    1: 200
+    2: 2
+    3: 'width="320" height="200"'
+    bits: 8
+    channels: 3
+    mime: image/jpeg
 elements:
     type: image
     path: /image

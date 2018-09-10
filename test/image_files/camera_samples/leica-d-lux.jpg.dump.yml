@@ -1,6 +1,14 @@
 fileName: leica-d-lux.jpg
 mimeType: image/jpeg
 fileContentHash: 128a4366f3f74a7af2210e9d7ed0893b6dfc52537e700b6a2da824fcf9b91eaa
+gdInfo:
+    0: 640
+    1: 480
+    2: 2
+    3: 'width="640" height="480"'
+    bits: 8
+    channels: 3
+    mime: image/jpeg
 elements:
     type: image
     path: /image

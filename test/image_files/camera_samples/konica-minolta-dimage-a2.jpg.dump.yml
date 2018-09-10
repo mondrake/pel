@@ -1,6 +1,14 @@
 fileName: konica-minolta-dimage-a2.jpg
 mimeType: image/jpeg
 fileContentHash: 15ec6b6a66058ee70732e280f08ae72c85d15d93beddfe2fccb169531f34bdfe
+gdInfo:
+    0: 1024
+    1: 768
+    2: 2
+    3: 'width="1024" height="768"'
+    bits: 8
+    channels: 3
+    mime: image/jpeg
 elements:
     type: image
     path: /image

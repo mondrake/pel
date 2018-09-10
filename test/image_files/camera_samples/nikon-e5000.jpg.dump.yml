@@ -1,6 +1,14 @@
 fileName: nikon-e5000.jpg
 mimeType: image/jpeg
 fileContentHash: 2a02a043a452b9fcdcbeec5b3b7af224f2d9d810541074dd4650db59be2de80b
+gdInfo:
+    0: 1600
+    1: 1200
+    2: 2
+    3: 'width="1600" height="1200"'
+    bits: 8
+    channels: 3
+    mime: image/jpeg
 elements:
     type: image
     path: /image

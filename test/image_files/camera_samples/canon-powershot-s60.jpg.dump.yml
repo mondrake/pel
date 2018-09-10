@@ -1,6 +1,14 @@
 fileName: canon-powershot-s60.jpg
 mimeType: image/jpeg
 fileContentHash: 784a2577904635ed738e7f5d4da33ffae08aad2f36769a5afc49492dd4a0e80b
+gdInfo:
+    0: 640
+    1: 480
+    2: 2
+    3: 'width="640" height="480"'
+    bits: 8
+    channels: 3
+    mime: image/jpeg
 elements:
     type: image
     path: /image

@@ -1,6 +1,14 @@
 fileName: canon-ixus-ii.jpg
 mimeType: image/jpeg
 fileContentHash: 65c6eef4bdb5df565b3597eb5e5e86e37edd339774e07fa2ca232024e842169a
+gdInfo:
+    0: 640
+    1: 480
+    2: 2
+    3: 'width="640" height="480"'
+    bits: 8
+    channels: 3
+    mime: image/jpeg
 elements:
     type: image
     path: /image

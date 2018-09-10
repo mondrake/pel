@@ -1,6 +1,14 @@
 fileName: canon-eos-650d.jpg
 mimeType: image/jpeg
 fileContentHash: dfa943d103fe7afa192e8526a96fb80789981bf9248c234126210c65dfb1feb8
+gdInfo:
+    0: 640
+    1: 427
+    2: 2
+    3: 'width="640" height="427"'
+    bits: 8
+    channels: 3
+    mime: image/jpeg
 elements:
     type: image
     path: /image

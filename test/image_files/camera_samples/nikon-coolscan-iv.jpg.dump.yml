@@ -1,6 +1,14 @@
 fileName: nikon-coolscan-iv.jpg
 mimeType: image/jpeg
 fileContentHash: ff6dd93c535a5700666fa5bc3f6c6651b5fdfc9fa7eded5029c73ceeeb0d79fa
+gdInfo:
+    0: 960
+    1: 755
+    2: 2
+    3: 'width="960" height="755"'
+    bits: 8
+    channels: 3
+    mime: image/jpeg
 elements:
     type: image
     path: /image

@@ -1,6 +1,14 @@
 fileName: nikon-e950.jpg
 mimeType: image/jpeg
 fileContentHash: 127b9e49480f1717b76611ad3ebbafc54765917b913fd6e62710a274c0141fb3
+gdInfo:
+    0: 1600
+    1: 1200
+    2: 2
+    3: 'width="1600" height="1200"'
+    bits: 8
+    channels: 3
+    mime: image/jpeg
 elements:
     type: image
     path: /image

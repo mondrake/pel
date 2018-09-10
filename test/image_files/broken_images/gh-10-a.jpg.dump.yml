@@ -1,6 +1,14 @@
 fileName: gh-10-a.jpg
 mimeType: image/jpeg
 fileContentHash: 52cb7a3ec6dba240d28cefdcf55258f62c081e34f82942a827c1f44e962baf61
+gdInfo:
+    0: 330
+    1: 220
+    2: 2
+    3: 'width="330" height="220"'
+    bits: 8
+    channels: 3
+    mime: image/jpeg
 elements:
     type: image
     path: /image

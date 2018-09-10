@@ -1,6 +1,14 @@
 fileName: olympus-c50z.jpg
 mimeType: image/jpeg
 fileContentHash: f40982af05e9720eb61350d2129d52be3e7c082e774483469fcfbbb59111ddb0
+gdInfo:
+    0: 533
+    1: 400
+    2: 2
+    3: 'width="533" height="400"'
+    bits: 8
+    channels: 3
+    mime: image/jpeg
 elements:
     type: image
     path: /image

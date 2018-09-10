@@ -1,6 +1,14 @@
 fileName: apple-iphone7.JPG
 mimeType: image/jpeg
 fileContentHash: 70abc50d086d0d12391befa26357a0524e9b99c1a7e96f1d44d7f79a06881b1f
+gdInfo:
+    0: 4032
+    1: 3024
+    2: 2
+    3: 'width="4032" height="3024"'
+    bits: 8
+    channels: 3
+    mime: image/jpeg
 elements:
     type: image
     path: /image

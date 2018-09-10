@@ -1,6 +1,14 @@
 fileName: test-tags-1.jpg
 mimeType: image/jpeg
 fileContentHash: 2c541540b9956776b95926fef22539e99dcc4fc98d96713850090c70d5594723
+gdInfo:
+    0: 320
+    1: 200
+    2: 2
+    3: 'width="320" height="200"'
+    bits: 8
+    channels: 3
+    mime: image/jpeg
 elements:
     type: image
     path: /image

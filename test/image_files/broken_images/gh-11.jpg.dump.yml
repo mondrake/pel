@@ -1,6 +1,14 @@
 fileName: gh-11.jpg
 mimeType: image/jpeg
 fileContentHash: 5818c6c496e7ea0b168334be7c7cec0db53404c9bc1c05a078096708b6d854f2
+gdInfo:
+    0: 50
+    1: 38
+    2: 2
+    3: 'width="50" height="38"'
+    bits: 8
+    channels: 3
+    mime: image/jpeg
 elements:
     type: image
     path: /image
@@ -57,6 +65,21 @@ elements:
                                     class: ExifEye\core\Block\Tiff
                                     valid: true
                                     elements:
+                                        -
+                                            type: rawData
+                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/rawData'
+                                            class: ExifEye\core\Block\RawData
+                                            valid: true
+                                            elements:
+                                                -
+                                                    type: entry
+                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/rawData/entry'
+                                                    class: ExifEye\core\Entry\Core\Undefined
+                                                    valid: true
+                                                    format: Undefined
+                                                    components: 2494
+                                                    bytesHash: 8fea27fe1c466af66ff0bf0720a6dc2e91de0e6e8ab4f6416ed736574eacb6cb
+                                                    text: '2494 bytes of data [ 1E 00 9A 82 0A 00 ... 00 00 88 13 00 00 ]'
                                         -
                                             type: ifd
                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0'

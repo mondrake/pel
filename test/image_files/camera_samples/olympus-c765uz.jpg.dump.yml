@@ -1,6 +1,14 @@
 fileName: olympus-c765uz.jpg
 mimeType: image/jpeg
 fileContentHash: 1685f77e6da247bfd8213f40802396aa9014e66d862e795a6ac16faed7dd8506
+gdInfo:
+    0: 535
+    1: 400
+    2: 2
+    3: 'width="535" height="400"'
+    bits: 8
+    channels: 3
+    mime: image/jpeg
 elements:
     type: image
     path: /image

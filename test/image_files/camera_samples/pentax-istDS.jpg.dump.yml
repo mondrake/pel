@@ -1,6 +1,14 @@
 fileName: pentax-istDS.jpg
 mimeType: image/jpeg
 fileContentHash: fbe3721b975a0ce8ec5a7de1bda6bde8b6f30c7f4cfc0982d7817e21ca45f880
+gdInfo:
+    0: 1536
+    1: 1024
+    2: 2
+    3: 'width="1536" height="1024"'
+    bits: 8
+    channels: 3
+    mime: image/jpeg
 elements:
     type: image
     path: /image
@@ -40,6 +48,21 @@ elements:
                                     class: ExifEye\core\Block\Tiff
                                     valid: true
                                     elements:
+                                        -
+                                            type: rawData
+                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/rawData'
+                                            class: ExifEye\core\Block\RawData
+                                            valid: true
+                                            elements:
+                                                -
+                                                    type: entry
+                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/rawData/entry'
+                                                    class: ExifEye\core\Entry\Core\Undefined
+                                                    valid: true
+                                                    format: Undefined
+                                                    components: 2
+                                                    bytesHash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
+                                                    text: '2 bytes of data [ 00 00 ]'
                                         -
                                             type: ifd
                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0'

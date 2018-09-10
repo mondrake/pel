@@ -1,6 +1,14 @@
 fileName: nikon-d50.JPG
 mimeType: image/jpeg
 fileContentHash: 20b0a5ae419fb452bf9e289aa58aea8606bf5819499365835acd89e8d86401a3
+gdInfo:
+    0: 3008
+    1: 2000
+    2: 2
+    3: 'width="3008" height="2000"'
+    bits: 8
+    channels: 3
+    mime: image/jpeg
 elements:
     type: image
     path: /image

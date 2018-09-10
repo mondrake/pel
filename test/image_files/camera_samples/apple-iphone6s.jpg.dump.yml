@@ -1,6 +1,14 @@
 fileName: apple-iphone6s.jpg
 mimeType: image/jpeg
 fileContentHash: acb2045c15846eeb455deb1654ed381a1dbb2d2e618ed5a36a96221411aff6ac
+gdInfo:
+    0: 4032
+    1: 3024
+    2: 2
+    3: 'width="4032" height="3024"'
+    bits: 8
+    channels: 3
+    mime: image/jpeg
 elements:
     type: image
     path: /image
