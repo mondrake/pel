@@ -91,6 +91,7 @@ try {
         print("dump-image: Unrecognized image format!\n");
         exit(1);
     }
+    $image->saveToFile($file . '-x.tiff');
 } catch (ExifEyeException $e) {
     $err = $e->getMessage();
 }
