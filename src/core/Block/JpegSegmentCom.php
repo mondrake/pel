@@ -40,7 +40,7 @@ class JpegSegmentCom extends JpegSegmentBase
 
         // Get the payload.
         $comment = $this->getElement("entry");
-        $data = $comment->toBytes();
+        $data = rtrim($comment->toBytes(), "\0");
 
         // Add the data lenght, include the two bytes of the length itself.
         $bytes .= ConvertBytes::fromShort(strlen($data) + 2, ConvertBytes::BIG_ENDIAN);
