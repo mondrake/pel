@@ -64,7 +64,6 @@ class Ifd extends BlockBase
      */
     public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
     {
-//$this->xxTempData = $data_element->getBytes($offset, $size);
         $starting_offset = $offset;
 
         // Get the number of tags.

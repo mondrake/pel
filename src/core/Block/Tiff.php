@@ -156,7 +156,16 @@ class Tiff extends BlockBase
         }
 
         if ($ifd0) {
-$bytes .= $ifd0->toBytes();
+            // Number of sub-elements.
+            $n = count($ifd0->getMultipleElements('*'));
+            $bytes .= ConvertBytes::fromShort($n, $byte_order);
+
+            foreach ($ifd0->getMultipleElements('*') as $tag => $sub_block) {
+                $bytes .= ConvertBytes::fromShort($sub_block->getAttribute('id'), $byte_order);
+                $bytes .= ConvertBytes::fromShort($sub_block->getElement("entry")->getFormat(), $byte_order);
+                $bytes .= ConvertBytes::fromLong($sub_block->getElement("entry")->getComponents(), $byte_order);
+                $bytes .= ConvertBytes::fromLong(0, $byte_order);
+            }
 return $bytes;
 
             // The argument specifies the offset of this IFD. The IFD will

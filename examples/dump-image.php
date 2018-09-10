@@ -102,6 +102,9 @@ if (!isset($err)) {
     print("dump-image: Error while reading image: " . $err . "\n");
 }
 
+$image = Image::createFromFile($file . '-x.tiff', $logger, $fail_on_error);
+dump_element($image);
+
 // Dump via exif_read_data().
 //dump(@exif_read_data($file));
 
