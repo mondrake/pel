@@ -158,9 +158,89 @@ class Ifd extends BlockBase
     /**
      * {@inheritdoc}
      */
-    public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN, $offset = 0)
+    public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN, $offset = 0, $has_next_ifd = false)
     {
-        $ifd_area = '';
+        $bytes = '';
+
+        // Number of sub-elements. 2 bytes running.
+        $n = count($this->getMultipleElements('tag'));   // must be *
+        $bytes .= ConvertBytes::fromShort($n, $byte_order);
+
+        // Data area. We need to reserve 12 bytes for each IFD tag + 4 bytes
+        // at the end for the link to next IFD as space occupied by IFD
+        // entries.
+        $data_area_offset = $offset + $n * 12 + 4;
+        $data_area_bytes = '';
+
+        // Fill in the TAG entries in the IFD.
+        foreach ($ifd0->getMultipleElements('tag') as $tag => $sub_block) {   // must be *
+            $bytes .= ConvertBytes::fromShort($sub_block->getAttribute('id'), $byte_order);
+            $bytes .= ConvertBytes::fromShort($sub_block->getElement('entry')->getFormat(), $byte_order);
+            $bytes .= ConvertBytes::fromLong($sub_block->getElement('entry')->getComponents(), $byte_order);
+
+            $data = $sub_block->getElement('entry')->toBytes($byte_order);
+            $s = strlen($data);
+            if ($s > 4) {
+                $bytes .= ConvertBytes::fromLong($data_area_offset, $byte_order);
+                $data_area_bytes .= $data;
+                $data_area_offset += $s;
+            } else {
+                // Copy data directly, pad with NULL bytes as necessary to
+                // fill out the four bytes available.
+                $bytes .= $data . str_repeat(chr(0), 4 - $s);
+            }
+        }
+
+        // Append link to next IFD.
+        if ($has_next_ifd) {
+            $bytes .= ConvertBytes::fromLong($data_area_offset, $byte_order);
+        } else {
+            $bytes .= ConvertBytes::fromLong(0, $byte_order);
+        }
+
+        // Append data area.
+        $bytes .= $data_area_bytes;
+
+return $bytes;
+
+/*            // The argument specifies the offset of this IFD. The IFD will
+            // use this to calculate offsets from the entries to their data,
+            // all those offsets are absolute offsets counted from the
+            // beginning of the data.
+            $ifd0_bytes = $ifd0->toBytes($this->byteOrder, 8);
+
+            // Deal with IFD1.
+            $ifd1 = $this->getElement("ifd[@name='IFD1']");
+            if (!$ifd1) {
+                // No IFD1, link to next IFD is 0.
+                $bytes .= $ifd0_bytes['ifd_area'] . ConvertBytes::fromLong(0, $this->byteOrder) . $ifd0_bytes['data_area'];
+            } else {
+                $ifd0_length = strlen($ifd0_bytes['ifd_area']) + 4 + strlen($ifd0_bytes['data_area']);
+                $ifd1_offset = 8 + $ifd0_length;
+                $bytes .= $ifd0_bytes['ifd_area'] . ConvertBytes::fromLong($ifd1_offset, $this->byteOrder) . $ifd0_bytes['data_area'];
+                $ifd1_bytes = $ifd1->toBytes($this->byteOrder, $ifd1_offset);
+                $bytes .= $ifd1_bytes['ifd_area'] . ConvertBytes::fromLong(0, $this->byteOrder) . $ifd1_bytes['data_area'];
+            }
+        } else {
+            $bytes .= ConvertBytes::fromLong(0, $this->byteOrder);
+        }
+
+        return $bytes;*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*        $ifd_area = '';
         $data_area = '';
 
         // Determine number of IFD entries.
@@ -247,6 +327,6 @@ class Ifd extends BlockBase
         }*/
 
 //        return ['ifd_area' => $ifd_area, 'data_area' => $data_area];
-        return $ifd_area . $data_area;
+   //     return $ifd_area . $data_area;
     }
 }

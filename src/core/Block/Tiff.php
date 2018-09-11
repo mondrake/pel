@@ -121,25 +121,27 @@ class Tiff extends BlockBase
     /**
      * {@inheritdoc}
      */
-    public function toBytes($order = ConvertBytes::LITTLE_ENDIAN)
+    public function toBytes($order = ConvertBytes::LITTLE_ENDIAN, $offset = 0)
     {
-        // TIFF byte order.
+        // TIFF byte order. 2 bytes running.
         if ($this->byteOrder == ConvertBytes::LITTLE_ENDIAN) {
             $bytes = 'II';
         } else {
             $bytes = 'MM';
         }
 
-        // TIFF magic number --- fixed value.
+        // TIFF magic number --- fixed value. 4 bytes running.
         $bytes .= ConvertBytes::fromShort(self::TIFF_HEADER, $this->byteOrder);
 
         // Check if we have a image scan before first IFD.
         $scan = $this->getElement("rawData");
         $ifd0 = $this->getElement("ifd[@name='IFD0']");
+        $ifd1 = $this->getElement("ifd[@name='IFD1']");
 
-        // IFD0 offset. We will always start IFD0 at an offset of 8
-        // bytes (2 bytes for byte order, another 2 bytes for the TIFF
-        // header, and 4 bytes for the IFD0 offset make 8 bytes together).
+        // IFD0 offset. Normally we start IFD0 at an offset of 8 bytes (2
+        // bytes for byte order, another 2 bytes for the TIFF header, and 4
+        // bytes for the IFD0 offset itself). If raw data is present, this
+        // will come before IFD0. 8 bytes running.
         if (!$ifd0) {
             $bytes .= ConvertBytes::fromLong(0, $this->byteOrder);
         } else {
@@ -150,66 +152,17 @@ class Tiff extends BlockBase
             }
         }
 
-        // Add image scan if needed.
+        // Add image scan if needed. 8+scan bytes running.
         if ($scan) {
             $bytes .= $scan->toBytes();
         }
 
+        // Dumps IFD0 and IFD1.
         if ($ifd0) {
-            // Number of sub-elements.
-            $n = count($ifd0->getMultipleElements('*'));
-            $bytes .= ConvertBytes::fromShort($n, $this->byteOrder);
-
-            // Data area.
-            $data_area_offset = strlen($bytes) + $n * 12 + 4;
-            $data_area_bytes = '';
-
-            foreach ($ifd0->getMultipleElements('tag') as $tag => $sub_block) {
-                $bytes .= ConvertBytes::fromShort($sub_block->getAttribute('id'), $this->byteOrder);
-                $bytes .= ConvertBytes::fromShort($sub_block->getElement("entry")->getFormat(), $this->byteOrder);
-                $bytes .= ConvertBytes::fromLong($sub_block->getElement("entry")->getComponents(), $this->byteOrder);
-
-                $data = $sub_block->getElement("entry")->toBytes($this->byteOrder);
-                $s = strlen($data);
-                if ($s > 4) {
-                    $bytes .= ConvertBytes::fromLong($data_area_offset, $this->byteOrder);
-                    $data_area_bytes .= $data;
-                    $data_area_offset += $s;
-                } else {
-                    // Copy data directly, pad with NULL bytes as necessary to
-                    // fill out the four bytes available.
-                    $bytes .= $data . str_repeat(chr(0), 4 - $s);
-                }
-            }
-
-            // Append zero link to next IFD.
-            $bytes .= ConvertBytes::fromLong(0, $this->byteOrder);
-
-            // Append data area.
-            $bytes .= $data_area_bytes;
-
-return $bytes;
-
-            // The argument specifies the offset of this IFD. The IFD will
-            // use this to calculate offsets from the entries to their data,
-            // all those offsets are absolute offsets counted from the
-            // beginning of the data.
-            $ifd0_bytes = $ifd0->toBytes($this->byteOrder, 8);
-
-            // Deal with IFD1.
-            $ifd1 = $this->getElement("ifd[@name='IFD1']");
-            if (!$ifd1) {
-                // No IFD1, link to next IFD is 0.
-                $bytes .= $ifd0_bytes['ifd_area'] . ConvertBytes::fromLong(0, $this->byteOrder) . $ifd0_bytes['data_area'];
-            } else {
-                $ifd0_length = strlen($ifd0_bytes['ifd_area']) + 4 + strlen($ifd0_bytes['data_area']);
-                $ifd1_offset = 8 + $ifd0_length;
-                $bytes .= $ifd0_bytes['ifd_area'] . ConvertBytes::fromLong($ifd1_offset, $this->byteOrder) . $ifd0_bytes['data_area'];
-                $ifd1_bytes = $ifd1->toBytes($this->byteOrder, $ifd1_offset);
-                $bytes .= $ifd1_bytes['ifd_area'] . ConvertBytes::fromLong(0, $this->byteOrder) . $ifd1_bytes['data_area'];
-            }
-        } else {
-            $bytes .= ConvertBytes::fromLong(0, $this->byteOrder);
+            $bytes .= $ifd0->toBytes($this->byteOrder, strlen($bytes), (bool) $ifd1);
+        }
+        if ($ifd1) {
+            $bytes .= $ifd1->toBytes($this->byteOrder, strlen($bytes), false);
         }
 
         return $bytes;
