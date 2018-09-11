@@ -173,7 +173,7 @@ class Ifd extends BlockBase
         $data_area_bytes = '';
 
         // Fill in the TAG entries in the IFD.
-        foreach ($ifd0->getMultipleElements('tag') as $tag => $sub_block) {   // must be *
+        foreach ($this->getMultipleElements('tag') as $tag => $sub_block) {   // must be *
             $bytes .= ConvertBytes::fromShort($sub_block->getAttribute('id'), $byte_order);
             $bytes .= ConvertBytes::fromShort($sub_block->getElement('entry')->getFormat(), $byte_order);
             $bytes .= ConvertBytes::fromLong($sub_block->getElement('entry')->getComponents(), $byte_order);
