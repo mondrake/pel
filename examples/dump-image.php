@@ -91,7 +91,6 @@ try {
         print("dump-image: Unrecognized image format!\n");
         exit(1);
     }
-    $image->saveToFile($file . '-x.tiff');
 } catch (ExifEyeException $e) {
     $err = $e->getMessage();
 }
@@ -101,9 +100,6 @@ if (!isset($err)) {
 } else {
     print("dump-image: Error while reading image: " . $err . "\n");
 }
-
-//$image = Image::createFromFile($file . '-x.tiff', $logger, $fail_on_error);
-//dump_element($image);
 
 // Dump via exif_read_data().
 //dump(@exif_read_data($file));

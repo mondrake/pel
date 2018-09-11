@@ -43,11 +43,6 @@ class Ifd extends BlockBase
      */
     protected $tagsSkipOffset = 0;
 
-
-    protected $xxTempData;
-
-
-
     /**
      * Construct a Block for an Image File Directory (IFD).
      */
@@ -165,7 +160,6 @@ class Ifd extends BlockBase
      */
     public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN, $offset = 0)
     {
-//return $this->xxTempData;
         $ifd_area = '';
         $data_area = '';
 
