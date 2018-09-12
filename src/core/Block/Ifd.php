@@ -44,12 +44,15 @@ class Ifd extends BlockBase
     protected $tagsSkipOffset = 0;
 
     /**
-     * Construct a Block for an Image File Directory (IFD).
+     * Constructs a Block for an Image File Directory (IFD).
      */
-    public function __construct($type, $name, BlockBase $parent_block)
+    public function __construct($type, $name, BlockBase $parent_block, $tag_id = null)
     {
         parent::__construct($type, $parent_block);
 
+        if ($tag_id !== null) {
+            $this->setAttribute('id', $tag_id);
+        }
         $this->setAttribute('name', $name);
         $this->hasSpecification = Spec::getElementIdByName($parent_block->getType(), $name) ? true : false;
     }
@@ -125,7 +128,7 @@ $this->debug(">> i {ifdoffset}, t {offset} of {total}, c {components}, f {format
                 $o = $data_element->getLong($i_offset + 8);
                 if ($starting_offset != $o) {
                     $ifd_class = Spec::getTypeHandlingClass($ifd_type);
-                    $ifd = new $ifd_class($ifd_type, $ifd_name, $this);
+                    $ifd = new $ifd_class($ifd_type, $ifd_name, $this, $tag_id);
                     try {
                         $ifd->loadFromData($data_element, $o, $size, [
                             'data_offset' => $tag_data_offset,
@@ -170,7 +173,7 @@ $this->debug(">> i {ifdoffset}, t {offset} of {total}, c {components}, f {format
         $bytes = '';
 
         // Number of sub-elements. 2 bytes running.
-        $n = count($this->getMultipleElements('tag'));   // must be *
+        $n = count($this->getMultipleElements('*'));
         $bytes .= ConvertBytes::fromShort($n, $byte_order);
 
         // Data area. We need to reserve 12 bytes for each IFD tag + 4 bytes
@@ -180,7 +183,7 @@ $this->debug(">> i {ifdoffset}, t {offset} of {total}, c {components}, f {format
         $data_area_bytes = '';
 
         // Fill in the TAG entries in the IFD.
-        foreach ($this->getMultipleElements('tag') as $tag => $sub_block) {   // must be *
+        foreach ($this->getMultipleElements('*') as $tag => $sub_block) {
             $bytes .= ConvertBytes::fromShort($sub_block->getAttribute('id'), $byte_order);
             $bytes .= ConvertBytes::fromShort($sub_block->getElement('entry')->getFormat(), $byte_order);
             $bytes .= ConvertBytes::fromLong($sub_block->getElement('entry')->getComponents(), $byte_order);
