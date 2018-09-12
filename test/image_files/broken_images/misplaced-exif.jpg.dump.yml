@@ -149,7 +149,7 @@ elements:
                                                     elements:
                                                         -
                                                             type: tag
-                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:0:GPSVersionID'
+                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:0:GPSVersionID'
                                                             class: ExifEye\core\Block\Tag
                                                             valid: true
                                                             id: '0'
@@ -157,7 +157,7 @@ elements:
                                                             elements:
                                                                 -
                                                                     type: entry
-                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:0:GPSVersionID/entry'
+                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:0:GPSVersionID/entry'
                                                                     class: ExifEye\core\Entry\GPSVersionId
                                                                     valid: true
                                                                     format: Byte

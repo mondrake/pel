@@ -1076,7 +1076,7 @@ elements:
                                                     elements:
                                                         -
                                                             type: tag
-                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:1:GPSLatitudeRef'
+                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:1:GPSLatitudeRef'
                                                             class: ExifEye\core\Block\Tag
                                                             valid: true
                                                             id: '1'
@@ -1084,7 +1084,7 @@ elements:
                                                             elements:
                                                                 -
                                                                     type: entry
-                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:1:GPSLatitudeRef/entry'
+                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:1:GPSLatitudeRef/entry'
                                                                     class: ExifEye\core\Entry\Core\Ascii
                                                                     valid: true
                                                                     format: Ascii
@@ -1093,7 +1093,7 @@ elements:
                                                                     text: 'N'
                                                         -
                                                             type: tag
-                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:2:GPSLatitude'
+                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:2:GPSLatitude'
                                                             class: ExifEye\core\Block\Tag
                                                             valid: true
                                                             id: '2'
@@ -1101,7 +1101,7 @@ elements:
                                                             elements:
                                                                 -
                                                                     type: entry
-                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:2:GPSLatitude/entry'
+                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:2:GPSLatitude/entry'
                                                                     class: ExifEye\core\Entry\GPSDegrees
                                                                     valid: true
                                                                     format: Rational
@@ -1110,7 +1110,7 @@ elements:
                                                                     text: '45° 28'' 53.12" (45.48°)'
                                                         -
                                                             type: tag
-                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:3:GPSLongitudeRef'
+                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:3:GPSLongitudeRef'
                                                             class: ExifEye\core\Block\Tag
                                                             valid: true
                                                             id: '3'
@@ -1118,7 +1118,7 @@ elements:
                                                             elements:
                                                                 -
                                                                     type: entry
-                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:3:GPSLongitudeRef/entry'
+                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:3:GPSLongitudeRef/entry'
                                                                     class: ExifEye\core\Entry\Core\Ascii
                                                                     valid: true
                                                                     format: Ascii
@@ -1127,7 +1127,7 @@ elements:
                                                                     text: E
                                                         -
                                                             type: tag
-                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:4:GPSLongitude'
+                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:4:GPSLongitude'
                                                             class: ExifEye\core\Block\Tag
                                                             valid: true
                                                             id: '4'
@@ -1135,7 +1135,7 @@ elements:
                                                             elements:
                                                                 -
                                                                     type: entry
-                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:4:GPSLongitude/entry'
+                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:4:GPSLongitude/entry'
                                                                     class: ExifEye\core\Entry\GPSDegrees
                                                                     valid: true
                                                                     format: Rational
@@ -1144,7 +1144,7 @@ elements:
                                                                     text: '9° 11'' 41.83" (9.19°)'
                                                         -
                                                             type: tag
-                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:5:GPSAltitudeRef'
+                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:5:GPSAltitudeRef'
                                                             class: ExifEye\core\Block\Tag
                                                             valid: true
                                                             id: '5'
@@ -1152,7 +1152,7 @@ elements:
                                                             elements:
                                                                 -
                                                                     type: entry
-                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:5:GPSAltitudeRef/entry'
+                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:5:GPSAltitudeRef/entry'
                                                                     class: ExifEye\core\Entry\Core\Byte
                                                                     valid: true
                                                                     format: Byte
@@ -1161,7 +1161,7 @@ elements:
                                                                     text: 0
                                                         -
                                                             type: tag
-                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:6:GPSAltitude'
+                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:6:GPSAltitude'
                                                             class: ExifEye\core\Block\Tag
                                                             valid: true
                                                             id: '6'
@@ -1169,7 +1169,7 @@ elements:
                                                             elements:
                                                                 -
                                                                     type: entry
-                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:6:GPSAltitude/entry'
+                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:6:GPSAltitude/entry'
                                                                     class: ExifEye\core\Entry\Core\Rational
                                                                     valid: true
                                                                     format: Rational
@@ -1178,7 +1178,7 @@ elements:
                                                                     text: 9248/83
                                                         -
                                                             type: tag
-                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:7:GPSTimeStamp'
+                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:7:GPSTimeStamp'
                                                             class: ExifEye\core\Block\Tag
                                                             valid: true
                                                             id: '7'
@@ -1186,7 +1186,7 @@ elements:
                                                             elements:
                                                                 -
                                                                     type: entry
-                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:7:GPSTimeStamp/entry'
+                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:7:GPSTimeStamp/entry'
                                                                     class: ExifEye\core\Entry\Core\Rational
                                                                     valid: true
                                                                     format: Rational
@@ -1195,7 +1195,7 @@ elements:
                                                                     text: '11/1, 2/1, 3777/100'
                                                         -
                                                             type: tag
-                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:12:GPSSpeedRef'
+                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:12:GPSSpeedRef'
                                                             class: ExifEye\core\Block\Tag
                                                             valid: true
                                                             id: '12'
@@ -1203,7 +1203,7 @@ elements:
                                                             elements:
                                                                 -
                                                                     type: entry
-                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:12:GPSSpeedRef/entry'
+                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:12:GPSSpeedRef/entry'
                                                                     class: ExifEye\core\Entry\Core\Ascii
                                                                     valid: true
                                                                     format: Ascii
@@ -1212,7 +1212,7 @@ elements:
                                                                     text: K
                                                         -
                                                             type: tag
-                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:13:GPSSpeed'
+                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:13:GPSSpeed'
                                                             class: ExifEye\core\Block\Tag
                                                             valid: true
                                                             id: '13'
@@ -1220,7 +1220,7 @@ elements:
                                                             elements:
                                                                 -
                                                                     type: entry
-                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:13:GPSSpeed/entry'
+                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:13:GPSSpeed/entry'
                                                                     class: ExifEye\core\Entry\Core\Rational
                                                                     valid: true
                                                                     format: Rational
@@ -1229,7 +1229,7 @@ elements:
                                                                     text: 0/1
                                                         -
                                                             type: tag
-                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:16:GPSImgDirectionRef'
+                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:16:GPSImgDirectionRef'
                                                             class: ExifEye\core\Block\Tag
                                                             valid: true
                                                             id: '16'
@@ -1237,7 +1237,7 @@ elements:
                                                             elements:
                                                                 -
                                                                     type: entry
-                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:16:GPSImgDirectionRef/entry'
+                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:16:GPSImgDirectionRef/entry'
                                                                     class: ExifEye\core\Entry\Core\Ascii
                                                                     valid: true
                                                                     format: Ascii
@@ -1246,7 +1246,7 @@ elements:
                                                                     text: T
                                                         -
                                                             type: tag
-                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:17:GPSImgDirection'
+                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:17:GPSImgDirection'
                                                             class: ExifEye\core\Block\Tag
                                                             valid: true
                                                             id: '17'
@@ -1254,7 +1254,7 @@ elements:
                                                             elements:
                                                                 -
                                                                     type: entry
-                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:17:GPSImgDirection/entry'
+                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:17:GPSImgDirection/entry'
                                                                     class: ExifEye\core\Entry\Core\Rational
                                                                     valid: true
                                                                     format: Rational
@@ -1263,7 +1263,7 @@ elements:
                                                                     text: 44423/451
                                                         -
                                                             type: tag
-                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:23:GPSDestBearingRef'
+                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:23:GPSDestBearingRef'
                                                             class: ExifEye\core\Block\Tag
                                                             valid: true
                                                             id: '23'
@@ -1271,7 +1271,7 @@ elements:
                                                             elements:
                                                                 -
                                                                     type: entry
-                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:23:GPSDestBearingRef/entry'
+                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:23:GPSDestBearingRef/entry'
                                                                     class: ExifEye\core\Entry\Core\Ascii
                                                                     valid: true
                                                                     format: Ascii
@@ -1280,7 +1280,7 @@ elements:
                                                                     text: T
                                                         -
                                                             type: tag
-                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:24:GPSDestBearing'
+                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:24:GPSDestBearing'
                                                             class: ExifEye\core\Block\Tag
                                                             valid: true
                                                             id: '24'
@@ -1288,7 +1288,7 @@ elements:
                                                             elements:
                                                                 -
                                                                     type: entry
-                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:24:GPSDestBearing/entry'
+                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:24:GPSDestBearing/entry'
                                                                     class: ExifEye\core\Entry\Core\Rational
                                                                     valid: true
                                                                     format: Rational
@@ -1297,7 +1297,7 @@ elements:
                                                                     text: 44423/451
                                                         -
                                                             type: tag
-                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:29:GPSDateStamp'
+                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:29:GPSDateStamp'
                                                             class: ExifEye\core\Block\Tag
                                                             valid: true
                                                             id: '29'
@@ -1305,7 +1305,7 @@ elements:
                                                             elements:
                                                                 -
                                                                     type: entry
-                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:29:GPSDateStamp/entry'
+                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:29:GPSDateStamp/entry'
                                                                     class: ExifEye\core\Entry\Core\Ascii
                                                                     valid: true
                                                                     format: Ascii
@@ -1314,7 +1314,7 @@ elements:
                                                                     text: '2017:12:07'
                                                         -
                                                             type: tag
-                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:31:GPSHPositioningError'
+                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:31:GPSHPositioningError'
                                                             class: ExifEye\core\Block\Tag
                                                             valid: true
                                                             id: '31'
@@ -1322,7 +1322,7 @@ elements:
                                                             elements:
                                                                 -
                                                                     type: entry
-                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS/tag:31:GPSHPositioningError/entry'
+                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS/tag:31:GPSHPositioningError/entry'
                                                                     class: ExifEye\core\Entry\Core\Rational
                                                                     valid: true
                                                                     format: Rational

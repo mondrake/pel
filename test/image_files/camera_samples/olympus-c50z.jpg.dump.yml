@@ -598,7 +598,7 @@ elements:
                                                             elements:
                                                                 -
                                                                     type: tag
-                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34665:Exif/ifd:Interoperability/tag:1:InteroperabilityIndex'
+                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34665:Exif/ifd:40965:Interoperability/tag:1:InteroperabilityIndex'
                                                                     class: ExifEye\core\Block\Tag
                                                                     valid: true
                                                                     id: '1'
@@ -606,7 +606,7 @@ elements:
                                                                     elements:
                                                                         -
                                                                             type: entry
-                                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34665:Exif/ifd:Interoperability/tag:1:InteroperabilityIndex/entry'
+                                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34665:Exif/ifd:40965:Interoperability/tag:1:InteroperabilityIndex/entry'
                                                                             class: ExifEye\core\Entry\Core\Ascii
                                                                             valid: true
                                                                             format: Ascii
@@ -615,7 +615,7 @@ elements:
                                                                             text: R98
                                                                 -
                                                                     type: tag
-                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34665:Exif/ifd:Interoperability/tag:2:InteroperabilityVersion'
+                                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34665:Exif/ifd:40965:Interoperability/tag:2:InteroperabilityVersion'
                                                                     class: ExifEye\core\Block\Tag
                                                                     valid: true
                                                                     id: '2'
@@ -623,7 +623,7 @@ elements:
                                                                     elements:
                                                                         -
                                                                             type: entry
-                                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34665:Exif/ifd:Interoperability/tag:2:InteroperabilityVersion/entry'
+                                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34665:Exif/ifd:40965:Interoperability/tag:2:InteroperabilityVersion/entry'
                                                                             class: ExifEye\core\Entry\InteroperabilityVersion
                                                                             valid: true
                                                                             format: Undefined
