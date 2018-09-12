@@ -99,11 +99,14 @@ class Ifd extends BlockBase
                     $tag_data_offset += $offset + 2;
                 }
                 $tag_data_offset += $this->tagsSkipOffset;
-$this->debug("tag_data_offset at w-offset {offset} of {total} bytes", [
+$this->debug("ifd_offset at w-offset {ifdoffset}, tag_data_offset at w-offset {offset} of {total} bytes, {components} components, format {format}", [
+    'ifdoffset' => $i_offset,
     'offset' => $tag_data_offset,
     'total' => $tag_size,
+    'components' => $tag_components,
+    'format' => Format::getName($tag_format),
 ]);
-$this->debug(ExifEye::dumpHex($data_element->getBytes($tag_data_offset), 20));
+//$this->debug(ExifEye::dumpHex($data_element->getBytes($tag_data_offset), 20));
             } else {
                 $tag_data_offset = $i_offset + 8;
             }
