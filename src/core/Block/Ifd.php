@@ -99,7 +99,10 @@ class Ifd extends BlockBase
                     $tag_data_offset += $offset + 2;
                 }
                 $tag_data_offset += $this->tagsSkipOffset;
-$this->debug("ifd_offset at w-offset {ifdoffset}, tag_data_offset at w-offset {offset} of {total} bytes, {components} components, format {format}", [
+            } else {
+                $tag_data_offset = $i_offset + 8;
+            }
+$this->debug(">> i {ifdoffset}, t {offset} of {total}, c {components}, f {format}", [
     'ifdoffset' => $i_offset,
     'offset' => $tag_data_offset,
     'total' => $tag_size,
@@ -107,9 +110,6 @@ $this->debug("ifd_offset at w-offset {ifdoffset}, tag_data_offset at w-offset {o
     'format' => Format::getName($tag_format),
 ]);
 //$this->debug(ExifEye::dumpHex($data_element->getBytes($tag_data_offset), 20));
-            } else {
-                $tag_data_offset = $i_offset + 8;
-            }
 
             // Build the TAG object.
             $tag_entry_class = Spec::getElementHandlingClass($this->getType(), $tag_id, $tag_format);
