@@ -173,7 +173,7 @@ $this->debug(ExifEye::dumpHex($data_element->getBytes($tag_data_offset), 20));
         // Data area. We need to reserve 12 bytes for each IFD tag + 4 bytes
         // at the end for the link to next IFD as space occupied by IFD
         // entries.
-        $data_area_offset = $offset + $n * 12 + 4;
+        $data_area_offset = $offset + strlen($bytes) + $n * 12 + 4;
         $data_area_bytes = '';
 
         // Fill in the TAG entries in the IFD.
