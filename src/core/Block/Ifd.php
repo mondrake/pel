@@ -103,6 +103,7 @@ $this->debug("tag_data_offset at w-offset {offset} of {total} bytes", [
     'offset' => $tag_data_offset,
     'total' => $tag_size,
 ]);
+$this->debug(ExifEye::dumpHex($data_element->getByes($tag_data_offset), 20));
             } else {
                 $tag_data_offset = $i_offset + 8;
             }
