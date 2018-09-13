@@ -112,7 +112,7 @@ $this->debug(">> i {ifdoffset}, t {offset} of {total}, c {components}, f {format
     'components' => $tag_components,
     'format' => Format::getName($tag_format),
     'size' => $tag_size,
-    'data' => $tag_size > 4 ? 'off' : ExifEye::dumpHex($data_element->getBytes($i_offset, 4), 4),
+    'data' => $tag_size > 4 ? 'off' : ExifEye::dumpHex($data_element->getBytes($i_offset + 8, 4), 4),
 ]);
 //$this->debug(ExifEye::dumpHex($data_element->getBytes($tag_data_offset), 20));
 
