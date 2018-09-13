@@ -105,12 +105,14 @@ class Ifd extends BlockBase
             } else {
                 $tag_data_offset = $i_offset + 8;
             }
-$this->debug(">> i {ifdoffset}, t {offset} of {total}, c {components}, f {format}", [
+$this->debug(">> i {ifdoffset}, t {offset} of {total}, c {components}, f {format}, d {data}", [
     'ifdoffset' => $i_offset,
     'offset' => $tag_data_offset,
     'total' => $tag_size,
     'components' => $tag_components,
     'format' => Format::getName($tag_format),
+    'size' => $tag_size,
+    'data' => $tag_size > 4 ? 'off' : $tag_data_element,
 ]);
 //$this->debug(ExifEye::dumpHex($data_element->getBytes($tag_data_offset), 20));
 
