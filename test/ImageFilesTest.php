@@ -93,7 +93,7 @@ class ImageFilesTest extends ExifEyeTestCaseBase
     /**
      * @dataProvider imageFileProvider
      */
-/*  xax    public function testRewrite($imageDumpFile)
+    public function testRewrite($imageDumpFile)
     {
         $test_file_content = $imageDumpFile->getContents();
         $test = Yaml::parse($test_file_content);
@@ -112,7 +112,7 @@ class ImageFilesTest extends ExifEyeTestCaseBase
                 $this->assertEquals(count($test['log'][$level]), count($image->dumpLog($level)));
             }
         }
-    }*/
+    }
 
     protected function assertElement($expected, $element)
     {
