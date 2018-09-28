@@ -215,7 +215,7 @@ class Ifd extends BlockBase
         // Append data area.
         $bytes .= $data_area_bytes;
 
-return $bytes;
+        return $bytes;
 
 /*            // The argument specifies the offset of this IFD. The IFD will
             // use this to calculate offsets from the entries to their data,
