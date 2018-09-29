@@ -52,15 +52,15 @@ before_script:
 script:
   # Remove the comment to the line below during development, to let
   # TravisCI re-compile the specification PHP file from the YAML files.
-  - php bin/exifeye compile
+  #- php bin/exifeye compile
   #- php bin/exifeye dump test/image_files
-  - if [ "$TRAVIS_PHP_VERSION" == "7.1" ]; then ./vendor/bin/phpcs --runtime-set ignore_warnings_on_exit 1; fi
-  - |
-      if [ "$TRAVIS_PHP_VERSION" == "7.1" ]; then
-        ./vendor/bin/phpunit --coverage-clover build/logs/clover.xml ./test
-      else
-        ./vendor/bin/phpunit ./test
-      fi
+  #- if [ "$TRAVIS_PHP_VERSION" == "7.1" ]; then ./vendor/bin/phpcs --runtime-set ignore_warnings_on_exit 1; fi
+  #- |
+  #    if [ "$TRAVIS_PHP_VERSION" == "7.1" ]; then
+  #      ./vendor/bin/phpunit --coverage-clover build/logs/clover.xml ./test
+  #    else
+  #      ./vendor/bin/phpunit ./test
+  #    fi
   #- php examples/dump-image.php -d test/image_files/broken_images/gh-10-a.jpg
   #- php examples/dump-image.php -d test/image_files/broken_images/gh-10-a.jpg-rewrite.img
   #- php examples/dump-image.php -d test/image_files/broken_images/gh-10-b.jpg
