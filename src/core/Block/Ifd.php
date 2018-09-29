@@ -194,7 +194,7 @@ class Ifd extends BlockBase
             $bytes .= ConvertBytes::fromShort($sub_block->getElement('entry')->getFormat(), $byte_order);
             $bytes .= ConvertBytes::fromLong($sub_block->getElement('entry')->getComponents(), $byte_order);
 
-            $data = $sub_block->getElement('entry')->toBytes($byte_order);
+            $data = $sub_block->toBytes($byte_order);
             $s = strlen($data);
             if ($s > 4) {
                 $bytes .= ConvertBytes::fromLong($data_area_offset, $byte_order);
