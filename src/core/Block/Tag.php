@@ -107,4 +107,20 @@ class Tag extends BlockBase
     {
         return $this->getElement("entry")->toBytes($order, $offset);
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getFormat()
+    {
+        return $this->getElement("entry")->getFormat();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getComponents()
+    {
+        return $this->getElement("entry")->getComponents();
+    }
 }

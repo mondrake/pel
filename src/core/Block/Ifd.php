@@ -191,8 +191,8 @@ class Ifd extends BlockBase
 // xax        foreach ($this->getMultipleElements('*') as $tag => $sub_block) {
         foreach ($this->getMultipleElements('tag|ifd') as $tag => $sub_block) {
             $bytes .= ConvertBytes::fromShort($sub_block->getAttribute('id'), $byte_order);
-            $bytes .= ConvertBytes::fromShort($sub_block->getElement('entry')->getFormat(), $byte_order);
-            $bytes .= ConvertBytes::fromLong($sub_block->getElement('entry')->getComponents(), $byte_order);
+            $bytes .= ConvertBytes::fromShort($sub_block->getFormat(), $byte_order);
+            $bytes .= ConvertBytes::fromLong($sub_block->getComponents(), $byte_order);
 
             $data = $sub_block->toBytes($byte_order, $data_area_offset);
             $s = strlen($data);
@@ -344,5 +344,21 @@ class Ifd extends BlockBase
 
 //        return ['ifd_area' => $ifd_area, 'data_area' => $data_area];
    //     return $ifd_area . $data_area;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getFormat()
+    {
+        return Format::LONG;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getComponents()
+    {
+        return 1;
     }
 }
