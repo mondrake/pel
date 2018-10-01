@@ -45,6 +45,20 @@ class Ifd extends BlockBase
     protected $tagsSkipOffset = 0;
 
     /**
+     * The format of the tag representing this IFD.
+     *
+     * @var int
+     */
+    protected $format = Format::LONG;
+
+    /**
+     * The number of components of the tag representing this IFD.
+     *
+     * @var int
+     */
+    protected $components = 1;
+
+    /**
      * Constructs a Block for an Image File Directory (IFD).
      */
     public function __construct($type, $name, BlockBase $parent_block, $tag_id = null, ElementInterface $reference = null)
@@ -63,6 +77,13 @@ class Ifd extends BlockBase
      */
     public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
     {
+        if (isset($options['format'])) {
+            $this->format = $options['format'];
+        }
+        if (isset($options['components'])) {
+            $this->components = $options['components'];
+        }
+
         $starting_offset = $offset;
 
         // Get the number of tags.
@@ -137,6 +158,7 @@ class Ifd extends BlockBase
                     try {
                         $ifd->loadFromData($data_element, $o, $size, [
                             'data_offset' => $tag_data_offset,
+                            'format' => $tag_format,
                             'components' => $tag_components,
                         ]);
                     } catch (DataException $e) {
@@ -178,8 +200,7 @@ class Ifd extends BlockBase
         $bytes = '';
 
         // Number of sub-elements. 2 bytes running.
-// xax        $n = count($this->getMultipleElements('*'));
-        $n = count($this->getMultipleElements('tag|ifd'));
+        $n = count($this->getMultipleElements('*'));
         $bytes .= ConvertBytes::fromShort($n, $byte_order);
 
         // Data area. We need to reserve 12 bytes for each IFD tag + 4 bytes
@@ -189,8 +210,7 @@ class Ifd extends BlockBase
         $data_area_bytes = '';
 
         // Fill in the TAG entries in the IFD.
-// xax        foreach ($this->getMultipleElements('*') as $tag => $sub_block) {
-        foreach ($this->getMultipleElements('tag|ifd') as $tag => $sub_block) {
+        foreach ($this->getMultipleElements('*') as $tag => $sub_block) {
             $bytes .= ConvertBytes::fromShort($sub_block->getAttribute('id'), $byte_order);
             $bytes .= ConvertBytes::fromShort($sub_block->getFormat(), $byte_order);
             $bytes .= ConvertBytes::fromLong($sub_block->getComponents(), $byte_order);
@@ -352,7 +372,7 @@ class Ifd extends BlockBase
      */
     public function getFormat()
     {
-        return Format::LONG;
+        return $this->format;
     }
 
     /**
@@ -360,6 +380,6 @@ class Ifd extends BlockBase
      */
     public function getComponents()
     {
-        return 1;
+        return $this->components;
     }
 }
