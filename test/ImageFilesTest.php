@@ -111,7 +111,7 @@ class ImageFilesTest extends ExifEyeTestCaseBase
     protected function assertElement($expected, $element, $rewritten = false)
     {
         // xax
-        if ($rewritten && $expected['type'] == 'ifd') && isset($expected['id']) && $expected['id'] == 37500) {
+        if ($rewritten && $expected['type'] == 'ifd' && isset($expected['id']) && $expected['id'] == 37500) {
             $this->markTestIncomplete('not done yet');
         }
 
