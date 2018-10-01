@@ -214,12 +214,14 @@ class Ifd extends BlockBase
             if ($sub_block->getType() === 'thumbnail') {
                 $thumbnail_entry = $sub_block->getElement('entry');
                 // Add length.
-                $bytes .= ConvertBytes::fromShort(Spec::getElementIdByName($this->getType(), 'ThumbnailLength'), $byte_order);
+// xax               $bytes .= ConvertBytes::fromShort(Spec::getElementIdByName($this->getType(), 'ThumbnailLength'), $byte_order);
+                $bytes .= ConvertBytes::fromShort(0x0202, $byte_order);
                 $bytes .= ConvertBytes::fromShort(Format::LONG, $byte_order);
                 $bytes .= ConvertBytes::fromLong(1, $byte_order);
                 $bytes .= ConvertBytes::fromLong($thumbnail_entry->getComponents(), $byte_order);
                 // Add offset.
-                $bytes .= ConvertBytes::fromShort(Spec::getElementIdByName($this->getType(), 'ThumbnailOffset'), $byte_order);
+// xax               $bytes .= ConvertBytes::fromShort(Spec::getElementIdByName($this->getType(), 'ThumbnailOffset'), $byte_order);
+                $bytes .= ConvertBytes::fromShort(0x0201, $byte_order);
                 $bytes .= ConvertBytes::fromShort(Format::LONG, $byte_order);
                 $bytes .= ConvertBytes::fromLong(1, $byte_order);
                 $bytes .= ConvertBytes::fromLong($data_area_offset, $byte_order);
