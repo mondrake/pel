@@ -126,6 +126,11 @@ class ImageFilesTest extends ExifEyeTestCaseBase
             $this->assertEquals($expected['bytesHash'], hash('sha256', $element->toBytes()), $element->getContextPath());
         }
 
+        // xax
+        if (isset($expected['name']) && in_array($expected['name'], ['AppleMakerNotes', 'CanonMakerNotes'])) {
+            $this->markTestIncomplete('not done yet');
+        }
+
         // Recursively check sub-blocks.
         if (isset($expected['elements'])) {
             foreach ($expected['elements'] as $i => $expected_element) {
