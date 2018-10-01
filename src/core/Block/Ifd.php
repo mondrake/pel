@@ -219,7 +219,7 @@ class Ifd extends BlockBase
             $bytes .= ConvertBytes::fromLong($sub_block->getComponents(), $byte_order);
 
             // xax
-            if (in_array($sub_block->getType(), ['ifd0', 'ifd1']) && $sub_block->getAttribute('id') == 37500) {
+            if (in_array($sub_block->getType(), ['ifd0', 'ifd1', 'exif']) && $sub_block->getAttribute('id') == 37500) {
                 $data = str_repeat(chr(0x0D), $sub_block->getComponents());
             } else {
                 $data = $sub_block->toBytes($byte_order, $data_area_offset);
