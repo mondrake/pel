@@ -110,10 +110,12 @@ class ImageFilesTest extends ExifEyeTestCaseBase
 
     protected function assertElement($expected, $element, $rewritten = false)
     {
-        $this->assertInstanceOf($expected['class'], $element, $expected['path']);
+        // xax
+        if ($rewritten && $expected['type'] == 'ifd') && isset($expected['id']) && $expected['id'] == 37500) {
+            $this->markTestIncomplete('not done yet');
+        }
 
-        // xx
-//        $this->assertNotNull($element->toBytes(), $element->getContextPath());
+        $this->assertInstanceOf($expected['class'], $element, $expected['path']);
 
         // Check entry.
         if ($element instanceof EntryInterface) {
@@ -124,11 +126,6 @@ class ImageFilesTest extends ExifEyeTestCaseBase
             $this->assertEquals($expected['components'], $element->getComponents(), $element->getContextPath());
             $this->assertEquals($expected['text'], $element->toString(), $element->getContextPath());
             $this->assertEquals($expected['bytesHash'], hash('sha256', $element->toBytes()), $element->getContextPath());
-        }
-
-        // xax
-        if ($rewritten && isset($expected['name']) && in_array($expected['name'], ['AppleMakerNotes', 'CanonMakerNotes'])) {
-            $this->markTestIncomplete('not done yet');
         }
 
         // Recursively check sub-blocks.
