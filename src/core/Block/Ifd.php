@@ -46,9 +46,9 @@ class Ifd extends BlockBase
     /**
      * Constructs a Block for an Image File Directory (IFD).
      */
-    public function __construct($type, $name, BlockBase $parent_block, $tag_id = null)
+    public function __construct($type, $name, BlockBase $parent_block, $tag_id = null, ElementInterface $reference = null)
     {
-        parent::__construct($type, $parent_block);
+        parent::__construct($type, $parent_block, $reference);
 
         if ($tag_id !== null) {
             $this->setAttribute('id', $tag_id);
