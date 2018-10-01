@@ -58,7 +58,7 @@ class ExifMakerNote extends Undefined
      */
     public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN, $offset = 0)
     {
-        return 'xx @todo';
+        return $this->value[0];
     }
 
     /**
