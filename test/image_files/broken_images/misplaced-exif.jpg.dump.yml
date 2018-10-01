@@ -142,9 +142,10 @@ elements:
                                                             text: '0000:00:00 00:00:00'
                                                 -
                                                     type: ifd
-                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:GPS'
+                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS'
                                                     class: ExifEye\core\Block\Ifd
                                                     valid: true
+                                                    id: '34853'
                                                     name: GPS
                                                     elements:
                                                         -
@@ -166,9 +167,10 @@ elements:
                                                                     text: 2.3.0.0
                                                 -
                                                     type: ifd
-                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:Exif'
+                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34665:Exif'
                                                     class: ExifEye\core\Block\Ifd
                                                     valid: true
+                                                    id: '34665'
                                                     name: Exif
                                                     elements:
                                                         -
