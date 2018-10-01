@@ -230,6 +230,7 @@ class Ifd extends BlockBase
                 $bytes .= $data . str_repeat(chr(0), 4 - $s);
             }
         }
+
         // Thumbnail.
         if ($thumbnail) {
             $thumbnail_entry = $thumbnail->getElement('entry');
@@ -246,7 +247,6 @@ class Ifd extends BlockBase
             // Add thumbnail.
             $data_area_bytes .= $thumbnail_entry->toBytes();
             $data_area_offset += $thumbnail_entry->getComponents();
-            continue;
         }
 
         // Append link to next IFD.
