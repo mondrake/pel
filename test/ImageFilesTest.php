@@ -104,11 +104,11 @@ class ImageFilesTest extends ExifEyeTestCaseBase
         $this->assertEquals($test['mimeType'], $image->getMimeType());
 
         if (isset($test['elements'])) {
-            $this->assertElement($test['elements'], $image);
+            $this->assertElement($test['elements'], $image, true);
         }
     }
 
-    protected function assertElement($expected, $element)
+    protected function assertElement($expected, $element, $rewritten = false)
     {
         $this->assertInstanceOf($expected['class'], $element, $expected['path']);
 
@@ -127,7 +127,7 @@ class ImageFilesTest extends ExifEyeTestCaseBase
         }
 
         // xax
-        if (isset($expected['name']) && in_array($expected['name'], ['AppleMakerNotes', 'CanonMakerNotes'])) {
+        if ($rewritten && isset($expected['name']) && in_array($expected['name'], ['AppleMakerNotes', 'CanonMakerNotes'])) {
             $this->markTestIncomplete('not done yet');
         }
 
