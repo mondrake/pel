@@ -220,7 +220,7 @@ class Ifd extends BlockBase
                 $bytes .= ConvertBytes::fromShort(Spec::getElementIdByName($this->getType(), 'ThumbnailLength'), $byte_order);
                 $bytes .= ConvertBytes::fromShort(Format::LONG, $byte_order);
                 $bytes .= ConvertBytes::fromLong(1, $byte_order);
-                $bytes .= ConvertBytes::fromLong($thumbnail_entry->getComponents(), $byte_order);*/
+                $bytes .= ConvertBytes::fromLong($thumbnail_entry->getComponents(), $byte_order);
                 // Add offset.
                 $bytes .= ConvertBytes::fromShort(Spec::getElementIdByName($this->getType(), 'ThumbnailOffset'), $byte_order);
                 $bytes .= ConvertBytes::fromShort(Format::LONG, $byte_order);
