@@ -74,7 +74,7 @@ class ExifMakerNote extends Undefined
         }
 
         // xax
-        if (strpos($maker_note_tag->toBytes(), '\x0d\x0d\x0d') === 0) {
+        if (strpos($maker_note_tag->getElement('entry')->toBytes(), '\x0d\x0d\x0d') === 0) {
 dump('xx');
             return;
         }
