@@ -74,14 +74,14 @@ script:
   #- php examples/dump-image.php -d test/image_files/gh-16.jpg-rewrite.img
   #- php examples/dump-image.php -d test/image_files/sample-1.tiff
   #- php examples/dump-image.php -d test/image_files/sample-1.tiff-rewrite.img
-  - php examples/dump-image.php -d test/image_files/camera_samples/apple-iphone6s.jpg
-  - php examples/dump-image.php -d test/image_files/camera_samples/apple-iphone6s.jpg-rewrite.img
+  #- php examples/dump-image.php -d test/image_files/camera_samples/apple-iphone6s.jpg
+  #- php examples/dump-image.php -d test/image_files/camera_samples/apple-iphone6s.jpg-rewrite.img
   #- php examples/dump-image.php -d test/image_files/camera_samples/apple-iphone7.JPG
   #- php examples/dump-image.php -d test/image_files/camera_samples/canon-eos-650d.jpg
   #- php examples/dump-image.php -d test/image_files/camera_samples/nikon-d50.JPG
   #- php examples/dump-image.php -d test/image_files/camera_samples/nikon-e5000.jpg
-  #- php examples/dump-image.php -d test/image_files/camera_samples/pentax-istDS.jpg
-  #- php examples/dump-image.php -d test/image_files/camera_samples/pentax-istDS.jpg-rewrite.img
+  - php examples/dump-image.php -d test/image_files/camera_samples/pentax-istDS.jpg
+  - php examples/dump-image.php -d test/image_files/camera_samples/pentax-istDS.jpg-rewrite.img
   #- php examples/dump-image.php -d test/image_files/camera_samples/canon-ixus-ii.jpg
   #- php examples/dump-image.php -d test/image_files/camera_samples/canon-powershot-s60.jpg
 
