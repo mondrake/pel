@@ -486,7 +486,7 @@ elements:
                                                                     valid: true
                                                                     format: Undefined
                                                                     components: 1504
-                                                                    bytesHash: d527e0288c543ee26ef6076919b394f9d81b834f295205184951e91d7512dcc8
+                                                                    bytesHash: 827368218278ea09b1152d1e313e6e889500ff3c78fb6a2f03d533d1a1ddfb63
                                                                     text: '1504 bytes MakerNote data'
                                                         -
                                                             type: tag
@@ -860,40 +860,6 @@ elements:
                                                             components: 20
                                                             bytesHash: 7c603212a6bd94dfd5fe45fec72e6cbd79db711d33750555db29fe346ff8a311
                                                             text: '2004:07:10 18:09:53'
-                                                -
-                                                    type: tag
-                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD1/tag:513:ThumbnailOffset'
-                                                    class: ExifEye\core\Block\Tag
-                                                    valid: true
-                                                    id: '513'
-                                                    name: ThumbnailOffset
-                                                    elements:
-                                                        -
-                                                            type: entry
-                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD1/tag:513:ThumbnailOffset/entry'
-                                                            class: ExifEye\core\Entry\Core\Long
-                                                            valid: true
-                                                            format: Long
-                                                            components: 1
-                                                            bytesHash: 79a6777efd1255fe1ebfca64f972a1695651d5ab048b8db22c06fe4de9c4109a
-                                                            text: 2385
-                                                -
-                                                    type: tag
-                                                    path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD1/tag:514:ThumbnailLength'
-                                                    class: ExifEye\core\Block\Tag
-                                                    valid: true
-                                                    id: '514'
-                                                    name: ThumbnailLength
-                                                    elements:
-                                                        -
-                                                            type: entry
-                                                            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD1/tag:514:ThumbnailLength/entry'
-                                                            class: ExifEye\core\Entry\Core\Long
-                                                            valid: true
-                                                            format: Long
-                                                            components: 1
-                                                            bytesHash: 454b5bbd9ecb680979a41f2e4d3c7891b602b45f461e142c3627cb62a983ff43
-                                                            text: 3621
                                                 -
                                                     type: thumbnail
                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD1/thumbnail'
