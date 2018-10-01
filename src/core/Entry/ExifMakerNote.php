@@ -6,6 +6,7 @@ use ExifEye\core\Block\BlockBase;
 use ExifEye\core\Block\Ifd;
 use ExifEye\core\Data\DataWindow;
 use ExifEye\core\Entry\Core\Undefined;
+use ExifEye\core\ExifEye;
 use ExifEye\core\Spec;
 use ExifEye\core\Utility\ConvertBytes;
 
@@ -74,8 +75,8 @@ class ExifMakerNote extends Undefined
         }
 
         // xax
+dump(ExifEye::dumpHex($maker_note_tag->getElement('entry')->toBytes(), 20));
         if (strpos($maker_note_tag->getElement('entry')->toBytes(), '\x0d\x0d\x0d') === 0) {
-dump('xx');
             return;
         }
 
