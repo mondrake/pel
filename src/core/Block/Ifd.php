@@ -200,7 +200,10 @@ class Ifd extends BlockBase
         $bytes = '';
 
         // Number of sub-elements. 2 bytes running.
-        $n = count($this->getMultipleElements('*'));
+        $n = count($this->getMultipleElements('ifd|tag'));
+        if ($this->getElement('thumbnail')) {
+            $n += 2;
+        }
         $bytes .= ConvertBytes::fromShort($n, $byte_order);
 
         // Data area. We need to reserve 12 bytes for each IFD tag + 4 bytes
@@ -214,14 +217,12 @@ class Ifd extends BlockBase
             if ($sub_block->getType() === 'thumbnail') {
                 $thumbnail_entry = $sub_block->getElement('entry');
                 // Add length.
-// xax               $bytes .= ConvertBytes::fromShort(Spec::getElementIdByName($this->getType(), 'ThumbnailLength'), $byte_order);
-/*                $bytes .= ConvertBytes::fromShort(0x0202, $byte_order);
+                $bytes .= ConvertBytes::fromShort(Spec::getElementIdByName($this->getType(), 'ThumbnailLength'), $byte_order);
                 $bytes .= ConvertBytes::fromShort(Format::LONG, $byte_order);
                 $bytes .= ConvertBytes::fromLong(1, $byte_order);
                 $bytes .= ConvertBytes::fromLong($thumbnail_entry->getComponents(), $byte_order);*/
                 // Add offset.
-// xax               $bytes .= ConvertBytes::fromShort(Spec::getElementIdByName($this->getType(), 'ThumbnailOffset'), $byte_order);
-                $bytes .= ConvertBytes::fromShort(0x0201, $byte_order);
+                $bytes .= ConvertBytes::fromShort(Spec::getElementIdByName($this->getType(), 'ThumbnailOffset'), $byte_order);
                 $bytes .= ConvertBytes::fromShort(Format::LONG, $byte_order);
                 $bytes .= ConvertBytes::fromLong(1, $byte_order);
                 $bytes .= ConvertBytes::fromLong($data_area_offset, $byte_order);
