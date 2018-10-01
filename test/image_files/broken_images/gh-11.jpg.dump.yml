@@ -519,7 +519,7 @@ elements:
                                                                     format: Undefined
                                                                     components: 2036
                                                                     bytesHash: 0c6c16bd6ce7d7973257ce5a4f1ea4a081bb1488872ec1a0f20767dd91dafdd2
-                                                                    text: '2036 bytes MakerNote data'
+                                                                    text: '2036 bytes of data [ 53 4F 4E 59 20 44 ... 68 32 DB 5E FC 0D ]'
                                                         -
                                                             type: tag
                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34665:Exif/tag:40960:FlashPixVersion'

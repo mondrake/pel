@@ -487,7 +487,7 @@ elements:
                                                                     format: Undefined
                                                                     components: 604
                                                                     bytesHash: 0981740e40204bd0b71bff55fd52f99e6198f07636161ee3fa61aeba57686d2c
-                                                                    text: '604 bytes MakerNote data'
+                                                                    text: '604 bytes of data [ 15 00 01 00 07 00 ... 00 00 00 00 06 00 ]'
                                                         -
                                                             type: tag
                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34665:Exif/tag:37510:UserComment'
