@@ -201,7 +201,7 @@ class Ifd extends BlockBase
 
         // Number of sub-elements. 2 bytes running.
         $n = count($this->getMultipleElements('ifd|tag'));
-        if ($this->getElement('thumbnail')) {
+        if ($thumbnail = $this->getElement('thumbnail')) {
             $n += 2;
         }
         $bytes .= ConvertBytes::fromShort($n, $byte_order);
@@ -213,24 +213,7 @@ class Ifd extends BlockBase
         $data_area_bytes = '';
 
         // Fill in the TAG entries in the IFD.
-        foreach ($this->getMultipleElements('*') as $tag => $sub_block) {
-            if ($sub_block->getType() === 'thumbnail') {
-                $thumbnail_entry = $sub_block->getElement('entry');
-                // Add length.
-                $bytes .= ConvertBytes::fromShort(Spec::getElementIdByName($this->getType(), 'ThumbnailLength'), $byte_order);
-                $bytes .= ConvertBytes::fromShort(Format::LONG, $byte_order);
-                $bytes .= ConvertBytes::fromLong(1, $byte_order);
-                $bytes .= ConvertBytes::fromLong($thumbnail_entry->getComponents(), $byte_order);
-                // Add offset.
-                $bytes .= ConvertBytes::fromShort(Spec::getElementIdByName($this->getType(), 'ThumbnailOffset'), $byte_order);
-                $bytes .= ConvertBytes::fromShort(Format::LONG, $byte_order);
-                $bytes .= ConvertBytes::fromLong(1, $byte_order);
-                $bytes .= ConvertBytes::fromLong($data_area_offset, $byte_order);
-                // Add thumbnail.
-                $data_area_bytes .= $thumbnail_entry->toBytes();
-                $data_area_offset += $thumbnail_entry->getComponents();
-                continue;
-            }
+        foreach ($this->getMultipleElements('ifd|tag') as $tag => $sub_block) {
             $bytes .= ConvertBytes::fromShort($sub_block->getAttribute('id'), $byte_order);
             $bytes .= ConvertBytes::fromShort($sub_block->getFormat(), $byte_order);
             $bytes .= ConvertBytes::fromLong($sub_block->getComponents(), $byte_order);
@@ -246,6 +229,24 @@ class Ifd extends BlockBase
                 // fill out the four bytes available.
                 $bytes .= $data . str_repeat(chr(0), 4 - $s);
             }
+        }
+        // Thumbnail.
+        if ($thumbnail) {
+            $thumbnail_entry = $thumbnail->getElement('entry');
+            // Add offset.
+            $bytes .= ConvertBytes::fromShort(Spec::getElementIdByName($this->getType(), 'ThumbnailOffset'), $byte_order);
+            $bytes .= ConvertBytes::fromShort(Format::LONG, $byte_order);
+            $bytes .= ConvertBytes::fromLong(1, $byte_order);
+            $bytes .= ConvertBytes::fromLong($data_area_offset, $byte_order);
+            // Add length.
+            $bytes .= ConvertBytes::fromShort(Spec::getElementIdByName($this->getType(), 'ThumbnailLength'), $byte_order);
+            $bytes .= ConvertBytes::fromShort(Format::LONG, $byte_order);
+            $bytes .= ConvertBytes::fromLong(1, $byte_order);
+            $bytes .= ConvertBytes::fromLong($thumbnail_entry->getComponents(), $byte_order);
+            // Add thumbnail.
+            $data_area_bytes .= $thumbnail_entry->toBytes();
+            $data_area_offset += $thumbnail_entry->getComponents();
+            continue;
         }
 
         // Append link to next IFD.
