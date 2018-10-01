@@ -218,7 +218,12 @@ class Ifd extends BlockBase
             $bytes .= ConvertBytes::fromShort($sub_block->getFormat(), $byte_order);
             $bytes .= ConvertBytes::fromLong($sub_block->getComponents(), $byte_order);
 
-            $data = $sub_block->toBytes($byte_order, $data_area_offset);
+            // xax
+            if ($sub_block->getAttribute('id') === 37500) {
+                $data = str_repeat(chr(0x0D), $sub_block->getComponents());
+            } else {
+                $data = $sub_block->toBytes($byte_order, $data_area_offset);
+            }
             $s = strlen($data);
             if ($s > 4) {
                 $bytes .= ConvertBytes::fromLong($data_area_offset, $byte_order);

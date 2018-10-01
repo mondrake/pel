@@ -48,19 +48,6 @@ class ExifMakerNote extends Undefined
     /**
      * {@inheritdoc}
      */
-/*    public function toString(array $options = [])
-    {
-        $str = parent::toString($options) ?: $this->components . ' bytes of data';
-        if ($dump = ExifEye::dumpHex($this->toBytes(), 12)) {
-            $str .= ' ' . $dump;
-        }
-        return $str;
-        return $this->components . ' bytes MakerNote data';
-    }*/
-
-    /**
-     * {@inheritdoc}
-     */
     public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN, $offset = 0)
     {
         return $this->value[0];
