@@ -106,12 +106,6 @@ class ImageFilesTest extends ExifEyeTestCaseBase
         if (isset($test['elements'])) {
             $this->assertElement($test['elements'], $image);
         }
-
-        foreach (['ERROR', 'WARNING', 'NOTICE'] as $level) {
-            if (isset($test['log'][$level])) {
-                $this->assertEquals(count($test['log'][$level]), count($image->dumpLog($level)));
-            }
-        }
     }
 
     protected function assertElement($expected, $element)
