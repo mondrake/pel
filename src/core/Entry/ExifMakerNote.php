@@ -73,6 +73,11 @@ class ExifMakerNote extends Undefined
             return;
         }
 
+        // xax
+        if (strpos($maker_note_tag->toBytes(), '\x0d\x0d\x0d') === 0) {
+            return;
+        }
+
         // Get Make tag from IFD0.
         if (!$make_tag = $ifd->getElement("tag[@name='Make']")) {
             return;
