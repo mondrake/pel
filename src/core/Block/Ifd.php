@@ -212,6 +212,20 @@ class Ifd extends BlockBase
         // Fill in the TAG entries in the IFD.
         foreach ($this->getMultipleElements('*') as $tag => $sub_block) {
             if ($sub_block->getType() === 'thumbnail') {
+                $thumbnail_entry = $sub_block->getElement('entry');
+                // Add length.
+                $bytes .= ConvertBytes::fromShort(Spec::getTagIdByName($this, 'ThumbnailLength'), $byte_order);
+                $bytes .= ConvertBytes::fromShort(Format::LONG, $byte_order);
+                $bytes .= ConvertBytes::fromLong(1, $byte_order);
+                $bytes .= ConvertBytes::fromLong($thumbnail_entry->getComponents(), $byte_order);
+                // Add offset.
+                $bytes .= ConvertBytes::fromShort(Spec::getTagIdByName($this, 'ThumbnailOffset'), $byte_order);
+                $bytes .= ConvertBytes::fromShort(Format::LONG, $byte_order);
+                $bytes .= ConvertBytes::fromLong(1, $byte_order);
+                $bytes .= ConvertBytes::fromLong($data_area_offset, $byte_order);
+                // Add thumbnail.
+                $data_area_bytes .= $thumbnail_entry->toBytes();
+                $data_area_offset += $thumbnail_entry->getComponents();
                 continue;
             }
             $bytes .= ConvertBytes::fromShort($sub_block->getAttribute('id'), $byte_order);
