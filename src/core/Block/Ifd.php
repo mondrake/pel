@@ -200,8 +200,7 @@ class Ifd extends BlockBase
         $bytes = '';
 
         // Number of sub-elements. 2 bytes running.
-// xax        $n = count($this->getMultipleElements('*'));
-        $n = count($this->getMultipleElements('tag|ifd'));
+        $n = count($this->getMultipleElements('*'));
         $bytes .= ConvertBytes::fromShort($n, $byte_order);
 
         // Data area. We need to reserve 12 bytes for each IFD tag + 4 bytes
@@ -211,8 +210,7 @@ class Ifd extends BlockBase
         $data_area_bytes = '';
 
         // Fill in the TAG entries in the IFD.
-// xax        foreach ($this->getMultipleElements('*') as $tag => $sub_block) {
-        foreach ($this->getMultipleElements('tag|ifd') as $tag => $sub_block) {
+        foreach ($this->getMultipleElements('*') as $tag => $sub_block) {
             $bytes .= ConvertBytes::fromShort($sub_block->getAttribute('id'), $byte_order);
             $bytes .= ConvertBytes::fromShort($sub_block->getFormat(), $byte_order);
             $bytes .= ConvertBytes::fromLong($sub_block->getComponents(), $byte_order);
