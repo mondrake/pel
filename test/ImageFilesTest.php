@@ -133,7 +133,7 @@ class ImageFilesTest extends ExifEyeTestCaseBase
             foreach ($expected['elements'] as $i => $expected_element) {
                 $test = $element->getMultipleElements('*');
                 $this->assertArrayHasKey($i, $test, $expected_element['path']);
-                $this->assertElement($expected_element, $test[$i]);
+                $this->assertElement($expected_element, $test[$i], $rewritten);
             }
         }
     }
