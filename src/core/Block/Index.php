@@ -10,9 +10,9 @@ use ExifEye\core\Spec;
 use ExifEye\core\Utility\ConvertBytes;
 
 /**
- * Class representing an index of Short values as an IFD.
+ * Class representing an index of values.
  */
-class IfdIndexShort extends Ifd
+class Index extends Ifd
 {
     /**
      * {@inheritdoc}

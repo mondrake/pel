@@ -482,7 +482,7 @@ elements:
                                                                 -
                                                                     type: ifd
                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34665:Exif/ifd:37500:CanonMakerNotes/ifd:1:CanonCameraSettings'
-                                                                    class: ExifEye\core\Block\IfdIndexShort
+                                                                    class: ExifEye\core\Block\Index
                                                                     valid: true
                                                                     id: '1'
                                                                     name: CanonCameraSettings
@@ -1344,7 +1344,7 @@ elements:
                                                                 -
                                                                     type: ifd
                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34665:Exif/ifd:37500:CanonMakerNotes/ifd:4:CanonShotInformation'
-                                                                    class: ExifEye\core\Block\IfdIndexShort
+                                                                    class: ExifEye\core\Block\Index
                                                                     valid: true
                                                                     id: '4'
                                                                     name: CanonShotInformation
@@ -2075,7 +2075,7 @@ elements:
                                                                 -
                                                                     type: ifd
                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34665:Exif/ifd:37500:CanonMakerNotes/ifd:147:CanonFileInformation'
-                                                                    class: ExifEye\core\Block\IfdIndexShort
+                                                                    class: ExifEye\core\Block\Index
                                                                     valid: true
                                                                     id: '147'
                                                                     name: CanonFileInformation
