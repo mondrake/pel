@@ -214,16 +214,15 @@ class Ifd extends BlockBase
 
         // Fill in the TAG entries in the IFD.
         foreach ($this->getMultipleElements('*') as $tag => $sub_block) {
+            if ($sub_block->getType() === 'thumbnail') {
+                continue;
+            }
+
             $bytes .= ConvertBytes::fromShort($sub_block->getAttribute('id'), $byte_order);
             $bytes .= ConvertBytes::fromShort($sub_block->getFormat(), $byte_order);
             $bytes .= ConvertBytes::fromLong($sub_block->getComponents(), $byte_order);
 
-            // xax
-            if ($sub_block instanceof Ifd && $sub_block->getAttribute('id') == 37500) {
-                $data = str_repeat(chr(0x0D), $sub_block->getComponents());
-            } else {
-                $data = $sub_block->toBytes($byte_order, $data_area_offset);
-            }
+            $data = $sub_block->toBytes($byte_order, $data_area_offset);
             $s = strlen($data);
             if ($s > 4) {
                 $bytes .= ConvertBytes::fromLong($data_area_offset, $byte_order);
