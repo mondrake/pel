@@ -93,6 +93,6 @@ class IfdIndexShort extends Ifd
             $data_bytes .= $sub_block->toBytes($byte_order);
         }
 
-        return ConvertBytes::fromShort(strlen($data_bytes)) . $data_bytes
+        return ConvertBytes::fromShort(strlen($data_bytes)) . $data_bytes;
     }
 }
