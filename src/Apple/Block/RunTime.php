@@ -29,7 +29,7 @@ class RunTime extends Ifd
         $this->debug("START... Loading");
 
         $plist = new CFPropertyList();
-dump(ExifEye::dumpHex($data_element->getBytes($options['data_offset'], $options['components']), 40));
+dump('read', ExifEye::dumpHex($data_element->getBytes($options['data_offset'], $options['components']), 40));
         $plist->parse($data_element->getBytes($options['data_offset'], $options['components']));
         $this->pList = $plist;
 
@@ -49,7 +49,7 @@ dump(ExifEye::dumpHex($data_element->getBytes($options['data_offset'], $options[
      */
     public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN, $offset = 0, $has_next_ifd = false)
     {
-dump(ExifEye::dumpHex($this->pList->toBinary(), 40));
+dump('write', ExifEye::dumpHex($this->pList->toBinary(), 40));
 //dump($this->pList);
         return $this->pList->toBinary();
     }
