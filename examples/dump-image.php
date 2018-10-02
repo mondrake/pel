@@ -91,6 +91,7 @@ try {
         print("dump-image: Unrecognized image format!\n");
         exit(1);
     }
+    $image->saveToFile($file . '-rewrite.img');
 } catch (ExifEyeException $e) {
     $err = $e->getMessage();
 }
