@@ -27,6 +27,16 @@ class RunTime extends Ifd
         }
 
         $this->debug("START... Loading");
+        // xax
+        $this->debug(">> o {ifdoffset}, c {components}, f {format}, s {size}, d {data}", [
+            'ifdoffset' => $offset,
+            'components' => $this->components,
+            'format' => Format::getName($this->format),
+            'size' => $size,
+            'data' => $options['data_offset'],
+        ]);
+        //$this->debug(ExifEye::dumpHex($data_element->getBytes($tag_data_offset), 20));
+
 
         $plist = new CFPropertyList();
 dump('read', ExifEye::dumpHex($data_element->getBytes($options['data_offset'], $options['components']), 40));
@@ -49,8 +59,6 @@ dump('read', ExifEye::dumpHex($data_element->getBytes($options['data_offset'], $
      */
     public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN, $offset = 0, $has_next_ifd = false)
     {
-dump('write', ExifEye::dumpHex($this->pList->toBinary(), 40));
-//dump($this->pList);
         return $this->pList->toBinary();
     }
 }
