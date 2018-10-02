@@ -3,6 +3,7 @@
 namespace ExifEye\Apple\Block;
 
 use ExifEye\core\Block\Ifd;
+use ExifEye\core\Block\RawData;
 use ExifEye\core\Block\Tag;
 use ExifEye\core\Data\DataElement;
 use ExifEye\core\Data\DataWindow;
