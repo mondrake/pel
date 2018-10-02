@@ -3,6 +3,16 @@
 namespace ExifEye\Apple\Block;
 
 use ExifEye\core\Block\Ifd;
+use ExifEye\core\Block\Tag;
+use ExifEye\core\Data\DataElement;
+use ExifEye\core\Data\DataWindow;
+use ExifEye\core\Data\DataException;
+use ExifEye\core\ElementInterface;
+use ExifEye\core\Entry\Core\EntryInterface;
+use ExifEye\core\ExifEye;
+use ExifEye\core\Format;
+use ExifEye\core\Utility\ConvertBytes;
+use ExifEye\core\Spec;
 
 class MakerNote extends Ifd
 {
