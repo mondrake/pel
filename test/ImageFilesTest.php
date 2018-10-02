@@ -111,7 +111,7 @@ class ImageFilesTest extends ExifEyeTestCaseBase
     protected function assertElement($expected, $element, $rewritten = false)
     {
         // xax
-        if ($rewritten && strpos($expected['path'], 'CanonMakerNotes') !== false) {
+        if ($rewritten && $expected['type'] == 'ifd' && isset($expected['name']) && in_array($expected['name'], ['CanonMakerNotes', 'AppleMakerNotes'])) {
             $this->markTestIncomplete('not done yet');
         }
 
