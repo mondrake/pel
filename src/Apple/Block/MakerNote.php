@@ -170,13 +170,10 @@ class MakerNote extends Ifd
      */
     public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN, $offset = 0, $has_next_ifd = false)
     {
-        $bytes = '';
+        $bytes = $this->getElement('rawData')->toBytes();
 
         // Number of sub-elements. 2 bytes running.
-        $n = count($this->getMultipleElements('*'));
-        if ($thumbnail = $this->getElement('thumbnail')) {
-            $n += 1;
-        }
+        $n = count($this->getMultipleElements('*')) - 1;
         $bytes .= ConvertBytes::fromShort($n, $byte_order);
 
         // Data area. We need to reserve 12 bytes for each IFD tag + 4 bytes
@@ -187,7 +184,7 @@ class MakerNote extends Ifd
 
         // Fill in the TAG entries in the IFD.
         foreach ($this->getMultipleElements('*') as $tag => $sub_block) {
-            if ($sub_block->getType() === 'thumbnail') {
+            if ($sub_block->getType() === 'rawData') {
                 continue;
             }
 
@@ -206,24 +203,6 @@ class MakerNote extends Ifd
                 // fill out the four bytes available.
                 $bytes .= $data . str_repeat(chr(0), 4 - $s);
             }
-        }
-
-        // Thumbnail.
-        if ($thumbnail) {
-            $thumbnail_entry = $thumbnail->getElement('entry');
-            // Add offset.
-            $bytes .= ConvertBytes::fromShort(Spec::getElementIdByName($this->getType(), 'ThumbnailOffset'), $byte_order);
-            $bytes .= ConvertBytes::fromShort(Format::LONG, $byte_order);
-            $bytes .= ConvertBytes::fromLong(1, $byte_order);
-            $bytes .= ConvertBytes::fromLong($data_area_offset, $byte_order);
-            // Add length.
-            $bytes .= ConvertBytes::fromShort(Spec::getElementIdByName($this->getType(), 'ThumbnailLength'), $byte_order);
-            $bytes .= ConvertBytes::fromShort(Format::LONG, $byte_order);
-            $bytes .= ConvertBytes::fromLong(1, $byte_order);
-            $bytes .= ConvertBytes::fromLong($thumbnail_entry->getComponents(), $byte_order);
-            // Add thumbnail.
-            $data_area_bytes .= $thumbnail_entry->toBytes();
-            $data_area_offset += $thumbnail_entry->getComponents();
         }
 
         // Append link to next IFD.
