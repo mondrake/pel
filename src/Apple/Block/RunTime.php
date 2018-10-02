@@ -41,7 +41,7 @@ class RunTime extends Ifd
      */
     public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN, $offset = 0, $has_next_ifd = false)
     {
-dump($this->pList);
+//dump($this->pList);
         return $this->pList->toBinary();
     }
 }
