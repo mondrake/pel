@@ -94,6 +94,7 @@ class Ascii extends EntryBase
      */
     public function toString(array $options = [])
     {
-        return parent::toString($options) ?: rtrim($this->value, "\x0");
+        // xx @todo readd decoding
+        return rtrim($this->value, "\x0");
     }
 }
