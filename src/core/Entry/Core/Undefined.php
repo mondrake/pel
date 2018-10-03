@@ -58,7 +58,7 @@ class Undefined extends EntryBase
     public function toString(array $options = [])
     {
         $str = parent::toString($options) ?: $this->components . ' bytes of data';
-        if ($dump = ExifEye::dumpHex($this->toBytes(), 40)) {
+        if ($dump = ExifEye::dumpHex($this->toBytes(), 12)) {
             $str .= ' ' . $dump;
         }
         return $str;
