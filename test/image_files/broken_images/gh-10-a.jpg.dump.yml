@@ -104,7 +104,7 @@ elements:
                                                             valid: true
                                                             format: Ascii
                                                             components: 7
-                                                            bytesHash: b5edee73f941eea170ee29869f58904d00d5f0cc7bf17fba04fb1ed50e5c48e0
+                                                            bytesHash: 934717f1107f223a161e84bc57eaa4e35f6dabea64967d69bf867db6218a50e0
                                                             text: Canon
                                                 -
                                                     type: tag
