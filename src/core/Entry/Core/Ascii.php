@@ -41,16 +41,14 @@ class Ascii extends EntryBase
         }
         $bytes = $data_window->getBytes($data_offset, $bytes_to_get);
 
-        // Cut off string before the first NUL byte.
-        $str = strstr($bytes, "\0", true);
-        if ($str !== false) {
-            return [$str];
-        } else {
+        // Check the last byte is NULL.
+        if (substr($bytes, -1) !== "\x0") {
             $parent_block->notice('Ascii entry \'{bytes}\' missing final NUL character.', [
                 'bytes' => $bytes,
             ]);
-            return [$bytes];
         }
+
+        return [$bytes];
     }
 
     /**
@@ -62,8 +60,8 @@ class Ascii extends EntryBase
 
         $str = isset($data[0]) ? $data[0] : '';
 
-        $this->components = strlen($str) + 1;
         $this->value = $str;
+        $this->components = substr($this->value, -1) === "\x0" ? strlen($str) : strlen($str) + 1;
 
         return $this;
     }
@@ -73,7 +71,7 @@ class Ascii extends EntryBase
      */
     public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN, $offset = 0)
     {
-        return $this->value . chr(0x00);
+        return substr($this->value, -1) === "\x0" ? $this->value ? $this->value . "\x0";
     }
 
     /**
