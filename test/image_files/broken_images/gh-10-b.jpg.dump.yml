@@ -2032,7 +2032,7 @@ elements:
                                                                             class: ExifEye\core\Entry\Core\Ascii
                                                                             valid: true
                                                                             format: Ascii
-                                                                            components: 1
+                                                                            components: 32
                                                                             bytesHash: 6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d
                                                                             text: ''
                                                                 -

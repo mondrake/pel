@@ -101,7 +101,7 @@ elements:
                                                             class: ExifEye\core\Entry\Core\Ascii
                                                             valid: true
                                                             format: Ascii
-                                                            components: 32
+                                                            components: 33
                                                             bytesHash: ffd7564dabb208a216d1caaf4ba68ee29f0bef777b8dd9925671cae0a9788298
                                                             text: '                               '
                                                 -
