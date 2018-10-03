@@ -73,6 +73,14 @@ class Ascii extends EntryBase
     /**
      * {@inheritdoc}
      */
+    public function getValue(array $options = [])
+    {
+        return $this->toString();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN, $offset = 0)
     {
         if ($this->value === null || $this->value === '') {
