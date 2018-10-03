@@ -61,7 +61,11 @@ class Ascii extends EntryBase
         $str = isset($data[0]) ? $data[0] : '';
 
         $this->value = $str;
-        $this->components = substr($this->value, -1) === "\x0" ? strlen($str) : strlen($str) + 1;
+        if ($this->value === null || $this->value === '') {
+            $this->components = 1;
+        } else {
+            $this->components = substr($this->value, -1) === "\x0" ? strlen($str) : strlen($str) + 1;
+        }
 
         return $this;
     }
@@ -71,6 +75,9 @@ class Ascii extends EntryBase
      */
     public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN, $offset = 0)
     {
+        if ($this->value === null || $this->value === '') {
+            return "\x0";
+        }
         return substr($this->value, -1) === "\x0" ? $this->value : $this->value . "\x0";
     }
 
