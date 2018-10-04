@@ -138,8 +138,8 @@ elements:
                                                             valid: true
                                                             format: Ascii
                                                             components: 20
-                                                            bytesHash: 7dcd43c2fdcd89e51f2c9a7929289b713ffb08faf06ec29e79c4481de106e608
-                                                            text: '1509749992'
+                                                            bytesHash: a64fe69c067c506f32cfd0a5814529debccd2c88f3b2300a9b92a076d55e5006
+                                                            text: '0000:00:00 00:00:00'
                                                 -
                                                     type: ifd
                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34853:GPS'
