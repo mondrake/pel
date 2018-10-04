@@ -129,7 +129,7 @@ class Ifd extends BlockBase
             }
 
             // xax
-/*            $this->debug(">> i {ifdoffset}, t {offset} of {total}, c {components}, f {format}, s {size}, d {data}", [
+            $this->debug(">> i {ifdoffset}, t {offset} of {total}, c {components}, f {format}, s {size}, d {data}", [
                 'ifdoffset' => $i_offset,
                 'offset' => $tag_data_offset,
                 'total' => $tag_size,
@@ -137,7 +137,7 @@ class Ifd extends BlockBase
                 'format' => Format::getName($tag_format),
                 'size' => $tag_size,
                 'data' => $tag_size > 4 ? 'off' : ExifEye::dumpHex($data_element->getBytes($i_offset + 8, 4), 4),
-            ]);*/
+            ]);
             //$this->debug(ExifEye::dumpHex($data_element->getBytes($tag_data_offset), 20));
 
             // Build the TAG object.
