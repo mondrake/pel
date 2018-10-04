@@ -43,9 +43,7 @@ class Ascii extends EntryBase
 
         // Check the last byte is NULL.
         if (substr($bytes, -1) !== "\x0") {
-            $parent_block->notice('Ascii entry \'{bytes}\' missing final NUL character.', [
-                'bytes' => $bytes,
-            ]);
+            $parent_block->notice('Ascii entry missing final NUL character.');
         }
 
         return [$bytes];
