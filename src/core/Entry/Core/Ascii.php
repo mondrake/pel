@@ -95,6 +95,7 @@ class Ascii extends EntryBase
     public function toString(array $options = [])
     {
         // xx @todo readd decoding
-        return rtrim($this->value, "\x0");
+        $first_zero_pos = strpos($this->value, "\x0");
+        return substr($this->value, 0, $first_zero_pos === FALSE ? strlen($this->value) : $first_zero_pos);
     }
 }
