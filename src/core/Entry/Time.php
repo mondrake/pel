@@ -150,7 +150,7 @@ class Time extends Ascii
             $value = sprintf('%04d:%02d:%02d %02d:%02d:%02d', $year, $month, $day, $hours, $minutes, $seconds);
         }
 
-        $this->components = strlen($value) + 1;
+        $this->components = 20;
         $this->value = $value;
         return $this;
     }
@@ -160,6 +160,6 @@ class Time extends Ascii
      */
     public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN, $offset = 0)
     {
-        return $this->value . "\x0";
+        return substr($this->value, 19) . "\x0";
     }
 }
