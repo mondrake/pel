@@ -6,11 +6,9 @@ makerNotes:
   - 'Apple'
 elements:
     0x0003:
-#        type: ifdMakerNotesAppleRuntime
-        type: tag
+        type: ifdMakerNotesAppleRuntime
         name: AppleRunTime
         title: 'Apple Run Time'
-        format: Undefined
     0x0008:
         type: tag
         name: AccelerationVector
