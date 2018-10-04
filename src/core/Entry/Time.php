@@ -6,6 +6,7 @@ use ExifEye\core\Data\DataWindow;
 use ExifEye\core\Entry\Core\Ascii;
 use ExifEye\core\ExifEye;
 use ExifEye\core\Format;
+use ExifEye\core\Utility\ConvertBytes;
 use ExifEye\core\Utility\ConvertTime;
 
 /**
