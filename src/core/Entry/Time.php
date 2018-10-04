@@ -149,6 +149,7 @@ class Time extends Ascii
             $value = sprintf('%04d:%02d:%02d %02d:%02d:%02d', $year, $month, $day, $hours, $minutes, $seconds);
         }
 
-        return parent::setValue([$value]);
+        $this->value = $value;
+        return $this;
     }
 }
