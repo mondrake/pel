@@ -138,7 +138,7 @@ elements:
                                                             valid: true
                                                             format: Ascii
                                                             components: 20
-                                                            bytesHash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
+                                                            bytesHash: 585f32d61ab694a4b8ab1ff189657ddaf92e728c12c2560e78d33a38eb40c1da
                                                             text: '1970:01:01 00:00:00'
                                                 -
                                                     type: tag
@@ -197,7 +197,7 @@ elements:
                                                                     valid: true
                                                                     format: Ascii
                                                                     components: 20
-                                                                    bytesHash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
+                                                                    bytesHash: 585f32d61ab694a4b8ab1ff189657ddaf92e728c12c2560e78d33a38eb40c1da
                                                                     text: '1970:01:01 00:00:00'
                                                         -
                                                             type: tag
@@ -214,7 +214,7 @@ elements:
                                                                     valid: true
                                                                     format: Ascii
                                                                     components: 20
-                                                                    bytesHash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
+                                                                    bytesHash: 585f32d61ab694a4b8ab1ff189657ddaf92e728c12c2560e78d33a38eb40c1da
                                                                     text: '1970:01:01 00:00:00'
                                                         -
                                                             type: tag

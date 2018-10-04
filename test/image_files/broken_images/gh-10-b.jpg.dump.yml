@@ -189,7 +189,7 @@ elements:
                                                             valid: true
                                                             format: Ascii
                                                             components: 20
-                                                            bytesHash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
+                                                            bytesHash: 9e9638977a9e2580c2391bad3356fffed10cdda3ae5fcc5d26531cff25201a5b
                                                             text: '2004:09:06 12:41:30'
                                                 -
                                                     type: tag
@@ -378,7 +378,7 @@ elements:
                                                                     valid: true
                                                                     format: Ascii
                                                                     components: 20
-                                                                    bytesHash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
+                                                                    bytesHash: 9e9638977a9e2580c2391bad3356fffed10cdda3ae5fcc5d26531cff25201a5b
                                                                     text: '2004:09:06 12:41:30'
                                                         -
                                                             type: tag
@@ -395,7 +395,7 @@ elements:
                                                                     valid: true
                                                                     format: Ascii
                                                                     components: 20
-                                                                    bytesHash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
+                                                                    bytesHash: 9e9638977a9e2580c2391bad3356fffed10cdda3ae5fcc5d26531cff25201a5b
                                                                     text: '2004:09:06 12:41:30'
                                                         -
                                                             type: tag
