@@ -158,6 +158,14 @@ class Time extends Ascii
     /**
      * {@inheritdoc}
      */
+    public function toString(array $options = [])
+    {
+        return $this->getValue($options);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN, $offset = 0)
     {
         return substr($this->getValue(), 0, 19) . "\x0";
