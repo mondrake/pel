@@ -189,7 +189,7 @@ elements:
                                                             valid: true
                                                             format: Ascii
                                                             components: 20
-                                                            bytesHash: bb98b8ed5eececb356b5f95831d4cd3851f170d4694f0b8a073209d579bd4415
+                                                            bytesHash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                             text: '2017:12:07 12:02:40'
                                                 -
                                                     type: tag
@@ -316,7 +316,7 @@ elements:
                                                                     valid: true
                                                                     format: Ascii
                                                                     components: 20
-                                                                    bytesHash: bb98b8ed5eececb356b5f95831d4cd3851f170d4694f0b8a073209d579bd4415
+                                                                    bytesHash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                     text: '2017:12:07 12:02:40'
                                                         -
                                                             type: tag
@@ -333,7 +333,7 @@ elements:
                                                                     valid: true
                                                                     format: Ascii
                                                                     components: 20
-                                                                    bytesHash: bb98b8ed5eececb356b5f95831d4cd3851f170d4694f0b8a073209d579bd4415
+                                                                    bytesHash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                     text: '2017:12:07 12:02:40'
                                                         -
                                                             type: tag
@@ -567,7 +567,7 @@ elements:
                                                                                     format: Ascii
                                                                                     components: 2
                                                                                     bytesHash: e79e418e48623569d75e2a7b09ae88ed9b77b126a445b9ff9dc6989a08efa079
-                                                                                    text: 1
+                                                                                    text: '1'
                                                                         -
                                                                             type: tag
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34665:Exif/ifd:37500:AppleMakerNotes/ifd:3:AppleRunTime/tag:2:value'
@@ -601,7 +601,7 @@ elements:
                                                                                     format: Ascii
                                                                                     components: 11
                                                                                     bytesHash: 5e46bbecccef0ddcb3cae03ba8feb33056115d4459b84a12b2dae2fa0f3bd69f
-                                                                                    text: 1000000000
+                                                                                    text: '1000000000'
                                                                         -
                                                                             type: tag
                                                                             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34665:Exif/ifd:37500:AppleMakerNotes/ifd:3:AppleRunTime/tag:4:epoch'
@@ -618,7 +618,7 @@ elements:
                                                                                     format: Ascii
                                                                                     components: 2
                                                                                     bytesHash: e4f60d0aa6d7f3d3b6a6494b1c861b99f649c6f9ec51abaf201b20f297327c95
-                                                                                    text: 0
+                                                                                    text: '0'
                                                                 -
                                                                     type: tag
                                                                     path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34665:Exif/ifd:37500:AppleMakerNotes/tag:4'

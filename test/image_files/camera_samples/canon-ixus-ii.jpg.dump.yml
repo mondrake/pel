@@ -172,7 +172,7 @@ elements:
                                                             valid: true
                                                             format: Ascii
                                                             components: 20
-                                                            bytesHash: ec96e0ce732fe06fdab87d0a0c26c9b34cf57fb4f3bac7569e7a9c566cb82bf6
+                                                            bytesHash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                             text: '2004:07:10 19:43:48'
                                                 -
                                                     type: tag
@@ -265,7 +265,7 @@ elements:
                                                                     valid: true
                                                                     format: Ascii
                                                                     components: 20
-                                                                    bytesHash: ec96e0ce732fe06fdab87d0a0c26c9b34cf57fb4f3bac7569e7a9c566cb82bf6
+                                                                    bytesHash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                     text: '2004:07:10 19:43:48'
                                                         -
                                                             type: tag
@@ -282,7 +282,7 @@ elements:
                                                                     valid: true
                                                                     format: Ascii
                                                                     components: 20
-                                                                    bytesHash: ec96e0ce732fe06fdab87d0a0c26c9b34cf57fb4f3bac7569e7a9c566cb82bf6
+                                                                    bytesHash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                     text: '2004:07:10 19:43:48'
                                                         -
                                                             type: tag
@@ -1919,8 +1919,8 @@ elements:
                                                                             class: ExifEye\core\Entry\Core\Ascii
                                                                             valid: true
                                                                             format: Ascii
-                                                                            components: 25
-                                                                            bytesHash: 804fcfb347adb8cf6e97325c2cc4f0270c9427a0d63f2131f2515809870c4f42
+                                                                            components: 32
+                                                                            bytesHash: a686b275addc0fd6fd9368b569f39350a26c502718d6aa2b3bbfcf565f993fa7
                                                                             text: 'IMG:DIGITAL IXUS II JPEG'
                                                                 -
                                                                     type: tag
@@ -1936,8 +1936,8 @@ elements:
                                                                             class: ExifEye\core\Entry\Core\Ascii
                                                                             valid: true
                                                                             format: Ascii
-                                                                            components: 22
-                                                                            bytesHash: 7b256abebb60a048b73fe5d82a0e184799dc2e3aa70783b93643138259830a54
+                                                                            components: 24
+                                                                            bytesHash: ae2aacfaafe3556806fa2539e816dca13f0b356d127298171f339e5b385f52b3
                                                                             text: 'Firmware Version 1.00'
                                                                 -
                                                                     type: tag
@@ -1970,8 +1970,8 @@ elements:
                                                                             class: ExifEye\core\Entry\Core\Ascii
                                                                             valid: true
                                                                             format: Ascii
-                                                                            components: 1
-                                                                            bytesHash: 6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d
+                                                                            components: 32
+                                                                            bytesHash: 66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925
                                                                             text: ''
                                                                 -
                                                                     type: tag

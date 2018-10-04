@@ -189,7 +189,7 @@ elements:
                                                             valid: true
                                                             format: Ascii
                                                             components: 20
-                                                            bytesHash: 7c603212a6bd94dfd5fe45fec72e6cbd79db711d33750555db29fe346ff8a311
+                                                            bytesHash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                             text: '2004:07:10 18:09:53'
                                                 -
                                                     type: tag
@@ -316,7 +316,7 @@ elements:
                                                                     valid: true
                                                                     format: Ascii
                                                                     components: 20
-                                                                    bytesHash: 7c603212a6bd94dfd5fe45fec72e6cbd79db711d33750555db29fe346ff8a311
+                                                                    bytesHash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                     text: '2004:07:10 18:09:53'
                                                         -
                                                             type: tag
@@ -333,7 +333,7 @@ elements:
                                                                     valid: true
                                                                     format: Ascii
                                                                     components: 20
-                                                                    bytesHash: 7c603212a6bd94dfd5fe45fec72e6cbd79db711d33750555db29fe346ff8a311
+                                                                    bytesHash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                     text: '2004:07:10 18:09:53'
                                                         -
                                                             type: tag
@@ -858,7 +858,7 @@ elements:
                                                             valid: true
                                                             format: Ascii
                                                             components: 20
-                                                            bytesHash: 7c603212a6bd94dfd5fe45fec72e6cbd79db711d33750555db29fe346ff8a311
+                                                            bytesHash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                             text: '2004:07:10 18:09:53'
                                                 -
                                                     type: thumbnail

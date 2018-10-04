@@ -189,7 +189,7 @@ elements:
                                                             valid: true
                                                             format: Ascii
                                                             components: 20
-                                                            bytesHash: 936d38b77faf08556d9f22cfec4aaf7cf1522b6bf7bed532b2c850ac981d5cb4
+                                                            bytesHash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                             text: '2017:11:06 13:17:33'
                                                 -
                                                     type: tag
@@ -333,7 +333,7 @@ elements:
                                                                     valid: true
                                                                     format: Ascii
                                                                     components: 20
-                                                                    bytesHash: 8ffeee7000a9b2fdc62921551ab620121510571859b4bfa1785ee1a1996b5d85
+                                                                    bytesHash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                     text: '2017:06:16 14:30:44'
                                                         -
                                                             type: tag
@@ -350,7 +350,7 @@ elements:
                                                                     valid: true
                                                                     format: Ascii
                                                                     components: 20
-                                                                    bytesHash: 8ffeee7000a9b2fdc62921551ab620121510571859b4bfa1785ee1a1996b5d85
+                                                                    bytesHash: 96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7
                                                                     text: '2017:06:16 14:30:44'
                                                         -
                                                             type: tag
@@ -1952,8 +1952,8 @@ elements:
                                                                             class: ExifEye\core\Entry\Core\Ascii
                                                                             valid: true
                                                                             format: Ascii
-                                                                            components: 23
-                                                                            bytesHash: 1e04eb0189c48b5d4cd02bcc0188be1704891170885ff90204b83db4bc63ff22
+                                                                            components: 24
+                                                                            bytesHash: 5a62445a7bb5fec1638b5dff1bde42a51fd23fe12c4d92d4e340848c7306abf1
                                                                             text: 'Firmware Version 1.0.4'
                                                                 -
                                                                     type: tag
@@ -1969,8 +1969,8 @@ elements:
                                                                             class: ExifEye\core\Entry\Core\Ascii
                                                                             valid: true
                                                                             format: Ascii
-                                                                            components: 1
-                                                                            bytesHash: 6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d
+                                                                            components: 32
+                                                                            bytesHash: 66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925
                                                                             text: ''
                                                                 -
                                                                     type: tag
@@ -2607,8 +2607,8 @@ elements:
                                                                             class: ExifEye\core\Entry\Core\Ascii
                                                                             valid: true
                                                                             format: Ascii
-                                                                            components: 46
-                                                                            bytesHash: 701e32c75eefa541d0f16d206ab8e9852958faa0f5eeddd280cf3aab8e698418
+                                                                            components: 75
+                                                                            bytesHash: 68c2837c3dd9ecfe515889b40a3379b03d7b32419493f8ae6eda6310eeee6563
                                                                             text: 'TAMRON SP 150-600mm F/5-6.3 Di VC USD G2 A022'
                                                                 -
                                                                     type: tag
@@ -2624,8 +2624,8 @@ elements:
                                                                             class: ExifEye\core\Entry\Core\Ascii
                                                                             valid: true
                                                                             format: Ascii
-                                                                            components: 10
-                                                                            bytesHash: 021dfbbb0010df9b362999c81e3099c61aa88b464b9bd95c575a4c8d44f42d9a
+                                                                            components: 16
+                                                                            bytesHash: ba0eb66e2d1e6094327c53ca0a6e8e30494ffc065a8a4265a3a8c733b68c52ea
                                                                             text: DA0838436
                                                                 -
                                                                     type: tag
@@ -2840,8 +2840,8 @@ elements:
                                                                             class: ExifEye\core\Entry\Core\Ascii
                                                                             valid: true
                                                                             format: Ascii
-                                                                            components: 1
-                                                                            bytesHash: 6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d
+                                                                            components: 32
+                                                                            bytesHash: 66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925
                                                                             text: ''
                                                                 -
                                                                     type: tag
@@ -2872,8 +2872,8 @@ elements:
                                                                             class: ExifEye\core\Entry\Core\Ascii
                                                                             valid: true
                                                                             format: Ascii
-                                                                            components: 1
-                                                                            bytesHash: 6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d
+                                                                            components: 32
+                                                                            bytesHash: 66687aadf862bd776c8fc18b8e9f8e20089714856ee233b3902a591d0d5f2925
                                                                             text: ''
                                                                 -
                                                                     type: tag
@@ -3648,6 +3648,9 @@ log:
         -
             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34665:Exif/ifd:37500:CanonMakerNotes/ifd:147:CanonFileInformation/tag:32'
             message: 'No tag info available; Format SignedShort, Components 1'
+        -
+            path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34665:Exif/ifd:37500:CanonMakerNotes'
+            message: 'Ascii entry missing final NUL character.'
         -
             path: '/image/jpeg/jpegSegment:225:APP1/exif/tiff/ifd:IFD0/ifd:34665:Exif/ifd:37500:CanonMakerNotes/tag:152'
             message: 'No tag info available; Format Short, Components 4'

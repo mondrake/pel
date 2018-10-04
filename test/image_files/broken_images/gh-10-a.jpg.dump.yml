@@ -120,8 +120,8 @@ elements:
                                                             class: ExifEye\core\Entry\Core\Ascii
                                                             valid: true
                                                             format: Ascii
-                                                            components: 14
-                                                            bytesHash: 479e18d5158a7dd6cfe10f522527a68614ee13938abbb1325955e0ffab91db34
+                                                            components: 15
+                                                            bytesHash: 9f5fdee276fc56e912a0ce5a5fb9b9ebc3b7a5339cb6c273d0546c2a69de0805
                                                             text: 'Canon EOS 20D'
                                                 -
                                                     type: tag
@@ -223,7 +223,7 @@ elements:
                                                             valid: true
                                                             format: Ascii
                                                             components: 20
-                                                            bytesHash: 44cc446f50dd34dcfe4f47e7add6d2a50f9bc5f7c1b96c0fa6ca3deb995b1c2d
+                                                            bytesHash: 709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c
                                                             text: '2006:03:22 18:11:10'
                                                 -
                                                     type: tag
@@ -401,7 +401,7 @@ elements:
                                                                     valid: true
                                                                     format: Ascii
                                                                     components: 20
-                                                                    bytesHash: f2a04350fd719b7ddbe0f48597b908c41c35a25eb1f8bcb7b32f01bde7399e0c
+                                                                    bytesHash: 709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c
                                                                     text: '2006:02:13 04:34:54'
                                                         -
                                                             type: tag
@@ -418,7 +418,7 @@ elements:
                                                                     valid: true
                                                                     format: Ascii
                                                                     components: 20
-                                                                    bytesHash: f2a04350fd719b7ddbe0f48597b908c41c35a25eb1f8bcb7b32f01bde7399e0c
+                                                                    bytesHash: 709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c
                                                                     text: '2006:02:13 04:34:54'
                                                         -
                                                             type: tag
