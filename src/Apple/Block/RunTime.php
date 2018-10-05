@@ -29,18 +29,17 @@ class RunTime extends Ifd
 
         $this->debug("START... Loading");
         // xax
-        $this->debug(">> o {ifdoffset}, c {components}, f {format}, s {size}, d {data}", [
+/*        $this->debug(">> o {ifdoffset}, c {components}, f {format}, s {size}, d {data}", [
             'ifdoffset' => $offset,
             'components' => $this->components,
             'format' => Format::getName($this->format),
             'size' => $size,
             'data' => $options['data_offset'],
-        ]);
+        ]);*/
         //$this->debug(ExifEye::dumpHex($data_element->getBytes($tag_data_offset), 20));
 
 
         $plist = new CFPropertyList();
-dump('read', ExifEye::dumpHex($data_element->getBytes($options['data_offset'], $options['components']), 40));
         $plist->parse($data_element->getBytes($options['data_offset'], $options['components']));
         $this->pList = $plist;
 
