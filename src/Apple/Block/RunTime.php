@@ -67,7 +67,7 @@ class RunTime extends Ifd
 
         // Fill in the TAG entries in the IFD.
         foreach ($this->getMultipleElements('*') as $tag => $sub_block) {
-            $dict->add($sub_block->getAttribute('id'), new CFNumber($sub_block->getValue()));
+            $dict->add($sub_block->getAttribute('name'), new CFNumber($sub_block->getValue()));
         }
 
         return $plist->toBinary();
