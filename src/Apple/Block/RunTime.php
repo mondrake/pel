@@ -10,6 +10,7 @@ use ExifEye\core\ExifEye;
 use ExifEye\core\Format;
 use CFPropertyList\CFPropertyList;
 use ExifEye\core\Spec;
+use ExifEye\core\Utility\ConvertBytes;
 
 class RunTime extends Ifd
 {
