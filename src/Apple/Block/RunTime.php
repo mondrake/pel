@@ -13,8 +13,6 @@ use ExifEye\core\Spec;
 
 class RunTime extends Ifd
 {
-    protected $pList;
-
     /**
      * {@inheritdoc}
      */
@@ -41,7 +39,6 @@ class RunTime extends Ifd
 
         $plist = new CFPropertyList();
         $plist->parse($data_element->getBytes($options['data_offset'], $options['components']));
-        $this->pList = $plist;
 
         // Build a TAG object for each PList item.
         foreach ($plist->toArray() as $tag_name => $value) {
@@ -59,6 +56,15 @@ class RunTime extends Ifd
      */
     public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN, $offset = 0, $has_next_ifd = false)
     {
-        return $this->pList->toBinary();
+        $plist = new CFPropertyList();
+        return $plist->toBinary();
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getComponents()
+    {
+        return strlen($this->toBytes());
     }
 }
