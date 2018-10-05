@@ -94,6 +94,6 @@ class Ascii extends EntryBase
     {
         // xx @todo readd decoding
         $first_zero_pos = strpos($this->value, "\x0");
-        return substr($this->value, 0, $first_zero_pos === FALSE ? strlen($this->value) : $first_zero_pos);
+        return substr($this->value, 0, $first_zero_pos === false ? strlen($this->value) : $first_zero_pos);
     }
 }
