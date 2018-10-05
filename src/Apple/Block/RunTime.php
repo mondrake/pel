@@ -8,6 +8,8 @@ use ExifEye\core\Data\DataElement;
 use ExifEye\core\Data\DataWindow;
 use ExifEye\core\ExifEye;
 use ExifEye\core\Format;
+use CFPropertyList\CFDictionary;
+use CFPropertyList\CFNumber;
 use CFPropertyList\CFPropertyList;
 use ExifEye\core\Spec;
 use ExifEye\core\Utility\ConvertBytes;
@@ -58,6 +60,16 @@ class RunTime extends Ifd
     public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN, $offset = 0, $has_next_ifd = false)
     {
         $plist = new CFPropertyList();
+
+        // The Root element of the PList is a Dictionary.
+        $dict = new CFDictionary();
+        $plist->add($dict);
+
+        // Fill in the TAG entries in the IFD.
+        foreach ($this->getMultipleElements('*') as $tag => $sub_block) {
+            $dict->add($sub_block->getAttribute('id'), new CFNumber($sub_block->getValue()));
+        }
+
         return $plist->toBinary();
     }
 
