@@ -70,7 +70,7 @@ class Thumbnail extends BlockBase
             return;
         }
 
-        $this->debug("...START Loading Thumbnail");
+        $ifd->debug("...START Loading Thumbnail");
 
         // Some images have a broken length, so we try to carefully check
         // the length before we store the thumbnail.
@@ -112,7 +112,7 @@ class Thumbnail extends BlockBase
             $ifd->removeElement("tag[@name='ThumbnailOffset']");
             $ifd->removeElement("tag[@name='ThumbnailLength']");
 
-            $this->debug(".....END Loading Thumbnail");
+            $ifd->debug(".....END Loading Thumbnail");
         } catch (DataException $e) {
             $ifd->error($e->getMessage());
         }
