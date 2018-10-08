@@ -41,11 +41,6 @@ class Tag extends BlockBase
                 'format_name' => Format::getName($format),
                 'components' => $components,
             ]);
-        } else {
-            $this->debug("Format {format_name}, Components {components}", [
-                'format_name' => Format::getName($format),
-                'components' => $components,
-            ]);
         }
 
         // Warn if format is not as expected.
