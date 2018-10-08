@@ -21,9 +21,6 @@ class RunTime extends Ifd
      */
     public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
     {
-        if (isset($options['format'])) {
-            $this->format = $options['format'];
-        }
         if (isset($options['components'])) {
             $this->components = $options['components'];
         }

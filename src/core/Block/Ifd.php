@@ -49,7 +49,7 @@ class Ifd extends BlockBase
      *
      * @var int
      */
-    protected $format = Format::LONG;
+    protected $format;
 
     /**
      * The number of components of the tag representing this IFD.
@@ -61,13 +61,14 @@ class Ifd extends BlockBase
     /**
      * Constructs a Block for an Image File Directory (IFD).
      */
-    public function __construct($type, $name, BlockBase $parent_block, $tag_id = null, ElementInterface $reference = null)
+    public function __construct($type, $name, BlockBase $parent_block, $tag_id = null, $tag_format = Format::LONG, ElementInterface $reference = null)
     {
         parent::__construct($type, $parent_block, $reference);
 
         if ($tag_id !== null) {
             $this->setAttribute('id', $tag_id);
         }
+        $this->format = $tag_format;
         $this->setAttribute('name', $name);
         $this->hasSpecification = Spec::getElementIdByName($parent_block->getType(), $name) ? true : false;
     }
@@ -77,9 +78,6 @@ class Ifd extends BlockBase
      */
     public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
     {
-        if (isset($options['format'])) {
-            $this->format = $options['format'];
-        }
         if (isset($options['components'])) {
             $this->components = $options['components'];
         }
@@ -154,11 +152,10 @@ class Ifd extends BlockBase
                 $o = $data_element->getLong($i_offset + 8);
                 if ($starting_offset != $o) {
                     $ifd_class = Spec::getTypeHandlingClass($ifd_type);
-                    $ifd = new $ifd_class($ifd_type, $ifd_name, $this, $tag_id);
+                    $ifd = new $ifd_class($ifd_type, $ifd_name, $this, $tag_id, $tag_format);
                     try {
                         $ifd->loadFromData($data_element, $o, $size, [
                             'data_offset' => $tag_data_offset,
-                            'format' => $tag_format,
                             'components' => $tag_components,
                         ]);
                     } catch (DataException $e) {
