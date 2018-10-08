@@ -75,10 +75,10 @@ class Ifd extends BlockBase
 
         // Get the number of tags.
         $n = $data_element->getShort($this->headerSkipBytes + $offset);
-        $this->debug("START... Loading with {tags} TAGs at w-offset {offset} from {total} bytes", [
+        $this->debug("START... Loading IFD {ifdname} with {tags} entries @{offset}", [
+            'ifdname' => $this->getAttribute('name'),
             'tags' => $n,
-            'offset' => $offset,
-            'total' => $data_element->getSize(),
+            'offset' => $data_element->getStart() + $offset,
         ]);
 
         $offset += $this->headerSkipBytes;
@@ -116,7 +116,6 @@ class Ifd extends BlockBase
             }
 
             // xax
-            $tag_name = Spec::getElementName($this->getType(), $tag_id) ?: 'na';
             $this->debug("IFD #{i} @{ifdoffset}, id {id}, f {format}, c {components}, data @{offset}, size {size}", [
                 'i' => $i + 1,
                 'ifdoffset' => $data_element->getStart() + $i_offset,
@@ -126,7 +125,6 @@ class Ifd extends BlockBase
                 'offset' => $data_element->getStart() + $tag_data_offset,
                 'size' => $tag_size,
             ]);
-            //$this->debug(ExifEye::dumpHex($data_element->getBytes($tag_data_offset), 20));
 
             // Build the TAG object.
             $tag_entry_class = Spec::getElementHandlingClass($this->getType(), $tag_id, $tag_format);
@@ -160,7 +158,9 @@ class Ifd extends BlockBase
             }
         }
 
-        $this->debug(".....END Loading");
+        $this->debug(".....END Loading IFD {ifdname}", [
+            'ifdname' => $this->getAttribute('name'),
+        ]);
 
         // Invoke post-load callbacks.
         $post_load_callbacks = Spec::getTypePropertyValue($this->getType(), 'postLoad');
