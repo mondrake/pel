@@ -19,24 +19,22 @@ class Index extends Ifd
      */
     public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
     {
-        if (isset($options['components'])) {
-            $this->components = $options['components'];
-        }
+        $components = isset($options['components']) ? $options['components'] : 1;
 
         $this->debug("START... Loading with {tags} TAGs at offset {offset} from {total} bytes", [
-            'tags' => $this->components,
+            'tags' => $components,
             'offset' => $offset,
             'total' => $data_element->getSize(),
         ]);
 
         $index_size = $data_element->getShort($offset);
-        if ($index_size / $this->components !== Format::getSize(Format::SHORT)) {
+        if ($index_size / $components !== Format::getSize(Format::SHORT)) {
             $this->warning('Size of {ifd_name} does not match the number of entries.', [
                 'ifd_name' => $this->getAttribute('name'),
             ]);
         }
         $offset += 2;
-        for ($i = 0; $i < $this->components; $i++) {
+        for ($i = 0; $i < $components; $i++) {
             // Check if this tag ($i + 1) should be skipped.
             if (Spec::getElementPropertyValue($this->getType(), $i + 1, 'skip')) {
                 continue;
@@ -91,5 +89,17 @@ class Index extends Ifd
         }
 
         return ConvertBytes::fromShort(strlen($data_bytes), $byte_order) . $data_bytes;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getComponents()
+    {
+        $size = 0;
+        foreach ($this->getMultipleElements('tag') as $tag) {
+            $size += Format::getSize($tag->getFormat());
+        }
+        return $size / 2;
     }
 }

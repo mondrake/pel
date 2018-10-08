@@ -118,12 +118,12 @@ class Ifd extends BlockBase
             // xax
             $tag_name = Spec::getElementName($this->getType(), $tag_id) ?: 'na';
             $this->debug("IFD #{i} @{ifdoffset}, id {id}, f {format}, c {components}, data @{offset}, size {size}", [
-                'i' => $i,
-                'ifdoffset' => $data_element->getStart() + $i_offset . '(' . $i_offset . ')',
+                'i' => $i + 1,
+                'ifdoffset' => $data_element->getStart() + $i_offset,
                 'id' => '0x' . strtoupper(dechex($tag_id)),
                 'format' => Format::getName($tag_format),
                 'components' => $tag_components,
-                'offset' => $data_element->getStart() + $tag_data_offset . '(' . $tag_data_offset . ')',
+                'offset' => $data_element->getStart() + $tag_data_offset,
                 'size' => $tag_size,
             ]);
             //$this->debug(ExifEye::dumpHex($data_element->getBytes($tag_data_offset), 20));
