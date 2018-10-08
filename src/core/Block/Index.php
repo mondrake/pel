@@ -19,7 +19,7 @@ class Index extends IfdBase
      */
     public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
     {
-        $this->debug("...START Loading IFD {ifdname} with {tags} entries @{offset}", [
+        $this->debug("...START Loading IFD {ifdname} @{offset} with {tags} entries", [
             'ifdname' => $this->getAttribute('name'),
             'tags' => $options['components'],
             'offset' => $data_element->getStart() + $offset,
@@ -39,13 +39,6 @@ class Index extends IfdBase
             };
 
             $item_format = Spec::getElementPropertyValue($this->getType(), $i + 1, 'format')[0];
-
-            $this->debug("#{i} id {id}, f {format}, data @{offset}", [
-                'i' => $i + 1,
-                'id' => '0x' . strtoupper(dechex($i)),
-                'format' => Format::getName($item_format),
-                'offset' => $data_element->getStart() + $offset + $i * 2,
-            ]);
 
             switch ($item_format) {
                 case Format::BYTE:
@@ -77,6 +70,13 @@ class Index extends IfdBase
                     $item_format = Format::SSHORT;
                     break;
             }
+
+            $this->debug("#{i} id {id}, f {format}, data @{offset}", [
+                'i' => $i + 1,
+                'id' => '0x' . strtoupper(dechex($i)),
+                'format' => Format::getName($item_format),
+                'offset' => $data_element->getStart() + $offset + $i * 2,
+            ]);
 
             if ($entry_class = Spec::getElementHandlingClass($this->getType(), $i + 1, $item_format)) {
                 new Tag('tag', $this, $i + 1, $entry_class, [$item_value], $item_format, 1);

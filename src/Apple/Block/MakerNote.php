@@ -33,7 +33,7 @@ class MakerNote extends IfdBase
 
         // Get the number of tags.
         $n = $data_element->getShort(14 + $offset);
-        $this->debug("...START Loading IFD {ifdname} with {tags} entries @{offset}", [
+        $this->debug("...START Loading IFD {ifdname} @{offset} with {tags} entries", [
             'ifdname' => $this->getAttribute('name'),
             'tags' => $n,
             'offset' => $data_element->getStart() + $offset,
