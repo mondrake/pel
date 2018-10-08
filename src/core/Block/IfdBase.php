@@ -14,30 +14,36 @@ use ExifEye\core\Utility\ConvertBytes;
 use ExifEye\core\Spec;
 
 /**
- * Class representing an Image File Directory (IFD).
+ * Abstract class representing an Image File Directory (IFD).
  */
-class Ifd extends IfdBase
+class IfdBase extends BlockBase
 {
     /**
-     * The IFD header bytes to skip.
-     *
-     * @var array
+     * {@inheritdoc}
      */
-    protected $headerSkipBytes = 0;
+    protected $DOMNodeName = 'ifd';
 
     /**
-     * Defines if tags in the IFD point to absolute offset.
+     * The format of the tag representing this IFD.
      *
-     * @var array
+     * @var int
      */
-    protected $tagsAbsoluteOffset = true;
+    protected $format;
 
     /**
-     * The offset skip for tags.
-     *
-     * @var array
+     * Constructs a Block for an Image File Directory (IFD).
      */
-    protected $tagsSkipOffset = 0;
+    public function __construct($type, $name, BlockBase $parent_block, $tag_id = null, $tag_format = Format::LONG, ElementInterface $reference = null)
+    {
+        parent::__construct($type, $parent_block, $reference);
+
+        if ($tag_id !== null) {
+            $this->setAttribute('id', $tag_id);
+        }
+        $this->format = $tag_format;
+        $this->setAttribute('name', $name);
+        $this->hasSpecification = Spec::getElementIdByName($parent_block->getType(), $name) ? true : false;
+    }
 
     /**
      * {@inheritdoc}
@@ -135,9 +141,20 @@ class Ifd extends IfdBase
             'ifdname' => $this->getAttribute('name'),
         ]);
 
-        // Invoke post-load callbacks.
-        $this->executePostLoadCallbacks($data_element);
+        return $this;
+    }
 
+    /**
+     * Invoke post-load callbacks.
+     */
+    protected function executePostLoadCallbacks(DataElement $data_element)
+    {
+        $post_load_callbacks = Spec::getTypePropertyValue($this->getType(), 'postLoad');
+        if (!empty($post_load_callbacks)) {
+            foreach ($post_load_callbacks as $callback) {
+                call_user_func($callback, $data_element, $this);
+            }
+        }
         return $this;
     }
 
@@ -213,5 +230,21 @@ class Ifd extends IfdBase
         $bytes .= $data_area_bytes;
 
         return $bytes;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getFormat()
+    {
+        return $this->format;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getComponents()
+    {
+        return count($this->getMultipleElements('ifd|tag'));
     }
 }
