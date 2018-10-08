@@ -21,9 +21,7 @@ class RunTime extends Ifd
      */
     public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
     {
-        if (isset($options['components'])) {
-            $this->components = $options['components'];
-        }
+        $components = isset($options['components']) ? $options['components'] : 1;
 
         $this->debug("START... Loading");
         // xax
@@ -38,7 +36,7 @@ class RunTime extends Ifd
 
 
         $plist = new CFPropertyList();
-        $plist->parse($data_element->getBytes($options['data_offset'], $options['components']));
+        $plist->parse($data_element->getBytes($options['data_offset'], $components));
 
         // Build a TAG object for each PList item.
         foreach ($plist->toArray() as $tag_name => $value) {

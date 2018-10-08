@@ -52,13 +52,6 @@ class Ifd extends BlockBase
     protected $format;
 
     /**
-     * The number of components of the tag representing this IFD.
-     *
-     * @var int
-     */
-    protected $components = 1;
-
-    /**
      * Constructs a Block for an Image File Directory (IFD).
      */
     public function __construct($type, $name, BlockBase $parent_block, $tag_id = null, $tag_format = Format::LONG, ElementInterface $reference = null)
@@ -78,10 +71,6 @@ class Ifd extends BlockBase
      */
     public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
     {
-        if (isset($options['components'])) {
-            $this->components = $options['components'];
-        }
-
         $starting_offset = $offset;
 
         // Get the number of tags.
@@ -276,6 +265,6 @@ class Ifd extends BlockBase
      */
     public function getComponents()
     {
-        return $this->components;
+        return count($this->getMultipleElements('ifd|tag'));
     }
 }

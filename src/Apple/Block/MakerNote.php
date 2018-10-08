@@ -43,10 +43,6 @@ class MakerNote extends Ifd
      */
     public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
     {
-        if (isset($options['components'])) {
-            $this->components = $options['components'];
-        }
-
         // xax
         // Load Apple's header data.
         $header = new RawData('rawData', $this);
