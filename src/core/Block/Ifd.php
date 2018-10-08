@@ -116,15 +116,14 @@ class Ifd extends BlockBase
             }
 
             // xax
-/*            $this->debug(">> i {ifdoffset}, t {offset} of {total}, c {components}, f {format}, s {size}, d {data}", [
+            $this->debug("IFD entry #{i} @{ifdoffset}, fmt {format}, cmpts {components}, t {offset}, s {size}, d {data}", [
                 'ifdoffset' => $i_offset,
-                'offset' => $tag_data_offset,
-                'total' => $tag_size,
-                'components' => $tag_components,
                 'format' => Format::getName($tag_format),
+                'components' => $tag_components,
+                'offset' => $tag_data_offset,
                 'size' => $tag_size,
                 'data' => $tag_size > 4 ? 'off' : ExifEye::dumpHex($data_element->getBytes($i_offset + 8, 4), 4),
-            ]);*/
+            ]);
             //$this->debug(ExifEye::dumpHex($data_element->getBytes($tag_data_offset), 20));
 
             // Build the TAG object.
