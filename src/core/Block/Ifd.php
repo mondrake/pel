@@ -75,7 +75,7 @@ class Ifd extends BlockBase
 
         // Get the number of tags.
         $n = $data_element->getShort($this->headerSkipBytes + $offset);
-        $this->debug("START... Loading IFD {ifdname} with {tags} entries @{offset}", [
+        $this->debug("...START Loading IFD {ifdname} with {tags} entries @{offset}", [
             'ifdname' => $this->getAttribute('name'),
             'tags' => $n,
             'offset' => $data_element->getStart() + $offset,
@@ -116,7 +116,7 @@ class Ifd extends BlockBase
             }
 
             // xax
-            $this->debug("IFD #{i} @{ifdoffset}, id {id}, f {format}, c {components}, data @{offset}, size {size}", [
+            $this->debug("#{i} @{ifdoffset}, id {id}, f {format}, c {components}, data @{offset}, size {size}", [
                 'i' => $i + 1,
                 'ifdoffset' => $data_element->getStart() + $i_offset,
                 'id' => '0x' . strtoupper(dechex($tag_id)),
@@ -166,13 +166,7 @@ class Ifd extends BlockBase
         $post_load_callbacks = Spec::getTypePropertyValue($this->getType(), 'postLoad');
         if (!empty($post_load_callbacks)) {
             foreach ($post_load_callbacks as $callback) {
-                $this->debug("START... {callback}", [
-                    'callback' => $callback,
-                ]);
                 call_user_func($callback, $data_element, $this);
-                $this->debug(".....END {callback}", [
-                    'callback' => $callback,
-                ]);
             }
         }
 

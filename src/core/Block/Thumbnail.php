@@ -70,6 +70,8 @@ class Thumbnail extends BlockBase
             return;
         }
 
+        $this->debug("...START Loading Thumbnail");
+
         // Some images have a broken length, so we try to carefully check
         // the length before we store the thumbnail.
         if ($offset + $length > $data_element->getSize()) {
@@ -109,6 +111,8 @@ class Thumbnail extends BlockBase
             // Remove the tags that have been converted to Thumbnail.
             $ifd->removeElement("tag[@name='ThumbnailOffset']");
             $ifd->removeElement("tag[@name='ThumbnailLength']");
+
+            $this->debug(".....END Loading Thumbnail");
         } catch (DataException $e) {
             $ifd->error($e->getMessage());
         }
