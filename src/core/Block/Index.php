@@ -12,7 +12,7 @@ use ExifEye\core\Utility\ConvertBytes;
 /**
  * Class representing an index of values.
  */
-class Index extends Ifd
+class Index extends IfdBase
 {
     /**
      * {@inheritdoc}

@@ -2,7 +2,7 @@
 
 namespace ExifEye\Apple\Block;
 
-use ExifEye\core\Block\Ifd;
+use ExifEye\core\Block\IfdBase;
 use ExifEye\core\Block\Tag;
 use ExifEye\core\Data\DataElement;
 use ExifEye\core\Data\DataWindow;
@@ -14,7 +14,7 @@ use CFPropertyList\CFPropertyList;
 use ExifEye\core\Spec;
 use ExifEye\core\Utility\ConvertBytes;
 
-class RunTime extends Ifd
+class RunTime extends IfdBase
 {
     /**
      * {@inheritdoc}

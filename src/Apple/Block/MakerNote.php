@@ -2,7 +2,7 @@
 
 namespace ExifEye\Apple\Block;
 
-use ExifEye\core\Block\Ifd;
+use ExifEye\core\Block\IfdBase;
 use ExifEye\core\Block\RawData;
 use ExifEye\core\Block\Tag;
 use ExifEye\core\Data\DataElement;
@@ -15,29 +15,8 @@ use ExifEye\core\Format;
 use ExifEye\core\Utility\ConvertBytes;
 use ExifEye\core\Spec;
 
-class MakerNote extends Ifd
+class MakerNote extends IfdBase
 {
-    /**
-     * The IFD header bytes to skip.
-     *
-     * @var array
-     */
-    protected $headerSkipBytes = 14;
-
-    /**
-     * Defines if tags in the IFD point to absolute offset.
-     *
-     * @var array
-     */
-    protected $tagsAbsoluteOffset = false;
-
-    /**
-     * The offset skip for tags.
-     *
-     * @var array
-     */
-    protected $tagsSkipOffset = -16;
-
     /**
      * {@inheritdoc}
      */
@@ -53,14 +32,14 @@ class MakerNote extends Ifd
         $starting_offset = $offset;
 
         // Get the number of tags.
-        $n = $data_element->getShort($this->headerSkipBytes + $offset);
-        $this->debug("START... Loading with {tags} TAGs at w-offset {offset} from {total} bytes", [
+        $n = $data_element->getShort(14 + $offset);
+        $this->debug("...START Loading IFD {ifdname} with {tags} entries @{offset}", [
+            'ifdname' => $this->getAttribute('name'),
             'tags' => $n,
-            'offset' => $offset,
-            'total' => $data_element->getSize(),
+            'offset' => $data_element->getStart() + $offset,
         ]);
 
-        $offset += $this->headerSkipBytes;
+        $offset += 14;
 
         // Check if we have enough data.
         if (2 + 12 * $n > $data_element->getSize()) {
@@ -86,25 +65,22 @@ class MakerNote extends Ifd
             $tag_size = Format::getSize($tag_format) * $tag_components;
             if ($tag_size > 4) {
                 $tag_data_offset = $tag_data_element;
-                if (!$this->tagsAbsoluteOffset) {
-                    $tag_data_offset += $offset + 2;
-                }
-                $tag_data_offset += $this->tagsSkipOffset;
+                $tag_data_offset += $offset + 2;
+                $tag_data_offset -= 16;
             } else {
                 $tag_data_offset = $i_offset + 8;
             }
 
             // xax
-            $this->debug(">> i {ifdoffset}, t {offset} of {total}, c {components}, f {format}, s {size}, d {data}", [
-                'ifdoffset' => $i_offset,
-                'offset' => $tag_data_offset,
-                'total' => $tag_size,
-                'components' => $tag_components,
+            $this->debug("#{i} @{ifdoffset}, id {id}, f {format}, c {components}, data @{offset}, size {size}", [
+                'i' => $i + 1,
+                'ifdoffset' => $data_element->getStart() + $i_offset,
+                'id' => '0x' . strtoupper(dechex($tag_id)),
                 'format' => Format::getName($tag_format),
+                'components' => $tag_components,
+                'offset' => $data_element->getStart() + $tag_data_offset,
                 'size' => $tag_size,
-                'data' => $tag_size > 4 ? 'off' : ExifEye::dumpHex($data_element->getBytes($i_offset + 8, 4), 4),
             ]);
-            //$this->debug(ExifEye::dumpHex($data_element->getBytes($tag_data_offset), 20));
 
             // Build the TAG object.
             $tag_entry_class = Spec::getElementHandlingClass($this->getType(), $tag_id, $tag_format);
@@ -141,18 +117,7 @@ class MakerNote extends Ifd
         $this->debug(".....END Loading");
 
         // Invoke post-load callbacks.
-        $post_load_callbacks = Spec::getTypePropertyValue($this->getType(), 'postLoad');
-        if (!empty($post_load_callbacks)) {
-            foreach ($post_load_callbacks as $callback) {
-                $this->debug("START... {callback}", [
-                    'callback' => $callback,
-                ]);
-                call_user_func($callback, $data_element, $this);
-                $this->debug(".....END {callback}", [
-                    'callback' => $callback,
-                ]);
-            }
-        }
+        $this->executePostLoadCallbacks($data_element);
 
         return $this;
     }

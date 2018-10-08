@@ -19,27 +19,6 @@ use ExifEye\core\Spec;
 class Ifd extends IfdBase
 {
     /**
-     * The IFD header bytes to skip.
-     *
-     * @var array
-     */
-    protected $headerSkipBytes = 0;
-
-    /**
-     * Defines if tags in the IFD point to absolute offset.
-     *
-     * @var array
-     */
-    protected $tagsAbsoluteOffset = true;
-
-    /**
-     * The offset skip for tags.
-     *
-     * @var array
-     */
-    protected $tagsSkipOffset = 0;
-
-    /**
      * {@inheritdoc}
      */
     public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
@@ -47,14 +26,12 @@ class Ifd extends IfdBase
         $starting_offset = $offset;
 
         // Get the number of tags.
-        $n = $data_element->getShort($this->headerSkipBytes + $offset);
+        $n = $data_element->getShort($offset);
         $this->debug("...START Loading IFD {ifdname} with {tags} entries @{offset}", [
             'ifdname' => $this->getAttribute('name'),
             'tags' => $n,
             'offset' => $data_element->getStart() + $offset,
         ]);
-
-        $offset += $this->headerSkipBytes;
 
         // Check if we have enough data.
         if (2 + 12 * $n > $data_element->getSize()) {
@@ -80,10 +57,6 @@ class Ifd extends IfdBase
             $tag_size = Format::getSize($tag_format) * $tag_components;
             if ($tag_size > 4) {
                 $tag_data_offset = $tag_data_element;
-                if (!$this->tagsAbsoluteOffset) {
-                    $tag_data_offset += $offset + 2;
-                }
-                $tag_data_offset += $this->tagsSkipOffset;
             } else {
                 $tag_data_offset = $i_offset + 8;
             }
