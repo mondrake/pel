@@ -23,8 +23,6 @@ class Ifd extends IfdBase
      */
     public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
     {
-        $starting_offset = $offset;
-
         // Get the number of tags.
         $n = $data_element->getShort($offset);
         $this->debug("...START Loading IFD {ifdname} with {tags} entries @{offset}", [
@@ -84,7 +82,7 @@ class Ifd extends IfdBase
                 $ifd_type = Spec::getElementType($this->getType(), $tag_id);
                 $ifd_name = Spec::getElementName($this->getType(), $tag_id);
                 $o = $data_element->getLong($i_offset + 8);
-                if ($starting_offset != $o) {
+                if ($offset != $o) {
                     $ifd_class = Spec::getTypeHandlingClass($ifd_type);
                     $ifd = new $ifd_class($ifd_type, $ifd_name, $this, $tag_id, $tag_format);
                     try {

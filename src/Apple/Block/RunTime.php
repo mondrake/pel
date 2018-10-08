@@ -21,22 +21,12 @@ class RunTime extends IfdBase
      */
     public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
     {
-        $components = isset($options['components']) ? $options['components'] : 1;
-
-        $this->debug("START... Loading");
-        // xax
-/*        $this->debug(">> o {ifdoffset}, c {components}, f {format}, s {size}, d {data}", [
-            'ifdoffset' => $offset,
-            'components' => $this->components,
-            'format' => Format::getName($this->format),
-            'size' => $size,
-            'data' => $options['data_offset'],
-        ]);*/
-        //$this->debug(ExifEye::dumpHex($data_element->getBytes($tag_data_offset), 20));
-
+        $this->debug("...START Loading IFD {ifdname}", [
+            'ifdname' => $this->getAttribute('name'),
+        ]);
 
         $plist = new CFPropertyList();
-        $plist->parse($data_element->getBytes($options['data_offset'], $components));
+        $plist->parse($data_element->getBytes($options['data_offset'], $options['components']));
 
         // Build a TAG object for each PList item.
         foreach ($plist->toArray() as $tag_name => $value) {
@@ -46,7 +36,9 @@ class RunTime extends IfdBase
             $tag = new Tag('tag', $this, $tag_id, $tag_entry_class, [$value], $item_format, 1);
         }
 
-        $this->debug(".....END Loading");
+        $this->debug(".....END Loading IFD {ifdname}", [
+            'ifdname' => $this->getAttribute('name'),
+        ]);
     }
 
     /**
