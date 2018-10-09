@@ -7,7 +7,7 @@ alias:
   - 'Main'
 postLoad:
   - ExifEye\core\Block\Ifd::thumbnailToBlock
-  - ExifEye\core\Entry\Ifd::makerNoteToBlock
+  - ExifEye\core\Block\Ifd::makerNoteToBlock
 elements:
     0x0100:
         type: tag
