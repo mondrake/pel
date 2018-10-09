@@ -8,6 +8,7 @@ use ExifEye\core\Data\DataWindow;
 use ExifEye\core\Data\DataException;
 use ExifEye\core\ElementInterface;
 use ExifEye\core\Entry\Core\EntryInterface;
+use ExifEye\core\Entry\Core\Undefined;
 use ExifEye\core\ExifEye;
 use ExifEye\core\Format;
 use ExifEye\core\Utility\ConvertBytes;
