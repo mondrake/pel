@@ -46,7 +46,7 @@ class MakerNote extends IfdBase
             $element_type = Spec::getElementType($this->getType(), $entry['id']);
             if ($element_type === 'tag' || $element_type === null) {
                 $tag_entry_arguments = call_user_func($tag_entry_class . '::getInstanceArgumentsFromTagData', $this, $entry['format'], $entry['components'], $data_element, $entry['data_offset']);
-                $tag = new Tag('tag', $this, $entry['id'], $tag_entry_class, $tag_entry_arguments, $tag_format, $entry['components']);
+                $tag = new Tag('tag', $this, $entry['id'], $tag_entry_class, $tag_entry_arguments, $entry['format'], $entry['components']);
             } else {
                 // If the tag is an IFD pointer, loads the IFD.
                 $ifd_type = Spec::getElementType($this->getType(), $entry['id']);
@@ -54,7 +54,7 @@ class MakerNote extends IfdBase
                 $o = $data_element->getLong($i_offset + 8);
                 if ($starting_offset != $o) {
                     $ifd_class = Spec::getTypeHandlingClass($ifd_type);
-                    $ifd = new $ifd_class($ifd_type, $ifd_name, $this, $entry['id'], $tag_format);
+                    $ifd = new $ifd_class($ifd_type, $ifd_name, $this, $entry['id'], $entry['format']);
                     try {
                         $ifd->loadFromData($data_element, $o, $size, [
                             'data_offset' => $entry['data_offset'],
