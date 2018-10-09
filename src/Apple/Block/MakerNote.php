@@ -49,10 +49,7 @@ class MakerNote extends IfdBase
             // element.
             $tag_size = Format::getSize($tag_format) * $tag_components;
             if ($tag_size > 4) {
-                $tag_data_offset = $data_element->getLong($i_offset + 8);
-                $tag_data_offset += $offset;
-                $tag_data_offset += 2;
-                $tag_data_offset -= 16;
+                $tag_data_offset = $data_element->getLong($i_offset + 8) + $offset - 14;
             } else {
                 $tag_data_offset = $i_offset + 8;
             }
