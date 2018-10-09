@@ -81,7 +81,7 @@ class IfdBase extends BlockBase
     /**
      *   @todo
      */
-    protected function getEntryFromData($i, DataElement $data_element, $offset, $offset_shift = 0)
+    protected function getEntryFromData($i, DataElement $data_element, $offset, $data_offset_shift = 0)
     {
         $entry = [];
 
@@ -94,7 +94,7 @@ class IfdBase extends BlockBase
         // element.
         $entry['size'] = Format::getSize($entry['format']) * $entry['components'];
         if ($entry['size'] > 4) {
-            $entry['data_offset'] = $data_element->getLong($offset + 8) + $offset_shift;
+            $entry['data_offset'] = $data_element->getLong($offset + 8) + $data_offset_shift;
         } else {
             $entry['data_offset'] = $offset + 8;
         }

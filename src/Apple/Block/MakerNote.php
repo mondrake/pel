@@ -38,7 +38,7 @@ class MakerNote extends IfdBase
         // Load Tags.
         for ($i = 0; $i < $n; $i++) {
             $i_offset = $offset + 2 + 12 * $i;
-            $entry = $this->getEntryFromData($i, $data_element, $i_offset, 14);
+            $entry = $this->getEntryFromData($i, $data_element, $i_offset, $offset + 14);
 
             // Build the TAG object.
             $tag_entry_class = Spec::getElementHandlingClass($this->getType(), $entry['id'], $entry['format']);
