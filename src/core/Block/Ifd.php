@@ -30,7 +30,7 @@ class Ifd extends IfdBase
         for ($i = 0; $i < $n; $i++) {
             $i_offset = $offset + 2 + 12 * $i;
 
-            $entry = $this->getEntryFromData($data_element, $i_offset);
+            $entry = $this->getEntryFromData($i, $data_element, $i_offset);
 
             // Build the TAG object.
             $tag_entry_class = Spec::getElementHandlingClass($this->getType(), $entry['id'], $entry['format']);
