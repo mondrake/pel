@@ -43,15 +43,15 @@ class MakerNote extends IfdBase
             $tag_id = $data_element->getShort($i_offset);
             $tag_format = $data_element->getShort($i_offset + 2);
             $tag_components = $data_element->getLong($i_offset + 4);
-            $tag_data_element = $data_element->getLong($i_offset + 8);
 
             // If the data size is bigger than 4 bytes, then actual data is not in
             // the TAG's data element, but at the the offset stored in the data
             // element.
             $tag_size = Format::getSize($tag_format) * $tag_components;
             if ($tag_size > 4) {
-                $tag_data_offset = $tag_data_element;
-                $tag_data_offset += $offset + 2;
+                $tag_data_offset = $data_element->getLong($i_offset + 8);
+                $tag_data_offset += $offset;
+                $tag_data_offset += 2;
                 $tag_data_offset -= 16;
             } else {
                 $tag_data_offset = $i_offset + 8;
