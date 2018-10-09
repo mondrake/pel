@@ -94,6 +94,7 @@ class IfdBase extends BlockBase
         // element.
         $entry['size'] = Format::getSize($entry['format']) * $entry['components'];
         if ($entry['size'] > 4) {
+dump($data_element->getLong($offset + 8), $offset);
             $entry['data_offset'] = $data_element->getLong($offset + 8) + $data_offset_shift;
         } else {
             $entry['data_offset'] = $offset + 8;
