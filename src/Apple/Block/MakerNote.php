@@ -22,6 +22,7 @@ class MakerNote extends IfdBase
      */
     public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
     {
+        // xax
         // Load Apple's header data.
         $header = new RawData('rawData', $this);
         $header_data_window = new DataWindow($data_element, $offset, 14);
@@ -37,7 +38,7 @@ class MakerNote extends IfdBase
         // Load Tags.
         for ($i = 0; $i < $n; $i++) {
             $i_offset = $offset + 2 + 12 * $i;
-            $entry = $this->getEntryFromData($i, $data_element, $i_offset);//, $offset + 14);
+            $entry = $this->getEntryFromData($i, $data_element, $i_offset, $offset + 14);
 
             // Build the TAG object.
             $tag_entry_class = Spec::getElementHandlingClass($this->getType(), $entry['id'], $entry['format']);
