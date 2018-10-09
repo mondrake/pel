@@ -29,6 +29,7 @@ class Ifd extends IfdBase
         // Load Tags.
         for ($i = 0; $i < $n; $i++) {
             $i_offset = $offset + 2 + 12 * $i;
+
             $entry = $this->getEntryFromData($i, $data_element, $i_offset);
 
             // Build the TAG object.
