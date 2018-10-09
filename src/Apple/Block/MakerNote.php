@@ -22,8 +22,7 @@ class MakerNote extends IfdBase
      */
     public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
     {
-        // xax
-        // Load Apple's header data.
+        // Load Apple's header as a raw data block.
         $header = new RawData('rawData', $this);
         $header_data_window = new DataWindow($data_element, $offset, 14);
         $header_data_window->debug($header);
@@ -39,32 +38,6 @@ class MakerNote extends IfdBase
         for ($i = 0; $i < $n; $i++) {
             $i_offset = $offset + 2 + 12 * $i;
             $entry = $this->getEntryFromData($i, $data_element, $i_offset, $offset - 14);
-
-            // Gets the TAG's elements from the data window.
-/*            $tag_id = $data_element->getShort($i_offset);
-            $tag_format = $data_element->getShort($i_offset + 2);
-            $tag_components = $data_element->getLong($i_offset + 4);
-
-            // If the data size is bigger than 4 bytes, then actual data is not in
-            // the TAG's data element, but at the the offset stored in the data
-            // element.
-            $tag_size = Format::getSize($tag_format) * $tag_components;
-            if ($tag_size > 4) {
-                $tag_data_offset = $data_element->getLong($i_offset + 8) + $offset - 14;
-            } else {
-                $tag_data_offset = $i_offset + 8;
-            }
-
-            // xax
-            $this->debug("#{i} @{ifdoffset}, id {id}, f {format}, c {components}, data @{offset}, size {size}", [
-                'i' => $i + 1,
-                'ifdoffset' => $data_element->getStart() + $i_offset,
-                'id' => '0x' . strtoupper(dechex($tag_id)),
-                'format' => Format::getName($tag_format),
-                'components' => $tag_components,
-                'offset' => $data_element->getStart() + $tag_data_offset,
-                'size' => $tag_size,
-            ]);*/
 
             // Build the TAG object.
             $tag_entry_class = Spec::getElementHandlingClass($this->getType(), $entry['id'], $entry['format']);
