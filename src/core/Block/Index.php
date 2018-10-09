@@ -19,7 +19,7 @@ class Index extends IfdBase
      */
     public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
     {
-        $this->debug("...START Loading IFD {ifdname} @{offset} with {tags} entries", [
+        $this->debug("IFD {ifdname} @{offset} with {tags} entries", [
             'ifdname' => $this->getAttribute('name'),
             'tags' => $options['components'],
             'offset' => $data_element->getStart() + $offset,

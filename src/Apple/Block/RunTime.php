@@ -21,7 +21,7 @@ class RunTime extends IfdBase
      */
     public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
     {
-        $this->debug("...START Loading IFD {ifdname}", [
+        $this->debug("IFD {ifdname}", [
             'ifdname' => $this->getAttribute('name'),
         ]);
 
