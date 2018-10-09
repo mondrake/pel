@@ -36,9 +36,10 @@ class RunTime extends IfdBase
             $tag = new Tag('tag', $this, $tag_id, $tag_entry_class, [$value], $item_format, 1);
         }
 
-        $this->debug(".....END Loading IFD {ifdname}", [
-            'ifdname' => $this->getAttribute('name'),
-        ]);
+        // Invoke post-load callbacks.
+        $this->executePostLoadCallbacks($data_element);
+
+        return $this;
     }
 
     /**

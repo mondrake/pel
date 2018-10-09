@@ -24,20 +24,7 @@ class Ifd extends IfdBase
     public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
     {
         // Get the number of tags.
-        $n = $data_element->getShort($offset);
-        $this->debug("...START Loading IFD {ifdname} @{offset} with {tags} entries", [
-            'ifdname' => $this->getAttribute('name'),
-            'tags' => $n,
-            'offset' => $data_element->getStart() + $offset,
-        ]);
-
-        // Check if we have enough data.
-        if (2 + 12 * $n > $data_element->getSize()) {
-            $n = floor(($offset - $data_element->getSize()) / 12);
-            $this->warning('Adjusted to: {tags}.', [
-                'tags' => $n,
-            ]);
-        }
+        $n = $this->getTagsCountFromData($data_element, $offset, $size, $options);
 
         // Load Tags.
         for ($i = 0; $i < $n; $i++) {
@@ -101,10 +88,6 @@ class Ifd extends IfdBase
                 continue;
             }
         }
-
-        $this->debug(".....END Loading IFD {ifdname}", [
-            'ifdname' => $this->getAttribute('name'),
-        ]);
 
         // Invoke post-load callbacks.
         $this->executePostLoadCallbacks($data_element);

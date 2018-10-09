@@ -83,10 +83,6 @@ class Index extends IfdBase
             }
         }
 
-        $this->debug(".....END Loading IFD {ifdname}", [
-            'ifdname' => $this->getAttribute('name'),
-        ]);
-
         // Invoke post-load callbacks.
         $this->executePostLoadCallbacks($data_element);
 

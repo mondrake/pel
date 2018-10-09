@@ -9,6 +9,7 @@ use ExifEye\core\Data\DataException;
 use ExifEye\core\ElementInterface;
 use ExifEye\core\Entry\Core\EntryInterface;
 use ExifEye\core\ExifEye;
+use ExifEye\core\ExifEyeException;
 use ExifEye\core\Format;
 use ExifEye\core\Utility\ConvertBytes;
 use ExifEye\core\Spec;
@@ -50,11 +51,38 @@ class IfdBase extends BlockBase
      */
     public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
     {
-        return $this;
+        throw new ExifEyeException(get_class() . 'is not implementing ' . __FUNCTION__);
+    }
+
+    /**
+     *   @todo
+     */
+    protected function getTagsCountFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
+    {
+        // Get the number of tags.
+        $tags_count = $data_element->getShort($offset);
+        $this->debug("IFD {ifdname} @{offset} with {tags} entries", [
+            'ifdname' => $this->getAttribute('name'),
+            'tags' => $tags_count,
+            'offset' => $data_element->getStart() + $offset,
+        ]);
+
+        // Check if we have enough data.
+        if (2 + 12 * $tags_count > $data_element->getSize()) {
+            $tags_count = floor(($offset - $data_element->getSize()) / 12);
+            $this->warning('Wrong number of IFD entries in ifd {ifdname}, adjusted to {tags}', [
+                'tags' => $tags_count,
+            ]);
+        }
+
+        return $tags_count;
     }
 
     /**
      * Invoke post-load callbacks.
+     *
+     * @param \ExifEye\core\Data\DataElement $data_element
+     *   @todo
      */
     protected function executePostLoadCallbacks(DataElement $data_element)
     {
@@ -72,7 +100,7 @@ class IfdBase extends BlockBase
      */
     public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN, $offset = 0, $has_next_ifd = false)
     {
-        return '';
+        throw new ExifEyeException(get_class() . 'is not implementing ' . __FUNCTION__);
     }
 
     /**

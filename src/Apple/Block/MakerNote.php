@@ -30,24 +30,10 @@ class MakerNote extends IfdBase
         $header->loadFromData($header_data_window, 0, $header_data_window->getSize());
 
         $starting_offset = $offset;
-
-        // Get the number of tags.
-        $n = $data_element->getShort(14 + $offset);
-        $this->debug("...START Loading IFD {ifdname} @{offset} with {tags} entries", [
-            'ifdname' => $this->getAttribute('name'),
-            'tags' => $n,
-            'offset' => $data_element->getStart() + $offset,
-        ]);
-
         $offset += 14;
 
-        // Check if we have enough data.
-        if (2 + 12 * $n > $data_element->getSize()) {
-            $n = floor(($offset - $data_element->getSize()) / 12);
-            $this->warning('Adjusted to: {tags}.', [
-                'tags' => $n,
-            ]);
-        }
+        // Get the number of tags.
+        $n = $this->getTagsCountFromData($data_element, $offset, $size, $options);
 
         // Load Tags.
         for ($i = 0; $i < $n; $i++) {
@@ -113,8 +99,6 @@ class MakerNote extends IfdBase
                 continue;
             }
         }
-
-        $this->debug(".....END Loading");
 
         // Invoke post-load callbacks.
         $this->executePostLoadCallbacks($data_element);
