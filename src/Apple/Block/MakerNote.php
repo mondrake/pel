@@ -38,10 +38,10 @@ class MakerNote extends IfdBase
         // Load Tags.
         for ($i = 0; $i < $n; $i++) {
             $i_offset = $offset + 2 + 12 * $i;
-            $entry = $this->getEntryFromData($i, $data_element, $i_offset, $offset);
+            $entry = $this->getEntryFromData($i, $data_element, $i_offset, $offset - 14);
 
             // Gets the TAG's elements from the data window.
-            $tag_id = $data_element->getShort($i_offset);
+/*            $tag_id = $data_element->getShort($i_offset);
             $tag_format = $data_element->getShort($i_offset + 2);
             $tag_components = $data_element->getLong($i_offset + 4);
 
@@ -64,27 +64,27 @@ class MakerNote extends IfdBase
                 'components' => $tag_components,
                 'offset' => $data_element->getStart() + $tag_data_offset,
                 'size' => $tag_size,
-            ]);
+            ]);*/
 
             // Build the TAG object.
-            $tag_entry_class = Spec::getElementHandlingClass($this->getType(), $tag_id, $tag_format);
+            $tag_entry_class = Spec::getElementHandlingClass($this->getType(), $entry['id'], $entry['format']);
 
-            $element_type = Spec::getElementType($this->getType(), $tag_id);
+            $element_type = Spec::getElementType($this->getType(), $entry['id']);
             if ($element_type === 'tag' || $element_type === null) {
-                $tag_entry_arguments = call_user_func($tag_entry_class . '::getInstanceArgumentsFromTagData', $this, $tag_format, $tag_components, $data_element, $tag_data_offset);
-                $tag = new Tag('tag', $this, $tag_id, $tag_entry_class, $tag_entry_arguments, $tag_format, $tag_components);
+                $tag_entry_arguments = call_user_func($tag_entry_class . '::getInstanceArgumentsFromTagData', $this, $entry['format'], $entry['components'], $data_element, $entry['data_offset']);
+                $tag = new Tag('tag', $this, $entry['id'], $tag_entry_class, $tag_entry_arguments, $entry['format'], $entry['components']);
             } else {
                 // If the tag is an IFD pointer, loads the IFD.
-                $ifd_type = Spec::getElementType($this->getType(), $tag_id);
-                $ifd_name = Spec::getElementName($this->getType(), $tag_id);
+                $ifd_type = Spec::getElementType($this->getType(), $entry['id']);
+                $ifd_name = Spec::getElementName($this->getType(), $entry['id']);
                 $o = $data_element->getLong($i_offset + 8);
                 if ($starting_offset != $o) {
                     $ifd_class = Spec::getTypeHandlingClass($ifd_type);
-                    $ifd = new $ifd_class($ifd_type, $ifd_name, $this, $tag_id, $tag_format);
+                    $ifd = new $ifd_class($ifd_type, $ifd_name, $this, $entry['id'], $entry['format']);
                     try {
                         $ifd->loadFromData($data_element, $o, $size, [
-                            'data_offset' => $tag_data_offset,
-                            'components' => $tag_components,
+                            'data_offset' => $entry['data_offset'],
+                            'components' => $entry['components'],
                         ]);
                     } catch (DataException $e) {
                         $this->error($e->getMessage());
