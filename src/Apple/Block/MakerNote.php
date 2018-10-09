@@ -33,7 +33,7 @@ class MakerNote extends IfdBase
         $offset += 14;
 
         // Get the number of tags.
-        $n = $this->getTagsCountFromData($data_element, $offset, $size, $options);
+        $n = $this->getEntriesCountFromData($data_element, $offset);
 
         // Load Tags.
         for ($i = 0; $i < $n; $i++) {

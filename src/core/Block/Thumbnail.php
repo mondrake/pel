@@ -70,7 +70,7 @@ class Thumbnail extends BlockBase
             return;
         }
 
-        $ifd->debug("...START Loading Thumbnail");
+        $ifd->debug("Processing Thumbnail");
 
         // Some images have a broken length, so we try to carefully check
         // the length before we store the thumbnail.

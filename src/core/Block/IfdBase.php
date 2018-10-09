@@ -57,25 +57,59 @@ class IfdBase extends BlockBase
     /**
      *   @todo
      */
-    protected function getTagsCountFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
+    protected function getEntriesCountFromData(DataElement $data_element, $offset)
     {
         // Get the number of tags.
-        $tags_count = $data_element->getShort($offset);
+        $entries_count = $data_element->getShort($offset);
         $this->debug("IFD {ifdname} @{offset} with {tags} entries", [
             'ifdname' => $this->getAttribute('name'),
-            'tags' => $tags_count,
+            'tags' => $entries_count,
             'offset' => $data_element->getStart() + $offset,
         ]);
 
         // Check if we have enough data.
-        if (2 + 12 * $tags_count > $data_element->getSize()) {
-            $tags_count = floor(($offset - $data_element->getSize()) / 12);
+        if (2 + 12 * $entries_count > $data_element->getSize()) {
+            $entries_count = floor(($offset - $data_element->getSize()) / 12);
             $this->warning('Wrong number of IFD entries in ifd {ifdname}, adjusted to {tags}', [
-                'tags' => $tags_count,
+                'tags' => $entries_count,
             ]);
         }
 
-        return $tags_count;
+        return $entries_count;
+    }
+
+    /**
+     *   @todo
+     */
+    protected function getEntryFromData($i, DataElement $data_element, $offset)
+    {
+        $entry = [];
+
+        $entry['id'] = $data_element->getShort($offset);
+        $entry['format'] = $data_element->getShort($offset + 2);
+        $entry['components'] = $data_element->getLong($offset + 4);
+
+        // If the data size is bigger than 4 bytes, then actual data is not in
+        // the TAG's data element, but at the the offset stored in the data
+        // element.
+        $entry['size'] = Format::getSize($entry['format']) * $entry['components'];
+        if ($entry['size'] > 4) {
+            $entry['data_offset'] = $data_element->getLong($offset + 8);
+        } else {
+            $entry['data_offset'] = $offset + 8;
+        }
+
+        $this->debug("#{i} @{ifdoffset}, id {id}, f {format}, c {components}, data @{offset}, size {size}", [
+            'i' => $i + 1,
+            'ifdoffset' => $data_element->getStart() + $offset,
+            'id' => '0x' . strtoupper(dechex($entry['id'])),
+            'format' => Format::getName($entry['format']),
+            'components' => $entry['components'],
+            'offset' => $data_element->getStart() + $entry['data_offset'],
+            'size' => $entry['size'],
+        ]);
+
+        return $entry;
     }
 
     /**
