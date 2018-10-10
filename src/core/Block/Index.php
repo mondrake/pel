@@ -26,7 +26,7 @@ class Index extends IfdBase
         ]);
 
         $index_size = $data_element->getShort($offset);
-        if ($index_size / $options['components'] !== Format::getSize(Format::SHORT)) {
+        if ($index_size / $options['components'] !== Format::getSize(Format::getIdFromName('Short'))) {
             $this->warning('Size of {ifd_name} does not match the number of entries.', [
                 'ifd_name' => $this->getAttribute('name'),
             ]);
