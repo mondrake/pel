@@ -63,7 +63,7 @@ class SpecCompiler
     public function compile($yamlDirectory, $resourcesDirectory)
     {
         // Get formats.
-        $format_file = $this->finder->files()->in($yamlDirectory)->name('format.yaml');
+        $format_file = new \SplFileInfo($yamlDirectory . DIRECTORY_SEPARATOR . 'format.yaml');
         $this->formats = Yaml::parse($format_file->getContents());
 dump($this->formats);
         // Process the files. Each file corresponds to an IFD specification.
