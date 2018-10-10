@@ -33,7 +33,7 @@ class SpecCompiler
     private $map = [];
 
     /**
-     * ExifEye supported data formats.
+     * ExifEye supported primitive data formats.
      *
      * @var array
      */
@@ -67,7 +67,7 @@ class SpecCompiler
         foreach ($formats_yaml['elements'] as $id => $element) {
             $this->formats[$element['name']] = $id;
         }
-dump($this->formats);
+
         // Process the files. Each file corresponds to an IFD specification.
         $files = $this->finder->files()->in($yamlDirectory)->name('*.yaml');
         foreach ($files as $file) {

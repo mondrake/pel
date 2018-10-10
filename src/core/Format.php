@@ -3,15 +3,7 @@
 namespace ExifEye\core;
 
 /**
- * This class defines the constants that are to be used whenever one has to
- * refer to the format of an Exif tag. They will be collectively denoted by the
- * pseudo-type Format throughout the documentation.
- *
- * All the methods defined here are static, and they all operate on a single
- * argument which should be one of the class constants.
- *
- * @author Martin Geisler <mgeisler@users.sourceforge.net>
- * @author Johannes Weberhofer <jweberhofer@weberhofer.at>
+ * Helper class to determine ExifEye data formats information.
  */
 abstract class Format
 {
@@ -24,10 +16,7 @@ abstract class Format
      */
     public static function getName($type)
     {
-        if (array_key_exists($type, self::$formatName)) {
-            return self::$formatName[$type];
-        }
-        return null;
+        return Spec::getElementName('format', $type);
     }
 
     /**
@@ -39,13 +28,7 @@ abstract class Format
      */
     public static function getIdFromName($name)
     {
-        static $map;
-
-        if (!isset($map)) {
-            $map = array_flip(static::$formatName);
-        }
-
-        return isset($map[$name]) ? $map[$name] : null;
+        return Spec::getElementIdByName('format', $name);
     }
 
     /**
@@ -58,9 +41,6 @@ abstract class Format
      */
     public static function getSize($type)
     {
-        if (array_key_exists($type, self::$formatLength)) {
-            return self::$formatLength[$type];
-        }
-        return null;
+        return Spec::getElementPropertyValue('format', $type, 'length');
     }
 }

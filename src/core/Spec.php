@@ -27,16 +27,16 @@ class Spec
      * @var array
      */
     private static $defaultTagClasses = [
-        Format::ASCII => 'ExifEye\\core\\Entry\\Core\\Ascii',
-        Format::BYTE => 'ExifEye\\core\\Entry\\Core\\Byte',
-        Format::SHORT => 'ExifEye\\core\\Entry\\Core\\Short',
-        Format::LONG => 'ExifEye\\core\\Entry\\Core\\Long',
-        Format::RATIONAL => 'ExifEye\\core\\Entry\\Core\\Rational',
-        Format::SBYTE => 'ExifEye\\core\\Entry\\Core\\SignedByte',
-        Format::SSHORT => 'ExifEye\\core\\Entry\\Core\\SignedShort',
-        Format::SLONG => 'ExifEye\\core\\Entry\\Core\\SignedLong',
-        Format::SRATIONAL => 'ExifEye\\core\\Entry\\Core\\SignedRational',
-        Format::UNDEFINED => 'ExifEye\\core\\Entry\\Core\\Undefined',
+        2 => 'ExifEye\\core\\Entry\\Core\\Ascii',
+        1 => 'ExifEye\\core\\Entry\\Core\\Byte',
+        3 => 'ExifEye\\core\\Entry\\Core\\Short',
+        4 => 'ExifEye\\core\\Entry\\Core\\Long',
+        5 => 'ExifEye\\core\\Entry\\Core\\Rational',
+        6 => 'ExifEye\\core\\Entry\\Core\\SignedByte',
+        8 => 'ExifEye\\core\\Entry\\Core\\SignedShort',
+        9 => 'ExifEye\\core\\Entry\\Core\\SignedLong',
+        10 => 'ExifEye\\core\\Entry\\Core\\SignedRational',
+        7 => 'ExifEye\\core\\Entry\\Core\\Undefined',
     ];
 
     /**
