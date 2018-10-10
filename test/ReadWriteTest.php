@@ -86,7 +86,7 @@ class ReadWriteTest extends ExifEyeTestCaseBase
 
         foreach ($entries as $entry_name => $entry) {
             $tagEntry = $ifd->getElement('tag[@id="' . (int) $entry[0] . '"]/entry');
-            if ($tagEntry->getFormat() == Format::getIdFromName('Ascii')) {
+            if ($tagEntry->getFormat() == Spec::getFormatIdFromName('Ascii')) {
                 $ifdValue = $tagEntry->getValue();
                 $entryValue = $entry[3];
                 // cut off after the first nul byte

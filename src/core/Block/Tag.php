@@ -48,10 +48,10 @@ class Tag extends BlockBase
         if ($expected_format !== null && $format !== null && !in_array($format, $expected_format)) {
             $expected_format_names = [];
             foreach ($expected_format as $expected_format_id) {
-                $expected_format_names[] = Format::getName($expected_format_id);
+                $expected_format_names[] = Spec::getFormatName($expected_format_id);
             }
             $this->warning("Found {format_name} data format, expected {expected_format_names}", [
-                'format_name' => Format::getName($format),
+                'format_name' => Spec::getFormatName($format),
                 'expected_format_names' => implode(', ', $expected_format_names),
             ]);
         }

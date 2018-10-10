@@ -26,7 +26,7 @@ class Index extends IfdBase
         ]);
 
         $index_size = $data_element->getShort($offset);
-        if ($index_size / $options['components'] !== Format::getSize(Format::getIdFromName('Short'))) {
+        if ($index_size / $options['components'] !== Spec::getFormatSize(Spec::getFormatIdFromName('Short'))) {
             $this->warning('Size of {ifd_name} does not match the number of entries.', [
                 'ifd_name' => $this->getAttribute('name'),
             ]);
@@ -40,7 +40,7 @@ class Index extends IfdBase
 
             $item_format = Spec::getElementPropertyValue($this->getType(), $i + 1, 'format')[0];
 
-            switch (Format::getName($item_format)) {
+            switch (Spec::getFormatName($item_format)) {
                 case 'Byte':
                     $item_value = $data_element->getByte($offset + $i * 2);
                     break;
@@ -67,14 +67,14 @@ class Index extends IfdBase
                     break;
                 default:
                     $item_value = $data_element->getSignedShort($offset + $i * 2);
-                    $item_format = Format::getIdFromName('SignedShort');
+                    $item_format = Spec::getFormatIdFromName('SignedShort');
                     break;
             }
 
             $this->debug("#{i} id {id}, f {format}, data @{offset}", [
                 'i' => $i + 1,
                 'id' => '0x' . strtoupper(dechex($i)),
-                'format' => Format::getName($item_format),
+                'format' => Spec::getFormatName($item_format),
                 'offset' => $data_element->getStart() + $offset + $i * 2,
             ]);
 
@@ -110,7 +110,7 @@ class Index extends IfdBase
     {
         $size = 0;
         foreach ($this->getMultipleElements('tag') as $tag) {
-            $size += Format::getSize($tag->getFormat());
+            $size += Spec::getFormatSize($tag->getFormat());
         }
         return $size / 2;
     }
