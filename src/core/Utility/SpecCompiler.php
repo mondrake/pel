@@ -63,7 +63,10 @@ class SpecCompiler
     public function compile($yamlDirectory, $resourcesDirectory)
     {
         // Get formats.
-        $this->formats = Yaml::parse(file_get_contents($yamlDirectory . DIRECTORY_SEPARATOR . 'format.yaml'));
+        $formats_yaml = Yaml::parse(file_get_contents($yamlDirectory . DIRECTORY_SEPARATOR . 'format.yaml'));
+        foreach ($formats_yaml['elements'] as $id => $element) {
+            $this->formats[$element['name']] = $id;
+        }
 dump($this->formats);
         // Process the files. Each file corresponds to an IFD specification.
         $files = $this->finder->files()->in($yamlDirectory)->name('*.yaml');
@@ -135,9 +138,10 @@ DATA;
                 }
                 $formats = [];
                 foreach ($temp as $name) {
-                    if (($formats[] = Format::getIdFromName($name)) === null) {
+                    if (!isset($this->formats[$name])) {
                         throw new SpecCompilerException($file->getFileName() . ": invalid '" . $name . "' format found for element '" . $element['name'] . "'");
                     }
+                    $formats[] = $this->formats[$name];
                 }
                 $element['format'] = $formats;
             }
