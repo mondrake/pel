@@ -21,7 +21,7 @@ class Undefined extends EntryBase
     /**
      * {@inheritdoc}
      */
-    protected $format = Format::UNDEFINED;
+    protected $format;
 
     /**
      * {@inheritdoc}

@@ -21,7 +21,7 @@ class Ascii extends EntryBase
     /**
      * {@inheritdoc}
      */
-    protected $format = Format::ASCII;
+    protected $format;
 
     /**
      * {@inheritdoc}

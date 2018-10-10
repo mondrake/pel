@@ -22,7 +22,7 @@ class Long extends NumberBase
     /**
      * {@inheritdoc}
      */
-    protected $format = Format::LONG;
+    protected $format;
 
     /**
      * {@inheritdoc}
