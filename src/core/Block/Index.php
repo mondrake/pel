@@ -40,34 +40,34 @@ class Index extends IfdBase
 
             $item_format = Spec::getElementPropertyValue($this->getType(), $i + 1, 'format')[0];
 
-            switch ($item_format) {
-                case Format::BYTE:
+            switch (Format::getName($item_format)) {
+                case 'Byte':
                     $item_value = $data_element->getByte($offset + $i * 2);
                     break;
-                case Format::SHORT:
+                case 'Short':
                     $item_value = $data_element->getShort($offset + $i * 2);
                     break;
-                case Format::LONG:
+                case 'Long':
                     $item_value = $data_element->getLong($offset + $i * 2);
                     break;
-                case Format::RATIONAL:
+                case 'Rational':
                     $item_value = $data_element->getRational($offset + $i * 2);
                     break;
-                case Format::SBYTE:
+                case 'SignedByte':
                     $item_value = $data_element->getSignedByte($offset + $i * 2);
                     break;
-                case Format::SSHORT:
+                case 'SignedShort':
                     $item_value = $data_element->getSignedShort($offset + $i * 2);
                     break;
-                case Format::SLONG:
+                case 'SignedLong':
                     $item_value = $data_element->getSignedLong($offset + $i * 2);
                     break;
-                case Format::SRATIONAL:
+                case 'SignedRational':
                     $item_value = $data_element->getSRattional($offset + $i * 2);
                     break;
                 default:
                     $item_value = $data_element->getSignedShort($offset + $i * 2);
-                    $item_format = Format::SSHORT;
+                    $item_format = Format::getIdFromName('SignedShort');
                     break;
             }
 
