@@ -34,6 +34,15 @@ class Byte extends NumberBase
     protected $max = 255;
 
     /**
+     * Constructs a Byte object.
+     */
+    public function __construct(ElementInterface $parent, array $data)
+    {
+        parent::__construct($parent, $data);
+        $this->format = Format::getIdFromName($this->name);
+    }
+
+    /**
      * {@inheritdoc}
      */
     public static function getInstanceArgumentsFromTagData(BlockBase $parent_block, $format, $components, DataWindow $data_window, $data_offset)
