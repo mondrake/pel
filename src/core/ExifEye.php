@@ -51,7 +51,7 @@ class ExifEye
      */
     public static function tra($str)
     {
-        return self::dgettextWrapper('pel', $str);
+        return self::dgettextWrapper('exifeye', $str);
     }
 
     /**
@@ -80,7 +80,7 @@ class ExifEye
     {
         $args = func_get_args();
         $str = array_shift($args);
-        return vsprintf(self::dgettextWrapper('pel', $str), $args);
+        return vsprintf(self::dgettextWrapper('exifeye', $str), $args);
     }
 
     /**
@@ -96,7 +96,7 @@ class ExifEye
         if (self::$hasdgetext === null) {
             self::$hasdgetext = function_exists('dgettext');
             if (self::$hasdgetext === true) {
-                bindtextdomain('pel', __DIR__ . '/locale');
+                bindtextdomain('exifeye', __DIR__ . '/locale');
             }
         }
         if (self::$hasdgetext) {

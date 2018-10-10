@@ -1,4 +1,4 @@
-AUTHORS file for PEL: PHP Exif Library.  A library with support for
+AUTHORS file for ExifEye: PHP Exif Library.  A library with support for
 reading and writing Exif headers in JPEG and TIFF images using PHP.
 
 Copyright (C) 2004, 2005, 2006, 2007  Martin Geisler.
@@ -10,12 +10,12 @@ Licensed under the GNU GPL, see COPYING for details.
 Credits
 *******
 
-PEL is written by Martin Geisler <mgeisler@users.sourceforge.net> and
+ExifEye is written by Martin Geisler <mgeisler@users.sourceforge.net> and
 is now maintained by Lars Olesen <lars@intraface.dk>
 and <jweberhofer@weberhofer.at>
 
 The source started out as a port of the nice, clean C code found in
-libexif.  Most of the translations included with PEL also originates
+libexif.  Most of the translations included with ExifEye also originates
 from the libexif project, see below for details.
 
 
