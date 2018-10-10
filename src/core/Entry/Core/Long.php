@@ -22,6 +22,11 @@ class Long extends NumberBase
     /**
      * {@inheritdoc}
      */
+    protected $formatName = 'Long';
+
+    /**
+     * {@inheritdoc}
+     */
     protected $format;
 
     /**

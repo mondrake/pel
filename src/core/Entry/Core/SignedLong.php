@@ -23,6 +23,11 @@ class SignedLong extends NumberBase
     /**
      * {@inheritdoc}
      */
+    protected $formatName = 'SignedLong';
+
+    /**
+     * {@inheritdoc}
+     */
     protected $format;
 
     /**
