@@ -3,7 +3,7 @@
 namespace ExifEye\Test\core;
 
 use ExifEye\core\ExifEye;
-use ExifEye\core\Format;
+use ExifEye\core\Spec;
 
 class FormatTest extends ExifEyeTestCaseBase
 {

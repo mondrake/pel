@@ -10,7 +10,6 @@ use ExifEye\core\ElementInterface;
 use ExifEye\core\Entry\Core\EntryInterface;
 use ExifEye\core\ExifEye;
 use ExifEye\core\ExifEyeException;
-use ExifEye\core\Format;
 use ExifEye\core\Utility\ConvertBytes;
 use ExifEye\core\Spec;
 

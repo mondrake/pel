@@ -7,7 +7,6 @@ use ExifEye\core\Data\DataWindow;
 use ExifEye\core\ElementBase;
 use ExifEye\core\ElementInterface;
 use ExifEye\core\ExifEyeException;
-use ExifEye\core\Format;
 use ExifEye\core\Spec;
 
 /**

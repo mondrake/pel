@@ -4,7 +4,6 @@ namespace ExifEye\Test\core;
 
 use ExifEye\core\Entry\Core\EntryInterface;
 use ExifEye\core\ExifEye;
-use ExifEye\core\Format;
 use ExifEye\core\Block\Jpeg;
 use ExifEye\Test\core\ExifEyeTestCaseBase;
 use ExifEye\core\Image;

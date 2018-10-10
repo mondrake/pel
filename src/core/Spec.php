@@ -7,7 +7,6 @@ use ExifEye\core\Block\Tag;
 use ExifEye\core\Entry\Core\EntryInterface;
 use ExifEye\core\ExifEye;
 use ExifEye\core\ExifEyeException;
-use ExifEye\core\Format;
 
 /**
  * Class to retrieve IFD and TAG information from YAML specs.

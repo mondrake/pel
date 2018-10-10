@@ -16,7 +16,6 @@ use ExifEye\core\Entry\Core\SignedLong;
 use ExifEye\core\Entry\Core\SignedShort;
 use ExifEye\core\ExifEye;
 use ExifEye\core\Block\Ifd;
-use ExifEye\core\Format;
 use ExifEye\core\Spec;
 use ExifEye\core\Image;
 
