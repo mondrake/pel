@@ -47,8 +47,7 @@ class MakerNote extends IfdBase
                 // If the tag is an IFD pointer, loads the IFD.
                 $o = $data_element->getLong($i_offset + 8);
                 if ($starting_offset != $o) {
-                    $ifd_class = Spec::getTypeHandlingClass($entry['type']);
-                    $ifd = new $ifd_class($entry['type'], $entry['name'], $this, $entry['id'], $entry['format']);
+                    $ifd = new $entry['class']($entry['type'], $entry['name'], $this, $entry['id'], $entry['format']);
                     try {
                         $ifd->loadFromData($data_element, $o, $size, [
                             'data_offset' => $entry['data_offset'],
