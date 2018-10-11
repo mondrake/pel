@@ -46,6 +46,14 @@ class IfdBase extends BlockBase
     }
 
     /**
+     * {@inheritdoc}
+     */
+    public function loadFromData(DataElement $data_element, $offset, $size, array $options = [])
+    {
+        throw new ExifEyeException(get_called_class() . 'is not implementing ' . __FUNCTION__);
+    }
+
+    /**
      *   @todo
      */
     protected function getEntriesCountFromData(DataElement $data_element, $offset)
