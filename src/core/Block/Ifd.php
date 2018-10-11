@@ -21,7 +21,7 @@ class Ifd extends IfdBase
     /**
      * {@inheritdoc}
      */
-    public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
+    public function loadFromData(DataElement $data_element, $offset, $size, array $options = [])
     {
         // Get the number of entries.
         $n = $this->getEntriesCountFromData($data_element, $offset);

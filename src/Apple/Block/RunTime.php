@@ -18,13 +18,14 @@ class RunTime extends IfdBase
     /**
      * {@inheritdoc}
      */
-    public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
+    public function loadFromData(DataElement $data_element, $offset, $size, array $options = [])
     {
         $this->debug("IFD {ifdname}", [
             'ifdname' => $this->getAttribute('name'),
         ]);
 
         $plist = new CFPropertyList();
+dump($offset, $options);
         $plist->parse($data_element->getBytes($options['data_offset'], $options['components']));
 
         // Build a TAG object for each PList item.

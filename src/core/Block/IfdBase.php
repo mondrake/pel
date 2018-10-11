@@ -126,14 +126,6 @@ class IfdBase extends BlockBase
     /**
      * {@inheritdoc}
      */
-    public function toBytes($byte_order = ConvertBytes::LITTLE_ENDIAN, $offset = 0, $has_next_ifd = false)
-    {
-        throw new ExifEyeException(get_class() . 'is not implementing ' . __FUNCTION__);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
     public function getFormat()
     {
         return $this->format;

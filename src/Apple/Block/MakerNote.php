@@ -19,7 +19,7 @@ class MakerNote extends IfdBase
     /**
      * {@inheritdoc}
      */
-    public function loadFromData(DataElement $data_element, $offset = 0, $size = null, array $options = [])
+    public function loadFromData(DataElement $data_element, $offset, $size, array $options = [])
     {
         // Load Apple's header as a raw data block.
         $header = new RawData('rawData', $this);
