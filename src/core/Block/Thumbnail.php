@@ -2,6 +2,8 @@
 
 namespace ExifEye\core\Block;
 
+use ExifEye\core\Data\DataElement;
+
 /**
  * Class used to hold data for a JPEG Thumbnail.
  */
