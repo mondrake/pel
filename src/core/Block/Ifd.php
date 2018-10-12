@@ -45,7 +45,7 @@ class Ifd extends IfdBase
             } else {
                 $ifd = new $entry['class']($entry['type'], $entry['name'], $this, $entry['id'], $entry['format']);
                 try {
-                    $ifd->loadFromData($data_element, $entry['data_offset'], $size, $entry);
+                    $ifd->loadFromData($data_element, $data_element->getLong($i_offset + 8), $size, $entry);
                 } catch (DataException $e) {
                     $this->error($e->getMessage());
                 }
