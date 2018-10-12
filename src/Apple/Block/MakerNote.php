@@ -39,7 +39,7 @@ class MakerNote extends IfdBase
             $entry = $this->getEntryFromData($i, $data_element, $i_offset, $this->getType(), $offset - 14);
 
             // If the entry is an IFD, checks the offset.
-            if (is_subclass_of($entry['class'], 'ExifEye\core\Block\IfdBase') && $data_element->getLong($i_offset + 8) <= $offset) {
+            if (is_subclass_of($entry['class'], 'ExifEye\core\Block\IfdBase') && $entry['data_offset'] <= $i_offset) {
                 $this->error('Bogus offset pointer to IFD: {offset}.', [
                     'offset' => $entry['data_offset'],
                 ]);

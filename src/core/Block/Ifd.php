@@ -31,8 +31,9 @@ class Ifd extends IfdBase
             $i_offset = $offset + 2 + 12 * $i;
             $entry = $this->getEntryFromData($i, $data_element, $i_offset, $this->getType());
 
+if (is_subclass_of($entry['class'], 'ExifEye\core\Block\IfdBase')) dump($entry);
             // If the entry is an IFD, checks the offset.
-            if (is_subclass_of($entry['class'], 'ExifEye\core\Block\IfdBase') && $data_element->getLong($i_offset + 8) <= $offset) {
+            if (is_subclass_of($entry['class'], 'ExifEye\core\Block\IfdBase') && $entry['data_offset'] <= $i_offset) {
                 $this->error('Bogus offset pointer to IFD: {offset}.', [
                     'offset' => $entry['data_offset'],
                 ]);
