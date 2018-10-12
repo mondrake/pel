@@ -25,7 +25,6 @@ class RunTime extends IfdBase
         ]);
 
         $plist = new CFPropertyList();
-dump($offset, $options);
         $plist->parse($data_element->getBytes($options['data_offset'], $options['components']));
 
         // Build a TAG object for each PList item.

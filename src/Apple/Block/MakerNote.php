@@ -49,10 +49,7 @@ class MakerNote extends IfdBase
                 if ($starting_offset != $o) {
                     $ifd = new $entry['class']($entry['type'], $entry['name'], $this, $entry['id'], $entry['format']);
                     try {
-                        $ifd->loadFromData($data_element, $o, $size, [
-                            'data_offset' => $entry['data_offset'],
-                            'components' => $entry['components'],
-                        ]);
+                        $ifd->loadFromData($data_element, $o, $size, $entry);
                     } catch (DataException $e) {
                         $this->error($e->getMessage());
                     }
