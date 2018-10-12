@@ -31,25 +31,24 @@ class Ifd extends IfdBase
             $i_offset = $offset + 2 + 12 * $i;
             $entry = $this->getEntryFromData($i, $data_element, $i_offset, $this->getType());
 
+            // If the entry is an IFD, checks the offset.
+            if (is_subclass_of($entry['class'], 'ExifEye\core\Block\IfdBase') && $entry['data_offset'] <= $i_offset) {
+                $this->error('Bogus offset pointer to IFD: {offset}.', [
+                    'offset' => $entry['data_offset'],
+                ]);
+                continue;
+            }
+
             if ($entry['type'] === 'tag' || $entry['type'] === null) {
                 $tag_entry_arguments = call_user_func($entry['class'] . '::getInstanceArgumentsFromTagData', $this, $entry['format'], $entry['components'], $data_element, $entry['data_offset']);
                 $tag = new Tag('tag', $this, $entry['id'], $entry['class'], $tag_entry_arguments, $entry['format'], $entry['components']);
             } else {
-                // If the tag is an IFD pointer, loads the IFD.
-                $o = $data_element->getLong($i_offset + 8);
-                if ($offset != $o) {
-                    $ifd = new $entry['class']($entry['type'], $entry['name'], $this, $entry['id'], $entry['format']);
-                    try {
-                        $ifd->loadFromData($data_element, $o, $size, $entry_class);
-                    } catch (DataException $e) {
-                        $this->error($e->getMessage());
-                    }
-                } else {
-                    $this->error('Bogus offset to next IFD: {offset}, same as offset being loaded from.', [
-                        'offset' => $o,
-                    ]);
+                $ifd = new $entry['class']($entry['type'], $entry['name'], $this, $entry['id'], $entry['format']);
+                try {
+                    $ifd->loadFromData($data_element, $o, $size, $entry);
+                } catch (DataException $e) {
+                    $this->error($e->getMessage());
                 }
-                continue;
             }
         }
 
