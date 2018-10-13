@@ -38,14 +38,6 @@ class MakerNote extends IfdBase
             $i_offset = $offset + 2 + 12 * $i;
             $entry = $this->getEntryFromData($i, $data_element, $i_offset, $this->getType(), $offset - 14);
 
-            // If the entry is an IFD, checks the offset.
-            if (is_subclass_of($entry['class'], 'ExifEye\core\Block\IfdBase') && $entry['data_offset'] <= $i_offset) {
-                $this->error('Bogus offset pointer to IFD: {offset}.', [
-                    'offset' => $entry['data_offset'],
-                ]);
-                continue;
-            }
-
             if ($entry['type'] === 'tag' || $entry['type'] === null) {
                 $tag_entry_arguments = call_user_func($entry['class'] . '::getInstanceArgumentsFromTagData', $this, $entry['format'], $entry['components'], $data_element, $entry['data_offset']);
                 $tag = new Tag('tag', $this, $entry['id'], $entry['class'], $tag_entry_arguments, $entry['format'], $entry['components']);
