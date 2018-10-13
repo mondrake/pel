@@ -1,6 +1,9 @@
 # ExifEye Specification
 
-Version 0.9 Draft
+Version 1.0.0
+
+
+@todo update
 
 This document describes ExifEye implementation of the catalog of the EXIF components (IFDs and TAGs) it supports.
 

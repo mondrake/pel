@@ -1,9 +1,10 @@
-# ExifEye: PHP Exif Library
+# ExifEye
 
-[![Build Status](https://secure.travis-ci.org/pel/pel.png?branch=master)](http://travis-ci.org/pel/pel) [![Code Coverage](https://scrutinizer-ci.com/g/pel/pel/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/pel/pel/?branch=master) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/pel/pel/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/pel/pel/?branch=master) [![Latest Stable Version](https://poser.pugx.org/lsolesen/pel/v/stable)](https://packagist.org/packages/lsolesen/pel) [![Total Downloads](https://poser.pugx.org/lsolesen/pel/downloads)](https://packagist.org/packages/lsolesen/pel) [![License](https://poser.pugx.org/lsolesen/pel/license)](https://packagist.org/packages/lsolesen/pel)
+[![Latest Stable Version](https://poser.pugx.org/exifeye/exifeye/version)](https://packagist.org/packages/exifeye/exifeye)
+[![Total Downloads](https://poser.pugx.org/exifeye/exifeye/downloads)](https://packagist.org/packages/exifeye/exifeye)
+[![Latest Unstable Version](https://poser.pugx.org/exifeye/exifeye/v/unstable)](//packagist.org/packages/exifeye/exifeye)
 
-README file for ExifEye: PHP Exif Library.  A library with support for
-reading and writing Exif headers in JPEG and TIFF images using PHP.
+A PHP library for reading and writing Exif headers in JPEG and TIFF images.
 
 Copyright (C) 2004, 2005, 2006  Martin Geisler.
 Licensed under the GNU GPL, see COPYING for details.
@@ -11,21 +12,13 @@ Licensed under the GNU GPL, see COPYING for details.
 
 ## Description
 
-The PHP Exif Library (ExifEye) makes it easy to develop programs that will
-read and write the Exif metadata headers found in JPEG and TIFF
-images.  See the file INSTALL for an introduction to how ExifEye can be
-used by your application.
-
-ExifEye is a library written entirely in PHP 5, which means that it does
-not have any dependencies outside the core of PHP, it does not even
-use the Exif module available for PHP.
+ExifEye makes it easy to develop programs that will read and write the Exif
+metadata headers found in JPEG and TIFF images.  See the file INSTALL.md for an
+introduction to how ExifEye can be used by your application.
 
 Please note that the API for ExifEye is not yet frozen, and it will remain
-changeable until version 1.0 is reached. Read the NEWS file for
-important information about API changes.
+changeable until version a stable version 1.0.0 is reached.
 
-Also, please go to the ExifEye development mailing list (look below) and
-share your ideas about how the API should look like.
 
 ## Installation
 
@@ -33,27 +26,24 @@ share your ideas about how the API should look like.
 composer require exifeye/exifeye
 ```
 
+
 ## Documentation Overview
 
-* README.markdown: gives you a short introduction to ExifEye (this file).
+* README.md: gives you a short introduction to ExifEye (this file).
 * INSTALL.md: explain how to install and get going with ExifEye.
-* CHANGELOG.md: contains important information about changes in ExifEye.
 * [SPECIFICATION.md](SPECIFICATION.md): specifications for the YAML files
   describing the EXIF tags supported by the library. Must read for developers
   willing to contribute additional EXIF support.
 * examples/: small self-contained examples of how to use ExifEye.
-* AUTHORS: list of people who have helped.
-* run run-phpdoc.sh to generate API-documention or see it online at http://pel.github.com/pel
+* AUTHORS.md: list of people who have helped.
 
 
 ## Features of ExifEye
 
 * Reads and writes Exif metadata from both JPEG and TIFF images.
 * Supports reading and writing all Exif tags.
-* Supports internationalization.
 * Extensible object-oriented design.
 * PhpUnit tested
-* Documented with PhpDocumentor (http://phpdoc.org/).
 
 
 ## Helping out
@@ -64,11 +54,6 @@ helping out with the tests. See instructions in the test/ directory.
 
 All changes to code should be issued through a pull request, and other
 maintainers should review the code and merge it.
-
-
-## Languages
-
-To work with the translations, you need the gettext package installed.
 
 
 ## Getting Support
@@ -90,7 +75,7 @@ Please try the latest version before reporting bugs -- it might have
 been fixed already.  The latest code can be found in the git
 repository at
 
-  http://github.com/pel/pel
+  https://github.com/ExifEye/ExifEye
 
 It is very helpful if you try out the latest code from the git
 repository before submitting a bug report. The code found there is
@@ -110,4 +95,4 @@ instructions.
 ## Credits
 
 Please see the AUTHORS file for a list of people who have contributed
-to ExifEye. See the full list of [code contributors](https://github.com/pel/pel/graphs/contributors).
+to ExifEye.
