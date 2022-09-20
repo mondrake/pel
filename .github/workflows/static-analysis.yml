@@ -27,10 +27,9 @@ jobs:
         with:
           coverage: "none"
           php-version: "${{ matrix.php-version }}"
-          tools: "cs2pr"
 
       - name: "Install dependencies with Composer"
         uses: "ramsey/composer-install@v1"
 
       - name: "Run a static analysis with phpstan/phpstan"
-        run: "vendor/bin/phpstan --error-format=checkstyle | cs2pr"
+        run: "vendor/bin/phpstan"
