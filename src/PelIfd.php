@@ -568,14 +568,12 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
      *            the offset within the window where the directory will
      *            be found.
      * @throws PelException
-     * @throws PelEntryUndefined
      * @throws PelUnexpectedFormatException
      * @throws PelWrongComponentCountException
      */
     public function load(PelDataWindow $d, $offset)
     {
         $starting_offset = $offset;
-
         $thumb_offset = 0;
         $thumb_length = 0;
 
@@ -603,35 +601,21 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
                 case PelTag::GPS_INFO_IFD_POINTER:
                 case PelTag::INTEROPERABILITY_IFD_POINTER:
                 case PelTag::MAKER_NOTE:
-                    $type = null;
-                    $components = $d->getLong($offset + 12 * $i + 4);
                     $o = $d->getLong($offset + 12 * $i + 8);
                     Pel::debug('Found sub IFD at offset %d', $o);
+                    $components = $d->getLong($offset + 12 * $i + 4);
 
-                    /* Map tag to IFD type. */
-                    if ($tag == PelTag::EXIF_IFD_POINTER) {
-                        $type = PelIfd::EXIF;
-                    } elseif ($tag == PelTag::GPS_INFO_IFD_POINTER) {
-                        $type = PelIfd::GPS;
-                    } elseif ($tag == PelTag::INTEROPERABILITY_IFD_POINTER) {
-                        $type = PelIfd::INTEROPERABILITY;
-                    } elseif ($tag == PelTag::MAKER_NOTE) {
-                        // Store maker notes infos, because we need PelTag::MAKE of PelIfd::IFD0 for MakerNotes
-                        // Thus MakerNotes will be loaded at the end of loading PelIfd::IFD0
-                        $this->setMakerNotes($this, $d, $components, $o);
-                        $this->loadSingleValue($d, $offset, $i, $tag);
+                    $ifdType = $this->mapTagToIfdType($d, $offset, $tag, $components, $i, $o);
+
+                    if ($ifdType === null) {
                         break;
-                    }
-
-                    if ($type === null) {
-                        Pel::maybeThrow(new PelIfdException('Type not detected for Tag: %d.', $tag));
                     } elseif ($starting_offset == $o) {
                         Pel::maybeThrow(new PelIfdException('Bogus offset to next IFD: %d, same as offset being loaded from.', $o));
                     } else {
-                        $ifd = new PelIfd($type);
+                        $ifd = new PelIfd($ifdType);
                         try {
                             $ifd->load($d, $o);
-                            $this->sub[$type] = $ifd;
+                            $this->sub[$ifdType] = $ifd;
                         } catch (PelDataWindowOffsetException $e) {
                             Pel::maybeThrow(new PelIfdException($e->getMessage()));
                         }
@@ -651,7 +635,50 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
             }
         }
 
-        /* Offset to next IFD */
+        $this->getOffsetToNextIfd($d, $offset, $n);
+        $this->checkIfLoadingFinished();
+    }
+
+    /**
+     * Map tag to IFD type
+     *
+     * @param PelDataWindow $d
+     * @param integer $offset
+     * @param integer $tag
+     * @param integer $components
+     * @param integer $i
+     * @param integer $o
+     * @return NULL|mixed|number[][]
+     */
+    private function mapTagToIfdType(PelDataWindow $d, $offset, $tag, $components, $i, $o)
+    {
+        $ifdType = null;
+
+        /* Map tag to IFD type. */
+        if ($tag == PelTag::EXIF_IFD_POINTER) {
+            $ifdType = PelIfd::EXIF;
+        } elseif ($tag == PelTag::GPS_INFO_IFD_POINTER) {
+            $ifdType = PelIfd::GPS;
+        } elseif ($tag == PelTag::INTEROPERABILITY_IFD_POINTER) {
+            $ifdType = PelIfd::INTEROPERABILITY;
+        } elseif ($tag == PelTag::MAKER_NOTE) {
+            // Store maker notes infos, because we need PelTag::MAKE of PelIfd::IFD0 for MakerNotes
+            // Thus MakerNotes will be loaded at the end of loading PelIfd::IFD0
+            $this->setMakerNotes($this, $d, $components, $o);
+            $this->loadSingleValue($d, $offset, $i, $tag);
+        }
+        return $ifdType;
+    }
+
+    /**
+     * Offset to next IFD
+     *
+     * @param PelDataWindow $d
+     * @param integer $offset
+     * @param float $n
+     */
+    private function getOffsetToNextIfd(PelDataWindow $d, $offset, $n)
+    {
         $o = $d->getLong((int) ($offset + 12 * $n));
         Pel::debug('Current offset is %d, link at %d points to %d.', $offset, $offset + 12 * $n, $o);
 
@@ -670,12 +697,17 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
         } else {
             Pel::debug('Last IFD.');
         }
+    }
 
-        // Check if we finished loading IFD0 and EXIF IFD is set (EXIF IFD holds the MakerNotes)
+    /**
+     * Check if we finished loading IFD0 and EXIF IFD is set (EXIF IFD holds the MakerNotes)
+     */
+    private function checkIfLoadingFinished()
+    {
         if ($this->type == PelIfd::IFD0 && isset($this->sub[PelIfd::EXIF])) {
             // Get MakerNotes from EXIF IFD and check if they are set
             $mk = $this->sub[PelIfd::EXIF]->getMakerNotes();
-            if (! empty($mk) && count($mk) > 0) {
+            if (! empty($mk)) {
                 // get Make tag and load maker notes if tag is valid
                 $manufacturer = $this->getEntry(PelTag::MAKE);
                 if ($manufacturer !== null) {
@@ -712,7 +744,6 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
      * @param integer $tag
      *            the tag of the entry as defined in {@link PelTag}.
      * @throws PelException
-     * @throws PelEntryUndefined
      * @throws PelUnexpectedFormatException
      * @throws PelWrongComponentCountException
      */
@@ -721,10 +752,6 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
         $format = $d->getShort($offset + 12 * $i + 2);
         $components = $d->getLong($offset + 12 * $i + 4);
         $size = PelFormat::getSize($format);
-        if (is_string($size)) {
-            Pel::maybeThrow(new PelException('Invalid format %s', $format));
-            return;
-        }
 
         try {
             /*
@@ -843,7 +870,6 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
      *            entry.
      * @return PelEntry a newly created entry, holding the data given.
      * @throws PelException
-     * @throws PelEntryUndefined
      * @throws PelUnexpectedFormatException
      * @throws PelWrongComponentCountException
      */
@@ -1032,7 +1058,9 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
             try {
                 $this->setThumbnail($d->getClone($offset, $length));
             } catch (PelDataWindowWindowException $e) {
-                Pel::maybeThrow(new PelIfdException($e->getMessage()));
+                Pel::maybeThrow(new PelIfdException('PelDataWindowException: ' . $e->getMessage()));
+            } catch (PelDataWindowOffsetException $e) {
+                Pel::maybeThrow(new PelIfdException('PelDataWindowOffsetException: ' . $e->getMessage()));
             }
         }
     }
@@ -1114,6 +1142,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
         if (array_key_exists($tp, self::VALID_TAGS)) {
             return self::VALID_TAGS[$tp];
         }
+        return [];
     }
 
     /**
@@ -1180,7 +1209,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
      *            the offset to check.
      * @return boolean whether the tag exists.
      */
-    public function offsetExists($tag)
+    public function offsetExists($tag): bool
     {
         return isset($this->entries[$tag]);
     }
@@ -1202,7 +1231,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
      *            array entry.
      * @return PelEntry the entry.
      */
-    public function offsetGet($tag)
+    public function offsetGet($tag): PelEntry
     {
         return $this->entries[$tag];
     }
@@ -1222,16 +1251,16 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
      * {@link PelTag} from the entry is used.
      *
      * @param integer $tag
-     *            unused.
+     *            unused parameter
      * @param PelEntry $e
-     *            the new value.
+     *            the new value to be set
      * @throws PelInvalidArgumentException
      */
-    public function offsetSet($tag, $e)
+    public function offsetSet($tag, $e): void
     {
         if ($e instanceof PelEntry) {
-            $tag = $e->getTag();
-            $this->entries[$tag] = $e;
+            $newTag = $e->getTag();
+            $this->entries[$newTag] = $e;
         } else {
             throw new PelInvalidArgumentException('Argument "%s" must be a PelEntry.', $e);
         }
@@ -1248,12 +1277,13 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
      * unset($ifd[PelTag::EXPOSURE_BIAS_VALUE])
      * </code>
      *
-     * @param integer $tag
+     * @param integer $offset
      *            the offset to delete.
      */
-    public function offsetUnset($tag)
+    # [\ReturnTypeWillChange]
+    public function offsetUnset($offset): void
     {
-        unset($this->entries[$tag]);
+        unset($this->entries[$offset]);
     }
 
     /**
@@ -1301,7 +1331,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
      * @return \ArrayIterator an iterator using the {@link PelTag tags} as
      *         keys and the entries as values.
      */
-    public function getIterator()
+    public function getIterator(): \ArrayIterator
     {
         return new \ArrayIterator($this->entries);
     }
@@ -1498,8 +1528,7 @@ class PelIfd implements \IteratorAggregate, \ArrayAccess
             } elseif ($type == PelIfd::INTEROPERABILITY) {
                 $tag = PelTag::INTEROPERABILITY_IFD_POINTER;
             } else {
-                // PelConvert::BIG_ENDIAN is the default used by PelConvert
-                $tag = PelConvert::BIG_ENDIAN;
+                throw new PelIfdException('Unknown IFD type: %d', $type);
             }
             /* Make an aditional entry with the pointer. */
             $bytes .= PelConvert::shortToBytes($tag, $order);
